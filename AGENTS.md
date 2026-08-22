@@ -1,0 +1,266 @@
+# FGKMT-Sono Prime Gap Analysis 작업 규약
+
+## 프로젝트 정체성
+
+이 저장소는 실제 maximal prime-gap record와 FGMT/FMT 계열 large-gap scale 및 Sono의 explicit constant를 경험적으로 비교하는 계산수론 연구용이다. 이전 실험의 모델 학습 및 GPU 벤치마크 규약은 이 저장소에 적용하지 않는다.
+
+작업 루트:
+
+```text
+Z:\FGKMT-Sono-PrimeGap-Analysis
+```
+
+## 현재 상태: PREPARATION_ONLY
+
+사용자가 실제 실험 실행을 아직 허가하지 않았다.
+
+허가 전 허용:
+
+- 로컬 작업지시서와 논문 읽기
+- 문헌 리뷰와 방법론 문서 작성
+- 폴더 구조 및 import 가능 여부 확인
+- 기존 파일의 정적 검토
+- 데이터에 의존하지 않는 수학 정의 모듈과 사전검증 단위시험 작성·실행
+
+허가 전 금지:
+
+- 외부 maximal-gap dataset 다운로드
+- raw/validated dataset 생성 또는 변환
+- 본 계산, 통계 fitting, envelope 계산, 그래프 생성
+- `test_result/`에 실험 결과 작성
+- 결과 해석 또는 결론 확정
+
+사용자가 “실험 수행을 허가한다”는 취지로 명시한 뒤에만 `docs/METHODS.md`의 P1 이후를 시작한다.
+
+## 지시 우선순위와 정본
+
+1. 현재 사용자의 명시적 지시
+2. `연구 작업지시서_ FGMT-FMT 대형 소수간격 하한과 실제 maximal prime gap의 경험적 비교 분석.md`
+3. `docs/METHODS.md` - 교정된 계산 정의와 실행 절차의 정본
+4. `HANDOFF.md` - 현재 상태, 검증 결과, 승인 경계와 다음 행동
+5. `docs/review/00_문헌_종합_분석.md` - 현재 9편 corpus의 종합 판정
+6. `docs/review/01_...09_...md` - 논문별 상세 분석
+
+작업지시서와 `docs/METHODS.md`가 충돌하면 수학적 오류를 조용히 덮지 말고, `docs/METHODS.md`의 교정 사유를 사용자에게 설명하고 확인받는다.
+
+## Python 환경
+
+반드시 아래 환경을 사용한다.
+
+```text
+Conda env name: FGKMT
+Prefix: W:\miniforge3\envs\FGKMT
+Python: W:\miniforge3\envs\FGKMT\python.exe
+```
+
+PowerShell에서는 환경 활성화 여부에 기대지 말고 가능하면 절대경로 Python을 호출한다.
+
+```powershell
+& 'W:\miniforge3\envs\FGKMT\python.exe' --version
+& 'W:\miniforge3\envs\FGKMT\python.exe' -m pip check
+& 'W:\miniforge3\envs\FGKMT\python.exe' -m unittest discover -s tests -v
+```
+
+시스템 Python, Codex 번들 Python, 다른 Conda 환경으로 연구 코드를 실행하지 않는다. PDF 읽기 같은 도구 내부 작업은 예외지만, 연구 산출물과 계산 결과는 반드시 FGKMT 환경에서 재현한다.
+
+확인된 준비 상태(2026-08-22/23):
+
+```text
+Python 3.11.16
+gmpy2 2.3.1
+matplotlib 3.11.1
+mpmath 1.4.1
+numpy 2.4.6
+pandas 3.0.5
+pillow 12.3.0
+pyarrow 25.0.1
+scipy 1.17.1
+statsmodels 0.14.6
+```
+
+버전 정본은 `requirements.txt`다. 패키지 설치, 제거, 업그레이드는 사용자의 별도 허가 없이 하지 않는다.
+
+## 폴더 규약
+
+```text
+article/          제공된 선행논문 PDF 9편; 원본 수정 금지
+datas/            승인 후 raw, validated, metadata로 분리
+source/           사전검증 정의 모듈; 데이터 의존 계산 모듈은 승인 후 추가
+tests/            데이터 비의존 사전검증 단위시험
+docs/METHODS.md   방법론 정본
+docs/method/      세부 설계 문서
+docs/review/      이번 연구의 문헌 리뷰 정본
+test_plan/        실행 전 계획과 입력 hash, 성공/중단 기준
+test_result/      승인 후 tables, figures, logs, summary
+tmp/              읽기/렌더링 임시 파일; 최종 산출물 아님
+```
+
+문헌 리뷰는 `docs/review`에만 작성한다. 유사 철자의 별도 경로를 만들지 않는다.
+
+## 수학적 불변식
+
+### 반복로그 정의: 밑이 아니라 반복 횟수
+
+모든 로그는 자연로그이며, 아래 첨자 (k)는 로그의 밑이 아니라 자연로그의 반복 횟수다.
+
+\[
+\log_k(x)=\underbrace{\ln(\ln(\cdots\ln(x)\cdots))}_{\ln\text{을 }k\text{회 적용}}.
+\]
+
+따라서 반드시 다음 정의를 사용한다.
+
+\[
+\log_1x=\ln x,\quad
+\log_2x=\ln(\ln x),\quad
+\log_3x=\ln(\ln(\ln x)),\quad
+\log_4x=\ln(\ln(\ln(\ln x))).
+\]
+
+\[
+F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x},\qquad
+c_{\mathrm{Sono}}=2.0\times10^{-17}.
+\]
+
+`math.log(x, 2)`, `math.log(x, 3)`, `math.log(x, 4)`, `numpy.log2(x)` 같은 base-(k) 구현을 연구 계산에 사용하지 않는다. 허용되는 예외는 iterated-log와 값이 다름을 확인하는 단위시험뿐이다.
+
+정본 구현은 `source/definitions.py`의 `iter_log`와 `F`다. 실제 데이터 코드 실행 전 다음을 모두 만족해야 한다.
+
+1. `iter_log(x, 2|3|4)`가 직접 중첩한 `mp.log` 값과 일치
+2. 위 값이 base-(2|3|4) 로그와 서로 다름
+3. `F(x)`가 직접 펼친 식과 일치
+4. `source/` 정적 감사에서 금지된 base-(k) 호출이 0건
+
+정의 오류가 발견되면 해당 코드로 계산한 `F`, `H`, Sono ratio, interval minimum, running minimum, 그래프와 통계 요약을 유효하지 않은 산출물로 표시하고 전부 재생성한다.
+
+### 두 maximal-gap 정의를 모두 보존
+
+```text
+G_start(x) = max gap with start_prime <= x   # FGMT 2018
+G_end(x)   = max gap with end_prime <= x     # Sono k=1, Kourbatov-Wolf 2019
+```
+
+- Sono 직접 비교의 주 결과는 `end`.
+- FGMT 호환 보조 결과는 `start`.
+- schema, 파일명, 표, 그래프에 `boundary_mode`를 반드시 표시.
+- 한 envelope 안에서 두 정의를 혼합하지 않음.
+
+### 분석 시작점
+
+`x=16`은 반복로그가 형식상 정의되는 최소 정수일 뿐 양의 lower-bound scale 시작점이 아니다.
+
+```text
+X_SCALE_POSITIVE_MIN = 3_814_280
+```
+
+`16 <= x < 3_814_280`은 domain 진단으로만 다루고, theorem-scale `H`, `Q`, running minimum에는 넣지 않는다.
+
+### envelope 성질
+
+record 점프 위치를 `a_i`라 할 때 interval은 `[a_i, a_{i+1}-1]`이다. 양의 scale 구간에서
+
+```text
+H_interval_min = gap_i / F(a_{i+1} - 1)
+```
+
+이며 시작점은 `X_SCALE_POSITIVE_MIN`으로 clip한다. 마지막 record는 verified exhaustive limit까지만 닫는다.
+
+global running minimum은 정의상 단조 비증가한다. 증가나 상하 요동을 보고 싶으면 log-bin minimum 또는 rolling minimum을 별도 지표로 만든다.
+
+## 정리와 경험적 주장 구분
+
+- Sono의 `2.0e-17`은 증명된 보수적 상수이지 관측값의 예상 극한이 아니다.
+- Sono 출판본은 FMT `Chains of large gaps between primes`의 explicit version이다. FGMT 5인 논문의 상수를 그대로 계산한 것으로 서술하지 않는다.
+- Sono 정리는 “sufficiently large X”에 적용되며 바로 쓸 수 있는 수치 threshold는 제시하지 않는다.
+- `H=1`은 Kourbatov-Wolf 2020의 2차 empirical 진술을 근거로 한 참고선일 뿐, 증명된 정리나 \(H\)의 극한이 아니다.
+- finite verification, heuristic, conditional theorem, unconditional theorem을 문장과 표에서 구분한다.
+- 9편 corpus 안에서 동일한 검증 pipeline이 없다는 판정은 전 세계 문헌 novelty 판정이 아니다.
+- Feliksiak 2021 preprint는 fitted \(LB/F\) 비교라는 가까운 선행 시도지만 핵심 논증을 신뢰 가능한 theorem으로 채택하지 않는다.
+
+## 데이터 취급
+
+승인 후 원본은 `datas/raw/`에 저장하고 절대 덮어쓰지 않는다. 모든 source에 URL, 취득 UTC, 버전/날짜, SHA-256, column semantics, boundary semantics, record count, claimed exhaustive limit를 기록한다.
+
+정규화 최소 schema:
+
+```text
+record_index,start_prime,gap,end_prime,source_id,source_row_id,verified_exhaustive_limit
+```
+
+검증 순서:
+
+1. 큰 정수를 문자열/Python `int`로 읽기
+2. `end_prime == start_prime + gap`
+3. start prime과 record gap의 엄격 증가
+4. endpoint probable-prime 보조검사
+5. 독립 출처의 중첩 record 대조
+6. record count와 exhaustive coverage 확인
+7. raw hash와 validated output hash 기록
+
+probable-prime 검사는 record completeness의 증거가 아니다. 최신 발견 record와 exhaustive 검증범위도 같은 뜻이 아니다.
+
+## 승인 후 구현 순서
+
+반드시 `docs/METHODS.md`의 P1-P5 순서를 따른다.
+
+1. 데이터 출처와 범위를 먼저 고정
+2. raw와 metadata 보존
+3. validation report 생성
+4. toy data 단위시험 통과
+5. 반복로그 preflight와 source base-(k) 정적 감사 통과
+6. `F`, 경계별 `G/H/Q`, interval minimum, envelope 계산
+7. 결과 CSV/Parquet 생성
+8. 그래프 생성
+9. 마지막에만 해석
+
+전체 소수를 거대한 상한까지 생성하지 않는다. maximal-gap record로 해결되는 분석에 full prime list를 사용하지 않는다.
+
+## 실행 계획과 결과 기록
+
+각 실행 전에 `test_plan/`에 다음을 적는다.
+
+- 목적과 연구 질문
+- 입력 파일 및 SHA-256
+- source/exhaustive range
+- boundary mode
+- 정밀도 설정
+- 실행 명령
+- 성공, 경고, 중단 기준
+- 예상 산출물
+
+실행 후 `test_result/`에 다음을 남긴다.
+
+- stdout/stderr와 종료코드
+- Python executable 및 패키지 버전
+- 입력/코드 hash
+- analyzed max x와 record count
+- verified exhaustive range
+- 정의별 minimum H와 위치
+- Sono 대비 배수와 `H=1` 하회 여부
+- running minimum 및 local envelope 요약
+- 경고, 결측, 해석 한계
+
+결과를 본 뒤 계획서를 소급해 바꾸지 않는다. 변경이 필요하면 새 계획 버전과 이유를 남긴다.
+
+## 품질 및 안전 규칙
+
+- 기존 사용자 파일과 untracked 파일을 임의로 삭제하거나 커밋하지 않는다.
+- `git add .` 또는 `git add -A`를 사용하지 않는다.
+- push, PR, issue, 외부 게시를 사용자의 별도 요청 없이 하지 않는다.
+- raw PDF와 raw dataset을 수정하지 않는다.
+- 결과를 사전에 정한 결론에 맞추지 않는다.
+- 수치와 표에는 source, 범위, boundary mode, 정밀도를 함께 쓴다.
+- 논문 인용 시 페이지/정리/표 번호를 가능한 한 남긴다.
+- 불명확한 source semantics는 추측으로 채우지 말고 blocker 또는 경고로 기록한다.
+
+## 현재 준비 완료 항목
+
+- 작업지시서 검토 완료
+- `article/` PDF 9편, 총 253쪽 검토 완료
+- 논문별 리뷰와 종합 비교 문서 준비
+- `docs/METHODS.md`를 이번 연구 기준으로 교체
+- FGKMT Conda 환경과 requirements 일치 확인
+- iterated-log 정본 모듈과 사전검증 단위시험 준비
+- 기존 연구 코드·결과 0건 확인; 폐기 또는 재생성 대상 없음
+- 실제 실험 미실행
+
+다음 행동은 사용자에게 연구 이해와 두 방법론 선택을 설명하고 실행 허가를 받는 것이다.
