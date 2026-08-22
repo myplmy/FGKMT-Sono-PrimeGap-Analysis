@@ -69,6 +69,54 @@ def _validate_record_sequence(records: Sequence[MaximalGapRecord]) -> None:
             raise ValueError("records mix different source commits")
 
 
+def record_at_x(
+    records: Sequence[MaximalGapRecord],
+    x: int,
+) -> MaximalGapRecord:
+    """Return the record that defines end-bounded ``G(x)``."""
+
+    _validate_record_sequence(records)
+    active: MaximalGapRecord | None = None
+    for record in records:
+        if record.end_prime > x:
+            break
+        active = record
+    if active is None:
+        raise ValueError(f"record sequence does not reconstruct G({x})")
+    return active
+
+
+def analysis_limit_for_interval_count(
+    records: Sequence[MaximalGapRecord],
+    *,
+    interval_count: int,
+    x_min: int = X_SCALE_POSITIVE_MIN,
+) -> int:
+    """Close exactly ``interval_count`` plateaus starting at ``x_min``.
+
+    The first selected plateau is the record active at ``x_min``. Its fifth
+    successor jump, for example, closes a five-interval pilot at one integer
+    before that jump.
+    """
+
+    _validate_record_sequence(records)
+    if isinstance(interval_count, bool) or not isinstance(interval_count, int):
+        raise ValueError("interval_count must be a positive integer")
+    if interval_count < 1:
+        raise ValueError("interval_count must be a positive integer")
+
+    active = record_at_x(records, x_min)
+    active_position = records.index(active)
+    closing_jump_position = active_position + interval_count
+    if closing_jump_position >= len(records):
+        raise ValueError("record sequence cannot close the requested interval count")
+
+    analysis_limit = records[closing_jump_position].end_prime - 1
+    if analysis_limit > active.verified_exhaustive_limit:
+        raise ValueError("requested intervals cross the documented exhaustive limit")
+    return analysis_limit
+
+
 def build_end_bounded_intervals(
     records: Sequence[MaximalGapRecord],
     *,
@@ -261,9 +309,11 @@ def jump_to_dict(metric: JumpMetric) -> dict[str, str | int]:
 
 
 __all__ = [
+    "analysis_limit_for_interval_count",
     "build_end_bounded_intervals",
     "build_jump_metrics",
     "interval_to_dict",
     "jump_to_dict",
+    "record_at_x",
     "summarize_analysis",
 ]

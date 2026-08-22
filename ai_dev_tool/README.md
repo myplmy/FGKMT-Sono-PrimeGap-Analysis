@@ -16,13 +16,12 @@
 ## 파일
 
 - 01_계측함정_원장.md: 수학·데이터·수치·해석 오류 방지
-- 02_핸드오프_규약.md: HANDOFF.md 필수 내용과 상태 표현
+- 02_핸드오프_규약.md: `handoff/YYYYMMDDHHmm_HANDOFF.md` 필수 내용과 상태 표현
 - 03_실험착수_절차.md: 승인 전 준비와 승인 후 실행 순서
-- verify_skill_mirror.ps1: .claude/skills와 Codex용 .agents/skills의 파일 일치 확인
 
 ## Codex 스킬
 
-.claude/skills의 기존 스킬 폴더와 보조 자료는 보존한다. 같은 내용을 .agents/skills에 미러링하여 Codex가 저장소 스킬로 발견하도록 한다. 두 트리의 변경은 함께 반영하고 hash 검사를 통과해야 한다.
+현재 프로젝트는 `.agents/skills`만 Codex 스킬 정본으로 사용한다. `.claude` 호환 미러는 복원하거나 사용하지 않는다.
 
 ## 실행 경계
 

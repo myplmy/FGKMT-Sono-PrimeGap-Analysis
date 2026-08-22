@@ -93,13 +93,14 @@ class SyntheticPipelineTests(unittest.TestCase):
                 result_directory,
                 approval_token=APPROVAL_TOKEN,
                 analysis_limit=exhaustive_limit,
+                summary_additions={"execution_scope": "SYNTHETIC_TEST"},
             )
             self.assertEqual(summary["boundary_mode"], "end")
             self.assertEqual(len(summary["figure_files"]), 12)
             self.assertIn("code_sha256", summary["execution"])
+            self.assertEqual(summary["execution_scope"], "SYNTHETIC_TEST")
             self.assertTrue((result_directory / "summary.json").is_file())
 
 
 if __name__ == "__main__":
     unittest.main()
-

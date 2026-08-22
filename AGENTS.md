@@ -10,9 +10,9 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: PREPARATION_ONLY
+## 현재 상태: P002 COMPLETED / USER_GRAPH_QA_PENDING
 
-사용자가 실제 실험 실행을 아직 허가하지 않았다.
+승인된 `x=16`, `x=3,814,280` 및 연속 end-bounded record interval 5개 pilot은 계산·자동검증까지 완료됐다. 그래프 시각 QA는 사용자 확인 대기이며, `test_plan/P002_FGKMT-Sono_five-interval-pilot.md` 범위를 넘는 전체 `10^20` 분석은 아직 허가되지 않았다. 추가 실제 실행은 새 사용자 허가 전까지 수행하지 않는다.
 
 허가 전 허용:
 
@@ -39,7 +39,7 @@ Z:\FGKMT-Sono-PrimeGap-Analysis
 1. 현재 사용자의 명시적 지시
 2. `연구 작업지시서_ FGKMT-Sono 대형 소수간격 하한과 실제 maximal prime gap의 경험적 비교 분석.md`
 3. `docs/METHODS.md` - 교정된 계산 정의와 실행 절차의 정본
-4. `HANDOFF.md` - 현재 상태, 검증 결과, 승인 경계와 다음 행동
+4. `handoff/`의 최신 `YYYYMMDDHHmm_HANDOFF.md` - 현재 상태, 검증 결과, 승인 경계와 다음 행동
 5. `docs/review/00_문헌_종합_분석.md` - 현재 9편 corpus의 종합 판정
 6. `docs/review/01_...09_...md` - 논문별 상세 분석
 
@@ -94,8 +94,8 @@ docs/method/      세부 설계 문서
 docs/review/      이번 연구의 문헌 리뷰 정본
 test_plan/        실행 전 계획과 입력 hash, 성공/중단 기준
 test_result/      승인 후 run별 tables, figures, summary
+handoff/          세션별 YYYYMMDDHHmm_HANDOFF.md; 기존 메모 비덮어쓰기
 .agents/skills/   Codex가 자동 탐색하는 프로젝트 스킬
-.claude/skills/   보존하는 호환 mirror; .agents/skills와 내용 일치
 ai_dev_tool/      이 프로젝트의 계산 함정·착수·핸드오프 절차
 tmp/              읽기/렌더링 임시 파일; 최종 산출물 아님
 ```
@@ -104,11 +104,11 @@ tmp/              읽기/렌더링 임시 파일; 최종 산출물 아님
 
 ## Agent skills
 
-Codex의 저장소 스킬 정본 발견 경로는 .agents/skills/다. 사용자가 추가한 .claude/skills/의 폴더·보조 자료는 삭제하지 않고 호환 원본으로 보존하며, 두 트리의 비바이너리 파일을 동일하게 유지한다.
+Codex의 저장소 스킬 정본 발견 경로는 `.agents/skills/`다. 현재 프로젝트에서는 `.claude` 호환 미러를 복원하거나 사용하지 않는다.
 
 - 작업이 스킬 description과 명확히 일치하거나 사용자가 스킬을 지명하면 해당 SKILL.md 전체를 먼저 읽는다.
 - 이번 연구의 핵심 스킬은 exp-plan, exp-preflight, log-to-result, run-batch, session-handoff다.
-- .claude/skills/를 수정한 뒤 .agents/skills/에 미러링하고 ai_dev_tool/verify_skill_mirror.ps1을 통과시킨다.
+- 스킬 수정은 `.agents/skills/`에만 반영하고 해당 SKILL.md 검증을 통과시킨다.
 - 스킬은 사용자 승인 경계를 확장하지 않는다. exp-preflight가 READY여도 실제 실험 허가가 없으면 실행하지 않는다.
 - issue, PR, push, merge 같은 외부 변경 스킬은 사용자의 명시적 요청 범위에서만 사용한다.
 
@@ -282,8 +282,9 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - SQL 제한 parser, `ismax` 독립 대조, consecutive-prime 검증 코드 준비
 - end-bounded interval, running minimum, jump recovery, Sono/Cramér 비교 및 plotting 코드 준비
 - `test_plan/P001_...md`와 `run_experiment.ps1` 승인 gate 준비
-- `.claude` 스킬의 Codex 호환 이식 및 `ai_dev_tool` 정비
+- `.agents/skills`를 Codex 스킬 정본으로 정비
 - 기존 연구 코드·결과 0건 확인; 폐기 또는 재생성 대상 없음
-- 실제 실험 미실행
+- P002 5-interval 제한 pilot 완료: validation PASS, 5 intervals, 4 jumps, runner 4.933초
+- 실제 pin commit `1a112a1387052d9ad360686313f501c01fe46b68`; 그래프 시각 QA는 사용자 확인 대기
 
-다음 행동은 사용자에게 연구 목적·end-bounded 정의·source/exhaustive 범위·Sono 계보에 대한 이해를 설명하고 일치 여부 및 실행 허가를 받는 것이다.
+다음 행동은 사용자가 P002 그래프와 5개 interval 해석을 확인하고, 별도 허가 후에만 전체 `10^20` 분석 또는 독립 source 교차검증으로 확장하는 것이다.

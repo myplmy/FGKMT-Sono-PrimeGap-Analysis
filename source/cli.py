@@ -10,7 +10,15 @@ from pathlib import Path
 
 import mpmath as mp
 
-from source.definitions import F, WORKING_DPS, X_SCALE_POSITIVE_MIN, iter_log
+from source.analysis import analysis_limit_for_interval_count, record_at_x
+from source.definitions import (
+    F,
+    H,
+    SONO_CONSTANT,
+    WORKING_DPS,
+    X_SCALE_POSITIVE_MIN,
+    iter_log,
+)
 from source.pipeline import analyze_validated_records, load_validated_records, validate_raw_dataset
 from source.prime_gap_list import DEFAULT_EXHAUSTIVE_LIMIT
 from source.provenance import (
@@ -246,6 +254,116 @@ def _run(args: argparse.Namespace) -> int:
     return 0
 
 
+def _pilot(args: argparse.Namespace) -> int:
+    """Run the approved x=16/x_min and fixed-interval smoke experiment."""
+
+    token = _approval_value(args)
+    require_experiment_approval(token)
+    if args.interval_count < 1:
+        raise ValueError("interval_count must be positive")
+    commit = args.commit or resolve_remote_head(branch=args.branch)
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    run_id = args.run_id or f"{timestamp}_{commit[:12]}_pilot{args.interval_count}"
+    output_directory = workspace_root() / "test_result" / f"run_{run_id}"
+    if output_directory.exists():
+        raise FileExistsError(f"refusing to overwrite an existing run: {output_directory}")
+
+    raw_path, metadata_path, _ = acquire_dataset(
+        workspace_root(),
+        approval_token=token,
+        commit=commit,
+        branch=args.branch,
+    )
+    validated_directory = (
+        workspace_root()
+        / "datas"
+        / "validated"
+        / "prime-gap-list-project"
+        / commit
+    )
+    records_path, report_path, records, report = validate_raw_dataset(
+        raw_path,
+        metadata_path,
+        validated_directory,
+        approval_token=token,
+        exhaustive_limit=DEFAULT_EXHAUSTIVE_LIMIT,
+    )
+
+    probe_x = 16
+    probe_record = record_at_x(records, probe_x)
+    f_probe = F(probe_x)
+    if f_probe >= 0:
+        raise RuntimeError("x=16 diagnostic expected F(x) < 0")
+
+    scale_record = record_at_x(records, X_SCALE_POSITIVE_MIN)
+    f_scale = F(X_SCALE_POSITIVE_MIN)
+    if f_scale <= 0:
+        raise RuntimeError("positive FGKMT scale did not begin at configured x_min")
+
+    analysis_limit = analysis_limit_for_interval_count(
+        records,
+        interval_count=args.interval_count,
+    )
+    scope = {
+        "execution_scope": "LIMITED_PILOT",
+        "pilot_interval_count_requested": args.interval_count,
+        "pilot_interval_selection": (
+            "the plateau active at x=3814280 followed through the requested "
+            "number of consecutive end-bounded record intervals"
+        ),
+        "pilot_derived_analysis_limit": str(analysis_limit),
+        "point_diagnostics": {
+            "x_16": {
+                "x": str(probe_x),
+                "g_end_bounded": str(probe_record.gap),
+                "active_record_end_prime": str(probe_record.end_prime),
+                "f": mp.nstr(f_probe, 40),
+                "f_sign": "negative",
+                "theorem_scale_h_included": False,
+                "sono_ratio_included": False,
+                "reason": "domain diagnostic only because F(x) is non-positive",
+            },
+            "x_scale_positive_min": {
+                "x": str(X_SCALE_POSITIVE_MIN),
+                "g_end_bounded": str(scale_record.gap),
+                "active_record_end_prime": str(scale_record.end_prime),
+                "f": mp.nstr(f_scale, 40),
+                "h": mp.nstr(H(X_SCALE_POSITIVE_MIN, scale_record.gap), 40),
+                "sono_ratio": mp.nstr(
+                    H(X_SCALE_POSITIVE_MIN, scale_record.gap) / SONO_CONSTANT,
+                    40,
+                ),
+                "theorem_scale_h_included": True,
+            },
+        },
+    }
+    summary = analyze_validated_records(
+        records_path,
+        output_directory,
+        approval_token=token,
+        analysis_limit=analysis_limit,
+        summary_additions=scope,
+    )
+    if summary["analyzed_interval_count"] != args.interval_count:
+        raise RuntimeError("pilot did not produce the requested number of intervals")
+
+    print(
+        json.dumps(
+            {
+                "status": "COMPLETE",
+                "execution_scope": "LIMITED_PILOT",
+                "validation": report["status"],
+                "validation_report": str(report_path),
+                "run_directory": str(output_directory),
+                "summary": summary,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0
+
+
 def _add_approval_flag(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--approved-by-user",
@@ -292,6 +410,17 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--run-id")
     _add_approval_flag(run_parser)
     run_parser.set_defaults(handler=_run)
+
+    pilot_parser = subparsers.add_parser(
+        "pilot",
+        help="run the approved x=16/x_min and fixed-interval pilot",
+    )
+    pilot_parser.add_argument("--branch", default=DEFAULT_BRANCH)
+    pilot_parser.add_argument("--commit")
+    pilot_parser.add_argument("--interval-count", type=int, default=5)
+    pilot_parser.add_argument("--run-id")
+    _add_approval_flag(pilot_parser)
+    pilot_parser.set_defaults(handler=_pilot)
     return parser
 
 

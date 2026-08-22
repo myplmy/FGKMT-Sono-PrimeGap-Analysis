@@ -5,8 +5,10 @@ import unittest
 import mpmath as mp
 
 from source.analysis import (
+    analysis_limit_for_interval_count,
     build_end_bounded_intervals,
     build_jump_metrics,
+    record_at_x,
     summarize_analysis,
 )
 from source.definitions import F, H, SONO_CONSTANT, X_SCALE_POSITIVE_MIN
@@ -79,6 +81,20 @@ class EndBoundedAnalysisTests(unittest.TestCase):
     def test_analysis_refuses_to_cross_exhaustive_limit(self) -> None:
         with self.assertRaises(ValueError):
             build_end_bounded_intervals(self.records, analysis_limit=12_000_001)
+
+    def test_limited_pilot_closes_exact_requested_interval_count(self) -> None:
+        limit = analysis_limit_for_interval_count(self.records, interval_count=2)
+        self.assertEqual(limit, 9_999_999)
+        intervals = build_end_bounded_intervals(self.records, analysis_limit=limit)
+        self.assertEqual(len(intervals), 2)
+
+    def test_record_at_x_uses_end_bounded_jump(self) -> None:
+        self.assertEqual(record_at_x(self.records, 4_999_999).gap, 10)
+        self.assertEqual(record_at_x(self.records, 5_000_000).gap, 20)
+
+    def test_limited_pilot_requires_a_closing_successor_record(self) -> None:
+        with self.assertRaises(ValueError):
+            analysis_limit_for_interval_count(self.records, interval_count=3)
 
     def test_summary_reports_descriptive_trend_and_jump_recovery(self) -> None:
         intervals = build_end_bounded_intervals(

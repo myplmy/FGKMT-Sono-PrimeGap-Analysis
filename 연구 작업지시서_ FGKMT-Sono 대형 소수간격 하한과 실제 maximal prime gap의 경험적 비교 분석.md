@@ -34,7 +34,7 @@ H(x)=\frac{G(x)}{F(x)}
 
 ### 1.1 실행 승인 경계
 
-현재 단계는 PREPARATION_ONLY다. 코드·문서 작성, 합성 데이터 단위시험, 데이터 비의존 preflight, 읽기 전용 원격 commit 확인까지만 수행한다.
+P002 제한 pilot은 계산·자동검증까지 완료됐고 사용자 그래프 시각 QA를 기다린다. 사용자가 허가한 범위는 `x=16`, `x=3,814,280` 및 그 지점부터 연속 5개 end-bounded record interval이었다. 전체 `10^20` 분석은 별도 허가 전까지 수행하지 않는다.
 
 사용자 허가 전에는 다음을 수행하지 않는다.
 
@@ -549,7 +549,7 @@ jupyter
 
     Z:\FGKMT-Sono-PrimeGap-Analysis/
     ├─ AGENTS.md
-    ├─ HANDOFF.md
+    ├─ handoff/YYYYMMDDHHmm_HANDOFF.md
     ├─ .agents/skills/                 # Codex가 발견하는 프로젝트 스킬
     ├─ .claude/skills/                 # 삭제하지 않는 호환 원본 mirror
     ├─ ai_dev_tool/                    # 계산 함정·착수·핸드오프 규약

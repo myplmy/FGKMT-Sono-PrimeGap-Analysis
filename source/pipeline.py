@@ -57,7 +57,12 @@ def _package_version(distribution: str) -> str:
 def _code_snapshot() -> dict[str, object]:
     root = Path(__file__).resolve().parents[1]
     paths = list((root / "source").glob("*.py"))
-    for relative_path in ("run_experiment.ps1", "requirements.txt", "environment.yml"):
+    for relative_path in (
+        "run_experiment.ps1",
+        "run_pilot.ps1",
+        "requirements.txt",
+        "environment.yml",
+    ):
         candidate = root / relative_path
         if candidate.exists():
             paths.append(candidate)
@@ -216,6 +221,7 @@ def analyze_validated_records(
     *,
     approval_token: str | None,
     analysis_limit: int,
+    summary_additions: Mapping[str, object] | None = None,
 ) -> dict[str, object]:
     """Compute end-bounded intervals, jumps, and a non-interpretive summary."""
 
@@ -244,6 +250,14 @@ def analyze_validated_records(
             "execution": _execution_metadata(),
         }
     )
+    if summary_additions:
+        overlapping = set(summary).intersection(summary_additions)
+        if overlapping:
+            raise ValueError(
+                "summary additions cannot replace canonical fields: "
+                + ", ".join(sorted(overlapping))
+            )
+        summary.update(summary_additions)
 
     interval_rows = [interval_to_dict(item) for item in intervals]
     jump_rows = [jump_to_dict(item) for item in jumps]

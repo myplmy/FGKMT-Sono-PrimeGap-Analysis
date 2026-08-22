@@ -4,9 +4,9 @@
 
 ## 현재 상태
 
-PREPARATION_ONLY / WAITING_FOR_USER_APPROVAL
+P002 COMPLETED / USER GRAPH QA PENDING / P001 FULL ANALYSIS WAITING_FOR_USER_APPROVAL
 
-코드·문서·합성 데이터 시험만 준비했다. 실제 dataset 다운로드, validation, maximal-gap 분석, 결과 표·그래프 생성은 아직 수행하지 않았다.
+승인된 `x=16`, `x=3,814,280` 및 이어지는 end-bounded record interval 5개 pilot은 자동검증까지 완료됐다. 그래프 시각 QA는 사용자 확인 대기이며 전체 `10^20` 분석은 아직 승인되지 않았다.
 
 ## 수학 정의
 
@@ -61,7 +61,6 @@ canonical 경계는 gap의 끝 소수 p_(n+1)가 x 이하인 경우다. 분석�
 - docs/METHODS.md: 계산·검증 방법론 정본
 - docs/review/: 문헌별·종합 분석
 - test_plan/: 실행 전 고정 계획
-- HANDOFF.md: 현재 상태와 다음 작업
+- handoff/: 세션마다 새로 만드는 `YYYYMMDDHHmm_HANDOFF.md`; 최신 파일에 현재 상태와 다음 작업 기록
 
 유한 계산 결과는 FGKMT 또는 Sono의 무한 범위 정리를 증명·반증·검증하는 근거로 사용하지 않는다.
-
