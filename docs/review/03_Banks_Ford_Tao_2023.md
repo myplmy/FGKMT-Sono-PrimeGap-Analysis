@@ -32,7 +32,7 @@ G_{\mathcal A}(x)
 
 를 사용한다. 이는 record start/end table의 계단함수라기보다 \([1,x]\) 안의 largest empty interval 정의다.
 
-본 프로젝트의 `G_start`, `G_end`와 점근적으로 같은 scale을 논할 수 있지만, 유한 record interval을 exact하게 복원할 때는 정의를 직접 치환하지 않는다.
+본 프로젝트의 end-bounded (G(x))와 점근적으로 같은 scale을 논할 수 있지만, 유한 record interval을 exact하게 복원할 때는 이 largest-empty-interval 정의를 직접 치환하지 않는다.
 
 ## 4. 기존 model 평가
 
@@ -106,7 +106,7 @@ G_{\mathcal P}(x)\sim g(\xi\log^2x)
 G_{\mathcal P}(x)\sim\xi\log^2x
 \]
 
-가 된다. 이는 경험적/확률모형 예측이며 FGMT lower bound와 논리적 지위가 다르다.
+가 된다. 이는 경험적/확률모형 예측이며 FGKMT lower bound와 논리적 지위가 다르다.
 
 ### 6.4 uniform Hardy-Littlewood(Theorems 1.3-1.4)
 
@@ -151,14 +151,14 @@ Figure 1(p. 1473)은 실제 prime maximal gap 계단함수를 다음과 비교�
 - \(\mathcal R\)의 gap law를 actual prime gap에 대한 증명으로 쓰지 않는다.
 - \(g(u)\sim u\)를 확정 사실로 쓰지 않는다.
 - Figure 1의 source table을 최신 데이터 정본으로 사용하지 않는다.
-- \(\xi\log^2x\)를 FGMT/Sono lower bound와 같은 종류의 식으로 설명하지 않는다.
+- \(\xi\log^2x\)를 FGKMT/Sono lower bound와 같은 종류의 식으로 설명하지 않는다.
 
 ## 9. 제안 실험과의 중복 여부
 
 | 항목 | 논문 수행 여부 |
 |---|---|
 | 실제 maximal-gap curve | 배경 도표로 부분 수행 |
-| FGMT scale \(F(x)\) | 서론에서 known lower bound로만 제시 |
+| FGKMT scale \(F(x)\) | 서론에서 known lower bound로만 제시 |
 | \(H=G/F\) | 아니오 |
 | record interval minimum | 아니오 |
 | running minimum/lower envelope of \(H\) | 아니오 |
@@ -188,4 +188,4 @@ Figure 1(p. 1473)은 실제 prime maximal gap 계단함수를 다음과 비교�
 
 ## 12. 최종 판정
 
-이 논문은 FGMT-normalized empirical envelope가 아니라 sieve-aware probabilistic model의 엄밀한 분석이다. 제안 연구와 직접 중복되지 않으며, observed \(H\)가 왜 Cramér형 scale과 복잡한 관계를 가질 수 있는지를 설명하는 핵심 이론 문헌이다.
+이 논문은 FGKMT-normalized empirical envelope가 아니라 sieve-aware probabilistic model의 엄밀한 분석이다. 제안 연구와 직접 중복되지 않으며, observed \(H\)가 왜 Cramér형 scale과 복잡한 관계를 가질 수 있는지를 설명하는 핵심 이론 문헌이다.

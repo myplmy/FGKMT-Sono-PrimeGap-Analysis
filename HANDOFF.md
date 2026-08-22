@@ -1,145 +1,198 @@
 # FGKMT-Sono Prime Gap Analysis 핸드오프
 
-## 현재 상태
+## 1. 현재 상태
 
-- 작업 루트: `Z:\FGKMT-Sono-PrimeGap-Analysis`
-- 단계: `P0 / PREPARATION_ONLY`
-- 실제 실험: 미실행
-- 외부 maximal-gap 데이터: 미취득
-- 계산 결과·그래프·통계 보고서: 없음
-- 다음 필수 게이트: 사용자에게 연구 이해를 설명하고 명시적 실행 허가 받기
+- 작업 루트: Z:\FGKMT-Sono-PrimeGap-Analysis
+- 상태: P0 / PREPARATION_ONLY / WAITING_FOR_USER_APPROVAL
+- 실제 dataset 다운로드: 0건
+- validated dataset: 0건
+- 실제 maximal-gap 분석: 0건
+- test_result 결과 run: 0건
+- commit, push, PR: 수행하지 않음
 
-사용자의 실행 허가 전에는 데이터 다운로드, raw/validated dataset 생성, maximal-gap 계산, fitting, envelope 계산, 그래프 생성 또는 `test_result/` 결과 작성을 하지 않는다.
+코드·문서·합성 fixture 검증은 준비되었다. 사용자가 연구 목적·정의·데이터 범위·수행방법을 확인하고 실제 실행을 명시적으로 허가하기 전에는 allgaps.sql 취득, 실제 validation, 분석, 결과 표·그래프 생성을 시작하지 않는다.
 
-## 이 연구의 목적과 방법
+## 2. ChatGPT가 이해한 연구
 
-검증된 maximal prime-gap record를 사용해 실제 maximal gap \(G(x)\)를 FGMT/FMT large-gap scale
+검증된 maximal prime-gap records로
 
-\[
-F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x}
-\]
+[
+G(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n)
+]
 
-로 정규화하고,
+를 복원한다. canonical jump는 gap의 시작 소수가 아니라 끝 소수 p_(n+1)에서 발생한다.
 
-\[
-H(x)=\frac{G(x)}{F(x)},\qquad
-Q(x)=\frac{H(x)}{2.0\times10^{-17}}
-\]
+[
+F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x},
+\qquad
+H(x)=\frac{G(x)}{F(x)}
+]
 
-의 유한 데이터 궤적, record interval별 최소값, global running minimum과 local envelope를 계산하는 경험적 비교 연구다. Sono의 \(2.0\times10^{-17}\)은 관측 극한의 예상값이 아니라 충분히 큰 \(X\)에 대한 증명된 보수적 explicit constant다. 유한 계산은 정리를 증명하거나 반증하지 않는다.
+이며 log_k(x)는 자연로그를 k회 반복한 값이다. 밑이 k인 로그가 아니다. F(x)>0인 최소 정수 3,814,280부터 theorem-scale 비교를 시작한다.
 
-### 핵심 수학 계약
+분석 대상은 다음과 같다.
 
-\(\log_k\)의 아래 첨자는 밑이 아니라 자연로그의 반복 횟수다.
+- 고정 maximal-gap record interval에서 F가 증가함에 따라 H가 감소하는 궤적
+- 새 record end에서 H가 회복하는 크기와 recovery factor
+- interval별 정확한 최소 H와 global running minimum
+- interval minima의 장기 descriptive log-log trend
+- Wolf 계열 H=1 경험적 참고선과 실제 데이터의 관계
+- Sono explicit constant 2e-17에 대한 H/(2e-17) 배수와 그 변화
+- 보조적인 gap/ln(x)^2 Cramér 정규화
+- 특이 구조와 후속 추측·explicit-threshold 연구 후보
 
-\[
-\log_k(x)=\underbrace{\ln(\ln(\cdots\ln(x)\cdots))}_{\ln\text{을 }k\text{회 반복}}.
-\]
+이 연구는 유한 계산으로 FGKMT 또는 Sono의 무한 범위 정리를 재증명·검증·반증하려는 것이 아니다. Sono의 수치는 empirical limit가 아니라 보수적인 explicit lower-bound constant다. 또한 Sono는 Ford–Maynard–Tao의 Chains 정리를 explicit화했으며, k=1에서 FGKMT와 같은 함수형 scale이 나타나더라도 다섯 저자 논문의 숨은 상수를 그대로 산출한 것으로 표현하지 않는다.
 
-특히
+## 3. 완료한 작업
 
-\[
-\log_2(x)=\ln(\ln x),\quad
-\log_3(x)=\ln(\ln(\ln x)),\quad
-\log_4(x)=\ln(\ln(\ln(\ln x))).
-\]
+### 수학·문서
 
-`math.log(x, 2|3|4)`와 같은 base-\(k\) 구현은 production 계산에서 금지한다. 정본은 `source/definitions.py`다.
+- 저자 약칭을 저장소 전체에서 FGKMT로 통일
+- 연구 작업지시서 파일명을 FGKMT-Sono로 변경하고 사용자 지정 목적과 end-bounded G를 정본화
+- iterated-log 정의, 잘못된 base-k 구현 금지, 재생성 규칙 반영
+- docs/METHODS.md를 source provenance, end-bounded interval, 승인 gate, 산출물 구조와 일치시킴
+- article의 현재 PDF 9편에 대한 문헌별 분석과 종합 분석을 docs/review에 유지·정합화
+- README.md, datas/README.md, test_plan/P001 문서 작성
 
-### 두 경계 정의
+### 코드
 
-- `G_end(x)`: 끝 소수 \(\le x\). Sono 직접 비교의 주 결과.
-- `G_start(x)`: 시작 소수 \(\le x\). FGMT 원 논문 호환 보조 결과.
+- source/definitions.py: iterated log, F, H, Sono bound와 ratio
+- source/provenance.py: 승인 gate, 원격 HEAD resolve, commit-pinned allgaps.sql·schema.sql 취득, 파일별 hash metadata
+- source/prime_gap_list.py: SQL 비실행 제한 parser, upstream 6종 start-prime 표현, schema 열 순서 검증, eligible first occurrence와 ismax 독립 대조, consecutive-prime 검증
+- source/analysis.py: end-bounded interval, exact interval minimum, running minimum, record jump recovery, Sono/Cramér ratio, descriptive log-log trend
+- source/pipeline.py: 큰 정수 문자열 보존, validation report, input/code/environment provenance, 비덮어쓰기 CSV·JSON·plot pipeline
+- source/plots.py: H trajectory, interval minima, running minimum, Sono ratio, Cramér ratio, record recovery를 PNG와 PDF로 생성
+- source/cli.py: preflight, status, fetch, validate, analyze, run 하위 명령과 mutating-stage 승인 gate
+- run_experiment.ps1: 지정 Python, Approved switch, run-id별 stdout/stderr log, 실패 코드 보존
 
-두 정의는 동일 파이프라인에서 별도 산출하며 한 envelope에 섞지 않는다. 모든 표·그래프·schema에 `boundary_mode`를 기록한다.
+### Codex 작업 환경
 
-### 분석 시작점과 envelope
+- 루트 정본은 AGENTS.md로 유지
+- .claude/project.json과 16개 기존 스킬 폴더를 이번 연구에 맞게 수정
+- .claude 스킬과 보조 자료를 삭제하지 않고 Codex 발견 경로 .agents/skills에 미러링
+- ai_dev_tool을 계산 함정, 핸드오프, 실험 착수 규약으로 축약
+- ai_dev_tool/verify_skill_mirror.ps1 추가
 
-- \(x=16\): \(\log_4x\)가 실수로 정의되는 최소 정수지만 \(F(x)<0\); domain 진단 전용.
-- `X_SCALE_POSITIVE_MIN = 3_814_280`: \(F(x)>0\)인 theorem-scale 비교의 최소 정수.
-- record 점프 위치를 \(a_i\)라 하면 정수 interval \([a_i,a_{i+1}-1]\)의 최소값은 양의 scale 구간에서 \(g_i/F(a_{i+1}-1)\).
-- 마지막 record는 확인된 exhaustive limit까지만 닫는다.
-- global running minimum은 정의상 단조 비증가한다. 요동이나 상승 추세는 log-bin/rolling local envelope로 별도 분석한다.
+## 4. 실제로 하지 않은 일
 
-## 완료된 준비
+- allgaps.sql 또는 schema.sql 다운로드
+- datas/raw와 datas/validated 실제 산출물 생성
+- 실제 maximal-gap record count, H, minimum, trend, Sono ratio 계산
+- test_result의 실제 표, 그림, summary 생성
+- 연구 결론 또는 새로운 수론적 추측 확정
+- 패키지 설치·제거·업그레이드
+- git commit, push, PR, issue 생성
 
-- `article/`의 PDF 9편(총 253쪽) 검토 및 `docs/review/`에 논문별·종합 분석 작성
-- Sono 2025 원문에서 iterated-log 정의, end-bounded \(G_k\), explicit constant의 계보를 직접 확인
-- Kourbatov-Wolf 2020에서 \(H=1\) empirical 참고선의 2차 문헌 근거 확인
-- Feliksiak 2021 preprint의 fitted \(LB/F\) 선행 시도를 확인했으나, 비심사·논증 문제로 theorem이나 데이터 정본으로 채택하지 않음
-- `docs/METHODS.md`를 이번 연구의 계산·데이터·해석 정본으로 정비
-- `CLAUDE.md`를 Codex용 루트 `AGENTS.md`로 전환
-- 사용자 수정에 따라 문헌 리뷰 정본 경로를 `docs/review/`로 통일
-- 작업지시서에 iterated-log 중요 수정사항과 재생성 규칙 명시
-- 지정 Conda 환경과 고정 버전 requirements 검증
-- 데이터 비의존 정본 `source/definitions.py` 및 preflight tests 추가
+합성 fixture 테스트는 운영체제 임시 디렉터리에서만 수행되어 저장소 연구 결과를 만들지 않았다.
 
-## 검증 결과
+## 5. 데이터 원천 상태
 
-사용한 executable:
+- canonical repository: https://github.com/primegap-list-project/prime-gap-list
+- 승인 후 입력: 같은 40자리 commit의 allgaps.sql과 schema.sql
+- 읽기 전용으로 재확인한 master HEAD: 1a112a1387052d9ad360686313f501c01fe46b68
+- 확인 시각: 2026-08-22T17:37:48Z
+- high-watermark 참고: https://primegap-list-project.github.io/lists/prime-gaps-high-watermarks/
+- exhaustive coverage 참고: https://primegap-list-project.github.io/fully-analyzed/
+- 현재 문서화한 exhaustive 상한: 10^20, 2026-05-08
 
-```text
-W:\miniforge3\envs\FGKMT\python.exe
-Python 3.11.16
-```
+웹페이지는 입력 dataset으로 사용하지 않는다. master는 이동하므로 승인된 실행 직전에 다시 resolve하고 실제 SHA를 metadata에 고정한다. 최신 발견 목록과 exhaustive coverage는 서로 다른 개념이다.
 
-실행 명령:
+## 6. 검증 증거
 
-```powershell
-& 'W:\miniforge3\envs\FGKMT\python.exe' -m unittest discover -s tests -v
-```
+연구 코드와 테스트 executable:
 
-결과:
+    W:\miniforge3\envs\FGKMT\python.exe
 
-```text
-7 tests passed
-source/ forbidden base-k log calls: 0
-```
+전체 suite:
 
-감사 시작 당시 `source/`와 `test_result/`에는 기존 파일이 각각 0개였다. 잘못된 로그 정의로 계산된 기존 결과가 없으므로 폐기 또는 재생성 대상도 없다. 현재 `test_result/`에도 실험 결과가 없다.
+    & 'W:\miniforge3\envs\FGKMT\python.exe' -B -m unittest discover -s tests -v
 
-## 정본 파일
+결과: 31 tests PASS.
 
-1. `AGENTS.md`
-2. `연구 작업지시서_ FGMT-FMT 대형 소수간격 하한과 실제 maximal prime gap의 경험적 비교 분석.md`
-3. `docs/METHODS.md`
-4. `docs/method/환경_준비_기록.md`
-5. `docs/review/00_문헌_종합_분석.md`
-6. `docs/review/01_...09_...md`
-7. `source/definitions.py`
-8. `tests/test_iterated_logs.py`
+추가 확인:
 
-## 사용자 확인이 필요한 방법론
+- source.cli preflight: PASS, exact Python 일치, mpmath dps 50, iter_log_4 직접 중첩값 일치
+- source.cli status: raw 0, validated 0, completed analysis 0
+- source.cli fetch --dry-run: network false, files_written false
+- run_experiment.ps1 구문: PASS
+- Approved 없는 runner: 쓰기 전에 차단, test_result 파일 0
+- skill-creator quick_validate.py: 16개 SKILL.md PASS
+- .claude와 Codex mirror: project JSON 유효, 46개 비바이너리 파일 SHA-256 일치
+- 프로젝트 텍스트·파일명에서 금지된 네 글자 오기: 0
+- source의 base-2/3/4 로그 호출: 0
 
-실험 허가와 함께 다음 두 항목의 목적 일치를 확인한다.
+스킬 검증기는 PyYAML이 필요한 도구라 FGKMT 환경을 변경하지 않고 기존 p018 Python을 UTF-8 도구 실행에만 사용했다. 연구 코드·수치·그래프 테스트는 모두 지정 FGKMT Python으로 수행했다.
 
-1. Sono 직접 비교는 `end`를 주 정의로, FGMT 호환 비교는 `start`를 보조 정의로 동시에 산출한다.
-2. \(16\le x<3,814,280\)은 domain 진단으로 분리하고, \(H\), \(Q\), interval/global envelope는 \(x=3,814,280\)부터 계산한다.
+## 7. 남은 위험과 해석 주의
 
-## 허가 후 첫 행동
+- canonical source는 하나다. ismax 독립 재도출과 endpoint 검증은 하지만 별도 기관 dataset과의 독립 교차검증을 완료했다고 주장하지 않는다.
+- record completeness는 next-prime 검사만으로 증명되지 않고 external exhaustive-search provenance에 의존한다.
+- 실행 시 master가 현재 관측 SHA에서 바뀔 수 있으므로 다시 pin해야 한다.
+- verified limit를 넘는 row가 source에 있어도 1차 분석은 10^20을 넘지 않는다.
+- running minimum은 정의상 비증가한다. 장기 상승·하강은 interval minima와 descriptive trend에서만 논한다.
+- descriptive slope와 correlation은 record intervals가 독립 표본이 아니므로 추론 통계나 asymptotic exponent로 해석하지 않는다.
+- H가 Sono constant 아래로 내려가더라도 sufficiently-large threshold 이전의 유한 관측일 수 있으며 theorem 반례로 부르지 않는다.
 
-1. preflight tests와 source 정적 감사를 다시 실행한다.
-2. `test_plan/`에 데이터 출처 후보, retrieval 시각, hash, 경계 의미, exhaustive range, 성공·중단 기준을 먼저 기록한다.
-3. 최신 maximal-gap 원자료 출처와 coverage를 확인하고 사용자 승인 범위 안에서 원본을 `datas/raw/`에 보존한다.
-4. 산술·순서·출처 간 중첩·endpoint probable-prime·coverage 검증을 통과한 뒤에만 계산으로 이동한다.
-5. `end`와 `start`를 분리해 \(F,H,Q\), interval minimum, running/local envelope를 계산한다.
-6. 표를 먼저 검증한 뒤 그래프와 해석을 생성한다.
+## 8. 다음 사용자에게 요청할 사항
 
-## 저장소 주의사항
+1. 위 2절의 연구 목적, end-bounded 정의, iterated-log 정의, source 범위, 해석 한계가 사용자 의도와 같은지 확인
+2. 같은 목적과 방법이면 실제 dataset 취득·검증·분석 실행을 명시적으로 허가
+3. commit 정책 확인
+   - 권장: 실행 시 master를 다시 resolve하고 그 SHA를 자동 고정
+   - 대안: 현재 관측 SHA 1a112a1387052d9ad360686313f501c01fe46b68을 명시 고정
 
-- 현재 저장소는 `main`에 첫 commit이 없고 파일들이 untracked 상태다.
-- 사용자 요청 없이 commit, push, PR, issue 또는 외부 게시를 하지 않는다.
-- `git add .`와 `git add -A`를 사용하지 않는다.
-- PDF 원본과 향후 raw dataset을 수정하지 않는다.
-- 패키지 설치·제거·업그레이드는 별도 허가 없이는 하지 않는다.
+명시적 허가 문장 예시:
 
-## 재개용 프롬프트
+    위 목적·정의·데이터 범위·수행방법으로 실제 실험 수행을 허가함
 
-```text
-Z:\FGKMT-Sono-PrimeGap-Analysis에서 FGKMT-Sono maximal prime-gap 연구를 계속한다.
-먼저 AGENTS.md, HANDOFF.md, docs/METHODS.md를 읽고 현재 PREPARATION_ONLY 승인 경계를 지킨다.
-log_k(x)는 base-k가 아니라 ln을 k회 반복한 iterated natural logarithm이다.
-W:\miniforge3\envs\FGKMT\python.exe로 tests를 재실행하고 source/의 base-k 호출 0건을 확인한다.
-사용자가 실제 실험을 명시적으로 허가하지 않았다면 데이터 취득이나 본 계산을 시작하지 말고,
-end-bounded 주 분석 + start-bounded 보조 분석 및 x=3,814,280 시작점에 대한 목적 일치를 먼저 확인한다.
-```
+## 9. 권장 작업 우선순위와 근거
+
+1. 사용자 도메인 정합 확인과 실행 허가
+   - 정의나 목적이 다르면 모든 후속 수치가 의미를 잃으므로 가장 먼저 확인한다.
+2. 실행 시점 master 재조회, commit pin, 두 source 취득
+   - 최신성과 재현성을 동시에 확보하고 웹 표 스크레이핑을 피한다.
+3. schema·row·high-watermark·endpoint·coverage validation
+   - 잘못된 record 하나가 이후 전체 계단함수와 envelope를 바꾸므로 분석 전에 fail-closed한다.
+4. end-bounded tables와 non-interpretive summary 계산
+   - 그래프보다 먼저 CSV와 hash를 확인해 수치 정본을 만든다.
+5. PNG/PDF 시각 QA와 독립 spot calculation
+   - 축·cutoff·ratio·interval endpoint 오류를 결과 해석 전에 잡는다.
+6. Wolf·Sono·문헌과 비교 해석
+   - provenance와 계산이 통과한 뒤에만 경험적 패턴, 특이 구조, 후속 추측을 논한다.
+
+## 10. 승인 후 첫 명령
+
+현재 master를 실행 시점에 다시 pin하는 권장 경로:
+
+    .\run_experiment.ps1 -Approved
+
+현재 관측 SHA를 그대로 고정하려면:
+
+    .\run_experiment.ps1 -Approved -Commit '1a112a1387052d9ad360686313f501c01fe46b68'
+
+실행 전 전체 unit test를 한 번 더 수행한다.
+
+## 11. 한국어 commit 메시지 제안
+
+제목:
+
+    feat: FGKMT maximal-gap 실험 파이프라인과 Codex 작업 환경 준비
+
+본문:
+
+    - 저자 약칭과 연구 목적을 FGKMT 및 end-bounded G(x) 정의로 정정
+    - iterated natural logarithm 정본과 base-k 오구현 방지 테스트 추가
+    - Prime Gap List Project의 commit-pinned data/schema 취득 및 provenance gate 구현
+    - SQL 제한 parser, high-watermark 재도출, endpoint 검증 파이프라인 추가
+    - H, interval minimum, running minimum, record recovery, Sono/Cramér 분석과 plot 준비
+    - .claude 스킬을 Codex용 .agents/skills로 이식하고 ai_dev_tool 규약 정비
+    - METHODS, test plan, review, README, handoff와 합성 end-to-end 테스트 갱신
+    - 실제 dataset 다운로드와 본 실험은 사용자 승인 전까지 미실행
+
+## 12. 재개용 지시
+
+    Z:\FGKMT-Sono-PrimeGap-Analysis에서 계속한다.
+    먼저 AGENTS.md, HANDOFF.md, 연구 작업지시서, docs/METHODS.md를 읽는다.
+    canonical G(x)는 p_(n+1) <= x인 end-bounded 함수이고 log_k는 ln의 k회 반복이다.
+    실제 dataset과 결과는 아직 없으며 사용자 명시 승인 전에는 fetch/validate/analyze를 실행하지 않는다.
+    지정 Python으로 31개 tests와 preflight/status를 다시 확인한 뒤 사용자 도메인 정합과 실행 허가를 받는다.

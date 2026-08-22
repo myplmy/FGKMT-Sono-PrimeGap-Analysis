@@ -1,11 +1,11 @@
-# FGMT/FMT-Sono maximal prime gap 비교 방법론
+# FGKMT-Sono maximal prime gap 비교 방법론
 
 ## 0. 문서 상태와 실행 경계
 
 이 문서는 `Z:\FGKMT-Sono-PrimeGap-Analysis`에서 수행할 대형 소수간격 비교 실험의 방법론 정본이다.
 
-- 현재 단계: 문헌 검토, 수학적 정의 교정, 폴더 및 Python 환경 점검
-- 현재 허용 범위: 문서 작성, 정적 준비, 환경 import 확인, 데이터 비의존 수학 정의와 preflight 단위시험
+- 현재 단계: 문헌 검토, 수학적 정의 교정, 데이터 취득·검증·분석 코드 및 실행 gate 준비
+- 현재 허용 범위: 문서·코드 작성, 환경 import 확인, toy data 및 데이터 비의존 preflight 단위시험
 - 현재 금지 범위: 외부 maximal-gap 데이터 취득, 데이터 변환, 본 계산, 통계 추정, 그래프 생성, 결과 해석
 - 실제 실험 시작 조건: 사용자의 명시적 실행 허가
 
@@ -13,7 +13,15 @@
 
 ## 1. 연구 목적
 
-검증된 maximal prime-gap record를 이용해 실제 maximal gap과 FGMT/FMT 계열의 large-gap scale을 경험적으로 비교한다. 정리를 재증명하거나 유한 계산으로 무한 범위의 정리를 검증하려는 연구가 아니다.
+검증된 maximal prime-gap records를 이용해 end-bounded 실제 maximal gap
+
+\[
+G(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n)
+\]
+
+을 복원하고 FGKMT large-gap asymptotic scale에 대한 \(H(x)=G(x)/F(x)\)의 변화와 lower envelope를 분석한다. record 사이의 감소, 새 record에서의 회복, interval minima, global running minimum과 local empirical envelope, Wolf 계열 경험적 관찰, Sono explicit constant와의 정량적 격차를 조사한다.
+
+유한 계산으로 FGKMT 또는 Sono의 무한 범위 정리를 재증명·검증하지 않으며, 계산 범위의 부등식을 모든 더 큰 \(x\)로 일반화하지 않는다. 관찰 패턴은 empirical statement로 분리하고, 후속 추측·명시적 임계값·이론 연구 후보로만 제안한다.
 
 자연로그와 반복로그를 다음과 같이 정의한다.
 
@@ -38,21 +46,21 @@
 \log_4(x)=\ln(\ln(\ln(\ln x))).
 \]
 
-FGMT/FMT scale은
+FGKMT scale은
 
 \[
 F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x}
 \]
 
-로 둔다. 주 분석량은 경계 정의별
+로 둔다. 주 분석량은
 
 \[
-H_b(x)=\frac{G_b(x)}{F(x)},\qquad
-Q_b(x)=\frac{H_b(x)}{c_{\mathrm{Sono}}},\qquad
+H(x)=\frac{G(x)}{F(x)},\qquad
+Q(x)=\frac{H(x)}{c_{\mathrm{Sono}}},\qquad
 c_{\mathrm{Sono}}=2.0\times10^{-17}
 \]
 
-이다. 아래 첨자 \(b\)는 `start` 또는 `end`이다.
+이다.
 
 ### 1.1 반복로그 구현 계약과 사전검증
 
@@ -104,11 +112,11 @@ numpy.log2(x)
 
 ## 2. 정리 계보와 상수의 의미
 
-### 2.1 FGMT와 FMT를 구분한다
+### 2.1 FGKMT와 FMT를 구분한다
 
 - Ford-Green-Konyagin-Maynard-Tao(2018)는 `LONG GAPS BETWEEN PRIMES`에서 start-bounded \(G(X)\)에 대해 \(G(X)\gg F(X)\)를 증명했다.
 - Sono가 수치화한 \(c_{\mathrm{LG}}\)는 Ford-Maynard-Tao의 `Chains of large gaps between primes`에 제시된 \(G_k(X)\) 정리의 explicit constant이다.
-- \(k=1\)이면 동일한 함수형 scale을 갖지만, “Sono가 FGMT 5인 논문의 숨은 상수를 그대로 계산했다”고 쓰지 않는다.
+- \(k=1\)이면 동일한 함수형 scale을 갖지만, “Sono가 FGKMT 5인 논문의 숨은 상수를 그대로 계산했다”고 쓰지 않는다.
 
 Sono의 2025년 출판본은 [An explicit lower bound for large gaps between some consecutive primes](https://doi.org/10.4418/2025.80.2.2)이며, 현재 `article/`의 6번째 PDF와 `docs/review/06_Sono_2025.md`에서 직접 검토했다.
 
@@ -136,32 +144,22 @@ G_k(X)\ge \frac{c_{\mathrm{LG}}}{k^2}F(X),
 
 record gap을 시작 소수 \(s_i\), gap \(g_i\), 끝 소수 \(e_i=s_i+g_i\)로 기록한다.
 
-### 3.1 start-bounded 정의
+### 3.1 canonical end-bounded 정의
 
-FGMT 2018의 정의와 맞춘다.
-
-\[
-G_{\mathrm{start}}(x)=\max_{p_n\le x}(p_{n+1}-p_n).
-\]
-
-record \(i\)의 점프 위치는 \(a_i=s_i\)이다.
-
-### 3.2 end-bounded 정의
-
-Sono의 \(G_1(X)\), Kourbatov-Wolf 2019의 정의와 맞춘다.
+사용자가 지정한 연구 정본이며 Sono의 \(G_1(X)\), Kourbatov-Wolf 2019의 정의와 맞춘다.
 
 \[
-G_{\mathrm{end}}(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n).
+G(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n).
 \]
 
-record \(i\)의 점프 위치는 \(a_i=e_i\)이다.
+record \(i\)의 점프 위치는 \(e_i\)이다.
 
-### 3.3 분석 원칙
+### 3.2 source와 분석 경계의 변환
 
-- Sono 상수와의 직접 비교는 `end`를 주 분석으로 사용한다.
-- FGMT 원 논문 및 start-prime 기반 record table과의 비교를 위해 `start`도 동일 파이프라인에서 산출한다.
-- 모든 결과 파일과 그래프 제목에 `boundary_mode=start|end`를 기록한다.
-- 두 정의를 혼합해 하나의 running minimum을 만들지 않는다.
+- Prime Gap List Project의 high-watermark 표는 작은 start prime이 있는지로 record를 배열한다.
+- 원본의 `startprime`과 `gapsize`로 \(e_i=s_i+g_i\)를 계산한 뒤 분석 jump를 end prime으로 변환한다.
+- 모든 표·그래프·요약에 `boundary_mode=end`와 `G definition: end_prime <= x`를 기록한다.
+- start-bounded 보조 계열은 현재 연구 산출물에 포함하지 않는다. 추후 별도 민감도 분석을 할 경우 다른 파일과 변수명으로 격리한다.
 
 ## 4. 반복로그 도메인과 분석 시작점
 
@@ -187,23 +185,23 @@ X_SCALE_POSITIVE_MIN = 3_814_280
 
 ## 5. interval-wise minimum과 envelope
 
-경계 모드에 맞는 점프 위치를 \(a_i\)라 하면
+점프 위치 \(e_i\)에 대해
 
 \[
-a_i\le x<a_{i+1}\quad\Longrightarrow\quad G_b(x)=g_i.
+e_i\le x<e_{i+1}\quad\Longrightarrow\quad G(x)=g_i.
 \]
 
 정수 구간을 양의 scale 시작점으로 자른다.
 
 \[
-\ell_i=\max(a_i, X_{\mathrm{scale+}}),\qquad
-r_i=a_{i+1}-1.
+\ell_i=\max(e_i, X_{\mathrm{scale+}}),\qquad
+r_i=e_{i+1}-1.
 \]
 
 \(\ell_i\le r_i\)이고 \(F\)가 증가하는 구간에서 정확한 interval minimum은
 
 \[
-H_{b,i}^{\min}=\frac{g_i}{F(r_i)}
+H_i^{\min}=\frac{g_i}{F(r_i)}
 \]
 
 이다. 마지막 record는 다음 record가 없으므로 `verified_exhaustive_limit` 또는 사용자가 승인한 분석 상한까지만 닫는다. 검증범위를 넘어 무한히 연장하지 않는다.
@@ -211,14 +209,14 @@ H_{b,i}^{\min}=\frac{g_i}{F(r_i)}
 running minimum은
 
 \[
-M_b(X)=\min_{X_{\mathrm{scale+}}\le x\le X}H_b(x)
+M(X)=\min_{X_{\mathrm{scale+}}\le x\le X}H(x)
 \]
 
-로 정의한다. 정의상 \(M_b(X)\)는 단조 비증가한다. 따라서 “증가”나 “상하 요동”은 global running minimum의 가능한 패턴이 아니다. 그런 장기 변화를 보려면 별도로 다음을 산출한다.
+로 정의한다. 정의상 \(M(X)\)는 단조 비증가한다. 따라서 “증가”나 “상하 요동”은 global running minimum의 가능한 패턴이 아니다. 1차 분석에서는 interval minima 궤적과 ln H 대 ln x의 descriptive slope·correlation을 함께 산출한다. 필요하면 후속 민감도 분석에서 다음을 별도 산출한다.
 
 - log-bin별 minimum
 - 고정 record-window rolling minimum
-- interval minima \(H_{b,i}^{\min}\) 자체의 궤적
+- 고정 log-width 구간의 robust quantile
 
 global running minimum에서는 새 최저치와 plateau만 해석한다.
 
@@ -226,10 +224,12 @@ global running minimum에서는 새 최저치와 plateau만 해석한다.
 
 ### 6.1 우선순위
 
-1. 원 출처가 명시된 최신 maximal-gap record dataset
-2. exhaustive verification limit가 명시된 자료
-3. Oliveira e Silva-Herzog-Pardi 자료와의 중첩 범위 교차검증
-4. 독립적인 record table과의 count, 값, 범위 대조
+1. 정본 입력: [Prime Gap List Project GitHub 저장소](https://github.com/primegap-list-project/prime-gap-list)의 commit-pinned `allgaps.sql`
+2. 참고 표: `prime-gaps-high-watermarks` 웹페이지(입력으로 사용하지 않음)
+3. exhaustive limit: `fully-analyzed` 페이지와 연결된 원 발표
+4. Oliveira e Silva-Herzog-Pardi 자료의 중첩 범위 교차검증
+
+준비 시점(2026-08-22 UTC)에 `master`는 `1a112a1387052d9ad360686313f501c01fe46b68`로 확인했다. 실제 취득 시 다시 resolve하고 그 시점의 40자 commit으로 raw URL을 고정한다. 현재 웹페이지가 명시한 exhaustive upper bound는 2026-05-08의 \(10^{20}\)이다.
 
 전체 소수를 상한까지 다시 생성하지 않는다. 이 연구의 1차 데이터 단위는 record gap이다.
 
@@ -239,9 +239,13 @@ global running minimum에서는 새 최저치와 plateau만 해석한다.
 
 ```text
 datas/
-  raw/             # 다운로드 원본, 수정 금지
-  validated/       # 정규화 및 검증 데이터
-  metadata/        # 출처, checksum, 범위, 정의, 취득 시각
+  raw/prime-gap-list-project/<commit>/
+    allgaps.sql     # 다운로드 원본, 수정·덮어쓰기 금지
+    schema.sql      # 같은 commit의 upstream schema
+    metadata.json   # 두 파일의 commit, URL, 취득 UTC, byte 수, SHA-256
+  validated/prime-gap-list-project/<commit>/
+    maximal_gap_records.csv
+    validation_report.json
 ```
 
 각 원본에 다음 메타데이터를 남긴다.
@@ -273,18 +277,20 @@ gap
 end_prime
 source_id
 source_row_id
+source_commit
 verified_exhaustive_limit
 ```
 
-큰 정수는 float로 변환하지 않는다. CSV/Parquet 입력 시 문자열 또는 임의정밀도 정수로 읽은 뒤 Python `int`로 검증한다.
+큰 정수는 float로 변환하지 않는다. CSV에서는 10진 문자열로 직렬화하고 Python `int`로 복원한다. Parquet을 추가할 경우 `int64`가 \(10^{20}\)을 담지 못하므로 decimal 또는 string schema를 명시하기 전에는 사용하지 않는다.
 
 ### 6.4 검증 항목
 
 - `end_prime == start_prime + gap`
 - `start_prime` 엄격 증가
+- `end_prime` 엄격 증가
 - record `gap` 엄격 증가
-- gap parity와 초기 예외 처리
-- `start_prime`, `end_prime`의 probable-prime 검사(gmpy2)는 보조 검증으로 사용
+- published `ismax=1`과 eligible first-occurrence rows에서 독립 재구성한 high watermark의 완전 일치
+- `gmpy2.next_prime(start_prime) == end_prime` 보조검사
 - 중첩 출처 간 `(start_prime, gap, end_prime)` 일치
 - source가 주장한 record 수와 exhaustive limit 일치
 - 시작점/끝점 경계 의미를 metadata와 결과에 보존
@@ -313,31 +319,34 @@ probable-prime 검사만으로 exhaustive completeness를 주장하지 않는다
 - Conda 환경 검증
 - iterated-log 정본 모듈과 negative-control 단위시험 검증
 - 기존 코드와 결과의 base-\(k\) 오염 여부 정적 감사
+- GitHub allgaps.sql 제한 parser, schema.sql 검증, immutable acquisition, end-bounded interval/jump 분석 코드 작성
+- toy record 기반 parser·high-watermark·interval·승인 gate 단위시험
 - 실행 허가 대기
 
 ### P1 - 데이터 취득(허가 후)
 
-- 출처 및 최신성 확인
-- 원본 다운로드
-- hash와 retrieval metadata 기록
+- `master`를 40자 commit으로 resolve
+- commit-pinned raw URL에서 allgaps.sql과 schema.sql 다운로드
+- 두 raw source와 같은 commit 디렉터리에 hash/retrieval metadata 기록
 
 ### P2 - 데이터 검증
 
-- schema 정규화
+- schema 열 순서 검증과 row 정규화
 - record 및 endpoint 산술 검증
-- 출처 간 교차검증
-- exhaustive coverage 표 작성
+- `ismax`와 독립 high-watermark 재구성 대조
+- external exhaustive coverage provenance와 record count 확인
+- 독립 source가 추가될 때만 중첩 record 교차검증
 
 ### P3 - 수학 계산
 
-- `log1`-`log4`, `F`, `H_start`, `H_end`, `Q_start`, `Q_end`
-- 경계 모드별 interval minimum
-- global running minimum과 log-bin local envelope
+- `log1`-`log4`, `F`, end-bounded `G`, `H`, `Q`
+- end-prime jump interval minimum과 record recovery factor
+- global running minimum, interval-minimum trajectory와 descriptive log-log trend
 
 ### P4 - 산출물
 
-- 핵심 통계 CSV/Parquet
-- 정의별 trajectory와 envelope 그래프
+- 큰 정수를 10진 문자열로 보존한 핵심 통계 CSV
+- end-bounded trajectory, interval minimum, running minimum, jump recovery 그래프
 - Sono 및 `H=1` 참고선
 - Cramér/Wolf 계열 \(\log^2x\) trend와 보조 비교
 
@@ -350,14 +359,15 @@ probable-prime 검사만으로 exhaustive completeness를 주장하지 않는다
 ## 9. 예상 산출물 위치
 
 ```text
-source/                 # 사전검증 정의 모듈; 데이터 의존 모듈은 승인 후
-tests/                  # 데이터 비의존 preflight 단위시험
-test_plan/              # 실행 전 계획, 입력 hash, 성공/중단 기준
-test_result/
+source/                 # 정의, source parser, provenance, validation, analysis, plotting, CLI
+tests/                  # 데이터 비의존 및 toy-record preflight 단위시험
+test_plan/P001_*.md     # 실행 전 목적, source, gate, 성공/중단 기준
+datas/raw/prime-gap-list-project/<commit>/ # 승인 후 immutable raw + schema + metadata
+datas/validated/prime-gap-list-project/<commit>/
+test_result/run_<run-id>/
   tables/
   figures/
-  logs/
-  summary/
+  summary.json
 docs/review/            # 이번 연구의 문헌 리뷰 정본
 docs/method/             # 세부 방법 문서
 ```
@@ -374,13 +384,15 @@ docs/method/             # 세부 방법 문서
 4. 반복로그 domain 및 `X_SCALE_POSITIVE_MIN == 3_814_280`
 5. 양의 분석 구간에서 \(F(x)>0\)
 6. 대표 구간에서 \(F(x)\) 단조증가
-7. start/end 점프 위치 toy record 정답
+7. end-prime 점프 위치 toy record 정답
 8. interval minimum이 brute-force 정수 열거와 일치하는 소형 사례
 9. running minimum 단조 비증가
 10. 마지막 record가 verified limit에서 정확히 잘림
 11. 임의정밀도와 float64 교차검증 허용오차
-12. 입력 row 순서 변경에도 정규화 결과 hash가 동일
-13. 경계 모드가 모든 결과 schema와 그래프에 표시됨
+12. 정규화 row마다 원본 line 기반 source_row_id가 보존됨
+13. 모든 결과 schema와 그래프에 `boundary_mode=end`가 표시됨
+14. 승인 marker 없이는 fetch/validate/analyze가 network·파일 write 전에 중단됨
+15. 프로젝트 텍스트와 파일명에 잘못된 4글자 약어가 0건임
 
 ## 11. 해석 금지사항
 
@@ -388,18 +400,21 @@ docs/method/             # 세부 방법 문서
 - `H=1`을 증명된 Wolf bound로 부르지 않는다.
 - 유한 계산을 무한 범위의 증명으로 표현하지 않는다.
 - unknown \(X_0\) 아래 관측을 정리 위반으로 표현하지 않는다.
-- start-bounded와 end-bounded 결과를 섞지 않는다.
+- source의 start-prime ordering을 canonical end-bounded \(G(x)\)와 혼동하지 않는다.
 - `x=16`부터 계산 가능하다는 사실을 양의 lower-bound 비교 가능성과 혼동하지 않는다.
 - global running minimum이 증가하거나 상하 요동한다고 해석하지 않는다.
 - 최신 record와 exhaustive verified coverage를 같은 뜻으로 쓰지 않는다.
 - 9편에서 동일한 검증 pipeline이 없다는 사실을 전 세계 문헌 novelty 확정으로 확대하지 않는다.
-- Feliksiak preprint의 fitted \(LB/F\) 비교를 무시하고 “FGMT scale과 record의 최초 비교”라고 주장하지 않는다.
+- Feliksiak preprint의 fitted \(LB/F\) 비교를 무시하고 “FGKMT scale과 record의 최초 비교”라고 주장하지 않는다.
 
 ## 12. 실행 승인 체크포인트
 
-실험 허가 요청 시 사용자가 확인할 핵심 선택은 다음 두 가지다.
+실험 허가 요청 시 사용자는 다음 인식이 일치하는지 확인한다.
 
-1. Sono 직접 비교의 주 정의를 `end`, FGMT 호환 보조 정의를 `start`로 두는 이중 산출
-2. theorem-scale envelope 시작점을 `3_814_280`으로 두고 `16`부터의 구간은 domain 진단으로 분리
+1. canonical \(G(x)\)는 사용자가 지정한 `end_prime <= x` 정의 하나다.
+2. theorem-scale envelope는 `3_814_280`부터이며, `16`부터의 앞 구간은 domain 진단뿐이다.
+3. GitHub `allgaps.sql`을 commit으로 고정하고, 실제 \(G(x)\) 주장은 문서화된 exhaustive limit 안에서만 한다.
+4. Sono 비교는 같은 \(F(x)\) scale의 \(k=1\) explicit 기준선이지만, FGKMT 5인 논문의 상수를 그대로 추출한 것으로 표현하지 않는다.
+5. 유한 관측은 empirical result이며 asymptotic theorem의 검증이 아니다.
 
-사용자가 이 방법을 승인한 뒤에만 P1 이후를 수행한다.
+사용자가 이 목적·정의·출처·해석 경계를 승인한 뒤에만 P1 이후를 수행한다.

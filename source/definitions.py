@@ -65,7 +65,7 @@ def log4(x: int | str | mp.mpf) -> mp.mpf:
 
 
 def F(x: int | str | mp.mpf) -> mp.mpf:
-    """Return the canonical FGMT/FMT large-gap scale F(x)."""
+    """Return the canonical FGKMT/FMT large-gap scale F(x)."""
 
     log_1 = log1(x)
     log_2 = log2(x)

@@ -1,37 +1,53 @@
-# 연구 작업지시서: FGMT/FMT 대형 소수간격 하한과 실제 maximal prime gap의 경험적 비교 분석
+# 연구 작업지시서: FGKMT-Sono 대형 소수간격 하한과 실제 maximal prime gap의 경험적 비교 분석
 
 ## 1. 연구 목적
 
-본 연구의 목적은 Ford–Green–Konyagin–Maynard–Tao(FGMT/FMT) 계열의 **large gaps between primes** 하한과 실제 계산된 maximal prime gap \(G(x)\) 사이의 관계를 대규모 소수 데이터로 정량적으로 분석하는 것이다.
-
-특히 Keiju Sono의 explicit constant 결과를 기준으로 다음 점을 조사한다.
+검증된 maximal prime-gap records를 이용하여 실제 maximal gap \(G(x)\)를 복원하고, Ford–Green–Konyagin–Maynard–Tao(FGKMT)의 large-gap asymptotic scale에 대한 정규화값 \(H(x)\)를 계산한다.
 
 \[
-G(x)\ge
-c_{\mathrm{LG}}
-\frac{\log x\,\log_2 x\,\log_4 x}{\log_3 x}
+G(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n),
 \]
-
-여기서
 
 \[
-\log_1x=\log x,\qquad
-\log_2x=\log\log x,\qquad
-\log_3x=\log\log\log x,\qquad
-\log_4x=\log\log\log\log x
+F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x},
 \]
-
-이며 Sono가 제시한 explicit constant
 
 \[
-c_{\mathrm{LG}}\ge 2.0\times10^{-17}
+H(x)=\frac{G(x)}{F(x)}
 \]
 
-을 사용한다.
+를 정의하고 실제 \(H(x)\)의 변화와 lower envelope를 분석한다. 본 연구에서 \(G(x)\)의 record jump 위치는 gap의 끝 소수 \(p_{n+1}\)이며, 이후 모든 표·그래프·통계에서 이 end-bounded 정의를 정본으로 사용한다.
 
-### 1.1 중요 수정 — \(\log_k\)는 base-\(k\) 로그가 아니다
+특히 다음을 조사한다.
 
-이 문서와 FGMT/FMT/Sono 문맥의 아래 첨자 \(k\)는 로그의 밑이 아니라 자연로그의 반복 횟수다.
+- \(H(x)\)가 \(x\)의 증가에 따라 어떤 장기적 추세를 보이는지
+- maximal-gap record 사이에서 \(H(x)\)가 어떻게 감소하고 새로운 record 발생 시 어떻게 회복되는지
+- \(H(x)\)의 running minimum 또는 empirical lower envelope가 \(x\)의 증가에 따라 어떻게 변화하는지
+- Wolf 계열의 경험적 관찰과 실제 데이터가 어느 정도 일치하는지
+- Sono가 explicit하게 제시한 \(c_{\mathrm{LG}}\ge2\times10^{-17}\) 및 이에 대응하는 \(G(x)\ge2\times10^{-17}F(x)\)와 실제 maximal gap 사이에 어느 정도의 격차가 존재하는지
+- 이 격차가 \(x\)의 증가에 따라 줄어드는지, 증가하는지, 특정 패턴을 보이는지 또는 상당히 느리게 변화하는지
+- 계산 범위 내에서 이론적 lower bound가 실제 데이터와 어떤 관계를 가지며, 그 관계에 특이한 구조나 새로운 패턴이 존재하는지
+
+본 연구의 목적은 유한한 계산 결과를 이용해 FGKMT 또는 Sono의 무한 범위 정리를 재증명하거나 검증하는 것이 아니다. 또한 계산 범위에서 부등식이 성립한다는 사실만으로 그 부등식이 모든 더 큰 \(x\)에서도 성립한다고 주장하지 않는다.
+
+대신 실제 maximal prime-gap 데이터와 이론적 large-gap scale 사이의 관계를 정량적으로 분석하고, 그 결과에서 나타나는 empirical behavior 및 lower-envelope의 구조를 확인한다. 관찰된 패턴이 기존 이론과 어떤 관계가 있는지 검토하고, 필요하다면 이를 새로운 수론적 추측, 명시적 임계값 연구 또는 후속 이론적 연구로 발전시킬 가능성도 탐색한다.
+
+### 1.1 실행 승인 경계
+
+현재 단계는 PREPARATION_ONLY다. 코드·문서 작성, 합성 데이터 단위시험, 데이터 비의존 preflight, 읽기 전용 원격 commit 확인까지만 수행한다.
+
+사용자 허가 전에는 다음을 수행하지 않는다.
+
+- allgaps.sql과 schema.sql 다운로드
+- raw 또는 validated 실제 dataset 생성
+- 실제 maximal-gap record 계산
+- test_result의 표·그래프·통계·결과 보고서 생성
+
+Codex는 먼저 연구 목적, end-bounded \(G(x)\), iterated-log \(F(x)\), 데이터 원천과 exhaustive 범위, 계산·검증·해석 방법을 사용자에게 설명한다. 사용자가 같은 목적과 방법으로 인식하는지 확인하고 실제 실행을 명시적으로 허가한 뒤에만 데이터 취득 단계로 이동한다.
+
+### 1.2 중요 수정 — \(\log_k\)는 base-\(k\) 로그가 아니다
+
+이 문서와 FGKMT/Sono 문맥의 아래 첨자 \(k\)는 로그의 밑이 아니라 자연로그의 반복 횟수다.
 
 \[
 \log_k(x)=\underbrace{\ln(\ln(\cdots\ln(x)\cdots))}_{\ln\text{을 }k\text{회 반복}}.
@@ -101,24 +117,15 @@ def F(x):
 
 최종 결과 보고서에도 \(\log_k(x)\)가 \(k\)회 반복한 자연로그라는 정의를 명시한다.
 
-본 연구에서는 이 정리 자체를 재증명하려는 것이 아니다. 대신 **실제 maximal prime gap 데이터에서 이론적 하한이 어느 정도의 여유를 가지고 성립하는지, 그 여유가 \(x\) 증가에 따라 어떻게 변화하는지​**를 조사한다.
-
-핵심 연구 질문은 다음과 같다.
-
-1. 실제 \(G(x)\)는 Sono의 explicit lower bound보다 얼마나 큰가?
-2. 실제 데이터에서 정규화된 비율이 \(x\)에 따라 증가하는가, 감소하는가, 또는 요동하는가?
-3. 실제 비율의 lower envelope가 특정 상수에 접근하는 패턴을 보이는가?
-4. Wolf 계열의 경험적 \(c\approx1\) 관찰과 Sono의 엄밀한 \(c=2\times10^{-17}\) 사이에는 실제로 어느 정도의 격차가 존재하는가?
-5. \(x\)가 증가함에 따라 그 격차가 좁아지는지, 유지되는지, 오히려 커지는지 확인한다.
-6. 실제 데이터에서 Sono의 bound보다 작은 값이 발견되는 경우가 있는지 조사하고, 발견 시 그것이 Sono 정리의 적용범위와 충돌하는지 검토한다.
+global running minimum은 정의상 단조 비증가하므로, 국소적인 증가·회복·요동은 interval minima와 record-jump recovery 또는 별도의 local envelope에서 분석한다.
 
 ---
 
 ## 2. 선행연구 및 연구의 위치
 
-### 2.1 FGMT/FMT large-gap result
+### 2.1 FGKMT large-gap result
 
-FGMT(Ford, Green, Konyagin, Maynard, Tao)는 maximal prime gap에 대해 다음 형태의 점근적 하한을 증명하였다.
+FGKMT(Ford, Green, Konyagin, Maynard, Tao)는 maximal prime gap에 대해 다음 형태의 점근적 하한을 증명하였다.
 
 \[
 G(x)\gg
@@ -140,15 +147,15 @@ F(x)=
 
 Wolf 계열의 경험적 관찰에서는 사실상 \(G(x)\)가 \(F(x)\)보다 큰지 여부와 maximal-gap growth를 조사한다.
 
-### 2.3 Sono의 explicit constant
+### 2.3 Sono의 explicit constant와 계보
 
-Sono는 FGMT 하한의 hidden/implicit constant를 explicit하게 추적하여
+Sono는 Ford–Maynard–Tao의 *Chains of large gaps between primes* 정리를 explicit화하여, 고정된 \(k\)와 충분히 큰 \(X\)에 대해
 
 \[
 c_{\mathrm{LG}}\ge2.0\times10^{-17}
 \]
 
-이라는 값을 제시하였다.
+이라는 값을 제시하였다. \(k=1\)에서는 FGKMT와 동일한 함수형 scale \(F(x)\)에 대응하므로 본 연구의 explicit 비교선으로 사용한다. 다만 이를 “FGKMT 5인 논문에 숨은 상수를 그대로 계산한 값”이라고 서술하지 않는다.
 
 따라서 본 연구에서는 다음의 구체적인 함수
 
@@ -166,7 +173,7 @@ L_{\mathrm{Sono}}(x)
 기존 연구와 중복되지 않도록 다음을 핵심 차별점으로 한다.
 
 - 실제 maximal prime-gap 데이터 사용
-- FGMT/Sono의 explicit lower-bound scale을 직접 사용
+- FGKMT/Sono의 explicit lower-bound scale을 직접 사용
 - 정규화된 함수의 전체 궤적 분석
 - maximal-gap record 사이 interval 전체를 고려
 - 단순한 특정 \(x\)에서의 비교가 아니라 empirical lower envelope 분석
@@ -193,20 +200,17 @@ g_n=p_{n+1}-p_n
 
 이다.
 
-### 3.2 maximal prime gap
+### 3.2 maximal prime gap — end-bounded 정본
 
 다음 함수로 정의한다.
 
 \[
-G(x)
-=
-\max_{p_n\le x}
-(p_{n+1}-p_n)
+G(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n)
 \]
 
-단, 실제 데이터셋의 정의가 \(p_{n+1}\le x\)인지 \(p_n\le x\)인지 반드시 확인하고, 논문 및 데이터셋의 정의와 일관되도록 하나로 고정한다.
+로 고정한다. 원 데이터 표가 start prime을 기준으로 high watermark를 제공하더라도 정규화 후 record jump 위치는 반드시 \(e_i=p_i+g_i\), 즉 end prime으로 변환한다. start-bounded 함수를 같은 이름의 \(G(x)\)로 혼용하지 않는다.
 
-### 3.3 FGMT scale
+### 3.3 FGKMT scale
 
 \[
 F(x)=
@@ -225,7 +229,7 @@ H(x)=\frac{G(x)}{F(x)}
 
 이다.
 
-그러면 FGMT/Sono 형태의 lower bound
+그러면 FGKMT/Sono 형태의 lower bound
 
 \[
 G(x)\ge cF(x)
@@ -273,16 +277,16 @@ H(x)=1
 
 Maximal gap 데이터는 record가 발생할 때만 \(G(x)\)가 증가하는 계단함수이다.
 
-maximal-gap record를
+maximal-gap record를 시작 소수 \(s_i\), gap \(g_i\), 끝 소수 \(e_i=s_i+g_i\)의 삼중항
 
 \[
-(p_i,g_i)
+(s_i,g_i,e_i)
 \]
 
 라 하고 다음 record를
 
 \[
-(p_{i+1},g_{i+1})
+(s_{i+1},g_{i+1},e_{i+1})
 \]
 
 라 하자.
@@ -290,7 +294,7 @@ maximal-gap record를
 그러면
 
 \[
-p_i\le x<p_{i+1}
+e_i\le x<e_{i+1}
 \]
 
 에서
@@ -316,7 +320,7 @@ H(x)=\frac{g_i}{F(x)}
 \[
 H_i^{\min}
 =
-\frac{g_i}{F(p_{i+1}-1)}.
+\frac{g_i}{F(e_{i+1}-1)}.
 \]
 
 이 값이 각 maximal-gap record interval의 worst-case normalized value이다.
@@ -330,8 +334,8 @@ H_i^{\min}
 ### 5.1 실제 normalized coefficient
 
 \[
-H_i=
-\frac{g_i}{F(p_i)}
+H_i^{\mathrm{jump}}=
+\frac{g_i}{F(e_i)}
 \]
 
 ### 5.2 interval minimum
@@ -339,15 +343,14 @@ H_i=
 \[
 H_i^{\min}
 =
-\frac{g_i}{F(p_{i+1}-1)}
+\frac{g_i}{F(e_{i+1}-1)}
 \]
 
 ### 5.3 running minimum
 
 \[
-M(X)
-=
-\min_{16\le x\le X} H(x)
+M(X)=\min_{X_{\mathrm{scale+}}\le x\le X}H(x),
+\qquad X_{\mathrm{scale+}}=3{,}814{,}280
 \]
 
 이 함수가 본 연구의 핵심 empirical lower envelope이다.
@@ -391,13 +394,13 @@ W(x)=1
 
 다음 현상을 모두 조사한다.
 
-### A. 초기 영역
+### A. 반복로그 domain 진단 영역
 
 \[
-x\approx16
+16\le x<3{,}814{,}280
 \]
 
-부터 가능한 범위에서 실제 \(H(x)\)를 계산한다.
+에서는 반복로그의 정의 가능 여부와 \(F(x)\)의 부호만 진단한다.
 
 \(F(x)\)의 수학적 정의 가능 최소 정수는
 
@@ -407,7 +410,7 @@ x=16
 
 이다.
 
-초기 구간의 값도 의미가 있는지 가정하지 말고 데이터에 포함한다.
+이 구간에서는 \(F(x)\le0\)인 값이 존재하므로 theorem-scale \(H\), Sono ratio, running minimum에 포함하지 않는다.
 
 ### B. Wolf 영역
 
@@ -428,19 +431,10 @@ H(x)
 ### D. lower envelope
 
 \[
-M(X)=\min_{x\le X}H(x)
+M(X)=\min_{X_{\mathrm{scale+}}\le x\le X}H(x)
 \]
 
-가
-
-- 감소
-- 증가
-- 수렴
-- 반복적 요동
-- plateau
-- log-scale에서 느린 변화
-
-중 어떤 형태를 보이는지 확인한다.
+는 정의상 단조 비증가하므로 새 최저치와 plateau를 확인한다. 증가·회복·요동 및 느린 국소 변화는 interval minima, record-jump recovery, log-bin/rolling local envelope를 별도로 산출하여 확인한다.
 
 ### E. Sono bound
 
@@ -450,21 +444,28 @@ M(X)<2\times10^{-17}
 
 인 사례가 있는지 검색한다.
 
-발견될 경우 반드시 실제 theorem applicability와 비교한다.
+발견될 경우 정의·입력·정밀도를 재검증하고 theorem applicability와 비교한다. Sono 정리의 수치 임계값이 알려지지 않았으므로 유한 \(x\)의 하회만으로 정리 반례라고 판정하지 않는다.
 
 ### F. Cramér/heuristic scaling
 
 실제 \(H(x)\)의 거동을 Cramér형 maximal-gap scaling과도 비교한다.
 
-다만 본 연구의 주된 기준선은 Cramér가 아니라 FGMT/Sono임을 명확히 한다.
+다만 본 연구의 주된 기준선은 Cramér가 아니라 FGKMT/Sono임을 명확히 한다.
 
 ---
 
 ## 7. 데이터 수집 전략
 
-### 7.1 1차 데이터
+### 7.1 1차 데이터와 정본 출처
 
-가능하면 공개된 maximal prime-gap record dataset을 사용한다.
+1차 데이터는 Prime Gap List Project의 GitHub 저장소를 사용한다.
+
+- 저장소: `https://github.com/primegap-list-project/prime-gap-list`
+- 정본 파일: commit으로 고정한 `allgaps.sql`
+- 참고 웹 표: `https://primegap-list-project.github.io/lists/prime-gaps-high-watermarks/`
+- exhaustive 범위 참고: `https://primegap-list-project.github.io/fully-analyzed/`
+
+웹 표는 참고·대조용이며 파이프라인 입력으로 사용하지 않는다. 실행 시 `master`를 40자 commit으로 resolve하고 raw URL, 취득 UTC, SHA-256을 보존한다.
 
 필요한 최소 열:
 
@@ -544,36 +545,38 @@ jupyter
 
 ## 10. 권장 코드 구조
 
-프로젝트 구조:
+현재 작업 루트와 구현 구조를 정본으로 사용한다.
 
-```text
-prime_gap_fgmt_analysis/
-├─ data/
-│  ├─ maximal_gaps_raw.csv
-│  ├─ maximal_gaps_verified.csv
-│  └─ metadata.json
-│
-├─ src/
-│  ├─ load_data.py
-│  ├─ definitions.py
-│  ├─ fgmt.py
-│  ├─ envelope.py
-│  ├─ validation.py
-│  └─ plots.py
-│
-├─ notebooks/
-│  ├─ 01_data_validation.ipynb
-│  ├─ 02_fgmt_normalization.ipynb
-│  ├─ 03_envelope_analysis.ipynb
-│  └─ 04_scaling_analysis.ipynb
-│
-├─ results/
-│  ├─ tables/
-│  ├─ figures/
-│  └─ summary.json
-│
-└─ README.md
-```
+    Z:\FGKMT-Sono-PrimeGap-Analysis/
+    ├─ AGENTS.md
+    ├─ HANDOFF.md
+    ├─ .agents/skills/                 # Codex가 발견하는 프로젝트 스킬
+    ├─ .claude/skills/                 # 삭제하지 않는 호환 원본 mirror
+    ├─ ai_dev_tool/                    # 계산 함정·착수·핸드오프 규약
+    ├─ article/                        # 제공된 원 논문 PDF
+    ├─ datas/
+    │  ├─ source_registry.json
+    │  ├─ raw/prime-gap-list-project/<commit>/
+    │  │  ├─ allgaps.sql
+    │  │  ├─ schema.sql
+    │  │  └─ metadata.json
+    │  └─ validated/prime-gap-list-project/<commit>/
+    │     ├─ maximal_gap_records.csv
+    │     └─ validation_report.json
+    ├─ source/                         # definitions, parser, provenance, analysis, plots, CLI
+    ├─ tests/                          # 데이터 비의존·합성 fixture 시험
+    ├─ test_plan/
+    ├─ test_result/
+    │  ├─ logs/
+    │  └─ run_<run-id>/
+    │     ├─ tables/
+    │     ├─ figures/
+    │     └─ summary.json
+    └─ docs/
+       ├─ METHODS.md
+       └─ review/
+
+Notebook은 정본 계산 경로로 사용하지 않는다. 모든 결과는 source 모듈과 CLI로 재생성 가능해야 한다.
 
 ---
 
@@ -583,11 +586,11 @@ Codex는 우선 논문 작성이나 해석보다 **재현 가능한 계산 파�
 
 ### Step 1 — 데이터 확보
 
-- Prime Gap List의 maximal-gap record를 다운로드/정리
-- 출처 URL 기록
-- 데이터의 최신 날짜 기록
+- Prime Gap List Project GitHub의 동일한 40자리 commit에서 allgaps.sql과 schema.sql을 취득
+- 파일별 commit-pinned URL, SHA-256, byte 수, 취득 UTC 기록
+- 웹 high-watermark와 fully-analyzed 페이지는 의미와 coverage 확인에만 사용
 - exhaustive verification 범위 기록
-- 원본 파일은 `data/maximal_gaps_raw.csv`에 보존
+- 원본은 datas/raw/prime-gap-list-project/<commit>/에 불변 보존
 
 ### Step 2 — 데이터 검증
 
@@ -603,7 +606,9 @@ record gap이 이전 record보다 엄격하게 큰지 확인.
 
 start prime이 증가하는지 확인.
 
-가능하면 공개 출처와 record 수를 대조.
+published ismax와 eligible first occurrences에서 독립 재구성한 high watermark를 대조.
+
+현재 canonical source 하나만으로 독립 source 교차검증을 했다고 주장하지 않는다.
 
 ### Step 3 — 수학 함수 구현
 
@@ -661,6 +666,7 @@ M(X)=\min_{x\le X}H(x)
 3. running minimum \(M(X)\)
 4. \(Q(x)=H(x)/(2\times10^{-17})\)
 5. Cramér normalization과 비교
+6. 새 maximal-gap record 직전·직후의 \(H\)와 recovery
 
 모든 그래프에는 사용한 데이터 범위와 데이터 출처를 명시한다.
 
@@ -707,7 +713,7 @@ H(x)\ge2\times10^{-17}
 
 가 관찰되어도, 그 사실만으로 무한한 \(x\)에 대한 Sono 정리를 증명하지 않는다.
 
-### 12.4 반례는 의미가 크다
+### 12.4 유한 범위의 하회 관측은 threshold 정보로만 해석한다
 
 Sono theorem의 실제 적용 threshold가 \(x_0\)라고 할 때,
 
@@ -715,15 +721,15 @@ Sono theorem의 실제 적용 threshold가 \(x_0\)라고 할 때,
 H(X)<2\times10^{-17}
 \]
 
-인 \(X\)가 발견되었다면
+인 \(X\)가 verified exhaustive 범위에서 발견되고 Sono와 동일한 함수 정의가 적용된다면
 
 \[
 x_0>X
 \]
 
-라고 할 수 있다.
+인 형태의 uniform threshold가 존재할 경우 그 threshold는 \(X\)보다 커야 한다고 해석할 수 있다.
 
-따라서 반례 탐색은 중요한 목표로 취급한다.
+이는 asymptotic theorem의 반례가 아니며, 유한 범위의 명시적 threshold 연구 자료다.
 
 ---
 
@@ -740,7 +746,7 @@ x_0>X
 "G(x)" "Ford Green Konyagin Maynard Tao" "Wolf"
 "c_LG" prime gaps
 "2×10^-17" prime gaps
-"large gaps between primes" empirical FGMT
+"large gaps between primes" empirical FGKMT
 "maximal prime gaps" "lower envelope"
 ```
 
@@ -756,7 +762,7 @@ x_0>X
 단순히 제목/초록만 보지 말고 다음을 확인:
 
 1. \(G(x)\) 실제 계산 여부
-2. FGMT 하한식 사용 여부
+2. FGKMT 하한식 사용 여부
 3. \(H(x)=G(x)/F(x)\) 또는 동등한 정규화 사용 여부
 4. running minimum/lower envelope 사용 여부
 5. Sono constant \(2\times10^{-17}\) 사용 여부
@@ -849,10 +855,10 @@ behavior of running minimum
 다음 중 하나 이상의 의미 있는 결과를 발견하는 것이 목표다.
 
 1. 기존 연구에서 다루지 않은 \(H(x)\) empirical envelope를 확인
-2. Sono bound와 실제 maximal-gap 데이터 사이의 정량적 격차를 최초로 체계화
+2. Sono bound와 실제 maximal-gap 데이터 사이의 정량적 격차를 재현 가능하게 체계화
 3. \(H(x)\)의 예상 밖 장기 패턴 발견
-4. 기존 empirical model과 FGMT lower-bound scale 사이의 관계 발견
-5. Sono의 bound를 위반하는 계산적 후보 발견
+4. 기존 empirical model과 FGKMT lower-bound scale 사이의 관계 발견
+5. Sono constant를 하회하거나 특이하게 근접하는 유한 범위 구조 발견
 6. 향후 explicit-threshold 증명을 위한 유용한 수치적 conjecture 도출
 
 결과가 단순한 기존 연구 재현이라면 그 사실을 명시하고 연구 방향을 수정한다.
@@ -878,17 +884,18 @@ behavior of running minimum
 
 먼저 아래 순서대로 작업한다.
 
-1. 최신 공개 maximal prime-gap 데이터의 출처와 범위를 확인한다.
-2. 원본 데이터와 검증 데이터를 확보한다.
-3. \(G(x)\), \(F(x)\), \(H(x)\)를 정확하게 구현한다.
-4. 각 maximal-gap interval의 정확한 \(H_{\min}\)을 계산한다.
-5. running minimum \(M(X)\)을 계산한다.
-6. Wolf 기준 \(H=1\)과 Sono 기준 \(H=2\times10^{-17}\)을 표시한다.
-7. 가능한 최대 \(x\)까지 모든 결과를 계산한다.
-8. 그래프와 CSV를 생성한다.
-9. 기존 Wolf/Kourbatov-Wolf/Feliksiak/Cohen/Banks-Ford-Tao/Sono 및 이후 논문과 결과를 비교한다.
-10. 동일 연구 여부를 문헌별로 판정한다.
-11. 그 후에야 연구 결과를 해석한다.
-12. 새로운 패턴이 발견될 경우 해당 패턴을 독립적인 수학적 가설로 분리한다.
+1. 최신 공개 maximal prime-gap 데이터의 출처와 범위를 읽기 전용으로 확인한다.
+2. 연구 이해를 사용자에게 설명하고 목적·정의·범위·방법의 일치와 실제 실행 허가를 확인한다.
+3. 허가 후 원본 데이터와 검증 데이터를 확보한다.
+4. \(G(x)\), \(F(x)\), \(H(x)\)를 정확하게 구현한다.
+5. 각 maximal-gap interval의 정확한 \(H_{\min}\)을 계산한다.
+6. running minimum \(M(X)\)을 계산한다.
+7. Wolf 기준 \(H=1\)과 Sono 기준 \(H=2\times10^{-17}\)을 표시한다.
+8. verified exhaustive limit 안의 가능한 최대 \(x\)까지 결과를 계산한다.
+9. 그래프와 CSV를 생성한다.
+10. 기존 Wolf/Kourbatov-Wolf/Feliksiak/Cohen/Banks-Ford-Tao/Sono 및 이후 논문과 결과를 비교한다.
+11. 동일 연구 여부를 문헌별로 판정한다.
+12. 그 후에야 연구 결과를 해석한다.
+13. 새로운 패턴이 발견될 경우 해당 패턴을 독립적인 수학적 가설로 분리한다.
 
 **첫 단계에서는 해석보다 정확한 데이터 재현성과 기존 연구와의 중복 여부 확인을 우선한다.**

@@ -66,7 +66,7 @@ g_k=p_{k+1}-p_k
 
 - 논문 안에서도 count/table의 경계 표현을 세밀하게 읽어야 한다.
 - source row마다 start prime과 endpoint를 모두 복원한다.
-- `G_start`와 `G_end` 결과를 별도로 계산한다.
+- source에는 start prime과 end prime을 모두 보존하되, 현재 연구 계산은 사용자 지정 end-bounded (G(x)) 하나만 산출한다.
 
 ## 5. 핵심 prime-gap 결과
 
@@ -125,14 +125,14 @@ D_k(x)\sim k!\,x\log^{k-1}x
 
 - 이 논문 표만 최신 maximal-gap dataset으로 간주하지 않는다.
 - Goldbach 검증범위를 prime-gap record의 최신성 또는 전 세계 exhaustive limit와 동일시하지 않는다.
-- \(Q_6(g)\)를 FGMT-normalized \(H\) 또는 Sono 대비 \(Q\)로 바꾸어 읽지 않는다.
+- \(Q_6(g)\)를 FGKMT-normalized \(H\) 또는 Sono 대비 \(Q\)로 바꾸어 읽지 않는다.
 
 ## 7. 제안 실험과의 중복 여부
 
 | 항목 | 논문 수행 여부 |
 |---|---|
 | 실제 maximal-gap record | 예 |
-| FGMT scale \(F(x)\) | 아니오 |
+| FGKMT scale \(F(x)\) | 아니오 |
 | \(H(x)=G/F\) | 아니오 |
 | record interval minimum | 아니오 |
 | running minimum/lower envelope of \(H\) | 아니오 |
@@ -161,4 +161,4 @@ D_k(x)\sim k!\,x\log^{k-1}x
 
 ## 10. 최종 판정
 
-데이터 품질과 중첩 범위 검증에 가장 중요한 논문이다. 다만 본 프로젝트의 핵심 novelty 후보인 FGMT normalization, boundary별 interval minimum, Sono 대비 배수, empirical lower envelope는 수행하지 않았다.
+데이터 품질과 중첩 범위 검증에 가장 중요한 논문이다. 다만 본 프로젝트의 핵심 novelty 후보인 FGKMT normalization, boundary별 interval minimum, Sono 대비 배수, empirical lower envelope는 수행하지 않았다.

@@ -1,0 +1,22 @@
+{
+  "dataset_id": "prime-gap-list-project-allgaps",
+  "dataset_role": "canonical source for known first-occurrence and high-watermark prime gaps",
+  "repository_url": "https://github.com/primegap-list-project/prime-gap-list",
+  "git_url": "https://github.com/primegap-list-project/prime-gap-list.git",
+  "branch": "master",
+  "files": [
+    "allgaps.sql",
+    "schema.sql"
+  ],
+  "schema_url": "https://github.com/primegap-list-project/prime-gap-list/blob/master/schema.sql",
+  "observed_head": "1a112a1387052d9ad360686313f501c01fe46b68",
+  "observed_head_at_utc": "2026-08-22T17:37:48Z",
+  "observed_head_note": "preparation-only git ls-remote lookup; resolve again at approved acquisition time",
+  "reference_web_page": "https://primegap-list-project.github.io/lists/prime-gaps-high-watermarks/",
+  "exhaustive_limit": "100000000000000000000",
+  "exhaustive_limit_date": "2026-05-08",
+  "exhaustive_limit_source": "https://primegap-list-project.github.io/fully-analyzed/",
+  "boundary_contract": "source high-watermarks are start-prime ordered; canonical analysis jump is end_prime=start_prime+gap",
+  "acquisition_policy": "GitHub raw content pinned to a full commit; website is reference only",
+  "actual_dataset_downloaded": false
+}

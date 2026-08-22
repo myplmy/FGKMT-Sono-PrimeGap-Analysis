@@ -2,7 +2,7 @@
 
 ## 프로젝트 정체성
 
-이 저장소는 실제 maximal prime-gap record와 FGMT/FMT 계열 large-gap scale 및 Sono의 explicit constant를 경험적으로 비교하는 계산수론 연구용이다. 이전 실험의 모델 학습 및 GPU 벤치마크 규약은 이 저장소에 적용하지 않는다.
+이 저장소는 검증된 maximal prime-gap record로 end-bounded \(G(x)\)를 복원하고 FGKMT large-gap scale 및 Sono의 explicit constant와 경험적으로 비교하는 계산수론 연구용이다. 이전 실험의 모델 학습 및 GPU 벤치마크 규약은 이 저장소에 적용하지 않는다.
 
 작업 루트:
 
@@ -20,7 +20,9 @@ Z:\FGKMT-Sono-PrimeGap-Analysis
 - 문헌 리뷰와 방법론 문서 작성
 - 폴더 구조 및 import 가능 여부 확인
 - 기존 파일의 정적 검토
+- 데이터 취득·검증·분석·시각화 코드를 작성하되 외부 데이터 없이 toy fixture로 시험
 - 데이터에 의존하지 않는 수학 정의 모듈과 사전검증 단위시험 작성·실행
+- 원격 branch의 commit hash 같은 source metadata를 읽기 전용으로 확인
 
 허가 전 금지:
 
@@ -35,7 +37,7 @@ Z:\FGKMT-Sono-PrimeGap-Analysis
 ## 지시 우선순위와 정본
 
 1. 현재 사용자의 명시적 지시
-2. `연구 작업지시서_ FGMT-FMT 대형 소수간격 하한과 실제 maximal prime gap의 경험적 비교 분석.md`
+2. `연구 작업지시서_ FGKMT-Sono 대형 소수간격 하한과 실제 maximal prime gap의 경험적 비교 분석.md`
 3. `docs/METHODS.md` - 교정된 계산 정의와 실행 절차의 정본
 4. `HANDOFF.md` - 현재 상태, 검증 결과, 승인 경계와 다음 행동
 5. `docs/review/00_문헌_종합_분석.md` - 현재 9편 corpus의 종합 판정
@@ -84,18 +86,31 @@ statsmodels 0.14.6
 
 ```text
 article/          제공된 선행논문 PDF 9편; 원본 수정 금지
-datas/            승인 후 raw, validated, metadata로 분리
-source/           사전검증 정의 모듈; 데이터 의존 계산 모듈은 승인 후 추가
-tests/            데이터 비의존 사전검증 단위시험
+datas/            source registry와 승인 후 commit별 raw/validated 데이터
+source/           정의, source parser, provenance, validation, end-bounded 분석, plotting, CLI
+tests/            데이터 비의존 및 toy-record 사전검증 단위시험
 docs/METHODS.md   방법론 정본
 docs/method/      세부 설계 문서
 docs/review/      이번 연구의 문헌 리뷰 정본
 test_plan/        실행 전 계획과 입력 hash, 성공/중단 기준
-test_result/      승인 후 tables, figures, logs, summary
+test_result/      승인 후 run별 tables, figures, summary
+.agents/skills/   Codex가 자동 탐색하는 프로젝트 스킬
+.claude/skills/   보존하는 호환 mirror; .agents/skills와 내용 일치
+ai_dev_tool/      이 프로젝트의 계산 함정·착수·핸드오프 절차
 tmp/              읽기/렌더링 임시 파일; 최종 산출물 아님
 ```
 
 문헌 리뷰는 `docs/review`에만 작성한다. 유사 철자의 별도 경로를 만들지 않는다.
+
+## Agent skills
+
+Codex의 저장소 스킬 정본 발견 경로는 .agents/skills/다. 사용자가 추가한 .claude/skills/의 폴더·보조 자료는 삭제하지 않고 호환 원본으로 보존하며, 두 트리의 비바이너리 파일을 동일하게 유지한다.
+
+- 작업이 스킬 description과 명확히 일치하거나 사용자가 스킬을 지명하면 해당 SKILL.md 전체를 먼저 읽는다.
+- 이번 연구의 핵심 스킬은 exp-plan, exp-preflight, log-to-result, run-batch, session-handoff다.
+- .claude/skills/를 수정한 뒤 .agents/skills/에 미러링하고 ai_dev_tool/verify_skill_mirror.ps1을 통과시킨다.
+- 스킬은 사용자 승인 경계를 확장하지 않는다. exp-preflight가 READY여도 실제 실험 허가가 없으면 실행하지 않는다.
+- issue, PR, push, merge 같은 외부 변경 스킬은 사용자의 명시적 요청 범위에서만 사용한다.
 
 ## 수학적 불변식
 
@@ -132,17 +147,16 @@ c_{\mathrm{Sono}}=2.0\times10^{-17}.
 
 정의 오류가 발견되면 해당 코드로 계산한 `F`, `H`, Sono ratio, interval minimum, running minimum, 그래프와 통계 요약을 유효하지 않은 산출물로 표시하고 전부 재생성한다.
 
-### 두 maximal-gap 정의를 모두 보존
+### canonical maximal-gap 정의
 
 ```text
-G_start(x) = max gap with start_prime <= x   # FGMT 2018
-G_end(x)   = max gap with end_prime <= x     # Sono k=1, Kourbatov-Wolf 2019
+G(x) = max gap with end_prime <= x
 ```
 
-- Sono 직접 비교의 주 결과는 `end`.
-- FGMT 호환 보조 결과는 `start`.
-- schema, 파일명, 표, 그래프에 `boundary_mode`를 반드시 표시.
-- 한 envelope 안에서 두 정의를 혼합하지 않음.
+- 사용자가 지정한 end-bounded 정의 하나를 연구 정본으로 사용한다.
+- source의 start-prime high-watermark ordering은 `end_prime=start_prime+gap`으로 변환한다.
+- schema, 표, 그래프에 `boundary_mode=end`를 반드시 표시한다.
+- start-bounded 보조 분석은 현재 산출물에 포함하지 않는다.
 
 ### 분석 시작점
 
@@ -156,10 +170,10 @@ X_SCALE_POSITIVE_MIN = 3_814_280
 
 ### envelope 성질
 
-record 점프 위치를 `a_i`라 할 때 interval은 `[a_i, a_{i+1}-1]`이다. 양의 scale 구간에서
+record 점프 위치를 `e_i=end_prime_i`라 할 때 interval은 `[e_i, e_{i+1}-1]`이다. 양의 scale 구간에서
 
 ```text
-H_interval_min = gap_i / F(a_{i+1} - 1)
+H_interval_min = gap_i / F(e_{i+1} - 1)
 ```
 
 이며 시작점은 `X_SCALE_POSITIVE_MIN`으로 clip한다. 마지막 record는 verified exhaustive limit까지만 닫는다.
@@ -169,7 +183,7 @@ global running minimum은 정의상 단조 비증가한다. 증가나 상하 요
 ## 정리와 경험적 주장 구분
 
 - Sono의 `2.0e-17`은 증명된 보수적 상수이지 관측값의 예상 극한이 아니다.
-- Sono 출판본은 FMT `Chains of large gaps between primes`의 explicit version이다. FGMT 5인 논문의 상수를 그대로 계산한 것으로 서술하지 않는다.
+- Sono 출판본은 FMT `Chains of large gaps between primes`의 explicit version이다. FGKMT 5인 논문의 상수를 그대로 계산한 것으로 서술하지 않는다.
 - Sono 정리는 “sufficiently large X”에 적용되며 바로 쓸 수 있는 수치 threshold는 제시하지 않는다.
 - `H=1`은 Kourbatov-Wolf 2020의 2차 empirical 진술을 근거로 한 참고선일 뿐, 증명된 정리나 \(H\)의 극한이 아니다.
 - finite verification, heuristic, conditional theorem, unconditional theorem을 문장과 표에서 구분한다.
@@ -178,23 +192,25 @@ global running minimum은 정의상 단조 비증가한다. 증가나 상하 요
 
 ## 데이터 취급
 
-승인 후 원본은 `datas/raw/`에 저장하고 절대 덮어쓰지 않는다. 모든 source에 URL, 취득 UTC, 버전/날짜, SHA-256, column semantics, boundary semantics, record count, claimed exhaustive limit를 기록한다.
+승인 후 원본은 `datas/raw/prime-gap-list-project/<commit>/`에 저장하고 절대 덮어쓰지 않는다. 정본은 GitHub `allgaps.sql`이며, 실행 시 master를 다시 resolve한 뒤 40자 commit으로 URL을 고정한다. 웹 표는 참고용이다. 모든 source에 URL, 취득 UTC, commit, SHA-256, column semantics, boundary semantics, record count, claimed exhaustive limit를 기록한다.
 
 정규화 최소 schema:
 
 ```text
-record_index,start_prime,gap,end_prime,source_id,source_row_id,verified_exhaustive_limit
+record_index,start_prime,gap,end_prime,source_id,source_row_id,source_commit,verified_exhaustive_limit
 ```
 
 검증 순서:
 
 1. 큰 정수를 문자열/Python `int`로 읽기
 2. `end_prime == start_prime + gap`
-3. start prime과 record gap의 엄격 증가
-4. endpoint probable-prime 보조검사
-5. 독립 출처의 중첩 record 대조
-6. record count와 exhaustive coverage 확인
-7. raw hash와 validated output hash 기록
+3. start prime, end prime, record gap의 엄격 증가
+4. published `ismax`와 eligible first occurrences에서 독립 재구성한 high watermark 대조
+5. `gmpy2.next_prime(start_prime) == end_prime` 보조검사
+6. record count와 external exhaustive coverage provenance 확인
+7. raw 및 schema hash와 validated output hash 기록
+
+독립 source가 추가로 제공되면 중첩 record를 대조하되, 현재 canonical dataset 하나만으로 독립 교차검증을 했다고 주장하지 않는다.
 
 probable-prime 검사는 record completeness의 증거가 아니다. 최신 발견 record와 exhaustive 검증범위도 같은 뜻이 아니다.
 
@@ -207,8 +223,8 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 3. validation report 생성
 4. toy data 단위시험 통과
 5. 반복로그 preflight와 source base-(k) 정적 감사 통과
-6. `F`, 경계별 `G/H/Q`, interval minimum, envelope 계산
-7. 결과 CSV/Parquet 생성
+6. `F`, end-bounded `G/H/Q`, interval minimum, jump recovery, envelope 계산
+7. 큰 정수를 10진 문자열로 보존한 결과 CSV 생성
 8. 그래프 생성
 9. 마지막에만 해석
 
@@ -234,10 +250,12 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - 입력/코드 hash
 - analyzed max x와 record count
 - verified exhaustive range
-- 정의별 minimum H와 위치
+- end-bounded minimum H와 위치
 - Sono 대비 배수와 `H=1` 하회 여부
 - running minimum 및 local envelope 요약
 - 경고, 결측, 해석 한계
+
+표준 run_experiment.ps1은 승인된 실행의 stdout/stderr를 test_result/logs/에 run id별로 보존한다.
 
 결과를 본 뒤 계획서를 소급해 바꾸지 않는다. 변경이 필요하면 새 계획 버전과 이유를 남긴다.
 
@@ -260,7 +278,12 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - `docs/METHODS.md`를 이번 연구 기준으로 교체
 - FGKMT Conda 환경과 requirements 일치 확인
 - iterated-log 정본 모듈과 사전검증 단위시험 준비
+- GitHub source registry 및 commit-pinned immutable acquisition 코드 준비
+- SQL 제한 parser, `ismax` 독립 대조, consecutive-prime 검증 코드 준비
+- end-bounded interval, running minimum, jump recovery, Sono/Cramér 비교 및 plotting 코드 준비
+- `test_plan/P001_...md`와 `run_experiment.ps1` 승인 gate 준비
+- `.claude` 스킬의 Codex 호환 이식 및 `ai_dev_tool` 정비
 - 기존 연구 코드·결과 0건 확인; 폐기 또는 재생성 대상 없음
 - 실제 실험 미실행
 
-다음 행동은 사용자에게 연구 이해와 두 방법론 선택을 설명하고 실행 허가를 받는 것이다.
+다음 행동은 사용자에게 연구 목적·end-bounded 정의·source/exhaustive 범위·Sono 계보에 대한 이해를 설명하고 일치 여부 및 실행 허가를 받는 것이다.

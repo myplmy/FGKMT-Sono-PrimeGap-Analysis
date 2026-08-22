@@ -1,0 +1,6 @@
+interface:
+  display_name: "Zoom out"
+  short_description: "Map the project at a higher level"
+policy:
+  allow_implicit_invocation: false
+

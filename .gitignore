@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+
+datas/raw/
+datas/validated/
+test_result/logs/
+test_result/run_*/
+tmp/
+

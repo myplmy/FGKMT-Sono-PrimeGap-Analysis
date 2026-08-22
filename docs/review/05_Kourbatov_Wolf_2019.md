@@ -35,7 +35,7 @@ G(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n)
 
 로 정의한다(p. 1). 즉 gap endpoint가 \(x\) 이하인 end-bounded 정의다.
 
-일반화된 \(G_c(p)\)도 gap이 끝나는 prime \(p\)를 기준으로 표현한다. 이번 프로젝트에서 Sono \(k=1\)과 직접 비교할 `G_end` 정의를 뒷받침하는 문헌이다.
+일반화된 \(G_c(p)\)도 gap이 끝나는 prime \(p\)를 기준으로 표현한다. 이번 프로젝트의 canonical end-bounded \(G(x)\)와 Sono \(k=1\) 비교를 뒷받침하는 문헌이다.
 
 ## 4. heuristic 구성
 
@@ -139,7 +139,7 @@ Appendix A에 PARI/GP `maxgap.gp`와 보조함수, distribution fitting 절차�
 
 ### 직접 사용
 
-- end-bounded `G_end` 정의
+- canonical end-bounded \(G(x)\) 정의
 - all-prime \(\log^2x-2\log x\log\log x\) 보조 trend
 - record count가 대략 logarithmic이라는 sampling 해석
 - global trend를 제거한 residual distribution 분석 아이디어
@@ -149,14 +149,14 @@ Appendix A에 PARI/GP `maxgap.gp`와 보조함수, distribution fitting 절차�
 ### 사용하지 않을 부분
 
 - residue-class 결과를 all-prime 결과로 자동 일반화하지 않는다.
-- Gumbel fit을 FGMT/Sono lower bound의 근거로 쓰지 않는다.
+- Gumbel fit을 FGKMT/Sono lower bound의 근거로 쓰지 않는다.
 - `H=1`을 이 논문의 직접 결론이라고 표현하지 않는다.
 - most-probable trend를 모든 record에 대한 upper/lower theorem으로 쓰지 않는다.
 - 계산범위 \(10^{14}\)를 exhaustive all-prime record coverage로 해석하지 않는다.
 
 ## 8. `H=1`과의 관계
 
-논문이 all-prime gap에 제시한 scale은 FGMT scale이 아니라 \(\log^2x\)에 음의 보정항을 둔 식이다. 따라서 이 논문만으로
+논문이 all-prime gap에 제시한 scale은 FGKMT scale이 아니라 \(\log^2x\)에 음의 보정항을 둔 식이다. 따라서 이 논문만으로
 
 \[
 H(x)=\frac{G(x)}{F(x)}\approx1
@@ -170,7 +170,7 @@ H(x)=\frac{G(x)}{F(x)}\approx1
 |---|---|
 | maximal-gap record 계산 | 예 |
 | all-prime 및 residue-class trend | 예 |
-| FGMT scale \(F(x)\) | 서론에서 theorem 언급만 |
+| FGKMT scale \(F(x)\) | 서론에서 theorem 언급만 |
 | \(H=G/F\) | 아니오 |
 | exact interval minimum | 아니오 |
 | running minimum/lower envelope of \(H\) | 아니오 |
@@ -186,12 +186,12 @@ H(x)=\frac{G(x)}{F(x)}\approx1
 - finite-range Gumbel fit이 limiting distribution 존재를 보장하지 않는다.
 - trend의 \(O(\log q)\), \(O(\log x)\) 항이 finite range에서 작지 않을 수 있다.
 - record 수가 작고 residue class별 표본을 pooling하므로 독립성/동질성 가정에 주의해야 한다.
-- 저자들의 `G(x)`는 endpoint 기준이므로 FGMT start 기준 결과와 직접 수치 비교 전 변환이 필요하다.
+- 저자들의 `G(x)`는 endpoint 기준이므로 FGKMT start 기준 결과와 직접 수치 비교 전 변환이 필요하다.
 
 ## 11. 확인한 핵심 위치
 
 - Abstract와 all-prime `G(x)` 정의: p. 1
-- FGMT 및 Wolf trend 배경: p. 2
+- FGKMT 및 Wolf trend 배경: p. 2
 - 평균 gap과 EVT trend: pp. 6-8
 - prime case Equation 33: pp. 8-10
 - record-count conjecture: pp. 10-12
@@ -203,4 +203,4 @@ H(x)=\frac{G(x)}{F(x)}\approx1
 
 ## 12. 최종 판정
 
-본 연구의 Wolf 계열 비교와 end-bounded 정의에 가장 직접적인 논문이다. 그러나 FGMT normalization, Sono 상수, interval-wise lower envelope를 다루지 않으므로 제안 실험과 중복되지 않는다.
+본 연구의 Wolf 계열 비교와 end-bounded 정의에 가장 직접적인 논문이다. 그러나 FGKMT normalization, Sono 상수, interval-wise lower envelope를 다루지 않으므로 제안 실험과 중복되지 않는다.

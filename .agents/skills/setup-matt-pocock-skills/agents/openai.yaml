@@ -1,0 +1,6 @@
+interface:
+  display_name: "Setup issue workflow"
+  short_description: "Configure repository issue-workflow metadata"
+policy:
+  allow_implicit_invocation: false
+
