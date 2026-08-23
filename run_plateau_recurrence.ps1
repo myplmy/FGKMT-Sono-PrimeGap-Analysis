@@ -44,11 +44,12 @@ if (Test-Path -LiteralPath $LogPath) {
     throw "Refusing to overwrite log: $LogPath"
 }
 
+Set-Location -LiteralPath $ProjectRoot
 New-Item -ItemType Directory -Path $LogDirectory -Force | Out-Null
 
 function Write-RunLine {
     param([Parameter(Mandatory = $true)][string]$Message)
-    $Message | Tee-Object -LiteralPath $LogPath -Append
+    $Message | Tee-Object -FilePath $LogPath -Append
 }
 
 function Invoke-PythonStage {
@@ -57,7 +58,7 @@ function Invoke-PythonStage {
         [Parameter(Mandatory = $true)][string[]]$Arguments
     )
     Write-RunLine "[STAGE] $Name"
-    & $Python @Arguments 2>&1 | Tee-Object -LiteralPath $LogPath -Append
+    & $Python @Arguments 2>&1 | Tee-Object -FilePath $LogPath -Append
     $StageExit = $LASTEXITCODE
     if ($StageExit -ne 0) {
         throw "Stage '$Name' failed with exit code $StageExit."

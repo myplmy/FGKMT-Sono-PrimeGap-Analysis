@@ -364,13 +364,13 @@ probable-prime 검사만으로 exhaustive completeness를 주장하지 않는다
 - `(10^k,10^(k+1)]` exact log-bin minimum
 - full trailing record-window `w=5,10,20` rolling local envelope와 100-dps 전수검증
 
-### P4 - 산출물(완료; 사용자 시각 QA 대기)
+### P4 - 산출물(완료; 사용자 시각 QA 완료)
 
 - 큰 정수를 10진 문자열로 보존한 핵심 통계 CSV
 - end-bounded trajectory, interval minimum, running minimum, jump recovery 그래프
 - Sono 및 `H=1` 참고선
 - Cramér/Wolf 계열 \(\log^2x\) trend와 보조 비교
-- 8종 PNG/PDF 16개 생성 및 파일 존재 자동검증; 시각 판정은 사용자에게 요청
+- 8종 PNG/PDF 16개 생성 및 파일 존재 자동검증; 사용자 시각 판정 완료
 
 ### P5 - 해석과 중복성 검토(완료)
 
@@ -476,7 +476,7 @@ elapsed_seconds = 7.654
 - gap 154 interval `[4,652,507,17,051,886]` 회귀시험 PASS
 - OEIS record 84/84 PASS; 독립 공개 표현으로 분류
 - Oliveira e Silva 별도 계산 record 75/75 PASS; source limit `4e18`
-- figure 16 files 존재, 누락 0; 사용자 시각 QA 대기
+- figure 16 files 존재, 누락 0; 사용자 시각 QA 완료
 
 해석 정본은 `test_result/202608230503_P003_full_analysis.md`, 문헌 비교와 가설은 `docs/review/10_P003_문헌비교와_후속가설.md`다. machine summary의 `COMPUTED_NOT_INTERPRETED` 상태는 실행 시점의 사전 분리 원칙을 보존하기 위해 사후 변경하지 않는다.
 
@@ -486,6 +486,6 @@ P004 authoritative run `20260823T075238Z_p004_sensitivity`는 전체 47 tests와
 
 P004 실행기는 기존 `source.cli preflight` → 전체 unit tests → 분석 → 독립 verifier를 직렬로 실행하고 첫 실패에서 중단한다. 자동 스크립트가 정의·환경·hash·toy 회귀·수치를 1차로 검증하고, Codex는 source semantics·문헌 적용 범위·해석 라벨·graph visual QA처럼 자동화하기 어려운 부분만 2차 점검한다.
 
-P005에서는 `sethtroisi/prime-gap`이 `m * P#/d` 주변 탐색 도구임을 확인했다. Rank 85→86 일반 x-범위 exhaustive 인증과 동일하지 않으므로 CPU-only BAT는 official correctness와 작은 calibration search만 수행한다. full exhaustive 실행은 coverage certificate와 현실적 계산계획이 생길 때까지 금지한다.
+P005에서는 `sethtroisi/prime-gap`이 `m * P#/d` 주변 탐색 도구임을 확인했다. Rank 85→86 일반 x-범위 exhaustive 인증과 동일하지 않으므로 WSL-native CPU-only shell은 official correctness, 1/2/4/8-thread hash 일치와 작은 calibration만 수행한다. full exhaustive 실행은 coverage certificate와 현실적 계산계획이 생길 때까지 금지한다.
 
-P006에서는 canonical plateau `[e_k,e_(k+1))`와 recurrence exposure `{p_n:s_k<=p_n<s_(k+1)}`를 분리한다. 최초 발생 포함 rate `M/N`과 최초 이후 rate `C/(N-1)`를 사용하며 `C/N`을 주 지표로 사용하지 않는다. 모든 consecutive gap stream이 없는 현재 record table만으로 exact recurrence를 계산하지 않는다.
+P006에서는 canonical plateau `[e_k,e_(k+1))`와 recurrence exposure `{p_n:s_k<=p_n<s_(k+1)}`를 분리한다. Windows NumPy segmented sieve가 모든 consecutive gap을 직접 생성하고, 최초 발생 포함 rate `M/N`과 최초 이후 rate `C/(N-1)`를 계산한다. 코드·preflight·전체 53 tests는 PASS했지만 실제 `[2,10^8]` pilot은 별도 사용자 승인 대기다.

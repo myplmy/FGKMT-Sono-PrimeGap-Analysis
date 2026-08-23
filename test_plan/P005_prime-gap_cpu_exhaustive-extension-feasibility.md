@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`READY_FOR_USER_CALIBRATION` — CPU-only calibration 실행기는 WSL-native shell로 준비됐다. Rank 85→86 전체 exhaustive 실행은 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다. 실행은 사용자가 WSL에서 `--confirm-cpu`를 명시할 때만 시작된다.
+`WAITING_FOR_USER_APPROVAL` — CPU-only calibration 실행기는 WSL-native shell로 준비됐고 구문·승인 차단 검증을 PASS했다. Rank 85→86 전체 exhaustive 실행은 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다. bounded calibration도 별도 실험 승인 후 사용자가 WSL에서 실행한다.
 
 ## 2. 연구 질문과 비목적
 

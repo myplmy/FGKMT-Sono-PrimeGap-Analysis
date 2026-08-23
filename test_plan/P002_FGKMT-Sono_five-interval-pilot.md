@@ -1,6 +1,6 @@
 # P002 — FGKMT-Sono 5개 record interval 제한 pilot
 
-> 상태: **COMPLETED (사용자 그래프 시각 QA 대기)**  
+> 상태: **COMPLETED (사용자 그래프 시각 QA 완료)**
 > 승인 근거: 사용자가 2026-08-23 대화에서 데이터 다운로드와 `x=16`, `x=3,814,280`, 이후 5개 소수 interval에 대한 실제 실행을 명시적으로 요청했다.  
 > 범위 고정: 이 승인은 아래 제한 pilot에만 적용되며 P001의 전체 `10^20` 분석 승인이 아니다.
 
@@ -148,6 +148,6 @@ test_result/<timestamp>_P002_analysis.md
 - minimum Sono ratio: `3.074503163035584702e18`
 - 독립 hash·직접 중첩 자연로그·경계·running minimum 검증: PASS
 - 자동 판정: COMPLETED
-- 사용자 확인 대기: PNG 6개의 축·범례·provenance·가독성 시각 QA
+- 사용자 확인: PNG 6개의 축·범례·provenance·가독성 시각 QA 완료
 - 결과 분석: `test_result/202608230323_P002_analysis.md`
 

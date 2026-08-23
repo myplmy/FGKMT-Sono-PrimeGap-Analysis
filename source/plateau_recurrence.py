@@ -89,8 +89,8 @@ def iter_prime_chunks(limit: int, *, segment_span: int) -> Iterator[np.ndarray]:
         return
     if limit > np.iinfo(np.int64).max:
         raise ValueError("analysis limit exceeds signed 64-bit range")
-    if segment_span < 100:
-        raise ValueError("segment_span must be at least 100 integers")
+    if segment_span < 10:
+        raise ValueError("segment_span must be at least 10 integers")
 
     base_primes = _simple_primes(math.isqrt(limit))
     low = 3

@@ -1,6 +1,6 @@
 # P003 - FGKMT/Sono end-bounded maximal-gap 전체 `10^20` 분석
 
-> 상태: **COMPLETED / AUTOMATED PASS / USER VISUAL QA PENDING**  
+> 상태: **COMPLETED / AUTOMATED PASS / USER VISUAL QA COMPLETED**
 > 승인 근거: 2026-08-23 사용자가 전체 `10^20` 분석, 모든 `F/H` 계산 검증, 독립 source 교차검증, log-bin 및 rolling local envelope, 문헌 비교와 후속 가설 보고를 명시적으로 요청했다.  
 > authoritative run: `20260822T195906Z_full1e20`, exit 0, elapsed 7.654초  
 > 이 문서는 본 계산 전에 고정한 계획이다. 결과를 본 뒤 계산 정의나 판정 기준을 소급 변경하지 않는다.
@@ -201,14 +201,14 @@ log-log slope와 correlation은 기술통계로만 보고한다. log-bin/rolling
 
 ## 12. 후속 작업
 
-1. 사용자가 새 전체 그래프의 축·범례·잘림·가독성을 시각 QA한다.
-2. 관측된 local-envelope 구조가 source/window 선택에 강건한지 민감도 분석한다.
-3. 필요하면 start-bounded FGKMT 호환 계열을 별도 run·파일명으로 산출하되 사용자의 추가 승인을 받는다.
-4. 가설 후보가 남으면 더 넓은 검증자료 또는 이론적 반례 탐색 계획을 별도 P004로 작성한다.
+1. 새 전체 그래프의 사용자 시각 QA는 완료됐다.
+2. local-envelope 민감도와 start/end paired 분석은 P004에서 완료됐다.
+3. 더 넓은 exhaustive 탐색 가능성은 P005에서 calibration gate로 분리했다.
+4. plateau recurrence는 P006에서 별도 pilot으로 준비했다.
 
 ## 13. 실행 결과와 판정
 
-최종 판정: **PASS**, 단 그래프의 표현 품질은 사용자 시각 QA 대기다.
+최종 판정: **PASS**. 그래프의 표현 품질도 사용자가 큰 문제없다고 확인했다.
 
 ### 자동검증
 

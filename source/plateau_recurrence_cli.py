@@ -45,8 +45,8 @@ def _preflight(args: argparse.Namespace) -> int:
         <= MAX_SEGMENT_SPAN,
         "numpy_available": True,
         "matplotlib_available": True,
-        "gpu_required": False,
-        "network_required": False,
+        "gpu_disabled": True,
+        "network_not_required": True,
     }
     payload = {
         "status": "PASS" if all(checks.values()) else "FAIL",

@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`PREPARATION_ONLY` — 정의와 데이터 게이트를 확정했으며 실제 consecutive-prime 생성·통계 실행은 별도 사용자 승인 전에는 수행하지 않는다.
+`WAITING_FOR_USER_APPROVAL` — 정의·코드·자동검증·Windows 실행기를 준비했고 전체 53 tests와 P006 preflight를 PASS했다. 실제 `[2,10^8]` consecutive-prime 생성과 통계 실행은 아직 수행하지 않았으며 사용자의 별도 실험 승인 후에만 시작한다.
 
 ## 2. 연구 질문과 비목적
 
@@ -131,12 +131,13 @@ P006 recurrence 자체에는 `F,H`가 필수가 아니며 연구 질문을 혼�
 ### 자동 1차 게이트
 
 1. 고정 실행환경과 입력·출력 non-overwrite 확인
-2. 직접 중첩 자연로그/base-log negative control은 `F,H`를 계산할 때만 기존 preflight 재사용
+2. validated record CSV의 pinned SHA-256과 source commit 확인
 3. 손계산 gap fixture에서 record transition, `M,C,N,Q,R`, censoring 100% 일치
-4. 두 block으로 나눈 stream과 단일 block stream의 gap·record hash 일치
-5. prime count가 독립 `primecount` 또는 알려진 `pi(10^n)`와 일치
-6. histogram에서 각 plateau의 `histogram[G_k]`가 `M_k`와 일치
-7. 누락·중복 prime 또는 boundary gap 불일치 시 즉시 중단
+4. 여러 chunk로 나눈 stream과 단일 chunk stream의 gap·record 결과 일치
+5. prime count가 알려진 exact `pi(10^n)` 상수와 일치
+6. reconstructed record triplet `(start,gap,end)`가 validated reference와 전부 일치
+7. histogram 총합=`prime_count-1`, gap 1은 1회, 그 밖의 gap은 짝수인지 확인
+8. 누락·중복 prime, boundary gap, `C=M-1`, `Q`, `R` 불일치 시 즉시 중단
 
 ### Codex 수동 2차 게이트
 
@@ -148,27 +149,42 @@ P006 recurrence 자체에는 `F,H`가 필수가 아니며 연구 질문을 혼�
 
 ## 7. 승인 후 실행 명령
 
-아직 구현·승인되지 않았다. pilot 코드와 독립 reference가 준비된 뒤 사용자에게 예상 CPU/RAM/시간을 먼저 보고하고 별도 승인형 실행기를 제공한다.
+주 실행환경은 Windows의 고정 Python `W:\miniforge3\envs\FGKMT\python.exe`다. NumPy odd-only segmented sieve가 prime chunk 사이의 마지막 소수를 이어 붙여 경계 gap을 보존한다. WSL을 호출하지 않으며 새 Python 패키지를 설치하지 않는다.
 
-권장 외부 도구는 WSL의 `primesieve-bin`과 `primecount`이다. 설치는 사용자 승인 후:
+`[2,10^8]` pilot:
 
-```bash
-sudo apt update
-sudo apt install -y primesieve-bin primecount
+```bat
+run_P006_plateau_recurrence_pilot.bat --confirm-p006
 ```
 
-현재 `FGKMT` Conda에는 `numpy`, `pandas`, `scipy`, `statsmodels`가 있고 `sympy`, Python `primesieve`는 없다. production generator는 WSL `primesieve`를 권장하며, 작은 독립 Python reference가 필요하면 `sympy` 설치를 별도로 승인받는다.
+기본 `[2,10^9]` complete configured expansion:
+
+```bat
+run_P006_plateau_recurrence_full.bat --confirm-p006
+```
+
+선택적 `[2,10^10]`:
+
+```bat
+run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
+```
+
+여기서 `full`은 선택한 유한 범위를 모든 consecutive gap으로 완전히 처리한다는 뜻이며 `10^20` 전체를 뜻하지 않는다. 설치된 WSL `primesieve-bin`·`primecount`는 `2^64` 이하의 선택적 독립 교차검산에만 사용할 수 있다.
+
+구현 파일은 `source/plateau_recurrence.py`, `source/plateau_recurrence_cli.py`, `tests/test_plateau_recurrence.py`, 공통 `run_plateau_recurrence.ps1`, 두 BAT 진입점이다.
+
+사전 추정은 `[2,10^8]` 약 1–5분, `[2,10^9]` 약 10–60분, `[2,10^10]` 약 2–12시간이다. 아직 이 PC의 실제 P006 처리량을 측정하지 않은 넓은 계획값이며 pilot 로그로 교체한다. segment working set은 2 GiB보다 훨씬 작게 설계했다.
 
 ## 8. 산출물
 
 - complete plateau table: `k,G_k,s_k,e_k,s_next,e_next,L_end,D_end,L_start,N,M,C,Q,R`
-- censored plateau table
+- right-censored plateau table
 - 전체 gap histogram과 record transition table
-- block coverage ledger와 boundary overlap report
-- direct/reference cross-validation report
-- raw/normalized recurrence scatter와 confidence-free descriptive summaries
-- optional heuristic expected count 및 observed/expected table
-- 실행 로그, 환경 manifest, 입력·출력 SHA-256
+- validated maximal-record triplet과 exact `pi(10^n)` 교차검증 report
+- complete plateau의 `M/C`, `Q/R`, end/start lifetime PNG·PDF 6개
+- saved-artifact SHA-256 manifest와 독립 재해시 report
+- 실행 로그와 환경·입력 provenance
+- 기존 산출물을 덮어쓰지 않는 독립 run directory
 
 ## 9. 판정 기준과 해석 제한
 
@@ -194,9 +210,9 @@ sudo apt install -y primesieve-bin primecount
 
 ### 후속 순서
 
-1. 사용자와 corrected rate `Q=M/N`, `R=C/(N-1)` 정의 합의
-2. pilot 구현 계획 승인
-3. WSL `primesieve-bin`, `primecount` 설치 승인
-4. `[2,10^8]` pilot 및 독립 검증
-5. 결과·자원 사용량 검토 후 `10^9`, `10^10` 확대 여부 결정
-6. external exhaustive raw stream 확보 가능성 조사
+1. corrected rate와 end/start 표본공간 합의 완료
+2. Windows pilot 구현·toy 자동검증 완료
+3. 사용자에게 `[2,10^8]` 실제 pilot 실행 승인 요청
+4. 승인 시 사용자가 BAT 실행 후 로그·run 경로 제공
+5. Codex 검토와 사용자 그래프 시각검사 PASS 후에만 `[2,10^9]` 결정
+6. `10^9` 자원 결과를 본 뒤에만 선택적 `10^10` 확대 여부 결정

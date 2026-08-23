@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`COMPLETED` — authoritative run `20260823T075238Z_p004_sensitivity`가 전체 47 tests와 100-dps 독립 검증 3,747개(issue 0)를 PASS했다. 새 제한축 그래프의 사용자 시각 QA만 남아 있다.
+`COMPLETED` — authoritative run `20260823T075238Z_p004_sensitivity`가 전체 47 tests와 100-dps 독립 검증 3,747개(issue 0)를 PASS했고, 사용자가 새 제한축 그래프도 큰 문제없다고 확인했다.
 
 ## 2. 연구 질문과 비목적
 
@@ -134,11 +134,11 @@ E_d(x)=\min_{\lceil x/10^d\rceil\le t\le x}H_{\mathrm{end}}(t)
 - start/end 차이는 finite boundary convention의 효과이며 어느 한쪽의 오류를 뜻하지 않는다.
 - shifted/bin/window 결과가 비슷해도 점근적 안정성을 증명하지 않는다.
 - 서로 겹치는 rolling·x-width window는 독립 표본이 아니므로 p-value를 산출하지 않는다.
-- 사용자 시각검사를 받기 전 그래프 시각 QA를 PASS로 표시하지 않는다.
+- 그래프 시각 QA는 사용자의 직접 확인을 받아 완료로 표시한다.
 
 ## 10. 후속 작업
 
-- 그래프 사용자 시각 QA
+- 그래프 사용자 시각 QA — 완료
 - 필요 시 real-X infimum 표를 별도 이론 부록으로 추가
 - P005 exhaustive-range 확장 타당성 calibration과 P006 plateau recurrence pilot은 별도 승인·계획으로 유지
 
@@ -156,7 +156,7 @@ E_d(x)=\min_{\lceil x/10^d\rceil\le t\le x}H_{\mathrm{end}}(t)
 - additional rolling final H: w3 `43.1355`, w8 `41.9065`, w15 `41.4586`, w30 `38.8990`
 - x-width final H: 0.5 decade `43.9239`, 1/2 decades `41.9065`
 - verification: 100 dps, 3,747개, issue 0, 최대 상대오차 약 `4.79e-40`
-- graph files: 12개 존재·hash 검증 PASS; visual QA는 사용자 대기
+- graph files: 12개 존재·hash 검증 PASS; 사용자 visual QA 완료
 
 첫 실행은 승인 token 불일치로 분석 전 중단했고, 두 번째 실행은 극소 paired delta의 cancellation을 독립 검증이 검출해 FAIL했다. guard precision과 안정적인 상대차 수식으로 수정한 세 번째 실행만 authoritative로 사용한다. 실패 산출물은 감사 추적용으로 보존한다.
 

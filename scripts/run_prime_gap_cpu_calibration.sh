@@ -191,9 +191,9 @@ done
     echo "target_exhaustive_search=false"
     echo "finished_at_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
     md5sum unknowns/907_2190_1_*_s11000_l100M.txt
-} > "$run_root/manifest.txt"
     echo "thread_scaling_output_hashes_match=true"
     cat "$scaling_hashes"
+} > "$run_root/manifest.txt"
 
 echo "[PASS] P005 CPU calibration completed"
 echo "[RUN] artifact_root=$run_root"

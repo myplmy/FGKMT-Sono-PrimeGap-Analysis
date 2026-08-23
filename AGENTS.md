@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P004 COMPLETED / AUTOMATED PASS / NEW GRAPH USER VISUAL QA PENDING
+## 현재 상태: P004 COMPLETED / AUTOMATED PASS / USER VISUAL QA COMPLETED
 
-P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했다. y축 제한 새 그래프 2종의 사용자 시각 QA가 남아 있다.
+P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 계획은 `test_plan/P004_start-end-boundary_local-envelope-sensitivity.md`, 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005/P006은 준비 단계이며 패키지 설치, P005 calibration BAT 실행, P006 pilot 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 계획은 `test_plan/P004_start-end-boundary_local-envelope-sensitivity.md`, 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 WSL-native calibration과 P006 Windows pilot은 코드·로컬 검증까지 완료했지만 실제 실험은 미승인이다. P005/P006 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -295,8 +295,8 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 
 - P004 start/end paired, shifted log-bin, rolling `w=3,8,15,30`, x-width `0.5,1,2` decade 분석 완료
 - P004 47 tests와 100-dps 독립 검증 3,747개 PASS, issue 0
-- y축 최대 `10^4` 및 첫 interval 생략+y축 최대 `10^3` 그래프 생성; 사용자 시각 QA 대기
-- P005 `prime-gap` CPU-only feasibility 계획·의존성 gate·승인형 BAT 준비; full Rank 85→86 exhaustive는 계산·coverage상 실행 불가 판정
-- P006 plateau recurrence 정의를 end plateau/start exposure로 분리하고 작은 pilot 계획 준비
+- y축 최대 `10^4` 및 첫 interval 생략+y축 최대 `10^3` 그래프 생성; 사용자 시각 QA 완료
+- P005 `prime-gap` CPU-only feasibility 계획·의존성 gate·WSL-native 승인형 shell 준비; full Rank 85→86 exhaustive는 계산·coverage상 실행 불가 판정
+- P006 plateau recurrence를 end plateau/start exposure로 분리하고 Windows exact pilot 코드·실행기·53 tests 준비
 
-다음 행동은 사용자가 P004 새 PNG 2종을 시각 QA하고, 원하면 WSL 의존성을 설치한 뒤 P005 calibration BAT를 직접 실행하는 것이다. P006 pilot은 corrected rate 정의 합의와 별도 실행 승인 후에만 구현·수행한다.
+다음 행동은 사용자 승인 아래 P005 bounded calibration을 WSL에서 실행하거나, P006 `[2,10^8]` pilot을 Windows에서 실행하는 것이다. 두 실제 실험은 현재 수행하지 않았고 P005 결과를 일반 x-range coverage ETA로 해석하지 않는다.
