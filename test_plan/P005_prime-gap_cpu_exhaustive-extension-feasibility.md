@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`WAITING_FOR_USER_APPROVAL` — CPU-only calibration 실행기는 WSL-native shell로 준비됐고 구문·승인 차단 검증을 PASS했다. Rank 85→86 전체 exhaustive 실행은 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다. bounded calibration도 별도 실험 승인 후 사용자가 WSL에서 실행한다.
+`FAILED_CALIBRATION / RUNNER_FIX_AND_NEW_APPROVAL_REQUIRED` — 사용자가 실행한 `20260823T162845Z_p005_prime_gap_cpu_calibration`은 dependency 검사와 CPU build를 통과했으나 upstream Method1 직전에 필요한 `prime-gap-search.db` 초기화가 없어 exit 1로 중단됐다. Method2, 공식 hash, G3 scaling은 실행되지 않았다. Rank 85→86 전체 exhaustive 실행은 여전히 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다.
 
 ## 2. 연구 질문과 비목적
 
@@ -97,14 +97,14 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 - Rank 85/86 classification과 P003 상한을 원천 row에서 확인
 - 전체 범위 규모의 낙관적 시간 하한 계산
 
-### G1 — 의존성 검사 (`USER_REPORTED_INSTALLED / SCRIPT_CHECK_PENDING`)
+### G1 — 의존성 검사 (`PASS — 20260823T162845Z user run`)
 
 - WSL distribution이 Ubuntu인지 확인
 - `git`, `g++`, `make`, `sqlite3`, `md5sum`, `sha256sum`, `nproc`, `/usr/bin/time` 확인
 - `libgmp-dev`, `libsqlite3-dev`, `libprimesieve-dev` 확인
 - 하나라도 없으면 설치하지 않고 중단
 
-### G2 — 공식 correctness calibration (`WAITING_FOR_USER`)
+### G2 — 공식 correctness calibration (`FAIL — SQLITE DATABASE NOT INITIALIZED`)
 
 - exact upstream commit을 새 디렉터리에 clone/checkout
 - `combined_sieve`, `gap_stats`, `gap_test_simple`만 CPU로 빌드
@@ -112,7 +112,7 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 - Method1/Method2 unknown file MD5가 각각 upstream 기대값 `15a5cbff7301262caf047028c05f0525`와 일치해야 함
 - stats와 simple gap test가 성공해야 함
 
-### G3 — 소규모 CPU 탐색 calibration (`WAITING_FOR_USER`)
+### G3 — 소규모 CPU 탐색 calibration (`NOT RUN`)
 
 - 같은 파라미터에서 `minc=2000`, `10000`을 Method2로 실행
 - 같은 `minc=2000` 입력을 1, 2, 4, 8 threads로 격리 실행하고 output SHA-256이 모두 같아야 함
@@ -165,13 +165,24 @@ Windows BAT가 WSL을 중계하지 않으며 `wslpath` 변환도 사용하지 �
 - 범위 길이는 `39,422,150,218,142,643,816,332,802`; 초당 `10^12` 정수라는 비현실적 가정에서도 약 125만 년이다.
 - 따라서 현재 단일 CPU full exhaustive 예상시간은 “완료 불가능”으로 판정하며 시간·일 단위 ETA를 제공하지 않는다.
 
-## 10. 후속 작업
+## 10. 실제 실행 감사
 
-1. 사용자가 WSL-native `.sh`로 G1/G2/G3 calibration 실행
-2. calibration 로그의 실제 처리량·메모리 분석
-3. 탐색 목적이면 primorial-centered 후보 탐색 계획을 별도 수립
-4. exhaustive 목적이면 분산 segmented-sieve와 coverage certificate를 별도 프로젝트로 설계
-5. Rank 85 pointwise `F,H` 계산은 exhaustive 확장과 분리하여 필요 시 별도 승인 실행
+- authoritative log: `test_result/logs/run_20260823T162845Z_p005_prime_gap_cpu_calibration.log`
+- failure analysis: `test_result/202608240158_P005_calibration_failure_analysis.md`
+- upstream source/build: PASS
+- Method1: exit 1, `'prime-gap-search.db' doesn't exist`
+- 부분 `.m1.txt` MD5: `7daa0dc3c3b908e3ca23d83ade76214c`
+- upstream 기대 MD5: `15a5cbff7301262caf047028c05f0525`
+- manifest, Method2, gap stats/test, thread scaling: 생성되지 않음
 
+`tmp/prime-gap-p005/<run-id>/`는 clone/build와 대형 재생성 산출물의 의도된 위치다. 사람이 읽는 실제 실행 로그는 `test_result/logs/`에 정상 저장됐다. 재시도 전 runner에 `sqlite3 prime-gap-search.db < schema.sql`과 DB schema 확인을 추가하고, 기존 partial run을 재사용하지 않아야 한다.
+
+## 11. 후속 작업
+
+1. P005 helper에 run-local SQLite schema 초기화와 실패 manifest를 패치
+2. 정적 검사와 작은 approval-denial 검증 후 사용자에게 새 calibration 승인 요청
+3. 새 run ID에서 G2 official Method1/Method2 hash부터 재검증
+4. G2 PASS 뒤에만 G3 처리량·메모리·thread scaling 실행
+5. exhaustive 목적이면 별도의 constructive coverage certificate를 설계
 
 P005b 제안의 상세 판정과 재개 조건은 `docs/review/14_P005b_exhaustive-extension-calibration_타당성검토.md`를 따른다. 현재는 별도 P005b 실행계획을 만들지 않는다.

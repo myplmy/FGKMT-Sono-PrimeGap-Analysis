@@ -4,9 +4,9 @@
 
 ## 현재 상태
 
-P004 COMPLETED / AUTOMATED VERIFICATION PASS / USER VISUAL QA COMPLETED / P005·P006 WAITING FOR USER APPROVAL
+P004 COMPLETED / P005·P006 FAILED BEFORE RESULTS / P007 CODE READY
 
-P003 `10^20` end-bounded 분석에 이어 P004 start/end 경계·local-envelope 민감도 분석을 완료했다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 전체 47 tests와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 PNG도 큰 문제없다고 확인했다. P005/P006 실제 실행은 별도 승인 대기다.
+P003 `10^20` end-bounded 분석과 P004 start/end 경계·local-envelope 민감도 분석은 완료 상태다. 사용자 실행 P005는 SQLite DB 초기화 누락으로 공식 Method1에서 실패했고 P006은 PowerShell stderr 처리 문제로 실제 분석 전에 중단됐다. P007 finite-range residue-state certificate는 비판 검토·계획·코드·61 tests를 마쳤지만 actual certificate pilot/full은 사용자 승인 전이라 실행하지 않았다.
 
 ## 수학 정의
 
@@ -62,6 +62,8 @@ canonical 입력은 commit `1a112a1387052d9ad360686313f501c01fe46b68`로 고정�
 - docs/review/14_P005b_exhaustive-extension-calibration_타당성검토.md: arbitrary x-range calibration 제안 비판 검토
 - docs/review/13_P006_plateau_recurrence_타당성검토.md: recurrence 정의·데이터 한계 검토
 - test_plan/P006_maximal-gap-plateau-recurrence.md: Windows exact consecutive-gap pilot 실행 계획
+- docs/review/15_P007_finite-range-residue-certificate_타당성검토.md: count upper bound와 직접 탐색 가속의 구분
+- test_plan/P007_finite-range-residue-state-certificate.md: exact certificate pilot과 작은 modulus 비교 계획
 
 - AGENTS.md: Codex 작업·수학·데이터·승인 규약
 - 연구 작업지시서: 연구 목적과 전체 분석 요구

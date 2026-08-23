@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`WAITING_FOR_USER_APPROVAL` — 정의·코드·자동검증·Windows 실행기를 준비했고 전체 53 tests와 P006 preflight를 PASS했다. 실제 `[2,10^8]` consecutive-prime 생성과 통계 실행은 아직 수행하지 않았으며 사용자의 별도 실험 승인 후에만 시작한다.
+`FAILED_BEFORE_ANALYSIS / RUNNER_FIX_AND_NEW_APPROVAL_REQUIRED` — 사용자 실행 `20260823T161227Z_p006_pilot1e8`의 preflight는 PASS했으나 Windows PowerShell 5.1이 정상 `unittest -v` stderr를 `NativeCommandError`로 취급해 unit-test stage에서 runner가 중단됐다. `[2,10^8]` consecutive-prime 생성·통계·그래프는 시작되지 않았다.
 
 ## 2. 연구 질문과 비목적
 
@@ -173,9 +173,23 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 
 구현 파일은 `source/plateau_recurrence.py`, `source/plateau_recurrence_cli.py`, `tests/test_plateau_recurrence.py`, 공통 `run_plateau_recurrence.ps1`, 두 BAT 진입점이다.
 
+**현재 명령을 다시 실행하지 않는다.** `run_plateau_recurrence.ps1`의 native stderr 수집을 `Start-Process` stdout/stderr redirection 같은 방식으로 교정하고 parser·approval-denial·toy test를 통과한 뒤 새 사용자 승인을 받아야 한다.
+
 사전 추정은 `[2,10^8]` 약 1–5분, `[2,10^9]` 약 10–60분, `[2,10^10]` 약 2–12시간이다. 아직 이 PC의 실제 P006 처리량을 측정하지 않은 넓은 계획값이며 pilot 로그로 교체한다. segment working set은 2 GiB보다 훨씬 작게 설계했다.
 
-## 8. 산출물
+## 8. 실제 실패 실행 감사
+
+- authoritative log: `test_result/logs/run_20260823T161227Z_p006_pilot1e8.log`
+- failure analysis: `test_result/202608240158_P006_pilot_failure_analysis.md`
+- preflight: PASS
+- unit-test stage: runner가 stderr 첫 출력에서 중단
+- approved analysis: NOT RUN
+- saved-artifact verification: NOT RUN
+- P006 result directory: 생성되지 않음
+
+이 실패는 P006 수학 코드 또는 segmented sieve 실패의 증거가 아니다. 실제 데이터 단계에 들어가지 않았으므로 pilot 결과값·처리시간·그래프는 없다.
+
+## 9. 예정 산출물
 
 - complete plateau table: `k,G_k,s_k,e_k,s_next,e_next,L_end,D_end,L_start,N,M,C,Q,R`
 - right-censored plateau table
@@ -186,7 +200,7 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 - 실행 로그와 환경·입력 provenance
 - 기존 산출물을 덮어쓰지 않는 독립 run directory
 
-## 9. 판정 기준과 해석 제한
+## 10. 판정 기준과 해석 제한
 
 - 모든 consecutive gap이 coverage된 pilot만 `EXACT_PILOT`로 부른다.
 - record 목록에서 추정한 count는 exact 결과로 채택하지 않는다.
@@ -196,7 +210,7 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 - Hardy–Littlewood, Gallagher, Goldston–Ledoan, Wolf 기준은 조건부 또는 heuristic임을 표기한다.
 - 작은 pilot에서 패턴이 보여도 `10^20` 또는 점근 범위로 외삽하지 않는다.
 
-## 10. 선행연구와 후속 작업
+## 11. 선행연구와 후속 작업
 
 ### 참고문헌
 
@@ -212,7 +226,8 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 
 1. corrected rate와 end/start 표본공간 합의 완료
 2. Windows pilot 구현·toy 자동검증 완료
-3. 사용자에게 `[2,10^8]` 실제 pilot 실행 승인 요청
-4. 승인 시 사용자가 BAT 실행 후 로그·run 경로 제공
-5. Codex 검토와 사용자 그래프 시각검사 PASS 후에만 `[2,10^9]` 결정
-6. `10^9` 자원 결과를 본 뒤에만 선택적 `10^10` 확대 여부 결정
+3. PowerShell native stderr 수집 방식을 교정하고 로컬 parser/toy/full unittest 검증
+4. 사용자에게 `[2,10^8]` 재실행 승인 요청
+5. 승인 시 사용자가 BAT 실행 후 로그·run 경로 제공
+6. Codex 검토와 사용자 그래프 시각검사 PASS 후에만 `[2,10^9]` 결정
+7. `10^9` 자원 결과를 본 뒤에만 선택적 `10^10` 확대 여부 결정
