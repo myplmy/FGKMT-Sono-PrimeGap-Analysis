@@ -4,9 +4,9 @@
 
 ## 현재 상태
 
-P003 COMPLETED / AUTOMATED VERIFICATION PASS / FULL GRAPH USER QA PENDING
+P004 COMPLETED / AUTOMATED VERIFICATION PASS / NEW GRAPH USER QA PENDING
 
-authoritative run `20260822T195906Z_full1e20`에서 \(10^{20}\)까지 64개 end-bounded interval을 분석했다. 100-dps 수치 1,160개, OEIS 84개 record, Oliveira e Silva 별도 계산자료 75개가 모두 일치했다. PNG 8종은 사용자 시각 QA 대기다.
+P003 `10^20` end-bounded 분석에 이어 P004 start/end 경계·local-envelope 민감도 분석을 완료했다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 전체 47 tests와 100-dps 수치·정수 3,747개를 issue 0으로 검증했다. y축 제한을 둔 새 PNG 2종의 사용자 시각 QA가 남아 있다.
 
 ## 수학 정의
 
@@ -55,6 +55,12 @@ canonical 입력은 commit `1a112a1387052d9ad360686313f501c01fe46b68`로 고정�
     .\run_full_analysis.ps1 -Approved
 
 ## 문서
+
+- test_result/202608231652_P004_sensitivity_analysis.md: P004 일상용어 결과와 엄밀 보정 판정
+- docs/review/12_P005_prime-gap_CPU_exhaustive_타당성검토.md: Rank 85 이후 CPU 탐색 타당성
+- test_plan/P005_prime-gap_cpu_exhaustive-extension-feasibility.md: CPU-only calibration과 exhaustive coverage gate
+- docs/review/13_P006_plateau_recurrence_타당성검토.md: recurrence 정의·데이터 한계 검토
+- test_plan/P006_maximal-gap-plateau-recurrence.md: 작은 exhaustive pilot 준비 계획
 
 - AGENTS.md: Codex 작업·수학·데이터·승인 규약
 - 연구 작업지시서: 연구 목적과 전체 분석 요구

@@ -4,12 +4,12 @@
 
 이 문서는 `Z:\FGKMT-Sono-PrimeGap-Analysis`에서 수행할 대형 소수간격 비교 실험의 방법론 정본이다.
 
-- 현재 단계: P002 pilot 계산·자동검증·사용자 그래프 QA 완료, P003 전체 `10^20` 실행 전 preflight
-- 현재 승인 범위: 전체 end-bounded 분석, 모든 `F/H` 독립 검증, 독립 source 교차검증, log-bin·rolling envelope, 문헌 비교·후속 가설 보고
-- 현재 비승인 범위: start-bounded 별도 본 분석, 패키지 설치·변경, 외부 게시, commit/push/PR
-- 실제 실행 시작 조건: `test_plan/P003_FGKMT-Sono_full-1e20-analysis.md`의 사전검증 전 항목 PASS
+- 현재 단계: P003 전체 `10^20` 및 P004 start/end·local-envelope 민감도 실행과 자동검증 완료
+- 완료 승인 범위: end-bounded P003, start/end paired P004, shifted log-bin, 추가 rolling, x-width envelope
+- 현재 비승인 범위: P005 패키지 설치·calibration 실행, P006 recurrence pilot 실행, 외부 게시, commit/push/PR
+- 다음 실제 실행 시작 조건: 해당 `test_plan/P005_...` 또는 `P006_...`의 gate와 사용자 승인·직접 실행 조건 충족
 
-P002 로그와 결과는 독립 파일로 보존하고 P003는 새 run id와 비덮어쓰기 산출물을 사용한다.
+모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
 ## 1. 연구 목적
 
@@ -159,7 +159,7 @@ record \(i\)의 점프 위치는 \(e_i\)이다.
 - Prime Gap List Project의 high-watermark 표는 작은 start prime이 있는지로 record를 배열한다.
 - 원본의 `startprime`과 `gapsize`로 \(e_i=s_i+g_i\)를 계산한 뒤 분석 jump를 end prime으로 변환한다.
 - 모든 표·그래프·요약에 `boundary_mode=end`와 `G definition: end_prime <= x`를 기록한다.
-- start-bounded 보조 계열은 현재 연구 산출물에 포함하지 않는다. 추후 별도 민감도 분석을 할 경우 다른 파일과 변수명으로 격리한다.
+- start-bounded 보조 계열은 P004 전용 파일과 변수명으로 격리하고 canonical end-bounded 계열을 교체하지 않는다.
 
 ## 4. 반복로그 도메인과 분석 시작점
 
@@ -479,3 +479,13 @@ elapsed_seconds = 7.654
 - figure 16 files 존재, 누락 0; 사용자 시각 QA 대기
 
 해석 정본은 `test_result/202608230503_P003_full_analysis.md`, 문헌 비교와 가설은 `docs/review/10_P003_문헌비교와_후속가설.md`다. machine summary의 `COMPUTED_NOT_INTERPRETED` 상태는 실행 시점의 사전 분리 원칙을 보존하기 위해 사후 변경하지 않는다.
+
+## 14. P004 실제 실행과 P005/P006 준비 기록
+
+P004 authoritative run `20260823T075238Z_p004_sensitivity`는 전체 47 tests와 100-dps 독립 검증 3,747개를 issue 0으로 PASS했다. end/start global minimum은 같은 record 50, gap 540에서 각각 `37.81686039672168...`, `37.81686039812796...`였고 shifted log-bin 3종도 같은 global minimum을 보존했다. 상세 해석은 `test_result/202608231652_P004_sensitivity_analysis.md`다.
+
+P004 실행기는 기존 `source.cli preflight` → 전체 unit tests → 분석 → 독립 verifier를 직렬로 실행하고 첫 실패에서 중단한다. 자동 스크립트가 정의·환경·hash·toy 회귀·수치를 1차로 검증하고, Codex는 source semantics·문헌 적용 범위·해석 라벨·graph visual QA처럼 자동화하기 어려운 부분만 2차 점검한다.
+
+P005에서는 `sethtroisi/prime-gap`이 `m * P#/d` 주변 탐색 도구임을 확인했다. Rank 85→86 일반 x-범위 exhaustive 인증과 동일하지 않으므로 CPU-only BAT는 official correctness와 작은 calibration search만 수행한다. full exhaustive 실행은 coverage certificate와 현실적 계산계획이 생길 때까지 금지한다.
+
+P006에서는 canonical plateau `[e_k,e_(k+1))`와 recurrence exposure `{p_n:s_k<=p_n<s_(k+1)}`를 분리한다. 최초 발생 포함 rate `M/N`과 최초 이후 rate `C/(N-1)`를 사용하며 `C/N`을 주 지표로 사용하지 않는다. 모든 consecutive gap stream이 없는 현재 record table만으로 exact recurrence를 계산하지 않는다.

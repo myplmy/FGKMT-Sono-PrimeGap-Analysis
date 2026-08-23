@@ -11,12 +11,12 @@
     "iterated_log": "log_k(x)는 ln을 k회 반복한 값이며 밑 k인 로그가 아니다"
   },
   "execution": {
-    "status": "P003_COMPLETED_AUTOMATED_PASS_VISUAL_QA_PENDING",
-    "approved_scope": "end-bounded full 10^20 analysis; all F/H verification; independent source cross-validation; log-bin and rolling local envelopes; literature and hypothesis reports",
-    "full_analysis_status": "COMPLETED_PASS",
-    "authoritative_run_id": "20260822T195906Z_full1e20",
-    "automated_verification": "PASS: 1160 numeric values, 84 OEIS records, 75 Oliveira records",
-    "user_visual_qa": "PENDING for 8 PNG figure families",
+    "status": "P004_COMPLETED_AUTOMATED_PASS_NEW_GRAPH_VISUAL_QA_PENDING",
+    "approved_scope": "completed P003 end-bounded full 10^20 analysis and P004 start/end paired plus local-envelope sensitivity analysis",
+    "full_analysis_status": "P003_PASS_P004_PASS",
+    "authoritative_run_id": "20260823T075238Z_p004_sensitivity",
+    "automated_verification": "PASS: P004 3747 numeric or integer values; 47 tests; issue 0",
+    "user_visual_qa": "PENDING for two new y-capped P004 PNG figures",
     "actual_experiment_requires_user_approval": true,
     "approval_phrase": "위 목적·정의·데이터 범위·수행방법으로 실제 실험 수행을 허가함",
     "approval_flag": "--approved-by-user",
@@ -32,7 +32,7 @@
       "결과 그래프와 통계 생성"
     ],
     "python": "W:\\miniforge3\\envs\\FGKMT\\python.exe",
-    "launcher": "run_full_analysis.ps1"
+    "launcher": "run_sensitivity_analysis.ps1"
   },
   "data": {
     "canonical_repository": "https://github.com/primegap-list-project/prime-gap-list",
