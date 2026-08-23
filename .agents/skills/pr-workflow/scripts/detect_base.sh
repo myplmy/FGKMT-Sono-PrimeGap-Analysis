@@ -5,7 +5,7 @@
 #   1. 명시 인자 (--base <branch>)            → confidence=HIGH
 #   2. 메타 파일: $GIT_DIR/pr-base             → confidence=HIGH
 #   3. 환경변수: PR_BASE_BRANCH                → confidence=HIGH
-#      (caller 가 .agents/project.json 의 baseBranch 를 이 env 로 주입)
+#      (caller가 정적 참조 레지스트리의 non-null baseBranch를 이 env로 주입)
 #   4. 휴리스틱: 첫 commit 포함 local branch (우선순위 매치 단일 후보)
 #                                              → confidence=MEDIUM
 #   5. 휴리스틱: 여러 후보 모호 / 비매치        → confidence=LOW (출력: AMBIGUOUS)
@@ -88,7 +88,7 @@ if [ -f "$META" ]; then
   fi
 fi
 
-# 3) 환경변수 (project.json 의 baseBranch 를 caller 가 주입)
+# 3) 환경변수 (정적 참조 레지스트리의 baseBranch를 caller가 주입)
 if [ -n "${PR_BASE_BRANCH:-}" ]; then
   emit "$PR_BASE_BRANCH" HIGH env-PR_BASE_BRANCH
 fi

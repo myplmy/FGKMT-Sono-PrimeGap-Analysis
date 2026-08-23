@@ -74,7 +74,7 @@
 
 원 도구에는 combined sieve Method2, OpenMP 1–16 threads, primorial/D 구성, one-side skip, probability ranking, RLE/bit compression, Method1/Method2 교차검증, `--max-mem` OOM 방지 검사가 이미 있다. 이를 다시 Python으로 구현하는 것은 성능과 검증 모두에 불리하다.
 
-따라서 현 단계에서 별도 residue-mask/GPU/새 sieve를 작성하지 않는다. 먼저 고정 commit의 공식 quick test와 3개 규모의 CPU calibration으로 원 도구가 이 PC에서 정확히 빌드되고 재현되는지 측정한다. 이후에도 다음 둘은 분리한다.
+따라서 현 단계에서 별도 residue-mask/GPU/새 sieve를 작성하지 않는다. 먼저 고정 commit의 공식 quick test, 1/2/4/8-thread hash 일치, 작은 CPU calibration으로 원 도구가 이 PC에서 정확히 빌드되고 재현되는지 측정한다. 이후에도 다음 둘은 분리한다.
 
 1. `prime-gap`을 이용한 primorial-centered **탐색**
 2. 일반 x-범위의 누락 없는 **exhaustive 인증**
@@ -85,14 +85,21 @@
 
 Windows native 빌드는 현재 GMP/SQLite/primesieve/OpenMP 도구체인이 갖춰져 있지 않다. WSL2 Ubuntu 24.04에는 `git`, `g++`, `make`가 있고 30 GiB RAM만 노출되어 있으므로 WSL이 더 단순하고 사용자 RAM 제한에도 맞는다.
 
-필요한 설치는 사용자 승인 후 WSL에서 다음과 같다.
+필요한 설치 명령은 다음과 같으며 사용자는 설치 완료를 보고했다. 실제 설치 상태는 실행기 G1이 다시 확인하고 누락 시 설치하지 않은 채 중단한다.
 
 ```bash
 sudo apt update
 sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev libprimesieve-dev time
 ```
 
-준비한 BAT는 GPU target을 빌드하지 않고 8 threads, upstream `--max-mem 28`, OS-level virtual-memory limit 30 GiB를 함께 적용한다. 의존성이 없으면 설치하지 않고 즉시 중단하여 위 명령을 출력한다.
+준비한 WSL-native shell 실행기는 GPU target을 빌드하지 않고 최대 8 threads, upstream `--max-mem 28`, OS-level virtual-memory limit 30 GiB를 함께 적용한다. 의존성이 없으면 설치하지 않고 즉시 중단하여 위 명령을 출력한다. 실행은 WSL에서 다음과 같이 한다.
+
+```bash
+cd /mnt/z/FGKMT-Sono-PrimeGap-Analysis
+bash ./run_P005_prime_gap_cpu_calibration.sh --confirm-cpu
+```
+
+P005b의 arbitrary x-range calibration 제안은 `docs/review/14_P005b_exhaustive-extension-calibration_타당성검토.md`에서 별도로 검토했다. 좌표계 불일치 때문에 독립 실험으로 만들지 않았고 유효한 측정 항목만 P005에 흡수했다.
 
 ## 참고 원천
 

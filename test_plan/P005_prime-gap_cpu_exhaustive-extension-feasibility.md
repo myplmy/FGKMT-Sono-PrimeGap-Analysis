@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`PREPARATION_ONLY` — CPU-only calibration 실행기는 준비하지만, Rank 85→86 전체 exhaustive 실행은 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다. BAT 실행 자체도 사용자가 `--confirm-cpu`를 명시해야 한다.
+`READY_FOR_USER_CALIBRATION` — CPU-only calibration 실행기는 WSL-native shell로 준비됐다. Rank 85→86 전체 exhaustive 실행은 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다. 실행은 사용자가 WSL에서 `--confirm-cpu`를 명시할 때만 시작된다.
 
 ## 2. 연구 질문과 비목적
 
@@ -97,10 +97,10 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 - Rank 85/86 classification과 P003 상한을 원천 row에서 확인
 - 전체 범위 규모의 낙관적 시간 하한 계산
 
-### G1 — 의존성 검사 (`WAITING_FOR_USER`)
+### G1 — 의존성 검사 (`USER_REPORTED_INSTALLED / SCRIPT_CHECK_PENDING`)
 
 - WSL distribution이 Ubuntu인지 확인
-- `git`, `g++`, `make`, `sqlite3`, `md5sum`, `/usr/bin/time` 확인
+- `git`, `g++`, `make`, `sqlite3`, `md5sum`, `sha256sum`, `nproc`, `/usr/bin/time` 확인
 - `libgmp-dev`, `libsqlite3-dev`, `libprimesieve-dev` 확인
 - 하나라도 없으면 설치하지 않고 중단
 
@@ -115,6 +115,8 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 ### G3 — 소규모 CPU 탐색 calibration (`WAITING_FOR_USER`)
 
 - 같은 파라미터에서 `minc=2000`, `10000`을 Method2로 실행
+- 같은 `minc=2000` 입력을 1, 2, 4, 8 threads로 격리 실행하고 output SHA-256이 모두 같아야 함
+- 보고 단위는 `m-values/s`, unknown candidates/s, PRP/s이며 일반 `x-range/s`로 부르지 않음
 - 각 규모에 대해 wall time, maximum resident set, exit code, output hash 저장
 - 메모리 제한 초과, output 충돌, hash/check 실패 시 즉시 중단
 
@@ -131,11 +133,14 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 
 ## 7. 승인 후 실행 명령
 
-의존성 설치 후 저장소 루트의 Windows 터미널에서:
+의존성 설치 후 **WSL Ubuntu 터미널**에서 저장소로 이동해 실행한다. 예를 들어 Windows 저장소가 `Z:`에 있으면:
 
-```bat
-run_P005_prime_gap_cpu_calibration.bat --confirm-cpu
+```bash
+cd /mnt/z/FGKMT-Sono-PrimeGap-Analysis
+bash ./run_P005_prime_gap_cpu_calibration.sh --confirm-cpu
 ```
+
+Windows BAT가 WSL을 중계하지 않으며 `wslpath` 변환도 사용하지 않는다.
 
 이 명령은 작은 탐색/calibration만 수행한다. Rank 85→86 전체 exhaustive 실행 명령이 아니다.
 
@@ -145,6 +150,7 @@ run_P005_prime_gap_cpu_calibration.bat --confirm-cpu
 - `tmp/prime-gap-p005/<UTC>/source/` pinned source/build
 - `tmp/prime-gap-p005/<UTC>/metrics.txt`
 - Method1/Method2 및 추가 minc별 unknown files
+- `tmp/prime-gap-p005/<UTC>/thread_scaling_sha256.txt`
 - 각 minc의 `gap_stats`와 `gap_test_simple` 출력
 - source commit, CPU/thread/memory limit, command가 적힌 manifest
 
@@ -155,14 +161,17 @@ run_P005_prime_gap_cpu_calibration.bat --confirm-cpu
 - G2 hash 일치와 모든 exit code 0이어야 `CALIBRATION_PASS`이다.
 - G3 성공은 이 PC에서 도구가 작동한다는 뜻이지 목표 범위 exhaustive 가능성을 뜻하지 않는다.
 - `gap_stats` probability는 작업 순서 휴리스틱이며 coverage certificate가 아니다.
+- G3의 1/2/4/8-thread output hash가 같아야 하고 scaling 수치는 일반 x축 coverage ETA로 외삽하지 않는다.
 - 범위 길이는 `39,422,150,218,142,643,816,332,802`; 초당 `10^12` 정수라는 비현실적 가정에서도 약 125만 년이다.
 - 따라서 현재 단일 CPU full exhaustive 예상시간은 “완료 불가능”으로 판정하며 시간·일 단위 ETA를 제공하지 않는다.
 
 ## 10. 후속 작업
 
-1. 사용자 의존성 설치 및 G2/G3 BAT 실행
+1. 사용자가 WSL-native `.sh`로 G1/G2/G3 calibration 실행
 2. calibration 로그의 실제 처리량·메모리 분석
 3. 탐색 목적이면 primorial-centered 후보 탐색 계획을 별도 수립
 4. exhaustive 목적이면 분산 segmented-sieve와 coverage certificate를 별도 프로젝트로 설계
 5. Rank 85 pointwise `F,H` 계산은 exhaustive 확장과 분리하여 필요 시 별도 승인 실행
 
+
+P005b 제안의 상세 판정과 재개 조건은 `docs/review/14_P005b_exhaustive-extension-calibration_타당성검토.md`를 따른다. 현재는 별도 P005b 실행계획을 만들지 않는다.

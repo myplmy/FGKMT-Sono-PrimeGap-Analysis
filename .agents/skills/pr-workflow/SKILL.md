@@ -12,7 +12,7 @@ description: 사용자가 명시적으로 요청한 경우 이 저장소의 브�
 1. git status, 현재 branch, remote, base 후보를 다시 확인한다.
 2. 사용자 변경과 이번 작업 변경을 분리한다.
 3. git add . 또는 git add -A를 쓰지 않고 검토한 명시 경로만 stage한다.
-4. raw dataset, validated dataset, 결과 산출물, 비밀정보, ../../project.json의 excludedPaths를 포함하지 않는다.
+4. raw dataset, validated dataset, 결과 산출물, 비밀정보, `ai_dev_tool/project_reference/project_static.json`의 `excludedPaths`를 포함하지 않는다.
 5. 관련 테스트와 문서 정합성 검사를 수행한다.
 6. 한국어 commit 제목과 본문, PR Summary와 Test plan을 제안한다.
 7. 사용자가 커밋만 요청했으면 push나 PR로 범위를 넓히지 않는다.

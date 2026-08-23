@@ -7,8 +7,8 @@
 # 제외 경로 소스 (우선순위):
 #   1. 내장 기본값 (.claude/settings.local.json, .env)
 #   2. env SAFE_STAGE_EXCLUDES — 개행 구분 문자열 (기본값에 추가됨)
-#      → caller(Codex)가 .agents/project.json 의 excludedPaths 를 읽어 주입한다:
-#        SAFE_STAGE_EXCLUDES=$(jq -r '.excludedPaths[]' .agents/project.json 2>/dev/null) \
+#      → caller(Codex)가 정적 참조 레지스트리의 excludedPaths를 읽어 주입한다:
+#        SAFE_STAGE_EXCLUDES=$(jq -r '.excludedPaths[]' ai_dev_tool/project_reference/project_static.json 2>/dev/null) \
 #          bash safe_stage.sh --add ...
 #      (jq 미설치 시 Codex가 값을 직접 개행 구분으로 넘겨도 된다)
 #

@@ -1,6 +1,6 @@
 # Plan 파일 Suffix 규칙
 
-`planDir` 폴더의 suffix는 **문서의 현재 상태**를 표시한다. 6종. (`planDir`·`planDoneDir` 경로는 `.agents/project.json`에서 읽는다.)
+`planDir` 폴더의 suffix는 **문서의 현재 상태**를 표시한다. 6종. (`planDir`·`planDoneDir` 경로는 `ai_dev_tool/project_reference/project_static.json`에서 읽는다.) `planDoneDir`가 `null`인 프로젝트는 현재 파일명 규약을 유지하고 suffix 이관을 자동 수행하지 않는다.
 
 ## 전체 목록
 

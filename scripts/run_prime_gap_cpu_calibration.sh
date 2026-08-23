@@ -42,7 +42,7 @@ echo "[RUN] gpu_disabled=true"
 echo "[RUN] target_exhaustive_search=false"
 
 missing=0
-for command_name in git g++ make sqlite3 md5sum grep tee; do
+for command_name in git g++ make sqlite3 md5sum sha256sum grep tee awk sort wc nproc; do
     if ! command -v "$command_name" >/dev/null 2>&1; then
         echo "[DEPENDENCY] MISSING command=$command_name"
         missing=1
@@ -64,6 +64,12 @@ if (( missing != 0 )); then
     echo "[REQUEST] sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev libprimesieve-dev time"
     exit 4
 fi
+available_threads="$(nproc)"
+if (( available_threads < threads )); then
+    echo "[STOP] Need at least $threads logical CPUs; WSL reports $available_threads."
+    exit 4
+fi
+echo "[RUN] available_logical_cpus=$available_threads"
 
 if [[ -e "$run_root" ]]; then
     echo "[STOP] Refusing to overwrite run directory: $run_root"
@@ -128,6 +134,35 @@ echo "===== upstream-reference-gap-test-simple =====" >> "$metrics_file"
     2>&1 | tee "$run_root/gap_test_simple_minc200.txt"
 grep -q '^7750 ' "$run_root/gap_test_simple_minc200.txt"
 
+scaling_hashes="$run_root/thread_scaling_sha256.txt"
+: > "$scaling_hashes"
+for scaling_threads in 1 2 4 8; do
+    scaling_root="$run_root/thread-scaling/t${scaling_threads}"
+    mkdir -p "$scaling_root/unknowns"
+    echo "[STAGE] thread-scaling minc=2000 threads=$scaling_threads"
+    echo "===== thread-scaling-minc-2000-t$scaling_threads =====" >> "$metrics_file"
+    (
+        cd "$scaling_root"
+        export OMP_NUM_THREADS="$scaling_threads"
+        /usr/bin/time -v -a -o "$metrics_file" \
+            "$source_dir/combined_sieve" -qqq --save-unknowns "${params[@]}" \
+            --minc 2000 -t "$scaling_threads" --max-mem "$max_mem_gib"
+    )
+    scaling_output="$scaling_root/unknowns/907_2190_1_2000_s11000_l100M.txt"
+    if [[ ! -f "$scaling_output" ]]; then
+        echo "[STOP] Missing thread-scaling output: $scaling_output"
+        exit 8
+    fi
+    sha256sum "$scaling_output" >> "$scaling_hashes"
+done
+
+unique_scaling_hashes="$(awk '{print $1}' "$scaling_hashes" | sort -u | wc -l)"
+if [[ "$unique_scaling_hashes" -ne 1 ]]; then
+    echo "[STOP] Thread-scaling outputs disagree; see $scaling_hashes"
+    exit 9
+fi
+echo "[CHECK] thread_scaling_output_hashes_match=true"
+
 for minc in 2000 10000; do
     fn="907_2190_1_${minc}_s11000_l100M.txt"
     echo "[STAGE] calibration-search minc=$minc"
@@ -157,6 +192,8 @@ done
     echo "finished_at_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
     md5sum unknowns/907_2190_1_*_s11000_l100M.txt
 } > "$run_root/manifest.txt"
+    echo "thread_scaling_output_hashes_match=true"
+    cat "$scaling_hashes"
 
 echo "[PASS] P005 CPU calibration completed"
 echo "[RUN] artifact_root=$run_root"

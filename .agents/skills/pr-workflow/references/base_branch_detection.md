@@ -14,7 +14,7 @@ PR base는 **현 worktree/branch가 분기한 대상 branch**다. 항상 `main`�
 |---|---|---|---|
 | 1 | `--base <branch>` 명시 인자 | HIGH | branch 그대로 |
 | 2 | 메타 파일 `$GIT_DIR/pr-base` 첫 줄 | HIGH | branch 그대로 |
-| 3 | 환경변수 `PR_BASE_BRANCH` (caller가 `project.json`의 `baseBranch`를 주입) | HIGH | branch 그대로 |
+| 3 | 환경변수 `PR_BASE_BRANCH` (caller가 정적 참조 레지스트리의 non-null `baseBranch`를 주입) | HIGH | branch 그대로 |
 | 4 | 휴리스틱 — 첫 commit을 포함하는 local branch (단일 후보 또는 우선순위 1개 매치) | MEDIUM | branch |
 | 5 | 휴리스틱 다중 매치 (복수 우선순위 또는 비매치) | LOW | `AMBIGUOUS` + stderr 후보 |
 | 6 | 감지 실패 (reflog 정보 없음 등) | NONE | `AMBIGUOUS` |
@@ -71,7 +71,7 @@ BASE=$(bash .agents/skills/pr-workflow/scripts/detect_base.sh --base main)
 
 - **시간 경과로 후보 증가**: worktree가 오래되어 다른 branch들이 같은 ancestor commit을 포함하면 후보가 늘어난다.
 - **메타 파일 권장**: 1회 사용자 확인 후 `--write`로 영구 기록하면 이후 자동.
-- **커밋 이력이 없는 신규 리포**: 휴리스틱이 NONE을 반환한다. 첫 PR 전 `project.json`의 `baseBranch` 또는 `--write`로 base를 지정하는 것이 확실하다.
+- **커밋 이력이 없는 신규 리포**: 휴리스틱이 NONE을 반환한다. 첫 PR 전 `ai_dev_tool/project_reference/project_static.json`의 `baseBranch`를 명시하거나 `--write`로 base를 지정하는 것이 확실하다.
 
 ## 사용자 문의 절차 (Codex 책임)
 

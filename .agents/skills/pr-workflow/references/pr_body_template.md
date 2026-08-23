@@ -37,7 +37,7 @@
 
 ## Doc Impact 섹션 (조건부)
 
-`.agents/project.json`의 `docImpactTargets`에 정본 문서가 등재된 프로젝트에서만 아래 섹션을 추가한다. **배열이 비어 있으면 이 섹션을 넣지 않는다.**
+`ai_dev_tool/project_reference/project_static.json`의 `docImpactTargets`에 정본 문서가 등재된 프로젝트에서만 아래 섹션을 추가한다. **배열이 비어 있으면 이 섹션을 넣지 않는다.**
 
 ```markdown
 ## Doc Impact

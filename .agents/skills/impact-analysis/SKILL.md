@@ -5,7 +5,7 @@ description: 비자명한 구현이나 연구 방법 변경 전에 프로젝트 
 
 # Impact analysis
 
-프로젝트 설정은 ../../project.json에서 읽는다.
+정적 프로젝트 참조가 필요하면 저장소 루트의 `ai_dev_tool/project_reference/project_static.json`을 읽는다. 현재 실행 상태는 이 파일이 아니라 최신 `handoff/*_HANDOFF.md`에서 확인한다.
 
 ## 변경 전 확인 축
 

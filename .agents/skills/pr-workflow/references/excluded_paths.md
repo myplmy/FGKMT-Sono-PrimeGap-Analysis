@@ -2,12 +2,12 @@
 
 이 경로들은 **PR에 포함되지 않는다**. staging 단계에서 필터링 필수.
 
-## 단일 소스: `.agents/project.json` 의 `excludedPaths`
+## 단일 소스: `ai_dev_tool/project_reference/project_static.json`의 `excludedPaths`
 
-제외 경로 목록은 **`.agents/project.json`의 `excludedPaths` 배열이 단일 소스**다. 스크립트·SKILL·본 문서 어디에도 하드코딩하지 않는다.
+제외 경로 목록은 **`ai_dev_tool/project_reference/project_static.json`의 `excludedPaths` 배열이 단일 소스**다. 스크립트·SKILL·본 문서 어디에도 하드코딩하지 않는다.
 
 ```jsonc
-// .agents/project.json
+// ai_dev_tool/project_reference/project_static.json
 {
   "excludedPaths": [
     ".claude/settings.local.json",   // 내장 기본값
@@ -44,10 +44,10 @@
 
 ```bash
 # jq 가 있으면
-SAFE_STAGE_EXCLUDES=$(jq -r '.excludedPaths[]' .agents/project.json) \
+SAFE_STAGE_EXCLUDES=$(jq -r '.excludedPaths[]' ai_dev_tool/project_reference/project_static.json) \
   bash .agents/skills/pr-workflow/scripts/safe_stage.sh --add <paths>
 
-# jq 가 없으면 Codex가 project.json 을 읽어 값을 개행 구분으로 직접 주입
+# jq 가 없으면 Codex가 정적 참조 JSON을 읽어 값을 개행 구분으로 직접 주입
 ```
 
 ## 특수 케이스
@@ -59,7 +59,7 @@ SAFE_STAGE_EXCLUDES=$(jq -r '.excludedPaths[]' .agents/project.json) \
 3. PR body에 예외 사유 명기
 
 ### 새 제외 경로 발견 시
-프로젝트에서 새 임시·개인 디렉토리가 생기면 **`.agents/project.json`의 `excludedPaths`에만** 추가하면 된다 (스크립트 수정 불필요).
+프로젝트에서 새 임시·개인 디렉토리가 생기면 **`ai_dev_tool/project_reference/project_static.json`의 `excludedPaths`에만** 추가하면 된다 (스크립트 수정 불필요).
 
 ## 검증
 

@@ -3,7 +3,7 @@
 #
 # Base 결정:
 #  - --base 명시 시 그대로 사용
-#  - 미지정 시 detect_base.sh 호출 (project.json → 메타 → env → 휴리스틱)
+#  - 미지정 시 detect_base.sh 호출 (메타 → env → 휴리스틱; 정적 레지스트리 값은 caller가 env로 주입)
 #  - 감지 결과가 LOW/NONE 이면 caller (Codex) 가 사용자에게 문의
 #
 # 사용법:

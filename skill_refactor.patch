@@ -1,0 +1,101 @@
+diff --git a/.agents/skills/impact-analysis/SKILL.md b/.agents/skills/impact-analysis/SKILL.md
+--- a/.agents/skills/impact-analysis/SKILL.md
++++ b/.agents/skills/impact-analysis/SKILL.md
+@@ -8 +8 @@
+-프로젝트 설정은 ../../project.json에서 읽는다.
++정적 프로젝트 참조가 필요하면 저장소 루트의 `ai_dev_tool/project_reference/project_static.json`을 읽는다. 현재 실행 상태는 이 파일이 아니라 최신 `handoff/*_HANDOFF.md`에서 확인한다.
+diff --git a/.agents/skills/plan-doc/assets/templates/plan_basic.md b/.agents/skills/plan-doc/assets/templates/plan_basic.md
+--- a/.agents/skills/plan-doc/assets/templates/plan_basic.md
++++ b/.agents/skills/plan-doc/assets/templates/plan_basic.md
+@@ -70 +70 @@
+-2. 단일 소스는 `.agents/project.json` 의 singleSource 확인하고 재정의 금지
++2. 단일 소스는 `ai_dev_tool/project_reference/project_static.json`의 `singleSource`를 확인하고 재정의 금지
+diff --git a/.agents/skills/plan-doc/references/single_source_map.md b/.agents/skills/plan-doc/references/single_source_map.md
+--- a/.agents/skills/plan-doc/references/single_source_map.md
++++ b/.agents/skills/plan-doc/references/single_source_map.md
+@@ -5 +5 @@
+-## 단일 소스: `.agents/project.json` 의 `singleSource`
++## 단일 소스: `ai_dev_tool/project_reference/project_static.json`의 `singleSource`
+@@ -7 +7 @@
+-단일 소스 맵은 **`.agents/project.json`의 `singleSource` 배열**에 프로젝트별로 정의한다. 이 파일에는 하드코딩하지 않는다.
++단일 소스 맵은 **`ai_dev_tool/project_reference/project_static.json`의 `singleSource` 배열**에 프로젝트별로 정의한다. 이 파일에는 하드코딩하지 않는다.
+@@ -10 +10 @@
+-// .agents/project.json
++// ai_dev_tool/project_reference/project_static.json
+diff --git a/.agents/skills/plan-doc/references/suffix_rules.md b/.agents/skills/plan-doc/references/suffix_rules.md
+--- a/.agents/skills/plan-doc/references/suffix_rules.md
++++ b/.agents/skills/plan-doc/references/suffix_rules.md
+@@ -3 +3 @@
+-`planDir` 폴더의 suffix는 **문서의 현재 상태**를 표시한다. 6종. (`planDir`·`planDoneDir` 경로는 `.agents/project.json`에서 읽는다.)
++`planDir` 폴더의 suffix는 **문서의 현재 상태**를 표시한다. 6종. (`planDir`·`planDoneDir` 경로는 `ai_dev_tool/project_reference/project_static.json`에서 읽는다.) `planDoneDir`가 `null`인 프로젝트는 현재 파일명 규약을 유지하고 suffix 이관을 자동 수행하지 않는다.
+diff --git a/.agents/skills/pr-workflow/SKILL.md b/.agents/skills/pr-workflow/SKILL.md
+--- a/.agents/skills/pr-workflow/SKILL.md
++++ b/.agents/skills/pr-workflow/SKILL.md
+@@ -15 +15 @@
+-4. raw dataset, validated dataset, 결과 산출물, 비밀정보, ../../project.json의 excludedPaths를 포함하지 않는다.
++4. raw dataset, validated dataset, 결과 산출물, 비밀정보, `ai_dev_tool/project_reference/project_static.json`의 `excludedPaths`를 포함하지 않는다.
+diff --git a/.agents/skills/pr-workflow/references/base_branch_detection.md b/.agents/skills/pr-workflow/references/base_branch_detection.md
+--- a/.agents/skills/pr-workflow/references/base_branch_detection.md
++++ b/.agents/skills/pr-workflow/references/base_branch_detection.md
+@@ -17 +17 @@
+-| 3 | 환경변수 `PR_BASE_BRANCH` (caller가 `project.json`의 `baseBranch`를 주입) | HIGH | branch 그대로 |
++| 3 | 환경변수 `PR_BASE_BRANCH` (caller가 정적 참조 레지스트리의 non-null `baseBranch`를 주입) | HIGH | branch 그대로 |
+@@ -74 +74 @@
+-- **커밋 이력이 없는 신규 리포**: 휴리스틱이 NONE을 반환한다. 첫 PR 전 `project.json`의 `baseBranch` 또는 `--write`로 base를 지정하는 것이 확실하다.
++- **커밋 이력이 없는 신규 리포**: 휴리스틱이 NONE을 반환한다. 첫 PR 전 `ai_dev_tool/project_reference/project_static.json`의 `baseBranch`를 명시하거나 `--write`로 base를 지정하는 것이 확실하다.
+diff --git a/.agents/skills/pr-workflow/references/excluded_paths.md b/.agents/skills/pr-workflow/references/excluded_paths.md
+--- a/.agents/skills/pr-workflow/references/excluded_paths.md
++++ b/.agents/skills/pr-workflow/references/excluded_paths.md
+@@ -5 +5 @@
+-## 단일 소스: `.agents/project.json` 의 `excludedPaths`
++## 단일 소스: `ai_dev_tool/project_reference/project_static.json`의 `excludedPaths`
+@@ -7 +7 @@
+-제외 경로 목록은 **`.agents/project.json`의 `excludedPaths` 배열이 단일 소스**다. 스크립트·SKILL·본 문서 어디에도 하드코딩하지 않는다.
++제외 경로 목록은 **`ai_dev_tool/project_reference/project_static.json`의 `excludedPaths` 배열이 단일 소스**다. 스크립트·SKILL·본 문서 어디에도 하드코딩하지 않는다.
+@@ -10 +10 @@
+-// .agents/project.json
++// ai_dev_tool/project_reference/project_static.json
+@@ -47 +47 @@
+-SAFE_STAGE_EXCLUDES=$(jq -r '.excludedPaths[]' .agents/project.json) \
++SAFE_STAGE_EXCLUDES=$(jq -r '.excludedPaths[]' ai_dev_tool/project_reference/project_static.json) \
+@@ -50 +50 @@
+-# jq 가 없으면 Codex가 project.json 을 읽어 값을 개행 구분으로 직접 주입
++# jq 가 없으면 Codex가 정적 참조 JSON을 읽어 값을 개행 구분으로 직접 주입
+@@ -62 +62 @@
+-프로젝트에서 새 임시·개인 디렉토리가 생기면 **`.agents/project.json`의 `excludedPaths`에만** 추가하면 된다 (스크립트 수정 불필요).
++프로젝트에서 새 임시·개인 디렉토리가 생기면 **`ai_dev_tool/project_reference/project_static.json`의 `excludedPaths`에만** 추가하면 된다 (스크립트 수정 불필요).
+diff --git a/.agents/skills/pr-workflow/references/pr_body_template.md b/.agents/skills/pr-workflow/references/pr_body_template.md
+--- a/.agents/skills/pr-workflow/references/pr_body_template.md
++++ b/.agents/skills/pr-workflow/references/pr_body_template.md
+@@ -40 +40 @@
+-`.agents/project.json`의 `docImpactTargets`에 정본 문서가 등재된 프로젝트에서만 아래 섹션을 추가한다. **배열이 비어 있으면 이 섹션을 넣지 않는다.**
++`ai_dev_tool/project_reference/project_static.json`의 `docImpactTargets`에 정본 문서가 등재된 프로젝트에서만 아래 섹션을 추가한다. **배열이 비어 있으면 이 섹션을 넣지 않는다.**
+diff --git a/.agents/skills/pr-workflow/scripts/create_pr.sh b/.agents/skills/pr-workflow/scripts/create_pr.sh
+--- a/.agents/skills/pr-workflow/scripts/create_pr.sh
++++ b/.agents/skills/pr-workflow/scripts/create_pr.sh
+@@ -6 +6 @@
+-#  - 미지정 시 detect_base.sh 호출 (project.json → 메타 → env → 휴리스틱)
++#  - 미지정 시 detect_base.sh 호출 (메타 → env → 휴리스틱; 정적 레지스트리 값은 caller가 env로 주입)
+diff --git a/.agents/skills/pr-workflow/scripts/detect_base.sh b/.agents/skills/pr-workflow/scripts/detect_base.sh
+--- a/.agents/skills/pr-workflow/scripts/detect_base.sh
++++ b/.agents/skills/pr-workflow/scripts/detect_base.sh
+@@ -8 +8 @@
+-#      (caller 가 .agents/project.json 의 baseBranch 를 이 env 로 주입)
++#      (caller가 정적 참조 레지스트리의 non-null baseBranch를 이 env로 주입)
+@@ -91 +91 @@
+-# 3) 환경변수 (project.json 의 baseBranch 를 caller 가 주입)
++# 3) 환경변수 (정적 참조 레지스트리의 baseBranch를 caller가 주입)
+diff --git a/.agents/skills/pr-workflow/scripts/safe_stage.sh b/.agents/skills/pr-workflow/scripts/safe_stage.sh
+--- a/.agents/skills/pr-workflow/scripts/safe_stage.sh
++++ b/.agents/skills/pr-workflow/scripts/safe_stage.sh
+@@ -10,2 +10,2 @@
+-#      → caller(Codex)가 .agents/project.json 의 excludedPaths 를 읽어 주입한다:
+-#        SAFE_STAGE_EXCLUDES=$(jq -r '.excludedPaths[]' .agents/project.json 2>/dev/null) \
++#      → caller(Codex)가 정적 참조 레지스트리의 excludedPaths를 읽어 주입한다:
++#        SAFE_STAGE_EXCLUDES=$(jq -r '.excludedPaths[]' ai_dev_tool/project_reference/project_static.json 2>/dev/null) \
+diff --git a/.agents/skills/setup-matt-pocock-skills/SKILL.md b/.agents/skills/setup-matt-pocock-skills/SKILL.md
+--- a/.agents/skills/setup-matt-pocock-skills/SKILL.md
++++ b/.agents/skills/setup-matt-pocock-skills/SKILL.md
+@@ -10 +10 @@
+-1. AGENTS.md, ../../project.json, remote, 기존 docs/agents를 조사한다.
++1. `AGENTS.md`, `ai_dev_tool/project_reference/project_static.json`, remote, 기존 docs/agents를 조사한다.

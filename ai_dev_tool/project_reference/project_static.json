@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "kind": "fgkmt-sono-project-static-reference",
+  "notCodexStandardConfiguration": true,
+  "project": {
+    "name": "FGKMT-Sono Prime Gap Analysis",
+    "root": ".",
+    "proseLanguage": "ko",
+    "identifierLanguage": "en"
+  },
+  "canonical": {
+    "instructions": "AGENTS.md",
+    "researchDirectivePattern": "연구 작업지시서_*.md",
+    "methods": "docs/METHODS.md",
+    "plans": "test_plan/",
+    "reviews": "docs/review/",
+    "results": "test_result/",
+    "currentStatePattern": "handoff/<YYYYMMDDHHmm>_HANDOFF.md",
+    "sourceRegistry": "datas/source_registry.json"
+  },
+  "planDir": "test_plan/",
+  "planDoneDir": null,
+  "baseBranch": null,
+  "baseBranchPolicy": "detect with .agents/skills/pr-workflow/scripts/detect_base.sh; never assume",
+  "singleSource": [
+    {
+      "item": "canonical end-bounded maximal-gap function and interval boundary",
+      "source": "docs/METHODS.md",
+      "refForm": "docs/METHODS.md의 end-prime 경계 정의 참조"
+    },
+    {
+      "item": "iterated natural logarithms and FGKMT scale F(x)",
+      "source": "docs/METHODS.md",
+      "refForm": "docs/METHODS.md의 iterated-log 및 F(x) 정의 참조"
+    },
+    {
+      "item": "experiment approval boundary",
+      "source": "AGENTS.md and docs/METHODS.md",
+      "refForm": "AGENTS.md와 docs/METHODS.md의 실행 승인 게이트 참조"
+    }
+  ],
+  "docImpactTargets": [
+    "AGENTS.md",
+    "docs/METHODS.md",
+    "test_plan/",
+    "handoff/"
+  ],
+  "excludedPaths": [
+    "datas/raw/",
+    "datas/validated/",
+    "test_result/logs/",
+    "test_result/run_",
+    "tmp/"
+  ]
+}
