@@ -2,9 +2,9 @@
 
 ## 1. 상태
 
-`CODE_READY / WAITING_FOR_USER_APPROVAL`
+`USER_RUN_FAILED_BEFORE_AUDIT / RUNNER_FIXED_LOCALLY / WAITING_FOR_USER_RERUN`
 
-이론 비판 검토, exact verifier, 작은 modulus LP candidate discovery, toy tests, Windows pilot/full 실행기를 준비했다. 실제 P007 pilot 또는 full certificate 실험은 아직 실행하지 않는다. P005/P006 재실행 승인과도 독립이다.
+이론 비판 검토, exact verifier, 작은 modulus LP candidate discovery, toy tests, Windows pilot/full 실행기를 준비했다. 사용자 pilot `20260823T173316Z`는 preflight와 61-test Python process exit 0 뒤 빈 stderr 줄을 복사하는 runner 오류로 certificate audit 전에 중단됐다. 공통 empty-line·전체 ErrorRecord 로깅을 교정했지만 새 actual pilot/full 결과는 없다. P005/P006 재실행 승인과도 독립이다.
 
 ## 2. 목적과 연구 질문
 
@@ -119,12 +119,13 @@ wD\le\lambda_{num}d+\mu_{num}+\phi_i-\phi_j,
 실제 검증 증거:
 
 - targeted P007 tests: 8/8 PASS
-- 최종 전체 repository tests: 61/61 PASS, 4.367초
+- 최종 전체 repository tests: 61/61 PASS, 4.411초
 - supplied verifier: 480 states, 415,223 constraints, minimum slack 0, PASS
 - P007 preflight: 고정 Python·input hash·resource guard 모두 PASS
 - PowerShell parser와 pilot/full BAT approval-denial: PASS
+- 교정 검증 보고서: `test_result/202608240329_P005_P006_P007_runner_fix_local_validation.md`
 
-### G2 — supplied certificate pilot (`WAITING_FOR_USER_APPROVAL`)
+### G2 — supplied certificate pilot (`USER_RUN_FAILED_BEFORE_AUDIT / RERUN_REQUIRED`)
 
 - 입력 hash 고정
 - modulus 2310, 480 states, 415,223 constraints exact 검증
@@ -138,6 +139,13 @@ run_P007_finite_gap_certificate_pilot.bat --confirm-p007
 ```
 
 예상시간: 약 1–3분. 전체 unit tests와 exact 415,223-edge 재검증을 포함한 넓은 추정이다.
+
+실행 감사:
+
+- log: `test_result/logs/run_20260823T173316Z_p007_pilot.log`, SHA-256 `2E0E831DF50361F965EF22E95594ADB80BFF7E5173670366FCA8FD5EE76F8C1B`
+- preflight PASS, 61-test Python process exit 0
+- 정상 빈 stderr 줄의 parameter binding 오류로 certificate audit·result·verification은 NOT RUN
+- 상세: `test_result/202608240315_P007_pilot_failure_analysis.md`
 
 ### G3 — 작은 modulus 비교 full phase A (`WAITING_FOR_USER_APPROVAL`)
 
@@ -197,7 +205,7 @@ global upper bound만으로는 탐색 block을 건너뛸 수 없다. 다음이 �
 - pilot: copied input certificate와 `verification_report.json`
 - full: modulus별 exact certificate와 `comparison_report.json`
 
-기존 파일과 run ID를 덮어쓰지 않는다. PowerShell runner는 Python stderr를 임시 파일로 분리 수집하여 Windows PowerShell 5.1 `NativeCommandError` 오판을 피한다.
+기존 파일과 run ID를 덮어쓰지 않는다. PowerShell runner는 Python stdout/stderr를 임시 파일로 분리 수집하여 Windows PowerShell 5.1 `NativeCommandError` 오판을 피하고, 빈 줄·traceback·nonzero exit·PowerShell 전체 ErrorRecord를 같은 run log에 보존한다.
 
 ## 9. 성공·경고·중단 기준
 
@@ -235,6 +243,26 @@ global upper bound만으로는 탐색 block을 건너뛸 수 없다. 다음이 �
 - `N=0`을 인증하지 못하면 해당 범위에서 gap 1856 이상이 없다고 결론 내리지 않는다.
 - P007 start-bounded count를 P003/P004 end-bounded `G(x)` 산출물과 직접 합치지 않는다.
 
+### 10.1 상한 크기와 알고리즘 연결 기준
+
+현재 인증의 정규화 분모는 `T≈398.2227929091105`이고 `C=U/T`다. 정수 `U`가 엄밀한 결론이며 `C`는 크기 비교용이다.
+
+| 수준 | count upper bound `U` | 대응 `C` | 전역 bound만으로 P005 직접 가속? |
+|---|---:|---:|---|
+| 현재 | `439161464927854179` | `1.102803437542279e15` | 아니오 |
+| `C=1e14` | 약 `3.982227929091105e16` | `1e14` | 아니오 |
+| `U≤10^9` | `1000000000` | 약 `2.5111571e6` | 아니오; 위치 목록이 아님 |
+| `U≤1` | `1` | 약 `0.0025111571` | 아니오; 한 곳의 위치도 모름 |
+| `U=0` | `0` | `0` | 예; 해당 threshold 질문에는 탐색 불필요 |
+
+양의 `U`에서 계산 개선을 주장하려면 실제 후보 cover 크기 `K` 또는 건너뛴 block의 local certificate가 필요하다. 실측 break-even은
+
+\[
+T_{certificate}+K T_{verify}+T_{coverage}<T_{baseline}
+\]
+
+으로 판정한다. `K`를 주지 않는 전역 `U`에는 “얼마 이하이면 자동으로 빨라진다”는 단일 임계값이 없다.
+
 ## 11. 참고문헌
 
 1. Ford, Green, Konyagin, Maynard, Tao, *Long gaps between primes*, JAMS 31 (2018), DOI https://doi.org/10.1090/jams/876
@@ -250,4 +278,4 @@ global upper bound만으로는 탐색 block을 건너뛸 수 없다. 다음이 �
 
 ## 12. 다음 승인 결정
 
-먼저 G1 로컬검증 결과를 확인하고, 사용자가 원하면 G2 pilot만 실행한다. G2 결과를 Codex가 검토한 뒤에만 G3 full phase A 실행 여부를 결정한다. G4/G5는 현재 실행 승인을 요청하지 않는다.
+사용자가 원하면 교정판 G2 pilot을 다시 실행한다. 새 log와 saved artifact를 Codex가 검토한 뒤에만 G3 full phase A 실행 여부를 결정한다. G4/G5는 현재 실행 승인을 요청하지 않는다.

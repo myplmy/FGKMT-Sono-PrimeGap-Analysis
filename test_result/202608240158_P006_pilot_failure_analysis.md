@@ -67,3 +67,9 @@ Python stderr를 PowerShell error stream에 직접 합치지 않고, `Start-Proc
 ## 쉬운 설명
 
 시험 프로그램은 “지금 몇 번째 검사를 하는 중인지”를 별도 통로로 알려 줬다. PowerShell이 그 안내문을 진짜 오류로 착각해 정지 버튼을 눌렀다. 실제 소수 계산 단계에는 아직 들어가지 않았으므로, 이번 로그만으로 P006 알고리즘의 성공이나 실패를 판단하면 안 된다.
+
+## 2026-08-24 후속 교정
+
+같은 BAT의 두 번째 사용자 실행 `20260823T173021Z_p006_pilot1e8`도 같은 원인으로 actual analysis 전에 중단됐다. 상세 문서는 `test_result/202608240315_P006_second_pilot_failure_analysis.md`다.
+
+이후 P006/P007 공통 PowerShell helper로 stdout/stderr 분리 수집, 빈 줄 보존, process exit 판정, 전체 ErrorRecord 기록을 구현했다. parser, blank-line stdout/stderr, synthetic exit 7 toy self-test와 BAT approval-denial은 PASS했다. 교정판 actual P006 pilot은 아직 실행하지 않았다.

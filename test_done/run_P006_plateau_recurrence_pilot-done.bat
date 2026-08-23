@@ -4,7 +4,6 @@ setlocal EnableExtensions DisableDelayedExpansion
 if /I not "%~1"=="--confirm-p006" goto :usage
 if not "%~2"=="" goto :usage
 
-echo [INFO] Active launcher revision: stderr-safe runner 2026-08-24; not yet user-tested.
 echo [INFO] P006 exact pilot range: [2, 100000000].
 echo [INFO] Windows FGKMT Python will be used; WSL is not called.
 echo [INFO] This reconstructs every consecutive gap in the configured range.

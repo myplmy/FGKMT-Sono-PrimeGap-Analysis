@@ -2,7 +2,9 @@
 
 ## 1. 상태
 
-`FAILED_CALIBRATION / RUNNER_FIX_AND_NEW_APPROVAL_REQUIRED` — 사용자가 실행한 `20260823T162845Z_p005_prime_gap_cpu_calibration`은 dependency 검사와 CPU build를 통과했으나 upstream Method1 직전에 필요한 `prime-gap-search.db` 초기화가 없어 exit 1로 중단됐다. Method2, 공식 hash, G3 scaling은 실행되지 않았다. Rank 85→86 전체 exhaustive 실행은 여전히 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다.
+`HELPER_FIXED_LOCALLY / WAITING_FOR_USER_RERUN` — 사용자 실행 `20260823T162845Z_p005_prime_gap_cpu_calibration`은 dependency 검사와 CPU build를 통과했으나 upstream Method1 직전에 `prime-gap-search.db`가 없어 exit 1로 중단됐다. helper에 run-local SQLite schema/table 검사, 명시적 DB 경로, 실패 `manifest.failed.txt`를 추가하고 bash parser·toy schema·approval-denial을 통과시켰지만 새 actual calibration은 없다. Rank 85→86 전체 exhaustive 실행은 여전히 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다.
+
+교정 검증 증거: `test_result/202608240329_P005_P006_P007_runner_fix_local_validation.md`
 
 ## 2. 연구 질문과 비목적
 
@@ -112,6 +114,8 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 - Method1/Method2 unknown file MD5가 각각 upstream 기대값 `15a5cbff7301262caf047028c05f0525`와 일치해야 함
 - stats와 simple gap test가 성공해야 함
 
+이 G2 표시는 과거 actual run 판정이다. 교정판 helper는 계산 전 `schema.sql`을 읽어 `m_stats,range,range_stats,result` table을 확인하고, root·thread-scaling 명령에 격리된 `--search-db`를 전달한다. 실제 G2 PASS 여부는 새 run의 두 MD5와 terminal manifest로만 판정한다.
+
 ### G3 — 소규모 CPU 탐색 calibration (`NOT RUN`)
 
 - 같은 파라미터에서 `minc=2000`, `10000`을 Method2로 실행
@@ -153,6 +157,7 @@ Windows BAT가 WSL을 중계하지 않으며 `wslpath` 변환도 사용하지 �
 - `tmp/prime-gap-p005/<UTC>/thread_scaling_sha256.txt`
 - 각 minc의 `gap_stats`와 `gap_test_simple` 출력
 - source commit, CPU/thread/memory limit, command가 적힌 manifest
+- 실패 시 stage, exit code, command/line, partial hash가 적힌 `manifest.failed.txt`
 
 `tmp/` 결과는 대형·재생성 가능 산출물이므로 git에 커밋하지 않는다. 실행 로그도 기존 정책대로 ignore한다.
 
@@ -175,14 +180,14 @@ Windows BAT가 WSL을 중계하지 않으며 `wslpath` 변환도 사용하지 �
 - upstream 기대 MD5: `15a5cbff7301262caf047028c05f0525`
 - manifest, Method2, gap stats/test, thread scaling: 생성되지 않음
 
-`tmp/prime-gap-p005/<run-id>/`는 clone/build와 대형 재생성 산출물의 의도된 위치다. 사람이 읽는 실제 실행 로그는 `test_result/logs/`에 정상 저장됐다. 재시도 전 runner에 `sqlite3 prime-gap-search.db < schema.sql`과 DB schema 확인을 추가하고, 기존 partial run을 재사용하지 않아야 한다.
+`tmp/prime-gap-p005/<run-id>/`는 clone/build와 대형 재생성 산출물의 의도된 위치다. 사람이 읽는 실제 실행 로그는 `test_result/logs/`에 정상 저장됐다. 교정판은 `sqlite3 <db> < schema.sql`과 네 table 검사를 Method1 전에 수행하고 실패 manifest를 남긴다. 기존 partial run은 재사용하지 않으며 새 run ID가 필요하다.
 
 ## 11. 후속 작업
 
-1. P005 helper에 run-local SQLite schema 초기화와 실패 manifest를 패치
-2. 정적 검사와 작은 approval-denial 검증 후 사용자에게 새 calibration 승인 요청
-3. 새 run ID에서 G2 official Method1/Method2 hash부터 재검증
-4. G2 PASS 뒤에만 G3 처리량·메모리·thread scaling 실행
+1. P005 helper의 run-local SQLite schema와 실패 manifest 패치 완료
+2. `bash -n`, 임시 SQLite DB 네 table toy 검사, approval-denial 완료
+3. 사용자가 새 run ID에서 calibration을 재실행해 G2 official Method1/Method2 hash부터 재검증
+4. 새 G2 PASS 뒤에만 G3 처리량·메모리·thread scaling 결과를 채택
 5. exhaustive 목적이면 별도의 constructive coverage certificate를 설계
 
 P005b 제안의 상세 판정과 재개 조건은 `docs/review/14_P005b_exhaustive-extension-calibration_타당성검토.md`를 따른다. 현재는 별도 P005b 실행계획을 만들지 않는다.

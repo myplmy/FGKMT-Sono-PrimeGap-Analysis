@@ -97,3 +97,15 @@ sqlite3 prime-gap-search.db '.tables'
 
 프로그램 본체는 잘 만들어졌지만, 작업 기록을 적어 둘 빈 장부(DB)를 먼저 만들지 않았다. 프로그램은 계산 결과 파일을 쓰기 시작한 뒤 장부를 찾지 못해 멈췄다. 그래서 지금 생긴 결과 파일은 완성품이 아니고, 속도 측정에도 쓸 수 없다.
 
+
+## 2026-08-24 후속 교정
+
+위 실패 판정은 그대로 유효하다. 이후 `scripts/run_prime_gap_cpu_calibration.sh`에 다음을 반영했다.
+
+- build 직후 run-local SQLite DB 생성
+- `m_stats,range,range_stats,result` 네 table 검사
+- root 및 thread-scaling 실행에 명시적 `--search-db` 전달
+- ERR/EXIT trap과 `manifest.failed.txt`
+- 실패 stage, exit code, command/line, DB·metrics·부분 unknown hash 기록
+
+`bash -n`, approval-denial, 기존 pinned `schema.sql`을 이용한 임시 DB toy 검사는 PASS했다. 교정판 actual calibration은 실행하지 않았으므로 G2/G3 상태는 계속 미완료다.

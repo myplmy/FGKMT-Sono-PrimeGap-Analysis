@@ -15,6 +15,8 @@
     "plans": "test_plan/",
     "reviews": "docs/review/",
     "results": "test_result/",
+    "executedLaunchers": "test_done/",
+    "workflowRules": "ai_dev_tool/04_사용자실행_로그_완료이관_규약.md",
     "currentStatePattern": "handoff/<YYYYMMDDHHmm>_HANDOFF.md",
     "sourceRegistry": "datas/source_registry.json"
   },

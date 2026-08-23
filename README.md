@@ -4,9 +4,9 @@
 
 ## 현재 상태
 
-P004 COMPLETED / P005·P006 FAILED BEFORE RESULTS / P007 CODE READY
+P004 COMPLETED / P005·P006·P007 USER-RUN FAILED BEFORE RESULTS / RUNNERS FIXED LOCALLY
 
-P003 `10^20` end-bounded 분석과 P004 start/end 경계·local-envelope 민감도 분석은 완료 상태다. 사용자 실행 P005는 SQLite DB 초기화 누락으로 공식 Method1에서 실패했고 P006은 PowerShell stderr 처리 문제로 실제 분석 전에 중단됐다. P007 finite-range residue-state certificate는 비판 검토·계획·코드·61 tests를 마쳤지만 actual certificate pilot/full은 사용자 승인 전이라 실행하지 않았다.
+P003 `10^20` end-bounded 분석과 P004 start/end 경계·local-envelope 민감도 분석은 완료 상태다. 사용자 실행 P005는 SQLite DB 초기화 누락으로 공식 Method1에서 실패했고, P006 두 번은 PowerShell의 정상 stderr 오판으로 actual analysis 전에 중단됐다. P007 pilot은 preflight와 test process 뒤 빈 로그 줄 처리 오류로 certificate audit 전에 중단됐다. 공통 전체 오류 로깅과 P005 SQLite·실패 manifest를 로컬 교정했지만 교정판 actual run은 아직 없다.
 
 ## 수학 정의
 
@@ -73,5 +73,6 @@ canonical 입력은 commit `1a112a1387052d9ad360686313f501c01fe46b68`로 고정�
 - test_result/202608230503_P003_full_analysis.md: 일상용어 전체 결과 분석
 - docs/review/10_P003_문헌비교와_후속가설.md: 문헌 비교와 반증 가능한 후속 가설
 - handoff/: 세션마다 새로 만드는 `YYYYMMDDHHmm_HANDOFF.md`; 최신 파일에 현재 상태와 다음 작업 기록
+- test_done/: 사용자가 실제 실행한 BAT 원본의 `-done` 보존 위치; 재실행 금지
 
 유한 계산 결과는 FGKMT 또는 Sono의 무한 범위 정리를 증명·반증·검증하는 근거로 사용하지 않는다.

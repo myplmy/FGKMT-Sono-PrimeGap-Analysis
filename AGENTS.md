@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P004 COMPLETED / P005·P006 FAILED BEFORE RESULTS / P007 CODE READY
+## 현재 상태: P004 COMPLETED / P005·P006·P007 USER-RUN FAILED BEFORE RESULTS / RUNNERS FIXED LOCALLY
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 계획은 `test_plan/P004_start-end-boundary_local-envelope-sensitivity.md`, 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. 사용자 실행 P005 calibration은 SQLite 초기화 누락으로 Method1에서 실패했고 P006 pilot은 Windows PowerShell stderr 오판으로 실제 분석 전에 실패했다. P007 finite-range residue-state certificate는 비판 검토·코드·61 tests까지 준비됐으나 actual pilot/full은 미실행이다. P005/P006 재실행, P007 actual 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 계획은 `test_plan/P004_start-end-boundary_local-envelope-sensitivity.md`, 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. 사용자 실행 P005 calibration은 SQLite 초기화 누락으로 Method1에서 실패했다. P006 pilot 두 번은 정상 unittest stderr를 Windows PowerShell 오류로 오인해 actual analysis 전에 중단됐고, P007 pilot 한 번은 빈 stderr 줄의 로그 복사 오류로 certificate audit 전에 중단됐다. 세 실행 모두 연구 결과가 아니다. 공통 PowerShell 전체 오류 로깅, P005 SQLite·실패 manifest는 로컬 교정·toy 검증됐지만 교정판 actual 재실행은 미수행이다. P005/P006/P007 재실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -99,6 +99,7 @@ test_result/      승인 후 run별 tables, figures, summary
 handoff/          세션별 YYYYMMDDHHmm_HANDOFF.md; 기존 메모 비덮어쓰기
 .agents/skills/   Codex가 자동 탐색하는 프로젝트 스킬
 ai_dev_tool/      이 프로젝트의 계산 함정·착수·핸드오프 절차
+test_done/         사용자가 실제 실행한 BAT 원본을 `-done` suffix로 보존; 재실행 금지
 tmp/              읽기/렌더링 임시 파일; 최종 산출물 아님
 ```
 
@@ -257,9 +258,19 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - running minimum 및 local envelope 요약
 - 경고, 결측, 해석 한계
 
-표준 run_experiment.ps1은 승인된 실행의 stdout/stderr를 test_result/logs/에 run id별로 보존한다.
+모든 승인 실행기는 stdout과 stderr, 빈 줄, stage exit code, Python traceback, PowerShell/shell 예외를 `test_result/logs/`에 run id별로 보존한다. 실패한 WSL 실행은 run root에 `manifest.failed.txt`도 남긴다. terminal PASS와 필수 manifest·산출물을 확인하기 전에는 실험 PASS로 기록하지 않는다.
 
 결과를 본 뒤 계획서를 소급해 바꾸지 않는다. 변경이 필요하면 새 계획 버전과 이유를 남긴다.
+
+## 사용자 실행·보고 불변식
+
+- `IMPLEMENTED`, `LOCALLY_VERIFIED`, `USER_RUN_FAILED`, `EXPERIMENT_PASS`를 구분한다.
+- 사용자가 실제 실행했다고 확인한 루트 BAT는 SHA-256을 기록하고 `test_done/<name>-done.bat`로 이관한다. done은 실행 이력이지 성공 판정이 아니다. 재시도는 루트의 새 교정판 BAT로 한다.
+- 핸드오프의 각 권장 작업에는 실행 환경, 시작 경로, 복사 가능한 정확한 명령, 예상 시간, 로그·산출물, 사용자 회신 항목을 쓴다. 사용자 명령이 없으면 `별도 수행절차 필요없음`이라고 명시한다.
+- 사용자 실행 실패는 원본 로그 hash, 마지막 PASS, 첫 FAIL, terminal marker와 결과 디렉터리 존재 여부로 감사한다. 콘솔 일부만으로 판정하지 않는다.
+- heavy/actual experiment는 사용자가 실행하도록 요청하고, Codex는 별도 승인이 없으면 parser·toy·approval-denial·unit test까지만 수행한다.
+- 그래프는 자동 수치검증 뒤 사용자에게 시각검사를 요청한다. 사용자 확인 전에는 visual QA PASS라고 쓰지 않는다.
+- 상세 절차 정본은 `ai_dev_tool/04_사용자실행_로그_완료이관_규약.md`다.
 
 ## 품질 및 안전 규칙
 
@@ -296,8 +307,9 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P004 start/end paired, shifted log-bin, rolling `w=3,8,15,30`, x-width `0.5,1,2` decade 분석 완료
 - P004 47 tests와 100-dps 독립 검증 3,747개 PASS, issue 0
 - y축 최대 `10^4` 및 첫 interval 생략+y축 최대 `10^3` 그래프 생성; 사용자 시각 QA 완료
-- P005 WSL calibration user run은 build PASS 후 missing `prime-gap-search.db`로 G2 FAIL; runner patch와 새 승인 필요
-- P006 Windows pilot user run은 preflight PASS 후 `NativeCommandError`로 분석 전 중단; runner patch와 새 승인 필요
-- P007 exact finite-range certificate review·계획·구현·61 tests PASS; modulus 30030 solve와 직접 search acceleration은 차단
+- P005 WSL calibration user run은 build PASS 후 missing `prime-gap-search.db`로 G2 FAIL; SQLite schema/table precheck와 실패 manifest helper는 로컬 교정됨
+- P006 Windows pilot user run 두 번은 preflight PASS 후 같은 `NativeCommandError`로 분석 전 중단; 공통 stdout/stderr 로깅 helper는 로컬 교정됨
+- P007 pilot user run은 preflight·61-test process exit 0 뒤 빈 stderr 줄 복사 오류로 certificate audit 전 중단; 공통 empty-line·ErrorRecord 로깅 helper는 로컬 교정됨
+- P007 exact finite-range certificate의 modulus 30030 solve와 직접 search acceleration 주장은 계속 차단
 
-다음 행동은 P006 stderr runner와 P005 SQLite initialization을 먼저 교정·로컬검증하는 것이다. 그 뒤 사용자가 선택하면 P006 재pilot, P005 재calibration, P007 certificate pilot 순으로 각각 별도 승인 실행한다.
+다음 행동은 사용자가 교정된 P006 pilot, P007 certificate pilot, P005 WSL calibration을 각각 별도 명령으로 재실행하는 것이다. Codex는 제공된 새 로그를 먼저 감사하며, 각 다음 단계는 직전 PASS 뒤에만 권장한다.

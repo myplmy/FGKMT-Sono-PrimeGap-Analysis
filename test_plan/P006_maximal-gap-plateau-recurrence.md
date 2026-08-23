@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`FAILED_BEFORE_ANALYSIS / RUNNER_FIX_AND_NEW_APPROVAL_REQUIRED` — 사용자 실행 `20260823T161227Z_p006_pilot1e8`의 preflight는 PASS했으나 Windows PowerShell 5.1이 정상 `unittest -v` stderr를 `NativeCommandError`로 취급해 unit-test stage에서 runner가 중단됐다. `[2,10^8]` consecutive-prime 생성·통계·그래프는 시작되지 않았다.
+`RUNNER_FIXED_LOCALLY / WAITING_FOR_USER_RERUN` — 사용자 실행 `20260823T161227Z`와 `20260823T173021Z`는 모두 preflight PASS 뒤 Windows PowerShell 5.1이 정상 `unittest -v` stderr를 `NativeCommandError`로 취급해 실제 분석 전에 중단됐다. 공통 stdout/stderr·빈 줄·ErrorRecord 로깅 helper와 toy self-test를 교정했지만 새 `[2,10^8]` actual run은 아직 없다.
 
 ## 2. 연구 질문과 비목적
 
@@ -173,21 +173,24 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 
 구현 파일은 `source/plateau_recurrence.py`, `source/plateau_recurrence_cli.py`, `tests/test_plateau_recurrence.py`, 공통 `run_plateau_recurrence.ps1`, 두 BAT 진입점이다.
 
-**현재 명령을 다시 실행하지 않는다.** `run_plateau_recurrence.ps1`의 native stderr 수집을 `Start-Process` stdout/stderr redirection 같은 방식으로 교정하고 parser·approval-denial·toy test를 통과한 뒤 새 사용자 승인을 받아야 한다.
+교정판은 `Start-Process` stdout/stderr 분리 수집, blank-line 보존, nonzero exit와 전체 PowerShell ErrorRecord 로깅을 사용한다. parser, synthetic stdout/stderr·exit-7 toy self-test, approval-denial, 전체 61 tests는 PASS했다. 검증 증거는 `test_result/202608240329_P005_P006_P007_runner_fix_local_validation.md`다. 실제 pilot 재실행은 사용자가 위 BAT 명령으로 별도 수행해야 한다.
 
 사전 추정은 `[2,10^8]` 약 1–5분, `[2,10^9]` 약 10–60분, `[2,10^10]` 약 2–12시간이다. 아직 이 PC의 실제 P006 처리량을 측정하지 않은 넓은 계획값이며 pilot 로그로 교체한다. segment working set은 2 GiB보다 훨씬 작게 설계했다.
 
 ## 8. 실제 실패 실행 감사
 
-- authoritative log: `test_result/logs/run_20260823T161227Z_p006_pilot1e8.log`
-- failure analysis: `test_result/202608240158_P006_pilot_failure_analysis.md`
-- preflight: PASS
-- unit-test stage: runner가 stderr 첫 출력에서 중단
+- first log: `test_result/logs/run_20260823T161227Z_p006_pilot1e8.log`
+- second log: `test_result/logs/run_20260823T173021Z_p006_pilot1e8.log`
+- analyses: `test_result/202608240158_P006_pilot_failure_analysis.md`, `test_result/202608240315_P006_second_pilot_failure_analysis.md`
+- 두 실행 모두 preflight: PASS
+- 두 실행 모두 unit-test stage: 같은 정상 stderr 오판으로 중단
 - approved analysis: NOT RUN
 - saved-artifact verification: NOT RUN
 - P006 result directory: 생성되지 않음
+- 실행 당시 BAT: `test_done/run_P006_plateau_recurrence_pilot-done.bat`에 hash 보존
+- 루트 교정판 BAT: active, actual user run 미확인
 
-이 실패는 P006 수학 코드 또는 segmented sieve 실패의 증거가 아니다. 실제 데이터 단계에 들어가지 않았으므로 pilot 결과값·처리시간·그래프는 없다.
+두 실패는 P006 수학 코드 또는 segmented sieve 실패의 증거가 아니다. 실제 데이터 단계에 들어가지 않았으므로 pilot 결과값·처리시간·그래프는 없다.
 
 ## 9. 예정 산출물
 
@@ -226,8 +229,8 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 
 1. corrected rate와 end/start 표본공간 합의 완료
 2. Windows pilot 구현·toy 자동검증 완료
-3. PowerShell native stderr 수집 방식을 교정하고 로컬 parser/toy/full unittest 검증
-4. 사용자에게 `[2,10^8]` 재실행 승인 요청
-5. 승인 시 사용자가 BAT 실행 후 로그·run 경로 제공
-6. Codex 검토와 사용자 그래프 시각검사 PASS 후에만 `[2,10^9]` 결정
+3. PowerShell 전체 stderr·오류 수집 교정과 로컬 parser/toy/approval-denial 검증 완료
+4. 사용자가 교정판 `[2,10^8]` BAT 재실행
+5. 사용자가 새 log와 run 경로 제공
+6. Codex 수치·manifest 검토와 사용자 그래프 시각검사 PASS 후에만 `[2,10^9]` 결정
 7. `10^9` 자원 결과를 본 뒤에만 선택적 `10^10` 확대 여부 결정

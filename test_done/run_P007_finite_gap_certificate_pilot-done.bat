@@ -4,7 +4,6 @@ setlocal EnableExtensions DisableDelayedExpansion
 if /I not "%~1"=="--confirm-p007" goto :usage
 if not "%~2"=="" goto :usage
 
-echo [INFO] Active launcher revision: complete-error-log runner 2026-08-24; not yet user-tested.
 echo [INFO] P007 pilot verifies the supplied modulus-2310 certificate exactly.
 echo [INFO] It does not enumerate primes or search the 10^20-to-10^21 interval.
 echo [INFO] It does not prove that the search program is faster.
@@ -23,3 +22,4 @@ exit /b 0
 echo Usage: %~nx0 --confirm-p007
 echo This authorizes only exact certificate verification, not prime-gap search.
 exit /b 1
+

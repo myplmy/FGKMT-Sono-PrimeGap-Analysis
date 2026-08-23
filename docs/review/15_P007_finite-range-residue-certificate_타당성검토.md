@@ -147,3 +147,30 @@ modulus가 divisibility chain `30|210|2310|30030`을 이루면 coarse certificat
 
 P007을 **finite-range upper-bound certificate의 재현·개선 가능성 실험**으로 진행하는 것은 타당하다. 제공된 인증값은 exact 검증 가능한 결과지만 탐색 위치를 주지 않으므로 P005의 직접 가속기로 연결하지 않는다. P007 phase A는 `30,210,2310` 비교까지만 승인 가능한 크기로 준비하고, 30030과 Buchstab/Type-I·II 주장은 후속 수학·알고리즘 설계 항목으로 남긴다.
 
+
+## 2026-08-24 사용자 질문에 대한 쉬운 판정
+
+다음처럼 범위를 정확히 붙이면 사용자가 요약한 문장은 맞다.
+
+> modulus 2310 residue-state dual certificate를 사용해, start prime `p`가 `[10^20,10^21)`에 있는 consecutive-prime gap 중 길이 1856 이상인 것의 개수에 대해, 추측을 쓰지 않는 계산적 상한 `439161464927854179`를 얻었고 모든 certificate 부등식을 exact integer arithmetic으로 검사했다.
+
+구성은 480 states, 415,223 constraints, minimum integer slack 0이다. 내부 path 상한 `439161464927854178`에 `10^21` 오른쪽 경계를 가로지를 수 있는 gap 최대 1개를 더했다. “무조건적”은 리만가설 같은 미증명 추측을 쓰지 않는다는 뜻이다. 다만 이것은 현재 모델·경계 유도·exact prime-count 값·검증 프로그램을 함께 감사한 **유한 계산 인증**이며, failed P007 pilot이 새로 만든 결과나 실제 gap을 센 관측 결과는 아니다.
+
+`C_max≤1.102803437542279×10^15`도 반올림값으로 맞지만, 엄밀한 정리의 핵심은 정수 `U`다. `C=U/T`, `T≈398.2227929091105`는 상한의 크기를 보기 위한 heuristic normalization이다. 현재 값은 corrected packing bound `484913793103448276`보다 약 9.435% 낮을 뿐이므로, 실제 탐색량을 크게 줄였다고 볼 수 없다.
+
+연구 결과가 좋으면 알고리즘 개선으로 발전할 가능성은 있다. 그러나 전역 count 상한만 낮추는 연구와 실제 탐색 가속 사이에는 다음 한 단계가 더 필요하다.
+
+1. 큰 gap이 있을 수 있는 위치를 빠짐없이 출력하는 candidate cover
+2. 후보가 없는 block을 건너뛰어도 된다는 local certificate
+3. 전체 범위와 경계를 빠짐없이 처리했다는 coverage ledger
+4. certificate 생성·검증 비용까지 포함한 실제 break-even benchmark
+
+양의 상한 `U`에는 자동 가속 임계값이 없다. `U≤10^9`나 심지어 `U≤1`도 위치를 알려 주지 않으므로 전체 범위를 훑어야 할 수 있다. `U=0`이면 해당 범위에 threshold 이상 gap이 없음을 바로 인증하므로 그 질문에 대한 탐색을 생략할 수 있다. 양의 `U`에서 도움 여부는 count `U`가 아니라 실제 후보 수 `K`를 만들 수 있는지와
+
+\[
+T_{certificate}+K T_{verify}+T_{coverage}<T_{baseline}
+\]
+
+를 실측해 판정해야 한다.
+
+따라서 P007의 다음 연구 목표는 단순히 `C`를 낮추는 것만이 아니라, certificate가 block별 no-gap 판정이나 실제 candidate 위치를 내도록 구조를 바꾸는 것이다. 그 연결이 성공하면 P005 계열 exhaustive 탐색의 일부 block을 안전하게 건너뛰는 알고리즘으로 발전할 수 있다.
