@@ -22,6 +22,12 @@ from source.analysis import (
     jump_to_dict,
     summarize_analysis,
 )
+from source.local_envelopes import (
+    DEFAULT_ROLLING_WINDOWS,
+    build_log10_bin_minima,
+    build_rolling_local_envelope,
+    local_metric_to_dict,
+)
 from source.models import MaximalGapRecord
 from source.plots import plot_all
 from source.prime_gap_list import (
@@ -59,6 +65,7 @@ def _code_snapshot() -> dict[str, object]:
     paths = list((root / "source").glob("*.py"))
     for relative_path in (
         "run_experiment.ps1",
+        "run_full_analysis.ps1",
         "run_pilot.ps1",
         "requirements.txt",
         "environment.yml",
@@ -231,6 +238,11 @@ def analyze_validated_records(
         raise ValueError("validated records file is empty")
     intervals = build_end_bounded_intervals(records, analysis_limit=analysis_limit)
     jumps = build_jump_metrics(records, analysis_limit=analysis_limit)
+    log_bins = build_log10_bin_minima(intervals)
+    rolling_by_window = {
+        window: build_rolling_local_envelope(intervals, window_size=window)
+        for window in DEFAULT_ROLLING_WINDOWS
+    }
     summary = summarize_analysis(
         intervals,
         jumps,
@@ -250,6 +262,44 @@ def analyze_validated_records(
             "execution": _execution_metadata(),
         }
     )
+    minimum_log_bin = min(log_bins, key=lambda item: item.h_bin_min)
+    rolling_summary: dict[str, object] = {}
+    for window, series in rolling_by_window.items():
+        if not series:
+            rolling_summary[str(window)] = {
+                "window_size": window,
+                "count": 0,
+                "full_windows_only": True,
+            }
+            continue
+        values = [item.h_rolling_min for item in series]
+        differences = [right - left for left, right in zip(values, values[1:], strict=False)]
+        rolling_summary[str(window)] = {
+            "window_size": window,
+            "count": len(series),
+            "full_windows_only": True,
+            "first_x": str(series[0].window_x_right),
+            "final_x": str(series[-1].window_x_right),
+            "minimum_h": mp.nstr(min(values), 40),
+            "maximum_h": mp.nstr(max(values), 40),
+            "final_h": mp.nstr(values[-1], 40),
+            "rise_count": sum(value > 0 for value in differences),
+            "fall_count": sum(value < 0 for value in differences),
+            "flat_count": sum(value == 0 for value in differences),
+        }
+    summary["local_envelopes"] = {
+        "log10_bin": {
+            "definition": "integer bins (10^k, 10^(k+1)] clipped to analyzed range",
+            "count": len(log_bins),
+            "minimum_h": mp.nstr(minimum_log_bin.h_bin_min, 40),
+            "minimum_x": str(minimum_log_bin.minimum_x),
+            "minimum_decade_exponent": minimum_log_bin.decade_exponent,
+            "minimum_gap_start_prime": str(minimum_log_bin.gap_start_prime),
+            "minimum_gap_end_prime": str(minimum_log_bin.gap_end_prime),
+            "minimum_gap": str(minimum_log_bin.gap),
+        },
+        "rolling_record_windows": rolling_summary,
+    }
     if summary_additions:
         overlapping = set(summary).intersection(summary_additions)
         if overlapping:
@@ -272,9 +322,27 @@ def analyze_validated_records(
             jump_rows,
             list(jump_rows[0]),
         )
+    log_bin_rows = [local_metric_to_dict(item) for item in log_bins]
+    _write_csv_exclusive(
+        output_directory / "tables" / "log10_bin_minima.csv",
+        log_bin_rows,
+        list(log_bin_rows[0]),
+    )
+    for window, series in rolling_by_window.items():
+        rolling_rows = [local_metric_to_dict(item) for item in series]
+        if rolling_rows:
+            _write_csv_exclusive(
+                output_directory
+                / "tables"
+                / f"rolling_local_envelope_w{window}.csv",
+                rolling_rows,
+                list(rolling_rows[0]),
+            )
     figure_paths = plot_all(
         intervals,
         jumps,
+        log_bins,
+        rolling_by_window,
         output_directory / "figures",
         provenance_label=(
             f"source commit {records[0].source_commit}; "

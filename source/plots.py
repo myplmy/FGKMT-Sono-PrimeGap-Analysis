@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Sequence
+from typing import Mapping, Sequence
 
 import matplotlib
 
@@ -11,7 +11,12 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
-from source.models import IntervalMetric, JumpMetric
+from source.models import (
+    IntervalMetric,
+    JumpMetric,
+    LogBinMetric,
+    RollingEnvelopeMetric,
+)
 
 
 def _save_figure_exclusive(figure: plt.Figure, base_path: Path) -> list[Path]:
@@ -34,11 +39,13 @@ def _provenance_footer(figure: plt.Figure, provenance_label: str) -> None:
 def plot_all(
     intervals: Sequence[IntervalMetric],
     jumps: Sequence[JumpMetric],
+    log_bins: Sequence[LogBinMetric],
+    rolling_by_window: Mapping[int, Sequence[RollingEnvelopeMetric]],
     output_directory: Path,
     *,
     provenance_label: str,
 ) -> list[Path]:
-    """Generate five core plots and the optional jump plot as PNG and PDF."""
+    """Generate global, local-envelope, and optional jump plots as PNG/PDF."""
 
     if not intervals:
         raise ValueError("at least one interval is required for plotting")
@@ -131,6 +138,53 @@ def plot_all(
         ax.legend(fontsize=8)
         _provenance_footer(fig, provenance_label)
         created.extend(_save_figure_exclusive(fig, output_directory / "record_jump_recovery"))
+
+    if log_bins:
+        bin_x = np.array([float(item.minimum_x) for item in log_bins])
+        bin_h = np.array([float(item.h_bin_min) for item in log_bins])
+        fig, ax = plt.subplots(figsize=(9, 5.5))
+        ax.plot(bin_x, bin_h, marker="o", markersize=4, linewidth=1.1)
+        ax.axhline(
+            1.0,
+            color="#2ca02c",
+            linestyle="--",
+            label="Wolf empirical reference H=1",
+        )
+        ax.set_xscale("log")
+        ax.set_yscale("log")
+        ax.set_xlabel("x attaining each (10^k, 10^(k+1)] bin minimum")
+        ax.set_ylabel("log-bin minimum H")
+        ax.set_title("Exact end-bounded minimum in integer log10 bins")
+        ax.grid(True, which="both", alpha=0.25)
+        ax.legend(fontsize=8)
+        _provenance_footer(fig, provenance_label)
+        created.extend(_save_figure_exclusive(fig, output_directory / "log10_bin_minimum"))
+
+    nonempty_rolling = {
+        window: series for window, series in rolling_by_window.items() if series
+    }
+    if nonempty_rolling:
+        fig, ax = plt.subplots(figsize=(9, 5.5))
+        for window, series in sorted(nonempty_rolling.items()):
+            rolling_x = np.array([float(item.window_x_right) for item in series])
+            rolling_h = np.array([float(item.h_rolling_min) for item in series])
+            ax.plot(
+                rolling_x,
+                rolling_h,
+                marker="o",
+                markersize=2.5,
+                linewidth=1,
+                label=f"w={window} records",
+            )
+        ax.set_xscale("log")
+        ax.set_yscale("log")
+        ax.set_xlabel("trailing record-window right endpoint x")
+        ax.set_ylabel("rolling local minimum H")
+        ax.set_title("Trailing fixed-record-window local envelopes")
+        ax.grid(True, which="both", alpha=0.25)
+        ax.legend(fontsize=8)
+        _provenance_footer(fig, provenance_label)
+        created.extend(_save_figure_exclusive(fig, output_directory / "rolling_local_envelope"))
 
     return created
 

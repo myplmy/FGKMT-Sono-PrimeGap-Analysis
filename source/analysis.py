@@ -168,6 +168,8 @@ def build_end_bounded_intervals(
                 gap=record.gap,
                 x_left=x_left,
                 x_right=x_right,
+                f_left=f_left,
+                f_right=f_right,
                 h_left=h_left,
                 h_interval_min=h_min,
                 running_min=running_min,
@@ -287,6 +289,8 @@ def summarize_analysis(
 def interval_to_dict(metric: IntervalMetric) -> dict[str, str | int]:
     row = asdict(metric)
     for key in (
+        "f_left",
+        "f_right",
         "h_left",
         "h_interval_min",
         "running_min",

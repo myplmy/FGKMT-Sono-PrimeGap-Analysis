@@ -11,6 +11,10 @@ from pathlib import Path
 import mpmath as mp
 
 from source.analysis import analysis_limit_for_interval_count, record_at_x
+from source.cross_validation import (
+    cross_validate_oeis,
+    cross_validate_oliveira,
+)
 from source.definitions import (
     F,
     H,
@@ -19,7 +23,11 @@ from source.definitions import (
     X_SCALE_POSITIVE_MIN,
     iter_log,
 )
-from source.pipeline import analyze_validated_records, load_validated_records, validate_raw_dataset
+from source.pipeline import (
+    analyze_validated_records,
+    load_validated_records,
+    validate_raw_dataset,
+)
 from source.prime_gap_list import DEFAULT_EXHAUSTIVE_LIMIT
 from source.provenance import (
     APPROVAL_TOKEN,
@@ -31,6 +39,7 @@ from source.provenance import (
     require_experiment_approval,
     resolve_remote_head,
 )
+from source.result_verification import verify_result_artifacts
 
 EXPECTED_PYTHON = Path(r"W:\miniforge3\envs\FGKMT\python.exe")
 
@@ -200,6 +209,98 @@ def _analyze(args: argparse.Namespace) -> int:
         analysis_limit=args.analysis_limit,
     )
     print(json.dumps(summary, ensure_ascii=False, indent=2))
+    return 0
+
+
+def _cross_validate_oeis(args: argparse.Namespace) -> int:
+    token = _approval_value(args)
+    result_directory = Path(args.result_directory)
+    if not result_directory.is_dir():
+        raise FileNotFoundError(f"result directory does not exist: {result_directory}")
+    raw_directory = (
+        workspace_root()
+        / "datas"
+        / "raw"
+        / "independent"
+        / "oeis"
+        / args.source_run_id
+    )
+    report_path, report = cross_validate_oeis(
+        Path(args.records_path),
+        raw_directory,
+        result_directory,
+        approval_token=token,
+    )
+    print(
+        json.dumps(
+            {
+                "status": report["status"],
+                "source": "OEIS A002386 + A005250",
+                "report_path": str(report_path),
+                "overlap_record_count": report["overlap_record_count"],
+                "mismatch_count": report["mismatch_count"],
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0
+
+
+def _cross_validate_oliveira(args: argparse.Namespace) -> int:
+    token = _approval_value(args)
+    result_directory = Path(args.result_directory)
+    if not result_directory.is_dir():
+        raise FileNotFoundError(f"result directory does not exist: {result_directory}")
+    raw_directory = (
+        workspace_root()
+        / "datas"
+        / "raw"
+        / "independent"
+        / "oliveira"
+        / args.source_run_id
+    )
+    report_path, report = cross_validate_oliveira(
+        Path(args.records_path),
+        raw_directory,
+        result_directory,
+        approval_token=token,
+    )
+    print(
+        json.dumps(
+            {
+                "status": report["status"],
+                "source": "Oliveira e Silva official t0.txt.gz",
+                "report_path": str(report_path),
+                "overlap_record_count": report["overlap_record_count"],
+                "mismatch_count": report["mismatch_count"],
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0
+
+
+def _verify_results(args: argparse.Namespace) -> int:
+    token = _approval_value(args)
+    report_path, report = verify_result_artifacts(
+        Path(args.records_path),
+        Path(args.result_directory),
+        approval_token=token,
+    )
+    print(
+        json.dumps(
+            {
+                "status": report["status"],
+                "report_path": str(report_path),
+                "verified_numeric_value_count": report["verified_numeric_value_count"],
+                "issue_count": report["issue_count"],
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
     return 0
 
 
@@ -402,6 +503,35 @@ def build_parser() -> argparse.ArgumentParser:
     analyze_parser.add_argument("--run-id")
     _add_approval_flag(analyze_parser)
     analyze_parser.set_defaults(handler=_analyze)
+
+    oeis_parser = subparsers.add_parser(
+        "cross-validate-oeis",
+        help="download immutable OEIS b-files and cross-check canonical records",
+    )
+    oeis_parser.add_argument("--records-path", required=True)
+    oeis_parser.add_argument("--result-directory", required=True)
+    oeis_parser.add_argument("--source-run-id", required=True)
+    _add_approval_flag(oeis_parser)
+    oeis_parser.set_defaults(handler=_cross_validate_oeis)
+
+    oliveira_parser = subparsers.add_parser(
+        "cross-validate-oliveira",
+        help="cross-check canonical records against Oliveira's official table",
+    )
+    oliveira_parser.add_argument("--records-path", required=True)
+    oliveira_parser.add_argument("--result-directory", required=True)
+    oliveira_parser.add_argument("--source-run-id", required=True)
+    _add_approval_flag(oliveira_parser)
+    oliveira_parser.set_defaults(handler=_cross_validate_oliveira)
+
+    verify_parser = subparsers.add_parser(
+        "verify-results",
+        help="independently verify all persisted F/H and envelope values",
+    )
+    verify_parser.add_argument("--records-path", required=True)
+    verify_parser.add_argument("--result-directory", required=True)
+    _add_approval_flag(verify_parser)
+    verify_parser.set_defaults(handler=_verify_results)
 
     run_parser = subparsers.add_parser("run", help="fetch, validate, and analyze in one gated run")
     run_parser.add_argument("--branch", default=DEFAULT_BRANCH)

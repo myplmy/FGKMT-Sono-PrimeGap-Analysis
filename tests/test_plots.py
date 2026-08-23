@@ -5,13 +5,17 @@ import unittest
 from pathlib import Path
 
 from source.analysis import build_end_bounded_intervals, build_jump_metrics
+from source.local_envelopes import (
+    build_log10_bin_minima,
+    build_rolling_local_envelope,
+)
 from source.definitions import X_SCALE_POSITIVE_MIN
 from source.models import MaximalGapRecord
 from source.plots import plot_all
 
 
 class PlotTests(unittest.TestCase):
-    def test_all_six_plots_are_written_as_png_and_pdf_without_overwrite(self) -> None:
+    def test_all_eight_plots_are_written_as_png_and_pdf_without_overwrite(self) -> None:
         records = [
             MaximalGapRecord(
                 record_index=1,
@@ -39,20 +43,28 @@ class PlotTests(unittest.TestCase):
             analysis_limit=12_000_000,
         )
         jumps = build_jump_metrics(records, analysis_limit=12_000_000)
+        log_bins = build_log10_bin_minima(intervals)
+        rolling = {
+            1: build_rolling_local_envelope(intervals, window_size=1),
+        }
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory)
             paths = plot_all(
                 intervals,
                 jumps,
+                log_bins,
+                rolling,
                 output,
                 provenance_label="toy; boundary_mode=end",
             )
-            self.assertEqual(len(paths), 12)
+            self.assertEqual(len(paths), 16)
             self.assertTrue(all(path.is_file() and path.stat().st_size > 0 for path in paths))
             with self.assertRaises(FileExistsError):
                 plot_all(
                     intervals,
                     jumps,
+                    log_bins,
+                    rolling,
                     output,
                     provenance_label="toy; boundary_mode=end",
                 )

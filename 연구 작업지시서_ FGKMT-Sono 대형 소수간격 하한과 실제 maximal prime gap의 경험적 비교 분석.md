@@ -34,16 +34,15 @@ H(x)=\frac{G(x)}{F(x)}
 
 ### 1.1 실행 승인 경계
 
-P002 제한 pilot은 계산·자동검증까지 완료됐고 사용자 그래프 시각 QA를 기다린다. 사용자가 허가한 범위는 `x=16`, `x=3,814,280` 및 그 지점부터 연속 5개 end-bounded record interval이었다. 전체 `10^20` 분석은 별도 허가 전까지 수행하지 않는다.
+P002 제한 pilot은 계산·자동검증과 사용자 그래프 시각 QA까지 완료됐다. 사용자는 2026-08-23에 전체 `10^20` end-bounded 분석, 모든 `F/H` 계산 검증, 독립 source 교차검증, log-bin·rolling local envelope, 문헌 비교와 후속 가설 보고를 승인했다. 상세 범위와 중단 기준은 `test_plan/P003_FGKMT-Sono_full-1e20-analysis.md`를 따른다.
 
-사용자 허가 전에는 다음을 수행하지 않는다.
+이번 승인은 다음으로 확대 해석하지 않는다.
 
-- allgaps.sql과 schema.sql 다운로드
-- raw 또는 validated 실제 dataset 생성
-- 실제 maximal-gap record 계산
-- test_result의 표·그래프·통계·결과 보고서 생성
+- start-bounded FGKMT 호환 계열의 별도 본 분석
+- 패키지 설치·제거·업그레이드
+- commit, push, PR, issue 또는 외부 게시
 
-Codex는 먼저 연구 목적, end-bounded \(G(x)\), iterated-log \(F(x)\), 데이터 원천과 exhaustive 범위, 계산·검증·해석 방법을 사용자에게 설명한다. 사용자가 같은 목적과 방법으로 인식하는지 확인하고 실제 실행을 명시적으로 허가한 뒤에만 데이터 취득 단계로 이동한다.
+실제 실행 직전에는 사용자 승인과 별개로 수학 정의, exact Python, source commit/hash, exhaustive coverage, 비덮어쓰기와 독립 검증 gate를 모두 통과해야 한다.
 
 ### 1.2 중요 수정 — \(\log_k\)는 base-\(k\) 로그가 아니다
 
@@ -551,7 +550,6 @@ jupyter
     ├─ AGENTS.md
     ├─ handoff/YYYYMMDDHHmm_HANDOFF.md
     ├─ .agents/skills/                 # Codex가 발견하는 프로젝트 스킬
-    ├─ .claude/skills/                 # 삭제하지 않는 호환 원본 mirror
     ├─ ai_dev_tool/                    # 계산 함정·착수·핸드오프 규약
     ├─ article/                        # 제공된 원 논문 PDF
     ├─ datas/

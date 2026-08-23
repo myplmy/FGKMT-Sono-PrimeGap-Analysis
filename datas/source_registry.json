@@ -24,5 +24,43 @@
   "raw_sha256": "988c3278d95a16460a9897e09829fb061ee854e55efa6c4fcec3b9779930894f",
   "schema_sha256": "86ba1748af4d8f95c465812c9103c75e61aa6470751a3fc92c1f957dba00b0ed",
   "validated_records_sha256": "62ecb9028e77893c79a57512488544b91b628a006bb2bd306b670afa34676297",
-  "local_validation_status": "PASS"
+  "local_validation_status": "PASS",
+  "p003_full_run": {
+    "run_id": "20260822T195906Z_full1e20",
+    "analysis_limit": "100000000000000000000",
+    "status": "PASS",
+    "log_sha256": "2695ccb9a5478dc520ed5815457f2389c758606e6b07c385ebf4aeefe93d6ee6",
+    "summary_sha256": "53f3dfb4f2b140bd524bf73ec56dedcb073f2c02ab2abbdd4c62e20bd8f39b4b",
+    "verification_report_sha256": "3e81280bedfc247793eb8974cc2e2980e57eda51f7243038dd4a995f74266544"
+  },
+  "independent_cross_validation": {
+    "oeis": {
+      "role": "independent public representation; computational lineage not established",
+      "retrieved_at_utc": "2026-08-22T19:59:09.423381Z",
+      "starts_url": "https://oeis.org/A002386/b002386.txt",
+      "starts_sha256": "671d8f0616ebb9fa264849ec35838b69997a43ba36ed7438489aa501114e793f",
+      "gaps_url": "https://oeis.org/A005250/b005250.txt",
+      "gaps_sha256": "9e4d829fc00101ea7b7776837f2f9063fd898ce0ea28c5aebecba4c27a7cc090",
+      "term_count": 85,
+      "overlap_record_count": 84,
+      "mismatch_count": 0,
+      "report_sha256": "65895ab52878333ab90180003ac8a8d934fafb2eae98f4bd1989eec324e70dc6"
+    },
+    "oliveira_e_silva": {
+      "role": "official table derived from a separate exhaustive prime-gap computation",
+      "retrieved_at_utc": "2026-08-22T19:59:11.779490Z",
+      "source_page_url": "https://sweet.ua.pt/tos/gaps.html",
+      "table_url": "https://sweet.ua.pt/tos/gaps/t0.txt.gz",
+      "table_sha256": "7227a85c31cbfc16e4bbd5588d4b3bb1a9c11e360d558745cc55e73b9f5d11b7",
+      "test_limit": "4000000000000000000",
+      "double_test_limit_in_current_table": "400000000000000000",
+      "source_record_count": 75,
+      "matched_record_count": 75,
+      "double_tested_overlap_record_count": 71,
+      "canonical_records_above_source_limit": 9,
+      "mismatch_count": 0,
+      "report_sha256": "b20f88b4ef8b397f83d1752ae9755187cc88098c34f94bbfb829472826749435",
+      "coverage_note": "current official web table states double test through 4e17; the 2014 paper reports the then-completed double check through 3e17"
+    }
+  }
 }

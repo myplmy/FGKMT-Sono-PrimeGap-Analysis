@@ -4,12 +4,12 @@
 
 이 문서는 `Z:\FGKMT-Sono-PrimeGap-Analysis`에서 수행할 대형 소수간격 비교 실험의 방법론 정본이다.
 
-- 현재 단계: P002 5개 record interval 제한 pilot 계산·자동검증 완료, 사용자 그래프 시각 QA 대기
-- 현재 허용 범위: 기존 P002 로그·표·summary 검토와 사용자 QA 반영
-- 현재 금지 범위: P001 전체 `10^20` 분석과 P002 범위를 넘는 통계·그래프·결론
-- 추가 실제 실험 시작 조건: 사용자의 새 명시적 실행 허가와 해당 계획의 사전검증 전 항목 PASS
+- 현재 단계: P002 pilot 계산·자동검증·사용자 그래프 QA 완료, P003 전체 `10^20` 실행 전 preflight
+- 현재 승인 범위: 전체 end-bounded 분석, 모든 `F/H` 독립 검증, 독립 source 교차검증, log-bin·rolling envelope, 문헌 비교·후속 가설 보고
+- 현재 비승인 범위: start-bounded 별도 본 분석, 패키지 설치·변경, 외부 게시, commit/push/PR
+- 실제 실행 시작 조건: `test_plan/P003_FGKMT-Sono_full-1e20-analysis.md`의 사전검증 전 항목 PASS
 
-승인 범위 밖 계산은 `test_result/`에 남기지 않는다. P002 로그와 결과는 독립 파일로 보존한다.
+P002 로그와 결과는 독립 파일로 보존하고 P003는 새 run id와 비덮어쓰기 산출물을 사용한다.
 
 ## 1. 연구 목적
 
@@ -204,7 +204,10 @@ r_i=e_{i+1}-1.
 H_i^{\min}=\frac{g_i}{F(r_i)}
 \]
 
-이다. 마지막 record는 다음 record가 없으므로 `verified_exhaustive_limit` 또는 사용자가 승인한 분석 상한까지만 닫는다. 검증범위를 넘어 무한히 연장하지 않는다.
+여기서 “정확한 minimum”은 프로젝트가 고정한 정수 격자 `x in Z`에 대한 말이다. 논문의 변수를 실수 `X` 전체로 연장하면 plateau는 `[e_i,e_(i+1))`이고 오른쪽 끝이 포함되지 않으므로 minimum은 일반적으로 달성되지 않는다. 그 경우 대응하는 양은
+`inf H(X) = g_i/F(e_(i+1))`, 즉 `X -> e_(i+1)-`의 극한이다. 현재 코드·CSV·log-bin은 일관되게 정수 domain을 사용한다.
+
+마지막 record는 다음 record가 없으므로 `verified_exhaustive_limit` 또는 사용자가 승인한 분석 상한까지만 닫는다. 검증범위를 넘어 무한히 연장하지 않는다.
 
 running minimum은
 
@@ -212,13 +215,29 @@ running minimum은
 M(X)=\min_{X_{\mathrm{scale+}}\le x\le X}H(x)
 \]
 
-로 정의한다. 정의상 \(M(X)\)는 단조 비증가한다. 따라서 “증가”나 “상하 요동”은 global running minimum의 가능한 패턴이 아니다. 1차 분석에서는 interval minima 궤적과 ln H 대 ln x의 descriptive slope·correlation을 함께 산출한다. 필요하면 후속 민감도 분석에서 다음을 별도 산출한다.
+로 정의한다. 정의상 \(M(X)\)는 단조 비증가한다. 따라서 “증가”나 “상하 요동”은 global running minimum의 가능한 패턴이 아니다. 1차 분석에서는 interval minima 궤적과 ln H 대 ln x의 descriptive slope·correlation을 함께 산출한다.
 
-- log-bin별 minimum
-- 고정 record-window rolling minimum
-- 고정 log-width 구간의 robust quantile
+P003에서는 다음 두 local envelope를 실행 전에 고정한다.
 
-global running minimum에서는 새 최저치와 plateau만 해석한다.
+1. 정수 decade log-bin
+
+\[
+(10^k,10^{k+1}]\cap[3{,}814{,}280,10^{20}]
+\]
+
+즉 정수 범위 `[10^k+1,10^(k+1)]`을 사용하고 첫·마지막 bin은 분석 범위로 clip한다. 각 bin과 겹치는 모든 end-bounded interval에서 겹침의 오른쪽 끝을 평가한 뒤 가장 작은 `H`를 정확한 bin minimum으로 선택한다.
+
+2. 고정 record-window rolling minimum
+
+interval-minimum sequence에서 직전 `w`개 record interval의 최소를 계산하며 `w=5,10,20`을 주 window로 고정한다. window가 완전히 찬 지점부터만 산출한다. 오래된 최저값이 window 밖으로 빠지면 이 local 지표는 상승할 수 있다.
+
+고정 log-width robust quantile은 P003 정본 산출물에 포함하지 않고 후속 민감도 분석 후보로 남긴다. global running minimum에서는 새 최저치와 plateau만 해석한다.
+
+### 5.1 결과 표의 경계 필드
+
+각 interval 행에는 gap의 `start_prime`, `end_prime`, canonical `[x_left,x_right]`, `F(x_left)`, `F(x_right)`, `H(x_left)`, `H_interval_min`을 함께 저장한다. `start_prime`은 provenance와 사람이 읽는 식별자일 뿐 interval 시작점으로 사용하지 않는다.
+
+Sono 원문의 `G_1(X)`는 `end_prime <= X`여서 현재 함수와 정확히 일치한다. FGKMT 2018 원문의 `G(X)`는 `start_prime <= X`이므로 유한 계단함수는 다르다. 현재 연구는 end-bounded `G`와 Sono를 직접 비교하고, FGKMT는 동일한 large-gap scale의 이론적 출처로 구분해 비교한다.
 
 ## 6. 데이터 정책
 
@@ -303,7 +322,7 @@ probable-prime 검사만으로 exhaustive completeness를 주장하지 않는다
 - 모든 로그의 밑은 \(e\)이다.
 - record 소수는 Python `int`로 유지한다.
 - 반복로그와 비율은 `mpmath`로 계산하고 작업 정밀도(`mp.dps`)를 결과 metadata에 기록한다.
-- 현재 데이터 범위에서 float64와 고정밀 결과를 교차검증하되, float64 값을 정본으로 삼지 않는다.
+- 정본 50-dps 계산은 `source.definitions.F/H`를 호출하지 않는 별도 100-dps 직접 중첩식으로 전수 교차검증한다. float64를 사용할 경우 진단값일 뿐 정본으로 삼지 않는다.
 - CSV에는 표시용 반올림 값과 재계산 가능한 고정밀 문자열을 구분한다.
 - Sono 대비 배수 \(Q\)는 매우 크므로 선형축과 로그축을 혼동하지 않는다.
 
@@ -311,7 +330,7 @@ probable-prime 검사만으로 exhaustive completeness를 주장하지 않는다
 
 각 단계는 독립적으로 재실행 가능해야 하며, 이전 단계의 hash를 입력 metadata에 기록한다.
 
-### P0 - 준비(현재 단계)
+### P0 - 준비(완료)
 
 - 작업지시서 검토
 - PDF 9편 분석
@@ -321,53 +340,63 @@ probable-prime 검사만으로 exhaustive completeness를 주장하지 않는다
 - 기존 코드와 결과의 base-\(k\) 오염 여부 정적 감사
 - GitHub allgaps.sql 제한 parser, schema.sql 검증, immutable acquisition, end-bounded interval/jump 분석 코드 작성
 - toy record 기반 parser·high-watermark·interval·승인 gate 단위시험
-- 실행 허가 대기
+- P003 실행 승인, 계획 고정과 preflight 완료
 
-### P1 - 데이터 취득(허가 후)
+### P1 - 데이터 취득(완료)
 
 - `master`를 40자 commit으로 resolve
 - commit-pinned raw URL에서 allgaps.sql과 schema.sql 다운로드
 - 두 raw source와 같은 commit 디렉터리에 hash/retrieval metadata 기록
 
-### P2 - 데이터 검증
+### P2 - 데이터 검증(완료)
 
 - schema 열 순서 검증과 row 정규화
 - record 및 endpoint 산술 검증
 - `ismax`와 독립 high-watermark 재구성 대조
 - external exhaustive coverage provenance와 record count 확인
-- 독립 source가 추가될 때만 중첩 record 교차검증
+- OEIS 84개 공개표현과 Oliveira 별도 계산자료 75개 중첩 record 교차검증
 
-### P3 - 수학 계산
+### P3 - 수학 계산(완료)
 
 - `log1`-`log4`, `F`, end-bounded `G`, `H`, `Q`
 - end-prime jump interval minimum과 record recovery factor
 - global running minimum, interval-minimum trajectory와 descriptive log-log trend
+- `(10^k,10^(k+1)]` exact log-bin minimum
+- full trailing record-window `w=5,10,20` rolling local envelope와 100-dps 전수검증
 
-### P4 - 산출물
+### P4 - 산출물(완료; 사용자 시각 QA 대기)
 
 - 큰 정수를 10진 문자열로 보존한 핵심 통계 CSV
 - end-bounded trajectory, interval minimum, running minimum, jump recovery 그래프
 - Sono 및 `H=1` 참고선
 - Cramér/Wolf 계열 \(\log^2x\) trend와 보조 비교
+- 8종 PNG/PDF 16개 생성 및 파일 존재 자동검증; 시각 판정은 사용자에게 요청
 
-### P5 - 해석과 중복성 검토
+### P5 - 해석과 중복성 검토(완료)
 
 - observed, heuristic, conditional, proved를 분리
 - 9편 corpus 안의 중복 여부와 추가 문헌검색 결과를 분리
 - 새 패턴은 재현 결과와 독립 가설로 구분
+- P003 상세 결과와 문헌 비교·후속 가설 보고서 분리 작성
 
 ## 9. 예상 산출물 위치
 
 ```text
 source/                 # 정의, source parser, provenance, validation, analysis, plotting, CLI
 tests/                  # 데이터 비의존 및 toy-record preflight 단위시험
-test_plan/P001_*.md     # 실행 전 목적, source, gate, 성공/중단 기준
+test_plan/P003_*.md     # 전체 실행 전 목적, source, gate, 성공/중단 기준
 datas/raw/prime-gap-list-project/<commit>/ # 승인 후 immutable raw + schema + metadata
 datas/validated/prime-gap-list-project/<commit>/
 test_result/run_<run-id>/
   tables/
   figures/
   summary.json
+  verification_report.json
+  cross_validation/
+  tables/log10_bin_minima.csv
+  tables/rolling_local_envelope_w5.csv
+  tables/rolling_local_envelope_w10.csv
+  tables/rolling_local_envelope_w20.csv
 docs/review/            # 이번 연구의 문헌 리뷰 정본
 docs/method/             # 세부 방법 문서
 ```
@@ -393,6 +422,9 @@ docs/method/             # 세부 방법 문서
 13. 모든 결과 schema와 그래프에 `boundary_mode=end`가 표시됨
 14. 승인 marker 없이는 fetch/validate/analyze가 network·파일 write 전에 중단됨
 15. 프로젝트 텍스트와 파일명에 잘못된 4글자 약어가 0건임
+16. 실제 gap 154가 `[4,652,507,17,051,886]`을 사용하고 minimum이 `154/F(17,051,886)`임
+17. 모든 저장 `F/H`와 envelope 값을 별도 100-dps 직접 중첩 자연로그 식으로 상대오차 `1e-38` 이내 대조
+18. log-bin이 `(10^k,10^(k+1)]`, rolling이 full-window `w=5,10,20` 계약을 지킴
 
 ## 11. 해석 금지사항
 
@@ -417,4 +449,33 @@ docs/method/             # 세부 방법 문서
 4. Sono 비교는 같은 \(F(x)\) scale의 \(k=1\) explicit 기준선이지만, FGKMT 5인 논문의 상수를 그대로 추출한 것으로 표현하지 않는다.
 5. 유한 관측은 empirical result이며 asymptotic theorem의 검증이 아니다.
 
-사용자가 이 목적·정의·출처·해석 경계를 승인한 뒤에만 P1 이후를 수행한다.
+사용자는 2026-08-23에 위 경계와 P003 범위를 승인했다. 실제 실행 직전에는 승인 사실과 별개로 `exp-preflight`의 환경·수학·provenance·비덮어쓰기 gate를 모두 통과해야 한다.
+
+## 13. P003 실제 실행 기록
+
+authoritative run:
+
+```text
+run_id = 20260822T195906Z_full1e20
+analysis_limit = 100000000000000000000
+python = W:\miniforge3\envs\FGKMT\python.exe
+working_dps = 50
+verification_dps = 100
+stored_relative_tolerance = 1e-38
+exit_code = 0
+elapsed_seconds = 7.654
+```
+
+검증 결과:
+
+- canonical pin: `1a112a1387052d9ad360686313f501c01fe46b68`
+- validated records SHA-256: `62ecb9028e77893c79a57512488544b91b628a006bb2bd306b670afa34676297`
+- 64 end-bounded intervals, 63 jumps, 14 log bins
+- rolling rows `w=5/10/20`: 60/55/45
+- 독립 100-dps 수치 필드 1,160개 PASS, issue 0
+- gap 154 interval `[4,652,507,17,051,886]` 회귀시험 PASS
+- OEIS record 84/84 PASS; 독립 공개 표현으로 분류
+- Oliveira e Silva 별도 계산 record 75/75 PASS; source limit `4e18`
+- figure 16 files 존재, 누락 0; 사용자 시각 QA 대기
+
+해석 정본은 `test_result/202608230503_P003_full_analysis.md`, 문헌 비교와 가설은 `docs/review/10_P003_문헌비교와_후속가설.md`다. machine summary의 `COMPUTED_NOT_INTERPRETED` 상태는 실행 시점의 사전 분리 원칙을 보존하기 위해 사후 변경하지 않는다.

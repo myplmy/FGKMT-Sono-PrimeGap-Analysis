@@ -10,9 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002 COMPLETED / USER_GRAPH_QA_PENDING
+## 현재 상태: P003 COMPLETED / AUTOMATED PASS / USER VISUAL QA PENDING
 
-승인된 `x=16`, `x=3,814,280` 및 연속 end-bounded record interval 5개 pilot은 계산·자동검증까지 완료됐다. 그래프 시각 QA는 사용자 확인 대기이며, `test_plan/P002_FGKMT-Sono_five-interval-pilot.md` 범위를 넘는 전체 `10^20` 분석은 아직 허가되지 않았다. 추가 실제 실행은 새 사용자 허가 전까지 수행하지 않는다.
+P002 pilot과 P003 전체 `10^20` end-bounded 분석이 완료됐다. authoritative run `20260822T195906Z_full1e20`은 64 intervals, 63 jumps, 14 log bins, rolling `w=5,10,20`, OEIS 84개, Oliveira 별도 계산 75개 및 100-dps 수치 1,160개 검증을 모두 PASS했다. 새 전체 그래프 8종의 사용자 시각 QA는 남아 있다.
+
+P003의 사전 계획·판정 기준은 `test_plan/P003_FGKMT-Sono_full-1e20-analysis.md`, 해석 정본은 `test_result/202608230503_P003_full_analysis.md`다. 완료된 승인은 start-bounded 별도 분석, local-envelope 민감도, 패키지 변경, 외부 게시, commit/push/PR까지 확장되지 않는다.
 
 허가 전 허용:
 
@@ -170,7 +172,7 @@ X_SCALE_POSITIVE_MIN = 3_814_280
 
 ### envelope 성질
 
-record 점프 위치를 `e_i=end_prime_i`라 할 때 interval은 `[e_i, e_{i+1}-1]`이다. 양의 scale 구간에서
+프로젝트의 finite table은 `x`를 정수로 제한한다. record 점프 위치를 `e_i=end_prime_i`라 할 때 정수 interval은 `[e_i, e_{i+1}-1]`이다. 실수 `X` 전체에서는 plateau가 `[e_i,e_{i+1})`이고 오른쪽 끝 minimum이 아니라 `X -> e_{i+1}-`에서의 infimum을 사용한다. 양의 scale 정수 구간에서
 
 ```text
 H_interval_min = gap_i / F(e_{i+1} - 1)
@@ -285,6 +287,10 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - `.agents/skills`를 Codex 스킬 정본으로 정비
 - 기존 연구 코드·결과 0건 확인; 폐기 또는 재생성 대상 없음
 - P002 5-interval 제한 pilot 완료: validation PASS, 5 intervals, 4 jumps, runner 4.933초
-- 실제 pin commit `1a112a1387052d9ad360686313f501c01fe46b68`; 그래프 시각 QA는 사용자 확인 대기
+- 실제 pin commit `1a112a1387052d9ad360686313f501c01fe46b68`; P002 그래프는 사용자가 큰 문제가 없다고 확인
+- P003 authoritative run 완료: exit 0, runner 7.654초, 64 intervals와 63 jumps
+- 모든 저장 `F/H`·envelope 수치 1,160개를 100-dps 직접식으로 검증, issue 0
+- OEIS 84개와 Oliveira e Silva 별도 계산자료 75개 중첩 record 모두 일치
+- log-bin·rolling 결과, 상세 결과보고서, 문헌 비교와 후속 가설, 신규 handoff 작성 완료
 
-다음 행동은 사용자가 P002 그래프와 5개 interval 해석을 확인하고, 별도 허가 후에만 전체 `10^20` 분석 또는 독립 source 교차검증으로 확장하는 것이다.
+다음 행동은 사용자가 전체 PNG 8종을 시각 QA하는 것이다. 이후 start/end paired boundary 또는 local-envelope 민감도를 P004로 수행하려면 별도 계획과 사용자 승인을 먼저 받는다.

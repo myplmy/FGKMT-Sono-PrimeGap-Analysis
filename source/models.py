@@ -58,11 +58,51 @@ class IntervalMetric:
     gap: int
     x_left: int
     x_right: int
+    f_left: mp.mpf
+    f_right: mp.mpf
     h_left: mp.mpf
     h_interval_min: mp.mpf
     running_min: mp.mpf
     sono_ratio_min: mp.mpf
     cramer_ratio_min: mp.mpf
+
+
+@dataclass(frozen=True, slots=True)
+class LogBinMetric:
+    """Exact minimum over one integer decade bin ``(10^k, 10^(k+1)]``."""
+
+    decade_exponent: int
+    bin_left_exclusive: int
+    bin_right_inclusive: int
+    analyzed_x_left: int
+    analyzed_x_right: int
+    minimizing_record_index: int
+    gap_start_prime: int
+    gap_end_prime: int
+    gap: int
+    minimum_x: int
+    f_at_minimum: mp.mpf
+    h_bin_min: mp.mpf
+    sono_ratio_min: mp.mpf
+
+
+@dataclass(frozen=True, slots=True)
+class RollingEnvelopeMetric:
+    """Trailing fixed-record-window minimum of interval minima."""
+
+    window_size: int
+    window_start_record_index: int
+    window_end_record_index: int
+    window_x_left: int
+    window_x_right: int
+    minimizing_record_index: int
+    gap_start_prime: int
+    gap_end_prime: int
+    gap: int
+    minimum_x: int
+    f_at_minimum: mp.mpf
+    h_rolling_min: mp.mpf
+    sono_ratio_min: mp.mpf
 
 
 @dataclass(frozen=True, slots=True)
@@ -81,7 +121,9 @@ class JumpMetric:
 __all__ = [
     "IntervalMetric",
     "JumpMetric",
+    "LogBinMetric",
     "MaximalGapRecord",
     "PrimeGapSourceRow",
+    "RollingEnvelopeMetric",
     "ValidationIssue",
 ]

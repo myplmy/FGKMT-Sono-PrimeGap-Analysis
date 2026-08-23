@@ -4,27 +4,27 @@
 
 ## 현재 상태
 
-P002 COMPLETED / USER GRAPH QA PENDING / P001 FULL ANALYSIS WAITING_FOR_USER_APPROVAL
+P003 COMPLETED / AUTOMATED VERIFICATION PASS / FULL GRAPH USER QA PENDING
 
-승인된 `x=16`, `x=3,814,280` 및 이어지는 end-bounded record interval 5개 pilot은 자동검증까지 완료됐다. 그래프 시각 QA는 사용자 확인 대기이며 전체 `10^20` 분석은 아직 승인되지 않았다.
+authoritative run `20260822T195906Z_full1e20`에서 \(10^{20}\)까지 64개 end-bounded interval을 분석했다. 100-dps 수치 1,160개, OEIS 84개 record, Oliveira e Silva 별도 계산자료 75개가 모두 일치했다. PNG 8종은 사용자 시각 QA 대기다.
 
 ## 수학 정의
 
-[
+\[
 G(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n),
-qquad
+\qquad
 F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x},
-qquad
+\qquad
 H(x)=\frac{G(x)}{F(x)}.
-]
+\]
 
 여기서 log_k(x)는 자연로그를 k회 반복한 값이다. 아래 첨자는 로그의 밑이 아니다.
 
-[
+\[
 \log_2x=\ln(\ln x),\quad
 \log_3x=\ln(\ln(\ln x)),\quad
 \log_4x=\ln(\ln(\ln(\ln x))).
-]
+\]
 
 canonical 경계는 gap의 끝 소수 p_(n+1)가 x 이하인 경우다. 분석은 F(x)>0인 최소 정수 x=3,814,280부터 시작한다.
 
@@ -35,7 +35,7 @@ canonical 경계는 gap의 끝 소수 p_(n+1)가 x 이하인 경우다. 분석�
 - 참고용 high-watermark page: https://primegap-list-project.github.io/lists/prime-gaps-high-watermarks/
 - exhaustive coverage 참고: https://primegap-list-project.github.io/fully-analyzed/
 
-웹페이지를 dataset으로 스크레이핑하지 않는다. 승인 후 실행 시 master를 다시 조회하고 40자리 commit을 고정한 뒤 파일별 URL, 취득 UTC, byte 수, SHA-256을 기록한다.
+canonical 입력은 commit `1a112a1387052d9ad360686313f501c01fe46b68`로 고정돼 있다. 웹페이지는 coverage 참고용이며, 독립 대조에는 OEIS b-files와 Oliveira e Silva 공식 `t0.txt.gz`를 immutable 원본과 SHA-256으로 보존한다.
 
 ## 환경
 
@@ -43,16 +43,16 @@ canonical 경계는 gap의 끝 소수 p_(n+1)가 x 이하인 경우다. 분석�
 
     W:\miniforge3\envs\FGKMT\python.exe
 
-승인 전에 허용되는 검증:
+재현·사전검증 명령:
 
     & 'W:\miniforge3\envs\FGKMT\python.exe' -B -m unittest discover -s tests -v
     & 'W:\miniforge3\envs\FGKMT\python.exe' -B -m source.cli preflight
     & 'W:\miniforge3\envs\FGKMT\python.exe' -B -m source.cli status
     & 'W:\miniforge3\envs\FGKMT\python.exe' -B -m source.cli fetch --dry-run
 
-실제 실행은 사용자가 목적·정의·데이터 범위·수행방법을 확인하고 명시적으로 허가한 뒤에만 다음 명령으로 수행한다.
+실제 재실행은 목적·정의·데이터 범위·수행방법에 대한 사용자 승인 후 새 run ID로만 수행한다.
 
-    .\run_experiment.ps1 -Approved
+    .\run_full_analysis.ps1 -Approved
 
 ## 문서
 
@@ -61,6 +61,8 @@ canonical 경계는 gap의 끝 소수 p_(n+1)가 x 이하인 경우다. 분석�
 - docs/METHODS.md: 계산·검증 방법론 정본
 - docs/review/: 문헌별·종합 분석
 - test_plan/: 실행 전 고정 계획
+- test_result/202608230503_P003_full_analysis.md: 일상용어 전체 결과 분석
+- docs/review/10_P003_문헌비교와_후속가설.md: 문헌 비교와 반증 가능한 후속 가설
 - handoff/: 세션마다 새로 만드는 `YYYYMMDDHHmm_HANDOFF.md`; 최신 파일에 현재 상태와 다음 작업 기록
 
 유한 계산 결과는 FGKMT 또는 Sono의 무한 범위 정리를 증명·반증·검증하는 근거로 사용하지 않는다.
