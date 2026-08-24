@@ -34,6 +34,9 @@ else
 fi
 
 pin="8f3e81b9ddadf1fd59552ee7e86fc1d6a5bb918d"
+gap_data_commit="1a112a1387052d9ad360686313f501c01fe46b68"
+gap_data_sha256="988c3278d95a16460a9897e09829fb061ee854e55efa6c4fcec3b9779930894f"
+canonical_gaps_sql="$repo_root/datas/raw/prime-gap-list-project/$gap_data_commit/allgaps.sql"
 threads=8
 max_mem_gib=28
 virtual_mem_kib=31457280
@@ -64,55 +67,65 @@ failure_command="unknown"
 failure_written=0
 failed_manifest="$run_root/manifest.failed.txt"
 search_db=""
+gaps_db=""
 
 write_failed_manifest() {
     local exit_code="$1"
-    set +e
-    trap - ERR
     if (( failure_written != 0 )); then
         return
     fi
     failure_written=1
-    echo "[FAIL] P005 calibration stopped" >&2
-    echo "[FAIL] stage=$current_stage exit_code=$exit_code line=$failure_line" >&2
-    echo "[FAIL] command=$failure_command" >&2
-    if [[ ! -e "$failed_manifest" ]]; then
-        {
-            echo "status=CALIBRATION_FAILED"
-            echo "run_id=$run_id"
-            echo "started_at_utc=$started_at"
-            echo "failed_at_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-            echo "failed_stage=$current_stage"
-            echo "exit_code=$exit_code"
-            echo "failed_line=$failure_line"
-            printf 'failed_command=%q\n' "$failure_command"
-            echo "upstream_commit_expected=$pin"
-            echo "threads=$threads"
-            echo "max_mem_gib=$max_mem_gib"
-            echo "virtual_mem_kib=$virtual_mem_kib"
-            echo "gpu_disabled=true"
-            echo "target_exhaustive_search=false"
-            if [[ -f "$metrics_file" ]]; then
-                sha256sum "$metrics_file"
-            else
-                echo "metrics_status=not_created"
-            fi
-            if [[ -n "$search_db" && -f "$search_db" ]]; then
-                sha256sum "$search_db"
-            else
-                echo "search_db_status=not_created"
-            fi
-            if [[ -d "$run_root/source/unknowns" ]]; then
-                find "$run_root/source/unknowns" -maxdepth 1 -type f -print0 \
-                    | sort -z | xargs -0 -r sha256sum
-            else
-                echo "unknowns_status=not_created"
-            fi
-        } > "$failed_manifest"
-        echo "[FAIL] manifest=$failed_manifest" >&2
-    else
-        echo "[FAIL] existing_manifest_preserved=$failed_manifest" >&2
-    fi
+    (
+        set +e
+        trap - ERR
+        echo "[FAIL] P005 calibration stopped" >&2
+        echo "[FAIL] stage=$current_stage exit_code=$exit_code line=$failure_line" >&2
+        echo "[FAIL] command=$failure_command" >&2
+        if [[ ! -e "$failed_manifest" ]]; then
+            {
+                echo "status=CALIBRATION_FAILED"
+                echo "run_id=$run_id"
+                echo "started_at_utc=$started_at"
+                echo "failed_at_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+                echo "failed_stage=$current_stage"
+                echo "exit_code=$exit_code"
+                echo "failed_line=$failure_line"
+                printf 'failed_command=%q\n' "$failure_command"
+                echo "upstream_commit_expected=$pin"
+                echo "gap_data_commit=$gap_data_commit"
+                echo "gap_data_sha256_expected=$gap_data_sha256"
+                echo "threads=$threads"
+                echo "max_mem_gib=$max_mem_gib"
+                echo "virtual_mem_kib=$virtual_mem_kib"
+                echo "gpu_disabled=true"
+                echo "target_exhaustive_search=false"
+                if [[ -f "$metrics_file" ]]; then
+                    sha256sum "$metrics_file"
+                else
+                    echo "metrics_status=not_created"
+                fi
+                if [[ -n "$search_db" && -f "$search_db" ]]; then
+                    sha256sum "$search_db"
+                else
+                    echo "search_db_status=not_created"
+                fi
+                if [[ -n "$gaps_db" && -f "$gaps_db" ]]; then
+                    sha256sum "$gaps_db"
+                else
+                    echo "gaps_db_status=not_created"
+                fi
+                if [[ -d "$run_root/source/unknowns" ]]; then
+                    find "$run_root/source/unknowns" -maxdepth 1 -type f -print0 \
+                        | sort -z | xargs -0 -r sha256sum
+                else
+                    echo "unknowns_status=not_created"
+                fi
+            } > "$failed_manifest"
+            echo "[FAIL] manifest=$failed_manifest" >&2
+        else
+            echo "[FAIL] existing_manifest_preserved=$failed_manifest" >&2
+        fi
+    )
 }
 
 on_error() {
@@ -163,6 +176,17 @@ if (( missing != 0 )); then
     echo "[REQUEST] sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev libprimesieve-dev time"
     exit 4
 fi
+if [[ ! -f "$canonical_gaps_sql" ]]; then
+    echo "[STOP] Missing canonical prime-gap SQL: $canonical_gaps_sql"
+    exit 4
+fi
+observed_gap_data_sha256="$(sha256sum "$canonical_gaps_sql" | awk '{print $1}')"
+if [[ "$observed_gap_data_sha256" != "$gap_data_sha256" ]]; then
+    echo "[STOP] Canonical prime-gap SQL hash mismatch"
+    echo "[STOP] expected=$gap_data_sha256 observed=$observed_gap_data_sha256"
+    exit 4
+fi
+echo "[CHECK] canonical_gap_data_sha256=$observed_gap_data_sha256"
 available_threads="$(nproc)"
 if (( available_threads < threads )); then
     echo "[STOP] Need at least $threads logical CPUs; WSL reports $available_threads."
@@ -217,6 +241,22 @@ fi
 echo "[CHECK] sqlite_ledger_initialized=true"
 echo "[CHECK] sqlite_tables=m_stats,range,range_stats,result"
 
+current_stage="initialize-prime-gaps-db"
+echo "[STAGE] initialize-prime-gaps-db"
+gaps_db="$source_dir/gaps.db"
+if [[ -e "$gaps_db" ]]; then
+    echo "[STOP] Refusing to reuse prime-gaps database: $gaps_db"
+    exit 7
+fi
+sqlite3 "$gaps_db" < "$canonical_gaps_sql"
+gap_rows="$(sqlite3 "$gaps_db" "SELECT COUNT(*) FROM gaps;")"
+if [[ -z "$gap_rows" || "$gap_rows" -le 0 ]]; then
+    echo "[STOP] Prime-gaps database contains no rows"
+    exit 7
+fi
+echo "[CHECK] prime_gaps_db_initialized=true"
+echo "[CHECK] prime_gaps_db_rows=$gap_rows"
+
 params=(-p 907 -d 2190 --mstart 1 --max-prime 100 --sieve-length 11000)
 reference_fn="907_2190_1_200_s11000_l100M.txt"
 reference_m1_fn="907_2190_1_200_s11000_l100M.m1.txt"
@@ -243,6 +283,7 @@ echo "[STAGE] upstream-reference-gap-stats"
 echo "===== upstream-reference-gap-stats =====" >> "$metrics_file"
 /usr/bin/time -v -a -o "$metrics_file" \
     ./gap_stats -u "$reference_fn" -t "$threads" --min-merit 8 --search-db "$search_db" \
+        --prime-gaps-db "$gaps_db" \
     2>&1 | tee "$run_root/gap_stats_minc200.txt"
 grep -q 'avg missing prob : 0.0000000' "$run_root/gap_stats_minc200.txt"
 
@@ -251,6 +292,7 @@ echo "[STAGE] upstream-reference-gap-test-simple"
 echo "===== upstream-reference-gap-test-simple =====" >> "$metrics_file"
 /usr/bin/time -v -a -o "$metrics_file" \
     ./gap_test_simple -u "$reference_m1_fn" -t "$threads" -q --min-merit 8 --search-db "$search_db" \
+        --prime-gaps-db "$gaps_db" \
     2>&1 | tee "$run_root/gap_test_simple_minc200.txt"
 grep -q '^7750 ' "$run_root/gap_test_simple_minc200.txt"
 
@@ -288,25 +330,35 @@ echo "[CHECK] thread_scaling_output_hashes_match=true"
 
 for minc in 2000 10000; do
     fn="907_2190_1_${minc}_s11000_l100M.txt"
-    current_stage="calibration-minc-${minc}"
+    current_stage="calibration-search-minc-${minc}"
     echo "[STAGE] calibration-search minc=$minc"
     echo "===== calibration-search-minc-$minc =====" >> "$metrics_file"
     /usr/bin/time -v -a -o "$metrics_file" \
         ./combined_sieve -qqq --save-unknowns "${params[@]}" --minc "$minc" -t "$threads" --max-mem "$max_mem_gib" \
             --search-db "$search_db"
 
+    current_stage="calibration-stats-minc-${minc}"
+    echo "[STAGE] calibration-stats minc=$minc"
     echo "===== calibration-stats-minc-$minc =====" >> "$metrics_file"
     /usr/bin/time -v -a -o "$metrics_file" \
         ./gap_stats -u "$fn" -t "$threads" --min-merit 8 --search-db "$search_db" \
+        --prime-gaps-db "$gaps_db" \
         2>&1 | tee "$run_root/gap_stats_minc${minc}.txt"
 
+    current_stage="calibration-gap-test-minc-${minc}"
+    echo "[STAGE] calibration-gap-test minc=$minc"
     echo "===== calibration-gap-test-minc-$minc =====" >> "$metrics_file"
     /usr/bin/time -v -a -o "$metrics_file" \
         ./gap_test_simple -u "$fn" -t "$threads" -q --min-merit 8 --search-db "$search_db" \
+        --prime-gaps-db "$gaps_db" \
         2>&1 | tee "$run_root/gap_test_simple_minc${minc}.txt"
 done
 
 current_stage="write-success-manifest"
+if [[ -e "$failed_manifest" ]]; then
+    echo "[STOP] A failure manifest exists; refusing to write CALIBRATION_PASS"
+    exit 10
+fi
 {
     echo "status=CALIBRATION_PASS"
     echo "upstream_commit=$actual_pin"
@@ -315,9 +367,13 @@ current_stage="write-success-manifest"
     echo "virtual_mem_kib=$virtual_mem_kib"
     echo "gpu_disabled=true"
     echo "target_exhaustive_search=false"
+    echo "gap_data_commit=$gap_data_commit"
+    echo "gap_data_sha256=$observed_gap_data_sha256"
+    echo "prime_gaps_db_rows=$gap_rows"
     echo "finished_at_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
     echo "sqlite_tables=m_stats,range,range_stats,result"
     sha256sum "$search_db"
+    sha256sum "$gaps_db"
     md5sum unknowns/907_2190_1_*_s11000_l100M.txt
     echo "thread_scaling_output_hashes_match=true"
     cat "$scaling_hashes"
@@ -329,4 +385,3 @@ echo "[PASS] P005 CPU calibration completed"
 echo "[RUN] artifact_root=$run_root"
 echo "[RUN] manifest=$run_root/manifest.txt"
 echo "[RUN] metrics=$metrics_file"
-

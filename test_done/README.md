@@ -16,5 +16,7 @@
 |---|---|---|---|
 | `run_P006_plateau_recurrence_pilot-done.bat` | `473DDA69C89DEAEA60D30F863F0B6DAF59BCA1911ED9E39411B1B69CC6401FA0` | `run_20260823T161227Z_p006_pilot1e8.log`, `run_20260823T173021Z_p006_pilot1e8.log` | 둘 다 실제 분석 전 runner 실패 |
 | `run_P007_finite_gap_certificate_pilot-done.bat` | `459E5363566EFC04CB82783C12607135A05BD5F05F090A62C21A4180B9A90C71` | `run_20260823T173316Z_p007_pilot.log` | certificate audit 전 runner 실패 |
+| `run_P006_plateau_recurrence_pilot-20260823T190035Z-done.bat` | `6527806481AAB168D1143EA37FAF59815D19BECD07CB04BDD365FA3CAF0F5FDE` | `run_20260823T190035Z_p006_pilot1e8.log` | `[2,10^8]` exact pilot·saved verification PASS, 사용자 figure QA PASS |
+| `run_P007_finite_gap_certificate_pilot-20260823T185624Z-done.bat` | `7BC4524C945C4081EA93F1D50BB8E8FD3D8457F30F32703609F3504BA5A952EC` | `run_20260823T185624Z_p007_pilot.log` | supplied certificate exact audit·saved verification PASS |
 
-2026-08-24에 루트에 다시 만든 P006/P007 pilot BAT는 로깅 교정판이며 아직 사용자 실제 실행으로 확인되지 않은 활성 실행기다.
+성공한 P006/P007 교정판 pilot BAT는 timestamp suffix로 보존했고 루트 활성본은 제거했다. 재실행이 필요해지면 새 revision을 루트에 만들어야 한다. full BAT는 아직 실행 이력이 없어 루트에 유지한다.

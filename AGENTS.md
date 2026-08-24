@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P004 COMPLETED / P005·P006·P007 USER-RUN FAILED BEFORE RESULTS / RUNNERS FIXED LOCALLY
+## 현재 상태: P004·P006 PILOT·P007 PILOT COMPLETED / P005 PARTIAL FAILED / P008 PREPARED NOT RUN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 계획은 `test_plan/P004_start-end-boundary_local-envelope-sensitivity.md`, 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. 사용자 실행 P005 calibration은 SQLite 초기화 누락으로 Method1에서 실패했다. P006 pilot 두 번은 정상 unittest stderr를 Windows PowerShell 오류로 오인해 actual analysis 전에 중단됐고, P007 pilot 한 번은 빈 stderr 줄의 로그 복사 오류로 certificate audit 전에 중단됐다. 세 실행 모두 연구 결과가 아니다. 공통 PowerShell 전체 오류 로깅, P005 SQLite·실패 manifest는 로컬 교정·toy 검증됐지만 교정판 actual 재실행은 미수행이다. P005/P006/P007 재실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. 교정판 P006 `[2,10^8]` pilot `20260823T190035Z`와 P007 supplied-certificate pilot `20260823T185624Z`는 saved verification까지 PASS했고 각각 `test_result/202608240433_P006_pilot1e8_result_analysis.md`, `test_result/202608240432_P007_pilot_certificate_result_analysis.md`가 해석 정본이다. P005 `20260823T190408Z`는 Method output·thread scaling 일부가 성공했지만 missing `gaps.db` 첫 실패 뒤 runner가 잘못 계속되어 전체 FAIL이다. 두 manifest 중 failure manifest만 전체 판정에 유효하며 helper 2차 교정은 toy DB·failure semantics까지 local validation을 통과했지만 actual 재실행 전이다. P008은 right-boundary와 exact prime-count metadata 보정을 포함한 feasibility plan/code/runner가 local validation을 통과했고 실제 실행은 미허가다. 추가 P005/P006/P007/P008 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -307,9 +307,11 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P004 start/end paired, shifted log-bin, rolling `w=3,8,15,30`, x-width `0.5,1,2` decade 분석 완료
 - P004 47 tests와 100-dps 독립 검증 3,747개 PASS, issue 0
 - y축 최대 `10^4` 및 첫 interval 생략+y축 최대 `10^3` 그래프 생성; 사용자 시각 QA 완료
-- P005 WSL calibration user run은 build PASS 후 missing `prime-gap-search.db`로 G2 FAIL; SQLite schema/table precheck와 실패 manifest helper는 로컬 교정됨
-- P006 Windows pilot user run 두 번은 preflight PASS 후 같은 `NativeCommandError`로 분석 전 중단; 공통 stdout/stderr 로깅 helper는 로컬 교정됨
-- P007 pilot user run은 preflight·61-test process exit 0 뒤 빈 stderr 줄 복사 오류로 certificate audit 전 중단; 공통 empty-line·ErrorRecord 로깅 helper는 로컬 교정됨
+- P005 2차 user run은 build·Method1/2·thread-scaling 일부 PASS, 모든 `gap_stats`는 missing `gaps.db` FAIL; post-failure PASS manifest는 runner bug로 무효
+- P005 helper는 canonical `allgaps.sql→gaps.db`, parent errexit 보존, failure시 success 거부를 2차 교정했고 toy DB·failure-semantics local validation PASS; actual rerun 전
+- P006 `[2,10^8]` pilot PASS: 5,761,455 primes, 5,761,454 gaps, complete/censored plateau 24/1, artifact issue 0, 사용자 figure QA PASS
+- P007 supplied modulus-2310 pilot PASS: 480 states, 415,223 constraints, minimum slack 0, saved issue 0; historic ceil bound는 유효하지만 floor로 total upper bound를 1 낮출 수 있음
 - P007 exact finite-range certificate의 modulus 30030 solve와 직접 search acceleration 주장은 계속 차단
+- P008 critical review와 phase-A 코드 준비: arbitrary endpoint `pi(B-1)-pi(A-1)`, floor, explicit right-boundary, fixed 4-block grid, prime-count metadata hash, independent Fraction verifier; local validation PASS, actual run 전
 
-다음 행동은 사용자가 교정된 P006 pilot, P007 certificate pilot, P005 WSL calibration을 각각 별도 명령으로 재실행하는 것이다. Codex는 제공된 새 로그를 먼저 감사하며, 각 다음 단계는 직전 PASS 뒤에만 권장한다.
+다음 행동은 사용자가 P008 toy pilot 또는 P005 재교정을 각각 별도 명령으로 실행하는 것이다. P006 `[2,10^9]`, P007 small-modulus full, P008 exact prime-count/full은 각각 직전 결과 검토와 별도 사용자 승인 뒤에만 권장한다.

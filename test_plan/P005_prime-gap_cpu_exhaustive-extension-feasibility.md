@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`HELPER_FIXED_LOCALLY / WAITING_FOR_USER_RERUN` — 사용자 실행 `20260823T162845Z_p005_prime_gap_cpu_calibration`은 dependency 검사와 CPU build를 통과했으나 upstream Method1 직전에 `prime-gap-search.db`가 없어 exit 1로 중단됐다. helper에 run-local SQLite schema/table 검사, 명시적 DB 경로, 실패 `manifest.failed.txt`를 추가하고 bash parser·toy schema·approval-denial을 통과시켰지만 새 actual calibration은 없다. Rank 85→86 전체 exhaustive 실행은 여전히 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다.
+`PARTIAL_USER_RUN_FAILED / SECOND_HELPER_FIX_LOCALLY_VERIFIED / WAITING_FOR_USER_RERUN` — 첫 실행의 missing search ledger는 교정됐지만 사용자 재실행 `20260823T190408Z`에서 upstream reference `gaps.db`가 없어 첫 `gap_stats`가 실패했다. error handler가 parent shell의 `errexit`를 꺼 후속 단계와 잘못된 PASS manifest까지 만든 결함도 확인됐다. Method1/2·thread-scaling·일부 simple test는 부분 증거로 유효하지만 전체 calibration PASS는 아니다. canonical `allgaps.sql→gaps.db`, failure-handler 격리, failure manifest가 있으면 success 거부를 로컬 패치했고 bash parser, failure-manifest toy, 합성 DB import를 통과했다. canonical raw SQL 실제 import와 end-to-end PASS는 새 사용자 run에서 확인해야 한다. Rank 85→86 전체 exhaustive 실행은 여전히 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다.
 
 교정 검증 증거: `test_result/202608240329_P005_P006_P007_runner_fix_local_validation.md`
 
@@ -106,7 +106,7 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 - `libgmp-dev`, `libsqlite3-dev`, `libprimesieve-dev` 확인
 - 하나라도 없으면 설치하지 않고 중단
 
-### G2 — 공식 correctness calibration (`FAIL — SQLITE DATABASE NOT INITIALIZED`)
+### G2 — 공식 correctness calibration (`PARTIAL PASS / FAIL — REFERENCE gaps.db MISSING`)
 
 - exact upstream commit을 새 디렉터리에 clone/checkout
 - `combined_sieve`, `gap_stats`, `gap_test_simple`만 CPU로 빌드
@@ -114,15 +114,17 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 - Method1/Method2 unknown file MD5가 각각 upstream 기대값 `15a5cbff7301262caf047028c05f0525`와 일치해야 함
 - stats와 simple gap test가 성공해야 함
 
-이 G2 표시는 과거 actual run 판정이다. 교정판 helper는 계산 전 `schema.sql`을 읽어 `m_stats,range,range_stats,result` table을 확인하고, root·thread-scaling 명령에 격리된 `--search-db`를 전달한다. 실제 G2 PASS 여부는 새 run의 두 MD5와 terminal manifest로만 판정한다.
+`20260823T190408Z` 실행에서 build, search ledger, 두 Method output MD5는 PASS했다. 그러나 `gap_stats`가 별도 reference `gaps.db` 부재로 exit 1이었다. 뒤의 PASS marker는 runner bug로 만들어져 무효다. 두 번째 교정판은 pinned canonical `allgaps.sql` hash를 검사해 `gaps.db`를 만들고 모든 stats/test 명령에 `--prime-gaps-db`를 전달한다. 실제 G2 PASS 여부는 새 run에서 `gap_stats`까지 성공하고 failure manifest가 없을 때만 판정한다.
 
-### G3 — 소규모 CPU 탐색 calibration (`NOT RUN`)
+### G3 — 소규모 CPU 탐색 calibration (`PARTIAL EVIDENCE / NOT END-TO-END PASS`)
 
 - 같은 파라미터에서 `minc=2000`, `10000`을 Method2로 실행
 - 같은 `minc=2000` 입력을 1, 2, 4, 8 threads로 격리 실행하고 output SHA-256이 모두 같아야 함
 - 보고 단위는 `m-values/s`, unknown candidates/s, PRP/s이며 일반 `x-range/s`로 부르지 않음
 - 각 규모에 대해 wall time, maximum resident set, exit code, output hash 저장
 - 메모리 제한 초과, output 충돌, hash/check 실패 시 즉시 중단
+
+runner bug로 실패 뒤에도 실행된 minc 2000/10000 search와 simple test는 각 process exit 0이었다. thread-scaling output hash도 일치했지만 두 `gap_stats`는 모두 missing `gaps.db`로 실패했다. 따라서 처리시간 자료는 부분 benchmark일 뿐 G3 PASS가 아니다. 상세: `test_result/202608240434_P005_cpu_calibration_partial_failure_analysis.md`.
 
 ### G4 — 일반 x-range coverage 설계 (`BLOCKED_BY_FEASIBILITY`)
 

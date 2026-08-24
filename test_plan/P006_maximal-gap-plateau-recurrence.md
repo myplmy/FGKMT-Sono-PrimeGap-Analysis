@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`RUNNER_FIXED_LOCALLY / WAITING_FOR_USER_RERUN` — 사용자 실행 `20260823T161227Z`와 `20260823T173021Z`는 모두 preflight PASS 뒤 Windows PowerShell 5.1이 정상 `unittest -v` stderr를 `NativeCommandError`로 취급해 실제 분석 전에 중단됐다. 공통 stdout/stderr·빈 줄·ErrorRecord 로깅 helper와 toy self-test를 교정했지만 새 `[2,10^8]` actual run은 아직 없다.
+`PILOT_EXPERIMENT_PASS / USER_VISUAL_QA_PASS` — 교정판 사용자 실행 `20260823T190035Z_p006_pilot1e8`은 `[2,10^8]` 모든 consecutive gap을 처리하고 61 tests, exact `pi(10^8)`, 25 reference records, 12 saved artifacts를 issue 0으로 검증했다. complete plateau 24개와 right-censored plateau 1개를 생성했고 PNG/PDF 6개는 사용자 시각검사에서도 큰 문제가 없다고 확인됐다. 다음 확대 `[2,10^9]`는 별도 사용자 승인 전에는 실행하지 않는다.
 
 ## 2. 연구 질문과 비목적
 
@@ -173,11 +173,11 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 
 구현 파일은 `source/plateau_recurrence.py`, `source/plateau_recurrence_cli.py`, `tests/test_plateau_recurrence.py`, 공통 `run_plateau_recurrence.ps1`, 두 BAT 진입점이다.
 
-교정판은 `Start-Process` stdout/stderr 분리 수집, blank-line 보존, nonzero exit와 전체 PowerShell ErrorRecord 로깅을 사용한다. parser, synthetic stdout/stderr·exit-7 toy self-test, approval-denial, 전체 61 tests는 PASS했다. 검증 증거는 `test_result/202608240329_P005_P006_P007_runner_fix_local_validation.md`다. 실제 pilot 재실행은 사용자가 위 BAT 명령으로 별도 수행해야 한다.
+교정판은 `Start-Process` stdout/stderr 분리 수집, blank-line 보존, nonzero exit와 전체 PowerShell ErrorRecord 로깅을 사용한다. parser, synthetic stdout/stderr·exit-7 toy self-test, approval-denial, 전체 61 tests를 통과했고 실제 pilot도 PASS했다. 로컬 교정 증거는 `test_result/202608240329_P005_P006_P007_runner_fix_local_validation.md`, 실제 결과는 `test_result/202608240433_P006_pilot1e8_result_analysis.md`다.
 
-사전 추정은 `[2,10^8]` 약 1–5분, `[2,10^9]` 약 10–60분, `[2,10^10]` 약 2–12시간이다. 아직 이 PC의 실제 P006 처리량을 측정하지 않은 넓은 계획값이며 pilot 로그로 교체한다. segment working set은 2 GiB보다 훨씬 작게 설계했다.
+실측 actual analysis는 `[2,10^8]`에서 1.151초였고 전체 runner는 tests 포함 약 11초였다. 단순 선형 외삽은 sieve/cache 효과 때문에 확정값이 아니므로 `[2,10^9]`은 약 1–5분, 선택적 `[2,10^10]`은 약 10–60분의 새 보수적 범위로 먼저 잡고 실제 로그로 교체한다. segment working set은 2 GiB보다 훨씬 작게 설계했다.
 
-## 8. 실제 실패 실행 감사
+## 8. 실행 감사
 
 - first log: `test_result/logs/run_20260823T161227Z_p006_pilot1e8.log`
 - second log: `test_result/logs/run_20260823T173021Z_p006_pilot1e8.log`
@@ -188,9 +188,19 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 - saved-artifact verification: NOT RUN
 - P006 result directory: 생성되지 않음
 - 실행 당시 BAT: `test_done/run_P006_plateau_recurrence_pilot-done.bat`에 hash 보존
-- 루트 교정판 BAT: active, actual user run 미확인
+- 당시 실패 BAT: `test_done/run_P006_plateau_recurrence_pilot-done.bat`에 hash 보존
 
 두 실패는 P006 수학 코드 또는 segmented sieve 실패의 증거가 아니다. 실제 데이터 단계에 들어가지 않았으므로 pilot 결과값·처리시간·그래프는 없다.
+
+교정판 성공 실행:
+
+- log: `test_result/logs/run_20260823T190035Z_p006_pilot1e8.log`
+- result: `test_result/run_20260823T190035Z_p006_pilot1e8`
+- prime count 5,761,455, gap count 5,761,454
+- complete/censored plateaus 24/1
+- saved verification issue 0, user visual QA 큰 문제 없음
+- 상세: `test_result/202608240433_P006_pilot1e8_result_analysis.md`
+- 실행 BAT 보존: `test_done/run_P006_plateau_recurrence_pilot-20260823T190035Z-done.bat`, SHA-256 `6527806481AAB168D1143EA37FAF59815D19BECD07CB04BDD365FA3CAF0F5FDE`
 
 ## 9. 예정 산출물
 

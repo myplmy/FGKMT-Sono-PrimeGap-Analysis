@@ -2,9 +2,9 @@
 
 ## 1. 상태
 
-`USER_RUN_FAILED_BEFORE_AUDIT / RUNNER_FIXED_LOCALLY / WAITING_FOR_USER_RERUN`
+`G2_SUPPLIED_CERTIFICATE_EXPERIMENT_PASS / G3_WAITING_FOR_USER_APPROVAL`
 
-이론 비판 검토, exact verifier, 작은 modulus LP candidate discovery, toy tests, Windows pilot/full 실행기를 준비했다. 사용자 pilot `20260823T173316Z`는 preflight와 61-test Python process exit 0 뒤 빈 stderr 줄을 복사하는 runner 오류로 certificate audit 전에 중단됐다. 공통 empty-line·전체 ErrorRecord 로깅을 교정했지만 새 actual pilot/full 결과는 없다. P005/P006 재실행 승인과도 독립이다.
+첫 사용자 pilot `20260823T173316Z`는 runner 오류로 certificate audit 전에 중단됐지만, 교정판 실행 `20260823T185624Z_p007_pilot`은 preflight, 61 tests, 415,223 transition exact audit와 saved verification을 모두 통과했다. supplied certificate G2는 PASS이며 실제 prime enumeration/search는 없었다. 작은 modulus LP 비교 G3 full은 아직 실행하지 않았고 별도 사용자 승인이 필요하다.
 
 ## 2. 목적과 연구 질문
 
@@ -125,20 +125,12 @@ wD\le\lambda_{num}d+\mu_{num}+\phi_i-\phi_j,
 - PowerShell parser와 pilot/full BAT approval-denial: PASS
 - 교정 검증 보고서: `test_result/202608240329_P005_P006_P007_runner_fix_local_validation.md`
 
-### G2 — supplied certificate pilot (`USER_RUN_FAILED_BEFORE_AUDIT / RERUN_REQUIRED`)
+### G2 — supplied certificate pilot (`EXPERIMENT_PASS — 20260823T185624Z`)
 
 - 입력 hash 고정
 - modulus 2310, 480 states, 415,223 constraints exact 검증
 - corrected packing bound, internal/total bound, heuristic `C`를 분리 저장
 - prime enumeration/search는 0건
-
-사용자 승인 후 명령:
-
-```bat
-run_P007_finite_gap_certificate_pilot.bat --confirm-p007
-```
-
-예상시간: 약 1–3분. 전체 unit tests와 exact 415,223-edge 재검증을 포함한 넓은 추정이다.
 
 실행 감사:
 
@@ -146,6 +138,15 @@ run_P007_finite_gap_certificate_pilot.bat --confirm-p007
 - preflight PASS, 61-test Python process exit 0
 - 정상 빈 stderr 줄의 parameter binding 오류로 certificate audit·result·verification은 NOT RUN
 - 상세: `test_result/202608240315_P007_pilot_failure_analysis.md`
+
+교정판 성공 실행:
+
+- log: `test_result/logs/run_20260823T185624Z_p007_pilot.log`, SHA-256 `6d1bb5e777b367d223f5d200b35d08e2b90a1ac2b65860118d3cb29e80456e82`
+- 61 tests PASS, 480 states, 415,223 constraints, minimum slack 0
+- saved-artifact verification issue 0
+- actual prime search false, direct acceleration false
+- 상세: `test_result/202608240432_P007_pilot_certificate_result_analysis.md`
+- 실행 BAT 보존: `test_done/run_P007_finite_gap_certificate_pilot-20260823T185624Z-done.bat`, SHA-256 `7BC4524C945C4081EA93F1D50BB8E8FD3D8457F30F32703609F3504BA5A952EC`
 
 ### G3 — 작은 modulus 비교 full phase A (`WAITING_FOR_USER_APPROVAL`)
 
