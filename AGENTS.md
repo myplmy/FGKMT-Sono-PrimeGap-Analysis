@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P004·P006 PILOT·P007 PILOT COMPLETED / P005 PARTIAL FAILED / P008 PREPARED NOT RUN
+## 현재 상태: P002–P008 실행단계 완료 / P009 계획만 준비 / P006 새 figure 사용자 QA 대기
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. 교정판 P006 `[2,10^8]` pilot `20260823T190035Z`와 P007 supplied-certificate pilot `20260823T185624Z`는 saved verification까지 PASS했고 각각 `test_result/202608240433_P006_pilot1e8_result_analysis.md`, `test_result/202608240432_P007_pilot_certificate_result_analysis.md`가 해석 정본이다. P005 `20260823T190408Z`는 Method output·thread scaling 일부가 성공했지만 missing `gaps.db` 첫 실패 뒤 runner가 잘못 계속되어 전체 FAIL이다. 두 manifest 중 failure manifest만 전체 판정에 유효하며 helper 2차 교정은 toy DB·failure semantics까지 local validation을 통과했지만 actual 재실행 전이다. P008은 right-boundary와 exact prime-count metadata 보정을 포함한 feasibility plan/code/runner가 local validation을 통과했고 실제 실행은 미허가다. 추가 P005/P006/P007/P008 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P008 실제 full은 certified zero 0개라 supplied modulus-2310 direct tiling을 음성 판정했고, P005 Rank 85→86 exhaustive 및 P007/P008 direct acceleration은 계속 미증명이다. P006 새 `[2,10^9]` figure는 자동 수치검증만 PASS했고 사용자 시각검사는 대기 중이다. 결과 정본 색인은 `test_result/00_실험결과_분석보고서_색인.md`, 다음 후속은 계획만 작성된 `test_plan/P009_P008_boundary-witness_break-even-gate.md`다. 추가 실제 실행, 패키지 설치, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -42,8 +42,9 @@ P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다
 2. `연구 작업지시서_ FGKMT-Sono 대형 소수간격 하한과 실제 maximal prime gap의 경험적 비교 분석.md`
 3. `docs/METHODS.md` - 교정된 계산 정의와 실행 절차의 정본
 4. `handoff/`의 최신 `YYYYMMDDHHmm_HANDOFF.md` - 현재 상태, 검증 결과, 승인 경계와 다음 행동
-5. `docs/review/00_문헌_종합_분석.md` - 현재 9편 corpus의 종합 판정
-6. `docs/review/01_...09_...md` - 논문별 상세 분석
+5. `test_result/00_실험결과_분석보고서_색인.md` - 실행번호, 로그, run directory, 정본 결과보고서 연결
+6. `docs/review/00_문헌_종합_분석.md` - 현재 9편 corpus의 종합 판정
+7. `docs/review/01_...09_...md` - 논문별 상세 분석
 
 작업지시서와 `docs/METHODS.md`가 충돌하면 수학적 오류를 조용히 덮지 말고, `docs/METHODS.md`의 교정 사유를 사용자에게 설명하고 확인받는다.
 
@@ -307,11 +308,14 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P004 start/end paired, shifted log-bin, rolling `w=3,8,15,30`, x-width `0.5,1,2` decade 분석 완료
 - P004 47 tests와 100-dps 독립 검증 3,747개 PASS, issue 0
 - y축 최대 `10^4` 및 첫 interval 생략+y축 최대 `10^3` 그래프 생성; 사용자 시각 QA 완료
-- P005 2차 user run은 build·Method1/2·thread-scaling 일부 PASS, 모든 `gap_stats`는 missing `gaps.db` FAIL; post-failure PASS manifest는 runner bug로 무효
-- P005 helper는 canonical `allgaps.sql→gaps.db`, parent errexit 보존, failure시 success 거부를 2차 교정했고 toy DB·failure-semantics local validation PASS; actual rerun 전
+- P005 `20260824T054203Z` bounded CPU calibration PASS: canonical gaps DB 122,251 rows, Method1/2·stats/test·thread hashes 일치; Rank 85→86 exhaustive coverage는 미증명
 - P006 `[2,10^8]` pilot PASS: 5,761,455 primes, 5,761,454 gaps, complete/censored plateau 24/1, artifact issue 0, 사용자 figure QA PASS
+- P006 `[2,10^9]` full PASS: 50,847,534 primes, complete/censored plateau 29/1, artifact issue 0; 새 figure 사용자 QA 대기
 - P007 supplied modulus-2310 pilot PASS: 480 states, 415,223 constraints, minimum slack 0, saved issue 0; historic ceil bound는 유효하지만 floor로 total upper bound를 1 낮출 수 있음
+- P007 small-modulus full PASS: mod 30/210/2310 상한 단조감소, mod30030은 estimate only; direct acceleration 미증명
 - P007 exact finite-range certificate의 modulus 30030 solve와 직접 search acceleration 주장은 계속 차단
-- P008 critical review와 phase-A 코드 준비: arbitrary endpoint `pi(B-1)-pi(A-1)`, floor, explicit right-boundary, fixed 4-block grid, prime-count metadata hash, independent Fraction verifier; local validation PASS, actual run 전
+- P008 phase-A PASS: five exact prime-count endpoints dual-algorithm 일치, actual four blocks certified zero 0; direct local tiling 음성 판정
+- P009 boundary witness·168시간·32 GB·100 GB break-even 계획만 작성; 코드·PARI 설치·actual run 전
+- 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 행동은 사용자가 P008 toy pilot 또는 P005 재교정을 각각 별도 명령으로 실행하는 것이다. P006 `[2,10^9]`, P007 small-modulus full, P008 exact prime-count/full은 각각 직전 결과 검토와 별도 사용자 승인 뒤에만 권장한다.
+다음 행동은 사용자가 P006 `[2,10^9]` figure 3개를 시각검사하고, 이후 Codex가 P009 boundary witness generator/verifier를 toy 범위에서 구현할지 결정하는 것이다. P009 actual `10^20` pilot과 PARI/GP 설치는 구현·로컬검증 뒤 별도 사용자 승인 전에는 수행하지 않는다.

@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`PARTIAL_USER_RUN_FAILED / SECOND_HELPER_FIX_LOCALLY_VERIFIED / WAITING_FOR_USER_RERUN` — 첫 실행의 missing search ledger는 교정됐지만 사용자 재실행 `20260823T190408Z`에서 upstream reference `gaps.db`가 없어 첫 `gap_stats`가 실패했다. error handler가 parent shell의 `errexit`를 꺼 후속 단계와 잘못된 PASS manifest까지 만든 결함도 확인됐다. Method1/2·thread-scaling·일부 simple test는 부분 증거로 유효하지만 전체 calibration PASS는 아니다. canonical `allgaps.sql→gaps.db`, failure-handler 격리, failure manifest가 있으면 success 거부를 로컬 패치했고 bash parser, failure-manifest toy, 합성 DB import를 통과했다. canonical raw SQL 실제 import와 end-to-end PASS는 새 사용자 run에서 확인해야 한다. Rank 85→86 전체 exhaustive 실행은 여전히 coverage 방법과 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다.
+`CALIBRATION_PASS / RANK85_TO_86_EXHAUSTIVE_BLOCKED` — 교정판 사용자 실행 `20260824T054203Z`은 canonical `allgaps.sql→gaps.db`, SQLite search ledger, Method1/2, `gap_stats`, `gap_test_simple`, 1·2·4·8-thread output hash를 모두 통과했다. bounded CPU calibration은 완료됐다. 다만 Rank 85→86 전체 exhaustive 실행은 every-prime-start coverage와 계산 가능성이 성립하지 않아 승인 가능한 실행 단계가 아니다.
 
 교정 검증 증거: `test_result/202608240329_P005_P006_P007_runner_fix_local_validation.md`
 
@@ -106,7 +106,7 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 - `libgmp-dev`, `libsqlite3-dev`, `libprimesieve-dev` 확인
 - 하나라도 없으면 설치하지 않고 중단
 
-### G2 — 공식 correctness calibration (`PARTIAL PASS / FAIL — REFERENCE gaps.db MISSING`)
+### G2 — 공식 correctness calibration (`PASS — 20260824T054203Z`)
 
 - exact upstream commit을 새 디렉터리에 clone/checkout
 - `combined_sieve`, `gap_stats`, `gap_test_simple`만 CPU로 빌드
@@ -114,9 +114,9 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 - Method1/Method2 unknown file MD5가 각각 upstream 기대값 `15a5cbff7301262caf047028c05f0525`와 일치해야 함
 - stats와 simple gap test가 성공해야 함
 
-`20260823T190408Z` 실행에서 build, search ledger, 두 Method output MD5는 PASS했다. 그러나 `gap_stats`가 별도 reference `gaps.db` 부재로 exit 1이었다. 뒤의 PASS marker는 runner bug로 만들어져 무효다. 두 번째 교정판은 pinned canonical `allgaps.sql` hash를 검사해 `gaps.db`를 만들고 모든 stats/test 명령에 `--prime-gaps-db`를 전달한다. 실제 G2 PASS 여부는 새 run에서 `gap_stats`까지 성공하고 failure manifest가 없을 때만 판정한다.
+`20260824T054203Z` 실행은 pinned canonical `allgaps.sql` hash를 확인해 122,251-row `gaps.db`를 만들고 모든 stats/test 명령에 전달했다. 두 Method output MD5, search/gaps DB hash, 모든 exit code, terminal marker가 일치했고 failure manifest는 없었다.
 
-### G3 — 소규모 CPU 탐색 calibration (`PARTIAL EVIDENCE / NOT END-TO-END PASS`)
+### G3 — 소규모 CPU 탐색 calibration (`PASS — 20260824T054203Z`)
 
 - 같은 파라미터에서 `minc=2000`, `10000`을 Method2로 실행
 - 같은 `minc=2000` 입력을 1, 2, 4, 8 threads로 격리 실행하고 output SHA-256이 모두 같아야 함
@@ -124,7 +124,7 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 - 각 규모에 대해 wall time, maximum resident set, exit code, output hash 저장
 - 메모리 제한 초과, output 충돌, hash/check 실패 시 즉시 중단
 
-runner bug로 실패 뒤에도 실행된 minc 2000/10000 search와 simple test는 각 process exit 0이었다. thread-scaling output hash도 일치했지만 두 `gap_stats`는 모두 missing `gaps.db`로 실패했다. 따라서 처리시간 자료는 부분 benchmark일 뿐 G3 PASS가 아니다. 상세: `test_result/202608240434_P005_cpu_calibration_partial_failure_analysis.md`.
+교정판에서 `minc=2000,10000`의 search/stats/test가 모두 exit 0이었고 1·2·4·8-thread unknown output SHA-256이 일치했다. 작은 `minc=2000` 표본에서는 4 threads가 0.54초로 가장 빨랐지만 1초 안팎의 표본이므로 본 탐색 최적값으로 외삽하지 않는다. 상세: `test_result/202608241829_P005_cpu_calibration_success_analysis.md`.
 
 ### G4 — 일반 x-range coverage 설계 (`BLOCKED_BY_FEASIBILITY`)
 
@@ -174,6 +174,17 @@ Windows BAT가 WSL을 중계하지 않으며 `wslpath` 변환도 사용하지 �
 
 ## 10. 실제 실행 감사
 
+최종 성공 실행:
+
+- log: `test_result/logs/run_20260824T054203Z_p005_prime_gap_cpu_calibration.log`
+- log SHA-256: `55820FFE6BA50E9CD50FE6F5B2E3CEF576D65306702FE43553A9C77E6508309E`
+- run root: `tmp/prime-gap-p005/20260824T054203Z_p005_prime_gap_cpu_calibration`
+- `status=CALIBRATION_PASS`, failure manifest 없음
+- 실행시간 약 87초, 최대 RSS 약 205 MiB
+- 상세: `test_result/202608241829_P005_cpu_calibration_success_analysis.md`
+
+이전 실패 이력:
+
 - authoritative log: `test_result/logs/run_20260823T162845Z_p005_prime_gap_cpu_calibration.log`
 - failure analysis: `test_result/202608240158_P005_calibration_failure_analysis.md`
 - upstream source/build: PASS
@@ -186,10 +197,9 @@ Windows BAT가 WSL을 중계하지 않으며 `wslpath` 변환도 사용하지 �
 
 ## 11. 후속 작업
 
-1. P005 helper의 run-local SQLite schema와 실패 manifest 패치 완료
-2. `bash -n`, 임시 SQLite DB 네 table toy 검사, approval-denial 완료
-3. 사용자가 새 run ID에서 calibration을 재실행해 G2 official Method1/Method2 hash부터 재검증
-4. 새 G2 PASS 뒤에만 G3 처리량·메모리·thread scaling 결과를 채택
-5. exhaustive 목적이면 별도의 constructive coverage certificate를 설계
+1. P005 bounded calibration 완료
+2. calibration 수치의 일반 x-range ETA 외삽 금지 유지
+3. exhaustive 목적이면 별도의 constructive coverage certificate를 설계
+4. P008/P009의 local-zero 또는 candidate-cover가 false-negative 0 조건을 만족할 때만 P005 pipeline과 mapping benchmark
 
 P005b 제안의 상세 판정과 재개 조건은 `docs/review/14_P005b_exhaustive-extension-calibration_타당성검토.md`를 따른다. 현재는 별도 P005b 실행계획을 만들지 않는다.

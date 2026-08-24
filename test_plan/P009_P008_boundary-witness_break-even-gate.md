@@ -1,0 +1,197 @@
+# P009 — P008 boundary witness와 알고리즘 break-even 게이트
+
+## 1. 상태
+
+`PLANNED / IMPLEMENTATION_NOT_STARTED / ACTUAL_RUN_NOT_AUTHORIZED`
+
+P008 phase-A는 정상 PASS했지만 실제 네 block의 certified zero는 0개였고, current modulus-2310 certificate의 direct tiling은 시간·저장공간 문턱에 수십만–수억 배 부족했다. P009는 더 큰 sweep을 바로 실행하지 않고, 길이 1,000에서 남은 right-boundary 1개를 exact하고 싼 증거로 없앨 수 있는지와 그 방법이 전체 알고리즘 후보가 될 자원 조건을 만족하는지 분리해 판정한다.
+
+## 2. 연구 질문
+
+1. P008의 `x1e20_L1000` block에서 internal bound 0과 결합할 exact crossing witness를 만들 수 있는가?
+2. witness 생성·독립검증의 시간, RAM, disk 비용은 얼마인가?
+3. 같은 방법을 여러 block에 적용할 때 168시간·32 GB·100 GB 제한을 만족할 수 있는가?
+4. single-block zero가 가능하더라도 전체 탐색 후보가 되려면 bound 또는 candidate count가 얼마나 더 줄어야 하는가?
+
+## 3. 비목적
+
+- `[10^20,10^21)` 전체를 tiling하거나 탐색하지 않는다.
+- 한 block의 zero를 전체 범위 가속 증명으로 부르지 않는다.
+- probable-prime만으로 endpoint를 인증하지 않는다.
+- PARI/GP를 사용자 승인 없이 설치하지 않는다.
+- modulus 30030 dense LP를 실행하지 않는다.
+- GPU를 사용하지 않는다.
+
+## 4. 입력과 provenance
+
+- P008 certificate: `ai_dev_tool/temp_prime_gap_count_algorithm/source/C2310_certificate.txt`
+- certificate SHA-256: `44c6a9e51b5f99ef2f49f89c89cfc40604e83ce8fe20e802f21733109b1e92fb`
+- P008 full log: `test_result/logs/run_20260824T064748Z_p008_full.log`
+- P008 full log SHA-256: `1ae74f8986f5ca0ac4b66a3aa5090c2be130fa8029ced6ef8d5b18c8d4c8f51e`
+- P008 exact counts: `tmp/p008-primecounts/20260824T054725Z_p008_primecount_prepare/prime_counts.csv`
+- target block: `[10^20,10^20+1000)`
+- threshold H: 1856
+- saved internal exact bound: `q=0.499300014467527`, `floor(q)=0`
+- current boundary status: `UNRESOLVED`, total bound 1
+
+## 5. 수학 계약
+
+block의 마지막 소수를 `p<B`라고 하자. 다음 조건을 machine-checkable하게 증명한다.
+
+1. `p`는 소수다.
+2. 모든 정수 `n`에 대해 `p<n<B`이면 `n`은 합성수다. 따라서 `p`는 block의 마지막 소수다.
+3. `q≥B`인 증명된 소수 `q`가 존재하고 `q-p<1856`이다.
+
+그러면 실제 `p` 다음 소수 `p^+`에 대해 `p^+≤q`이므로
+
+\[
+p^+-p\le q-p<1856.
+\]
+
+따라서 unresolved crossing도 large gap이 아니며, P008의 internal bound 0과 결합해 해당 block의 total large-gap count가 0임을 증명한다.
+
+`q`가 바로 다음 소수임을 별도로 증명할 필요는 없지만 `p`가 block의 마지막 소수라는 증명은 생략할 수 없다.
+
+## 6. 알고리즘 후보 정량 게이트
+
+전체 폭 `W=9×10^20`에 대해 다음을 동시에 만족해야 한다.
+
+\[
+n_{blocks}=\lceil W/L\rceil,
+\quad n_{blocks}t_{block}\le604800\text{ s},
+\quad n_{blocks}b_{block}\le10^{11}\text{ bytes}.
+\]
+
+### Gate A — 과학적 feasibility
+
+- selected block에 exact `CERTIFIED_ZERO`를 1개 이상 생성
+- 독립 verifier issue 0
+- probable-prime 의존 0
+
+Gate A는 수학적 가능성만 판정한다. 알고리즘 후보 통과가 아니다.
+
+### Gate B — 최소 throughput
+
+- `1 microsecond/block`이라는 이상적 가정에서도 L은 `1.488×10^9` 이상이어야 한다.
+- 관측 `q/L≈4.86138×10^-4`이면 이 길이의 q는 약 723,000이다.
+- 따라서 현재 certificate의 bound를 적어도 약 70만 배 낮추거나, zero 대신 매우 희소한 sound candidate cover를 내야 한다.
+
+### Gate C — 저장공간
+
+- 1 byte/block이면 L은 `9×10^9` 이상, 현재 q는 약 4.38 million이다.
+- 100 bytes/block이면 L은 `9×10^11` 이상, 현재 q는 약 437.5 million이다.
+- ledger는 100 GB 미만이어야 한다.
+
+### Gate D — 실제 baseline 비교
+
+\[
+T_{certificate}+T_{ledger}+T_{survivor}
+<T_{baseline}
+\]
+
+를 동일 coverage 계약과 CPU-only 조건에서 실측해야 한다. false negative가 한 건이라도 있거나 coverage mapping이 없으면 시간 비교를 하지 않고 중단한다.
+
+## 7. 단계와 승인 게이트
+
+### G0 — P008 결과와 자원 문턱 고정 (`PASS`)
+
+- actual block four rows audited
+- direct certified zero 0개 확인
+- 168시간·100 GB break-even 계산 완료
+- 근거: `test_result/202608241830_P008_phaseA_pilot_full_result_analysis.md`
+
+### G1 — boundary witness generator/verifier 구현 (`WAITING_FOR_CODE WORK`)
+
+ChatGPT가 수행할 작업:
+
+1. toy small-integer generator와 독립 verifier
+2. proven-prime/composite evidence schema
+3. non-overwrite manifest와 hash
+4. FGKMT Python preflight 및 WSL PARI 호출 runner
+5. probable-prime 결과만 주어지면 FAIL하는 unit test
+
+실제 `10^20` 입력은 이 단계에서 실행하지 않는다.
+
+### G2 — PARI/GP 환경 확인·설치 (`WAITING_FOR_G1_AND_USER_APPROVAL`)
+
+현재 WSL에서 `gp`가 발견되지 않았다. G1 runner가 준비된 뒤 사용자에게 정확한 설치·버전확인 명령을 제공한다. 패키지 설치 전에는 명령을 실행하지 않는다.
+
+예상 사용자 시간: 약 5–15분. 네트워크와 배포판 상태에 따라 달라질 수 있다.
+
+### G3 — single-block exact crossing pilot (`WAITING_FOR_G2_AND_SEPARATE_USER_RUN`)
+
+- 대상: `x1e20_L1000` 한 block
+- 예상시간: 2–20분의 초기 추정
+- 예상 RAM: 1 GiB 미만
+- 예상 disk: 1 GiB 미만
+- 성공: exact certified zero, independent verification issue 0, terminal PASS
+- 중단: witness 생성 30분 초과, proof evidence 누락, probable-only endpoint, RAM 4 GiB 초과
+
+### G4 — 10-block boundary cost sample (`CONDITIONAL`)
+
+G3가 PASS할 때만 서로 다른 endpoint 10개를 사전 고정해 실행한다.
+
+- 예상시간: 약 10–120분
+- 목적: crossing witness wall time 분포와 artifact bytes/block 실측
+- 결과로 168시간·100 GB gate를 다시 계산
+- 95th-percentile 비용으로도 break-even이 불가능하면 종료
+
+### G5 — algorithm-candidate 승격 (`BLOCKED`)
+
+다음 중 하나가 추가로 증명돼야 한다.
+
+1. L≥`1.49×10^9` 규모에서 zero certificate와 crossing을 충분히 싸게 생성, 또는
+2. 모든 실제 gap start를 포함하면서 survivor 수와 ledger 비용이 baseline보다 작은 candidate cover
+
+어느 쪽도 없으면 P009는 mathematical feasibility 결과로만 종료한다.
+
+## 8. 필수 산출물
+
+- `test_result/logs/run_<UTC>_p009_boundary_<mode>.log`
+- `test_result/run_<UTC>_p009_boundary_<mode>/boundary_witness.json`
+- `composite_evidence.csv`
+- `verification_report.json`
+- `resource_metrics.json`
+- `manifest.json`
+- 결과 분석보고서
+
+각 증거는 p, B, q, primality proof method, composite interval coverage, threshold, elapsed, peak RSS, artifact SHA-256을 저장한다.
+
+## 9. 성공·경고·중단 기준
+
+성공:
+
+- P008 saved internal floor 0 재검증
+- last-prime property exact proof
+- q의 proven primality와 `q-p<1856`
+- independent verifier issue 0
+- stdout/stderr/traceback 전체 로그
+- GPU 미사용, resource cap 준수
+
+경고:
+
+- single block PASS는 direct algorithm speedup이 아님
+- PARI/GP 버전 차이
+- 10-block sample의 대표성 한계
+
+즉시 중단:
+
+- probable-prime만 사용
+- block 내부 합성수 coverage hole
+- 32 GB RAM, 100 GB disk 또는 168시간 예상 초과
+- full `[10^20,10^21)` tiling 시도
+- 결과 폴더 덮어쓰기
+
+## 10. 현재 사용자 수행절차
+
+`별도 수행절차 필요없음.`
+
+G1 구현과 toy 검증이 끝나기 전에는 PARI/GP를 설치하거나 실제 pilot을 실행하지 않는다. 준비가 완료되면 WSL 시작 경로와 복사 가능한 명령을 새로 제공한다.
+
+## 11. 참고문헌·도구
+
+1. PARI/GP official documentation: https://pari.math.u-bordeaux.fr/doc.html
+2. Seth Troisi `prime-gap`: https://github.com/sethtroisi/prime-gap
+3. Oliveira e Silva, Herzog, Pardi, DOI https://doi.org/10.1090/S0025-5718-2013-02787-1
+4. Ziller–Morack, arXiv:1611.03310, https://arxiv.org/abs/1611.03310
+

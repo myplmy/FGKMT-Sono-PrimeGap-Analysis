@@ -1,8 +1,8 @@
-# P006 — Maximal-gap Plateau·Recurrence 통계 pilot
+# P006 — Maximal-gap Plateau·Recurrence 통계 실험
 
 ## 1. 상태
 
-`PILOT_EXPERIMENT_PASS / USER_VISUAL_QA_PASS` — 교정판 사용자 실행 `20260823T190035Z_p006_pilot1e8`은 `[2,10^8]` 모든 consecutive gap을 처리하고 61 tests, exact `pi(10^8)`, 25 reference records, 12 saved artifacts를 issue 0으로 검증했다. complete plateau 24개와 right-censored plateau 1개를 생성했고 PNG/PDF 6개는 사용자 시각검사에서도 큰 문제가 없다고 확인됐다. 다음 확대 `[2,10^9]`는 별도 사용자 승인 전에는 실행하지 않는다.
+`FULL_1E9_EXPERIMENT_PASS / NUMERIC_QA_PASS / NEW_FIGURE_USER_QA_WAITING` — 사용자 실행 `20260824T065339Z_p006_full_1000000000`은 `[2,10^9]` 모든 consecutive gap을 처리하고 exact `pi(10^9)`, 30 reference records, 12 saved artifacts를 issue 0으로 검증했다. complete/right-censored plateau는 29/1이다. 새 PNG/PDF의 자동검사는 PASS지만 사용자 시각검사는 아직 필요하다.
 
 ## 2. 연구 질문과 비목적
 
@@ -201,6 +201,18 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 - saved verification issue 0, user visual QA 큰 문제 없음
 - 상세: `test_result/202608240433_P006_pilot1e8_result_analysis.md`
 - 실행 BAT 보존: `test_done/run_P006_plateau_recurrence_pilot-20260823T190035Z-done.bat`, SHA-256 `6527806481AAB168D1143EA37FAF59815D19BECD07CB04BDD365FA3CAF0F5FDE`
+
+`[2,10^9]` 확대 성공 실행:
+
+- log: `test_result/logs/run_20260824T065339Z_p006_full_1000000000.log`
+- log SHA-256: `BDAACBEA9CEA0DF331300C52EA4CC8DED5F336F312A923979F1F7D13E2350206`
+- result: `test_result/run_20260824T065339Z_p006_full_1000000000`
+- prime/gap count: 50,847,534 / 50,847,533
+- complete/censored plateaus: 29/1
+- saved verification issue 0
+- numeric QA PASS, 새 figure user visual QA WAITING
+- 상세: `test_result/202608241831_P006_full1e9_result_analysis.md`
+- 실행 BAT 보존: `test_done/run_P006_plateau_recurrence_full-20260824T065339Z-done.bat`
 
 ## 9. 예정 산출물
 

@@ -2,9 +2,9 @@
 
 ## 1. 상태
 
-`IMPLEMENTED / LOCALLY_VERIFIED / ACTUAL_RUN_NOT_AUTHORIZED`
+`PHASE_A_EXPERIMENT_PASS / DIRECT_LOCAL_SKIP_NEGATIVE / P009_BOUNDARY_GATE_PLANNED`
 
-P008 검토용 문서의 핵심 방향은 채택하되, unresolved right-boundary가 있는 block을 zero로 인증할 수 없다는 보정을 최우선 게이트로 둔다. 현재 구현은 feasibility phase A까지만 준비하며 candidate cover나 실제 prime-gap speedup을 주장하지 않는다.
+P008 검토용 문서의 핵심 방향과 unresolved right-boundary 보정을 구현·실행했다. toy, exact prime-count 준비, phase-A full은 PASS했지만 실제 네 block의 certified zero는 0개였다. supplied modulus-2310 certificate의 direct local tiling은 음성 판정이며 candidate cover나 실제 prime-gap speedup을 주장하지 않는다.
 
 ## 2. 연구 질문
 
@@ -104,7 +104,7 @@ right_boundary_status=UNRESOLVED => certified_zero=false
 
 검증 결과: targeted 7/7, 전체 68/68 tests, py_compile, PowerShell parser, BAT approval-denial, WSL `bash -n`, failure-manifest toy, 합성 gaps DB import, primecount Gourdon/Deleglise–Rivat `pi(100)=25` 대조가 모두 PASS했다. full 입력 메타데이터의 CSV hash·thread·memory·GPU/search 계약과 고정 4-block grid도 사전 및 독립 재검증에 추가했다. canonical raw SQL의 실제 DB 변환은 승인 심사에서 차단되어 수행하지 않았다. 상세: `test_result/202608240440_P005_P008_local_validation.md`.
 
-### G2 — P008 toy pilot (`WAITING_FOR_USER_APPROVAL`)
+### G2 — P008 toy pilot (`EXPERIMENT_PASS — 20260824T053954Z`)
 
 ```bat
 run_P008_local_residue_certificate_pilot.bat --confirm-p008
@@ -114,8 +114,10 @@ run_P008_local_residue_certificate_pilot.bat --confirm-p008
 - 예상시간: 약 1–3분
 - 실제 `10^20` prime count/search: 없음
 - 성공: 전체 tests, toy exact sieve, right-boundary resolved/unresolved 비교, saved verification 모두 PASS
+- 결과: 4 blocks, internal zero 3, certified zero 3, saved verification issue 0
+- 상세: `test_result/202608241830_P008_phaseA_pilot_full_result_analysis.md`
 
-### G3 — exact local prime-count input (`WAITING_FOR_G2_AND_USER_APPROVAL`)
+### G3 — exact local prime-count input (`EXPERIMENT_PASS — 20260824T054725Z`)
 
 ```bash
 cd /mnt/z/FGKMT-Sono-PrimeGap-Analysis
@@ -129,8 +131,9 @@ bash ./prepare_P008_local_primecounts.sh --confirm-p008
 - 예상시간: 약 20–90분; 설치된 7.10과 8-core 실측 전 넓은 추정
 - 산출물: `tmp/p008-primecounts/<UTC>/`, prep log, `READY.txt`
 - 실제 prime-gap 탐색: 없음
+- 실측: five endpoints, Gourdon/Deleglise–Rivat 5/5 exact match, 약 57분 55초, 최대 RSS 약 212 MiB
 
-### G4 — phase-A full local bound (`WAITING_FOR_G3_AND_USER_APPROVAL`)
+### G4 — phase-A full local bound (`EXPERIMENT_PASS / DIRECT_SKIP_NEGATIVE — 20260824T064748Z`)
 
 ```bat
 run_P008_local_residue_certificate_full.bat --confirm-p008
@@ -141,8 +144,11 @@ run_P008_local_residue_certificate_full.bat --confirm-p008
 - READY의 exact counts를 Windows FGKMT Python이 재검사·적용
 - 모든 block의 internal floor, historic ceil, right-boundary status, total bound 저장
 - representative blocks는 coverage ledger가 아님을 manifest에 고정
+- 결과: internal zero candidate 1, unresolved boundary 4, certified zero 0, direct acceleration false
+- L=`10^3,10^6,10^9,10^12`의 total bounds: 1, 487, 486,150, 486,138,173
+- 상세: `test_result/202608241830_P008_phaseA_pilot_full_result_analysis.md`
 
-### G5 — endpoint/crossing resolver (`BLOCKED_BY_MISSING_PROOF_AND_BENCHMARK`)
+### G5 — endpoint/crossing resolver (`PLANNED_AS_P009 / ACTUAL_RUN_NOT_AUTHORIZED`)
 
 G4에서 internal upper bound 0인 block이 있어야만 설계한다. 필요 조건:
 
@@ -150,6 +156,8 @@ G4에서 internal upper bound 0인 block이 있어야만 설계한다. 필요 �
 2. endpoint primality 및 crossing gap `<1856` 증거
 3. certificate+boundary 비용이 baseline보다 작은 실측
 4. block 경계 gap의 중복·누락 없는 담당 규칙
+
+구체적인 exact crossing 정리, 168시간·32 GB·100 GB break-even, staged user run은 `test_plan/P009_P008_boundary-witness_break-even-gate.md`로 분리했다.
 
 ### G6 — candidate cover와 exhaustive integration (`BLOCKED`)
 
@@ -205,6 +213,8 @@ G4에서 internal upper bound 0인 block이 있어야만 설계한다. 필요 �
 - internal zero candidate 존재, crossing 비용 큼: 수학적으로 가능하지만 실용 가속 실패
 - internal zero + cheap crossing: G5 endpoint resolver 구현 검토
 - candidate cover theorem과 runtime break-even까지 통과: 그때만 P005 계열 알고리즘 개선 후보
+
+실제 G4는 internal zero candidate 1개였지만 crossing이 미해결이라 certified zero는 0개였다. `L≥10^6`에서는 q를 486배–4.86억 배 낮춰야 internal zero에 접근한다. 따라서 expanded sweep은 중단하고 P009 single-boundary witness와 자원 문턱만 우선 검증한다.
 
 ## 11. 참고문헌
 

@@ -152,8 +152,106 @@ Buchstab identity, Type-I/II sums, Selberg/large sieve는 count bound를 개선�
 - saved CSV를 별도 direct `Fraction` 구현으로 재계산하고 artifact hash를 확인
 - future ledger verifier는 연속 경계와 상태별 evidence hash를 요구
 
+## 실행 후 보완 판정 — 2026-08-24
+
+P008-A의 toy pilot, exact prime-count 입력, `x=10^20`의 네 representative block full이 모두 PASS했다. 그러나 실제 full에서는 다음 결과가 나왔다.
+
+| block length L | internal rational bound q | internal floor | crossing 포함 total | certified zero |
+|---:|---:|---:|---:|---:|
+| `10^3` | 0.499300014467527 | 0 | 1 | 0 |
+| `10^6` | 486.369964055189447 | 486 | 487 | 0 |
+| `10^9` | 486,149.337346680925757 | 486,149 | 486,150 | 0 |
+| `10^12` | 486,138,172.074728280481962 | 486,138,172 | 486,138,173 | 0 |
+
+따라서 구현은 타당하게 작동했지만 supplied modulus-2310 certificate를 그대로 local tiling에 쓰는 방법은 직접 가속 후보가 되지 못했다. 대표 block 네 개는 coverage ledger가 아니며, `certified zero=0`이므로 건너뛸 수 있다고 증명된 실제 block도 0개다.
+
+### 경계 gap을 해결하는 데 필요한 최소 정리
+
+block 안의 마지막 소수를 `p<B`라 하자. `B` 이상에서 어떤 **증명된 소수** `q`를 찾아
+
+\[
+q-p<1856
+\]
+
+을 확인하면 crossing consecutive gap은 1856 미만이다. 이유는 `p` 다음의 실제 consecutive prime을 `p^+`라 할 때 `p^+≤q`이므로
+
+\[
+p^+-p\le q-p<1856
+\]
+
+이기 때문이다. 따라서 `p`와 `q` 사이에 다른 소수가 없는 것까지 증명할 필요는 없다. 다만 `p`가 block 안의 마지막 소수라는 사실과 `p,q`의 소수성은 exact하게 인증해야 한다.
+
+PARI/GP의 `isprime`은 fully proven primality test를 제공하므로 작은 boundary witness verifier 후보가 될 수 있다. 함수 의미는 [PARI/GP 공식 문서](https://pari.math.u-bordeaux.fr/doc.html)를 정본으로 삼는다. 현재 WSL에는 `gp`가 설치되어 있지 않으므로 설치와 actual 실행은 별도 사용자 승인·행동이 필요하다.
+
+## 수행 주체와 자원 한계 분류
+
+아래 분류는 “이론상 언젠가 가능”이 아니라 현재 프로젝트의 168시간·32 GB RAM·100 GB disk 제한에서 실제로 맡을 수 있는 작업을 기준으로 한다.
+
+### A. ChatGPT가 로컬에서 수행할 수 있는 일
+
+| 작업 | 가능한 산출물 | 제한 |
+|---|---|---|
+| 경계 정리와 반올림·coverage 논리 증명 감사 | 정리, exact verifier 계약, 반례 toy fixture | 새로운 난해한 수론 정리를 반드시 발견한다고 약속할 수 없음 |
+| 선행연구·공식 도구 조사 | DOI/arXiv/공식 문서가 붙은 검토보고서 | 문헌의 명제를 프로젝트 finite certificate로 바꾸는 추가 증명은 별개 |
+| candidate-cover/mapping theorem 명세 | false-negative 0 계약, coverage ledger schema | 명세만으로 theorem이 증명되는 것은 아님 |
+| memory-safe separation-oracle 설계·toy 구현 | 작은 modulus에서 dense LP와 동등성 시험 | 실제 30030 성능은 사용자 PC 실측 전 미확정 |
+| break-even·민감도 계산 | 시간·RAM·disk 상한표, 중단 게이트 | 입력 성능모델이 실제와 다르면 재보정 필요 |
+| 독립 exact 검증기·runner 작성 | hash, non-overwrite, PASS/FAIL 로그 | heavy actual 실행은 사용자가 수행 |
+
+ChatGPT가 수행할 수 있는 “수학적 증명”은 기존 정의에서 따라오는 유한 정리, 반올림·경계·cover soundness 같은 명제를 엄밀히 전개하고 machine-checkable verifier로 바꾸는 범위다. candidate set을 획기적으로 희소화하는 새로운 정리를 정해진 시간 안에 반드시 만들어 낸다는 보장은 할 수 없다.
+
+### B. 사용자 PC의 도움을 받아 수행할 수 있는 일
+
+| 우선순위 | 사용자 실행 후보 | 예상 자원 | 진행 조건 |
+|---:|---|---|---|
+| 1 | 선택한 1–10개 block의 exact boundary witness pilot | 대략 수분–수십 분, RAM 1 GB 미만 예상, disk 1 GB 미만 | ChatGPT가 verifier/runner를 먼저 구현하고 PARI/GP 설치 승인 필요 |
+| 2 | 30030 separation-oracle/cutting-plane bounded pilot | 설계 후 약 1–6시간의 초기 상한, RAM hard cap 28–30 GiB, disk 수 GB 이하 | 작은 modulus 동등성·메모리 guard PASS 후에만 |
+| 3 | 추가 10–20개 exact prime-count endpoint 민감도 | 현재 실측 기준 약 2–4시간, RAM 0.3 GB 미만, disk 1 GB 미만 | P008 direct-tiling 음성결과 때문에 낮은 우선순위 |
+| 4 | candidate-cover가 나온 뒤 survivor baseline 비교 | 후보 수에 따라 수분–168시간 | coverage theorem과 total-cost 모델이 먼저 PASS해야 함 |
+
+1번은 crossing 증명을 실제로 만들 수 있는지 확인하는 과학적 pilot이다. 하지만 길이 1,000 block 하나를 zero로 만들더라도 전체 `9×10^20` 범위에 9×10^17개 block이 필요하므로 알고리즘 개선으로 바로 승격하지 않는다.
+
+### C. 현재 제한에서 불가능하거나 실행하면 안 되는 일
+
+| 작업 | 불가능 판정 근거 |
+|---|---|
+| 길이 1,000 block으로 `[10^20,10^21)` 전체 tiling | 9×10^17 blocks; 1 microsecond/block여도 약 28,500년, 1 byte/block도 약 0.9 EB |
+| block마다 두 primecount 알고리즘을 새로 실행 | endpoint 5개만 약 58분; 전체 tiling은 시간 제한을 압도 |
+| dense modulus 510510 LP | 추정 constraints 약 85.2억, COO lower bound 약 825.7 GiB로 RAM 32 GB 초과 |
+| 검증 없이 dense modulus 30030 full LP | 보수 추정 20.47 GiB가 32 GB 아래여도 solver 복사·Python 객체 peak 보장이 없어 OOM 위험 |
+| 새로운 candidate-cover theorem의 발견을 168시간 내 보장 | 열린 형태의 수론 연구이며 유한 연산처럼 종료시간을 보장할 수 없음 |
+| 100 GB 초과 ledger 또는 168시간 초과 queue | 사용자 지정 hard stop 위반 |
+
+“불가능”은 수학적으로 영원히 불가능하다는 뜻이 아니라, 현재의 알고리즘·증명·PC 제한으로 승인 가능한 실험이 아니라는 뜻이다.
+
+## 알고리즘 개선 후보가 되기 위한 정량 문턱
+
+전체 폭 `W=9×10^20`, block 길이 `L`, block당 실제 총비용 `t(L)`, 저장 bytes `b(L)`라 하면 최소 조건은
+
+\[
+\frac{W}{L}t(L)\le604800\ \text{seconds},
+\qquad
+\frac{W}{L}b(L)\le10^{11}\ \text{bytes}
+\]
+
+이다. 여기에 각 block이 zero이거나 모든 실제 start를 포함하는 candidate set을 내놓아야 한다.
+
+- 비현실적인 `t=1 microsecond`에서도 `L≥1.488×10^9`가 필요하다. 현재 관측 `q/L≈4.86138×10^-4`이면 이 길이의 q는 약 723,000이므로 70만 배 이상 낮춰야 `q<1` 근처가 된다.
+- `b=1 byte/block`에서도 `L≥9×10^9`가 필요하고 현재 q는 약 4.38 million이다.
+- 현실적인 `b=100 bytes/block`이면 `L≥9×10^11`, 현재 q는 약 437.5 million이므로 4억 배 이상의 bound 개선이 필요하다.
+- 어느 경우에도 unresolved crossing을 별도로 0으로 인증해야 한다.
+
+따라서 단순 floating precision 증가나 `ceil→floor` 1단위 보정은 성능 문턱에 거의 영향을 주지 않는다. 필요한 것은 다음 둘 중 하나다.
+
+1. 큰 L에서도 bound를 수십만–수억 배 낮추고 boundary까지 해결하는 훨씬 강한 certificate
+2. zero bound를 만들지 않고도 실제 large-gap start를 모두 포함하며 survivor가 극히 적은 candidate-cover theorem
+
+이 정량 판정을 사전 게이트로 고정한 후, P009에서는 boundary witness가 **수학적으로 가능하고 싸게 검증되는지**만 먼저 확인한다. 이 게이트를 통과해도 전체 알고리즘 후보 판정은 별개다.
+
 ## 최종 결론
 
 P008 검토용 문서는 필요한 큰 연결고리를 대부분 포함했지만, 가장 중요한 right-boundary gap과 임의 endpoint의 `pi(B-1)-pi(A-1)` 규칙, `floor` 반올림, endpoint prime state의 의미, exact prime-count 비용을 보완해야 한다. 이 보정 뒤의 P008-A는 타당하다.
 
 좋은 결과가 나온다는 뜻은 단순히 `C_local`이 작아지는 것이 아니다. 먼저 내부 bound가 0까지 내려가고, 이어서 crossing gap까지 싸게 해결되며, 이 비용이 baseline exact search보다 작아야 한다. 그 세 조건을 모두 통과했을 때만 실제 알고리즘 개선 후보가 된다.
+
+실제 phase-A 결과에서는 첫 조건이 L=1,000 한 곳에서만 성립했고 두 번째 조건은 성립하지 않았다. 더 큰 L에서는 첫 조건조차 486배–4.86억 배 부족했다. 따라서 현재 P008은 **구현 PASS, supplied certificate direct-tiling 음성 판정**으로 종결하고, 추가 연산은 P009의 작은 boundary witness와 break-even gate로 제한하는 것이 타당하다.

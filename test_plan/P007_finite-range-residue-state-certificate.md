@@ -2,9 +2,9 @@
 
 ## 1. 상태
 
-`G2_SUPPLIED_CERTIFICATE_EXPERIMENT_PASS / G3_WAITING_FOR_USER_APPROVAL`
+`G2_SUPPLIED_CERTIFICATE_PASS / G3_SMALL_MODULUS_FULL_PASS / DIRECT_ACCELERATION_NOT_PROVED`
 
-첫 사용자 pilot `20260823T173316Z`는 runner 오류로 certificate audit 전에 중단됐지만, 교정판 실행 `20260823T185624Z_p007_pilot`은 preflight, 61 tests, 415,223 transition exact audit와 saved verification을 모두 통과했다. supplied certificate G2는 PASS이며 실제 prime enumeration/search는 없었다. 작은 modulus LP 비교 G3 full은 아직 실행하지 않았고 별도 사용자 승인이 필요하다.
+첫 사용자 pilot `20260823T173316Z`는 runner 오류로 certificate audit 전에 중단됐지만, 교정판 pilot과 `20260824T090010Z_p007_full`은 모두 PASS했다. G3는 modulus 30, 210, 2310의 exact certificate 세 개를 비교했고 상한이 단조 감소함을 확인했다. 실제 prime enumeration/search는 없었으며 직접 가속은 증명되지 않았다.
 
 ## 2. 목적과 연구 질문
 
@@ -148,7 +148,7 @@ wD\le\lambda_{num}d+\mu_{num}+\phi_i-\phi_j,
 - 상세: `test_result/202608240432_P007_pilot_certificate_result_analysis.md`
 - 실행 BAT 보존: `test_done/run_P007_finite_gap_certificate_pilot-20260823T185624Z-done.bat`, SHA-256 `7BC4524C945C4081EA93F1D50BB8E8FD3D8457F30F32703609F3504BA5A952EC`
 
-### G3 — 작은 modulus 비교 full phase A (`WAITING_FOR_USER_APPROVAL`)
+### G3 — 작은 modulus 비교 full phase A (`EXPERIMENT_PASS — 20260824T090010Z`)
 
 - modulus `30,210,2310`에 대해 SciPy HiGHS로 candidate 탐색
 - denominator `10^15`로 유리화
@@ -157,13 +157,16 @@ wD\le\lambda_{num}d+\mu_{num}+\phi_i-\phi_j,
 - nested modulus의 bound가 실제 산출물에서 non-increasing인지 확인
 - modulus 30030은 resource estimate만 생성
 
-사용자 승인 후 명령:
+실행 결과:
 
-```bat
-run_P007_finite_gap_certificate_full.bat --confirm-p007
-```
-
-예상시간: 약 5–30분, 메모리 약 2 GiB 이하를 목표로 한 사전 추정이다. 실제 시간·메모리는 pilot/full 로그로만 확정한다.
+- modulus 30/210/2310: exact certificate PASS
+- states: 8 / 48 / 480
+- constraints: 128 / 4,608 / 415,223
+- 저장 total upper bound: 447,557,793,758,307,014 / 442,672,596,769,194,837 / 439,161,464,927,854,179
+- tight integer total은 각 저장값보다 1 작음
+- modulus 30030: estimate only, solve 미수행
+- 상세: `test_result/202608241832_P007_small-modulus_full_result_analysis.md`
+- 실행 BAT: `test_done/run_P007_finite_gap_certificate_full-20260824T090010Z-done.bat`
 
 ### G4 — modulus 30030 (`BLOCKED_BY_RESOURCE_DESIGN`)
 
@@ -279,4 +282,4 @@ T_{certificate}+K T_{verify}+T_{coverage}<T_{baseline}
 
 ## 12. 다음 승인 결정
 
-사용자가 원하면 교정판 G2 pilot을 다시 실행한다. 새 log와 saved artifact를 Codex가 검토한 뒤에만 G3 full phase A 실행 여부를 결정한다. G4/G5는 현재 실행 승인을 요청하지 않는다.
+G2/G3는 완료됐다. G4 modulus 30030 dense solve는 현재 승인 요청 대상이 아니다. 다음 연구는 small-modulus와 동등한 separation-oracle toy 설계 또는 P008/P009 boundary·candidate-cover 연결 증명을 먼저 수행해야 한다.
