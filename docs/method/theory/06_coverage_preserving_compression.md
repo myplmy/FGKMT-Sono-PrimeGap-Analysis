@@ -4,6 +4,10 @@
 
 `OPEN RESEARCH PROGRAM + REJECTED_AS_STATED COMPONENTS`
 
+유한범위 정리·증명과 P010A/P010B 연결은
+[`10_coverage_preserving_compression_정식화.md`](10_coverage_preserving_compression_정식화.md)에
+분리해 고정했다. 이 문서는 아이디어와 중단 기준을 요약한다.
+
 ## 목표
 
 고정 `G`와 finite range에서 실제 모든 `gap>=G` start를 포함하는 candidate family

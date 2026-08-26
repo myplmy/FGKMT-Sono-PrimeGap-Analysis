@@ -1,8 +1,16 @@
-# P010 — P007 modulus 30030 memory-safe separation-oracle 설계
+# P010 — P010A count upper bound / P010B search acceleration 상위 계획
 
 ## 1. 상태
 
-`DESIGN_IMPLEMENTED / TOY_ORACLE_PASS / MOD30030_SCAN_NOT_AUTHORIZED / LP_NOT_SOLVED`
+`SPLIT_APPROVED / P010A_G2_RUNNER_READY / P010B_ONE_CANDIDATE_RUNNER_READY / ACTUAL_NOT_RUN`
+
+사용자 제안에 따라 P010을 다음 두 축으로 분리한다.
+
+- [P010A](P010A_P007_count-upper-bound.md): residue-state certificate와 count upper bound
+- [P010B](P010B_search-acceleration.md): 누락 없는 candidate cover와 실제 탐색 가속
+
+이 문서는 memory-safe separation oracle의 공통 설계 기록으로 유지한다. 실제 실행 게이트,
+입력 hash, 성공·중단 기준은 두 하위 계획서가 정본이다.
 
 P007 작은 modulus 비교는 30, 210, 2310에서 exact PASS했지만 modulus 30030은
 5,760 states와 35,224,647 transition constraints 때문에 기존 monolithic sparse LP
@@ -82,12 +90,12 @@ fixed FGKMT Python preflight도 PASS했고 실제 modulus 30030 scan·LP solve�
 
 현재 단계다.
 
-### G2 — modulus 2310 replay (`RECOMMENDED`)
+### G2 — modulus 2310 replay (`RUNNER_READY / USER_RUN_PENDING`)
 
 기존 exact solution을 입력해 oracle이 위반 0을 보고하는지, 기존 415,223개 exact
 verifier와 일치하는지 검사한다. 예상 1–5분, RAM 1 GB 미만.
 
-### G3 — modulus 30030 one-candidate scan (`SEPARATE_USER_APPROVAL`)
+### G3 — modulus 30030 one-candidate scan (`RUNNER_READY / P010A_PASS_REQUIRED`)
 
 zero 또는 lifted modulus-2310 potential을 고정해 full transition scan 비용만 측정한다.
 예상 1–15분, RAM 1 GB 미만, 결과는 LP solution이 아니다.
@@ -105,7 +113,5 @@ local coverage mapping과 baseline 대비 총비용 감소가 별도로 증명�
 
 ## 8. 현재 사용자 수행절차
 
-`별도 수행절차 필요없음.`
-
-이번 단계는 Codex가 toy·preflight만 검증했다. modulus 2310 replay 또는 30030 scan은
-코드 확장·계획 고정 후 별도 사용자 허가를 받는다.
+먼저 P010A 계획서의 modulus-2310 replay를 실행한다. P010B는 그 terminal PASS
+manifest를 받은 뒤에만 별도 실행한다. 정확한 명령은 각 하위 계획서에 있다.

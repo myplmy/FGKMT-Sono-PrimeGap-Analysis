@@ -494,11 +494,26 @@ P007은 start-bounded `gap>=1856` count의 residue-state dual certificate를 flo
 
 P008은 P007 certificate를 block-local하게 적용하고 exact prime-count 입력을 두 알고리즘으로 교차검증했다. actual four blocks는 saved verification PASS였으나 certified zero 0개다. nonempty block의 right-boundary crossing을 해결하지 않고 zero라고 판정하지 않는다.
 
-## 15. P009/P010 준비와 이론 문서 체계
+## 15. P009/P010/P011 준비와 이론 문서 체계
 
-P009 boundary witness는 `[a,b)`의 마지막 증명 소수 `p`, `p<n<b` 전체 합성수 coverage, 증명 소수 `q>=b`, `q-p<1856`을 검사한다. toy generator/verifier와 non-overwrite artifacts는 targeted tests를 PASS했다. 실제 `10^20` ECPP pilot은 PARI/GP 설치·adapter 점검·별도 사용자 승인 전에는 실행하지 않는다.
+P009 boundary witness는 `[a,b)`의 마지막 증명 소수 `p`, `p<n<b` 전체 합성수 coverage,
+증명 소수 `q>=b`, `q-p<1856`을 검사한다. PARI/GP 2.15.4 설치와 small integer·중간
+ECPP adapter의 fresh-process verification은 PASS했다. 실제 `10^20` single-block은
+P010A replay PASS manifest와 별도 사용자 실행 전에는 시작하지 않는다.
 
-P010은 modulus 30030의 35,224,647 constraints를 한꺼번에 만들지 않고 source-state chunk별로 위반 제약 상위 K개만 남기는 separation oracle을 설계한다. modulus 30 brute-force 동등성 tests와 30030 memory estimate는 PASS했지만 30030 scan, LP solve, exact certificate 생성은 미실행이다.
+P010은 두 연구축으로 분리한다. P010A는 modulus-2310 replay와 향후 modulus-30030
+cutting-plane을 통해 count upper bound를 연구한다. P010B는 누락 없는 absolute candidate
+mapping, boundary closure, total-cost break-even으로 실제 search acceleration을 연구한다.
+count upper bound만 낮아져서는 P010B 가속이 증명되지 않는다. 35,224,647 constraints의
+one-candidate scan과 LP solve는 미실행이다.
+
+P011은 P006 recurrence count를 leave-plateau-out binomial reference와 비교하는 경험적
+진단이다. exact binomial, 고정 seed Monte Carlo, BH 보정을 사용하지만 record 선택편향,
+비독립성, nonstationarity 때문에 theorem evidence로 해석하지 않는다. 실행은 사용자가
+`test_plan/P011_P006_recurrence-null-model.md`의 runner로 수행한다.
+
+coverage-preserving compression의 finite soundness 정본은
+`docs/method/theory/10_coverage_preserving_compression_정식화.md`다.
 
 이론·가설·폐기된 연결의 정본 지도는 `docs/method/theory/00_이론_가설_방법론_색인.md`다. 신규 네 이론 초안의 오류와 채택 범위는 `docs/review/17_20260826_prime-gap_통합이론_비판적_타당성검토.md`에 기록한다.
 

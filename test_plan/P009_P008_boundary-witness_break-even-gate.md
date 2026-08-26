@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`G1_IMPLEMENTED / TOY_UNIT_PASS / G2_USER_INSTALL_PENDING / ACTUAL_RUN_NOT_AUTHORIZED`
+`G1_TOY_PASS / G2_PARI_INSTALL_PASS / G2.5_ADAPTER_PASS / G3_RUNNER_READY / P010A_PASS_REQUIRED`
 
 P008 phase-A는 정상 PASS했지만 실제 네 block의 certified zero는 0개였고, current modulus-2310 certificate의 direct tiling은 시간·저장공간 문턱에 수십만–수억 배 부족했다. P009는 더 큰 sweep을 바로 실행하지 않고, 길이 1,000에서 남은 right-boundary 1개를 exact하고 싼 증거로 없앨 수 있는지와 그 방법이 전체 알고리즘 후보가 될 자원 조건을 만족하는지 분리해 판정한다.
 
@@ -117,7 +117,10 @@ ChatGPT가 수행할 작업:
 - `source/boundary_witness_cli.py`
 - `tests/test_boundary_witness.py`
 - `scripts/experiments/p009/run_p009_boundary_witness_toy.ps1`
-- `scripts/setup/install_pari_gp_wsl.sh`
+- `test_done/install_pari_gp_wsl-20260826T084156Z-done.sh`
+- `source/pari_certificate.py`, `source/pari_certificate_cli.py`
+- `source/boundary_witness_pari.py`, `source/boundary_witness_pari_cli.py`
+- `scripts/experiments/p009/run_p009_single_block_actual.ps1`
 
 2026-08-26 targeted 8 tests와 fixed-Python preflight는 PASS했다. toy verifier는
 `[100,120)`에서 마지막 소수 113, 오른쪽 증명 소수 127, 정수 114–119의
@@ -128,16 +131,27 @@ nontrivial factor coverage를 재검증한다. coverage hole, 잘못된 factor,
 뜻이다. 완전히 독립적인 두 번째 구현 또는 proof assistant 검증은 아직 없다.
 실제 `10^20` 입력은 이 단계에서 실행하지 않았다.
 
-### G2 — PARI/GP 환경 확인·설치 (`WAITING_FOR_USER_ACTION`)
+### G2 — PARI/GP 환경 확인·설치 (`PASS`)
 
-현재 WSL에서 `gp`가 발견되지 않았다. 공식 PARI FAQ가 안내하는 Ubuntu package
-설치와 ECPP smoke test를 `scripts/setup/install_pari_gp_wsl.sh`에 구현했다.
-Codex는 이 설치를 실행하지 않았다. 사용자가 설치한 실제 버전과 smoke-test PASS
-로그를 제공해야 production adapter를 고정할 수 있다.
+사용자가 Ubuntu WSL에 PARI/GP 2.15.4를 설치했고 `primecert`/
+`primecertisvalid` smoke test가 PASS했다.
 
-예상 사용자 시간: 약 5–15분. 네트워크와 배포판 상태에 따라 달라질 수 있다.
+- 설치 log: `tmp/setup/install_pari_gp_20260826T084156Z.log`
+- 설치 helper 보존본:
+  `test_done/install_pari_gp_wsl-20260826T084156Z-done.sh`
 
-### G3 — single-block exact crossing pilot (`WAITING_FOR_G2_AND_SEPARATE_USER_RUN`)
+### G2.5 — certificate adapter (`EXPERIMENT_PASS`)
+
+Codex가 사용자 승인 범위에서 `101`과
+`1000000000000000000000000000057`의 certificate를 생성하고 각각 새 GP 프로세스로
+검증했다. small integer/ECPP vector, subject binding, wrong-subject 음성대조, 저장 hash와
+saved recheck가 모두 PASS했다. actual `10^20` block은 실행하지 않았다.
+
+- run: `test_result/run_20260826T090950Z_p009_pari_adapter_validation`
+- log: `test_result/logs/run_20260826T090950Z_p009_pari_adapter_validation.log`
+- 분석: `test_result/202608261823_P009_pari_adapter_validation_analysis.md`
+
+### G3 — single-block exact crossing pilot (`RUNNER_READY / P010A_PASS_REQUIRED`)
 
 - 대상: `x1e20_L1000` 한 block
 - 예상시간: 2–20분의 초기 추정
@@ -203,26 +217,19 @@ G3가 PASS할 때만 서로 다른 endpoint 10개를 사전 고정해 실행한�
 
 ## 10. 현재 사용자 수행절차
 
-실행 환경: Ubuntu WSL
+먼저 `test_plan/P010A_P007_count-upper-bound.md`의 replay를 실행한다. 그 결과의
+`manifest.json`을 `<P010A_MANIFEST>`로 넣어 아래 P009 명령을 실행한다. 같은 폴더의
+`saved_verification_report.json`이 해당 manifest hash에 묶인 PASS여야 한다. P010A가
+PASS하기 전에는 P009 actual을 실행하지 않는다.
 
-시작 경로:
+환경: Windows PowerShell 또는 FGKMT Conda Prompt
 
-```bash
-cd /mnt/z/FGKMT-Sono-PrimeGap-Analysis
+```powershell
+cd Z:\FGKMT-Sono-PrimeGap-Analysis
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p009\run_p009_single_block_actual.ps1 -ConfirmP009Actual -P010AReplayManifest '<P010A_MANIFEST>'
 ```
 
-PARI/GP 설치·smoke test:
-
-```bash
-bash ./scripts/setup/install_pari_gp_wsl.sh --confirm-install
-```
-
-예상시간은 약 5–15분이다. 완료 후 마지막 `[PASS]` 줄, `gp --version` 출력,
-`tmp/setup/install_pari_gp_<UTC>.log` 경로를 사용자 회신으로 제공한다.
-
-P009 `10^20` 실제 pilot은 아직 실행하지 않는다. 설치 성공을 확인한 뒤 Codex가
-production certificate serialization·verifier adapter를 점검하고, 별도 실행 허가와
-새 명령을 제공해야 한다.
+예상시간: 2–20분. 완료 후 terminal marker, log 경로, result directory를 회신한다.
 
 ## 11. 참고문헌·도구
 

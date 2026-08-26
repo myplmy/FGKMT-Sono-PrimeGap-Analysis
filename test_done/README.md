@@ -1,7 +1,7 @@
 # 실행 완료 진입점·실험 전용 보조파일 보존 폴더
 
-이 폴더는 사용자가 실제로 실행했다고 확인한 BAT·PowerShell·WSL 진입점과,
-해당 완료 실험에만 쓰인 보조파일의 당시 원본을 보존한다.
+이 폴더는 사용자가 실제로 실행했다고 확인했거나 사용자 승인 범위에서 완료된
+BAT·PowerShell·WSL 진입점과, 해당 완료 실험에만 쓰인 보조파일의 당시 원본을 보존한다.
 
 규칙:
 
@@ -49,6 +49,8 @@
 | `test_prime_gap_reference_db-p005-done.sh` | `037B9BA48A407D379B153CB9E2A53B9B483299EB7F12511B5757D449DE424815` | P005 DB fixture 검사 | P005 전용, 재사용하지 않음 |
 | `test_prime_gap_sqlite_schema-p005-done.sh` | `6D17770C0BD46A26C4E7FF9FE7D5E4385050766D397C3EA9A074CE509F0A1508` | P005 SQLite schema 검사 | P005 전용, 재사용하지 않음 |
 | `run_experiment-legacy-20260826-done.ps1` | `B39568E193579B88477FC68EAEECD1DBA81E6189314CBA7F2C2039046BE0D6F5` | 초기 P001 승인 gate | 완료 run 원본이 아니라 새 공통 runner로 대체된 legacy 진입점 |
+| `install_pari_gp_wsl-20260826T084156Z-done.sh` | `4DE35165CDA2E84FAB1D55A1DE4ACB9B5E01C16075005FCE8D139DC2F900B3B0` | `tmp/setup/install_pari_gp_20260826T084156Z.log` | PARI/GP 2.15.4 설치·`primecertisvalid` smoke test PASS |
+| `run_p009_pari_adapter_validation-20260826T090950Z-done.ps1` | `FB89EB038B2C41F163ABCDAFC58F49EC469B2AC0EAC9E88B9505B08C82B2394B` | `test_result/logs/run_20260826T090950Z_p009_pari_adapter_validation.log` | small integer·중간 ECPP·wrong-subject 음성대조·saved verification PASS |
 
 재사용 기능은 다음으로 분리했다.
 

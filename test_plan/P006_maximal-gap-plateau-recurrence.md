@@ -1,5 +1,9 @@
 # P006 — Maximal-gap Plateau·Recurrence 통계 실험
 
+후속 null-model 진단은 별도 계획
+[`P011_P006_recurrence-null-model.md`](P011_P006_recurrence-null-model.md)로 분리한다.
+P006의 exact count와 P011의 확률모형 해석을 혼합하지 않는다.
+
 ## 1. 상태
 
 `FULL_1E9_EXPERIMENT_PASS / NUMERIC_QA_PASS / USER_VISUAL_QA_PASS` — 사용자 실행 `20260824T065339Z_p006_full_1000000000`은 `[2,10^9]` 모든 consecutive gap을 처리하고 exact `pi(10^9)`, 30 reference records, 12 saved artifacts를 issue 0으로 검증했다. complete/right-censored plateau는 29/1이다. 새 figure 3개는 자동검사와 2026-08-26 사용자 시각검사를 모두 PASS했다.

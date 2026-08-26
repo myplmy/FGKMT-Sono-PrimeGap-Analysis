@@ -4,7 +4,7 @@
 
 ## 현재 상태
 
-P002–P008 COMPLETED / P009 G1 TOY PASS / P010 SEPARATION TOY PASS
+P002–P008 COMPLETED / P009 PARI ADAPTER PASS / P010A·P010B RUNNER READY / P011 PILOT READY
 
 P003 `10^20` end-bounded 분석과 P004 경계·local-envelope 민감도 분석이 완료됐다.
 P005 CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 certificate,
@@ -12,9 +12,11 @@ P008 exact prime-count·local phase-A도 PASS했다. P006 figure 3개는 사용�
 끝났다. P008 actual block certified zero는 0개여서 supplied modulus-2310 direct tiling은
 음성 판정이다.
 
-P009 boundary-witness toy와 P010 memory-safe separation oracle toy는 구현·검증됐다.
-PARI/GP 설치, P009 actual `10^20` pilot, modulus-30030 scan/LP solve는 아직 실행하지
-않았고 각각 별도 사용자 행동·승인이 필요하다.
+P009 boundary-witness toy, PARI/GP 2.15.4 certificate adapter와 P010 memory-safe
+separation oracle toy는 구현·검증됐다. P010은 count upper-bound(P010A)와 실제 search
+acceleration(P010B)으로 분리했고, P006 recurrence null-model은 P011 사용자 pilot으로
+준비했다. P009 actual `10^20`, P010A replay, modulus-30030 scan/LP solve, P011 pilot은
+아직 실행하지 않았다.
 
 ## 수학 정의
 
@@ -76,6 +78,9 @@ canonical 입력은 commit `1a112a1387052d9ad360686313f501c01fe46b68`로 고정�
 - docs/method/theory/00_이론_가설_방법론_색인.md: 검증수준별 이론·가설·방법론 지도
 - test_plan/P009_P008_boundary-witness_break-even-gate.md: P009 boundary witness와 자원 gate
 - test_plan/P010_P007_mod30030_memory-safe_separation.md: modulus-30030 memory-safe 설계
+- test_plan/P010A_P007_count-upper-bound.md: count upper-bound certificate 연구
+- test_plan/P010B_search-acceleration.md: coverage와 실제 탐색 가속 연구
+- test_plan/P011_P006_recurrence-null-model.md: P006 recurrence null-model 파일럿
 
 - AGENTS.md: Codex 작업·수학·데이터·승인 규약
 - 연구 작업지시서: 연구 목적과 전체 분석 요구
