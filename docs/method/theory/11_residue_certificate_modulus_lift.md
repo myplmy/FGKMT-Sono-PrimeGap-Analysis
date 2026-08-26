@@ -2,7 +2,7 @@
 
 ## 상태
 
-`THEOREM / IMPLEMENTED_TOY / MOD30030_ACTUAL_PENDING`
+`THEOREM / MOD30030_EXACT_ACTUAL_PASS / STRICT_IMPROVEMENT_FALSE`
 
 ## 명제
 
@@ -45,4 +45,7 @@ source congruence class에서 허용되는 최소 대표보다 작을 수 없다
 `source.finite_gap_replay.lift_certificate_exact_to_modulus`가 정수 potential을 lift한다.
 `source.finite_gap_separation.scan_exact_certificate_constraints`는 full matrix를 저장하지
 않고 모든 target transition을 signed-int64 overflow 사전증명 뒤 exact scan한다.
-modulus-30030 actual은 P010B floating scan 위반 0 뒤 사용자 runner에서만 수행한다.
+modulus-30030 actual은 2026-08-26 사용자 bounded queue에서 수행됐다. 5,760 states와
+35,224,647 constraints에서 floating violation 0, exact violation 0, minimum integer slack
+0을 확인했다. total bound는 `439161464927854179`로 source와 같아 strict improvement는
+없다. 다음 질문은 별도 G4 cutting-plane이 더 좋은 potential을 찾는지 여부다.

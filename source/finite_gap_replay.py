@@ -423,10 +423,9 @@ def verify_saved_mod30030_scan(output_directory: Path) -> dict[str, object]:
     try:
         replay_copy = output_directory / "input_p010a_replay_manifest.json"
         verification_copy = output_directory / "input_p010a_saved_verification_report.json"
-        # Preserve the sibling-name contract used by the prerequisite checker.
-        expected_verification = replay_copy.with_name("saved_verification_report.json")
-        if expected_verification.exists():
-            raise ReplayError("unexpected pre-existing replay verification alias")
+        # The copied prerequisite report has an explicit name.  The scan's own
+        # saved_verification_report.json is expected to exist on every later
+        # audit and must not be mistaken for a prerequisite alias.
         verification_payload = json.loads(verification_copy.read_text(encoding="utf-8"))
         if verification_payload.get("status") != "PASS":
             raise ReplayError("copied P010A verification report is not PASS")

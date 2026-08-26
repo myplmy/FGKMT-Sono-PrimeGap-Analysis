@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`SPLIT_APPROVED / P010A_G2_EXPERIMENT_PASS / G3_USER_RUN_READY / G4_CONDITIONAL`
+`SPLIT_APPROVED / G3_EXPERIMENT_PASS / G4_CUTTING_PLANE_JUSTIFIED / G5_BLOCKED`
 
 사용자 제안에 따라 P010을 다음 두 축으로 분리한다.
 
@@ -95,12 +95,11 @@ fixed FGKMT Python preflight도 PASS했고 실제 modulus 30030 scan·LP solve�
 `20260826T100715Z` run에서 기존 exact solution을 입력해 oracle 위반 0, 두 exact
 builder 415,223개, saved issue 0을 확인했다. 상한은 P007과 동일하다.
 
-### G3 — modulus 30030 one-candidate scan·exact lift (`USER_RUN_READY`)
+### G3 — modulus 30030 one-candidate scan·exact lift (`EXPERIMENT_PASS`)
 
-lifted modulus-2310 potential을 고정해 full transition scan 비용을 측정한다. floating
-위반 0일 때만 같은 certificate를 exact integer streaming으로 재검증한다. 예상 합계
-4–45분, RAM 1 GB 미만, disk 1 GB 미만이다. 결과는 새 LP solution이나 더 낮은
-상한이 아니다.
+lifted modulus-2310 potential을 고정한 실제 실행은 35,224,647 constraints에서
+floating/exact 위반 0이었다. 핵심 scan은 각각 약 0.77초, strict 상한 개선은 0이다.
+결과는 `test_result/202608270005_P009_P010_bounded_queue_result_analysis.md`에 기록한다.
 
 ### G4 — cutting-plane prototype (`CONDITIONAL`)
 

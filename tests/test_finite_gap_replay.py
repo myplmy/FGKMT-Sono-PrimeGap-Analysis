@@ -5,6 +5,7 @@ import tempfile
 import unittest
 import json
 from pathlib import Path
+from unittest.mock import patch
 
 from source.finite_gap_certificate import RationalCertificate, state_count
 from source.finite_gap_replay import (
@@ -17,6 +18,7 @@ from source.finite_gap_replay import (
     require_mod2310_replay_completion,
     run_mod2310_replay,
     run_mod30030_one_candidate_scan,
+    verify_saved_mod30030_scan,
 )
 from source.finite_gap_separation import scan_exact_certificate_constraints
 from source.provenance import sha256_file
@@ -153,6 +155,58 @@ class FiniteGapReplayTests(unittest.TestCase):
             )
             accepted = require_mod2310_replay_completion(manifest_path)
             self.assertEqual(accepted["status"], "PASS")
+
+    def test_saved_scan_verification_is_repeatable_after_report_exists(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "manifest.json").write_text(
+                json.dumps(
+                    {
+                        "experiment": "P010B_MOD30030_ONE_CANDIDATE_SCAN",
+                        "input_certificate_sha256": P007_MOD2310_CERTIFICATE_SHA256,
+                        "artifacts_sha256": {},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            (root / "summary.json").write_text(
+                json.dumps(
+                    {
+                        "source_modulus": 2310,
+                        "target_modulus": 30030,
+                        "threshold": 1856,
+                        "scanned_constraints": 35_224_647,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            for name in (
+                "input_p010a_replay_manifest.json",
+                "input_certificate_mod2310.txt",
+            ):
+                (root / name).write_text("placeholder", encoding="utf-8")
+            (root / "input_p010a_saved_verification_report.json").write_text(
+                json.dumps(
+                    {
+                        "status": "PASS",
+                        "manifest_sha256": P007_MOD2310_CERTIFICATE_SHA256,
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            with patch(
+                "source.finite_gap_replay.sha256_file",
+                return_value=P007_MOD2310_CERTIFICATE_SHA256,
+            ):
+                first = verify_saved_mod30030_scan(root)
+                self.assertEqual(first["status"], "PASS")
+                (root / "saved_verification_report.json").write_text(
+                    json.dumps(first), encoding="utf-8"
+                )
+                second = verify_saved_mod30030_scan(root)
+            self.assertEqual(second["status"], "PASS")
+            self.assertEqual(second["issues"], [])
 
 
 if __name__ == "__main__":

@@ -46,11 +46,14 @@ P011은 각 plateau를 제외한 `[2,10^9]` 전체 gap frequency로 binomial 기
 과대예측을 보였고, enrichment BH q는 모두 0.05보다 컸다. 이는 recurrence enrichment를
 지지하지 않으며, global stationary rate가 위치에 따른 gap 분포 변화를 반영하지 못한다는
 진단이다. 음수 residual을 새로운 repulsion theorem으로 해석하지 않는다.
+P011 figure 두 개는 2026-08-27 사용자 시각 QA PASS다.
 
 ## 다음 가설·방법
 
 `HYPOTHESIS P6-H1`: gap별 기대 occurrence를 단순 Poisson이 아닌 admissibility가 반영된
 null model로 정규화하면 초기/후기 recurrence 차이의 일부가 설명된다.
 
-다음 단계 P012는 범위를 무작정 `10^10`으로 늘리기보다 local/log-x matched rate,
-shifted-bin sensitivity, 사전 고정 통계량, censoring-aware comparison을 먼저 설계한다.
+다음 단계 P012는 범위를 무작정 `10^10`으로 늘리기보다 log-bin별 gap occurrence를
+고정하는 stratified hypergeometric null을 권장한다. `[2,10^9]` 개발과 이후 holdout,
+primary 0.5-decade와 shifted sensitivity, two-sided family adequacy를 사용자와 사전 합의한
+뒤 구현한다.

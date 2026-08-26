@@ -136,6 +136,139 @@ def _select_negative_flat_indices(
     return selected[order]
 
 
+def _select_smallest_flat_indices(
+    values: np.ndarray,
+    mask: np.ndarray,
+    top_k: int,
+) -> np.ndarray:
+    """Select the deterministic K smallest masked entries."""
+
+    indices = np.flatnonzero(mask.ravel())
+    if indices.size <= top_k:
+        selected = indices
+    else:
+        flat_values = values.ravel()
+        selected_values = flat_values[indices]
+        cutoff = np.partition(selected_values, top_k - 1)[top_k - 1]
+        strict = indices[selected_values < cutoff]
+        need = top_k - strict.size
+        equal = indices[selected_values == cutoff]
+        selected = np.concatenate((strict, equal[:need]))
+    flat_values = values.ravel()
+    order = np.lexsort((selected, flat_values[selected]))
+    return selected[order]
+
+
+def scan_smallest_transition_slacks(
+    modulus: int,
+    threshold: int,
+    candidate: SeparationCandidate,
+    *,
+    chunk_rows: int = DEFAULT_CHUNK_ROWS,
+    top_k: int = 10_000,
+    allow_large_state_scan: bool = False,
+) -> dict[str, object]:
+    """Retain the globally smallest transition slacks for an LP seed set.
+
+    Unlike :func:`scan_transition_violations`, this function also retains
+    nonnegative tight constraints.  It is used only to seed a memory-bounded
+    cutting-plane solve; it does not certify feasibility.
+    """
+
+    if threshold < 2:
+        raise ValueError("threshold must be at least 2")
+    if chunk_rows < 1 or top_k < 1:
+        raise ValueError("chunk_rows and top_k must be positive")
+    residues = np.asarray(unit_residues(modulus), dtype=np.int64)
+    states = len(residues)
+    if len(candidate.potentials) != states:
+        raise ValueError("candidate potential count differs from residue state count")
+    if states > DEFAULT_MAX_TOY_STATES and not allow_large_state_scan:
+        raise SeparationResourceGuardError(
+            f"state count {states} exceeds toy guard {DEFAULT_MAX_TOY_STATES}; "
+            "a large slack scan requires a separately authorized run"
+        )
+    potentials = np.asarray(candidate.potentials, dtype=np.float64)
+    retained: list[TransitionViolation] = []
+    scanned_constraints = 0
+    minimum_slack = math.inf
+
+    for source_start in range(0, states, chunk_rows):
+        source_stop = min(states, source_start + chunk_rows)
+        source_values = residues[source_start:source_stop, None]
+        d0 = (residues[None, :] - source_values) % modulus
+        d0 = np.where(d0 == 0, modulus, d0)
+        potential_delta = (
+            potentials[source_start:source_stop, None] - potentials[None, :]
+        )
+
+        small_mask = d0 < threshold
+        small_slack = (
+            candidate.lambda_value * d0
+            + candidate.mu_value
+            + potential_delta
+        )
+        if small_mask.any():
+            minimum_slack = min(minimum_slack, float(np.min(small_slack[small_mask])))
+            indices = _select_smallest_flat_indices(small_slack, small_mask, top_k)
+            items = [
+                TransitionViolation(
+                    slack=float(small_slack.ravel()[flat_index]),
+                    source_index=source_start + int(flat_index // states),
+                    target_index=int(flat_index % states),
+                    gap=int(d0.ravel()[flat_index]),
+                    weight=0,
+                )
+                for flat_index in indices
+            ]
+            retained = _retain_smallest(retained, items, top_k)
+        scanned_constraints += int(np.count_nonzero(small_mask))
+
+        large_gap = _least_large_representatives(d0, modulus, threshold)
+        large_slack = (
+            candidate.lambda_value * large_gap
+            + candidate.mu_value
+            + potential_delta
+            - 1.0
+        )
+        minimum_slack = min(minimum_slack, float(np.min(large_slack)))
+        indices = _select_smallest_flat_indices(
+            large_slack, np.ones_like(large_slack, dtype=bool), top_k
+        )
+        items = [
+            TransitionViolation(
+                slack=float(large_slack.ravel()[flat_index]),
+                source_index=source_start + int(flat_index // states),
+                target_index=int(flat_index % states),
+                gap=int(large_gap.ravel()[flat_index]),
+                weight=1,
+            )
+            for flat_index in indices
+        ]
+        retained = _retain_smallest(retained, items, top_k)
+        scanned_constraints += int(large_slack.size)
+
+    expected = int(
+        transition_resource_estimate(modulus, threshold)[
+            "total_transition_constraints"
+        ]
+    )
+    if scanned_constraints != expected:
+        raise RuntimeError("slack scan constraint count disagrees with exact estimate")
+    return {
+        "status": "PASS",
+        "modulus": modulus,
+        "threshold": threshold,
+        "states": states,
+        "chunk_rows": chunk_rows,
+        "scanned_constraints": scanned_constraints,
+        "minimum_slack": minimum_slack,
+        "smallest_constraints": [item.__dict__ for item in retained],
+        "full_constraint_matrix_materialized": False,
+        "seed_only_not_a_certificate": True,
+    }
+
+
 def scan_transition_violations(
     modulus: int,
     threshold: int,
@@ -455,5 +588,6 @@ __all__ = [
     "brute_force_transition_violations",
     "scan_transition_violations",
     "scan_exact_certificate_constraints",
+    "scan_smallest_transition_slacks",
     "separation_memory_estimate",
 ]

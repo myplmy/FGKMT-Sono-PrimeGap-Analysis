@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`EXPERIMENT_PASS / STATIONARY_NULL_INADEQUACY_INDICATED / USER_FIGURE_QA_PENDING`
+`EXPERIMENT_PASS / STATIONARY_NULL_INADEQUACY_INDICATED / USER_FIGURE_QA_PASS`
 
 P006은 record gap이 다음 record 전까지 몇 번 다시 나타났는지 exact하게 셌다. P011은
 그 재발 횟수가 단순히 “그 gap 길이 자체가 전체 범위에서 흔하기 때문”으로 설명되는지
@@ -128,6 +128,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p011\r
 뜻하지 않고, 전체 `[2,10^9]` 빈도를 모든 위치에 동일하게 쓰는 stationary null이
 초기 plateau에 부적합하다는 진단이다. 후속 P012는 local/log-x matched null을 사전
 고정한 뒤에만 실행한다.
+
+사용자는 2026-08-27 P011 figure 두 개에 시각적 문제가 없음을 확인했다.
 
 ## 10. 선행연구와 통계 근거
 

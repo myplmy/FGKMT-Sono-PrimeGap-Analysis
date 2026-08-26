@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`MOD2310_REPLAY_EXPERIMENT_PASS / MOD30030_EXACT_LIFT_RUNNER_READY / CUTTING_PLANE_CONDITIONAL`
+`MOD2310_REPLAY_EXPERIMENT_PASS / MOD30030_EXACT_LIFT_EXPERIMENT_PASS / CUTTING_PLANE_NEXT_GATE`
 
 P010A는 `gap >= 1856`인 consecutive-prime gap의 **개수 상한**을 더 낮추는 축이다.
 P007의 modulus-2310 exact certificate를 memory-safe oracle로 먼저 완전 replay한 뒤,
@@ -113,3 +113,19 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p010a\
 
 예상시간 2–30분, RAM 1 GiB 미만, disk 1 GiB 미만이다. P010B의 floating violation이
 0이 아니면 이 단계는 실행하지 않는다.
+
+### G3 실제 결과
+
+- P010B scan: `test_result/run_20260826T144440Z_p010b_mod30030_candidate_scan`
+- exact lift: `test_result/run_20260826T144450Z_p010a_mod30030_exact_lift`
+- 35,224,647 constraints floating/exact scan 모두 위반 0
+- exact minimum integer slack 0
+- total upper bound `439161464927854179`, strict improvement false
+- 핵심 exact scan elapsed 0.7684초
+
+완료 runner는 `test_done/`으로 이관했으므로 위 단독 실행 절차는 provenance로만 남기고
+재실행하지 않는다. 다음 실제 질문은 working-set cutting-plane이 strict improvement를
+만드는지 여부다.
+
+G4의 11시간 자원·정확성·실행 절차 정본은
+`test_plan/P010A_G4_mod30030_cutting_plane_11h.md`다.

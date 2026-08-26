@@ -52,7 +52,11 @@ BAT·PowerShell·WSL 진입점과, 해당 완료 실험에만 쓰인 보조파�
 | `install_pari_gp_wsl-20260826T084156Z-done.sh` | `4DE35165CDA2E84FAB1D55A1DE4ACB9B5E01C16075005FCE8D139DC2F900B3B0` | `tmp/setup/install_pari_gp_20260826T084156Z.log` | PARI/GP 2.15.4 설치·`primecertisvalid` smoke test PASS |
 | `run_p009_pari_adapter_validation-20260826T090950Z-done.ps1` | `FB89EB038B2C41F163ABCDAFC58F49EC469B2AC0EAC9E88B9505B08C82B2394B` | `test_result/logs/run_20260826T090950Z_p009_pari_adapter_validation.log` | small integer·중간 ECPP·wrong-subject 음성대조·saved verification PASS |
 | `run_p010a_mod2310_replay-20260826T100715Z-done.ps1` | `3DC6245720B2E8BB76F211C4C38B1800995AA85BE00FFC847302F54E4EBCB402` | `test_result/logs/run_20260826T100715Z_p010a_mod2310_replay.log` | 두 exact builder·chunk oracle·saved verification PASS; 상한 동일 |
-| `run_p011_recurrence_null_pilot-20260826T100938Z-done.ps1` | `9091AA1ACDB1F73D9514CFC9BEBD428615EE7C43C894D9F19151832D4E121C2E` | `test_result/logs/run_20260826T100938Z_p011_recurrence_null_pilot.log` | stationary-null 실행 PASS; enrichment 미지지·null 부적합 진단, 사용자 figure QA 대기 |
+| `run_p011_recurrence_null_pilot-20260826T100938Z-done.ps1` | `9091AA1ACDB1F73D9514CFC9BEBD428615EE7C43C894D9F19151832D4E121C2E` | `test_result/logs/run_20260826T100938Z_p011_recurrence_null_pilot.log` | stationary-null 실행 PASS; enrichment 미지지·null 부적합 진단, 사용자 figure QA PASS |
+| `run_p009_p010_bounded_queue-20260826T144439Z-done.ps1` | `E2885AE8123BFEB5480E600BFD1807D23AEFF28C0523A8E4E8DE5D199356AE97` | `test_result/logs/run_20260826T144439Z_p009_p010_bounded_queue.log` | P010B scan·P010A exact lift·P009 single-block을 orchestration, aggregate PASS |
+| `run_p010b_mod30030_one_candidate_scan-20260826T144440Z-done.ps1` | `CAAAE0250757DD9152F85CA60A3CAA428808A0890022DD6A070A5050DEEB640D` | `test_result/logs/run_20260826T144440Z_p010b_mod30030_candidate_scan.log` | 35,224,647 floating constraints scan PASS, violation 0; LP·acceleration 미증명 |
+| `run_p010a_mod30030_exact_lift-20260826T144450Z-done.ps1` | `2AE15C9E5C2E539059EB3BC6560F75F3C3DB260347930FAAFDFB7D51BE262171` | `test_result/logs/run_20260826T144450Z_p010a_mod30030_exact_lift.log` | 35,224,647 exact constraints PASS, 상한 불변 |
+| `run_p009_single_block_actual-20260826T144500Z-done.ps1` | `9A242D2AD1D05E06B3B59B992F9178EF9E9E7A2825C0525F17D87B2356E24266` | `test_result/logs/run_20260826T144500Z_p009_single_block_actual.log` | `[10^20,10^20+1000)` exact certified zero 1 block, acceleration 미증명 |
 
 재사용 기능은 다음으로 분리했다.
 

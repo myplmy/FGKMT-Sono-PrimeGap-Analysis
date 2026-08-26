@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`PLAN_FROZEN / P010A_REPLAY_PASS / ONE_CANDIDATE_USER_RUN_READY / ACTUAL_NOT_RUN`
+`ONE_CANDIDATE_SCAN_PASS / EXACT_LIFT_PASS / ABSOLUTE_MAPPING_BLOCKED / ACCELERATION_NOT_PROVED`
 
 P010B는 P010A의 count upper bound를 실제 탐색 후보·위치로 연결하는 축이다. 핵심 질문은
 “상한이 작아졌는가?”가 아니라 “실제 `gap >= 1856` start를 하나도 빠뜨리지 않는 더
@@ -96,3 +96,14 @@ prime-gap exhaustive search algorithm의 개선이라고 쓰지 않는다.
 - 미구현/보류: 실제 상한을 줄이는 cutting-plane solve
 - 보류 이유: 먼저 full scan 시간과 exact-lift baseline을 실측해야 iteration 수와
   16시간 예산의 타당한 상한을 정할 수 있다.
+
+## 7. 실제 G1 결과와 후속 판정
+
+- 5,760 states·35,224,647 constraints를 0.7741초에 full scan
+- floating violation 0, minimum slack `-2.220446049250313e-16`
+- exact lift 35,224,647 constraints도 위반 0
+- modulus-2310 상한을 그대로 복사했으므로 strict improvement 없음
+- absolute candidate-to-range mapping과 break-even은 여전히 없음
+
+full scan은 병목이 아니므로 P010A cutting-plane 연구는 진행할 가치가 있다. 그러나 이는
+count upper bound 연구다. P010B 가속 승격은 coverage mapping이 생기기 전까지 BLOCKED다.

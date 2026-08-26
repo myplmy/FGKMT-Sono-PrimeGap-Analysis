@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`ORCHESTRATION_READY / USER_RUN_AUTHORIZED / NOT_RUN`
+`COMPLETED / EXPERIMENT_PASS / THREE_CHILDREN_PASS`
 
 이 문서는 새 수학 실험이 아니라 이미 분리된 세 실행을 안전하게 이어 주는 실행계획이다.
 각 실험은 자기 PowerShell runner와 결과 폴더를 유지하고, queue는 순서·의존성·시간·disk
@@ -52,7 +52,7 @@ G4 cutting-plane은 넣지 않는다. G3 실측 없이 iteration 수·solver mem
 - P010A replay prerequisite hash/binding 불일치
 - child timeout; 해당 process tree 종료 후 독립 child는 계속
 
-## 5. 사용자 실행 절차
+## 5. 당시 사용자 실행 절차와 현재 재실행 금지
 
 환경: **Windows FGKMT Conda Prompt 또는 Windows PowerShell**. WSL shell에서 실행하지
 않는다. PARI/GP는 P009 child가 필요할 때 Windows에서 `wsl.exe`로 설치된 Ubuntu GP를
@@ -63,6 +63,10 @@ cd Z:\FGKMT-Sono-PrimeGap-Analysis
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\runners\run_p009_p010_bounded_queue.ps1 -ConfirmBoundedQueue
 ```
 
+위 명령은 실행 당시 provenance다. 완료 runner는
+`test_done/run_p009_p010_bounded_queue-20260826T144439Z-done.ps1`로 이관했고 다시 실행하지
+않는다. 현재 사용자 수행절차는 별도 수행절차 필요없음이다.
+
 예상 총시간은 보통 10분–1시간, 보수적 단계 timeout 합계는 6시간이다. queue hard cap은
 15시간 30분이다. 완료 후 다음을 회신한다.
 
@@ -70,3 +74,17 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\runners\run_p009_p
 - `test_result/logs/run_<UTC>_p009_p010_bounded_queue.log`
 - queue result directory
 - 생성된 각 child result directory
+
+## 6. 실제 결과
+
+- queue run: `test_result/run_20260826T144439Z_p009_p010_bounded_queue`
+- queue log: `test_result/logs/run_20260826T144439Z_p009_p010_bounded_queue.log`
+- elapsed: 25.906초
+- artifact delta: 147,867 bytes
+- P010B scan, P010A exact lift, P009 single-block actual: 모두 terminal PASS
+- Codex 사후 독립 재검증: issue 0
+- 해석: `test_result/202608270005_P009_P010_bounded_queue_result_analysis.md`
+
+15시간 30분은 hard safety cap이었고 실제 예상 계산량을 의미하지 않았다. 세 child는
+feasibility·certificate 단위였으므로 수십 초에 끝났다. 전체 prime search나 strict bound
+improvement는 수행되지 않았다.

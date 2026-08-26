@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P008 완료 / P009 adapter PASS / P010A replay·P011 pilot PASS / 조건부 후속 대기
+## 현재 상태: P002–P011 단계별 PASS / P010A G4 runner 준비 / P012 설계 합의 대기
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P006 새 figure 3개도 2026-08-26 사용자 시각 QA PASS다. P008 실제 full은 certified zero 0개라 supplied modulus-2310 direct tiling을 음성 판정했고, P005 Rank 85→86 exhaustive 및 P007/P008 direct acceleration은 계속 미증명이다. P009 boundary-witness toy와 PARI/GP 2.15.4 adapter는 PASS했다. P010A modulus-2310 replay도 exact PASS했으나 상한은 `439,161,464,927,854,179`로 동일하고 acceleration은 미증명이다. P011 stationary-null pilot은 실행 PASS지만 recurrence enrichment를 지지하지 않았고 global null의 위치 비정상성 문제가 드러났다. P009 actual `10^20`, P010B modulus-30030 scan·exact lift·LP solve는 미실행이다. 결과 정본 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 실제 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact PARI boundary witness를 결합해 certified zero 1 block을 만들었다. P010B 35,224,647-constraint floating scan과 P010A exact lift도 PASS했지만 상한은 `439,161,464,927,854,179`로 동일하고 acceleration은 미증명이다. P011 stationary-null pilot은 enrichment를 지지하지 않았고 global null의 위치 비정상성을 드러냈으며 figure 사용자 QA도 PASS다. 다음 actual은 사용자 실행용 P010A G4 11시간 cutting-plane이다. P012는 범위·bin·primary statistic의 사용자 합의 전 구현하지 않는다. 결과 정본 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 실제 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -325,13 +325,17 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P006 `[2,10^8]` pilot PASS: 5,761,455 primes, 5,761,454 gaps, complete/censored plateau 24/1, artifact issue 0, 사용자 figure QA PASS
 - P006 `[2,10^9]` full PASS: 50,847,534 primes, complete/censored plateau 29/1, artifact issue 0, figure 3개 사용자 QA PASS
 - P007 supplied modulus-2310 pilot PASS: 480 states, 415,223 constraints, minimum slack 0, saved issue 0; historic ceil bound는 유효하지만 floor로 total upper bound를 1 낮출 수 있음
-- P007 small-modulus full PASS: mod 30/210/2310 상한 단조감소, mod30030은 estimate only; direct acceleration 미증명
-- P007 exact finite-range certificate의 modulus 30030 solve와 직접 search acceleration 주장은 계속 차단
+- P007 small-modulus full PASS: mod 30/210/2310 상한 단조감소; direct acceleration 미증명
+- P010A/P010B modulus-30030 floating/exact lift PASS: 5,760 states, 35,224,647 constraints, strict improvement 0
 - P008 phase-A PASS: five exact prime-count endpoints dual-algorithm 일치, actual four blocks certified zero 0; direct local tiling 음성 판정
-- P009 boundary witness toy와 PARI/GP 2.15.4 adapter PASS; actual `10^20` single block 미실행
-- P010A modulus-2310 replay exact PASS; 상한 동일, direct acceleration 미증명
-- P010B modulus-30030 one-candidate scan과 조건부 exact-lift runner 준비; 둘 다 미실행
-- P011 stationary recurrence null pilot PASS; enrichment 미지지, local/nonstationary P012 설계 필요
+- P009 boundary witness toy·adapter·actual single block PASS; Gate A만 통과, 전체 acceleration 미증명
+- P010A modulus-2310 replay와 modulus-30030 exact lift PASS; 상한 동일, G4 11h cutting-plane runner 준비
+- P011 stationary recurrence null pilot PASS; enrichment 미지지, figure 사용자 QA PASS
+- P012 stratified hypergeometric 권장 설계 작성; 사용자 Q1–Q3 합의 전 미구현
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 사용자가 Windows에서 `scripts/runners/run_p009_p010_bounded_queue.ps1`을 실행하는 것이다. queue는 P010B scan, 위반 0일 때 P010A exact lift, P009 single-block을 15시간 30분·50 GB(50,000,000,000 bytes) 안에서 순차 수행한다. P010 modulus-30030 cutting-plane LP solve는 G3 실측 전에는 실행하지 않는다. P011 figure 최종 시각 QA와 P012 local-null 설계 합의가 별도로 남는다.
+다음 권장 행동은 사용자가 Windows에서
+`scripts/experiments/p010a/run_p010a_mod30030_cutting_plane_11h.ps1 -ConfirmP010AG4`를
+실행하는 것이다. total 11시간, per-solve 30분, working-set 250,000, decimal 50 GB로
+제한한다. 이 실행은 count upper bound 연구이며 search acceleration이 아니다. 별도로
+P012 계획서의 Q1–Q3 답을 받아 local-null 설계를 고정한다.
