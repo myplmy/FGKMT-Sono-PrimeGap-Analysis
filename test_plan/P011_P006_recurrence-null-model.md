@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`PLAN_FROZEN / CODE_IMPLEMENTED / LOCAL_TOY_PASS / USER_PILOT_PENDING`
+`EXPERIMENT_PASS / STATIONARY_NULL_INADEQUACY_INDICATED / USER_FIGURE_QA_PENDING`
 
 P006은 record gap이 다음 record 전까지 몇 번 다시 나타났는지 exact하게 셌다. P011은
 그 재발 횟수가 단순히 “그 gap 길이 자체가 전체 범위에서 흔하기 때문”으로 설명되는지
@@ -113,7 +113,23 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p011\r
 - 결과 폴더 경로
 - PNG 두 장의 축·점·글자가 정상인지 시각 확인 결과
 
-## 9. 선행연구와 통계 근거
+## 9. 실제 결과와 다음 판정
+
+- run: `test_result/run_20260826T100938Z_p011_recurrence_null_pilot`
+- log: `test_result/logs/run_20260826T100938Z_p011_recurrence_null_pilot.log`
+- deterministic saved verification: PASS, issue 0
+- primary cohort: 관측 재발 9, stationary-null 기대 109.079
+- all eligible: 관측 20, 기대 119.432
+- `start>=100000`: 관측 5, 기대 43.734
+- all-eligible enrichment BH 최소 q: gap 6의 약 0.105; 0.05 기준 유의하지 않음
+
+따라서 “record gap이 일반적인 빈도보다 유난히 자주 재발한다”는 방향은 지지되지 않았다.
+반대로 gap 72 등에서 null이 과도하게 많이 예측했다. 이는 곧바로 수론적 반발 현상을
+뜻하지 않고, 전체 `[2,10^9]` 빈도를 모든 위치에 동일하게 쓰는 stationary null이
+초기 plateau에 부적합하다는 진단이다. 후속 P012는 local/log-x matched null을 사전
+고정한 뒤에만 실행한다.
+
+## 10. 선행연구와 통계 근거
 
 1. Gallagher, P. X., *On the distribution of primes in short intervals*,
    Mathematika 23 (1976), DOI: https://doi.org/10.1112/S0025579300016442

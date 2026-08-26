@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`SPLIT_APPROVED / P010A_G2_RUNNER_READY / P010B_ONE_CANDIDATE_RUNNER_READY / ACTUAL_NOT_RUN`
+`SPLIT_APPROVED / P010A_G2_EXPERIMENT_PASS / G3_USER_RUN_READY / G4_CONDITIONAL`
 
 사용자 제안에 따라 P010을 다음 두 축으로 분리한다.
 
@@ -27,7 +27,7 @@ P007 작은 modulus 비교는 30, 210, 2310에서 exact PASS했지만 modulus 30
 
 ## 3. 비목적과 승인 경계
 
-- modulus 30030 transition 전체 scan을 이번 준비에서 실행하지 않는다.
+- Codex 로컬검증에서는 modulus 30030 transition 전체 scan을 실행하지 않는다.
 - modulus 30030 LP를 풀지 않는다.
 - 새 rational certificate 또는 더 낮은 `C_max`를 주장하지 않는다.
 - `[10^20,10^21)` prime search를 실행하지 않는다.
@@ -90,21 +90,24 @@ fixed FGKMT Python preflight도 PASS했고 실제 modulus 30030 scan·LP solve�
 
 현재 단계다.
 
-### G2 — modulus 2310 replay (`RUNNER_READY / USER_RUN_PENDING`)
+### G2 — modulus 2310 replay (`EXPERIMENT_PASS`)
 
-기존 exact solution을 입력해 oracle이 위반 0을 보고하는지, 기존 415,223개 exact
-verifier와 일치하는지 검사한다. 예상 1–5분, RAM 1 GB 미만.
+`20260826T100715Z` run에서 기존 exact solution을 입력해 oracle 위반 0, 두 exact
+builder 415,223개, saved issue 0을 확인했다. 상한은 P007과 동일하다.
 
-### G3 — modulus 30030 one-candidate scan (`RUNNER_READY / P010A_PASS_REQUIRED`)
+### G3 — modulus 30030 one-candidate scan·exact lift (`USER_RUN_READY`)
 
-zero 또는 lifted modulus-2310 potential을 고정해 full transition scan 비용만 측정한다.
-예상 1–15분, RAM 1 GB 미만, 결과는 LP solution이 아니다.
+lifted modulus-2310 potential을 고정해 full transition scan 비용을 측정한다. floating
+위반 0일 때만 같은 certificate를 exact integer streaming으로 재검증한다. 예상 합계
+4–45분, RAM 1 GB 미만, disk 1 GB 미만이다. 결과는 새 LP solution이나 더 낮은
+상한이 아니다.
 
 ### G4 — cutting-plane prototype (`CONDITIONAL`)
 
 G3가 안정적일 때만 working-set LP를 반복한다. 매 iteration에서 violated constraints를
-추가하고, 종료 candidate를 exact streaming verifier로 검사한다. 32 GB·168시간 gate를
-넘거나 iteration이 정체되면 중단한다.
+추가하고, 종료 candidate를 exact streaming verifier로 검사한다. 32 GB RAM·16시간·50 GB disk
+gate를 넘거나 iteration이 정체되면 중단한다. G3 실측 전에는 G4를 16시간 queue에
+넣지 않는다.
 
 ### G5 — algorithm benefit (`BLOCKED`)
 
@@ -113,5 +116,5 @@ local coverage mapping과 baseline 대비 총비용 감소가 별도로 증명�
 
 ## 8. 현재 사용자 수행절차
 
-먼저 P010A 계획서의 modulus-2310 replay를 실행한다. P010B는 그 terminal PASS
-manifest를 받은 뒤에만 별도 실행한다. 정확한 명령은 각 하위 계획서에 있다.
+P010A replay는 완료됐다. 현재 권장 절차는 `P010Q_P009_P010_16h_bounded_queue.md`의
+통합 queue 1회를 사용자 Windows 환경에서 실행하는 것이다.

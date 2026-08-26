@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`PLAN_FROZEN / LOCAL_TEST_PASS / ONE_CANDIDATE_RUNNER_READY / P010A_PASS_REQUIRED / ACTUAL_NOT_AUTHORIZED`
+`PLAN_FROZEN / P010A_REPLAY_PASS / ONE_CANDIDATE_USER_RUN_READY / ACTUAL_NOT_RUN`
 
 P010B는 P010A의 count upper bound를 실제 탐색 후보·위치로 연결하는 축이다. 핵심 질문은
 “상한이 작아졌는가?”가 아니라 “실제 `gap >= 1856` start를 하나도 빠뜨리지 않는 더
@@ -39,6 +39,10 @@ transition을 chunked scan한다. 이 단계는 다음만 측정한다.
 - chunk memory estimate 1 GiB 미만
 - 별도 사용자 실행 승인
 
+2026-08-26 P010A replay는 terminal/saved exact PASS했으므로 첫 두 선행조건은 충족됐다.
+이번 사용자 지시로 50 GB·16시간 이내 bounded queue 실행기도 준비한다. 실제 실행은
+사용자가 confirmation flag를 주어 시작한다.
+
 ### 성공 기준
 
 - scanned constraints 정확히 35,224,647
@@ -50,13 +54,12 @@ transition을 chunked scan한다. 이 단계는 다음만 측정한다.
 
 - P010A manifest 불일치
 - scan count 누락
-- RAM 4 GB, disk 1 GB, wall time 30분 초과
+- RAM 4 GB, 이 단계 disk 1 GB 또는 queue 전체 50 GB, wall time 60분 초과
 - full matrix materialization 또는 LP solve 시도
 
 ## 4. 실행 절차
 
-P010A가 PASS하기 전에는 실행하지 않는다. PASS manifest 경로를 `<P010A_MANIFEST>`에
-그대로 넣는다.
+P010A PASS manifest 경로를 `<P010A_MANIFEST>`에 그대로 넣는다.
 
 환경: Windows PowerShell 또는 FGKMT Conda Prompt
 
@@ -85,3 +88,11 @@ one-candidate scan 뒤에도 다음이 없으면 P010B는 준비 단계에 머�
 
 count upper bound만 줄고 이 연결이 없다면 “이론적 count 개선”으로는 의미가 있어도
 prime-gap exhaustive search algorithm의 개선이라고 쓰지 않는다.
+
+## 6. 현재 구현 범위와 보류 범위
+
+- 구현: 5,760 states·35,224,647 constraints one-candidate full scan
+- 구현: 위반 0일 때 exact modulus lift와 integer streaming 검증
+- 미구현/보류: 실제 상한을 줄이는 cutting-plane solve
+- 보류 이유: 먼저 full scan 시간과 exact-lift baseline을 실측해야 iteration 수와
+  16시간 예산의 타당한 상한을 정할 수 있다.

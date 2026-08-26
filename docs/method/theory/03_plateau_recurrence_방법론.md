@@ -39,10 +39,18 @@ plateau 수명과 관련되지만 start-prime occurrence count이므로 경계�
 - gap별 admissibility/singular-series 효과가 다르다.
 - censoring과 사후 선택을 무시한 단순 추세검정은 사용하지 않는다.
 
+## P011 stationary-null 진단
+
+P011은 각 plateau를 제외한 `[2,10^9]` 전체 gap frequency로 binomial 기대값을 만들었다.
+실행과 saved recomputation은 PASS했지만 primary 관측 재발 9에 기대 109.079로 큰
+과대예측을 보였고, enrichment BH q는 모두 0.05보다 컸다. 이는 recurrence enrichment를
+지지하지 않으며, global stationary rate가 위치에 따른 gap 분포 변화를 반영하지 못한다는
+진단이다. 음수 residual을 새로운 repulsion theorem으로 해석하지 않는다.
+
 ## 다음 가설·방법
 
 `HYPOTHESIS P6-H1`: gap별 기대 occurrence를 단순 Poisson이 아닌 admissibility가 반영된
 null model로 정규화하면 초기/후기 recurrence 차이의 일부가 설명된다.
 
-다음 단계는 범위를 무작정 `10^10`으로 늘리기보다 exact 또는 Monte-Carlo null model,
-사전 고정 통계량, censoring-aware comparison을 먼저 설계하는 것이다.
+다음 단계 P012는 범위를 무작정 `10^10`으로 늘리기보다 local/log-x matched rate,
+shifted-bin sensitivity, 사전 고정 통계량, censoring-aware comparison을 먼저 설계한다.

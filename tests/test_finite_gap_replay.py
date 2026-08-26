@@ -13,10 +13,12 @@ from source.finite_gap_replay import (
     ReplayError,
     candidate_from_certificate,
     lift_candidate_to_modulus,
+    lift_certificate_exact_to_modulus,
     require_mod2310_replay_completion,
     run_mod2310_replay,
     run_mod30030_one_candidate_scan,
 )
+from source.finite_gap_separation import scan_exact_certificate_constraints
 from source.provenance import sha256_file
 from source.provenance import ApprovalRequiredError
 
@@ -61,6 +63,44 @@ class FiniteGapReplayTests(unittest.TestCase):
     def test_lift_rejects_nonmultiple_modulus(self) -> None:
         with self.assertRaises(ReplayError):
             lift_candidate_to_modulus(toy_certificate(), 210 + 2)
+
+    def test_exact_lift_maps_integer_potentials_and_preserves_bound(self) -> None:
+        certificate = RationalCertificate(
+            modulus=30,
+            threshold=12,
+            denominator=10,
+            lambda_num=0,
+            mu_num=10,
+            t_num=0,
+            phi_num=tuple(0 for _ in range(state_count(30))),
+            internal_bound=123,
+            total_bound=124,
+        )
+        lifted = lift_certificate_exact_to_modulus(certificate, 210)
+        self.assertEqual(lifted.modulus, 210)
+        self.assertEqual(lifted.internal_bound, 123)
+        self.assertEqual(lifted.total_bound, 124)
+        report = scan_exact_certificate_constraints(lifted)
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(report["minimum_integer_slack"], 0)
+        self.assertTrue(report["exact_certificate_verified"])
+
+    def test_exact_scan_large_modulus_requires_explicit_gate(self) -> None:
+        certificate = RationalCertificate(
+            modulus=30030,
+            threshold=12,
+            denominator=10,
+            lambda_num=0,
+            mu_num=10,
+            t_num=0,
+            phi_num=tuple(0 for _ in range(state_count(30030))),
+            internal_bound=0,
+            total_bound=0,
+        )
+        from source.finite_gap_separation import SeparationResourceGuardError
+
+        with self.assertRaises(SeparationResourceGuardError):
+            scan_exact_certificate_constraints(certificate)
 
     def test_replay_refuses_before_input_read_or_output_write(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

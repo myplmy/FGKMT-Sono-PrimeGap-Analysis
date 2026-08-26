@@ -19,7 +19,12 @@ from typing import Iterable
 
 import numpy as np
 
-from source.finite_gap_certificate import state_count, unit_residues
+from source.finite_gap_certificate import (
+    RationalCertificate,
+    state_count,
+    transition_resource_estimate,
+    unit_residues,
+)
 
 
 DEFAULT_CHUNK_ROWS = 64
@@ -287,6 +292,160 @@ def brute_force_transition_violations(
     return violations[:top_k]
 
 
+def scan_exact_certificate_constraints(
+    certificate: RationalCertificate,
+    *,
+    chunk_rows: int = DEFAULT_CHUNK_ROWS,
+    top_k: int = 100,
+    allow_large_state_scan: bool = False,
+) -> dict[str, object]:
+    """Stream every certificate inequality with exact signed-64-bit arithmetic.
+
+    The function first proves that a conservative absolute-value bound fits in
+    ``int64``.  Only after that guard passes are NumPy integer operations used.
+    This keeps the modulus-30030 scan memory-bounded without silently wrapping
+    large certificate coefficients.
+    """
+
+    if certificate.threshold < 2:
+        raise ValueError("threshold must be at least 2")
+    if certificate.denominator <= 0:
+        raise ValueError("certificate denominator must be positive")
+    if certificate.lambda_num < 0:
+        raise ValueError("lambda must be nonnegative")
+    if chunk_rows < 1 or top_k < 1:
+        raise ValueError("chunk_rows and top_k must be positive")
+
+    residues_tuple = unit_residues(certificate.modulus)
+    states = len(residues_tuple)
+    if len(certificate.phi_num) != states:
+        raise ValueError("certificate potential count differs from residue state count")
+    if states > DEFAULT_MAX_TOY_STATES and not allow_large_state_scan:
+        raise SeparationResourceGuardError(
+            f"state count {states} exceeds toy guard {DEFAULT_MAX_TOY_STATES}; "
+            "a large exact scan requires a separately authorized run"
+        )
+    max_phi = max(abs(value) for value in certificate.phi_num)
+    if max_phi > certificate.t_num:
+        raise ValueError("t_num does not bound every potential")
+
+    max_representative = certificate.threshold + certificate.modulus - 1
+    overflow_upper_bound = (
+        abs(certificate.lambda_num) * max_representative
+        + abs(certificate.mu_num)
+        + 2 * max_phi
+        + certificate.denominator
+    )
+    if overflow_upper_bound > np.iinfo(np.int64).max:
+        raise SeparationResourceGuardError(
+            "exact vectorized scan cannot prove signed-64-bit arithmetic safe"
+        )
+
+    residues = np.asarray(residues_tuple, dtype=np.int64)
+    potentials = np.asarray(certificate.phi_num, dtype=np.int64)
+    lambda_num = np.int64(certificate.lambda_num)
+    mu_num = np.int64(certificate.mu_num)
+    denominator = np.int64(certificate.denominator)
+    violation_count = 0
+    minimum_slack: int | None = None
+    retained: list[tuple[int, int, int, int, int]] = []
+    scanned_constraints = 0
+
+    def retain_negative(
+        values: np.ndarray,
+        mask: np.ndarray,
+        source_start: int,
+        gaps: np.ndarray,
+        weight: int,
+    ) -> None:
+        nonlocal retained
+        indices = _select_negative_flat_indices(values, mask, top_k)
+        items = [
+            (
+                int(values.ravel()[flat_index]),
+                source_start + int(flat_index // states),
+                int(flat_index % states),
+                int(gaps.ravel()[flat_index]),
+                weight,
+            )
+            for flat_index in indices
+        ]
+        retained = sorted(retained + items)[:top_k]
+
+    for source_start in range(0, states, chunk_rows):
+        source_stop = min(states, source_start + chunk_rows)
+        source_values = residues[source_start:source_stop, None]
+        d0 = (residues[None, :] - source_values) % certificate.modulus
+        d0 = np.where(d0 == 0, certificate.modulus, d0).astype(
+            np.int64, copy=False
+        )
+        potential_delta = (
+            potentials[source_start:source_stop, None] - potentials[None, :]
+        )
+
+        small_mask = d0 < certificate.threshold
+        small_slack = lambda_num * d0 + mu_num + potential_delta
+        small_negative = small_mask & (small_slack < 0)
+        violation_count += int(np.count_nonzero(small_negative))
+        retain_negative(small_slack, small_negative, source_start, d0, 0)
+        if small_mask.any():
+            chunk_min = int(np.min(small_slack[small_mask]))
+            minimum_slack = (
+                chunk_min if minimum_slack is None else min(minimum_slack, chunk_min)
+            )
+        scanned_constraints += int(np.count_nonzero(small_mask))
+
+        large_gap = _least_large_representatives(
+            d0, certificate.modulus, certificate.threshold
+        ).astype(np.int64, copy=False)
+        large_slack = (
+            lambda_num * large_gap
+            + mu_num
+            + potential_delta
+            - denominator
+        )
+        large_negative = large_slack < 0
+        violation_count += int(np.count_nonzero(large_negative))
+        retain_negative(large_slack, large_negative, source_start, large_gap, 1)
+        chunk_min = int(np.min(large_slack))
+        minimum_slack = (
+            chunk_min if minimum_slack is None else min(minimum_slack, chunk_min)
+        )
+        scanned_constraints += int(large_slack.size)
+
+    expected = int(
+        transition_resource_estimate(
+            certificate.modulus, certificate.threshold
+        )["total_transition_constraints"]
+    )
+    if scanned_constraints != expected:
+        raise RuntimeError("exact scan constraint count disagrees with exact estimate")
+    return {
+        "status": "PASS" if violation_count == 0 else "FAIL",
+        "modulus": certificate.modulus,
+        "threshold": certificate.threshold,
+        "states": states,
+        "chunk_rows": chunk_rows,
+        "scanned_constraints": scanned_constraints,
+        "violation_count": violation_count,
+        "minimum_integer_slack": minimum_slack,
+        "top_exact_violations": [
+            {
+                "slack": slack,
+                "source_index": source,
+                "target_index": target,
+                "gap": gap,
+                "weight": weight,
+            }
+            for slack, source, target, gap, weight in retained
+        ],
+        "signed_int64_overflow_guard_upper_bound": overflow_upper_bound,
+        "signed_int64_limit": int(np.iinfo(np.int64).max),
+        "full_constraint_matrix_materialized": False,
+        "exact_certificate_verified": violation_count == 0,
+    }
+
+
 __all__ = [
     "DEFAULT_CHUNK_ROWS",
     "DEFAULT_MAX_TOY_STATES",
@@ -295,5 +454,6 @@ __all__ = [
     "TransitionViolation",
     "brute_force_transition_violations",
     "scan_transition_violations",
+    "scan_exact_certificate_constraints",
     "separation_memory_estimate",
 ]

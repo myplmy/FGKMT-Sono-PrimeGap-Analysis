@@ -51,6 +51,8 @@ BAT·PowerShell·WSL 진입점과, 해당 완료 실험에만 쓰인 보조파�
 | `run_experiment-legacy-20260826-done.ps1` | `B39568E193579B88477FC68EAEECD1DBA81E6189314CBA7F2C2039046BE0D6F5` | 초기 P001 승인 gate | 완료 run 원본이 아니라 새 공통 runner로 대체된 legacy 진입점 |
 | `install_pari_gp_wsl-20260826T084156Z-done.sh` | `4DE35165CDA2E84FAB1D55A1DE4ACB9B5E01C16075005FCE8D139DC2F900B3B0` | `tmp/setup/install_pari_gp_20260826T084156Z.log` | PARI/GP 2.15.4 설치·`primecertisvalid` smoke test PASS |
 | `run_p009_pari_adapter_validation-20260826T090950Z-done.ps1` | `FB89EB038B2C41F163ABCDAFC58F49EC469B2AC0EAC9E88B9505B08C82B2394B` | `test_result/logs/run_20260826T090950Z_p009_pari_adapter_validation.log` | small integer·중간 ECPP·wrong-subject 음성대조·saved verification PASS |
+| `run_p010a_mod2310_replay-20260826T100715Z-done.ps1` | `3DC6245720B2E8BB76F211C4C38B1800995AA85BE00FFC847302F54E4EBCB402` | `test_result/logs/run_20260826T100715Z_p010a_mod2310_replay.log` | 두 exact builder·chunk oracle·saved verification PASS; 상한 동일 |
+| `run_p011_recurrence_null_pilot-20260826T100938Z-done.ps1` | `9091AA1ACDB1F73D9514CFC9BEBD428615EE7C43C894D9F19151832D4E121C2E` | `test_result/logs/run_20260826T100938Z_p011_recurrence_null_pilot.log` | stationary-null 실행 PASS; enrichment 미지지·null 부적합 진단, 사용자 figure QA 대기 |
 
 재사용 기능은 다음으로 분리했다.
 

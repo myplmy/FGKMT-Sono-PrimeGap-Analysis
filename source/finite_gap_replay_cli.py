@@ -8,9 +8,11 @@ from pathlib import Path
 
 from source.finite_gap_replay import (
     run_mod2310_replay,
+    run_mod30030_exact_lift,
     run_mod30030_one_candidate_scan,
     verify_saved_mod2310_replay,
     verify_saved_mod30030_scan,
+    verify_saved_mod30030_exact_lift,
 )
 from source.provenance import APPROVAL_TOKEN
 
@@ -47,6 +49,19 @@ def build_parser() -> argparse.ArgumentParser:
 
     scan_verify = subparsers.add_parser("verify-scan")
     scan_verify.add_argument("--result-directory", type=Path, required=True)
+    scan_verify.add_argument("--report", type=Path)
+
+    exact_lift = subparsers.add_parser("lift-30030-exact")
+    exact_lift.add_argument("--approved-by-user", action="store_true")
+    exact_lift.add_argument("--certificate", type=Path, required=True)
+    exact_lift.add_argument("--replay-manifest", type=Path, required=True)
+    exact_lift.add_argument("--scan-manifest", type=Path, required=True)
+    exact_lift.add_argument("--output-directory", type=Path, required=True)
+    exact_lift.add_argument("--chunk-rows", type=int, default=64)
+
+    exact_lift_verify = subparsers.add_parser("verify-lift")
+    exact_lift_verify.add_argument("--result-directory", type=Path, required=True)
+    exact_lift_verify.add_argument("--report", type=Path)
     return parser
 
 
@@ -109,7 +124,28 @@ def main(argv: list[str] | None = None) -> int:
             )
         )
         return 0
-    report = verify_saved_mod30030_scan(args.result_directory)
+    if args.command == "lift-30030-exact":
+        _print(
+            run_mod30030_exact_lift(
+                args.certificate,
+                args.replay_manifest,
+                args.scan_manifest,
+                args.output_directory,
+                approval_token=(APPROVAL_TOKEN if args.approved_by_user else None),
+                chunk_rows=args.chunk_rows,
+            )
+        )
+        return 0
+    if args.command == "verify-lift":
+        report = verify_saved_mod30030_exact_lift(args.result_directory)
+    else:
+        report = verify_saved_mod30030_scan(args.result_directory)
+    if args.report is not None:
+        if args.report.exists():
+            raise FileExistsError(f"refusing to overwrite report: {args.report}")
+        with args.report.open("x", encoding="utf-8", newline="\n") as handle:
+            json.dump(report, handle, ensure_ascii=False, indent=2, sort_keys=True)
+            handle.write("\n")
     _print(report)
     return 0 if report["status"] == "PASS" else 1
 

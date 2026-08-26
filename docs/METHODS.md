@@ -499,21 +499,30 @@ P008은 P007 certificate를 block-local하게 적용하고 exact prime-count 입
 P009 boundary witness는 `[a,b)`의 마지막 증명 소수 `p`, `p<n<b` 전체 합성수 coverage,
 증명 소수 `q>=b`, `q-p<1856`을 검사한다. PARI/GP 2.15.4 설치와 small integer·중간
 ECPP adapter의 fresh-process verification은 PASS했다. 실제 `10^20` single-block은
-P010A replay PASS manifest와 별도 사용자 실행 전에는 시작하지 않는다.
+P010A replay PASS manifest를 선행조건으로 사용자 bounded queue에서만 시작한다.
 
 P010은 두 연구축으로 분리한다. P010A는 modulus-2310 replay와 향후 modulus-30030
 cutting-plane을 통해 count upper bound를 연구한다. P010B는 누락 없는 absolute candidate
 mapping, boundary closure, total-cost break-even으로 실제 search acceleration을 연구한다.
 count upper bound만 낮아져서는 P010B 가속이 증명되지 않는다. 35,224,647 constraints의
-one-candidate scan과 LP solve는 미실행이다.
+one-candidate scan과 LP solve는 미실행이다. modulus-2310 replay는 두 exact builder와
+chunk oracle, saved recheck가 PASS했지만 상한은 `439161464927854179`로 동일하다.
+`M|M'`, `lambda>=0`에서 potential을 residue reduction으로 lift하면 기존 certificate가
+target modulus에서도 성립한다. 이 exact lift는 같은 상한의 feasibility baseline이지
+strict improvement가 아니다. one-candidate scan 위반 0 뒤에만 memory-safe integer
+streaming으로 modulus 30030 actual lift를 재검증한다.
 
 P011은 P006 recurrence count를 leave-plateau-out binomial reference와 비교하는 경험적
 진단이다. exact binomial, 고정 seed Monte Carlo, BH 보정을 사용하지만 record 선택편향,
-비독립성, nonstationarity 때문에 theorem evidence로 해석하지 않는다. 실행은 사용자가
-`test_plan/P011_P006_recurrence-null-model.md`의 runner로 수행한다.
+비독립성, nonstationarity 때문에 theorem evidence로 해석하지 않는다. 실제 pilot은
+terminal/saved PASS했지만 primary 관측 9 대 기대 109.079로 enrichment를 지지하지 않고
+global stationary null의 부적합을 드러냈다. P012 local/log-x null은 bin 폭·shift·smoothing·
+검정 family를 사전 고정한 뒤에만 구현·실행한다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.
+modulus 배수 exact-lift 정본은
+`docs/method/theory/11_residue_certificate_modulus_lift.md`다.
 
 이론·가설·폐기된 연결의 정본 지도는 `docs/method/theory/00_이론_가설_방법론_색인.md`다. 신규 네 이론 초안의 오류와 채택 범위는 `docs/review/17_20260826_prime-gap_통합이론_비판적_타당성검토.md`에 기록한다.
 
