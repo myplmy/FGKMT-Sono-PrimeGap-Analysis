@@ -80,19 +80,22 @@ H(x)=\frac{G(x)}{F(x)}.
 - running minimum이 증가함
 - 기존 산출물 덮어쓰기 위험
 
-## 6. 승인된 실행 명령
+## 6. 실행 당시 명령 provenance — 재실행 금지
 
 ```powershell
 & 'W:\miniforge3\envs\FGKMT\python.exe' -B -m unittest discover -s tests -v
 & 'W:\miniforge3\envs\FGKMT\python.exe' -B -m source.cli preflight
-.\run_pilot.ps1 -Approved -IntervalCount 5
+.\test_done\run_pilot-20260822T181837Z-done.ps1 -Approved -IntervalCount 5
 ```
 
 실행 시 resolve한 commit을 명령에 명시해 재현할 수도 있다.
 
 ```powershell
-.\run_pilot.ps1 -Approved -IntervalCount 5 -Commit '<40-character-commit>'
+.\test_done\run_pilot-20260822T181837Z-done.ps1 -Approved -IntervalCount 5 -Commit '<40-character-commit>'
 ```
+
+위 두 명령은 P002 실행 당시 원본이 현재 보존된 경로를 나타내는 provenance다.
+`test_done` 파일은 다시 실행하지 않는다.
 
 ## 7. 예상 산출물
 

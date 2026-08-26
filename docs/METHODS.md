@@ -480,12 +480,26 @@ elapsed_seconds = 7.654
 
 해석 정본은 `test_result/202608230503_P003_full_analysis.md`, 문헌 비교와 가설은 `docs/review/10_P003_문헌비교와_후속가설.md`다. machine summary의 `COMPUTED_NOT_INTERPRETED` 상태는 실행 시점의 사전 분리 원칙을 보존하기 위해 사후 변경하지 않는다.
 
-## 14. P004 실제 실행과 P005/P006 준비 기록
+## 14. P004–P008 실제 실행 기록
 
 P004 authoritative run `20260823T075238Z_p004_sensitivity`는 전체 47 tests와 100-dps 독립 검증 3,747개를 issue 0으로 PASS했다. end/start global minimum은 같은 record 50, gap 540에서 각각 `37.81686039672168...`, `37.81686039812796...`였고 shifted log-bin 3종도 같은 global minimum을 보존했다. 상세 해석은 `test_result/202608231652_P004_sensitivity_analysis.md`다.
 
 P004 실행기는 기존 `source.cli preflight` → 전체 unit tests → 분석 → 독립 verifier를 직렬로 실행하고 첫 실패에서 중단한다. 자동 스크립트가 정의·환경·hash·toy 회귀·수치를 1차로 검증하고, Codex는 source semantics·문헌 적용 범위·해석 라벨·graph visual QA처럼 자동화하기 어려운 부분만 2차 점검한다.
 
-P005에서는 `sethtroisi/prime-gap`이 `m * P#/d` 주변 탐색 도구임을 확인했다. Rank 85→86 일반 x-범위 exhaustive 인증과 동일하지 않으므로 WSL-native CPU-only shell은 official correctness, 1/2/4/8-thread hash 일치와 작은 calibration만 수행한다. full exhaustive 실행은 coverage certificate와 현실적 계산계획이 생길 때까지 금지한다.
+P005에서는 `sethtroisi/prime-gap`이 `m * P#/d` 주변 탐색 도구임을 확인했다. Rank 85→86 일반 x-범위 exhaustive 인증과 동일하지 않으므로 WSL-native CPU-only shell은 official correctness, 1/2/4/8-thread hash 일치와 작은 calibration만 수행했다. `20260824T054203Z` bounded calibration은 PASS했지만 full exhaustive 실행은 coverage certificate와 현실적 계산계획이 생길 때까지 금지한다.
 
-P006에서는 canonical plateau `[e_k,e_(k+1))`와 recurrence exposure `{p_n:s_k<=p_n<s_(k+1)}`를 분리한다. Windows NumPy segmented sieve가 모든 consecutive gap을 직접 생성하고, 최초 발생 포함 rate `M/N`과 최초 이후 rate `C/(N-1)`를 계산한다. 코드·preflight·전체 53 tests는 PASS했지만 실제 `[2,10^8]` pilot은 별도 사용자 승인 대기다.
+P006에서는 canonical plateau `[e_k,e_(k+1))`와 recurrence exposure `{p_n:s_k<=p_n<s_(k+1)}`를 분리한다. Windows NumPy segmented sieve가 모든 consecutive gap을 직접 생성하고, 최초 발생 포함 rate `M/N`과 최초 이후 rate `C/(N-1)`를 계산한다. `[2,10^8]` pilot과 `[2,10^9]` full은 모두 PASS했고 full의 complete/censored plateau는 29/1이다. figure 3개는 2026-08-26 사용자 시각 QA도 PASS했다.
+
+P007은 start-bounded `gap>=1856` count의 residue-state dual certificate를 floating LP로 발견하고 exact integer/Fraction arithmetic으로 모든 constraint를 재검증한다. modulus 30/210/2310 비교는 PASS했다. modulus-2310 저장 total upper bound는 `439161464927854179`이지만 위치 정보와 exhaustive search acceleration은 증명하지 않는다.
+
+P008은 P007 certificate를 block-local하게 적용하고 exact prime-count 입력을 두 알고리즘으로 교차검증했다. actual four blocks는 saved verification PASS였으나 certified zero 0개다. nonempty block의 right-boundary crossing을 해결하지 않고 zero라고 판정하지 않는다.
+
+## 15. P009/P010 준비와 이론 문서 체계
+
+P009 boundary witness는 `[a,b)`의 마지막 증명 소수 `p`, `p<n<b` 전체 합성수 coverage, 증명 소수 `q>=b`, `q-p<1856`을 검사한다. toy generator/verifier와 non-overwrite artifacts는 targeted tests를 PASS했다. 실제 `10^20` ECPP pilot은 PARI/GP 설치·adapter 점검·별도 사용자 승인 전에는 실행하지 않는다.
+
+P010은 modulus 30030의 35,224,647 constraints를 한꺼번에 만들지 않고 source-state chunk별로 위반 제약 상위 K개만 남기는 separation oracle을 설계한다. modulus 30 brute-force 동등성 tests와 30030 memory estimate는 PASS했지만 30030 scan, LP solve, exact certificate 생성은 미실행이다.
+
+이론·가설·폐기된 연결의 정본 지도는 `docs/method/theory/00_이론_가설_방법론_색인.md`다. 신규 네 이론 초안의 오류와 채택 범위는 `docs/review/17_20260826_prime-gap_통합이론_비판적_타당성검토.md`에 기록한다.
+
+완료된 특정 실험 runner는 `test_done/`에 SHA-256과 함께 보존하고 재실행하지 않는다. 재사용 공통 runner·logging·test는 각각 `scripts/runners/`, `scripts/common/`, `scripts/tests/`에 둔다.

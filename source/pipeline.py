@@ -64,9 +64,8 @@ def _code_snapshot() -> dict[str, object]:
     root = Path(__file__).resolve().parents[1]
     paths = list((root / "source").glob("*.py"))
     for relative_path in (
-        "run_experiment.ps1",
-        "run_full_analysis.ps1",
-        "run_pilot.ps1",
+        "scripts/runners/run_fgkmt_pipeline.ps1",
+        "scripts/common/powershell_stage_logging.ps1",
         "requirements.txt",
         "environment.yml",
     ):

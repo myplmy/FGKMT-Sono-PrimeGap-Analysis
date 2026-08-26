@@ -107,11 +107,15 @@ E_d(x)=\min_{\lceil x/10^d\rceil\le t\le x}H_{\mathrm{end}}(t)
 7. end/start interval이 분석 범위를 각각 빈틈 없이 덮지 못하거나 F가 증가하지 않으면 중단한다.
 8. 100-dps 독립 직접식 검산에서 하나라도 불일치하면 결과를 PASS로 해석하지 않는다.
 
-## 7. 승인된 실행 명령
+## 7. 실행 당시 명령 provenance — 재실행 금지
 
 ```powershell
-.\run_sensitivity_analysis.ps1 -Approved
+.\test_done\run_sensitivity_analysis-20260823T075238Z-done.ps1 -Approved
 ```
+
+위 명령은 실행 당시 provenance를 설명하기 위한 기록이다. `test_done` 파일은 다시
+실행하지 않는다. 재실험이 필요하면 `scripts/experiments/` 아래에 새 revision runner를
+만들고 새 run id와 별도 사용자 승인을 사용한다.
 
 실행기는 `source.cli preflight` → P004 단위시험 → 분석 → 100-dps 검산 순서로 진행하며 첫 실패에서 중단한다.
 

@@ -55,7 +55,7 @@ def _package_version(name: str) -> str:
 def _code_snapshot() -> dict[str, object]:
     root = Path(__file__).resolve().parents[1]
     paths = sorted((root / "source").glob("*.py"))
-    for relative in ("run_sensitivity_analysis.ps1", "requirements.txt", "environment.yml"):
+    for relative in ("requirements.txt", "environment.yml"):
         candidate = root / relative
         if candidate.exists():
             paths.append(candidate)

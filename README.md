@@ -4,9 +4,17 @@
 
 ## 현재 상태
 
-P004 COMPLETED / P005·P006·P007 USER-RUN FAILED BEFORE RESULTS / RUNNERS FIXED LOCALLY
+P002–P008 COMPLETED / P009 G1 TOY PASS / P010 SEPARATION TOY PASS
 
-P003 `10^20` end-bounded 분석과 P004 start/end 경계·local-envelope 민감도 분석은 완료 상태다. 사용자 실행 P005는 SQLite DB 초기화 누락으로 공식 Method1에서 실패했고, P006 두 번은 PowerShell의 정상 stderr 오판으로 actual analysis 전에 중단됐다. P007 pilot은 preflight와 test process 뒤 빈 로그 줄 처리 오류로 certificate audit 전에 중단됐다. 공통 전체 오류 로깅과 P005 SQLite·실패 manifest를 로컬 교정했지만 교정판 actual run은 아직 없다.
+P003 `10^20` end-bounded 분석과 P004 경계·local-envelope 민감도 분석이 완료됐다.
+P005 CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 certificate,
+P008 exact prime-count·local phase-A도 PASS했다. P006 figure 3개는 사용자 시각 QA까지
+끝났다. P008 actual block certified zero는 0개여서 supplied modulus-2310 direct tiling은
+음성 판정이다.
+
+P009 boundary-witness toy와 P010 memory-safe separation oracle toy는 구현·검증됐다.
+PARI/GP 설치, P009 actual `10^20` pilot, modulus-30030 scan/LP solve는 아직 실행하지
+않았고 각각 별도 사용자 행동·승인이 필요하다.
 
 ## 수학 정의
 
@@ -52,7 +60,7 @@ canonical 입력은 commit `1a112a1387052d9ad360686313f501c01fe46b68`로 고정�
 
 실제 재실행은 목적·정의·데이터 범위·수행방법에 대한 사용자 승인 후 새 run ID로만 수행한다.
 
-    .\run_full_analysis.ps1 -Approved
+    .\scripts\runners\run_fgkmt_pipeline.ps1 -Approved
 
 ## 문서
 
@@ -64,6 +72,10 @@ canonical 입력은 commit `1a112a1387052d9ad360686313f501c01fe46b68`로 고정�
 - test_plan/P006_maximal-gap-plateau-recurrence.md: Windows exact consecutive-gap pilot 실행 계획
 - docs/review/15_P007_finite-range-residue-certificate_타당성검토.md: count upper bound와 직접 탐색 가속의 구분
 - test_plan/P007_finite-range-residue-state-certificate.md: exact certificate pilot과 작은 modulus 비교 계획
+- docs/review/17_20260826_prime-gap_통합이론_비판적_타당성검토.md: 신규 네 이론 초안 통합 비판검토
+- docs/method/theory/00_이론_가설_방법론_색인.md: 검증수준별 이론·가설·방법론 지도
+- test_plan/P009_P008_boundary-witness_break-even-gate.md: P009 boundary witness와 자원 gate
+- test_plan/P010_P007_mod30030_memory-safe_separation.md: modulus-30030 memory-safe 설계
 
 - AGENTS.md: Codex 작업·수학·데이터·승인 규약
 - 연구 작업지시서: 연구 목적과 전체 분석 요구
@@ -73,6 +85,10 @@ canonical 입력은 commit `1a112a1387052d9ad360686313f501c01fe46b68`로 고정�
 - test_result/202608230503_P003_full_analysis.md: 일상용어 전체 결과 분석
 - docs/review/10_P003_문헌비교와_후속가설.md: 문헌 비교와 반증 가능한 후속 가설
 - handoff/: 세션마다 새로 만드는 `YYYYMMDDHHmm_HANDOFF.md`; 최신 파일에 현재 상태와 다음 작업 기록
-- test_done/: 사용자가 실제 실행한 BAT 원본의 `-done` 보존 위치; 재실행 금지
+- scripts/common/: 재사용 공통 로깅
+- scripts/runners/: 특정 완료 실험과 분리된 공통 runner
+- scripts/experiments/: 신규 실험별 toy·준비 진입점
+- scripts/setup/: 사용자가 명시적으로 실행하는 설치 helper
+- test_done/: 완료 BAT/PS1/SH와 실험 전용 보조파일의 `-done` 보존 위치; 재실행 금지
 
 유한 계산 결과는 FGKMT 또는 Sono의 무한 범위 정리를 증명·반증·검증하는 근거로 사용하지 않는다.

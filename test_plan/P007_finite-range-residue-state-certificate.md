@@ -198,9 +198,9 @@ global upper bound만으로는 탐색 block을 건너뛸 수 없다. 다음이 �
 - `source/finite_gap_certificate.py`
 - `source/finite_gap_certificate_cli.py`
 - `tests/test_finite_gap_certificate.py`
-- `run_finite_gap_certificate.ps1`
-- `run_P007_finite_gap_certificate_pilot.bat`
-- `run_P007_finite_gap_certificate_full.bat`
+- `test_done/run_finite_gap_certificate-20260824T090010Z-done.ps1` (완료 provenance, 재실행 금지)
+- `test_done/run_P007_finite_gap_certificate_pilot-20260823T185624Z-done.bat` (재실행 금지)
+- `test_done/run_P007_finite_gap_certificate_full-20260824T090010Z-done.bat` (재실행 금지)
 
 승인 실행 산출물:
 

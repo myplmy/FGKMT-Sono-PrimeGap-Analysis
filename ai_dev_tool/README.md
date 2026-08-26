@@ -20,6 +20,10 @@
 - 03_실험착수_절차.md: 승인 전 준비와 승인 후 실행 순서
 - 04_사용자실행_로그_완료이관_규약.md: 사용자 명령 형식, 전체 오류 로그, 실패 감사, `test_done` 보존, 시각검사
 
+재사용 가능한 실행 기능은 `scripts/common`, `scripts/runners`, `scripts/tests`,
+`scripts/setup`에 둔다. 특정 완료 실험의 BAT/PS1/SH와 전용 helper는 `test_done`에
+hash를 남기고 다시 실행하지 않는다.
+
 ## Codex 스킬
 
 현재 프로젝트는 `.agents/skills`만 Codex 스킬 정본으로 사용한다. `.claude` 호환 미러는 복원하거나 사용하지 않는다.

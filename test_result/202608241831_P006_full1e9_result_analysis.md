@@ -2,11 +2,16 @@
 
 ## 최종 판정
 
-`EXPERIMENT_PASS / NUMERIC_QA_PASS / USER_VISUAL_QA_WAITING`
+`EXPERIMENT_PASS / NUMERIC_QA_PASS / USER_VISUAL_QA_PASS`
 
 사용자 실행 `20260824T065339Z_p006_full_1000000000`은 `[2,10^9]`의 모든 consecutive prime gap 50,847,533개를 처리했고, exact `pi(10^9)`, 30개 maximal-gap records, 저장 CSV·그림 hash를 issue 0으로 검증했다. 수치·구조 검증은 PASS다.
 
-새로 생성된 3개 PNG/PDF figure는 크기와 hash가 검증됐지만, 사용자 시각검사는 아직 받지 않았다. 따라서 visual QA만 `WAITING`이다.
+새로 생성된 3개 PNG/PDF figure는 크기와 hash가 검증됐고, 사용자가
+2026-08-26 각 그림에 문제가 없음을 확인했다. 따라서 visual QA도 `PASS`다.
+
+사용자 확인 범위는 `p006_plateau_occurrences`, `p006_plateau_rates`,
+`p006_plateau_lifetimes` 세 figure의 전체 시각 배치다. 이 확인은 수치 검증을
+대체하지 않으며 기존 saved-artifact issue 0과 함께 최종 QA를 구성한다.
 
 ## 실행 증거
 
@@ -71,4 +76,3 @@ canonical end-bounded plateau 수명과 start-prime recurrence exposure 수명�
 - 여러 통계량을 사후 탐색하므로 다중비교 위험이 있다.
 - `10^20`까지 모든 소수를 재열거하는 방식은 자원상 부적절하다.
 - 다음 통계 단계는 더 큰 무작정 열거보다 gap-specific 기대빈도와 exact/Monte-Carlo null model을 먼저 설계하는 편이 타당하다.
-

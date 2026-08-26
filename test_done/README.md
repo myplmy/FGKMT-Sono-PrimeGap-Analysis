@@ -1,10 +1,11 @@
-# 실행 완료 BAT 보존 폴더
+# 실행 완료 진입점·실험 전용 보조파일 보존 폴더
 
-이 폴더는 사용자가 실제로 실행했다고 확인한 BAT의 당시 원본을 보존한다.
+이 폴더는 사용자가 실제로 실행했다고 확인한 BAT·PowerShell·WSL 진입점과,
+해당 완료 실험에만 쓰인 보조파일의 당시 원본을 보존한다.
 
 규칙:
 
-- 파일명 끝에 `-done.bat`를 붙인다.
+- 파일명은 확장자 앞에 `-done`을 붙이고, 가능하면 연결 run UTC도 넣는다.
 - 보존된 파일은 당시 실행과 로그를 연결하는 provenance 자료이므로 수정하거나 다시 실행하지 않는다.
 - 재시도가 필요하면 루트에 교정된 새 활성 BAT를 만든다.
 - 루트의 활성 BAT가 성공 또는 실패로 실제 실행됐다고 사용자가 확인하면 그 버전도 새 `-done` 이름으로 이관한다. 이름이 충돌하면 run UTC 또는 revision을 추가한다.
@@ -27,7 +28,31 @@
 |---|---|---|---|
 | `run_P008_local_residue_certificate_pilot-20260824T053954Z-done.bat` | `A04EF785C2E2E6871CC5A80ACE96BAB3778762383E319FDAAC9E1F76FFF8EF49` | `run_20260824T053954Z_p008_pilot.log` | toy feasibility·saved verification PASS |
 | `run_P008_local_residue_certificate_full-20260824T064748Z-done.bat` | `AEDF970EE992B99665D096183EABA53BB63DE0C0CDAEC5F0DDD97D40EF4CA831` | `run_20260824T064748Z_p008_full.log` | phase-A full PASS; actual certified zero 0, direct acceleration false |
-| `run_P006_plateau_recurrence_full-20260824T065339Z-done.bat` | `C7C8CF2F866B27BAC297D5CF9DB4BC07B2E7B98963F1CE1BC7575496AF05B448` | `run_20260824T065339Z_p006_full_1000000000.log` | `[2,10^9]` numeric/saved verification PASS; figure user QA 대기 |
+| `run_P006_plateau_recurrence_full-20260824T065339Z-done.bat` | `C7C8CF2F866B27BAC297D5CF9DB4BC07B2E7B98963F1CE1BC7575496AF05B448` | `run_20260824T065339Z_p006_full_1000000000.log` | `[2,10^9]` numeric/saved verification PASS; 2026-08-26 figure 3개 사용자 시각 QA PASS |
 | `run_P007_finite_gap_certificate_full-20260824T090010Z-done.bat` | `A242B5B9101C13ACBB37B17A8F6368F3FCCA1C5CF9ADFDCFB40F2FDCDB9479A6` | `run_20260824T090010Z_p007_full.log` | modulus 30/210/2310 exact comparison PASS |
 
-위 네 활성 BAT는 실행 시점 원본을 timestamp suffix로 보존한 뒤 루트에서 제거했다. P005 CPU calibration과 P008 prime-count 준비는 WSL `.sh` 진입점이므로 BAT 이관 대상이 아니다.
+위 네 활성 BAT는 실행 시점 원본을 timestamp suffix로 보존한 뒤 루트에서 제거했다.
+
+## 2026-08-26 PowerShell·WSL 완료본 정리
+
+| 보존 파일 | SHA-256 | 연결 로그·역할 | 판정 |
+|---|---|---|---|
+| `run_pilot-20260822T181837Z-done.ps1` | `E379530DEB708FDC0B835EB6D22F6ACFE5E1DBE40A85FC372497BDC156F245FF` | `run_20260822T181837Z_pilot5.log` | P002 PASS 당시 원본 |
+| `run_full_analysis-20260822T195906Z-done.ps1` | `AB91294CD4DD1539D98F67B1A10BA9DDE0570E16DB167C9B0EE41C52D78FA8FC` | P003의 3회 로그, 정본 `run_20260822T195906Z_full1e20.log` | P003 PASS 당시 원본 |
+| `run_sensitivity_analysis-20260823T075238Z-done.ps1` | `87A4B0C301B2D98B361FD8FF65860D3E360D568ACAD618AF67F356A0AF66932A` | `run_20260823T075238Z_p004_sensitivity.log` | P004 PASS 당시 원본 |
+| `run_plateau_recurrence-20260824T065339Z-done.ps1` | `CF25E9102B4E3B4696E977C77439F69D379568419543BDE9CF47EC3F13980DE3` | P006 pilot·full 로그 | P006 완료 공통 runner 원본 |
+| `run_finite_gap_certificate-20260824T090010Z-done.ps1` | `B30E25E88AC4728BADAF4A8C755684A94BB0A72CF26718058C5CC400612F6E7E` | P007 pilot·full 로그 | P007 완료 공통 runner 원본 |
+| `run_local_residue_certificate-20260824T064748Z-done.ps1` | `398322A17FC3AE59BA0BDB88CF91DD25E59A1BE046C197F2F432EE75FDC35585` | P008 pilot·full 로그 | P008 완료 공통 runner 원본 |
+| `prepare_P008_local_primecounts-20260824T054725Z-done.sh` | `AC9D7F2DB462A23A6C3A5176A0457DBDE5E3A66F00DCB459A4F100FA3D3A03FB` | `run_20260824T054725Z_p008_primecount_prepare.log` | P008 exact-count 입력 준비 PASS |
+| `run_P005_prime_gap_cpu_calibration-20260824T054203Z-done.sh` | `5B709D2DC66A4D847F637B2F8E8D5F3BE19A0B2F101C4B51A1F4F8394D667A52` | `run_20260824T054203Z_p005_prime_gap_cpu_calibration.log` | P005 WSL 진입점 PASS |
+| `run_prime_gap_cpu_calibration-helper-20260824T054203Z-done.sh` | `9B05A79E34C357A62AEB030795F09BF9848F6440AB4FD1B7D5024C925789A25E` | 위 P005 run 내부 helper | P005 전용, 재사용하지 않음 |
+| `test_prime_gap_reference_db-p005-done.sh` | `037B9BA48A407D379B153CB9E2A53B9B483299EB7F12511B5757D449DE424815` | P005 DB fixture 검사 | P005 전용, 재사용하지 않음 |
+| `test_prime_gap_sqlite_schema-p005-done.sh` | `6D17770C0BD46A26C4E7FF9FE7D5E4385050766D397C3EA9A074CE509F0A1508` | P005 SQLite schema 검사 | P005 전용, 재사용하지 않음 |
+| `run_experiment-legacy-20260826-done.ps1` | `B39568E193579B88477FC68EAEECD1DBA81E6189314CBA7F2C2039046BE0D6F5` | 초기 P001 승인 gate | 완료 run 원본이 아니라 새 공통 runner로 대체된 legacy 진입점 |
+
+재사용 기능은 다음으로 분리했다.
+
+- 공통 로깅: `scripts/common/powershell_stage_logging.ps1`
+- 일반 FGKMT pipeline: `scripts/runners/run_fgkmt_pipeline.ps1`
+- 공통 self-test: `scripts/tests/`
+- 신규 실험별 toy 진입점: `scripts/experiments/<experiment>/`

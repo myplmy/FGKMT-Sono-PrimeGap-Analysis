@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`FULL_1E9_EXPERIMENT_PASS / NUMERIC_QA_PASS / NEW_FIGURE_USER_QA_WAITING` — 사용자 실행 `20260824T065339Z_p006_full_1000000000`은 `[2,10^9]` 모든 consecutive gap을 처리하고 exact `pi(10^9)`, 30 reference records, 12 saved artifacts를 issue 0으로 검증했다. complete/right-censored plateau는 29/1이다. 새 PNG/PDF의 자동검사는 PASS지만 사용자 시각검사는 아직 필요하다.
+`FULL_1E9_EXPERIMENT_PASS / NUMERIC_QA_PASS / USER_VISUAL_QA_PASS` — 사용자 실행 `20260824T065339Z_p006_full_1000000000`은 `[2,10^9]` 모든 consecutive gap을 처리하고 exact `pi(10^9)`, 30 reference records, 12 saved artifacts를 issue 0으로 검증했다. complete/right-censored plateau는 29/1이다. 새 figure 3개는 자동검사와 2026-08-26 사용자 시각검사를 모두 PASS했다.
 
 ## 2. 연구 질문과 비목적
 
@@ -147,31 +147,34 @@ P006 recurrence 자체에는 `F,H`가 필수가 아니며 연구 질문을 혼�
 - expected model이 정리인지 heuristic인지 문헌별 라벨
 - 작은 record 표본에 대한 통계 해석의 과장 여부
 
-## 7. 승인 후 실행 명령
+## 7. 완료 실행 명령 provenance — 재실행 금지
 
 주 실행환경은 Windows의 고정 Python `W:\miniforge3\envs\FGKMT\python.exe`다. NumPy odd-only segmented sieve가 prime chunk 사이의 마지막 소수를 이어 붙여 경계 gap을 보존한다. WSL을 호출하지 않으며 새 Python 패키지를 설치하지 않는다.
 
 `[2,10^8]` pilot:
 
 ```bat
-run_P006_plateau_recurrence_pilot.bat --confirm-p006
+test_done\run_P006_plateau_recurrence_pilot-20260823T190035Z-done.bat --confirm-p006
 ```
 
 기본 `[2,10^9]` complete configured expansion:
 
 ```bat
-run_P006_plateau_recurrence_full.bat --confirm-p006
+test_done\run_P006_plateau_recurrence_full-20260824T065339Z-done.bat --confirm-p006
 ```
 
 선택적 `[2,10^10]`:
 
 ```bat
-run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
+새 P006 revision runner가 필요함; 완료 `test_done` BAT는 사용하지 않음
 ```
+
+위 BAT 표기는 완료 실행 provenance다. 모두 재실행 금지이며, 선택적 `10^10` 확대를
+다시 결정하면 `scripts/experiments/p006/`에 새 runner와 계획 revision을 만든다.
 
 여기서 `full`은 선택한 유한 범위를 모든 consecutive gap으로 완전히 처리한다는 뜻이며 `10^20` 전체를 뜻하지 않는다. 설치된 WSL `primesieve-bin`·`primecount`는 `2^64` 이하의 선택적 독립 교차검산에만 사용할 수 있다.
 
-구현 파일은 `source/plateau_recurrence.py`, `source/plateau_recurrence_cli.py`, `tests/test_plateau_recurrence.py`, 공통 `run_plateau_recurrence.ps1`, 두 BAT 진입점이다.
+구현 파일은 `source/plateau_recurrence.py`, `source/plateau_recurrence_cli.py`, `tests/test_plateau_recurrence.py`다. 완료된 공통 runner와 BAT 진입점은 `test_done/`에 hash와 함께 보존하며 재실행하지 않는다.
 
 교정판은 `Start-Process` stdout/stderr 분리 수집, blank-line 보존, nonzero exit와 전체 PowerShell ErrorRecord 로깅을 사용한다. parser, synthetic stdout/stderr·exit-7 toy self-test, approval-denial, 전체 61 tests를 통과했고 실제 pilot도 PASS했다. 로컬 교정 증거는 `test_result/202608240329_P005_P006_P007_runner_fix_local_validation.md`, 실제 결과는 `test_result/202608240433_P006_pilot1e8_result_analysis.md`다.
 
@@ -210,7 +213,7 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 - prime/gap count: 50,847,534 / 50,847,533
 - complete/censored plateaus: 29/1
 - saved verification issue 0
-- numeric QA PASS, 새 figure user visual QA WAITING
+- numeric QA PASS, 새 figure 3개 user visual QA PASS (2026-08-26)
 - 상세: `test_result/202608241831_P006_full1e9_result_analysis.md`
 - 실행 BAT 보존: `test_done/run_P006_plateau_recurrence_full-20260824T065339Z-done.bat`
 
@@ -252,7 +255,6 @@ run_P006_plateau_recurrence_full.bat --confirm-p006 10000000000
 1. corrected rate와 end/start 표본공간 합의 완료
 2. Windows pilot 구현·toy 자동검증 완료
 3. PowerShell 전체 stderr·오류 수집 교정과 로컬 parser/toy/approval-denial 검증 완료
-4. 사용자가 교정판 `[2,10^8]` BAT 재실행
-5. 사용자가 새 log와 run 경로 제공
-6. Codex 수치·manifest 검토와 사용자 그래프 시각검사 PASS 후에만 `[2,10^9]` 결정
-7. `10^9` 자원 결과를 본 뒤에만 선택적 `10^10` 확대 여부 결정
+4. `[2,10^8]` pilot 및 수치·manifest·사용자 시각검사 완료
+5. `[2,10^9]` 확대 및 수치·manifest·사용자 시각검사 완료
+6. 선택적 `[2,10^10]` 확대는 현재 승인되지 않았으며, 필요성이 생기면 새 계획 revision과 새 runner부터 작성

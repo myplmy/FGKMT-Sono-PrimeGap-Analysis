@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P008 실행단계 완료 / P009 계획만 준비 / P006 새 figure 사용자 QA 대기
+## 현재 상태: P002–P008 완료 / P009 G1 toy 구현 / P010 separation 설계 / actual 후속 대기
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P008 실제 full은 certified zero 0개라 supplied modulus-2310 direct tiling을 음성 판정했고, P005 Rank 85→86 exhaustive 및 P007/P008 direct acceleration은 계속 미증명이다. P006 새 `[2,10^9]` figure는 자동 수치검증만 PASS했고 사용자 시각검사는 대기 중이다. 결과 정본 색인은 `test_result/00_실험결과_분석보고서_색인.md`, 다음 후속은 계획만 작성된 `test_plan/P009_P008_boundary-witness_break-even-gate.md`다. 추가 실제 실행, 패키지 설치, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P006 새 figure 3개도 2026-08-26 사용자 시각 QA PASS다. P008 실제 full은 certified zero 0개라 supplied modulus-2310 direct tiling을 음성 판정했고, P005 Rank 85→86 exhaustive 및 P007/P008 direct acceleration은 계속 미증명이다. P009 G1 boundary-witness toy와 P010 memory-safe separation oracle toy는 구현·단위검증됐지만 실제 `10^20` P009, PARI 설치, modulus-30030 scan/solve는 미실행이다. 결과 정본 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 실제 실행, 패키지 설치, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -100,7 +100,11 @@ test_result/      승인 후 run별 tables, figures, summary
 handoff/          세션별 YYYYMMDDHHmm_HANDOFF.md; 기존 메모 비덮어쓰기
 .agents/skills/   Codex가 자동 탐색하는 프로젝트 스킬
 ai_dev_tool/      이 프로젝트의 계산 함정·착수·핸드오프 절차
-test_done/         사용자가 실제 실행한 BAT 원본을 `-done` suffix로 보존; 재실행 금지
+test_done/         완료 BAT/PS1/SH와 실험 전용 helper를 `-done` suffix·SHA-256으로 보존; 재실행 금지
+scripts/common/    재사용 공통 로깅·실행 기능
+scripts/runners/   특정 완료 실험과 분리된 공통 runner
+scripts/experiments/ 신규 실험별 toy·준비 진입점
+scripts/setup/     사용자 확인 플래그가 필요한 설치 helper; Codex 임의 실행 금지
 tmp/              읽기/렌더링 임시 파일; 최종 산출물 아님
 ```
 
@@ -194,6 +198,15 @@ global running minimum은 정의상 단조 비증가한다. 증가나 상하 요
 - 9편 corpus 안에서 동일한 검증 pipeline이 없다는 판정은 전 세계 문헌 novelty 판정이 아니다.
 - Feliksiak 2021 preprint는 fitted \(LB/F\) 비교라는 가까운 선행 시도지만 핵심 논증을 신뢰 가능한 theorem으로 채택하지 않는다.
 
+## 유한 certificate·탐색 가속 불변식
+
+- `gap >= 1856`을 찾거나 배제할 때 equality 1856을 포함한다. `gap > 1856`으로 바꾸지 않는다.
+- start-bounded block `[a,b)`의 internal upper bound 0만으로 전체 zero를 선언하지 않는다. 마지막 소수의 right-boundary crossing을 exact witness로 닫아야 한다.
+- 전역 count upper bound가 작아져도 gap 위치 목록이나 exhaustive search acceleration이 자동으로 생기지 않는다. local zero 또는 누락 없는 candidate-cover mapping과 total-cost 개선을 별도로 증명한다.
+- 같은 wheel residue state는 작은 소수 divisibility geometry만 공유한다. actual primality나 prime-witness 위치를 translation으로 복사하지 않는다.
+- `D=li-pi`, `N=Delta li-Delta D`에서 `inf(Delta D)`의 하한은 `N`의 상한을 준다. 이는 empty interval 발견 방향이며, required-empty interval의 nonempty를 보여 gap 후보를 배제하는 방향과 혼동하지 않는다.
+- 비엄격 `N <= R`의 exact integer 상한은 `floor(R)`다. `ceil(R)-1`은 엄격한 `N<R`을 증명한 경우에만 사용한다.
+
 ## 데이터 취급
 
 승인 후 원본은 `datas/raw/prime-gap-list-project/<commit>/`에 저장하고 절대 덮어쓰지 않는다. 정본은 GitHub `allgaps.sql`이며, 실행 시 master를 다시 resolve한 뒤 40자 commit으로 URL을 고정한다. 웹 표는 참고용이다. 모든 source에 URL, 취득 UTC, commit, SHA-256, column semantics, boundary semantics, record count, claimed exhaustive limit를 기록한다.
@@ -266,7 +279,7 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 ## 사용자 실행·보고 불변식
 
 - `IMPLEMENTED`, `LOCALLY_VERIFIED`, `USER_RUN_FAILED`, `EXPERIMENT_PASS`를 구분한다.
-- 사용자가 실제 실행했다고 확인한 루트 BAT는 SHA-256을 기록하고 `test_done/<name>-done.bat`로 이관한다. done은 실행 이력이지 성공 판정이 아니다. 재시도는 루트의 새 교정판 BAT로 한다.
+- 사용자가 실제 실행했다고 확인한 BAT/PS1/SH는 SHA-256을 기록하고 `test_done/<name>-done.<ext>`로 이관한다. 완료 실험 전용 helper도 함께 이관한다. done은 실행 이력이지 성공 판정이 아니다. 재시도는 `scripts/experiments/<experiment>/`의 새 revision으로 한다.
 - 핸드오프의 각 권장 작업에는 실행 환경, 시작 경로, 복사 가능한 정확한 명령, 예상 시간, 로그·산출물, 사용자 회신 항목을 쓴다. 사용자 명령이 없으면 `별도 수행절차 필요없음`이라고 명시한다.
 - 사용자 실행 실패는 원본 로그 hash, 마지막 PASS, 첫 FAIL, terminal marker와 결과 디렉터리 존재 여부로 감사한다. 콘솔 일부만으로 판정하지 않는다.
 - heavy/actual experiment는 사용자가 실행하도록 요청하고, Codex는 별도 승인이 없으면 parser·toy·approval-denial·unit test까지만 수행한다.
@@ -295,7 +308,7 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - GitHub source registry 및 commit-pinned immutable acquisition 코드 준비
 - SQL 제한 parser, `ismax` 독립 대조, consecutive-prime 검증 코드 준비
 - end-bounded interval, running minimum, jump recovery, Sono/Cramér 비교 및 plotting 코드 준비
-- `test_plan/P001_...md`와 `run_experiment.ps1` 승인 gate 준비
+- `test_plan/P001_...md`와 `scripts/runners/run_fgkmt_pipeline.ps1` 승인 gate 준비
 - `.agents/skills`를 Codex 스킬 정본으로 정비
 - 기존 연구 코드·결과 0건 확인; 폐기 또는 재생성 대상 없음
 - P002 5-interval 제한 pilot 완료: validation PASS, 5 intervals, 4 jumps, runner 4.933초
@@ -310,12 +323,13 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - y축 최대 `10^4` 및 첫 interval 생략+y축 최대 `10^3` 그래프 생성; 사용자 시각 QA 완료
 - P005 `20260824T054203Z` bounded CPU calibration PASS: canonical gaps DB 122,251 rows, Method1/2·stats/test·thread hashes 일치; Rank 85→86 exhaustive coverage는 미증명
 - P006 `[2,10^8]` pilot PASS: 5,761,455 primes, 5,761,454 gaps, complete/censored plateau 24/1, artifact issue 0, 사용자 figure QA PASS
-- P006 `[2,10^9]` full PASS: 50,847,534 primes, complete/censored plateau 29/1, artifact issue 0; 새 figure 사용자 QA 대기
+- P006 `[2,10^9]` full PASS: 50,847,534 primes, complete/censored plateau 29/1, artifact issue 0, figure 3개 사용자 QA PASS
 - P007 supplied modulus-2310 pilot PASS: 480 states, 415,223 constraints, minimum slack 0, saved issue 0; historic ceil bound는 유효하지만 floor로 total upper bound를 1 낮출 수 있음
 - P007 small-modulus full PASS: mod 30/210/2310 상한 단조감소, mod30030은 estimate only; direct acceleration 미증명
 - P007 exact finite-range certificate의 modulus 30030 solve와 직접 search acceleration 주장은 계속 차단
 - P008 phase-A PASS: five exact prime-count endpoints dual-algorithm 일치, actual four blocks certified zero 0; direct local tiling 음성 판정
-- P009 boundary witness·168시간·32 GB·100 GB break-even 계획만 작성; 코드·PARI 설치·actual run 전
+- P009 boundary witness G1 toy 구현과 targeted tests PASS; PARI 설치·actual `10^20` run 전
+- P010 modulus-30030 separation oracle 설계·toy 구현 PASS; 30030 scan·LP solve 전
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 행동은 사용자가 P006 `[2,10^9]` figure 3개를 시각검사하고, 이후 Codex가 P009 boundary witness generator/verifier를 toy 범위에서 구현할지 결정하는 것이다. P009 actual `10^20` pilot과 PARI/GP 설치는 구현·로컬검증 뒤 별도 사용자 승인 전에는 수행하지 않는다.
+다음 행동은 사용자가 WSL에서 PARI/GP 설치 helper를 실행해 버전·smoke-test 로그를 제공하는 것이다. 그 뒤 Codex가 P009 production ECPP adapter를 점검한다. P009 actual `10^20` pilot과 P010 modulus-30030 scan/LP solve는 각각 별도 사용자 승인 전에는 수행하지 않는다.

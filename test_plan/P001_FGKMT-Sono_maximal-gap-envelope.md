@@ -71,13 +71,13 @@ P1 이후는 사용자의 명시적 허가 없이는 시작하지 않는다.
 
 ```powershell
 & 'W:\miniforge3\envs\FGKMT\python.exe' -B -m unittest discover -s tests -v
-.\run_experiment.ps1 -Approved
+.\scripts\runners\run_fgkmt_pipeline.ps1 -Approved
 ```
 
 재현성을 더 강하게 고정하려면 승인 시 확인한 commit을 직접 지정한다.
 
 ```powershell
-.\run_experiment.ps1 -Approved -Commit '<40-character-commit>'
+.\scripts\runners\run_fgkmt_pipeline.ps1 -Approved -Commit '<40-character-commit>'
 ```
 
 ## 7. 예상 산출물

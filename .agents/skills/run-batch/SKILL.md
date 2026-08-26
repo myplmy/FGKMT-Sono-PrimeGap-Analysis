@@ -5,7 +5,10 @@ description: FGKMT-Sono 실험용 PowerShell 실행기를 작성·수정·검증
 
 # Run batch
 
-이 프로젝트의 표준 실행기는 run_experiment.ps1이다.
+이 프로젝트의 재사용 가능한 표준 실행기는
+`scripts/runners/run_fgkmt_pipeline.ps1`이며, 공통 로깅은
+`scripts/common/powershell_stage_logging.ps1`을 사용한다. 완료된 특정 실험
+실행기는 `test_done/`의 provenance 자료이므로 다시 실행하지 않는다.
 
 ## 규칙
 
@@ -19,4 +22,3 @@ description: FGKMT-Sono 실험용 PowerShell 실행기를 작성·수정·검증
 - 승인 전에는 구문 검사와 dry-run, 합성 테스트만 수행한다.
 
 여러 독립 실험이 필요하면 한 실험당 하나의 실행기나 run id를 쓰고, orchestration과 분석 코드를 분리한다.
-

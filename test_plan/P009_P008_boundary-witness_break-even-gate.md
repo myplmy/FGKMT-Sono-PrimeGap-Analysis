@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`PLANNED / IMPLEMENTATION_NOT_STARTED / ACTUAL_RUN_NOT_AUTHORIZED`
+`G1_IMPLEMENTED / TOY_UNIT_PASS / G2_USER_INSTALL_PENDING / ACTUAL_RUN_NOT_AUTHORIZED`
 
 P008 phase-A는 정상 PASS했지만 실제 네 block의 certified zero는 0개였고, current modulus-2310 certificate의 direct tiling은 시간·저장공간 문턱에 수십만–수억 배 부족했다. P009는 더 큰 sweep을 바로 실행하지 않고, 길이 1,000에서 남은 right-boundary 1개를 exact하고 싼 증거로 없앨 수 있는지와 그 방법이 전체 알고리즘 후보가 될 자원 조건을 만족하는지 분리해 판정한다.
 
@@ -100,21 +100,40 @@ T_{certificate}+T_{ledger}+T_{survivor}
 - 168시간·100 GB break-even 계산 완료
 - 근거: `test_result/202608241830_P008_phaseA_pilot_full_result_analysis.md`
 
-### G1 — boundary witness generator/verifier 구현 (`WAITING_FOR_CODE WORK`)
+### G1 — boundary witness generator/verifier 구현 (`IMPLEMENTED / TARGETED_TEST_PASS`)
 
 ChatGPT가 수행할 작업:
 
-1. toy small-integer generator와 독립 verifier
+1. toy small-integer generator와 exact re-verifier
 2. proven-prime/composite evidence schema
 3. non-overwrite manifest와 hash
-4. FGKMT Python preflight 및 WSL PARI 호출 runner
+4. FGKMT Python preflight와 toy PowerShell runner
 5. probable-prime 결과만 주어지면 FAIL하는 unit test
+6. PARI/GP 설치 helper와 ECPP adapter 자리 계약
 
-실제 `10^20` 입력은 이 단계에서 실행하지 않는다.
+구현 파일:
 
-### G2 — PARI/GP 환경 확인·설치 (`WAITING_FOR_G1_AND_USER_APPROVAL`)
+- `source/boundary_witness.py`
+- `source/boundary_witness_cli.py`
+- `tests/test_boundary_witness.py`
+- `scripts/experiments/p009/run_p009_boundary_witness_toy.ps1`
+- `scripts/setup/install_pari_gp_wsl.sh`
 
-현재 WSL에서 `gp`가 발견되지 않았다. G1 runner가 준비된 뒤 사용자에게 정확한 설치·버전확인 명령을 제공한다. 패키지 설치 전에는 명령을 실행하지 않는다.
+2026-08-26 targeted 8 tests와 fixed-Python preflight는 PASS했다. toy verifier는
+`[100,120)`에서 마지막 소수 113, 오른쪽 증명 소수 127, 정수 114–119의
+nontrivial factor coverage를 재검증한다. coverage hole, 잘못된 factor,
+`q-p=threshold`, probable-prime label, overwrite는 모두 거부한다.
+
+현재 “독립 verifier”는 생성 결과를 다시 계산하는 별도 verification path라는
+뜻이다. 완전히 독립적인 두 번째 구현 또는 proof assistant 검증은 아직 없다.
+실제 `10^20` 입력은 이 단계에서 실행하지 않았다.
+
+### G2 — PARI/GP 환경 확인·설치 (`WAITING_FOR_USER_ACTION`)
+
+현재 WSL에서 `gp`가 발견되지 않았다. 공식 PARI FAQ가 안내하는 Ubuntu package
+설치와 ECPP smoke test를 `scripts/setup/install_pari_gp_wsl.sh`에 구현했다.
+Codex는 이 설치를 실행하지 않았다. 사용자가 설치한 실제 버전과 smoke-test PASS
+로그를 제공해야 production adapter를 고정할 수 있다.
 
 예상 사용자 시간: 약 5–15분. 네트워크와 배포판 상태에 따라 달라질 수 있다.
 
@@ -184,14 +203,32 @@ G3가 PASS할 때만 서로 다른 endpoint 10개를 사전 고정해 실행한�
 
 ## 10. 현재 사용자 수행절차
 
-`별도 수행절차 필요없음.`
+실행 환경: Ubuntu WSL
 
-G1 구현과 toy 검증이 끝나기 전에는 PARI/GP를 설치하거나 실제 pilot을 실행하지 않는다. 준비가 완료되면 WSL 시작 경로와 복사 가능한 명령을 새로 제공한다.
+시작 경로:
+
+```bash
+cd /mnt/z/FGKMT-Sono-PrimeGap-Analysis
+```
+
+PARI/GP 설치·smoke test:
+
+```bash
+bash ./scripts/setup/install_pari_gp_wsl.sh --confirm-install
+```
+
+예상시간은 약 5–15분이다. 완료 후 마지막 `[PASS]` 줄, `gp --version` 출력,
+`tmp/setup/install_pari_gp_<UTC>.log` 경로를 사용자 회신으로 제공한다.
+
+P009 `10^20` 실제 pilot은 아직 실행하지 않는다. 설치 성공을 확인한 뒤 Codex가
+production certificate serialization·verifier adapter를 점검하고, 별도 실행 허가와
+새 명령을 제공해야 한다.
 
 ## 11. 참고문헌·도구
 
 1. PARI/GP official documentation: https://pari.math.u-bordeaux.fr/doc.html
-2. Seth Troisi `prime-gap`: https://github.com/sethtroisi/prime-gap
-3. Oliveira e Silva, Herzog, Pardi, DOI https://doi.org/10.1090/S0025-5718-2013-02787-1
-4. Ziller–Morack, arXiv:1611.03310, https://arxiv.org/abs/1611.03310
-
+2. PARI/GP `primecert` and `primecertisvalid`:
+   https://pari.math.u-bordeaux.fr/dochtml/ref-stable/Arithmetic_functions.html
+3. Seth Troisi `prime-gap`: https://github.com/sethtroisi/prime-gap
+4. Oliveira e Silva, Herzog, Pardi, DOI https://doi.org/10.1090/S0025-5718-2013-02787-1
+5. Ziller–Morack, arXiv:1611.03310, https://arxiv.org/abs/1611.03310

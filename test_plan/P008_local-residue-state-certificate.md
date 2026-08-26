@@ -72,10 +72,10 @@ right_boundary_status=UNRESOLVED => certified_zero=false
 - `source/local_residue_verification.py`: 별도 direct Fraction 재계산, artifact hash, prime-count metadata/CSV hash 검사
 - `source/local_residue_certificate_cli.py`: preflight/run/verify 승인 게이트
 - `tests/test_local_residue_certificate.py`: boundary, floor, zero, ledger, non-overwrite tests
-- `run_local_residue_certificate.ps1`: 공통 Windows FGKMT runner
-- `run_P008_local_residue_certificate_pilot.bat`: toy pilot
-- `prepare_P008_local_primecounts.sh`: WSL exact prime-count input 준비
-- `run_P008_local_residue_certificate_full.bat`: READY 입력을 읽는 phase-A full
+- `test_done/run_local_residue_certificate-20260824T064748Z-done.ps1`: 완료 Windows runner provenance, 재실행 금지
+- `test_done/run_P008_local_residue_certificate_pilot-20260824T053954Z-done.bat`: 완료 toy pilot, 재실행 금지
+- `test_done/prepare_P008_local_primecounts-20260824T054725Z-done.sh`: 완료 WSL exact-count 준비 provenance, 재실행 금지
+- `test_done/run_P008_local_residue_certificate_full-20260824T064748Z-done.bat`: 완료 phase-A full, 재실행 금지
 
 ## 7. 단계와 게이트
 
@@ -106,8 +106,10 @@ right_boundary_status=UNRESOLVED => certified_zero=false
 
 ### G2 — P008 toy pilot (`EXPERIMENT_PASS — 20260824T053954Z`)
 
+아래 명령은 완료 실행의 provenance이며 재실행하지 않는다.
+
 ```bat
-run_P008_local_residue_certificate_pilot.bat --confirm-p008
+test_done\run_P008_local_residue_certificate_pilot-20260824T053954Z-done.bat --confirm-p008
 ```
 
 - 환경: Windows CMD, 시작 경로 `Z:\FGKMT-Sono-PrimeGap-Analysis`
@@ -117,12 +119,15 @@ run_P008_local_residue_certificate_pilot.bat --confirm-p008
 - 결과: 4 blocks, internal zero 3, certified zero 3, saved verification issue 0
 - 상세: `test_result/202608241830_P008_phaseA_pilot_full_result_analysis.md`
 
-### G3 — exact local prime-count input (`EXPERIMENT_PASS — 20260824T054725Z`)
+### G3 — exact local prime-count input (`EXPERIMENT_PASS — 20260824T054725Z`, 아래 명령 재실행 금지)
 
 ```bash
 cd /mnt/z/FGKMT-Sono-PrimeGap-Analysis
-bash ./prepare_P008_local_primecounts.sh --confirm-p008
+bash ./test_done/prepare_P008_local_primecounts-20260824T054725Z-done.sh --confirm-p008
 ```
+
+위 명령은 실행 당시 원본의 현재 보존 위치를 나타내는 provenance다. 완료본은 다시
+실행하지 않으며 새 exact-count 준비가 필요하면 새 revision script와 READY 경로를 만든다.
 
 - 환경: WSL Ubuntu
 - grid: `x=10^20`, `L=10^3,10^6,10^9,10^12`
@@ -135,8 +140,10 @@ bash ./prepare_P008_local_primecounts.sh --confirm-p008
 
 ### G4 — phase-A full local bound (`EXPERIMENT_PASS / DIRECT_SKIP_NEGATIVE — 20260824T064748Z`)
 
+아래 명령은 완료 실행의 provenance이며 재실행하지 않는다.
+
 ```bat
-run_P008_local_residue_certificate_full.bat --confirm-p008
+test_done\run_P008_local_residue_certificate_full-20260824T064748Z-done.bat --confirm-p008
 ```
 
 - 환경: Windows CMD, 시작 경로 `Z:\FGKMT-Sono-PrimeGap-Analysis`

@@ -5,8 +5,10 @@ param(
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 
-$ProjectRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-$Helper = Join-Path $ProjectRoot 'scripts\powershell_stage_logging.ps1'
+$ProjectRoot = Split-Path -Parent (
+    Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+)
+$Helper = Join-Path $ProjectRoot 'scripts\common\powershell_stage_logging.ps1'
 $TempBase = [System.IO.Path]::GetTempPath()
 $TempLeaf = 'fgkmt-runner-logging-' + [Guid]::NewGuid().ToString('N')
 $TempRoot = Join-Path $TempBase $TempLeaf

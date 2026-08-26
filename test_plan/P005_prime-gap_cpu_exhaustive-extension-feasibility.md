@@ -137,14 +137,17 @@ sudo apt install -y build-essential git make sqlite3 libgmp-dev libsqlite3-dev l
 5. 독립 구현으로 일부 block을 재검산하는 계획
 6. benchmark로 산출한 현실적 총 CPU core-year와 저장공간
 
-## 7. 승인 후 실행 명령
+## 7. 완료 실행 명령 provenance — 재실행 금지
 
 의존성 설치 후 **WSL Ubuntu 터미널**에서 저장소로 이동해 실행한다. 예를 들어 Windows 저장소가 `Z:`에 있으면:
 
 ```bash
 cd /mnt/z/FGKMT-Sono-PrimeGap-Analysis
-bash ./run_P005_prime_gap_cpu_calibration.sh --confirm-cpu
+bash ./test_done/run_P005_prime_gap_cpu_calibration-20260824T054203Z-done.sh --confirm-cpu
 ```
+
+위 경로는 실행 당시 원본의 보존 위치를 가리키는 provenance 기록이며 재실행 명령이
+아니다. P005를 다시 시험하려면 완료본을 복사하지 말고 새 revision 계획·runner를 만든다.
 
 Windows BAT가 WSL을 중계하지 않으며 `wslpath` 변환도 사용하지 않는다.
 
