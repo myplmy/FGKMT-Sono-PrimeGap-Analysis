@@ -11,6 +11,9 @@
 - disk 100 GB 미만
 - 연속 runtime 168시간 미만
 
+P010A/P010B 조건부 연구는 사용자의 더 엄격한 별도 지시에 따라 disk를 십진 50 GB,
+즉 `50,000,000,000` bytes 이하로 제한한다. 50 GiB로 완화하지 않는다.
+
 ## 전체 폭 모델
 
 `W=9 x 10^20`, block length `L`, blocks `n=ceil(W/L)`, block당 시간 `t`, bytes `b`이면
@@ -47,3 +50,14 @@ candidate cover를 만들어야 한다.
 
 하나라도 실패하면 “흥미로운 finite result”로는 남길 수 있지만 “탐색 알고리즘
 개선”으로 승격하지 않는다.
+
+## P010B machine-checkable gate
+
+`source/candidate_cover.py`는 작은 direct universe에서 math·finite-verifier gate를 구현한다.
+누락 없는 candidate/rejection partition, exact factor, strict window-prime, equality threshold를
+검사한다. break-even은 같은 CPU·범위·threshold·code hash, 최소 5회 median, false negative 0,
+50 GB 이하, 생성+검증+survivor 총시간의 최소 5% 개선을 요구한다.
+
+조건을 만족해도 `ACCELERATION_CANDIDATE`일 뿐 독립 반복 전에는 proof로 표시하지 않는다.
+현재 toy는 exhaustive oracle을 사용하고 speedup도 1 미만이어서 BLOCKED다. large-range
+compressed coverage와 PARI witness가 생기기 전에는 actual gate를 열지 않는다.

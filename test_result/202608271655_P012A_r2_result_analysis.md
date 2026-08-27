@@ -2,7 +2,7 @@
 
 ## 판정
 
-`EXPERIMENT_PASS / SAVED_FULL_RECOMPUTATION_PASS / P011_STATIONARY_OVERPREDICTION_LARGELY_REMOVED / RECURRENCE_ENRICHMENT_NOT_SUPPORTED / LOW_INFORMATION_LIMIT / MODEL_ACCEPTANCE_NOT_CLAIMED / VISUAL_QA_PENDING / HOLDOUT_UNTOUCHED`
+`EXPERIMENT_PASS / SAVED_FULL_RECOMPUTATION_PASS / P011_STATIONARY_OVERPREDICTION_LARGELY_REMOVED / RECURRENCE_ENRICHMENT_NOT_SUPPORTED / LOW_INFORMATION_LIMIT / MODEL_ACCEPTANCE_NOT_CLAIMED / USER_VISUAL_QA_PASS / CONTRACT_FROZEN`
 
 사용자 실행 `run_20260827T054007Z_p012a_stratified_null_development_r2`는 terminal PASS,
 manifest artifact hash PASS, saved deterministic full recomputation PASS를 모두 기록했다.
@@ -10,8 +10,8 @@ Codex가 저장 component에서 기대값·분산·z·100,000회 Monte Carlo row
 max-abs-z p를 독립 재계산한 결과 issue 0이었다. 따라서 수치·저장 산출물 기준으로
 P012-A r2는 `EXPERIMENT_PASS`다.
 
-다만 그림은 자동 파일검사만 통과했으며 사용자 시각 확인 전이므로
-`VISUAL_QA_PENDING`이다.
+사용자는 2026-08-27 두 figure의 축·선·막대·범례와 undefined-z marker를 확인하고 문제가
+없다고 회신했다. 따라서 자동 검사와 사용자 시각 QA가 모두 PASS다.
 
 ## 연구 질문에 대한 답
 
@@ -147,7 +147,8 @@ primary cohort에서 gap 44, 72, 112, 114, 118, 180, 220의 7개 row는 최초 r
 - PDF 2개: header·EOF PASS
 - figure 4개 manifest hash: 모두 일치
 
-축·선·막대·x marker·범례의 사람 눈 시각검사는 사용자 확인 전이므로 PASS로 쓰지 않는다.
+사용자는 2026-08-27 축·선·막대·x marker·범례에 문제가 없음을 확인했다. 주황 x가 z=0이
+아닌 conditional variance 0의 미정의 z라는 표현도 승인했다.
 
 ## 결론과 다음 단계
 
@@ -157,9 +158,11 @@ P012-A는 “P011의 큰 음수 신호가 위치 비정상성을 무시한 null�
 
 다음 순서는 다음과 같다.
 
-1. 사용자가 두 PNG의 시각 QA를 수행한다.
-2. P012-A primary·sensitivity 계약을 결과 뒤 변경하지 않고 동결한다.
-3. 같은 계약으로 `[10^9,10^10]` P012-B holdout 계획·toy runner를 준비한다.
+1. 완료한 figure QA와 primary·sensitivity 계약을 결과 뒤 변경하지 않고 동결한다.
+2. 동결 계약 SHA-256
+   `1c79316de685bbc40ba3c5fc49e23b1abec328bbf07dfc218e27d74e5d82000d`를
+   P012-B runner가 확인한다.
+3. 같은 계약으로 `[10^9,10^10)` P012-B actual을 사용자가 별도 실행한다.
 4. P012-B에서도 저정보율·zero-variance율을 반드시 함께 보고한다.
 5. holdout에서도 검정력이 부족하면 P012를 억지로 확장하지 않고 새 번호의 별도 모형을
    개발·검증한다.

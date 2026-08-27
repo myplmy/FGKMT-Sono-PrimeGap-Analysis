@@ -197,3 +197,14 @@ translation할 수 없다.
 P010A의 상한이 개선되어도 정리 A의 candidate map 또는 정리 C의 total coverage가
 없으면 P010B의 가속 결론은 나오지 않는다. 반대로 P010B의 candidate cover가 생겨도
 exact verifier와 baseline 비교가 없으면 알고리즘 승격은 보류한다.
+
+## 12. Direct finite verifier 구현 상태
+
+`source/candidate_cover.py`는 정리 A–C를 최대 1,000,000 integer starts의 작은 직접 우주에서
+검증한다. 각 omitted start에는 exact factor 또는 `c<q<c+H`인 exact small-prime witness를
+요구하고, candidate/rejection 중복과 coverage hole을 거부한다.
+
+`[1000,10000)`, `H=20` toy에서 69 candidates가 exact 위험 start 69개와 일치했다. 이 toy
+generator는 exact truth를 먼저 계산하므로 정리의 verifier fixture일 뿐 discovery compression은
+아니다. 다음 정식화 대상은 모든 start를 나열하지 않는 range/DAG coverage proof와 큰 q의
+PARI certificate binding이다.

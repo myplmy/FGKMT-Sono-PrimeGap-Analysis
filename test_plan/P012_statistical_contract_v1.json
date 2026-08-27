@@ -1,0 +1,64 @@
+{
+  "bin_schemes": [
+    {
+      "name": "primary_width_0p5_shift_0",
+      "shift": 0.0,
+      "width": 0.5
+    },
+    {
+      "name": "sensitivity_width_0p5_shift_0p25",
+      "shift": 0.25,
+      "width": 0.5
+    },
+    {
+      "name": "sensitivity_width_1_shift_0p5",
+      "shift": 0.5,
+      "width": 1.0
+    }
+  ],
+  "cohorts": [
+    "primary_start_ge_1000",
+    "all_eligible",
+    "sensitivity_start_ge_100000"
+  ],
+  "contract_id": "P012_STRATIFIED_CONDITIONAL_NULL_V1",
+  "development": {
+    "analysis_limit": "1000000000",
+    "figure_visual_qa": "PASS",
+    "manifest_sha256": "723bd82778c92b7ebe3e9f614fd7411e86f5619d3043ed292ddac93fa6966c09",
+    "result_run_id": "20260827T054007Z_p012a_stratified_null_development_r2"
+  },
+  "forced_first_record_removed": true,
+  "frozen_at_kst": "2026-08-27T17:21:00+09:00",
+  "holdout": {
+    "development_data_used_for_holdout_inference": false,
+    "expected_complete_record_indices": [
+      31,
+      32,
+      33,
+      34
+    ],
+    "left_censored_continuation_excluded": true,
+    "lower_inclusive": "1000000000",
+    "plateau_selection": "record start_prime >= lower and next record start_prime < upper",
+    "right_censored_plateau_excluded": true,
+    "upper_exclusive": "10000000000",
+    "validated_records_sha256": "62ecb9028e77893c79a57512488544b91b628a006bb2bd306b670afa34676297"
+  },
+  "low_information_rule": {
+    "changes_test_membership": false,
+    "conditioned_gap_count_less_than": 5,
+    "control_exposure_less_than": 1000
+  },
+  "primary": {
+    "cohort": "primary_start_ge_1000",
+    "scheme": "primary_width_0p5_shift_0",
+    "statistic": "two-sided family maximum absolute standardized residual"
+  },
+  "replications": 100000,
+  "secondary": "one-sided recurrence enrichment with Benjamini-Hochberg q-values",
+  "seed": 20260827,
+  "status": "FROZEN_BEFORE_HOLDOUT",
+  "theorem_claimed": false,
+  "zero_variance_rule": "retain row with z=null and exclude only from z-based family calculation"
+}

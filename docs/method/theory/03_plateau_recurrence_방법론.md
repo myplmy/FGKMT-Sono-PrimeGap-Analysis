@@ -61,3 +61,13 @@ stratified hypergeometric null을 사용한다. `[2,10^9]` 개발과 이후 hold
 0.21945이고 shifted sensitivity도 같은 방향이다. 이는 P011 stationary 과대예측을
 nonstationarity가 설명한다는 진단과 일치하지만 LOW_INFORMATION 비율이 매우 높아 null의
 정당성이나 recurrence 구조 부재를 증명하지 않는다.
+
+사용자는 P012-A r2 figure의 축·범례·undefined-z marker에 문제가 없음을 확인했다. bin,
+cohort, seed, 100,000회, primary·secondary와 LOW_INFORMATION 규칙은 machine-readable
+contract로 동결했다.
+
+P012-B는 `[10^9,10^10)`의 독립 gap-start stream을 사용한다. record start와 다음 record
+start가 모두 holdout 안인 complete records `31–34`만 포함하고 양쪽 censored edge를 제외한다.
+P006/P011 개발 table은 기대값 입력으로 사용하지 않는다. range sieve·contract/hash preflight·
+toy tests는 PASS했으나 actual은 미실행이다. holdout에서도 LOW_INFORMATION이 높으면 유의하지
+않은 결과를 구조 부재로 해석하지 않는다.

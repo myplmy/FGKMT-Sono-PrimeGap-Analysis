@@ -21,7 +21,7 @@
 - CPU 시간을 채우기 위한 임의 반복·seed sweep·범위 확장을 만들지 않는다.
 - hard wall limit을 예상 실행시간으로 해석하지 않는다.
 - count upper bound를 candidate 위치나 search acceleration으로 바꾸어 표현하지 않는다.
-- `[10^9,10^10]` P012 holdout을 방법 조정 전에 열지 않는다.
+- `[10^9,10^10)` P012 holdout은 동결 계약으로만 실행한다.
 
 ## Inputs
 
@@ -31,7 +31,9 @@
 - P010 modulus-30030 scan: 35,224,647 constraints 약 0.77초
 - P010A G4: 4 LP solves, 핵심 20.919초, full floating convergence
 - P011 actual: 짧은 stationary-null pilot
-- P012-A: r2 actual·saved verification PASS, analysis 87.234초, figure 사용자 QA 대기
+- P012-A: r2 actual·saved verification·사용자 figure QA PASS, 계약 hash 동결
+- P012-B: range-only holdout 구현·preflight·toy PASS, actual 미실행
+- P010B: direct candidate-cover verifier toy PASS, exhaustive generator라 acceleration BLOCKED
 
 ## 후보별 판정
 
@@ -39,11 +41,11 @@
 |---|---|---:|---|---|
 | P005 Rank 85→86 exhaustive | calibration만 준비 | 현실적으로 범위 밖 | every-prime-start coverage와 ledger 없음 | 작성 금지 |
 | P006/P012-A `[2,10^9]` | 완료 | 87.234초 analysis | r2 terminal·saved PASS | 장시간 후보 아님 |
-| P012-B `[10^9,10^10]` | A 이후 설계 | 잠정 20–90분 | A figure QA·방법 동결 전 holdout 금지 | 아직 작성하지 않음 |
+| P012-B `[10^9,10^10)` | 구현·preflight PASS | 30–120분 | 동결 contract·두 full streaming pass | code-ready지만 3시간 미만 후보 |
 | P009 10-block boundary sample | actual adapter는 준비, 새 block list 미정 | 10–120분 | internal-zero block 공급·대표성 없음 | 장시간 후보 아님 |
 | P010A modulus-30030 재실행 | 완료 | 약 21초 | 같은 full floating LP에 이미 수렴 | 중복이므로 작성 금지 |
 | P010A modulus-510510 | 미구현 | 미측정 | 92,160 states·8,524,288,932 constraints, 새 exact lift·streaming·LP 설계 필요 | 현재 작성 불가 |
-| P010B 실제 search acceleration | 차단 | 산정 불가 | absolute candidate-cover mapping과 false-negative 0 증명 없음 | 계산 전 수학 blocker |
+| P010B 실제 search acceleration | direct verifier만 준비 | 산정 불가 | non-circular compressed mapping·PARI witness·survivor adapter 없음 | 계산 전 수학 blocker |
 
 ### modulus 510510 자원 경고
 
@@ -82,17 +84,18 @@
 - HiGHS floating convergence는 exact LP 최적성 증명이 아니다. G4의 exact certificate는 상한의
   유효성만 엄밀히 보장한다.
 - 새로운 modulus가 상한을 더 낮춰도 absolute search 위치와 비용 감소는 자동으로 생기지 않는다.
-- P012 holdout을 미리 실행하면 독립 확인 자료로서의 가치가 줄어든다.
+- P012-B는 계약이 동결됐지만 결과를 본 뒤 규칙을 바꾸면 독립 확인 가치가 사라진다.
 
 ## Approval gate
 
 현재 과학적으로 타당하고 code-ready인 3–12시간 actual runner는 **0개**다. 따라서 새
-장시간 runner를 만들지 않는다. P012-A 짧은 actual은 완료됐다. 다음 중
+장시간 runner를 만들지 않는다. P012-A는 완료됐고 P012-B는 30–120분의 중간 실행으로
+준비됐다. 다음 중
 하나가 충족되면 이 감사를 갱신한다.
 
-1. P012-A figure QA와 방법 동결 완료
+1. P012-B 실측이 3시간을 넘겨 estimate 보정이 필요한 경우
 2. modulus-510510 memory-safe bounded calibration 설계 완료
-3. P010B absolute candidate-cover theorem/verifier 준비
+3. P010B non-circular compressed absolute mapping 준비
 4. P005 every-prime-start coverage mapping 준비
 
 ## Outputs
@@ -101,10 +104,12 @@
   `test_done/run_p012_stratified_null_development_r2-20260827T054007Z-done.ps1`
 - 3–12시간 runner: 없음
 - P012-A actual: 완료, 3–12시간 heavy 범주 아님
+- P012-B runner: `scripts/experiments/p012/run_p012_stratified_null_holdout.ps1`,
+  예상 30–120분으로 3–12시간 범주 아님
 
 ## Follow-up
 
-1. 사용자가 P012-A figure를 시각 확인한다.
-2. P012-A 계약을 동결한 뒤 P012-B 계획·toy runner와 실제 예상시간을 작성한다.
-3. 계산수론 축에서는 G4 exact certificate를 문서화하고, 다음 계산보다 먼저 P010B mapping
-   또는 modulus-510510 memory-safe feasibility를 이론·toy 단계에서 검토한다.
+1. 사용자가 동결된 runner로 P012-B actual을 실행한다.
+2. P012-B log·saved 결과·figure를 감사하고 실측시간을 갱신한다.
+3. 계산수론 축에서는 P010B compressed mapping·PARI witness schema를 toy 단계에서
+   고정한 뒤에만 actual feasibility를 검토한다.

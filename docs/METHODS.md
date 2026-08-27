@@ -4,10 +4,10 @@
 
 이 문서는 `Z:\FGKMT-Sono-PrimeGap-Analysis`에서 수행할 대형 소수간격 비교 실험의 방법론 정본이다.
 
-- 현재 단계: P003 전체 `10^20` 및 P004 start/end·local-envelope 민감도 실행과 자동검증 완료
-- 완료 승인 범위: end-bounded P003, start/end paired P004, shifted log-bin, 추가 rolling, x-width envelope
-- 현재 비승인 범위: P005 패키지 설치·calibration 실행, P006 recurrence pilot 실행, 외부 게시, commit/push/PR
-- 다음 실제 실행 시작 조건: 해당 `test_plan/P005_...` 또는 `P006_...`의 gate와 사용자 승인·직접 실행 조건 충족
+- 현재 단계: P003/P004 본체, P005–P012-A 단계별 실행·검증 완료; P012-B holdout 실행 준비
+- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P012-A 실제 실행과 사후 검증
+- 현재 비승인·미실행 범위: P012-B actual, P010B large-range acceleration, 외부 게시, commit/push/PR
+- 다음 실제 실행 시작 조건: `test_plan/P012B_stratified-null-holdout.md`의 고정 runner를 사용자가 confirmation flag로 직접 실행
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -517,6 +517,14 @@ scan 위반 0으로 수렴했다. 최종 certificate는 35,224,647 exact constra
 minimum slack 0이며 total upper bound를 `436001550591586306`으로 낮췄다. 이 약 0.7195%
 count 개선은 absolute candidate mapping이나 search acceleration을 증명하지 않는다.
 
+P010B direct candidate-cover verifier는 작은 half-open integer universe에서 각 start를 candidate,
+exact composite factor rejection, strict window-prime rejection 중 하나로 누락 없이 분류한다.
+`q=c+H`는 제거 witness가 아니며 equality `gap=H`는 candidate에 남긴다. `[1000,10000)`,
+`H=20` toy에서는 candidate 69개가 exact 위험 start 69개와 일치했고 나머지 8,931개 witness
+coverage도 PASS했다. 그러나 generator가 exhaustive truth를 사용하므로 acceleration은
+BLOCKED다. 실제 승격에는 non-circular absolute generator, compressed coverage, PARI
+certificate adapter, survivor search와 동일 baseline의 5회 이상 total-cost 비교가 필요하다.
+
 P011은 P006 recurrence count를 leave-plateau-out binomial reference와 비교하는 경험적
 진단이다. exact binomial, 고정 seed Monte Carlo, BH 보정을 사용하지만 record 선택편향,
 비독립성, nonstationarity 때문에 theorem evidence로 해석하지 않는다. 실제 pilot은
@@ -532,7 +540,17 @@ bar를 생략하고 `variance=0; z undefined` x marker를 표시한다. r2 actua
 recomputation은 PASS했다. primary 관측 9 대 stratified 기대 8.5874, family p 0.21945이고
 shifted family p도 0.71354·0.49280으로 P011 stationary 과대예측이 크게 줄었다. 모든 scheme의
 enrichment BH q는 1.0이다. 거의 모든 row가 LOW_INFORMATION이므로 이는 recurrence 구조
-부재나 null 정당성 증명이 아니다. holdout은 사용자 figure QA와 계약 동결 전까지 untouched다.
+부재나 null 정당성 증명이 아니다. 사용자는 r2 figure 시각 QA도 PASS했다. P012 계약은
+`test_plan/P012_statistical_contract_v1.json`의 SHA-256
+`1c79316de685bbc40ba3c5fc49e23b1abec328bbf07dfc218e27d74e5d82000d`로 동결했다.
+
+P012-B는 P006/P011 개발 table을 재사용하지 않고 `[10^9,10^10)`의 모든 consecutive gap
+start를 range-only segmented sieve로 생성한다. canonical record metadata에서 record start와
+다음 record start가 모두 holdout 안인 complete records `31–34`만 선택하고 왼쪽 continuation과
+오른쪽 censored plateau를 제외한다. pinned gap-start 수는
+`pi(10^10)-pi(10^9)=404204977`이며 오른쪽 boundary prime 하나로 마지막 gap을 닫는다.
+분석과 saved full recomputation은 각각 한 번 streaming한다. 구현·preflight·toy는 PASS했지만
+actual holdout은 아직 실행하지 않았다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

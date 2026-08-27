@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P012-A 수치 PASS / P010A G4 상한 개선 PASS / P012-A figure 사용자 QA 대기
+## 현재 상태: P002–P012-A 전체 PASS / P012-B 실행 준비 / P010A G4 상한 개선 PASS / P010B verifier toy PASS·가속 BLOCKED
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact PARI boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011 stationary-null pilot은 enrichment를 지지하지 않았고 global null의 위치 비정상성을 드러냈으며 figure 사용자 QA도 PASS다. P012-A r2는 terminal·saved full recomputation과 사후 독립 84 rows·128 components·100,000회 MC 재계산을 issue 0으로 통과했다. primary 관측 9 대 P012 기대 8.5874, family p 0.21945로 P011 기대 109.079의 과대예측이 크게 줄었고 모든 scheme enrichment BH q는 1.0이다. 다만 거의 모든 row가 LOW_INFORMATION이므로 모형 정당성·구조 부재를 주장하지 않는다. P012-A figure는 사용자 시각 QA 대기이며 `[10^9,10^10]` holdout은 QA·계약 동결 전 잠근다. 결과 정본 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 실제 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact PARI boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P010B exact candidate-cover toy는 `[1000,10000)`, `H=20`에서 69 candidates와 exact 위험 start 69개가 일치했지만 exhaustive oracle을 쓰므로 가속은 BLOCKED다. P011 stationary-null pilot은 enrichment를 지지하지 않았고 global null의 위치 비정상성을 드러냈으며 figure 사용자 QA도 PASS다. P012-A r2는 terminal·saved full recomputation과 사후 독립 84 rows·128 components·100,000회 MC 재계산을 issue 0으로 통과했다. primary 관측 9 대 P012 기대 8.5874, family p 0.21945로 P011 기대 109.079의 과대예측이 크게 줄었고 모든 scheme enrichment BH q는 1.0이다. 거의 모든 row가 LOW_INFORMATION이므로 모형 정당성·구조 부재를 주장하지 않는다. 사용자 figure QA도 PASS했고 계약 SHA-256 `1c79316de685bbc40ba3c5fc49e23b1abec328bbf07dfc218e27d74e5d82000d`로 동결했다. P012-B `[10^9,10^10)` holdout은 구현·preflight·toy PASS지만 actual 미실행이다. 결과 정본 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 실제 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -332,11 +332,14 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P010A G4 PASS: 4 solves·20.919초, exact violation 0, total upper bound `436001550591586306`, 약 0.7195% 개선; search acceleration 미증명
 - P011 stationary recurrence null pilot PASS; enrichment 미지지, figure 사용자 QA PASS
 - P012 stratified hypergeometric Q1–Q3 사용자 승인; r1 actual은 plotting TypeError로 USER_RUN_FAILED, partial 결과 비정본
-- P012-A r2 terminal·saved·독립 재계산 PASS: primary obs 9 vs expected 8.5874, family p 0.21945, all enrichment BH q 1.0; LOW_INFORMATION 한계·visual QA pending·holdout untouched
+- P012-A r2 terminal·saved·독립 재계산·사용자 figure QA PASS: primary obs 9 vs expected 8.5874, family p 0.21945, all enrichment BH q 1.0; LOW_INFORMATION 한계
+- P012-A 통계 계약 hash 동결; P012-B range-only holdout code·preflight·5 tests PASS, actual 미실행
+- P010B direct candidate-cover verifier toy PASS: 9,000 starts, candidate/exact 위험 start 69개 일치; exhaustive generator라 acceleration BLOCKED
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 사용자가 P012-A r2의 두 PNG에서 축·범례·주황 x marker 의미를 시각
-확인하는 것이다. 그 뒤 통계 계약을 결과에 맞춰 바꾸지 않고 동결하고서만 `[10^9,10^10]`
-holdout 계획·toy 구현을 시작한다. 완료 r2 runner는 `test_done`에 있으며 재실행하지 않는다.
-현재 과학적으로 타당하고 code-ready인 3–12시간 runner는 없다. 상세 감사는
-`docs/method/20260827_3to12h_compute_readiness_audit.md`다.
+다음 권장 행동은 사용자가 Windows에서
+`scripts/experiments/p012/run_p012_stratified_null_holdout.ps1 -ConfirmP012B`를 실행하는 것이다.
+예상 30–120분이며 analysis와 saved verification이 holdout을 각각 한 번 streaming한다.
+P010B actual acceleration runner는 compressed absolute coverage와 PARI witness adapter가 없어
+아직 만들지 않는다. 현재 과학적으로 타당하고 code-ready인 3–12시간 runner는 없다. 상세
+감사는 `docs/method/20260827_3to12h_compute_readiness_audit.md`다.

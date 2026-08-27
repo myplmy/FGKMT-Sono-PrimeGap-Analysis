@@ -60,3 +60,13 @@ translation되지 않는다.
 - certificate 생성+검증이 baseline보다 느림
 - ledger가 100 GB 또는 runtime이 168시간을 넘음
 - compression이 아니라 좌표만 바꾼 tautology
+
+## 구현된 direct verifier와 남은 문제
+
+`source/candidate_cover.py`는 작은 integer universe에서 candidate/rejection partition과 exact
+factor·strict window-prime witness를 전수 검증한다. `[1000,10000)`, `H=20` toy에서
+coverage issue 0과 exact candidate set 일치를 확인했다.
+
+toy generator가 exhaustive truth를 사용하므로 이는 verifier 시험이지 compression이 아니다.
+남은 핵심은 non-circular absolute generator, 모든 start를 나열하지 않는 compressed ledger,
+large-prime PARI certificate binding과 survivor search adapter다.

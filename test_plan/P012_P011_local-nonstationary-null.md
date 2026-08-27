@@ -2,7 +2,7 @@
 
 ## 1. 상태와 사전 고정
 
-`COMPLETED / P012-A_R2_EXPERIMENT_PASS / SAVED_FULL_RECOMPUTATION_PASS / VISUAL_QA_PENDING / HOLDOUT_UNTOUCHED`
+`COMPLETED / P012-A_R2_EXPERIMENT_PASS / SAVED_FULL_RECOMPUTATION_PASS / USER_VISUAL_QA_PASS / CONTRACT_FROZEN / P012-B_IMPLEMENTED / P012-B_ACTUAL_NOT_RUN`
 
 사용자는 2026-08-27 다음 Q1–Q3 권장안을 결과를 보기 전에 승인했다.
 
@@ -19,7 +19,9 @@ full recomputation PASS했다. 사전 primary에서 관측 9회, P012 기대 8.5
 0.21945였고 enrichment BH q는 모든 scheme에서 1.0이었다. 결과는 P011 stationary
 과대예측이 위치 비정상성에서 주로 왔다는 진단과 일치하지만 저정보 비율이 매우 높아 모형
 정당성이나 구조 부재를 증명하지 않는다. `[10^9,10^10]` holdout은 사용자 figure QA와
-P012-A 계약 동결 전까지 계속 잠근다.
+P012-A 계약 동결 전까지 계속 잠갔다. 사용자는 2026-08-27 r2 figure 시각 QA에 문제가
+없음을 확인했고, 통계 계약을 `test_plan/P012_statistical_contract_v1.json`에 동결했다.
+P012-B는 별도 계획·모듈·승인형 runner까지 구현했지만 actual holdout은 아직 실행하지 않았다.
 
 ## 2. 연구 질문과 비목적
 
@@ -172,13 +174,13 @@ cd Z:\FGKMT-Sono-PrimeGap-Analysis
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p012\run_p012_stratified_null_development_r2.ps1 -ConfirmP012A
 ```
 
-현재 사용자에게 필요한 것은 figure 시각 QA이며 별도 실행 명령은 없다. 다음 두 파일을 연다.
+사용자는 2026-08-27 figure 시각 QA를 완료했고 두 그림에 문제가 없음을 확인했다.
+확인 대상은 다음 두 파일이었다.
 
 1. `test_result/run_20260827T054007Z_p012a_stratified_null_development_r2/figures/p012_expected_comparison.png`
 2. `test_result/run_20260827T054007Z_p012a_stratified_null_development_r2/figures/p012_residual_comparison.png`
 
-축·선·막대·범례와 residual의 주황 x marker가 “z=0”이 아니라 “variance 0으로 z 미정의”로
-명확히 보이는지 회신한다.
+축·선·막대·범례와 residual의 주황 x marker 의미를 포함해 `USER_VISUAL_QA_PASS`다.
 
 ## 9. 예상 산출물
 
@@ -193,13 +195,26 @@ residual comparison에서 conditional variance 0인 P012 z는 막대 0으로 그
 gap의 P011 bar는 유지하고 P012 위치에 `z undefined (variance=0; not z=0)` x marker를
 표시한다.
 
-## 10. P012-B holdout 게이트
+## 10. P012-B holdout 게이트와 구현
 
-P012-A r2 수치·saved verification 감사는 끝났다. 사용자 figure QA 뒤 primary·sensitivity
-계약을 그대로 동결하고서만 `[10^9,10^10]`의 새 prime-gap sufficient statistics를 만들 수
-있다. P012-B에는 P012-A에서 보고된 이상에 맞춰 bin이나 statistic을 바꾸지 않는다.
-P012-A actual 87.234초와 범위 증가를 고려한 P012-B 사용자 실행의 보수적 예상은 20–90분이며,
-구현 뒤 bounded benchmark로 다시 보정한다.
+P012-A r2 수치·saved verification·사용자 figure QA가 끝났다. primary·sensitivity 계약은
+`test_plan/P012_statistical_contract_v1.json`에 동결했고 SHA-256은
+`1c79316de685bbc40ba3c5fc49e23b1abec328bbf07dfc218e27d74e5d82000d`다.
+
+P012-B는 `[10^9,10^10)` gap-start range에서 record start와 다음 record start가 모두
+holdout 안인 complete plateaus `31–34`만 사용한다. 왼쪽 continuation과 마지막 censored
+plateau를 제외한다. 구현은 다음과 같다.
+
+- plan: `test_plan/P012B_stratified-null-holdout.md`
+- analysis: `source/recurrence_stratified_holdout.py`
+- CLI: `source/recurrence_stratified_holdout_cli.py`
+- tests: `tests/test_recurrence_stratified_holdout.py`
+- runner: `scripts/experiments/p012/run_p012_stratified_null_holdout.ps1`
+
+preflight는 contract·record metadata만 읽고 holdout prime stream을 열지 않은 채 PASS했다.
+range sieve·경계 prime·complete-plateau selection·forced record·approval denial 5/5 tests도
+PASS했다. actual은 미실행이다. 분석과 saved full recomputation이 각각 404,204,977 gap
+starts를 streaming하므로 보수적 사용자 예상은 30–120분이다.
 
 ## 11. P012-A r2 actual 결과
 
@@ -216,4 +231,6 @@ P012-A actual 87.234초와 범위 증가를 고려한 P012-B 사용자 실행의
 - low-information rows: primary/shifted0.25/width1에서 `28/28`, `28/28`, `26/28`
 - holdout touched: false
 - 결과보고서: `test_result/202608271655_P012A_r2_result_analysis.md`
-- figure 상태: 자동 파일검사 PASS / 사용자 visual QA pending
+- figure 상태: 자동 파일검사 PASS / 사용자 visual QA 2026-08-27 PASS
+- frozen contract: `test_plan/P012_statistical_contract_v1.json`
+- P012-B actual: NOT RUN
