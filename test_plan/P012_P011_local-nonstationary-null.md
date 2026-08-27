@@ -2,7 +2,7 @@
 
 ## 1. 상태와 사전 고정
 
-`APPROVED / P012-A_R1_USER_RUN_FAILED / R2_IMPLEMENTED / R2_LOCALLY_VERIFIED / USER_RERUN_REQUIRED / HOLDOUT_UNTOUCHED`
+`COMPLETED / P012-A_R2_EXPERIMENT_PASS / SAVED_FULL_RECOMPUTATION_PASS / VISUAL_QA_PENDING / HOLDOUT_UNTOUCHED`
 
 사용자는 2026-08-27 다음 Q1–Q3 권장안을 결과를 보기 전에 승인했다.
 
@@ -14,10 +14,12 @@
    one-sided recurrence enrichment와 Benjamini–Hochberg q-value다. seed `20260827`,
    Monte Carlo 100,000회를 사용한다.
 
-P012-A r1 actual은 2026-08-27 그림 생성 중 zero-variance `z=None`을 `float`로 바꾸는
-구현 결함으로 실패했다. 통계 계산·사전 고정 계약은 바꾸지 않고, 미정의 z를 숫자 0으로
-왜곡하지 않는 r2를 구현·로컬검증했다. `[10^9,10^10]` holdout은 코드·계획 조정에
-사용하지 않았고 P012-A r2 분석과 방법 동결이 끝날 때까지 잠근다.
+P012-A r1 actual은 그림 생성 중 실패했지만 통계 계약을 바꾸지 않은 r2가 terminal·saved
+full recomputation PASS했다. 사전 primary에서 관측 9회, P012 기대 8.5874회, family p
+0.21945였고 enrichment BH q는 모든 scheme에서 1.0이었다. 결과는 P011 stationary
+과대예측이 위치 비정상성에서 주로 왔다는 진단과 일치하지만 저정보 비율이 매우 높아 모형
+정당성이나 구조 부재를 증명하지 않는다. `[10^9,10^10]` holdout은 사용자 figure QA와
+P012-A 계약 동결 전까지 계속 잠근다.
 
 ## 2. 연구 질문과 비목적
 
@@ -100,8 +102,8 @@ P011과 직접 비교하기 위해 cohort를 그대로 유지한다.
 - 구현: `source/recurrence_stratified_null.py`
 - CLI: `source/recurrence_stratified_null_cli.py`
 - tests: `tests/test_recurrence_stratified_null.py`
-- active r2 runner:
-  `scripts/experiments/p012/run_p012_stratified_null_development_r2.ps1`
+- completed r2 runner provenance:
+  `test_done/run_p012_stratified_null_development_r2-20260827T054007Z-done.ps1`
 - failed r1 provenance:
   `test_done/run_p012_stratified_null_development-20260827T032233Z-failed-done.ps1`
 
@@ -159,29 +161,24 @@ P011과 직접 비교하기 위해 cohort를 그대로 유지한다.
 - r2 로컬검증: related 14/14, full 116/116, parser 6/6 PASS
 - 상세 보고서: `test_result/202608271251_P012A_r1_failure_r2_fix_analysis.md`
 
-## 8. 사용자 실행 절차
+## 8. 완료 실행과 사용자 시각 QA
 
-환경: Windows PowerShell 또는 FGKMT Conda Prompt
+실행 환경: Windows FGKMT Python 고정 PowerShell runner
 
-시작 경로: `Z:\FGKMT-Sono-PrimeGap-Analysis`
-
-예상시간: 약 1–10분
-
-예상 RAM: 4 GB 미만
-
-예상 disk: 2 GB 미만
+실행된 명령은 다음과 같다. r2 runner는 `test_done`으로 이관했으므로 다시 실행하지 않는다.
 
 ```powershell
 cd Z:\FGKMT-Sono-PrimeGap-Analysis
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p012\run_p012_stratified_null_development_r2.ps1 -ConfirmP012A
 ```
 
-회신할 것:
+현재 사용자에게 필요한 것은 figure 시각 QA이며 별도 실행 명령은 없다. 다음 두 파일을 연다.
 
-1. 마지막 `[PASS]` 또는 첫 `[FAIL]`
-2. log와 result directory
-3. `summary.json` 경로
-4. PNG 두 장의 축·선·범례가 정상인지 시각 확인
+1. `test_result/run_20260827T054007Z_p012a_stratified_null_development_r2/figures/p012_expected_comparison.png`
+2. `test_result/run_20260827T054007Z_p012a_stratified_null_development_r2/figures/p012_residual_comparison.png`
+
+축·선·막대·범례와 residual의 주황 x marker가 “z=0”이 아니라 “variance 0으로 z 미정의”로
+명확히 보이는지 회신한다.
 
 ## 9. 예상 산출물
 
@@ -198,8 +195,25 @@ gap의 P011 bar는 유지하고 P012 위치에 `z undefined (variance=0; not z=0
 
 ## 10. P012-B holdout 게이트
 
-P012-A r2 결과와 saved verification을 감사한 뒤 코드·통계 계약을 동결한다. 그 후에만
-`[10^9,10^10]`의 새 prime-gap sufficient statistics를 만들 수 있다. P012-B에는
-P012-A에서 보고된 이상에 맞춰 bin이나 statistic을 바꾸지 않는다. P006 `10^9` 실측
-2.70초와 선형 규모를 고려하면 P012-B도 3시간 이상일 가능성은 낮지만, A 실제 로그로
-runner 전체시간을 다시 보정한다.
+P012-A r2 수치·saved verification 감사는 끝났다. 사용자 figure QA 뒤 primary·sensitivity
+계약을 그대로 동결하고서만 `[10^9,10^10]`의 새 prime-gap sufficient statistics를 만들 수
+있다. P012-B에는 P012-A에서 보고된 이상에 맞춰 bin이나 statistic을 바꾸지 않는다.
+P012-A actual 87.234초와 범위 증가를 고려한 P012-B 사용자 실행의 보수적 예상은 20–90분이며,
+구현 뒤 bounded benchmark로 다시 보정한다.
+
+## 11. P012-A r2 actual 결과
+
+- run: `test_result/run_20260827T054007Z_p012a_stratified_null_development_r2`
+- log: `test_result/logs/run_20260827T054007Z_p012a_stratified_null_development_r2.log`
+- terminal PASS: 확인
+- saved deterministic full recomputation: PASS, issues 0
+- manifest SHA-256: `723bd82778c92b7ebe3e9f614fd7411e86f5619d3043ed292ddac93fa6966c09`
+- modeled/components: 84/128
+- primary observed/P012 expected/P011 expected: `9 / 8.587376 / 109.079019`
+- primary max-abs-z family p: `0.2194478`
+- primary shifted family p: `0.7135429`, `0.4927951`
+- 모든 scheme 최소 enrichment BH q: `1.0`
+- low-information rows: primary/shifted0.25/width1에서 `28/28`, `28/28`, `26/28`
+- holdout touched: false
+- 결과보고서: `test_result/202608271655_P012A_r2_result_analysis.md`
+- figure 상태: 자동 파일검사 PASS / 사용자 visual QA pending

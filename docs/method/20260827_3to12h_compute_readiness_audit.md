@@ -31,15 +31,15 @@
 - P010 modulus-30030 scan: 35,224,647 constraints 약 0.77초
 - P010A G4: 4 LP solves, 핵심 20.919초, full floating convergence
 - P011 actual: 짧은 stationary-null pilot
-- P012-A: r1은 plotting TypeError로 실패, 통계 불변 r2 로컬검증 완료, 예상 1–10분
+- P012-A: r2 actual·saved verification PASS, analysis 87.234초, figure 사용자 QA 대기
 
 ## 후보별 판정
 
 | 후보 | 현재 코드 준비도 | 예상시간 | 과학적 게이트 | 3–12시간 runner 판정 |
 |---|---|---:|---|---|
 | P005 Rank 85→86 exhaustive | calibration만 준비 | 현실적으로 범위 밖 | every-prime-start coverage와 ledger 없음 | 작성 금지 |
-| P006/P012-A `[2,10^9]` | r2 준비 | 1–10분 | r1 plotting 실패 뒤 개발범위 r2 actual 필요 | 짧은 r2 runner만 준비 |
-| P012-B `[10^9,10^10]` | A 이후 설계 | A 실측상 3시간 미만 가능성 큼 | A 결과 감사·방법 동결 전 holdout 금지 | 아직 작성하지 않음 |
+| P006/P012-A `[2,10^9]` | 완료 | 87.234초 analysis | r2 terminal·saved PASS | 장시간 후보 아님 |
+| P012-B `[10^9,10^10]` | A 이후 설계 | 잠정 20–90분 | A figure QA·방법 동결 전 holdout 금지 | 아직 작성하지 않음 |
 | P009 10-block boundary sample | actual adapter는 준비, 새 block list 미정 | 10–120분 | internal-zero block 공급·대표성 없음 | 장시간 후보 아님 |
 | P010A modulus-30030 재실행 | 완료 | 약 21초 | 같은 full floating LP에 이미 수렴 | 중복이므로 작성 금지 |
 | P010A modulus-510510 | 미구현 | 미측정 | 92,160 states·8,524,288,932 constraints, 새 exact lift·streaming·LP 설계 필요 | 현재 작성 불가 |
@@ -87,24 +87,24 @@
 ## Approval gate
 
 현재 과학적으로 타당하고 code-ready인 3–12시간 actual runner는 **0개**다. 따라서 새
-장시간 runner를 만들지 않는다. 준비된 P012-A 짧은 runner만 사용자가 실행한다. 다음 중
+장시간 runner를 만들지 않는다. P012-A 짧은 actual은 완료됐다. 다음 중
 하나가 충족되면 이 감사를 갱신한다.
 
-1. P012-A 결과 감사와 방법 동결 완료
+1. P012-A figure QA와 방법 동결 완료
 2. modulus-510510 memory-safe bounded calibration 설계 완료
 3. P010B absolute candidate-cover theorem/verifier 준비
 4. P005 every-prime-start coverage mapping 준비
 
 ## Outputs
 
-- P012-A 사용자 r2 runner:
-  `scripts/experiments/p012/run_p012_stratified_null_development_r2.ps1`
+- P012-A 완료 r2 runner:
+  `test_done/run_p012_stratified_null_development_r2-20260827T054007Z-done.ps1`
 - 3–12시간 runner: 없음
-- 실제 heavy 실행: 없음
+- P012-A actual: 완료, 3–12시간 heavy 범주 아님
 
 ## Follow-up
 
-1. P012-A를 먼저 실행·감사한다.
-2. P012-A 계약을 동결한 뒤 P012-B runner와 실제 예상시간을 작성한다.
+1. 사용자가 P012-A figure를 시각 확인한다.
+2. P012-A 계약을 동결한 뒤 P012-B 계획·toy runner와 실제 예상시간을 작성한다.
 3. 계산수론 축에서는 G4 exact certificate를 문서화하고, 다음 계산보다 먼저 P010B mapping
    또는 modulus-510510 memory-safe feasibility를 이론·toy 단계에서 검토한다.

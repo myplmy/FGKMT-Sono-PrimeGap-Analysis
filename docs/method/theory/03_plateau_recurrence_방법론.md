@@ -57,4 +57,7 @@ P012는 범위를 무작정 `10^10`으로 늘리기보다 log-bin별 gap occurre
 stratified hypergeometric null을 사용한다. `[2,10^9]` 개발과 이후 holdout, primary
 0.5-decade와 shifted sensitivity, two-sided family adequacy를 사용자와 사전 합의했다.
 첫 actual의 zero-variance z plotting 실패는 통계 가설 문제가 아니므로 정의를 바꾸지 않고
-미정의 z를 명시하는 r2로 교정했다.
+미정의 z를 명시하는 r2로 교정했다. r2 primary는 관측 9 대 기대 8.5874, family p
+0.21945이고 shifted sensitivity도 같은 방향이다. 이는 P011 stationary 과대예측을
+nonstationarity가 설명한다는 진단과 일치하지만 LOW_INFORMATION 비율이 매우 높아 null의
+정당성이나 recurrence 구조 부재를 증명하지 않는다.

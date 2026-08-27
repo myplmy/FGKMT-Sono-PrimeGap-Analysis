@@ -64,6 +64,7 @@ BAT·PowerShell·WSL 진입점과, 해당 완료 실험에만 쓰인 보조파�
 | 보존 파일 | SHA-256 | 연결 로그·역할 | 판정 |
 |---|---|---|---|
 | `run_p012_stratified_null_development-20260827T032233Z-failed-done.ps1` | `61FF041F32813D377D9414E700638DAC359961CD29699778AE0969B40404A9F3` | `test_result/logs/run_20260827T032233Z_p012a_stratified_null_development.log` | preflight·targeted tests PASS 뒤 zero-variance `z=None` 시각화의 `float(None)` 결함으로 USER_RUN_FAILED |
+| `run_p012_stratified_null_development_r2-20260827T054007Z-done.ps1` | `0AF40C63E02B962C2C1716D868C15A8DABC4A52302E2B87E9E9BE36201AB8E28` | `test_result/logs/run_20260827T054007Z_p012a_stratified_null_development_r2.log` | P012-A r2 terminal·saved full recomputation PASS; 통계 artifact는 r1과 동일, figure visual QA는 사용자 대기 |
 
 재사용 기능은 다음으로 분리했다.
 
