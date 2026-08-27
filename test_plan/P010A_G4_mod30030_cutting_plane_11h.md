@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`APPROVED / IMPLEMENTED / LOCALLY_VERIFIED / USER_RUN_READY / NOT_RUN`
+`EXPERIMENT_PASS / EXACT_CERTIFICATE_PASS / STRICT_BOUND_IMPROVEMENT / SEARCH_ACCELERATION_NOT_PROVED`
 
 사용자가 조건부 P010A/P010B 코드·runner 준비와 현재 약 12시간 CPU 사용을 승인했다.
 P010B full scan과 P010A exact lift가 실제 PASS했으므로, 3,522만 행 전체를 저장하지 않는
@@ -114,7 +114,11 @@ P009 추가 block은 internal-zero 공급법이 없고, P012는 사용자 설계
 
 ## 9. 사용자 실행 절차
 
-환경: **Windows FGKMT Conda Prompt 또는 Windows PowerShell**. WSL에서 직접 실행하지 않는다.
+아래 명령은 2026-08-26 완료 실행의 provenance다. 실행기는 `test_done/`으로 이관하므로
+재실행하지 않는다. 새 sensitivity가 필요하면 별도 revision 계획과 runner를 만든다.
+
+실행 환경은 **Windows FGKMT Conda Prompt 또는 Windows PowerShell**이었다. WSL에서 직접
+실행하지 않았다.
 
 ```powershell
 cd Z:\FGKMT-Sono-PrimeGap-Analysis
@@ -140,3 +144,20 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p010a\
 - `exact_best_report.json`
 - `summary.json`, `manifest.json`, `saved_verification_report.json`
 - stdout/stderr 전체 log
+
+## 11. 실제 결과
+
+- run: `test_result/run_20260826T155918Z_p010a_mod30030_cutting_plane_11h`
+- log: `test_result/logs/run_20260826T155918Z_p010a_mod30030_cutting_plane_11h.log`
+- core elapsed: 20.919초
+- solver runs: 4, final working constraints: 20,123
+- exact full scan: 35,224,647 constraints, violation 0, minimum integer slack 0
+- baseline total bound: `439161464927854179`
+- best exact total bound: `436001550591586306`
+- 감소: `3159914336267873`, 약 0.7195336%
+- outcome: `FULL_FLOATING_CONVERGENCE`
+- direct search acceleration: false
+
+11시간은 hard cap이었고 네 번째 candidate가 full scan 위반 0으로 정상 수렴해 일찍
+종료했다. 상세 정본은
+`test_result/202608271208_P010A_G4_mod30030_cutting_plane_result_analysis.md`다.

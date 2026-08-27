@@ -2,7 +2,7 @@
 
 ## 상태
 
-`THEOREM / MOD30030_EXACT_ACTUAL_PASS / STRICT_IMPROVEMENT_FALSE`
+`THEOREM / MOD30030_EXACT_LIFT_PASS / G4_STRICT_IMPROVEMENT_PASS`
 
 ## 명제
 
@@ -47,5 +47,10 @@ source congruence class에서 허용되는 최소 대표보다 작을 수 없다
 않고 모든 target transition을 signed-int64 overflow 사전증명 뒤 exact scan한다.
 modulus-30030 actual은 2026-08-26 사용자 bounded queue에서 수행됐다. 5,760 states와
 35,224,647 constraints에서 floating violation 0, exact violation 0, minimum integer slack
-0을 확인했다. total bound는 `439161464927854179`로 source와 같아 strict improvement는
-없다. 다음 질문은 별도 G4 cutting-plane이 더 좋은 potential을 찾는지 여부다.
+0을 확인했다. lift total bound는 `439161464927854179`로 source와 같았다.
+
+별도 G4 cutting-plane actual은 lift를 feasibility 시작점으로 사용해 4회 solve 뒤 더 좋은
+potential을 찾았다. 저장 exact certificate는 같은 35,224,647 constraints에서 violation 0,
+minimum integer slack 0이고 total bound는 `436001550591586306`이다. 개선은 lift 정리 자체가
+아니라 target modulus의 추가 자유도를 최적화한 결과다. 위치·search acceleration은 여전히
+따라오지 않는다.

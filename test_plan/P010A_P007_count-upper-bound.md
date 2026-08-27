@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`MOD2310_REPLAY_EXPERIMENT_PASS / MOD30030_EXACT_LIFT_EXPERIMENT_PASS / CUTTING_PLANE_NEXT_GATE`
+`MOD2310_REPLAY_PASS / MOD30030_EXACT_LIFT_PASS / G4_STRICT_BOUND_IMPROVEMENT_PASS / SEARCH_ACCELERATION_NOT_PROVED`
 
 P010A는 `gap >= 1856`인 consecutive-prime gap의 **개수 상한**을 더 낮추는 축이다.
 P007의 modulus-2310 exact certificate를 memory-safe oracle로 먼저 완전 replay한 뒤,
@@ -129,3 +129,18 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p010a\
 
 G4의 11시간 자원·정확성·실행 절차 정본은
 `test_plan/P010A_G4_mod30030_cutting_plane_11h.md`다.
+
+## 7. G4 actual 결과
+
+사용자 실행 `20260826T155918Z`은 4회 working-set LP와 전체 streaming scan 뒤
+`FULL_FLOATING_CONVERGENCE`로 종료했다. exact integer verifier는 35,224,647 constraints,
+minimum slack 0, violation 0을 재확인했다.
+
+\[
+N_{\ge1856}(10^{20},10^{21})
+\le436001550591586306.
+\]
+
+기존 상한보다 `3159914336267873`, 약 0.7195336% 낮다. 이는 P010A count 연구의 성공이지만
+절대 후보 위치와 P005/P010B search acceleration은 제공하지 않는다. 같은 modulus-30030
+floating LP는 full scan 위반 0으로 수렴했으므로 장시간 반복하지 않는다.

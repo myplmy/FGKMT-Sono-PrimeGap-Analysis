@@ -57,6 +57,7 @@ BAT·PowerShell·WSL 진입점과, 해당 완료 실험에만 쓰인 보조파�
 | `run_p010b_mod30030_one_candidate_scan-20260826T144440Z-done.ps1` | `CAAAE0250757DD9152F85CA60A3CAA428808A0890022DD6A070A5050DEEB640D` | `test_result/logs/run_20260826T144440Z_p010b_mod30030_candidate_scan.log` | 35,224,647 floating constraints scan PASS, violation 0; LP·acceleration 미증명 |
 | `run_p010a_mod30030_exact_lift-20260826T144450Z-done.ps1` | `2AE15C9E5C2E539059EB3BC6560F75F3C3DB260347930FAAFDFB7D51BE262171` | `test_result/logs/run_20260826T144450Z_p010a_mod30030_exact_lift.log` | 35,224,647 exact constraints PASS, 상한 불변 |
 | `run_p009_single_block_actual-20260826T144500Z-done.ps1` | `9A242D2AD1D05E06B3B59B992F9178EF9E9E7A2825C0525F17D87B2356E24266` | `test_result/logs/run_20260826T144500Z_p009_single_block_actual.log` | `[10^20,10^20+1000)` exact certified zero 1 block, acceleration 미증명 |
+| `run_p010a_mod30030_cutting_plane_11h-20260826T155918Z-done.ps1` | `6DCE831B8E29D72D4A0EF2BA62FF0120C679A6BB93C1789A37F8EC98AFFAA8C2` | `test_result/logs/run_20260826T155918Z_p010a_mod30030_cutting_plane_11h.log` | 4 solves·exact 35,224,647 constraints PASS, total bound 약 0.7195% 개선; acceleration 미증명 |
 
 재사용 기능은 다음으로 분리했다.
 

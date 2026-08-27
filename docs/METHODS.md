@@ -503,19 +503,19 @@ P008 internal upper bound 0, last prime `10^20+993`, proven right prime `10^20+1
 거리 78을 결합해 exact certified zero PASS했다. 이는 한 block의 feasibility이며 전체
 범위 가속이 아니다.
 
-P010은 두 연구축으로 분리한다. P010A는 modulus-2310 replay와 향후 modulus-30030
-cutting-plane을 통해 count upper bound를 연구한다. P010B는 누락 없는 absolute candidate
+P010은 두 연구축으로 분리한다. P010A는 modulus-2310 replay와 modulus-30030
+cutting-plane으로 count upper bound를 연구한다. P010B는 누락 없는 absolute candidate
 mapping, boundary closure, total-cost break-even으로 실제 search acceleration을 연구한다.
 count upper bound만 낮아져서는 P010B 가속이 증명되지 않는다. modulus-2310 replay는 두
 exact builder와 chunk oracle, saved recheck가 PASS했지만 상한은
 `439161464927854179`로 동일하다. 35,224,647 constraints의 modulus-30030 one-candidate
 floating scan과 exact integer lift도 실제 PASS했고 핵심 scan은 각각 약 0.77초였다.
 `M|M'`, `lambda>=0`에서 potential을 residue reduction으로 lift하면 기존 certificate가
-target modulus에서도 성립한다. 이 exact lift는 같은 상한의 feasibility baseline이지
-strict improvement가 아니다. 다음 P010A G4는 seed 20,000, iteration당 위반 제약
-10,000, working-set 최대 250,000으로 sparse LP를 반복하고, 모든 candidate와 최종
-certificate를 exact full streaming으로 보정·검증한다. 실제 G4는 사용자 11시간 runner로만
-시작하며 count 개선과 search acceleration을 분리한다.
+target modulus에서도 성립한다. exact lift 자체는 같은 상한의 feasibility baseline이다.
+P010A G4 actual은 seed 20,000에서 위반 제약 123개를 추가하고 4회 solve 뒤 full floating
+scan 위반 0으로 수렴했다. 최종 certificate는 35,224,647 exact constraints 위반 0,
+minimum slack 0이며 total upper bound를 `436001550591586306`으로 낮췄다. 이 약 0.7195%
+count 개선은 absolute candidate mapping이나 search acceleration을 증명하지 않는다.
 
 P011은 P006 recurrence count를 leave-plateau-out binomial reference와 비교하는 경험적
 진단이다. exact binomial, 고정 seed Monte Carlo, BH 보정을 사용하지만 record 선택편향,
@@ -523,8 +523,9 @@ P011은 P006 recurrence count를 leave-plateau-out binomial reference와 비교�
 terminal/saved PASS했지만 primary 관측 9 대 기대 109.079로 enrichment를 지지하지 않고
 global stationary null의 부적합을 드러냈다. 두 figure는 사용자 시각 QA PASS다. P012는
 log-bin별 gap 발생 수를 고정하고 forced first record를 제거한 stratified hypergeometric
-null을 권장한다. 분석 범위, bin 폭·shift, primary 검정 목적의 사용자 답을 사전 고정한
-뒤에만 구현·실행한다.
+null이다. 사용자는 `[2,10^9]` 개발/`[10^9,10^10]` holdout 분리, 0.5-decade primary와
+두 shifted sensitivity, two-sided family max-abs-z primary, seed `20260827`, 100,000회를
+사전 승인했다. P012-A 코드는 준비했지만 actual과 holdout은 아직 실행하지 않았다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

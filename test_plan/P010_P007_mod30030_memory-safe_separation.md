@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`SPLIT_APPROVED / G3_EXPERIMENT_PASS / G4_CUTTING_PLANE_JUSTIFIED / G5_BLOCKED`
+`SPLIT_APPROVED / G3_EXPERIMENT_PASS / G4_STRICT_BOUND_IMPROVEMENT_PASS / G5_BLOCKED`
 
 사용자 제안에 따라 P010을 다음 두 축으로 분리한다.
 
@@ -101,12 +101,12 @@ lifted modulus-2310 potential을 고정한 실제 실행은 35,224,647 constrain
 floating/exact 위반 0이었다. 핵심 scan은 각각 약 0.77초, strict 상한 개선은 0이다.
 결과는 `test_result/202608270005_P009_P010_bounded_queue_result_analysis.md`에 기록한다.
 
-### G4 — cutting-plane prototype (`CONDITIONAL`)
+### G4 — cutting-plane prototype (`EXPERIMENT_PASS`)
 
-G3가 안정적일 때만 working-set LP를 반복한다. 매 iteration에서 violated constraints를
-추가하고, 종료 candidate를 exact streaming verifier로 검사한다. 32 GB RAM·16시간·50 GB disk
-gate를 넘거나 iteration이 정체되면 중단한다. G3 실측 전에는 G4를 16시간 queue에
-넣지 않는다.
+사용자 실행 `20260826T155918Z`은 20,123-row working set에서 4회 solve 뒤 full floating
+scan 위반 0으로 수렴했다. 저장 certificate는 35,224,647 exact constraints에서 위반 0,
+minimum slack 0이며 total upper bound를 `436001550591586306`으로 약 0.7195% 낮췄다.
+core elapsed는 20.919초였다. count 개선은 PASS지만 absolute 위치는 생기지 않았다.
 
 ### G5 — algorithm benefit (`BLOCKED`)
 
@@ -115,5 +115,5 @@ local coverage mapping과 baseline 대비 총비용 감소가 별도로 증명�
 
 ## 8. 현재 사용자 수행절차
 
-P010A replay는 완료됐다. 현재 권장 절차는 `P010Q_P009_P010_16h_bounded_queue.md`의
-통합 queue 1회를 사용자 Windows 환경에서 실행하는 것이다.
+P010A replay·exact lift·G4는 완료됐다. 완료 runner는 `test_done/` provenance이며 재실행하지
+않는다. 현재 P010B는 absolute candidate-cover mapping이 생기기 전 사용자 수행절차가 없다.

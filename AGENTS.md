@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P011 단계별 PASS / P010A G4 runner 준비 / P012 설계 합의 대기
+## 현재 상태: P002–P011 단계별 PASS / P010A G4 상한 개선 PASS / P012-A 실행 준비
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact PARI boundary witness를 결합해 certified zero 1 block을 만들었다. P010B 35,224,647-constraint floating scan과 P010A exact lift도 PASS했지만 상한은 `439,161,464,927,854,179`로 동일하고 acceleration은 미증명이다. P011 stationary-null pilot은 enrichment를 지지하지 않았고 global null의 위치 비정상성을 드러냈으며 figure 사용자 QA도 PASS다. 다음 actual은 사용자 실행용 P010A G4 11시간 cutting-plane이다. P012는 범위·bin·primary statistic의 사용자 합의 전 구현하지 않는다. 결과 정본 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 실제 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact PARI boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011 stationary-null pilot은 enrichment를 지지하지 않았고 global null의 위치 비정상성을 드러냈으며 figure 사용자 QA도 PASS다. 사용자는 P012 Q1–Q3을 승인했고 `[2,10^9]` stratified-hypergeometric P012-A code·runner가 준비됐다. `[10^9,10^10]` holdout은 A 감사 전 잠근다. 결과 정본 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 실제 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -326,16 +326,16 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P006 `[2,10^9]` full PASS: 50,847,534 primes, complete/censored plateau 29/1, artifact issue 0, figure 3개 사용자 QA PASS
 - P007 supplied modulus-2310 pilot PASS: 480 states, 415,223 constraints, minimum slack 0, saved issue 0; historic ceil bound는 유효하지만 floor로 total upper bound를 1 낮출 수 있음
 - P007 small-modulus full PASS: mod 30/210/2310 상한 단조감소; direct acceleration 미증명
-- P010A/P010B modulus-30030 floating/exact lift PASS: 5,760 states, 35,224,647 constraints, strict improvement 0
+- P010A/P010B modulus-30030 floating/exact lift PASS: 5,760 states, 35,224,647 constraints, lift 자체 strict improvement 0
 - P008 phase-A PASS: five exact prime-count endpoints dual-algorithm 일치, actual four blocks certified zero 0; direct local tiling 음성 판정
 - P009 boundary witness toy·adapter·actual single block PASS; Gate A만 통과, 전체 acceleration 미증명
-- P010A modulus-2310 replay와 modulus-30030 exact lift PASS; 상한 동일, G4 11h cutting-plane runner 준비
+- P010A G4 PASS: 4 solves·20.919초, exact violation 0, total upper bound `436001550591586306`, 약 0.7195% 개선; search acceleration 미증명
 - P011 stationary recurrence null pilot PASS; enrichment 미지지, figure 사용자 QA PASS
-- P012 stratified hypergeometric 권장 설계 작성; 사용자 Q1–Q3 합의 전 미구현
+- P012 stratified hypergeometric Q1–Q3 사용자 승인; P012-A 구현·toy 4/4·전체 115 tests PASS, actual·holdout 미실행
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
 다음 권장 행동은 사용자가 Windows에서
-`scripts/experiments/p010a/run_p010a_mod30030_cutting_plane_11h.ps1 -ConfirmP010AG4`를
-실행하는 것이다. total 11시간, per-solve 30분, working-set 250,000, decimal 50 GB로
-제한한다. 이 실행은 count upper bound 연구이며 search acceleration이 아니다. 별도로
-P012 계획서의 Q1–Q3 답을 받아 local-null 설계를 고정한다.
+`scripts/experiments/p012/run_p012_stratified_null_development.ps1 -ConfirmP012A`를 실행하는
+것이다. 결과와 그림을 감사한 뒤 통계 계약을 동결하고서만 `[10^9,10^10]` holdout을 연다.
+현재 과학적으로 타당하고 code-ready인 3–12시간 runner는 없다. 상세 감사는
+`docs/method/20260827_3to12h_compute_readiness_audit.md`다.
