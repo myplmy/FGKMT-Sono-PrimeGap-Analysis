@@ -59,6 +59,12 @@ BAT·PowerShell·WSL 진입점과, 해당 완료 실험에만 쓰인 보조파�
 | `run_p009_single_block_actual-20260826T144500Z-done.ps1` | `9A242D2AD1D05E06B3B59B992F9178EF9E9E7A2825C0525F17D87B2356E24266` | `test_result/logs/run_20260826T144500Z_p009_single_block_actual.log` | `[10^20,10^20+1000)` exact certified zero 1 block, acceleration 미증명 |
 | `run_p010a_mod30030_cutting_plane_11h-20260826T155918Z-done.ps1` | `6DCE831B8E29D72D4A0EF2BA62FF0120C679A6BB93C1789A37F8EC98AFFAA8C2` | `test_result/logs/run_20260826T155918Z_p010a_mod30030_cutting_plane_11h.log` | 4 solves·exact 35,224,647 constraints PASS, total bound 약 0.7195% 개선; acceleration 미증명 |
 
+## 2026-08-27 PowerShell 실행 실패본
+
+| 보존 파일 | SHA-256 | 연결 로그·역할 | 판정 |
+|---|---|---|---|
+| `run_p012_stratified_null_development-20260827T032233Z-failed-done.ps1` | `61FF041F32813D377D9414E700638DAC359961CD29699778AE0969B40404A9F3` | `test_result/logs/run_20260827T032233Z_p012a_stratified_null_development.log` | preflight·targeted tests PASS 뒤 zero-variance `z=None` 시각화의 `float(None)` 결함으로 USER_RUN_FAILED |
+
 재사용 기능은 다음으로 분리했다.
 
 - 공통 로깅: `scripts/common/powershell_stage_logging.ps1`

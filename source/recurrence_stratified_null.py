@@ -604,8 +604,17 @@ def _plot_comparison(rows: Sequence[dict[str, object]], directory: Path) -> list
     observed = [int(row["observed_recurrences"]) for row in primary]
     local_expected = [float(row["expected_recurrences"]) for row in primary]
     stationary_expected = [float(row["p011_expected_recurrences"]) for row in primary]
-    local_z = [float(row["standardized_residual_z"]) for row in primary]
     stationary_z = [float(row["p011_standardized_residual_z"]) for row in primary]
+    local_defined_indices: list[int] = []
+    local_defined_z: list[float] = []
+    local_undefined_indices: list[int] = []
+    for index, row in enumerate(primary):
+        value = row["standardized_residual_z"]
+        if value is None:
+            local_undefined_indices.append(index)
+        else:
+            local_defined_indices.append(index)
+            local_defined_z.append(float(value))
     paths: list[Path] = []
 
     figure, axis = plt.subplots(figsize=(10, 5.5))
@@ -627,12 +636,38 @@ def _plot_comparison(rows: Sequence[dict[str, object]], directory: Path) -> list
     x = np.arange(len(gaps))
     figure, axis = plt.subplots(figsize=(11, 5.5))
     axis.axhline(0.0, color="black", linewidth=0.8)
-    axis.bar(x - 0.2, stationary_z, width=0.4, label="P011 stationary z")
-    axis.bar(x + 0.2, local_z, width=0.4, label="P012 stratified z")
+    axis.bar(
+        x - 0.2,
+        stationary_z,
+        width=0.4,
+        color="tab:blue",
+        label="P011 stationary z",
+    )
+    axis.bar(
+        x[local_defined_indices] + 0.2,
+        local_defined_z,
+        width=0.4,
+        color="tab:orange",
+        label="P012 stratified z",
+    )
+    if local_undefined_indices:
+        axis.scatter(
+            x[local_undefined_indices] + 0.2,
+            np.zeros(len(local_undefined_indices)),
+            marker="x",
+            s=52,
+            linewidths=1.6,
+            color="tab:orange",
+            zorder=3,
+            label="P012 z undefined (variance=0; not z=0)",
+        )
     axis.set_xticks(x, [str(gap) for gap in gaps], rotation=90)
     axis.set_xlabel("record gap")
     axis.set_ylabel("standardized residual z")
-    axis.set_title("P012 residual comparison on the fixed primary cohort")
+    axis.set_title(
+        "P012 residual comparison on the fixed primary cohort\n"
+        "x marker denotes undefined P012 z when conditional variance is zero"
+    )
     axis.grid(axis="y", alpha=0.25)
     axis.legend()
     figure.tight_layout()

@@ -53,7 +53,8 @@ P011 figure 두 개는 2026-08-27 사용자 시각 QA PASS다.
 `HYPOTHESIS P6-H1`: gap별 기대 occurrence를 단순 Poisson이 아닌 admissibility가 반영된
 null model로 정규화하면 초기/후기 recurrence 차이의 일부가 설명된다.
 
-다음 단계 P012는 범위를 무작정 `10^10`으로 늘리기보다 log-bin별 gap occurrence를
-고정하는 stratified hypergeometric null을 권장한다. `[2,10^9]` 개발과 이후 holdout,
-primary 0.5-decade와 shifted sensitivity, two-sided family adequacy를 사용자와 사전 합의한
-뒤 구현한다.
+P012는 범위를 무작정 `10^10`으로 늘리기보다 log-bin별 gap occurrence를 고정하는
+stratified hypergeometric null을 사용한다. `[2,10^9]` 개발과 이후 holdout, primary
+0.5-decade와 shifted sensitivity, two-sided family adequacy를 사용자와 사전 합의했다.
+첫 actual의 zero-variance z plotting 실패는 통계 가설 문제가 아니므로 정의를 바꾸지 않고
+미정의 z를 명시하는 r2로 교정했다.

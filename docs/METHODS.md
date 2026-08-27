@@ -525,7 +525,11 @@ global stationary null의 부적합을 드러냈다. 두 figure는 사용자 시
 log-bin별 gap 발생 수를 고정하고 forced first record를 제거한 stratified hypergeometric
 null이다. 사용자는 `[2,10^9]` 개발/`[10^9,10^10]` holdout 분리, 0.5-decade primary와
 두 shifted sensitivity, two-sided family max-abs-z primary, seed `20260827`, 100,000회를
-사전 승인했다. P012-A 코드는 준비했지만 actual과 holdout은 아직 실행하지 않았다.
+사전 승인했다. 첫 P012-A actual은 조건부 분산 0인 7개 primary row의 올바른
+`standardized_residual_z=None`을 plotting이 `float`로 강제해 실패했다. 이 값은 z=0이
+아니므로 통계 계산은 바꾸지 않는다. r2 residual figure는 P011 bar를 유지하면서 해당 P012
+bar를 생략하고 `variance=0; z undefined` x marker를 표시한다. r2는 로컬검증됐지만 actual은
+아직 재실행하지 않았고 holdout도 건드리지 않았다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

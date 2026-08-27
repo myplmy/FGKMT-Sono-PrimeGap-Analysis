@@ -9,6 +9,7 @@ import numpy as np
 from source.provenance import ApprovalRequiredError
 from source.recurrence_stratified_null import (
     BIN_SCHEMES,
+    _plot_comparison,
     accumulate_bin_counts,
     analyze_components,
     build_components,
@@ -93,7 +94,9 @@ class RecurrenceStratifiedNullTests(unittest.TestCase):
         )
 
     def test_actual_run_refuses_before_input_read_or_output_write(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory(
+            dir=Path.cwd() / "tmp", prefix="p012-approval-test-"
+        ) as directory:
             root = Path(directory)
             output = root / "result"
             with self.assertRaises(ApprovalRequiredError):
@@ -104,6 +107,49 @@ class RecurrenceStratifiedNullTests(unittest.TestCase):
                     approval_token=None,
                 )
             self.assertFalse(output.exists())
+
+    def test_plot_preserves_zero_variance_z_as_undefined(self) -> None:
+        rows = [
+            {
+                "scheme": BIN_SCHEMES[0].name,
+                "cohorts": ["all_eligible", "primary_start_ge_1000"],
+                "gap": 44,
+                "observed_recurrences": 0,
+                "expected_recurrences": 0.0,
+                "p011_expected_recurrences": 3.0,
+                "standardized_residual_z": None,
+                "p011_standardized_residual_z": -1.7,
+            },
+            {
+                "scheme": BIN_SCHEMES[0].name,
+                "cohorts": ["all_eligible", "primary_start_ge_1000"],
+                "gap": 52,
+                "observed_recurrences": 1,
+                "expected_recurrences": 0.5,
+                "p011_expected_recurrences": 0.8,
+                "standardized_residual_z": 0.75,
+                "p011_standardized_residual_z": 0.2,
+            },
+        ]
+        self.assertIsNone(rows[0]["standardized_residual_z"])
+        with tempfile.TemporaryDirectory(
+            dir=Path.cwd() / "tmp", prefix="p012-plot-test-"
+        ) as directory:
+            paths = _plot_comparison(rows, Path(directory) / "figures")
+            self.assertEqual(len(paths), 4)
+            self.assertEqual(
+                {path.name for path in paths},
+                {
+                    "p012_expected_comparison.png",
+                    "p012_expected_comparison.pdf",
+                    "p012_residual_comparison.png",
+                    "p012_residual_comparison.pdf",
+                },
+            )
+            for path in paths:
+                self.assertTrue(path.is_file())
+                self.assertGreater(path.stat().st_size, 0)
+        self.assertIsNone(rows[0]["standardized_residual_z"])
 
 
 if __name__ == "__main__":

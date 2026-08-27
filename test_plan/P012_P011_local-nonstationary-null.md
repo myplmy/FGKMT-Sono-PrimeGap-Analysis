@@ -2,7 +2,7 @@
 
 ## 1. 상태와 사전 고정
 
-`APPROVED / IMPLEMENTED / LOCALLY_VERIFIED / USER_RUN_READY / P012-A_NOT_RUN / HOLDOUT_UNTOUCHED`
+`APPROVED / P012-A_R1_USER_RUN_FAILED / R2_IMPLEMENTED / R2_LOCALLY_VERIFIED / USER_RERUN_REQUIRED / HOLDOUT_UNTOUCHED`
 
 사용자는 2026-08-27 다음 Q1–Q3 권장안을 결과를 보기 전에 승인했다.
 
@@ -14,8 +14,10 @@
    one-sided recurrence enrichment와 Benjamini–Hochberg q-value다. seed `20260827`,
    Monte Carlo 100,000회를 사용한다.
 
-P012-A actual은 아직 실행하지 않았다. `[10^9,10^10]` holdout은 코드·계획 조정에
-사용하지 않았고 P012-A 분석과 방법 동결이 끝날 때까지 잠근다.
+P012-A r1 actual은 2026-08-27 그림 생성 중 zero-variance `z=None`을 `float`로 바꾸는
+구현 결함으로 실패했다. 통계 계산·사전 고정 계약은 바꾸지 않고, 미정의 z를 숫자 0으로
+왜곡하지 않는 r2를 구현·로컬검증했다. `[10^9,10^10]` holdout은 코드·계획 조정에
+사용하지 않았고 P012-A r2 분석과 방법 동결이 끝날 때까지 잠근다.
 
 ## 2. 연구 질문과 비목적
 
@@ -98,7 +100,10 @@ P011과 직접 비교하기 위해 cohort를 그대로 유지한다.
 - 구현: `source/recurrence_stratified_null.py`
 - CLI: `source/recurrence_stratified_null_cli.py`
 - tests: `tests/test_recurrence_stratified_null.py`
-- runner: `scripts/experiments/p012/run_p012_stratified_null_development.ps1`
+- active r2 runner:
+  `scripts/experiments/p012/run_p012_stratified_null_development_r2.ps1`
+- failed r1 provenance:
+  `test_done/run_p012_stratified_null_development-20260827T032233Z-failed-done.ps1`
 
 영향도:
 
@@ -140,6 +145,20 @@ P011과 직접 비교하기 위해 cohort를 그대로 유지한다.
 - 100,000 replications 또는 seed 변경
 - `[10^9,10^10]` 자료 접근
 
+### 첫 actual 실패와 r2 교정
+
+- failed log:
+  `test_result/logs/run_20260827T032233Z_p012a_stratified_null_development.log`
+- partial run:
+  `test_result/run_20260827T032233Z_p012a_stratified_null_development`
+- 판정: preflight·targeted tests PASS 뒤 plotting TypeError, terminal PASS 없음
+- 원인: primary 21행 중 7행의 conditional variance가 0이므로 z가 올바르게 `None`인데
+  plotting이 모든 z를 `float`로 강제함
+- 교정: P011 bar는 유지하고 P012 undefined bar를 생략하며 x marker와 범례로 명시
+- 통계 계약 변경: 없음
+- r2 로컬검증: related 14/14, full 116/116, parser 6/6 PASS
+- 상세 보고서: `test_result/202608271251_P012A_r1_failure_r2_fix_analysis.md`
+
 ## 8. 사용자 실행 절차
 
 환경: Windows PowerShell 또는 FGKMT Conda Prompt
@@ -154,7 +173,7 @@ P011과 직접 비교하기 위해 cohort를 그대로 유지한다.
 
 ```powershell
 cd Z:\FGKMT-Sono-PrimeGap-Analysis
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p012\run_p012_stratified_null_development.ps1 -ConfirmP012A
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p012\run_p012_stratified_null_development_r2.ps1 -ConfirmP012A
 ```
 
 회신할 것:
@@ -173,9 +192,13 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p012\r
 - `p012_residual_comparison.png/.pdf`
 - `saved_verification_report.json`
 
+residual comparison에서 conditional variance 0인 P012 z는 막대 0으로 그리지 않는다. 해당
+gap의 P011 bar는 유지하고 P012 위치에 `z undefined (variance=0; not z=0)` x marker를
+표시한다.
+
 ## 10. P012-B holdout 게이트
 
-P012-A 결과와 saved verification을 감사한 뒤 코드·통계 계약을 동결한다. 그 후에만
+P012-A r2 결과와 saved verification을 감사한 뒤 코드·통계 계약을 동결한다. 그 후에만
 `[10^9,10^10]`의 새 prime-gap sufficient statistics를 만들 수 있다. P012-B에는
 P012-A에서 보고된 이상에 맞춰 bin이나 statistic을 바꾸지 않는다. P006 `10^9` 실측
 2.70초와 선형 규모를 고려하면 P012-B도 3시간 이상일 가능성은 낮지만, A 실제 로그로

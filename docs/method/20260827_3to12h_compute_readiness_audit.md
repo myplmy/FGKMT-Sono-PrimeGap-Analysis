@@ -31,14 +31,14 @@
 - P010 modulus-30030 scan: 35,224,647 constraints 약 0.77초
 - P010A G4: 4 LP solves, 핵심 20.919초, full floating convergence
 - P011 actual: 짧은 stationary-null pilot
-- P012-A: 구현·toy 검증 완료, 예상 1–10분, actual 미실행
+- P012-A: r1은 plotting TypeError로 실패, 통계 불변 r2 로컬검증 완료, 예상 1–10분
 
 ## 후보별 판정
 
 | 후보 | 현재 코드 준비도 | 예상시간 | 과학적 게이트 | 3–12시간 runner 판정 |
 |---|---|---:|---|---|
 | P005 Rank 85→86 exhaustive | calibration만 준비 | 현실적으로 범위 밖 | every-prime-start coverage와 ledger 없음 | 작성 금지 |
-| P006/P012-A `[2,10^9]` | 준비 | 1–10분 | 개발범위 actual 필요 | 짧은 runner만 준비 |
+| P006/P012-A `[2,10^9]` | r2 준비 | 1–10분 | r1 plotting 실패 뒤 개발범위 r2 actual 필요 | 짧은 r2 runner만 준비 |
 | P012-B `[10^9,10^10]` | A 이후 설계 | A 실측상 3시간 미만 가능성 큼 | A 결과 감사·방법 동결 전 holdout 금지 | 아직 작성하지 않음 |
 | P009 10-block boundary sample | actual adapter는 준비, 새 block list 미정 | 10–120분 | internal-zero block 공급·대표성 없음 | 장시간 후보 아님 |
 | P010A modulus-30030 재실행 | 완료 | 약 21초 | 같은 full floating LP에 이미 수렴 | 중복이므로 작성 금지 |
@@ -97,8 +97,8 @@
 
 ## Outputs
 
-- P012-A 사용자 runner:
-  `scripts/experiments/p012/run_p012_stratified_null_development.ps1`
+- P012-A 사용자 r2 runner:
+  `scripts/experiments/p012/run_p012_stratified_null_development_r2.ps1`
 - 3–12시간 runner: 없음
 - 실제 heavy 실행: 없음
 
