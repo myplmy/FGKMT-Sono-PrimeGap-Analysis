@@ -2,15 +2,16 @@
 
 ## 1. 상태
 
-`WAITING_FOR_USER_APPROVAL / IMPLEMENTED / LOCALLY_VERIFIED / ACTUAL_NOT_RUN`
+`COMPLETED / EXPERIMENT_PASS / SAVED_FULL_RECOMPUTATION_PASS / INDEPENDENT_ARITHMETIC_PASS / INDEPENDENT_MC_REPLAY_PASS / USER_VISUAL_QA_PENDING`
 
 P012-A 수치·saved 재계산·독립 감사와 사용자 figure 시각 QA가 모두 PASS했다. 통계 계약은
 `test_plan/P012_statistical_contract_v1.json`에 동결했고 SHA-256은
 `1c79316de685bbc40ba3c5fc49e23b1abec328bbf07dfc218e27d74e5d82000d`다.
 
 P012-B 모듈·CLI·승인형 PowerShell runner를 구현하고, holdout prime stream을 읽지 않는
-preflight와 toy·approval-denial 검증을 통과했다. Codex는 `[10^9,10^10)` actual을 실행하지
-않았다.
+preflight와 toy·approval-denial 검증을 통과했다. 사용자가 `[10^9,10^10)` actual을 실행했고,
+terminal·saved full recomputation·독립 산술·독립 Monte Carlo replay가 모두 issue 0으로
+PASS했다. 자동 figure QA는 PASS했으며 사용자 시각 QA만 남았다.
 
 ## 2. 연구 질문과 비목적
 
@@ -92,7 +93,8 @@ s_i >= 10^9 and s_(i+1) < 10^10
 - analysis: `source/recurrence_stratified_holdout.py`
 - CLI: `source/recurrence_stratified_holdout_cli.py`
 - tests: `tests/test_recurrence_stratified_holdout.py`
-- runner: `scripts/experiments/p012/run_p012_stratified_null_holdout.ps1`
+- completed runner provenance:
+  `test_done/run_p012_stratified_null_holdout-20260827T121734Z-done.ps1`
 
 P012-A source·saved 결과는 변경하지 않는다. P012-B는 validated record metadata와 새 holdout
 prime stream만 사용하고 P006/P011 개발 통계 table을 입력하지 않는다.
@@ -128,30 +130,29 @@ prime stream만 사용하고 P006/P011 개발 통계 table을 입력하지 않�
 - RAM 8 GB, disk 2 GB 또는 전체 runner 4시간 초과
 - development P006/P011 table을 기대값 입력으로 사용하려는 경우
 
-## 8. 사용자 실행 명령
+## 8. 완료 실행과 사용자 시각 QA
 
-환경: Windows PowerShell 또는 FGKMT Conda Prompt
+실행 환경은 Windows PowerShell 또는 FGKMT Conda Prompt였다. 완료 runner는 hash를 보존해
+`test_done`으로 이관했으므로 다시 실행하지 않는다.
 
-시작 경로: `Z:\FGKMT-Sono-PrimeGap-Analysis`
+실행 이력 명령은 다음과 같다.
 
 ```powershell
 cd Z:\FGKMT-Sono-PrimeGap-Analysis
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p012\run_p012_stratified_null_holdout.ps1 -ConfirmP012B
 ```
 
-보수적 예상시간: 30–120분. 분석과 saved verification이 각각 holdout 전체를 한 번씩
-streaming하므로 두 차례 full sweep을 포함한다.
+분석 단계는 약 240.7초였고 로그·파일 시각으로 본 전체 runner는 약 7분 54초였다. 분석과
+saved verification이 각각 holdout 전체를 한 번씩 streaming했다. RAM·disk 제한을 넘지 않았고
+GPU를 사용하지 않았다.
 
-예상 RAM: 2 GB 미만. 예상 disk: 500 MB 미만. GPU는 사용하지 않는다.
+사용자에게 남은 절차는 아래 두 PNG의 시각검사뿐이다.
 
-완료 후 다음을 회신한다.
+1. `test_result/run_20260827T121734Z_p012b_stratified_null_holdout/figures/p012b_holdout_expected.png`
+2. `test_result/run_20260827T121734Z_p012b_stratified_null_holdout/figures/p012b_holdout_residuals.png`
 
-1. 마지막 `[PASS]` 또는 첫 `[FAIL]`
-2. 출력된 log와 result directory 경로
-3. `summary.json`, `manifest.json`, `saved_verification_report.json` 경로
-4. PNG 두 장의 축·선·막대·x marker·범례 시각검사 결과
-
-실패하면 같은 명령을 반복하지 말고 첫 FAIL과 log 경로를 먼저 회신한다.
+축·선·막대·범례가 읽히는지, residual 그림의 x marker가 `variance=0; z undefined`를
+나타내는지, 글자나 요소가 잘리지 않는지만 회신한다.
 
 ## 9. 예상 산출물
 
@@ -170,3 +171,27 @@ streaming하므로 두 차례 full sweep을 포함한다.
 - P012-A와 방향이 같으면 “독립 유한범위 재현”으로만 표현한다.
 - 방향이 다르면 실패를 숨기지 않고 위치·표본수·검정력 차이를 분석한다.
 - actual 결과 뒤 새 bin 또는 pooled model이 필요하면 P012-B를 바꾸지 않고 새 실험번호로 분리한다.
+
+## 11. 실제 실행 결과
+
+- run: `test_result/run_20260827T121734Z_p012b_stratified_null_holdout`
+- log: `test_result/logs/run_20260827T121734Z_p012b_stratified_null_holdout.log`
+- log SHA-256: `1e96ebe3f645856eb5e000382ab503e63f657526d77eb84ce604091d4436ff64`
+- terminal PASS: 확인
+- saved deterministic full recomputation: PASS, issues 0
+- manifest SHA-256: `299e0bbd3e754c0f5f716ddfaea4b09bb4e0cd6adcb6f98e94e6f0a71abc89e5`
+- selected complete plateaus: 4 (`31–34`)
+- gap starts / selected plateau exposure: `404,204,977 / 138,659,994`
+- recurrence: gap 336에서 1건; 나머지 288·292·320은 0건
+- primary observed / expected: `1 / 0.4970217812`
+- primary family p / 최소 enrichment BH q: `0.0939390606 / 0.2759572404`
+- modeled / LOW_INFORMATION / zero-variance rows: `12 / 12 / 3`
+- 독립 산술·100,000회 Monte Carlo replay: issues 0
+- 개발자료 사용: false
+- theorem claim / GPU: false / false
+- 결과보고서: `test_result/202608280019_P012B_holdout_result_analysis.md`
+- figure 상태: 자동 파일검사 PASS / 사용자 visual QA 대기
+
+사전 고정한 5% 기준에서 recurrence enrichment는 검출되지 않았다. 모든 행이 저정보이므로
+이는 null 채택, 모형 정당성 또는 recurrence 구조 부재의 증명이 아니다. 후속 모형이나 범위는
+P012-B를 소급 변경하지 않고 새 P013 개발/검증 분리로 설계한다.

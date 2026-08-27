@@ -32,7 +32,7 @@
 - P010A G4: 4 LP solves, 핵심 20.919초, full floating convergence
 - P011 actual: 짧은 stationary-null pilot
 - P012-A: r2 actual·saved verification·사용자 figure QA PASS, 계약 hash 동결
-- P012-B: range-only holdout 구현·preflight·toy PASS, actual 미실행
+- P012-B: actual·saved full recomputation·독립 감사 PASS, 전체 runner 약 7분 54초
 - P010B: direct candidate-cover verifier toy PASS, exhaustive generator라 acceleration BLOCKED
 
 ## 후보별 판정
@@ -41,7 +41,7 @@
 |---|---|---:|---|---|
 | P005 Rank 85→86 exhaustive | calibration만 준비 | 현실적으로 범위 밖 | every-prime-start coverage와 ledger 없음 | 작성 금지 |
 | P006/P012-A `[2,10^9]` | 완료 | 87.234초 analysis | r2 terminal·saved PASS | 장시간 후보 아님 |
-| P012-B `[10^9,10^10)` | 구현·preflight PASS | 30–120분 | 동결 contract·두 full streaming pass | code-ready지만 3시간 미만 후보 |
+| P012-B `[10^9,10^10)` | 완료 | 약 7분 54초 | 동결 contract·두 full streaming pass·독립 감사 PASS | 장시간 후보 아님 |
 | P009 10-block boundary sample | actual adapter는 준비, 새 block list 미정 | 10–120분 | internal-zero block 공급·대표성 없음 | 장시간 후보 아님 |
 | P010A modulus-30030 재실행 | 완료 | 약 21초 | 같은 full floating LP에 이미 수렴 | 중복이므로 작성 금지 |
 | P010A modulus-510510 | 미구현 | 미측정 | 92,160 states·8,524,288,932 constraints, 새 exact lift·streaming·LP 설계 필요 | 현재 작성 불가 |
@@ -89,14 +89,14 @@
 ## Approval gate
 
 현재 과학적으로 타당하고 code-ready인 3–12시간 actual runner는 **0개**다. 따라서 새
-장시간 runner를 만들지 않는다. P012-A는 완료됐고 P012-B는 30–120분의 중간 실행으로
-준비됐다. 다음 중
+장시간 runner를 만들지 않는다. P012-A와 P012-B 모두 완료됐고 P012-B 실측도 약 7분 54초라
+장시간 후보가 아니었다. 다음 중
 하나가 충족되면 이 감사를 갱신한다.
 
-1. P012-B 실측이 3시간을 넘겨 estimate 보정이 필요한 경우
-2. modulus-510510 memory-safe bounded calibration 설계 완료
-3. P010B non-circular compressed absolute mapping 준비
-4. P005 every-prime-start coverage mapping 준비
+1. modulus-510510 memory-safe bounded calibration 설계 완료
+2. P010B non-circular compressed absolute mapping 준비
+3. P005 every-prime-start coverage mapping 준비
+4. P013 검정력 설계가 3–12시간 full sieve의 정보가치를 사전에 정당화
 
 ## Outputs
 
@@ -104,12 +104,13 @@
   `test_done/run_p012_stratified_null_development_r2-20260827T054007Z-done.ps1`
 - 3–12시간 runner: 없음
 - P012-A actual: 완료, 3–12시간 heavy 범주 아님
-- P012-B runner: `scripts/experiments/p012/run_p012_stratified_null_holdout.ps1`,
-  예상 30–120분으로 3–12시간 범주 아님
+- P012-B 완료 runner:
+  `test_done/run_p012_stratified_null_holdout-20260827T121734Z-done.ps1`
+- P012-B actual: 완료, 약 7분 54초로 3–12시간 heavy 범주 아님
 
 ## Follow-up
 
-1. 사용자가 동결된 runner로 P012-B actual을 실행한다.
-2. P012-B log·saved 결과·figure를 감사하고 실측시간을 갱신한다.
+1. 사용자가 P012-B figure 두 장을 시각검사한다.
+2. recurrence 축에서는 P013 검정력·식별가능성을 먼저 설계한다.
 3. 계산수론 축에서는 P010B compressed mapping·PARI witness schema를 toy 단계에서
    고정한 뒤에만 actual feasibility를 검토한다.

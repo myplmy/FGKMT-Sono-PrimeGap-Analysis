@@ -4,10 +4,10 @@
 
 이 문서는 `Z:\FGKMT-Sono-PrimeGap-Analysis`에서 수행할 대형 소수간격 비교 실험의 방법론 정본이다.
 
-- 현재 단계: P003/P004 본체, P005–P012-A 단계별 실행·검증 완료; P012-B holdout 실행 준비
-- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P012-A 실제 실행과 사후 검증
-- 현재 비승인·미실행 범위: P012-B actual, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 실제 실행 시작 조건: `test_plan/P012B_stratified-null-holdout.md`의 고정 runner를 사용자가 confirmation flag로 직접 실행
+- 현재 단계: P003/P004 본체와 P005–P012-B 단계별 실제 실행·사후 검증 완료; P012-B 사용자 시각 QA 대기
+- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P012-B 실제 실행과 사후 검증
+- 현재 비승인·미실행 범위: P010B large-range acceleration, 신규 P013 actual, 외부 게시, commit/push/PR
+- 다음 사용자 단계: P012-B PNG 두 장을 시각검사한다. 다음 연구 구현은 P010B compressed absolute coverage와 P013 검정력 설계다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -549,8 +549,13 @@ start를 range-only segmented sieve로 생성한다. canonical record metadata�
 다음 record start가 모두 holdout 안인 complete records `31–34`만 선택하고 왼쪽 continuation과
 오른쪽 censored plateau를 제외한다. pinned gap-start 수는
 `pi(10^10)-pi(10^9)=404204977`이며 오른쪽 boundary prime 하나로 마지막 gap을 닫는다.
-분석과 saved full recomputation은 각각 한 번 streaming한다. 구현·preflight·toy는 PASS했지만
-actual holdout은 아직 실행하지 않았다.
+사용자 실행 `20260827T121734Z_p012b_stratified_null_holdout`은 분석과 saved full recomputation,
+사후 독립 산술과 100,000회 Monte Carlo replay를 issue 0으로 통과했다. 4개 complete plateau에서
+recurrence는 1건이고 primary 기대 0.497022, family p 0.093939, 최소 enrichment BH q
+0.275957로 5% 기준 enrichment를 검출하지 못했다. 12/12 row가 LOW_INFORMATION이고 3개는
+zero variance이므로 null 채택이나 recurrence 구조 부재로 해석하지 않는다. 자동 figure QA는
+PASS했고 사용자 시각 QA는 대기 중이다. 정본 결과보고서는
+`test_result/202608280019_P012B_holdout_result_analysis.md`다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

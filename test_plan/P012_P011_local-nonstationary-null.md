@@ -2,7 +2,7 @@
 
 ## 1. 상태와 사전 고정
 
-`COMPLETED / P012-A_R2_EXPERIMENT_PASS / SAVED_FULL_RECOMPUTATION_PASS / USER_VISUAL_QA_PASS / CONTRACT_FROZEN / P012-B_IMPLEMENTED / P012-B_ACTUAL_NOT_RUN`
+`COMPLETED / P012-A_R2_EXPERIMENT_PASS / P012-A_USER_VISUAL_QA_PASS / CONTRACT_FROZEN / P012-B_EXPERIMENT_PASS / P012-B_SAVED_FULL_RECOMPUTATION_PASS / P012-B_USER_VISUAL_QA_PENDING`
 
 사용자는 2026-08-27 다음 Q1–Q3 권장안을 결과를 보기 전에 승인했다.
 
@@ -21,7 +21,10 @@ full recomputation PASS했다. 사전 primary에서 관측 9회, P012 기대 8.5
 정당성이나 구조 부재를 증명하지 않는다. `[10^9,10^10]` holdout은 사용자 figure QA와
 P012-A 계약 동결 전까지 계속 잠갔다. 사용자는 2026-08-27 r2 figure 시각 QA에 문제가
 없음을 확인했고, 통계 계약을 `test_plan/P012_statistical_contract_v1.json`에 동결했다.
-P012-B는 별도 계획·모듈·승인형 runner까지 구현했지만 actual holdout은 아직 실행하지 않았다.
+그 뒤 사용자가 P012-B actual을 실행했다. terminal·saved full recomputation·독립 산술·독립
+Monte Carlo replay가 모두 PASS했다. primary 관측 1 대 기대 0.497022, family p 0.093939,
+최소 enrichment BH q 0.275957로 5% 기준 enrichment는 검출되지 않았다. 12/12 row가
+LOW_INFORMATION이고 3개는 zero variance이므로 null 채택이나 구조 부재를 주장하지 않는다.
 
 ## 2. 연구 질문과 비목적
 
@@ -209,12 +212,13 @@ plateau를 제외한다. 구현은 다음과 같다.
 - analysis: `source/recurrence_stratified_holdout.py`
 - CLI: `source/recurrence_stratified_holdout_cli.py`
 - tests: `tests/test_recurrence_stratified_holdout.py`
-- runner: `scripts/experiments/p012/run_p012_stratified_null_holdout.ps1`
+- completed runner provenance:
+  `test_done/run_p012_stratified_null_holdout-20260827T121734Z-done.ps1`
 
 preflight는 contract·record metadata만 읽고 holdout prime stream을 열지 않은 채 PASS했다.
 range sieve·경계 prime·complete-plateau selection·forced record·approval denial 5/5 tests도
-PASS했다. actual은 미실행이다. 분석과 saved full recomputation이 각각 404,204,977 gap
-starts를 streaming하므로 보수적 사용자 예상은 30–120분이다.
+PASS했다. actual에서 분석과 saved full recomputation이 각각 404,204,977 gap starts를
+streaming했고, 전체 runner는 약 7분 54초에 완료됐다.
 
 ## 11. P012-A r2 actual 결과
 
@@ -233,4 +237,23 @@ starts를 streaming하므로 보수적 사용자 예상은 30–120분이다.
 - 결과보고서: `test_result/202608271655_P012A_r2_result_analysis.md`
 - figure 상태: 자동 파일검사 PASS / 사용자 visual QA 2026-08-27 PASS
 - frozen contract: `test_plan/P012_statistical_contract_v1.json`
-- P012-B actual: NOT RUN
+- P012-B actual: EXPERIMENT_PASS / 사용자 visual QA 대기
+
+## 12. P012-B actual 결과
+
+- run: `test_result/run_20260827T121734Z_p012b_stratified_null_holdout`
+- log: `test_result/logs/run_20260827T121734Z_p012b_stratified_null_holdout.log`
+- terminal·saved deterministic full recomputation: PASS, issues 0
+- 독립 산술·100,000회 Monte Carlo replay: issues 0
+- complete plateaus / recurrence: `4 / 1`
+- primary observed / expected: `1 / 0.4970217812`
+- primary family p / 최소 enrichment BH q: `0.0939390606 / 0.2759572404`
+- modeled / LOW_INFORMATION / zero-variance rows: `12 / 12 / 3`
+- development data used for holdout inference: false
+- 결과보고서: `test_result/202608280019_P012B_holdout_result_analysis.md`
+- figure 상태: 자동 QA PASS / 사용자 visual QA 대기
+
+P012-A와 P012-B 모두 사전 고정 5% 기준에서 enrichment를 검출하지 못했다. 그러나 P012-B는
+complete plateau가 4개뿐이고 모든 행이 저정보다. 따라서 “독립 holdout에서 극단적 불일치는
+보이지 않았다”까지만 말하며 모형 채택·구조 부재·수론 정리를 주장하지 않는다. 다음 recurrence
+연구는 이 holdout을 개발자료로 재사용하지 않고 새 P013의 검정력·식별가능성 설계부터 시작한다.

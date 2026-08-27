@@ -68,6 +68,10 @@ contract로 동결했다.
 
 P012-B는 `[10^9,10^10)`의 독립 gap-start stream을 사용한다. record start와 다음 record
 start가 모두 holdout 안인 complete records `31–34`만 포함하고 양쪽 censored edge를 제외한다.
-P006/P011 개발 table은 기대값 입력으로 사용하지 않는다. range sieve·contract/hash preflight·
-toy tests는 PASS했으나 actual은 미실행이다. holdout에서도 LOW_INFORMATION이 높으면 유의하지
-않은 결과를 구조 부재로 해석하지 않는다.
+P006/P011 개발 table은 기대값 입력으로 사용하지 않았다. terminal·saved full recomputation·
+독립 산술·독립 100,000회 Monte Carlo replay가 issue 0으로 PASS했다. 4개 plateau에서 관측
+recurrence는 1, primary 기대는 0.497022, family p는 0.093939, 최소 enrichment BH q는
+0.275957로 5% 기준 enrichment를 검출하지 못했다. 12/12 row가 LOW_INFORMATION이고 3개는
+zero variance다. 따라서 holdout에서 극단적 모형 불일치는 검출되지 않았다고만 말하며, 유의하지
+않은 결과를 모형 채택이나 구조 부재로 해석하지 않는다. 새 recurrence 모형·범위 확대는 P012-B를
+소급 변경하지 않고 별도 P013 개발/검증 분리로 설계한다.
