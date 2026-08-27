@@ -54,3 +54,9 @@ potential을 찾았다. 저장 exact certificate는 같은 35,224,647 constraint
 minimum integer slack 0이고 total bound는 `436001550591586306`이다. 개선은 lift 정리 자체가
 아니라 target modulus의 추가 자유도를 최적화한 결과다. 위치·search acceleration은 여전히
 따라오지 않는다.
+
+P014는 이 정리를 modulus 510510으로 한 단계 더 적용하도록 준비됐다. target은 92,160 states와
+8,524,288,932 constraints이므로 full matrix는 금지하고 chunked exact scan만 사용한다. lifted
+baseline을 exact 검증한 뒤 4시간 calibration gate를 통과한 경우에만 bounded working-set
+optimization을 시도한다. strict count-bound 개선 여부와 무관하게 위치 coverage·search
+acceleration은 별도 미해결 조건으로 남는다.

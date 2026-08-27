@@ -2,7 +2,7 @@
 
 ## 1. 상태와 사전 고정
 
-`COMPLETED / P012-A_R2_EXPERIMENT_PASS / P012-A_USER_VISUAL_QA_PASS / CONTRACT_FROZEN / P012-B_EXPERIMENT_PASS / P012-B_SAVED_FULL_RECOMPUTATION_PASS / P012-B_USER_VISUAL_QA_PENDING`
+`COMPLETED / P012-A_R2_EXPERIMENT_PASS / P012-A_USER_VISUAL_QA_PASS / CONTRACT_FROZEN / P012-B_EXPERIMENT_PASS / P012-B_SAVED_FULL_RECOMPUTATION_PASS / P012-B_USER_VISUAL_QA_PASS`
 
 사용자는 2026-08-27 다음 Q1–Q3 권장안을 결과를 보기 전에 승인했다.
 
@@ -237,7 +237,7 @@ streaming했고, 전체 runner는 약 7분 54초에 완료됐다.
 - 결과보고서: `test_result/202608271655_P012A_r2_result_analysis.md`
 - figure 상태: 자동 파일검사 PASS / 사용자 visual QA 2026-08-27 PASS
 - frozen contract: `test_plan/P012_statistical_contract_v1.json`
-- P012-B actual: EXPERIMENT_PASS / 사용자 visual QA 대기
+- P012-B actual: EXPERIMENT_PASS / 2026-08-28 사용자 visual QA PASS
 
 ## 12. P012-B actual 결과
 
@@ -251,7 +251,7 @@ streaming했고, 전체 runner는 약 7분 54초에 완료됐다.
 - modeled / LOW_INFORMATION / zero-variance rows: `12 / 12 / 3`
 - development data used for holdout inference: false
 - 결과보고서: `test_result/202608280019_P012B_holdout_result_analysis.md`
-- figure 상태: 자동 QA PASS / 사용자 visual QA 대기
+- figure 상태: 자동 QA PASS / 2026-08-28 사용자 visual QA PASS
 
 P012-A와 P012-B 모두 사전 고정 5% 기준에서 enrichment를 검출하지 못했다. 그러나 P012-B는
 complete plateau가 4개뿐이고 모든 행이 저정보다. 따라서 “독립 holdout에서 극단적 불일치는

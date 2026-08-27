@@ -74,4 +74,7 @@ recurrence는 1, primary 기대는 0.497022, family p는 0.093939, 최소 enrich
 0.275957로 5% 기준 enrichment를 검출하지 못했다. 12/12 row가 LOW_INFORMATION이고 3개는
 zero variance다. 따라서 holdout에서 극단적 모형 불일치는 검출되지 않았다고만 말하며, 유의하지
 않은 결과를 모형 채택이나 구조 부재로 해석하지 않는다. 새 recurrence 모형·범위 확대는 P012-B를
-소급 변경하지 않고 별도 P013 개발/검증 분리로 설계한다.
+소급 변경하지 않고 별도 P013 prospective 확장으로 분리했다. 사용자는 P012-B 두 figure의
+시각 QA도 2026-08-28 PASS했다. P013-A/B는 `[10^10,10^11)`, `[10^11,10^12)` 범위·seed·
+exact gap-start count와 stage별 alpha 0.025를 actual 전에 동결했으며, 결과를 본 뒤 pooling하지
+않는다. 이는 정보량 증가와 모형의 유한범위 적합성을 보는 경험적 진단이다.

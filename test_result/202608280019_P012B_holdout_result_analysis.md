@@ -11,7 +11,7 @@ Codex가 현재 고정 코드로 holdout 전체를 다시 스트리밍하고, �
 모두 issue 0이었다. 따라서 수치·저장·재현성 기준 P012-B는 `EXPERIMENT_PASS`다.
 
 PNG·PDF의 hash·decode·크기·nonblank 자동검사는 PASS했다. 사람 눈으로 축·선·범례·x marker를
-확인하는 시각 QA는 사용자가 수행하기 전이므로 아직 `PENDING`이다.
+확인하는 시각 QA도 2026-08-28 사용자가 두 그림에 문제가 없다고 판정해 `PASS`다.
 
 ## 쉬운 말로 설명한 실험과 결과
 
@@ -175,7 +175,7 @@ hierarchical 모형의 검정력·식별 가능성을 먼저 평가해야 한다
 - expected PNG: 1440x990, decode·nonblank·manifest hash PASS
 - residual PNG: 1440x990, decode·nonblank·manifest hash PASS
 - PDF 2개: header·EOF·manifest hash PASS
-- 사용자 시각 QA: `PENDING`
+- 사용자 시각 QA: `PASS` (2026-08-28, 두 그림 문제 없음)
 
 ## 연구 질문에 대한 답
 
@@ -189,9 +189,9 @@ hierarchical 모형의 검정력·식별 가능성을 먼저 평가해야 한다
 
 ## 권장 후속 방향
 
-1. 사용자가 PNG 두 장의 시각 QA를 수행해 P012-B 결과를 최종 닫는다.
-2. recurrence 축은 즉시 더 큰 full sieve로 확장하지 말고, 새 P013에서 pooled/hierarchical
-   후보의 검정력과 새 holdout 설계를 먼저 검토한다.
+1. P012-B는 수치·저장·독립 replay·사용자 시각 QA까지 최종 닫혔다.
+2. recurrence 축은 P012-B를 바꾸지 않고 사전 동결된 새 P013 prospective decade extension으로
+   정보량 변화를 확인한다.
 3. 현재 알고리즘 연구의 우선순위는 P010B compressed coverage ledger와 exact PARI witness
    adapter다. count upper bound를 실제 위치 가속으로 연결하는 미해결 조건에 직접 대응한다.
 4. P012-B의 frozen contract와 actual 산출물은 사후 수정하지 않는다.

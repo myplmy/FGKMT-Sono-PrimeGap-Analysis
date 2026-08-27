@@ -1,0 +1,88 @@
+{
+  "bin_schemes": [
+    {
+      "name": "primary_width_0p5_shift_0",
+      "shift": 0.0,
+      "width": 0.5
+    },
+    {
+      "name": "sensitivity_width_0p5_shift_0p25",
+      "shift": 0.25,
+      "width": 0.5
+    },
+    {
+      "name": "sensitivity_width_1_shift_0p5",
+      "shift": 0.5,
+      "width": 1.0
+    }
+  ],
+  "cohorts": [
+    "primary_start_ge_1000",
+    "all_eligible",
+    "sensitivity_start_ge_100000"
+  ],
+  "contract_id": "P013_PROSPECTIVE_STRATIFIED_RECURRENCE_EXTENSION_V1",
+  "forced_first_record_removed": true,
+  "frozen_at_kst": "2026-08-28T00:52:39+09:00",
+  "low_information_rule": {
+    "changes_test_membership": false,
+    "conditioned_gap_count_less_than": 5,
+    "control_exposure_less_than": 1000
+  },
+  "parent_p012_contract_sha256": "1c79316de685bbc40ba3c5fc49e23b1abec328bbf07dfc218e27d74e5d82000d",
+  "p012b_prerequisite": {
+    "figure_visual_qa": "PASS",
+    "manifest_sha256": "299e0bbd3e754c0f5f716ddfaea4b09bb4e0cd6adcb6f98e94e6f0a71abc89e5",
+    "result_run_id": "20260827T121734Z_p012b_stratified_null_holdout",
+    "saved_verification_report_sha256": "da3da7439f81f6ec40a8a28c4349984c59790f411ffdfca24c1999b0505b6bf9"
+  },
+  "pooling_after_results_prohibited": true,
+  "primary": {
+    "cohort": "primary_start_ge_1000",
+    "scheme": "primary_width_0p5_shift_0",
+    "statistic": "two-sided family maximum absolute standardized residual",
+    "two_stage_bonferroni_alpha_each": 0.025
+  },
+  "replications_per_stage": 100000,
+  "secondary": "one-sided recurrence enrichment with within-stage Benjamini-Hochberg q-values",
+  "stages": {
+    "A": {
+      "expected_complete_record_indices": [
+        36,
+        37,
+        38,
+        39
+      ],
+      "expected_gap_start_count": 3663002302,
+      "left_censored_continuation_excluded": true,
+      "lower_inclusive": "10000000000",
+      "right_censored_plateau_excluded": true,
+      "seed": 20260828,
+      "upper_exclusive": "100000000000"
+    },
+    "B": {
+      "expected_complete_record_indices": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "expected_gap_start_count": 33489857205,
+      "left_censored_continuation_excluded": true,
+      "lower_inclusive": "100000000000",
+      "right_censored_plateau_excluded": true,
+      "seed": 20260829,
+      "upper_exclusive": "1000000000000"
+    }
+  },
+  "status": "FROZEN_BEFORE_P013_EXECUTION",
+  "theorem_claimed": false,
+  "validated_records_sha256": "62ecb9028e77893c79a57512488544b91b628a006bb2bd306b670afa34676297",
+  "zero_variance_rule": "retain row with z=null and exclude only from z-based family calculation"
+}
+

@@ -4,10 +4,10 @@
 
 이 문서는 `Z:\FGKMT-Sono-PrimeGap-Analysis`에서 수행할 대형 소수간격 비교 실험의 방법론 정본이다.
 
-- 현재 단계: P003/P004 본체와 P005–P012-B 단계별 실제 실행·사후 검증 완료; P012-B 사용자 시각 QA 대기
+- 현재 단계: P003/P004 본체와 P005–P012-B 단계별 실제 실행·사후 검증·사용자 시각 QA 완료; P013–P015 사용자 실행 준비
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P012-B 실제 실행과 사후 검증
-- 현재 비승인·미실행 범위: P010B large-range acceleration, 신규 P013 actual, 외부 게시, commit/push/PR
-- 다음 사용자 단계: P012-B PNG 두 장을 시각검사한다. 다음 연구 구현은 P010B compressed absolute coverage와 P013 검정력 설계다.
+- 현재 미실행 범위: P013-A/B recurrence extension, P014 modulus-510510 certificate, P010B large-range acceleration, 외부 게시, commit/push/PR
+- 다음 사용자 단계: P015 47시간 queue를 한 번 실행하고 queue·child log/result와 P013 figure 시각 QA를 회신한다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -553,9 +553,24 @@ start를 range-only segmented sieve로 생성한다. canonical record metadata�
 사후 독립 산술과 100,000회 Monte Carlo replay를 issue 0으로 통과했다. 4개 complete plateau에서
 recurrence는 1건이고 primary 기대 0.497022, family p 0.093939, 최소 enrichment BH q
 0.275957로 5% 기준 enrichment를 검출하지 못했다. 12/12 row가 LOW_INFORMATION이고 3개는
-zero variance이므로 null 채택이나 recurrence 구조 부재로 해석하지 않는다. 자동 figure QA는
-PASS했고 사용자 시각 QA는 대기 중이다. 정본 결과보고서는
+zero variance이므로 null 채택이나 recurrence 구조 부재로 해석하지 않는다. 자동 figure QA와
+2026-08-28 사용자 시각 QA가 모두 PASS했다. 정본 결과보고서는
 `test_result/202608280019_P012B_holdout_result_analysis.md`다.
+
+P013은 P012-B를 소급 수정하지 않고 `[10^10,10^11)`, `[10^11,10^12)` 두 새 gap-start
+범위에 동일한 bin·cohort·forced-record·zero-variance·LOW_INFORMATION 규칙을 적용한다.
+범위·exact prime-count difference·seed `20260828/20260829`·stage별 100,000회와 two-stage
+Bonferroni alpha `0.025`는 contract SHA-256
+`153cc1f3cd158a31e984f7d0f32502411102ab8ae6d5b9623cd0e81dcc5795bf`로 actual 전에 동결했다.
+각 stage는 range를 한 번 분석하고 saved verifier가 전체 range를 다시 streaming한다. 이는
+경험적 prospective 진단이며 결과를 본 뒤 pooling하지 않는다.
+
+P014는 exact P010A G4 certificate를 `30030 | 510510` 배수-modulus 정리로 lift한다. 92,160
+states와 8,524,288,932 constraints를 full matrix 없이 exact signed-int64 streaming으로 먼저
+검증한다. stage-A가 4시간 gate 안이면 최대 12회·working set 100,000의 bounded cutting-plane을
+시도하고, 최종 certificate를 다시 exact 검증한다. 상한 개선은 finite count 결과일 뿐 search
+acceleration이 아니다. P015는 P013-A 4시간, P013-B 20시간, P014 22시간 timeout과 global
+47시간·decimal 50GB를 적용하는 orchestration-only queue다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

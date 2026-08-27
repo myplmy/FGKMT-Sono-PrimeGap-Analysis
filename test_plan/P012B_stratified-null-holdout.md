@@ -146,13 +146,13 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\experiments\p012\r
 saved verification이 각각 holdout 전체를 한 번씩 streaming했다. RAM·disk 제한을 넘지 않았고
 GPU를 사용하지 않았다.
 
-사용자에게 남은 절차는 아래 두 PNG의 시각검사뿐이다.
+사용자는 2026-08-28 아래 두 PNG의 시각검사를 완료했고 두 그림에 문제가 없음을 확인했다.
 
 1. `test_result/run_20260827T121734Z_p012b_stratified_null_holdout/figures/p012b_holdout_expected.png`
 2. `test_result/run_20260827T121734Z_p012b_stratified_null_holdout/figures/p012b_holdout_residuals.png`
 
-축·선·막대·범례가 읽히는지, residual 그림의 x marker가 `variance=0; z undefined`를
-나타내는지, 글자나 요소가 잘리지 않는지만 회신한다.
+축·선·막대·범례, residual 그림의 `variance=0; z undefined` x marker와 요소 잘림을
+확인한 사용자 판정은 `PASS`다.
 
 ## 9. 예상 산출물
 
@@ -190,7 +190,7 @@ GPU를 사용하지 않았다.
 - 개발자료 사용: false
 - theorem claim / GPU: false / false
 - 결과보고서: `test_result/202608280019_P012B_holdout_result_analysis.md`
-- figure 상태: 자동 파일검사 PASS / 사용자 visual QA 대기
+- figure 상태: 자동 파일검사 PASS / 2026-08-28 사용자 visual QA PASS
 
 사전 고정한 5% 기준에서 recurrence enrichment는 검출되지 않았다. 모든 행이 저정보이므로
 이는 null 채택, 모형 정당성 또는 recurrence 구조 부재의 증명이 아니다. 후속 모형이나 범위는
