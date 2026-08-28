@@ -209,6 +209,14 @@ def run_staged_experiment(
     with (output_directory / "lifted_baseline_mod510510.txt").open("x", encoding="ascii", newline="\n") as handle:
         handle.write(certificate_text(lifted))
 
+    if progress_callback:
+        progress_callback(
+            {
+                "stage": "exact_lift",
+                "status": "STARTED",
+                "constraints": TARGET_CONSTRAINTS,
+            }
+        )
     stage_a_started = time.perf_counter()
     stage_a = scan_exact_certificate_constraints(
         lifted,
@@ -226,7 +234,14 @@ def run_staged_experiment(
     stage_a["elapsed_seconds"] = stage_a_elapsed
     _write_json_exclusive(output_directory / "stage_a_exact_report.json", stage_a)
     if progress_callback:
-        progress_callback({"stage": "exact_lift", "elapsed_seconds": stage_a_elapsed, "constraints": TARGET_CONSTRAINTS})
+        progress_callback(
+            {
+                "stage": "exact_lift",
+                "status": "PASS",
+                "elapsed_seconds": stage_a_elapsed,
+                "constraints": TARGET_CONSTRAINTS,
+            }
+        )
 
     best = lifted
     history: list[dict[str, object]] = []
@@ -240,6 +255,8 @@ def run_staged_experiment(
     if stage_a_elapsed <= stage_a_gate_seconds and time.perf_counter() - started < max_wall_seconds:
         optimizer_run = True
         baseline_candidate = _candidate_from_certificate(lifted)
+        if progress_callback:
+            progress_callback({"stage": "seed_scan", "status": "STARTED"})
         seed = scan_smallest_transition_slacks(
             TARGET_MODULUS,
             DEFAULT_H,
@@ -249,6 +266,14 @@ def run_staged_experiment(
             allow_large_state_scan=True,
         )
         _write_json_exclusive(output_directory / "seed_scan_report.json", seed)
+        if progress_callback:
+            progress_callback(
+                {
+                    "stage": "seed_scan",
+                    "status": "PASS",
+                    "constraints": int(seed["scanned_constraints"]),
+                }
+            )
         working = {_edge_from_payload(item) for item in seed["smallest_constraints"]}
         outcome = "MAX_ITERATIONS"
         for iteration in range(1, max_iterations + 1):
@@ -352,6 +377,8 @@ def run_staged_experiment(
     _write_json_exclusive(output_directory / "iteration_history.json", history)
     with (output_directory / "best_certificate_mod510510.txt").open("x", encoding="ascii", newline="\n") as handle:
         handle.write(certificate_text(best))
+    if progress_callback:
+        progress_callback({"stage": "final_exact", "status": "STARTED"})
     final_exact = scan_exact_certificate_constraints(
         best,
         chunk_rows=chunk_rows,
@@ -360,6 +387,14 @@ def run_staged_experiment(
     )
     if final_exact.get("status") != "PASS" or int(final_exact["violation_count"]) != 0:
         raise Mod510510Error("P014 final certificate exact verification failed")
+    if progress_callback:
+        progress_callback(
+            {
+                "stage": "final_exact",
+                "status": "PASS",
+                "constraints": int(final_exact["scanned_constraints"]),
+            }
+        )
     _write_json_exclusive(output_directory / "exact_best_report.json", final_exact)
     strict = best.total_bound < BASELINE_TOTAL_BOUND
     scientific_outcome = (
@@ -420,7 +455,12 @@ def run_staged_experiment(
     return summary
 
 
-def verify_saved_experiment(output_directory: Path, *, chunk_rows: int = DEFAULT_CHUNK_ROWS) -> dict[str, object]:
+def verify_saved_experiment(
+    output_directory: Path,
+    *,
+    chunk_rows: int = DEFAULT_CHUNK_ROWS,
+    progress_callback: Callable[[dict[str, object]], None] | None = None,
+) -> dict[str, object]:
     issues: list[str] = []
     try:
         manifest_path = output_directory / "manifest.json"
@@ -442,6 +482,8 @@ def verify_saved_experiment(output_directory: Path, *, chunk_rows: int = DEFAULT
         if sha256_file(output_directory / "input_g4_best_certificate_mod30030.txt") != G4_CERTIFICATE_SHA256:
             issues.append("copied G4 certificate hash mismatch")
         certificate = read_certificate(output_directory / "best_certificate_mod510510.txt")
+        if progress_callback:
+            progress_callback({"stage": "saved_exact", "status": "STARTED"})
         exact = scan_exact_certificate_constraints(
             certificate,
             chunk_rows=chunk_rows,
@@ -454,6 +496,14 @@ def verify_saved_experiment(output_directory: Path, *, chunk_rows: int = DEFAULT
             or int(exact["scanned_constraints"]) != TARGET_CONSTRAINTS
         ):
             issues.append("saved P014 certificate exact recomputation failed")
+        if progress_callback:
+            progress_callback(
+                {
+                    "stage": "saved_exact",
+                    "status": "PASS" if not issues else "FAIL",
+                    "constraints": int(exact["scanned_constraints"]),
+                }
+            )
         if str(certificate.total_bound) != str(summary.get("best_total_upper_bound")):
             issues.append("saved P014 bound differs from summary")
         strict = certificate.total_bound < BASELINE_TOTAL_BOUND

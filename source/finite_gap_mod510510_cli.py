@@ -7,7 +7,8 @@ import json
 from pathlib import Path
 
 from source.finite_gap_mod510510 import preflight, run_staged_experiment, verify_saved_experiment
-from source.provenance import APPROVAL_TOKEN
+from source.live_progress import LiveProgressReporter
+from source.provenance import APPROVAL_TOKEN, require_experiment_approval
 from source.runtime_resources import configure_cpu_resources, plan_cpu_resources
 
 
@@ -38,12 +39,18 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--chunk-rows", type=int, default=64)
     run.add_argument("--physical-cores", type=int, default=4)
     run.add_argument("--logical-processors", type=int, default=8)
+    run.add_argument("--progress-log", type=Path)
+    run.add_argument("--heartbeat-seconds", type=float, default=300.0)
+    run.add_argument("--live-console", action="store_true")
     verify = sub.add_parser("verify")
     verify.add_argument("--result-directory", type=Path, required=True)
     verify.add_argument("--report", type=Path)
     verify.add_argument("--chunk-rows", type=int, default=64)
     verify.add_argument("--physical-cores", type=int, default=4)
     verify.add_argument("--logical-processors", type=int, default=8)
+    verify.add_argument("--progress-log", type=Path)
+    verify.add_argument("--heartbeat-seconds", type=float, default=300.0)
+    verify.add_argument("--live-console", action="store_true")
     return parser
 
 
@@ -57,6 +64,11 @@ def main(argv: list[str] | None = None) -> int:
         ).as_dict()
         _emit(report)
         return 0
+    if args.command == "run":
+        # Refuse before resource changes or progress-log creation.
+        require_experiment_approval(
+            APPROVAL_TOKEN if args.approved_by_user else None
+        )
     resource_policy = configure_cpu_resources(
         physical_cores=args.physical_cores,
         logical_processors=args.logical_processors,
@@ -67,8 +79,8 @@ def main(argv: list[str] | None = None) -> int:
         flush=True,
     )
     if args.command == "run":
-        _emit(
-            run_staged_experiment(
+        def execute_run(progress_callback):
+            return run_staged_experiment(
                 args.g4_result_directory,
                 args.output_directory,
                 approval_token=APPROVAL_TOKEN if args.approved_by_user else None,
@@ -82,14 +94,50 @@ def main(argv: list[str] | None = None) -> int:
                 max_disk_bytes=args.max_disk_bytes,
                 chunk_rows=args.chunk_rows,
                 runtime_resource_policy=resource_policy,
-                progress_callback=lambda payload: print(
-                    "[P014] " + json.dumps(payload, ensure_ascii=False, sort_keys=True),
-                    flush=True,
-                ),
+                progress_callback=progress_callback,
             )
-        )
+
+        if args.progress_log is None:
+            progress_callback = lambda payload: print(
+                "[P014] " + json.dumps(payload, ensure_ascii=False, sort_keys=True),
+                flush=True,
+            )
+            summary = execute_run(progress_callback)
+        else:
+            with LiveProgressReporter(
+                args.progress_log,
+                experiment="P014_MOD510510_STAGED_CERTIFICATE",
+                stage="analysis",
+                heartbeat_seconds=args.heartbeat_seconds,
+                live_console=args.live_console,
+            ) as progress_context:
+                progress_context.emit(
+                    {"stage": "resource_policy", "policy": resource_policy}
+                )
+                summary = execute_run(progress_context.emit)
+                progress_context.emit({"stage": "analysis", "status": "PASS"})
+        _emit(summary)
         return 0
-    report = verify_saved_experiment(args.result_directory, chunk_rows=args.chunk_rows)
+    if args.progress_log is None:
+        verify_progress = None
+        report = verify_saved_experiment(args.result_directory, chunk_rows=args.chunk_rows)
+    else:
+        with LiveProgressReporter(
+            args.progress_log,
+            experiment="P014_MOD510510_STAGED_CERTIFICATE",
+            stage="saved_full_exact_recomputation",
+            heartbeat_seconds=args.heartbeat_seconds,
+            live_console=args.live_console,
+        ) as verify_progress:
+            verify_progress.emit({"stage": "verification", "status": "STARTED"})
+            report = verify_saved_experiment(
+                args.result_directory,
+                chunk_rows=args.chunk_rows,
+                progress_callback=verify_progress.emit,
+            )
+            verify_progress.emit(
+                {"stage": "verification", "status": str(report["status"])}
+            )
     if args.report is not None:
         if args.report.exists():
             raise FileExistsError(f"refusing to overwrite report: {args.report}")

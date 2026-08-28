@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`WAITING_FOR_USER_EXECUTION / PRE-REGISTERED / IMPLEMENTED / LOCALLY_VERIFIED / ACTUAL_NOT_RUN`
+`WAIT_P013B_TERMINAL / PRE-REGISTERED / IMPLEMENTED / PYTHON_LIVE_PROGRESS_LOCALLY_VERIFIED / ACTUAL_NOT_RUN`
 
 ## 2. 연구 질문과 비목적
 
@@ -68,6 +68,11 @@ rationalize·common-mu repair한 뒤 모든 target constraints를 exact signed-i
 - process affinity: Windows topology상 첫 물리 4코어·그에 속한 논리 8프로세서(`0xff`)
 - BLAS/OpenMP/HiGHS가 사용할 수 있는 thread pool ceiling: 8
 - exact streaming scan은 단일 Python stream이므로 8개를 항상 동시에 사용한다고 해석하지 않음
+- 장시간 analysis와 saved exact recomputation은 Python이 별도 `*.progress.jsonl`에 START,
+  phase event, 300초 heartbeat, END를 직접 `flush+fsync`한다. Windows console이 있으면
+  `CONOUT$`에도 같은 `[LIVE]` 행을 즉시 표시한다. PowerShell stdout capture를 우회하므로 stage
+  종료 전에도 liveness를 확인할 수 있다. heartbeat는 실제 완료율을 뜻하지 않으며 exact scan의
+  START/PASS와 iteration event를 phase 증거로 함께 기록한다.
 
 ## 6. 사전검증·중단 기준
 
@@ -93,6 +98,9 @@ controlled stop은 유효한 lifted baseline certificate를 저장·exact 검증
 ## 7. 사용자 실행 명령
 
 환경: Windows PowerShell 또는 FGKMT Conda Prompt
+
+현재 P013-B saved full recomputation이 CPU를 사용 중이므로 P014를 동시에 시작하지 않는다.
+P013-B terminal PASS/FAIL과 프로세스 종료를 확인한 뒤 아래 개별 명령만 실행한다.
 
 ```powershell
 cd Z:\FGKMT-Sono-PrimeGap-Analysis
@@ -132,4 +140,7 @@ metrics를 감사한 뒤 modulus-510510을 계속 연구할 가치가 있는지 
 - root BAT: `run_P014_mod510510_staged_certificate.bat`
 - G4 exact prerequisite·resource·overflow preflight: PASS
 - small-modulus lift/exact-scan toy, approval gate, parser와 4 physical/8 logical resource preflight: PASS
+- Python `*.progress.jsonl` fsync heartbeat·phase·failure/nonoverwrite와 P014 CLI 선승인거부 포함
+  targeted 6/6 tests, full 151/151 tests, py_compile, read-only preflight, PowerShell parser·기존
+  stage-logging self-test·BAT usage gate: PASS
 - modulus-510510 full scan/optimizer: 미실행

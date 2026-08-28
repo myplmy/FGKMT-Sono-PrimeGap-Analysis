@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`P013-A_R1_USER_RUN_FAILED / R2_IMPLEMENTED_AND_LOCALLY_VERIFIED / P013-B_ACTUAL_NOT_RUN / WAITING_FOR_USER_EXECUTION`
+`P013-A_R1_USER_RUN_FAILED / P013-A_R2_EXPERIMENT_PASS_USER_VISUAL_QA_PENDING / P013-B_SAVED_FULL_RECOMPUTATION_RUNNING / DO_NOT_DUPLICATE`
 
 2026-08-28 감사 결과, P013-A r1은 두 input gate와 targeted tests, `[10^10,10^11)` 소수 체의
 1,800번째 표시 progress와 그 뒤 exact gap-start count `3,663,002,302`·boundary-prime 내부
@@ -64,6 +64,16 @@ r1 실측은 첫 full sweep이 약 44분이었다. r2는 analysis와 saved full 
 유지하므로 A는 약 1.5–2시간을 중심 추정으로 두되 기존 4시간 hard timeout을 유지한다. B는
 gap-start count 선형 외삽으로 약 12–16시간을 예상하며 20시간 hard timeout을 유지한다.
 
+### 2026-08-29 사후 실행 상태 메모
+
+- P013-A r2는 전체 약 1시간 13분에 terminal·saved full recomputation PASS했다. 정본 보고서는
+  `test_result/202608290456_P013A_r2_result_analysis.md`다.
+- P013-B individual run은 2026-08-28 18:00:09 KST 시작했다. analysis 첫 sweep은
+  `40,073.308`초(약 11시간 8분) 뒤 PASS했고, 2026-08-29 05:08부터 두 번째 saved full
+  recomputation을 실행 중이다. terminal PASS 전에는 P013-B `EXPERIMENT_PASS`가 아니다.
+- B 첫 sweep 실측상 전체 wall time은 기존 12–16시간 예상보다 길어 약 22–25시간이 될 수 있다.
+  실행 중인 individual run에는 queue의 20시간 timeout이 적용되지 않는다.
+
 각 range의 오른쪽 첫 소수 하나를 추가해 마지막 gap start를 닫는다. record start와 다음 record
 start가 모두 range 안인 plateau만 포함하고 양쪽 censored edge는 제외한다.
 
@@ -93,6 +103,9 @@ start가 모두 range 안인 plateau만 포함하고 양쪽 censored edge는 제
 - hypergeometric exact sequential draw cap 초과 또는 checkpoint 계약/hash 불일치
 
 ## 6. 사용자 실행 명령
+
+아래는 재현용 원래 명령이다. P013-A r2는 이미 완료됐고 P013-B는 실행 중이므로 **현재 두
+명령을 다시 실행하지 않는다.** P015 queue도 같은 child를 중복하므로 실행하지 않는다.
 
 개별 실행 환경: Windows PowerShell 또는 FGKMT Conda Prompt
 
@@ -134,7 +147,8 @@ PASS일 때만 B를 실행한다. queue 방식과 개별 방식을 동시에 또
 
 ## 9. 후속 작업
 
-사용자는 terminal marker, log, result directory와 figure 시각 QA를 회신한다. Codex는
+사용자는 P013-A figure 두 장의 시각 QA와 P013-B 최종 terminal marker, log, result directory,
+figure 시각 QA를 회신한다. Codex는
 manifest·full recomputation·독립 산술을 감사한 뒤에만 `EXPERIMENT_PASS`를 부여한다.
 
 ## 10. 구현·로컬검증
@@ -148,4 +162,5 @@ manifest·full recomputation·독립 산술을 감사한 뒤에만 `EXPERIMENT_P
 - r1 실패 log: `test_result/logs/run_20260827T163052Z_p013a_recurrence_extension_1e11.log`
 - r1 실행 BAT/PS1은 SHA-256 불변으로 `test_done/`에 failed-done 이관
 - r2 exact large-parameter sampler·4 physical/8 logical affinity·checkpoint: 로컬검증 PASS
-- P013-A r2 및 P013-B actual: 미실행
+- P013-A r2 actual: terminal·saved recomputation·artifact hash `EXPERIMENT_PASS`, 사용자 figure QA 대기
+- P013-B actual: analysis PASS 산출물 생성, saved full recomputation 실행 중; 최종 판정 대기

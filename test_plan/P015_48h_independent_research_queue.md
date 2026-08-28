@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`WAITING_FOR_USER_EXECUTION / ORCHESTRATION_ONLY / IMPLEMENTED / LOCALLY_VERIFIED / ACTUAL_NOT_RUN`
+`DO_NOT_START / PARTIALLY_SUPERSEDED_BY_INDIVIDUAL_P013_RUNS / ORCHESTRATION_ONLY / ACTUAL_NOT_RUN`
 
 ## 2. 목적과 비목적
 
@@ -27,6 +27,10 @@ P013-A, P013-B, P014를 한 번의 사용자 승인으로 47시간 이내에 순
 - child failure가 있어도 독립 child는 계속하고 queue는 마지막에 nonzero 반환
 
 ## 4. 사용자 실행 명령
+
+P013-A r2는 개별 실행으로 완료됐고 P013-B도 개별 실행 중이다. 지금 queue를 실행하면 같은
+child를 중복 실행하므로 **현재 P015 명령은 실행 금지**다. P013-B가 끝난 뒤 P014는 개별 BAT로
+실행한다. 아래 명령은 최초 계획의 재현 기록으로만 보존한다.
 
 환경: Windows PowerShell 또는 FGKMT Conda Prompt
 
