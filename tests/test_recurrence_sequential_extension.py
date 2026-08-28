@@ -1,15 +1,20 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from pathlib import Path
 
-from source.plateau_recurrence import RecordReference
+from source.plateau_recurrence import RecordReference, load_record_references
 from source.provenance import ApprovalRequiredError
 from source.recurrence_sequential_extension import (
     P013_CONTRACT_SHA256,
     STAGES,
     StageConfig,
+    _payload_sha256,
+    _sufficient_statistics_payload,
+    _validate_sufficient_statistics,
+    compute_extension_analysis,
     run_extension,
     select_complete_plateaus,
     validate_inputs,
@@ -28,6 +33,113 @@ def _reference(index: int, start: int, gap: int) -> RecordReference:
 
 
 class RecurrenceSequentialExtensionTests(unittest.TestCase):
+    def test_sufficient_statistics_checkpoint_is_canonical_and_validated(self) -> None:
+        config = StageConfig("T", 100, 200, 4, (1,), 7)
+        provisional = [
+            {
+                "record_index": 1,
+                "start_prime": 101,
+                "end_prime": 103,
+                "gap": 2,
+                "right_exclusive": 109,
+                "next_record_start_prime": 109,
+                "next_record_gap": 4,
+                "next_record_end_prime": 113,
+                "N": 0,
+                "M": 0,
+                "C": 0,
+            }
+        ]
+        plateaus = [{**provisional[0], "N": 4, "M": 2, "C": 1}]
+        components = []
+        for scheme in (
+            "primary_width_0p5_shift_0",
+            "sensitivity_width_0p5_shift_0p25",
+            "sensitivity_width_1_shift_0p5",
+        ):
+            components.append(
+                {
+                    "scheme": scheme,
+                    "record_index": 1,
+                    "plateau_exposure_after_removal": 3,
+                    "observed_recurrences": 1,
+                }
+            )
+        payload = _sufficient_statistics_payload(
+            config,
+            prime_count=5,
+            gap_count=4,
+            plateaus=plateaus,
+            components=components,
+        )
+        restored_plateaus, restored_components = _validate_sufficient_statistics(
+            payload, config, provisional
+        )
+        self.assertEqual(restored_plateaus, plateaus)
+        self.assertEqual(restored_components, components)
+        self.assertEqual(_payload_sha256(payload), _payload_sha256(dict(payload)))
+
+    def test_valid_checkpoint_reuse_skips_range_sweep_and_returns_boundary_count(self) -> None:
+        config = STAGES["A"]
+        provisional = select_complete_plateaus(load_record_references(RECORDS), config)
+        plateaus = [{**row, "N": 2, "M": 1, "C": 0} for row in provisional]
+        components = []
+        for scheme in (
+            "primary_width_0p5_shift_0",
+            "sensitivity_width_0p5_shift_0p25",
+            "sensitivity_width_1_shift_0p5",
+        ):
+            for plateau in plateaus:
+                components.append(
+                    {
+                        "scheme": scheme,
+                        "record_index": plateau["record_index"],
+                        "start_prime": plateau["start_prime"],
+                        "gap": plateau["gap"],
+                        "bin_index": 0,
+                        "bin_left": 1.0,
+                        "bin_right_exclusive": 10.0,
+                        "forced_record_removed": 1,
+                        "population_after_removal": 10,
+                        "conditioned_gap_count_after_removal": 0,
+                        "plateau_exposure_after_removal": 1,
+                        "observed_recurrences": 0,
+                        "control_exposure": 9,
+                        "expected_component": 0.0,
+                        "variance_component": 0.0,
+                        "information_flag": "LOW_INFORMATION",
+                    }
+                )
+        payload = _sufficient_statistics_payload(
+            config,
+            prime_count=config.expected_gap_start_count + 1,
+            gap_count=config.expected_gap_start_count,
+            plateaus=plateaus,
+            components=components,
+        )
+        with tempfile.TemporaryDirectory(dir=ROOT / "tmp") as directory:
+            checkpoint = Path(directory) / "checkpoint.json"
+            checkpoint.write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+            progress = []
+            analysis = compute_extension_analysis(
+                RECORDS,
+                P012,
+                P013,
+                P012B / "manifest.json",
+                P012B / "saved_verification_report.json",
+                stage="A",
+                checkpoint_path=checkpoint,
+                progress_callback=progress.append,
+            )
+        self.assertEqual(
+            analysis["prime_stream_count_including_boundary_prime"],
+            config.expected_gap_start_count + 1,
+        )
+        self.assertEqual(progress[0]["sufficient_statistics_checkpoint"], "REUSED")
+
     def test_contract_and_stage_a_preflight_are_pinned_without_range_sweep(self) -> None:
         report = validate_inputs(
             RECORDS,

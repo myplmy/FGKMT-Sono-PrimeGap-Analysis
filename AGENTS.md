@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P012-B 단계별 PASS·시각 QA 완료 / P010A G4 상한 개선 PASS / P013–P015 사용자 실행 준비
+## 현재 상태: P002–P012-B PASS·시각 QA 완료 / P010A G4 PASS / P013-A r1 실패·r2 교정 준비 / P013-B·P014·P015 미실행
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact PARI boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P010B exact candidate-cover toy는 `[1000,10000)`, `H=20`에서 69 candidates와 exact 위험 start 69개가 일치했지만 exhaustive oracle을 쓰므로 가속은 BLOCKED다. P011 stationary-null pilot은 enrichment를 지지하지 않았고 global null의 위치 비정상성을 드러냈으며 figure 사용자 QA도 PASS다. P012-A r2는 terminal·saved full recomputation과 사후 독립 84 rows·128 components·100,000회 MC 재계산을 issue 0으로 통과했다. primary 관측 9 대 P012 기대 8.5874, family p 0.21945로 P011 기대 109.079의 과대예측이 크게 줄었고 모든 scheme enrichment BH q는 1.0이다. 사용자 figure QA도 PASS했고 계약 SHA-256 `1c79316de685bbc40ba3c5fc49e23b1abec328bbf07dfc218e27d74e5d82000d`로 동결했다. P012-B `[10^9,10^10)` 독립 holdout도 terminal·saved full recomputation·독립 산술·100,000회 Monte Carlo replay를 issue 0으로 통과했다. complete plateau 4개에서 recurrence는 1건, primary 기대는 0.497022, family p는 0.093939, 최소 enrichment BH q는 0.275957로 5% 기준 enrichment를 검출하지 못했다. 12/12 row가 LOW_INFORMATION이고 3개는 zero variance이므로 모형 정당성·구조 부재를 주장하지 않는다. 자동·사용자 figure QA도 PASS했다. P013-A/B prospective recurrence extension, P014 modulus-510510 staged certificate와 이를 순차 실행하는 P015 47시간 queue는 계획·코드·toy·gate·parser·전체 140 tests가 PASS해 사용자 실행을 기다린다. 결과 정본은 `test_result/202608280019_P012B_holdout_result_analysis.md`, 전체 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 실제 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact PARI boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P010B exact candidate-cover toy는 `[1000,10000)`, `H=20`에서 69 candidates와 exact 위험 start 69개가 일치했지만 exhaustive oracle을 쓰므로 가속은 BLOCKED다. P011 stationary-null pilot은 enrichment를 지지하지 않았고 global null의 위치 비정상성을 드러냈으며 figure 사용자 QA도 PASS다. P012-A r2는 terminal·saved full recomputation과 사후 독립 84 rows·128 components·100,000회 MC 재계산을 issue 0으로 통과했다. primary 관측 9 대 P012 기대 8.5874, family p 0.21945로 P011 기대 109.079의 과대예측이 크게 줄었고 모든 scheme enrichment BH q는 1.0이다. 사용자 figure QA도 PASS했고 계약 SHA-256 `1c79316de685bbc40ba3c5fc49e23b1abec328bbf07dfc218e27d74e5d82000d`로 동결했다. P012-B `[10^9,10^10)` 독립 holdout도 terminal·saved full recomputation·독립 산술·100,000회 Monte Carlo replay를 issue 0으로 통과했다. complete plateau 4개에서 recurrence는 1건, primary 기대는 0.497022, family p는 0.093939, 최소 enrichment BH q는 0.275957로 5% 기준 enrichment를 검출하지 못했다. 12/12 row가 LOW_INFORMATION이고 3개는 zero variance이므로 모형 정당성·구조 부재를 주장하지 않는다. 자동·사용자 figure QA도 PASS했다. P013-A r1은 exact gap/boundary 내부검사 뒤 NumPy large-hypergeometric 제한으로 USER_RUN_FAILED했고 과학 결과는 없다. r2는 exact sequential symmetry sampler·sufficient-statistics checkpoint·물리 4코어/논리 8프로세서 정책을 구현해 affected 23/23·전체 148 tests와 parser/preflight를 PASS했다. P013-A r2, P013-B, P014와 교정된 P015 queue actual은 미실행이다. P013 실패 정본은 `test_result/202608281407_P013A_r1_large_hypergeometric_failure_analysis.md`, 전체 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 실제 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -283,6 +283,8 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - 핸드오프의 각 권장 작업에는 실행 환경, 시작 경로, 복사 가능한 정확한 명령, 예상 시간, 로그·산출물, 사용자 회신 항목을 쓴다. 사용자 명령이 없으면 `별도 수행절차 필요없음`이라고 명시한다.
 - 사용자 실행 실패는 원본 로그 hash, 마지막 PASS, 첫 FAIL, terminal marker와 결과 디렉터리 존재 여부로 감사한다. 콘솔 일부만으로 판정하지 않는다.
 - heavy/actual experiment는 사용자가 실행하도록 요청하고, Codex는 별도 승인이 없으면 parser·toy·approval-denial·unit test까지만 수행한다.
+- queue와 개별 runner가 모두 준비된 경우 사용자 안내에는 두 방법을 모두 제시하고, 둘 중 하나만 선택해 같은 child를 중복 실행하지 않도록 명시한다.
+- 이 PC의 향후 CPU-heavy runner는 가능한 경우 물리 4코어·논리 8프로세서를 topology-aware affinity와 thread-pool ceiling으로 고정한다. 단일-stream 알고리즘을 8-thread 병렬이라고 과장하지 않고 실제 병렬성·자원 상한을 로그에 구분한다.
 - 그래프는 자동 수치검증 뒤 사용자에게 시각검사를 요청한다. 사용자 확인 전에는 visual QA PASS라고 쓰지 않는다.
 - 상세 절차 정본은 `ai_dev_tool/04_사용자실행_로그_완료이관_규약.md`다.
 
@@ -336,12 +338,14 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P012-A 통계 계약 hash 동결; P012-B range-only holdout terminal·saved·독립 산술·독립 MC replay PASS: 4 complete plateaus, obs 1 vs exp 0.497022, family p 0.093939, 최소 BH q 0.275957, 12/12 LOW_INFORMATION
 - P012-B figure 자동 QA와 2026-08-28 사용자 시각 QA PASS
 - P010B direct candidate-cover verifier toy PASS: 9,000 starts, candidate/exact 위험 start 69개 일치; exhaustive generator라 acceleration BLOCKED
-- P013-A/B prospective recurrence extension과 P014 modulus-510510 staged certificate 구현·preflight·toy 검증 PASS; actual 미실행
-- P015 queue는 P013-A 4h → P013-B 20h → P014 22h, global 47h·decimal 50GB·CPU-only로 준비; actual 미실행
+- P013-A r1은 exact range-count gate 뒤 NumPy `ngood/nbad < 10^9` 제한으로 USER_RUN_FAILED; result directory·통계 산출물 없음
+- P013-A r2 exact large-hypergeometric sampler·checkpoint·4 physical/8 logical affinity와 P013-B/P014 resource preflight 구현·전체 148 tests PASS; actual 미실행
+- P015 queue는 P013-A r2 4h → P013-B 20h → P014 22h, global 47h·decimal 50GB·CPU-only로 교정; actual 미실행
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 사용자가 Windows에서 `run_P015_48h_research_queue.bat --confirm-48h`를 한 번
-실행하는 것이다. 같은 P013/P014 개별 BAT를 중복 실행하지 않는다. queue와 child의 terminal
-marker·log·result directory, P013 figure 시각 QA를 회신하면 Codex가 actual 결과를 감사한다.
+다음 권장 행동은 사용자가 Windows에서 교정된 `run_P015_48h_research_queue.bat --confirm-48h`를
+한 번 실행하거나, 개별 방식으로 `run_P013A_recurrence_extension_1e11_r2.bat --confirm-p013a`를
+먼저 실행하는 것이다. 안내에는 queue와 개별 명령을 모두 쓰되 둘 중 하나만 선택한다. queue와
+child의 terminal marker·log·result directory, P013 figure 시각 QA를 회신하면 Codex가 actual 결과를 감사한다.
 P010B large-range acceleration과 P005 Rank 85→86 exhaustive는 coverage 선결조건이 없어 runner를
 만들지 않는다. 상세 영향도는 `docs/method/20260828_48h_runner_impact_analysis.md`다.

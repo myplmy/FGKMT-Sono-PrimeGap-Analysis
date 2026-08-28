@@ -65,6 +65,8 @@ BAT·PowerShell·WSL 진입점과, 해당 완료 실험에만 쓰인 보조파�
 |---|---|---|---|
 | `run_p012_stratified_null_development-20260827T032233Z-failed-done.ps1` | `61FF041F32813D377D9414E700638DAC359961CD29699778AE0969B40404A9F3` | `test_result/logs/run_20260827T032233Z_p012a_stratified_null_development.log` | preflight·targeted tests PASS 뒤 zero-variance `z=None` 시각화의 `float(None)` 결함으로 USER_RUN_FAILED |
 | `run_p012_stratified_null_development_r2-20260827T054007Z-done.ps1` | `0AF40C63E02B962C2C1716D868C15A8DABC4A52302E2B87E9E9BE36201AB8E28` | `test_result/logs/run_20260827T054007Z_p012a_stratified_null_development_r2.log` | P012-A r2 terminal·saved full recomputation PASS; 통계 artifact는 r1과 동일, figure visual QA는 사용자 대기 |
+| `run_P013A_recurrence_extension_1e11-20260827T163052Z-failed-done.bat` | `1923DFCDE1214C9C831A8567A5F88092698D9BABB90315559F882590C0ED20D5` | `test_result/logs/run_20260827T163052Z_p013a_recurrence_extension_1e11.log` | exact range sweep 완료 뒤 NumPy large-hypergeometric parameter limit로 USER_RUN_FAILED |
+| `run_p013a_recurrence_extension_1e11-20260827T163052Z-failed-done.ps1` | `3C49161D7D8B0C85E6C2A65DB4B746F138888C1ECFBD30FAA7FB9774840720A4` | 위 P013-A r1 실패 run의 실험 전용 PowerShell entrypoint | r2로 교체되어 재실행 금지 |
 
 재사용 기능은 다음으로 분리했다.
 

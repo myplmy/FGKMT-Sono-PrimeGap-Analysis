@@ -12,6 +12,7 @@ class IndependentResearchQueueTests(unittest.TestCase):
     def test_steps_have_fixed_order_and_46_hour_child_cap_sum(self) -> None:
         steps = build_steps(Path("Z:/project"))
         self.assertEqual([step.name[:5] for step in steps], ["P013A", "P013B", "P014_"])
+        self.assertTrue(steps[0].script.name.endswith("_r2.ps1"))
         self.assertEqual(sum(step.timeout_seconds for step in steps), 46 * 3600)
 
     def test_queue_refuses_before_any_path_or_output_access(self) -> None:

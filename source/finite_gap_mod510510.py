@@ -172,6 +172,7 @@ def run_staged_experiment(
     max_working_constraints: int = MAX_WORKING_CONSTRAINTS,
     max_disk_bytes: int = MAX_DISK_BYTES,
     chunk_rows: int = DEFAULT_CHUNK_ROWS,
+    runtime_resource_policy: dict[str, object] | None = None,
     progress_callback: Callable[[dict[str, object]], None] | None = None,
 ) -> dict[str, object]:
     require_experiment_approval(approval_token)
@@ -392,6 +393,7 @@ def run_staged_experiment(
         "direct_prime_search_executed": False,
         "direct_search_acceleration_proved": False,
         "gpu_used": False,
+        "runtime_resource_policy": runtime_resource_policy,
     }
     _write_json_exclusive(output_directory / "summary.json", summary)
     artifacts = sorted(path for path in output_directory.rglob("*") if path.is_file())
@@ -412,6 +414,7 @@ def run_staged_experiment(
         "strict_bound_improvement": strict,
         "direct_search_acceleration_proved": False,
         "gpu_used": False,
+        "runtime_resource_policy": runtime_resource_policy,
     }
     _write_json_exclusive(output_directory / "manifest.json", manifest)
     return summary

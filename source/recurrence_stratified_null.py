@@ -19,6 +19,7 @@ from typing import Iterable, Sequence
 
 import numpy as np
 
+from source.hypergeometric_sampling import sample_hypergeometric
 from source.plateau_recurrence import KNOWN_PRIME_COUNTS, iter_prime_chunks
 from source.provenance import require_experiment_approval, sha256_file
 from source.recurrence_null_model import _bh_adjust
@@ -375,12 +376,14 @@ def analyze_components(
                 good = int(part["conditioned_gap_count_after_removal"])
                 sample = int(part["plateau_exposure_after_removal"])
                 if sample and population:
-                    simulated += rng.hypergeometric(
+                    sampled, _ = sample_hypergeometric(
+                        rng,
                         good,
                         population - good,
                         sample,
                         size=replications,
                     )
+                    simulated += sampled
             simulated_by_key[key] = simulated
             z_score = None if variance <= 0.0 else (observed - expected) / math.sqrt(variance)
             greater_p = (int(np.count_nonzero(simulated >= observed)) + 1) / (

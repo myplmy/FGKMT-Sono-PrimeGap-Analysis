@@ -65,6 +65,9 @@ rationalize·common-mu repair한 뒤 모든 target constraints를 exact signed-i
 - analysis wall cap: `54,000`초(15시간)
 - runner timeout: 22시간(saved full exact verification 포함)
 - output cap: decimal 10 GB; queue aggregate cap 50 GB
+- process affinity: Windows topology상 첫 물리 4코어·그에 속한 논리 8프로세서(`0xff`)
+- BLAS/OpenMP/HiGHS가 사용할 수 있는 thread pool ceiling: 8
+- exact streaming scan은 단일 Python stream이므로 8개를 항상 동시에 사용한다고 해석하지 않음
 
 ## 6. 사전검증·중단 기준
 
@@ -96,7 +99,14 @@ cd Z:\FGKMT-Sono-PrimeGap-Analysis
 .\run_P014_mod510510_staged_certificate.bat --confirm-p014
 ```
 
-권장 방식은 P015 queue에서 실행하는 것이다. 개별 실행과 queue 실행을 중복하지 않는다.
+전체 queue 실행 방법:
+
+```powershell
+cd Z:\FGKMT-Sono-PrimeGap-Analysis
+.\run_P015_48h_research_queue.bat --confirm-48h
+```
+
+개별 실행과 queue 실행을 중복하지 않는다.
 
 ## 8. 성공 기준·산출물
 
@@ -121,5 +131,5 @@ metrics를 감사한 뒤 modulus-510510을 계속 연구할 가치가 있는지 
 - runner: `scripts/experiments/p014/run_p014_mod510510_staged_certificate.ps1`
 - root BAT: `run_P014_mod510510_staged_certificate.bat`
 - G4 exact prerequisite·resource·overflow preflight: PASS
-- small-modulus lift/exact-scan toy, approval gate, parser, full 140 unittest: PASS
+- small-modulus lift/exact-scan toy, approval gate, parser와 4 physical/8 logical resource preflight: PASS
 - modulus-510510 full scan/optimizer: 미실행

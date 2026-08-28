@@ -34,7 +34,8 @@ $env:PYTHONIOENCODING = 'utf-8'
 try {
     Set-Location -LiteralPath $ProjectRoot
     Write-RunLine '[RUN] experiment=P015_48H_INDEPENDENT_RESEARCH_QUEUE'
-    Write-RunLine '[RUN] order=P013A,P013B,P014'
+    Write-RunLine '[RUN] order=P013A_R2,P013B,P014'
+    Write-RunLine '[RUN] child_cpu_budget=4_physical_cores_8_logical_processors'
     Write-RunLine '[RUN] child_timeouts_hours=4,20,22 global_wall_hours=47'
     Write-RunLine '[RUN] aggregate_disk_bytes=50000000000 cpu_only=true gpu_used=false'
     Write-RunLine '[RUN] queue_is_orchestration_only=true'

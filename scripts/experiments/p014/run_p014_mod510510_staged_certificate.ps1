@@ -37,6 +37,12 @@ Initialize-RunnerLogging -LogPath $LogPath -CaptureDirectory $LogDirectory `
     -CapturePrefix $RunId
 $env:PYTHONUTF8 = '1'
 $env:PYTHONIOENCODING = 'utf-8'
+$env:OMP_NUM_THREADS = '8'
+$env:OPENBLAS_NUM_THREADS = '8'
+$env:MKL_NUM_THREADS = '8'
+$env:NUMEXPR_NUM_THREADS = '8'
+$env:VECLIB_MAXIMUM_THREADS = '8'
+$env:BLIS_NUM_THREADS = '8'
 
 try {
     Set-Location -LiteralPath $ProjectRoot
@@ -48,6 +54,8 @@ try {
     Write-RunLine '[RUN] max_wall_seconds=54000 per_solve_seconds=1800'
     Write-RunLine '[RUN] max_disk_bytes=10000000000 full_matrix_materialized=false'
     Write-RunLine '[RUN] cpu_only=true gpu_used=false search_acceleration_proved=false'
+    Write-RunLine '[RUN] cpu_budget=4_physical_cores_8_logical_processors affinity=topology_enforced'
+    Write-RunLine '[RUN] p014_scan_parallelism=single_python_stream highs_thread_pool_ceiling=8'
     Write-RunLine "[RUN] runner_sha256=$((Get-FileHash -Algorithm SHA256 -LiteralPath $MyInvocation.MyCommand.Path).Hash.ToLowerInvariant())"
     Write-RunLine "[RUN] analysis_source_sha256=$((Get-FileHash -Algorithm SHA256 -LiteralPath $AnalysisSource).Hash.ToLowerInvariant())"
     Write-RunLine "[RUN] cli_source_sha256=$((Get-FileHash -Algorithm SHA256 -LiteralPath $CliSource).Hash.ToLowerInvariant())"
@@ -55,7 +63,9 @@ try {
     Invoke-LoggedNativeStage -Name 'p014-prerequisite-resource-preflight' -FilePath $Python -Arguments @(
         '-B', '-m', 'source.finite_gap_mod510510_cli', 'preflight',
         '--g4-result-directory', $G4Root,
-        '--chunk-rows', '64'
+        '--chunk-rows', '64',
+        '--physical-cores', '4',
+        '--logical-processors', '8'
     )
     Invoke-LoggedNativeStage -Name 'p014-targeted-unit-tests' -FilePath $Python -Arguments @(
         '-B', '-m', 'unittest',
@@ -77,13 +87,17 @@ try {
         '--add-per-iteration', '5000',
         '--max-working-constraints', '100000',
         '--max-disk-bytes', '10000000000',
-        '--chunk-rows', '64'
+        '--chunk-rows', '64',
+        '--physical-cores', '4',
+        '--logical-processors', '8'
     )
     Invoke-LoggedNativeStage -Name 'p014-saved-full-exact-recomputation' -FilePath $Python -Arguments @(
         '-u', '-B', '-m', 'source.finite_gap_mod510510_cli', 'verify',
         '--result-directory', $RunRoot,
         '--report', (Join-Path $RunRoot 'saved_verification_report.json'),
-        '--chunk-rows', '64'
+        '--chunk-rows', '64',
+        '--physical-cores', '4',
+        '--logical-processors', '8'
     )
     Write-RunLine '[PASS] P014 modulus-510510 staged certificate experiment completed.'
     Write-RunLine '[RUN] search_acceleration_proved=false'

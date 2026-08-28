@@ -28,11 +28,11 @@ $P012BManifest = Join-Path $P012BRoot 'manifest.json'
 $P012BSavedReport = Join-Path $P012BRoot 'saved_verification_report.json'
 
 if ($Stage -eq 'A') {
-    $RunLabel = 'p013a_recurrence_extension_1e11'
+    $RunLabel = 'p013a_recurrence_extension_1e11_r2'
     $RangeText = '[10^10,10^11)'
     $ExpectedGapStarts = '3663002302'
     $Seed = '20260828'
-    $TerminalLabel = 'P013-A prospective recurrence extension'
+    $TerminalLabel = 'P013-A prospective recurrence extension r2'
 }
 else {
     $RunLabel = 'p013b_recurrence_extension_1e12'
@@ -60,6 +60,16 @@ Initialize-RunnerLogging -LogPath $LogPath -CaptureDirectory $LogDirectory `
     -CapturePrefix $RunId
 $env:PYTHONUTF8 = '1'
 $env:PYTHONIOENCODING = 'utf-8'
+$env:OMP_NUM_THREADS = '8'
+$env:OPENBLAS_NUM_THREADS = '8'
+$env:MKL_NUM_THREADS = '8'
+$env:NUMEXPR_NUM_THREADS = '8'
+$env:VECLIB_MAXIMUM_THREADS = '8'
+$env:BLIS_NUM_THREADS = '8'
+$CheckpointDirectory = Join-Path $ProjectRoot 'tmp\p013-checkpoints'
+$CheckpointPath = Join-Path $CheckpointDirectory (
+    "p013$($Stage.ToLowerInvariant())_sufficient_statistics_v2.json"
+)
 
 try {
     Set-Location -LiteralPath $ProjectRoot
@@ -70,6 +80,10 @@ try {
     Write-RunLine '[RUN] p012_rules_frozen=true post_result_pooling=false'
     Write-RunLine '[RUN] saved_verification=second_full_range_recomputation'
     Write-RunLine '[RUN] cpu_only=true gpu_used=false'
+    Write-RunLine '[RUN] cpu_budget=4_physical_cores_8_logical_processors affinity=topology_enforced'
+    Write-RunLine '[RUN] p013_compute_parallelism=single_python_stream thread_pool_ceiling=8'
+    Write-RunLine "[RUN] sufficient_statistics_checkpoint=$CheckpointPath"
+    Write-RunLine "[RUN] checkpoint_preexisting=$((Test-Path -LiteralPath $CheckpointPath -PathType Leaf).ToString().ToLowerInvariant())"
     Write-RunLine "[RUN] runner_sha256=$((Get-FileHash -Algorithm SHA256 -LiteralPath $MyInvocation.MyCommand.Path).Hash.ToLowerInvariant())"
     Write-RunLine "[RUN] analysis_source_sha256=$((Get-FileHash -Algorithm SHA256 -LiteralPath $AnalysisSource).Hash.ToLowerInvariant())"
     Write-RunLine "[RUN] cli_source_sha256=$((Get-FileHash -Algorithm SHA256 -LiteralPath $CliSource).Hash.ToLowerInvariant())"
@@ -82,7 +96,9 @@ try {
         '--p013-contract', $P013Contract,
         '--p012b-manifest', $P012BManifest,
         '--p012b-saved-report', $P012BSavedReport,
-        '--segment-span', '50000000'
+        '--segment-span', '50000000',
+        '--physical-cores', '4',
+        '--logical-processors', '8'
     )
     Invoke-LoggedNativeStage -Name 'p013-targeted-unit-tests' -FilePath $Python -Arguments @(
         '-B', '-m', 'unittest',
@@ -100,12 +116,17 @@ try {
         '--p012b-manifest', $P012BManifest,
         '--p012b-saved-report', $P012BSavedReport,
         '--output-directory', $RunRoot,
-        '--segment-span', '50000000'
+        '--checkpoint-path', $CheckpointPath,
+        '--segment-span', '50000000',
+        '--physical-cores', '4',
+        '--logical-processors', '8'
     )
     Invoke-LoggedNativeStage -Name "p013$($Stage.ToLowerInvariant())-saved-full-recomputation" -FilePath $Python -Arguments @(
         '-u', '-B', '-m', 'source.recurrence_sequential_extension_cli', 'verify',
         '--result-directory', $RunRoot,
-        '--report', (Join-Path $RunRoot 'saved_verification_report.json')
+        '--report', (Join-Path $RunRoot 'saved_verification_report.json'),
+        '--physical-cores', '4',
+        '--logical-processors', '8'
     )
     Write-RunLine "[PASS] $TerminalLabel completed."
     Write-RunLine "[RUN] result_directory=$RunRoot"

@@ -30,8 +30,8 @@ class QueueStep:
 def build_steps(project_root: Path) -> tuple[QueueStep, ...]:
     return (
         QueueStep(
-            "P013A_RECURRENCE_EXTENSION_1E11",
-            project_root / "scripts/experiments/p013/run_p013a_recurrence_extension_1e11.ps1",
+            "P013A_RECURRENCE_EXTENSION_1E11_R2",
+            project_root / "scripts/experiments/p013/run_p013a_recurrence_extension_1e11_r2.ps1",
             ("-ConfirmP013A",),
             14_400,
         ),
