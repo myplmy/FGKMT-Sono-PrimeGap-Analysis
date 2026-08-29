@@ -2,7 +2,11 @@
 
 ## 1. 상태
 
-`WAIT_P013B_TERMINAL / PRE-REGISTERED / IMPLEMENTED / PYTHON_LIVE_PROGRESS_LOCALLY_VERIFIED / ACTUAL_NOT_RUN`
+`PRE-REGISTERED / IMPLEMENTED_SERIAL_REFERENCE / ACTUAL_NOT_RUN / SUPERSEDED_FOR_USER_RUN_BY_P014R2`
+
+P013-B는 완료됐다. 이 serial 계획과 구현은 P014-R2 saved full recomputation의 독립 oracle 및
+복구 기준으로 유지한다. 신규 actual 실행 정본은
+`test_plan/P014R2_mod510510_parallel_actual.md`이며 두 runner를 중복 실행하지 않는다.
 
 ## 2. 연구 질문과 비목적
 

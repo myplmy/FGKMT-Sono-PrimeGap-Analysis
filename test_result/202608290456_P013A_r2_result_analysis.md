@@ -2,7 +2,7 @@
 
 ## 판정
 
-`EXPERIMENT_PASS / TERMINAL_PASS / SAVED_FULL_RECOMPUTATION_PASS / ARTIFACT_HASH_PASS / ZERO_RECURRENCES_OBSERVED / RECURRENCE_ENRICHMENT_NOT_DETECTED / LOW_INFORMATION_LIMIT / MODEL_ACCEPTANCE_NOT_CLAIMED / FIGURE_AUTOMATIC_QA_PASS / USER_VISUAL_QA_PENDING / THEOREM_NOT_CLAIMED`
+`EXPERIMENT_PASS / TERMINAL_PASS / SAVED_FULL_RECOMPUTATION_PASS / ARTIFACT_HASH_PASS / ZERO_RECURRENCES_OBSERVED / RECURRENCE_ENRICHMENT_NOT_DETECTED / LOW_INFORMATION_LIMIT / MODEL_ACCEPTANCE_NOT_CLAIMED / FIGURE_AUTOMATIC_QA_PASS / USER_VISUAL_QA_PASS / THEOREM_NOT_CLAIMED`
 
 사용자 실행 `run_20260828T071601Z_p013a_recurrence_extension_1e11_r2`는 input preflight,
 targeted tests, `[10^10,10^11)` 전체 분석, saved full recomputation과 terminal marker를 모두
@@ -147,7 +147,7 @@ saved verifier 자체가 이미 두 번째 full prime sweep을 수행했으므�
 
 - PNG 2개: 각각 1620x990, RGBA decode·nonblank·manifest hash PASS
 - PDF 2개: header·EOF·manifest hash PASS
-- 사용자 시각 QA: `PENDING`
+- 사용자 시각 QA: `PASS` (2026-08-29, 두 그림 모두 문제없음 확인)
 
 ## 연구 질문에 대한 답
 
@@ -162,9 +162,7 @@ saved verifier 자체가 이미 두 번째 full prime sweep을 수행했으므�
 
 ## 권장 후속 방향
 
-1. 현재 실행 중인 P013-B를 중단하지 않고 terminal marker까지 기다린다.
-2. P013-B 완료 후 A와 B를 사후 pooling하지 말고, 사전 고정한 stage-B alpha `0.025`로 독립
-   판정한다.
-3. P013-B에서도 LOW_INFORMATION이 거의 줄지 않으면, 더 큰 decade의 brute-force recurrence
-   count보다 검정력·식별 가능성을 먼저 계산하는 새 방법론 설계를 우선한다.
-4. P013-A figure 두 장은 사용자가 축·범례·marker·글자 겹침을 시각 확인한 뒤 QA를 닫는다.
+1. 완료된 P013-B와 A를 사후 pooling하지 않는다.
+2. 더 큰 decade의 brute-force recurrence count보다 검정력·식별 가능성을 먼저 계산하는
+   expected-information/power preflight를 우선한다.
+3. P013-A figure 두 장은 2026-08-29 사용자 시각 QA까지 PASS했다.

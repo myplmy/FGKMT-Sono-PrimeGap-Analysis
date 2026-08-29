@@ -77,6 +77,23 @@ class FiniteGapParallelExactScanTests(unittest.TestCase):
         self.assertEqual(exact_scan_core(first), exact_scan_core(second))
         self.assertEqual(len(first["top_exact_violations"]), 25)
 
+    def test_parent_progress_callback_reaches_full_exact_coverage(self) -> None:
+        events: list[dict[str, object]] = []
+        report = parallel_scan_exact_certificate_constraints(
+            _certificate(feasible=True),
+            worker_count=1,
+            row_block_rows=3,
+            top_k=25,
+            progress_callback=events.append,
+        )
+        self.assertEqual(report["status"], "PASS")
+        self.assertGreater(len(events), 0)
+        self.assertEqual(events[-1]["blocks_completed"], events[-1]["blocks_total"])
+        self.assertEqual(events[-1]["source_rows_completed"], state_count(210))
+        self.assertEqual(
+            events[-1]["scanned_constraints_so_far"], report["scanned_constraints"]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

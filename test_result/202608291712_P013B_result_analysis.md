@@ -2,12 +2,13 @@
 
 ## 판정
 
-`EXPERIMENT_PASS / TERMINAL_PASS / SAVED_FULL_RECOMPUTATION_PASS / ARTIFACT_HASH_PASS / ZERO_RECURRENCES_OBSERVED / RECURRENCE_ENRICHMENT_NOT_DETECTED / LOW_INFORMATION_LIMIT / MODEL_ACCEPTANCE_NOT_CLAIMED / FIGURE_AUTOMATIC_QA_PASS / USER_VISUAL_QA_PENDING / THEOREM_NOT_CLAIMED`
+`EXPERIMENT_PASS / TERMINAL_PASS / SAVED_FULL_RECOMPUTATION_PASS / ARTIFACT_HASH_PASS / ZERO_RECURRENCES_OBSERVED / RECURRENCE_ENRICHMENT_NOT_DETECTED / LOW_INFORMATION_LIMIT / MODEL_ACCEPTANCE_NOT_CLAIMED / FIGURE_AUTOMATIC_QA_PASS / USER_VISUAL_QA_PASS / THEOREM_NOT_CLAIMED`
 
 사용자 실행 `run_20260828T090006Z_p013b_recurrence_extension_1e12`는 input preflight,
 targeted tests, `[10^11,10^12)` 전체 분석, 두 번째 full-range recomputation과 terminal marker를
 모두 PASS했다. manifest가 결박한 16개 artifact의 SHA-256도 전부 일치한다. 따라서 수치·저장·
-재현성 기준으로 P013-B는 `EXPERIMENT_PASS`다. 그래프의 사용자 시각 QA만 별도로 남아 있다.
+재현성 기준으로 P013-B는 `EXPERIMENT_PASS`다. 2026-08-29 사용자가 두 그래프 모두 문제없다고
+확인해 시각 QA도 PASS했다.
 
 ## 쉬운 말로 설명한 실험과 결과
 
@@ -178,7 +179,7 @@ saved verifier가 이미 두 번째 full prime sweep을 수행했으므로 이�
 
 - PNG 2개: 각각 1620x990, RGBA decode·nonblank·manifest hash PASS
 - PDF 2개: `%PDF-1.4` header·`%%EOF`·manifest hash PASS
-- 사용자 시각 QA: `PENDING`
+- 사용자 시각 QA: `PASS` (2026-08-29, 두 그림 모두 문제없음 확인)
 
 ## 연구 질문에 대한 답
 
@@ -195,8 +196,8 @@ saved verifier가 이미 두 번째 full prime sweep을 수행했으므로 이�
 
 ## 권장 후속 방향
 
-1. P013-B figure 두 장의 축·범례·marker·글자 겹침을 사용자가 시각 확인한다.
-2. 이미 준비된 P017을 실행해 segment 병렬화의 exact equality와 실제 wall-time 개선을
+1. P013-B figure 두 장은 사용자 시각 QA까지 PASS했다.
+2. 현재 실행 중인 P017을 terminal marker까지 유지해 segment 병렬화의 exact equality와 실제 wall-time 개선을
    engineering 관점에서 검증한다. 이는 P013-B 과학 결과를 바꾸지 않는다.
 3. P013-C보다 먼저 `expected-information/power preflight`를 설계한다. 최소한 현재 대비 한
    자릿수 배 이상의 기대 정보 증가가 보이지 않으면 대규모 full-prime sweep을 보류한다.

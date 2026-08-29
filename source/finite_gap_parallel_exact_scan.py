@@ -11,7 +11,7 @@ from __future__ import annotations
 import multiprocessing as mp
 import os
 from concurrent.futures import ProcessPoolExecutor
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Callable
 
 if TYPE_CHECKING:
     from source.finite_gap_certificate import RationalCertificate
@@ -263,6 +263,7 @@ def parallel_scan_exact_certificate_constraints(
     top_k: int = 100,
     allow_large_state_scan: bool = False,
     start_method: str = "spawn",
+    progress_callback: Callable[[dict[str, object]], None] | None = None,
 ) -> dict[str, object]:
     """Scan every exact constraint once and reduce blocks deterministically."""
 
@@ -284,13 +285,37 @@ def parallel_scan_exact_certificate_constraints(
     startup_barrier = (
         None if active_worker_count == 1 else context.Barrier(active_worker_count)
     )
+    results: list[dict[str, object]] = []
+    progress_interval = max(1, len(tasks) // 100)
     with ProcessPoolExecutor(
         max_workers=active_worker_count,
         mp_context=context,
         initializer=_initialize_exact_scan_worker,
         initargs=(_certificate_payload(certificate), top_k, startup_barrier),
     ) as executor:
-        results = list(executor.map(_scan_source_block, tasks, chunksize=1))
+        for completed, result in enumerate(
+            executor.map(_scan_source_block, tasks, chunksize=1), start=1
+        ):
+            results.append(result)
+            if progress_callback is not None and (
+                completed == 1
+                or completed == len(tasks)
+                or completed % progress_interval == 0
+            ):
+                progress_callback(
+                    {
+                        "blocks_completed": completed,
+                        "blocks_total": len(tasks),
+                        "source_rows_completed": sum(
+                            int(item["source_stop"]) - int(item["source_start"])
+                            for item in results
+                        ),
+                        "source_rows_total": states,
+                        "scanned_constraints_so_far": sum(
+                            int(item["scanned_constraints"]) for item in results
+                        ),
+                    }
+                )
     results.sort(key=lambda item: int(item["source_start"]))
 
     cursor = 0

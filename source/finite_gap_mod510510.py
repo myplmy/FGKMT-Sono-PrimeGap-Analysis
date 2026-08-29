@@ -36,6 +36,9 @@ from source.finite_gap_cutting_plane import (
     verify_saved_cutting_plane,
 )
 from source.finite_gap_replay import lift_certificate_exact_to_modulus
+from source.finite_gap_parallel_exact_scan import (
+    parallel_scan_exact_certificate_constraints,
+)
 from source.finite_gap_separation import (
     scan_exact_certificate_constraints,
     scan_smallest_transition_slacks,
@@ -47,6 +50,8 @@ from source.provenance import require_experiment_approval, sha256_file
 
 EXPERIMENT = "P014_MOD510510_STAGED_CERTIFICATE"
 SCHEMA_VERSION = "p014-mod510510-staged-certificate-v1"
+PARALLEL_EXPERIMENT = "P014R2_MOD510510_PARALLEL_STAGED_CERTIFICATE"
+PARALLEL_SCHEMA_VERSION = "p014r2-mod510510-parallel-staged-certificate-v1"
 SOURCE_MODULUS = 30_030
 TARGET_MODULUS = 510_510
 TARGET_STATES = 92_160
@@ -124,18 +129,32 @@ def require_g4_prerequisite(result_directory: Path) -> RationalCertificate:
     return certificate
 
 
-def preflight(result_directory: Path, *, chunk_rows: int = DEFAULT_CHUNK_ROWS) -> dict[str, object]:
+def preflight(
+    result_directory: Path,
+    *,
+    chunk_rows: int = DEFAULT_CHUNK_ROWS,
+    exact_scan_backend: str = "serial",
+    exact_scan_workers: int = 1,
+) -> dict[str, object]:
+    if exact_scan_backend not in {"serial", "parallel"}:
+        raise Mod510510Error("exact scan backend must be serial or parallel")
+    if exact_scan_backend == "serial" and exact_scan_workers != 1:
+        raise Mod510510Error("serial exact scan requires exactly one worker")
+    if exact_scan_backend == "parallel" and not 1 <= exact_scan_workers <= 8:
+        raise Mod510510Error("parallel exact scan workers must be in [1,8]")
     source = require_g4_prerequisite(result_directory)
     lifted = lift_certificate_exact_to_modulus(source, TARGET_MODULUS)
     resource = transition_resource_estimate(TARGET_MODULUS, DEFAULT_H)
     memory = separation_memory_estimate(TARGET_MODULUS, chunk_rows=chunk_rows, top_k=5_000)
     overflow = _overflow_guard_upper_bound(lifted)
+    parallel_working_bytes = int(memory["conservative_working_bytes"]) * exact_scan_workers
     checks = (
         state_count(TARGET_MODULUS) == TARGET_STATES,
         int(resource["total_transition_constraints"]) == TARGET_CONSTRAINTS,
         bool(memory["under_1_gib"]),
         overflow <= int(np.iinfo(np.int64).max),
         lifted.total_bound == BASELINE_TOTAL_BOUND,
+        parallel_working_bytes < 32_000_000_000,
     )
     if not all(checks):
         raise Mod510510Error("P014 static resource or lift contract failed")
@@ -148,7 +167,11 @@ def preflight(result_directory: Path, *, chunk_rows: int = DEFAULT_CHUNK_ROWS) -
         "target_constraints": TARGET_CONSTRAINTS,
         "baseline_total_upper_bound": str(BASELINE_TOTAL_BOUND),
         "chunk_rows": chunk_rows,
+        "exact_scan_backend": exact_scan_backend,
+        "exact_scan_workers": exact_scan_workers,
         "conservative_scan_memory_mib": memory["conservative_working_mib"],
+        "conservative_all_worker_scan_memory_mib": parallel_working_bytes / (1024**2),
+        "under_decimal_32_gb_ram_cap": parallel_working_bytes < 32_000_000_000,
         "full_matrix_lower_bound_gib": resource["coo_construction_lower_bound_gib"],
         "signed_int64_guard_upper_bound": str(overflow),
         "signed_int64_limit": str(int(np.iinfo(np.int64).max)),
@@ -156,6 +179,38 @@ def preflight(result_directory: Path, *, chunk_rows: int = DEFAULT_CHUNK_ROWS) -
         "actual_experiment_executed": False,
         "direct_search_acceleration_proved": False,
     }
+
+
+def _scan_certificate_exact(
+    certificate: RationalCertificate,
+    *,
+    exact_scan_backend: str,
+    exact_scan_workers: int,
+    chunk_rows: int,
+    top_k: int,
+    progress_callback: Callable[[dict[str, object]], None] | None = None,
+) -> dict[str, object]:
+    if exact_scan_backend == "serial":
+        if exact_scan_workers != 1:
+            raise Mod510510Error("serial exact scan requires exactly one worker")
+        return scan_exact_certificate_constraints(
+            certificate,
+            chunk_rows=chunk_rows,
+            top_k=top_k,
+            allow_large_state_scan=True,
+        )
+    if exact_scan_backend == "parallel":
+        if not 1 <= exact_scan_workers <= 8:
+            raise Mod510510Error("parallel exact scan workers must be in [1,8]")
+        return parallel_scan_exact_certificate_constraints(
+            certificate,
+            worker_count=exact_scan_workers,
+            row_block_rows=chunk_rows,
+            top_k=top_k,
+            allow_large_state_scan=True,
+            progress_callback=progress_callback,
+        )
+    raise Mod510510Error("exact scan backend must be serial or parallel")
 
 
 def run_staged_experiment(
@@ -172,6 +227,8 @@ def run_staged_experiment(
     max_working_constraints: int = MAX_WORKING_CONSTRAINTS,
     max_disk_bytes: int = MAX_DISK_BYTES,
     chunk_rows: int = DEFAULT_CHUNK_ROWS,
+    exact_scan_backend: str = "serial",
+    exact_scan_workers: int = 1,
     runtime_resource_policy: dict[str, object] | None = None,
     progress_callback: Callable[[dict[str, object]], None] | None = None,
 ) -> dict[str, object]:
@@ -192,10 +249,21 @@ def run_staged_experiment(
         raise Mod510510Error("working-set cap exceeds reviewed limit")
     if not 1 <= max_disk_bytes <= MAX_DISK_BYTES:
         raise Mod510510Error("P014 disk cap exceeds decimal 10 GB")
+    if exact_scan_backend not in {"serial", "parallel"}:
+        raise Mod510510Error("exact scan backend must be serial or parallel")
+    if exact_scan_backend == "serial" and exact_scan_workers != 1:
+        raise Mod510510Error("serial exact scan requires exactly one worker")
+    if exact_scan_backend == "parallel" and not 1 <= exact_scan_workers <= 8:
+        raise Mod510510Error("parallel exact scan workers must be in [1,8]")
 
     source = require_g4_prerequisite(g4_result_directory)
     lifted = lift_certificate_exact_to_modulus(source, TARGET_MODULUS)
-    static = preflight(g4_result_directory, chunk_rows=chunk_rows)
+    static = preflight(
+        g4_result_directory,
+        chunk_rows=chunk_rows,
+        exact_scan_backend=exact_scan_backend,
+        exact_scan_workers=exact_scan_workers,
+    )
     started = time.perf_counter()
     output_directory.mkdir(parents=True)
     input_files = {
@@ -218,11 +286,19 @@ def run_staged_experiment(
             }
         )
     stage_a_started = time.perf_counter()
-    stage_a = scan_exact_certificate_constraints(
+    stage_a = _scan_certificate_exact(
         lifted,
+        exact_scan_backend=exact_scan_backend,
+        exact_scan_workers=exact_scan_workers,
         chunk_rows=chunk_rows,
         top_k=100,
-        allow_large_state_scan=True,
+        progress_callback=(
+            None
+            if progress_callback is None
+            else lambda payload: progress_callback(
+                {"stage": "exact_lift", "status": "RUNNING", **payload}
+            )
+        ),
     )
     stage_a_elapsed = time.perf_counter() - stage_a_started
     if (
@@ -379,11 +455,19 @@ def run_staged_experiment(
         handle.write(certificate_text(best))
     if progress_callback:
         progress_callback({"stage": "final_exact", "status": "STARTED"})
-    final_exact = scan_exact_certificate_constraints(
+    final_exact = _scan_certificate_exact(
         best,
+        exact_scan_backend=exact_scan_backend,
+        exact_scan_workers=exact_scan_workers,
         chunk_rows=chunk_rows,
         top_k=100,
-        allow_large_state_scan=True,
+        progress_callback=(
+            None
+            if progress_callback is None
+            else lambda payload: progress_callback(
+                {"stage": "final_exact", "status": "RUNNING", **payload}
+            )
+        ),
     )
     if final_exact.get("status") != "PASS" or int(final_exact["violation_count"]) != 0:
         raise Mod510510Error("P014 final certificate exact verification failed")
@@ -402,9 +486,15 @@ def run_staged_experiment(
         if strict
         else ("NO_IMPROVEMENT" if optimizer_run else "CALIBRATION_ONLY_TIME_GATE")
     )
+    experiment = PARALLEL_EXPERIMENT if exact_scan_backend == "parallel" else EXPERIMENT
+    schema_version = (
+        PARALLEL_SCHEMA_VERSION
+        if exact_scan_backend == "parallel"
+        else SCHEMA_VERSION
+    )
     summary = {
         "status": "PASS",
-        "experiment": EXPERIMENT,
+        "experiment": experiment,
         "source_modulus": SOURCE_MODULUS,
         "target_modulus": TARGET_MODULUS,
         "states": TARGET_STATES,
@@ -412,6 +502,9 @@ def run_staged_experiment(
         "stage_a_elapsed_seconds": stage_a_elapsed,
         "stage_a_gate_seconds": stage_a_gate_seconds,
         "stage_a_exact_verified": True,
+        "exact_scan_backend": exact_scan_backend,
+        "exact_scan_workers": exact_scan_workers,
+        "saved_verification_backend": "serial",
         "optimizer_run": optimizer_run,
         "optimizer_outcome": outcome,
         "scientific_outcome": scientific_outcome,
@@ -434,14 +527,19 @@ def run_staged_experiment(
     artifacts = sorted(path for path in output_directory.rglob("*") if path.is_file())
     manifest = {
         "status": "PASS",
-        "experiment": EXPERIMENT,
-        "schema_version": SCHEMA_VERSION,
+        "experiment": experiment,
+        "schema_version": schema_version,
         "input_sha256": {
             "g4_manifest": G4_MANIFEST_SHA256,
             "g4_saved_report": G4_SAVED_REPORT_SHA256,
             "g4_certificate": G4_CERTIFICATE_SHA256,
         },
         "analysis_source_sha256": sha256_file(Path(__file__)),
+        "parallel_exact_scan_source_sha256": (
+            sha256_file(Path(__file__).with_name("finite_gap_parallel_exact_scan.py"))
+            if exact_scan_backend == "parallel"
+            else None
+        ),
         "artifacts_sha256": {
             path.relative_to(output_directory).as_posix(): sha256_file(path)
             for path in artifacts
@@ -449,6 +547,9 @@ def run_staged_experiment(
         "strict_bound_improvement": strict,
         "direct_search_acceleration_proved": False,
         "gpu_used": False,
+        "exact_scan_backend": exact_scan_backend,
+        "exact_scan_workers": exact_scan_workers,
+        "saved_verification_backend": "serial",
         "runtime_resource_policy": runtime_resource_policy,
     }
     _write_json_exclusive(output_directory / "manifest.json", manifest)
@@ -475,6 +576,12 @@ def verify_saved_experiment(
                 issues.append(f"artifact missing/hash mismatch: {relative}")
         if manifest.get("analysis_source_sha256") != sha256_file(Path(__file__)):
             issues.append("current P014 source hash differs from manifest")
+        if summary.get("exact_scan_backend") == "parallel":
+            parallel_source = Path(__file__).with_name("finite_gap_parallel_exact_scan.py")
+            if manifest.get("parallel_exact_scan_source_sha256") != sha256_file(parallel_source):
+                issues.append("current P014-R2 parallel scanner hash differs from manifest")
+            if manifest.get("saved_verification_backend") != "serial":
+                issues.append("P014-R2 saved verification must use the serial oracle")
         if sha256_file(output_directory / "input_g4_manifest.json") != G4_MANIFEST_SHA256:
             issues.append("copied G4 manifest hash mismatch")
         if sha256_file(output_directory / "input_g4_saved_verification_report.json") != G4_SAVED_REPORT_SHA256:
@@ -527,6 +634,8 @@ __all__ = [
     "BASELINE_TOTAL_BOUND",
     "EXPERIMENT",
     "Mod510510Error",
+    "PARALLEL_EXPERIMENT",
+    "PARALLEL_SCHEMA_VERSION",
     "TARGET_CONSTRAINTS",
     "TARGET_MODULUS",
     "TARGET_STATES",

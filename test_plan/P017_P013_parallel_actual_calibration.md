@@ -2,9 +2,15 @@
 
 ## 1. 상태
 
-`APPROVED` — 구현과 사용자 실행용 runner 준비를 승인받았다. 현재 P013-B 실행이 끝난 뒤에만
-실행하며 Codex는 actual 범위를 직접 실행하지 않는다. 구현·toy·preflight·전체 회귀검증은
-`LOCALLY_VERIFIED`, 사용자 actual 실행은 `NOT STARTED`다.
+`APPROVED / USER_ACTUAL_RUNNING` — 구현·toy·preflight·전체 회귀검증은
+`LOCALLY_VERIFIED`다. 사용자가 2026-08-29 combined queue를 시작했고 P017-A child는 PASS했다.
+P017-B는 새 midrange serial oracle을 먼저 계산하는 중이다. 종료 전 중복 실행·active 파일
+이동·process 조작을 하지 않는다.
+
+P017-A는 완료된 P013-A serial checkpoint/analysis를 oracle로 읽어 새 계산은 8-worker parallel만
+했다. P017-B는 해당 midrange oracle이 없으므로 single-stream serial sweep 뒤 8-worker parallel
+sweep을 순서대로 수행한다. 따라서 P017-B의 `serial_sieve_progress` 동안 CPU 사용률이 P017-A보다
+낮은 것은 정상이며, `serial_oracle_completed` 이후 parallel stage에서 높아져야 한다.
 
 ## 2. 연구 질문과 비목적
 

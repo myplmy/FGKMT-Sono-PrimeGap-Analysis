@@ -2,7 +2,7 @@
 
 ## 1. 상태
 
-`P013-A_R1_USER_RUN_FAILED / P013-A_R2_EXPERIMENT_PASS_USER_VISUAL_QA_PENDING / P013-B_EXPERIMENT_PASS_USER_VISUAL_QA_PENDING / DO_NOT_DUPLICATE`
+`P013-A_R1_USER_RUN_FAILED / P013-A_R2_EXPERIMENT_PASS_USER_VISUAL_QA_PASS / P013-B_EXPERIMENT_PASS_USER_VISUAL_QA_PASS / DO_NOT_DUPLICATE`
 
 2026-08-28 감사 결과, P013-A r1은 두 input gate와 targeted tests, `[10^10,10^11)` 소수 체의
 1,800번째 표시 progress와 그 뒤 exact gap-start count `3,663,002,302`·boundary-prime 내부
@@ -149,9 +149,9 @@ PASS일 때만 B를 실행한다. queue 방식과 개별 방식을 동시에 또
 
 ## 9. 후속 작업
 
-P013-A와 P013-B의 figure 시각 QA가 남아 있다. P013-B manifest·full recomputation·독립 산술
-감사는 완료되어 `EXPERIMENT_PASS`를 부여했다. 후속 full-decade 확대 전에 expected-information
-또는 power preflight를 별도 사전 고정한다.
+P013-A와 P013-B의 figure는 2026-08-29 사용자 시각 QA까지 PASS했다. P013-B
+manifest·full recomputation·독립 산술 감사도 완료되어 `EXPERIMENT_PASS`다. 후속 full-decade
+확대 전에 P018 expected-information/power preflight의 판정 계약을 별도 사전 고정한다.
 
 ## 10. 구현·로컬검증
 
@@ -163,7 +163,7 @@ P013-A와 P013-B의 figure 시각 QA가 남아 있다. P013-B manifest·full rec
 - r1 실패 log: `test_result/logs/run_20260827T163052Z_p013a_recurrence_extension_1e11.log`
 - r1 실행 BAT/PS1은 SHA-256 불변으로 `test_done/`에 failed-done 이관
 - r2 exact large-parameter sampler·4 physical/8 logical affinity·checkpoint: 로컬검증 PASS
-- P013-A r2 actual: terminal·saved recomputation·artifact hash `EXPERIMENT_PASS`, 사용자 figure QA 대기
+- P013-A r2 actual: terminal·saved recomputation·artifact hash·사용자 figure QA `EXPERIMENT_PASS`
 - P013-B actual: terminal·saved full recomputation·artifact 16/16 hash·독립 산술
   `EXPERIMENT_PASS`; 9 plateaus, recurrence 0, primary 기대 `0.066797`, family p 1.0,
-  27/27 LOW_INFORMATION; 사용자 figure QA 대기
+  27/27 LOW_INFORMATION; 사용자 figure QA PASS

@@ -22,6 +22,8 @@ def build_parser() -> argparse.ArgumentParser:
     check = sub.add_parser("preflight")
     check.add_argument("--g4-result-directory", type=Path, required=True)
     check.add_argument("--chunk-rows", type=int, default=64)
+    check.add_argument("--exact-scan-backend", choices=("serial", "parallel"), default="serial")
+    check.add_argument("--exact-scan-workers", type=int, default=1)
     check.add_argument("--physical-cores", type=int, default=4)
     check.add_argument("--logical-processors", type=int, default=8)
     run = sub.add_parser("run")
@@ -37,6 +39,8 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--max-working-constraints", type=int, default=100_000)
     run.add_argument("--max-disk-bytes", type=int, default=10_000_000_000)
     run.add_argument("--chunk-rows", type=int, default=64)
+    run.add_argument("--exact-scan-backend", choices=("serial", "parallel"), default="serial")
+    run.add_argument("--exact-scan-workers", type=int, default=1)
     run.add_argument("--physical-cores", type=int, default=4)
     run.add_argument("--logical-processors", type=int, default=8)
     run.add_argument("--progress-log", type=Path)
@@ -57,7 +61,12 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     if args.command == "preflight":
-        report = preflight(args.g4_result_directory, chunk_rows=args.chunk_rows)
+        report = preflight(
+            args.g4_result_directory,
+            chunk_rows=args.chunk_rows,
+            exact_scan_backend=args.exact_scan_backend,
+            exact_scan_workers=args.exact_scan_workers,
+        )
         report["runtime_resource_plan"] = plan_cpu_resources(
             physical_cores=args.physical_cores,
             logical_processors=args.logical_processors,
@@ -93,6 +102,8 @@ def main(argv: list[str] | None = None) -> int:
                 max_working_constraints=args.max_working_constraints,
                 max_disk_bytes=args.max_disk_bytes,
                 chunk_rows=args.chunk_rows,
+                exact_scan_backend=args.exact_scan_backend,
+                exact_scan_workers=args.exact_scan_workers,
                 runtime_resource_policy=resource_policy,
                 progress_callback=progress_callback,
             )
@@ -106,7 +117,11 @@ def main(argv: list[str] | None = None) -> int:
         else:
             with LiveProgressReporter(
                 args.progress_log,
-                experiment="P014_MOD510510_STAGED_CERTIFICATE",
+                experiment=(
+                    "P014R2_MOD510510_PARALLEL_STAGED_CERTIFICATE"
+                    if args.exact_scan_backend == "parallel"
+                    else "P014_MOD510510_STAGED_CERTIFICATE"
+                ),
                 stage="analysis",
                 heartbeat_seconds=args.heartbeat_seconds,
                 live_console=args.live_console,
