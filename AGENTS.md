@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P012-B PASS·시각 QA 완료 / P010A G4 PASS / P013-A r2 PASS·시각 QA 대기 / P013-B 사용자 실행 진행 중 / P014 actual 대기 / P016·P014-R2 toy PASS / P017 runner 로컬검증 PASS·actual 대기
+## 현재 상태: P002–P012-B PASS·시각 QA 완료 / P010A G4 PASS / P013-A·B PASS·시각 QA 대기 / P014 actual 대기 / P016·P014-R2 toy PASS / P017 runner 로컬검증 PASS·actual 대기
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011 stationary-null pilot과 P012-A/B stratified 분석은 enrichment를 검출하지 못했고, P012-B까지 사용자 figure QA가 PASS했다. P013-A r2는 terminal·saved full recomputation·manifest artifact hash를 PASS했고 `[10^10,10^11)`의 4개 complete plateau에서 recurrence 0, primary 기대 0.077829, family p 1.0, 12/12 LOW_INFORMATION이었다. 사용자 figure QA는 대기 중이다. P013-B는 사용자의 현재 진술상 full saved recomputation을 진행 중이므로 종료 전 중복 실행·process 검사·파일 변경을 하지 않는다. P016/P014-R2 toy는 실제 8 worker로 serial exact equality와 무누락을 검증했다. P017은 P013-A full parallel-vs-completed-serial 및 P013-B first half-decade serial-vs-parallel calibration을 구현했고 targeted 16·전체 170 tests와 preflight/parser/BAT gate를 PASS했다. child timeout 합 15시간·queue global 16시간이며 P013-B가 완전히 종료된 뒤 사용자만 실행한다. 기존 serial P013 runner는 교체하지 않았다. P015 queue는 개별 P013 실행과 중복되므로 실행하지 않는다. P013-A 정본은 `test_result/202608290456_P013A_r2_result_analysis.md`, P017 준비 정본은 `test_result/202608291453_P017_P013_parallel_calibration_local_validation.md`, 전체 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 actual 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011 stationary-null pilot과 P012-A/B stratified 분석은 enrichment를 검출하지 못했고, P012-B까지 사용자 figure QA가 PASS했다. P013-A r2는 `[10^10,10^11)`의 4개 complete plateau에서 recurrence 0, primary 기대 0.077829, family p 1.0, 12/12 LOW_INFORMATION이었다. P013-B도 terminal·saved full recomputation·artifact 16/16 hash를 PASS했고 `[10^11,10^12)`의 9개 complete plateau에서 recurrence 0, primary 기대 0.066797, family p 1.0, 27/27 LOW_INFORMATION이었다. A/B figure 사용자 QA는 대기 중이며 두 stage를 사후 pooling하지 않는다. P016/P014-R2 toy는 실제 8 worker로 serial exact equality와 무누락을 검증했다. P017은 P013-A full parallel-vs-completed-serial 및 P013-B first half-decade serial-vs-parallel calibration을 구현했고 targeted 16·전체 170 tests와 preflight/parser/BAT gate를 PASS했다. child timeout 합 15시간·queue global 16시간이며 original P013-B가 종료됐으므로 사용자 actual 실행이 가능하다. 기존 serial P013 runner는 교체하지 않았다. P015 queue는 완료 P013 child와 중복되므로 실행하지 않는다. P013-A 정본은 `test_result/202608290456_P013A_r2_result_analysis.md`, P013-B 정본은 `test_result/202608291712_P013B_result_analysis.md`, P017 준비 정본은 `test_result/202608291453_P017_P013_parallel_calibration_local_validation.md`, 전체 색인은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 actual 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -340,17 +340,18 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P010B direct candidate-cover verifier toy PASS: 9,000 starts, candidate/exact 위험 start 69개 일치; exhaustive generator라 acceleration BLOCKED
 - P013-A r1은 exact range-count gate 뒤 NumPy `ngood/nbad < 10^9` 제한으로 USER_RUN_FAILED; result directory·통계 산출물 없음
 - P013-A r2 terminal·saved recomputation·artifact hash PASS: 4 complete plateau, recurrence 0, primary 기대 `0.077829`, family p 1.0, 12/12 LOW_INFORMATION; 사용자 figure QA 대기
-- P013-B individual run은 사용자의 현재 진술상 saved full recomputation 진행 중; 종료 전 process·checkpoint·result directory 비간섭, 중복 실행 금지
+- P013-B terminal·saved full recomputation·artifact 16/16 hash PASS: 9 complete plateau, recurrence 0, primary 기대 `0.066797`, family p 1.0, 27/27 LOW_INFORMATION; 사용자 figure QA 대기
+- 실행 완료 P013-A r2·P013-B 전용 BAT/PS1은 SHA-256을 보존해 `test_done/*-done`으로 이관; 공통 `scripts/runners/run_p013_extension.ps1`은 유지
 - P014 Python-side durable progress heartbeat·phase log와 console bypass 구현·targeted 6 tests/전체 151 tests/Python compile/preflight/PowerShell parser·logging self-test PASS; actual 미실행
 - P016 P013 segment toy와 P014-R2 source-row exact-scan toy PASS: worker 1/2/4/8 serial exact equality, 통합 affinity `0xff` 8-process 관측, P013 68,906 gap starts·P014 synthetic mod30030 35,224,647 constraints 무누락, worker native thread=1, 전체 158 tests PASS; actual runner 미승격
 - P017 P013 parallel calibration IMPLEMENTED·LOCALLY_VERIFIED: P013-A full parallel vs 완료 serial oracle, P013-B `[10^11,316227766017)` serial vs parallel; 8 worker, targeted 16·전체 170 tests PASS, child cap 합 15h·global 16h·disk 5 GB, queue Python live log; user actual 미실행, 기존 serial runner 미교체
-- P015 queue는 개별 P013 실행과 중복되므로 이번 cycle `DO_NOT_START`; P013-B 종료 뒤 P014를 개별 실행
+- P015 queue는 완료된 P013 child를 중복하므로 이번 cycle `DO_NOT_START`; P017 감사 뒤 P014를 개별 실행
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 사용자가 P013-B를 중단하지 않고 terminal PASS/FAIL까지 완료한 뒤 log·result
-directory를 회신하는 것이다. Codex가 P013-B를 감사한 다음, P013-B process가 완전히 종료됐음을
-사용자가 확인하고 `run_P017_16h_P013_parallel_calibration_queue.bat --confirm-after-p013b`를
-queue 또는 개별 방식 중 하나로 실행한다. P017 actual을 감사하기 전까지 기존 serial P013
-경로를 유지하며 P015는 실행하지 않는다.
+다음 권장 행동은 사용자가 P013-A/B figure를 시각 확인하고,
+`run_P017_16h_P013_parallel_calibration_queue.bat --confirm-after-p013b`를 queue 또는 개별 방식
+중 하나로 실행하는 것이다. P017 actual을 감사하기 전까지 기존 serial P013 경로를 유지하며
+P015는 실행하지 않는다. P013-C full-decade 확대는 expected-information/power preflight 없이
+착수하지 않는다.
 P010B large-range acceleration과 P005 Rank 85→86 exhaustive는 coverage 선결조건이 없어 runner를
 만들지 않는다. 상세 영향도는 `docs/method/20260828_48h_runner_impact_analysis.md`다.
