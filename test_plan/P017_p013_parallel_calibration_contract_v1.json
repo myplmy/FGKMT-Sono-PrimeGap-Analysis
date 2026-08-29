@@ -1,0 +1,43 @@
+{
+  "contract_id": "P017_P013_PARALLEL_CALIBRATION_V1",
+  "status": "FROZEN_BEFORE_USER_RUN",
+  "created_kst": "2026-08-29T14:35:00+09:00",
+  "validated_records_sha256": "62ecb9028e77893c79a57512488544b91b628a006bb2bd306b670afa34676297",
+  "p013_contract_sha256": "153cc1f3cd158a31e984f7d0f32502411102ab8ae6d5b9623cd0e81dcc5795bf",
+  "p013a_full": {
+    "lower_inclusive": "10000000000",
+    "upper_exclusive": "100000000000",
+    "expected_gap_start_count": 3663002302,
+    "expected_complete_record_indices": [36, 37, 38, 39],
+    "seed": 20260828,
+    "replications": 100000,
+    "serial_oracle_run_id": "20260828T071601Z_p013a_recurrence_extension_1e11_r2",
+    "serial_checkpoint_sha256": "cd6a85ef2cb766bc04a9ddc3bf98a2fc8f12c5f19efbcaaa740318622edf4502",
+    "serial_analysis_sha256": "70c8897af813ec072e1510bcc6e40e6535d3bce95b782801fe4f6bf9a9060b7b"
+  },
+  "p013b_midrange": {
+    "lower_inclusive": "100000000000",
+    "upper_exclusive": "316227766017",
+    "expected_complete_record_indices": [41, 42, 43, 44, 45],
+    "seed": 20260829,
+    "replications": 100000,
+    "scientific_p013b_result_claimed": false
+  },
+  "parallel": {
+    "worker_count": 8,
+    "p013a_segment_count": 32,
+    "p013b_midrange_segment_count": 64,
+    "sieve_segment_span": 50000000,
+    "worker_native_thread_ceiling": 1,
+    "physical_cores": 4,
+    "logical_processors": 8
+  },
+  "resource_caps": {
+    "p013a_timeout_seconds": 14400,
+    "p013b_midrange_timeout_seconds": 39600,
+    "queue_wall_seconds": 57600,
+    "aggregate_disk_bytes": 5000000000,
+    "ram_bytes": 32000000000
+  },
+  "theorem_claimed": false
+}

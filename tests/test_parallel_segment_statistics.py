@@ -80,6 +80,7 @@ class ParallelSegmentStatisticsTests(unittest.TestCase):
                 self.assertEqual(exact_statistics_core(parallel), serial_core)
                 metadata = parallel["parallel_execution"]
                 self.assertEqual(metadata["adjacent_boundary_checks"], workers - 1)
+                self.assertEqual(metadata["worker_count_observed"], workers)
                 self.assertFalse(metadata["prime_arrays_transferred_between_processes"])
                 self.assertTrue(metadata["exact_integer_merge"])
                 self.assertEqual(metadata["worker_native_thread_ceiling"], 1)
@@ -138,6 +139,29 @@ class ParallelSegmentStatisticsTests(unittest.TestCase):
         segments = parallel["parallel_execution"]["segments"]
         for left, right in zip(segments, segments[1:], strict=False):
             self.assertEqual(left["boundary_prime"], right["first_prime"])
+
+    def test_progress_reports_every_segment_without_changing_exact_result(self) -> None:
+        plateaus = _toy_plateaus()
+        progress: list[dict[str, object]] = []
+        parallel = parallel_accumulate_bin_counts(
+            100,
+            200,
+            plateaus,
+            worker_count=4,
+            segment_count=8,
+            sieve_segment_span=17,
+            progress_callback=progress.append,
+        )
+        self.assertEqual(len(progress), 8)
+        self.assertEqual(
+            sorted(int(row["segment_index"]) for row in progress),
+            list(range(8)),
+        )
+        self.assertEqual(
+            sorted(int(row["segments_completed"]) for row in progress),
+            list(range(1, 9)),
+        )
+        self.assertEqual(parallel["parallel_execution"]["worker_count_observed"], 4)
 
 
 if __name__ == "__main__":

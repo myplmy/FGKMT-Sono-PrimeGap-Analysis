@@ -11,9 +11,9 @@ from __future__ import annotations
 
 import multiprocessing as mp
 import os
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from dataclasses import dataclass
-from typing import Iterable, Sequence
+from typing import Callable, Iterable, Sequence
 
 class ParallelSegmentError(RuntimeError):
     """Raised when segment coverage or deterministic merge invariants fail."""
@@ -61,8 +61,8 @@ def partition_integer_range(
     return specs
 
 
-def _initialize_single_thread_worker() -> None:
-    """Prevent nested native pools from oversubscribing eight worker processes."""
+def _initialize_segment_worker(startup_barrier: object | None) -> None:
+    """Apply one-thread limits and start every requested process together."""
 
     for name in (
         "OMP_NUM_THREADS",
@@ -73,6 +73,8 @@ def _initialize_single_thread_worker() -> None:
         "BLIS_NUM_THREADS",
     ):
         os.environ[name] = "1"
+    if startup_barrier is not None:
+        startup_barrier.wait(timeout=120)
 
 
 def _segment_worker(
@@ -183,6 +185,7 @@ def parallel_accumulate_bin_counts(
     segment_count: int | None = None,
     sieve_segment_span: int = 50_000,
     start_method: str = "spawn",
+    progress_callback: Callable[[dict[str, object]], None] | None = None,
 ) -> dict[str, object]:
     """Compute exact P013 sufficient statistics with process-isolated segments."""
 
@@ -197,12 +200,34 @@ def parallel_accumulate_bin_counts(
     plateau_payload = tuple(dict(row) for row in plateaus)
     tasks = tuple((spec, plateau_payload, sieve_segment_span) for spec in specs)
     context = mp.get_context(start_method)
+    active_worker_count = min(worker_count, len(tasks))
+    startup_barrier = (
+        None if active_worker_count == 1 else context.Barrier(active_worker_count)
+    )
     with ProcessPoolExecutor(
-        max_workers=min(worker_count, len(tasks)),
+        max_workers=active_worker_count,
         mp_context=context,
-        initializer=_initialize_single_thread_worker,
+        initializer=_initialize_segment_worker,
+        initargs=(startup_barrier,),
     ) as executor:
-        results = list(executor.map(_segment_worker, tasks, chunksize=1))
+        futures = {executor.submit(_segment_worker, task): task[0] for task in tasks}
+        results = []
+        for completed_count, future in enumerate(as_completed(futures), start=1):
+            result = future.result()
+            results.append(result)
+            if progress_callback is not None:
+                progress_callback(
+                    {
+                        "event": "parallel_segment_completed",
+                        "segment_index": int(result["segment_index"]),
+                        "lower_inclusive": str(result["lower_inclusive"]),
+                        "upper_exclusive": str(result["upper_exclusive"]),
+                        "gap_count": int(result["statistics"]["gap_count"]),
+                        "worker_pid": int(result["worker_pid"]),
+                        "segments_completed": completed_count,
+                        "segments_total": len(tasks),
+                    }
+                )
     results.sort(key=lambda item: int(item["segment_index"]))
 
     for spec, result in zip(specs, results, strict=True):
@@ -215,6 +240,11 @@ def parallel_accumulate_bin_counts(
     for left, right in zip(results, results[1:], strict=False):
         if int(left["boundary_prime"]) != int(right["first_prime"]):
             raise ParallelSegmentError("adjacent segment boundary primes disagree")
+    observed_worker_pids = sorted({int(item["worker_pid"]) for item in results})
+    if len(observed_worker_pids) != active_worker_count:
+        raise ParallelSegmentError(
+            "not every requested segment worker processed at least one segment"
+        )
 
     merged_by_field: dict[str, dict[str, dict[object, int]]] = {
         name: {} for name in (
@@ -251,8 +281,9 @@ def parallel_accumulate_bin_counts(
         }
     merged["parallel_execution"] = {
         "worker_count_requested": worker_count,
+        "worker_count_observed": len(observed_worker_pids),
         "segment_count": len(specs),
-        "worker_pids": sorted({int(item["worker_pid"]) for item in results}),
+        "worker_pids": observed_worker_pids,
         "segments": [
             {
                 key: int(result[key])
