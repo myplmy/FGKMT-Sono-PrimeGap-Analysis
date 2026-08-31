@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
@@ -56,10 +57,15 @@ class P013ParallelCalibrationQueueTests(unittest.TestCase):
             Path(__file__).resolve().parents[1]
             / "source/p013_parallel_calibration_queue.py"
         ).read_text(encoding="utf-8")
-        runner = (
+        completed_runner = (
             Path(__file__).resolve().parents[1]
-            / "scripts/experiments/p017/run_p017_16h_parallel_calibration_queue.ps1"
-        ).read_text(encoding="utf-8")
+            / "test_done/run_p017_16h_parallel_calibration_queue-20260829T124332Z-done.ps1"
+        )
+        self.assertEqual(
+            hashlib.sha256(completed_runner.read_bytes()).hexdigest(),
+            "29d7a47864ec7bd87e4afe4dec9086049a8bccc6203f0cfae86099eb5afc3bde",
+        )
+        runner = completed_runner.read_text(encoding="utf-8")
         self.assertIn('live_log_path = output_directory / "live_console.log"', source)
         self.assertIn("handle.flush()", source)
         self.assertIn("queue_live_file=$QueueLivePath", runner)

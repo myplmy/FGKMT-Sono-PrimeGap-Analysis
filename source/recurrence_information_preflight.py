@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Iterable
 
 from scipy.stats import poisson
+from scipy.optimize import brentq
 
 from source.provenance import sha256_file
 
@@ -164,6 +165,91 @@ def poisson_screening_metrics(
     }
 
 
+def _poisson_mean_for_tail(
+    critical_count: int,
+    tail_probability: float,
+    *,
+    mean_multiplier: float,
+) -> float:
+    if critical_count < 1:
+        raise ValueError("critical_count must be positive")
+    if not 0 < tail_probability < 1:
+        raise ValueError("tail_probability must be in (0,1)")
+    if not math.isfinite(mean_multiplier) or mean_multiplier <= 0:
+        raise ValueError("mean_multiplier must be finite and positive")
+    upper = 1.0
+    while float(
+        poisson.sf(critical_count - 1, mean_multiplier * upper)
+    ) < tail_probability:
+        upper *= 2.0
+        if upper > 1e12:
+            raise ValueError("Poisson planning root exceeded reviewed range")
+    return float(
+        brentq(
+            lambda mean: float(
+                poisson.sf(critical_count - 1, mean_multiplier * mean)
+            )
+            - tail_probability,
+            0.0,
+            upper,
+        )
+    )
+
+
+def minimum_poisson_null_expectation_for_power(
+    *,
+    alpha: float,
+    effect_multiplier: float,
+    power_target: float,
+    maximum_critical_count: int = 10_000,
+) -> dict[str, object]:
+    """Find the first exact Poisson rejection interval reaching target power."""
+
+    if not 0 < alpha < 1:
+        raise ValueError("alpha must be in (0,1)")
+    if not math.isfinite(effect_multiplier) or effect_multiplier <= 1:
+        raise ValueError("effect_multiplier must be finite and greater than one")
+    if not 0 < power_target < 1:
+        raise ValueError("power_target must be in (0,1)")
+    if maximum_critical_count < 1:
+        raise ValueError("maximum_critical_count must be positive")
+
+    previous_null_upper = 0.0
+    for critical_count in range(1, maximum_critical_count + 1):
+        null_upper = _poisson_mean_for_tail(
+            critical_count,
+            alpha,
+            mean_multiplier=1.0,
+        )
+        power_lower = _poisson_mean_for_tail(
+            critical_count,
+            power_target,
+            mean_multiplier=effect_multiplier,
+        )
+        candidate = max(
+            power_lower,
+            math.nextafter(previous_null_upper, math.inf),
+        )
+        if candidate <= null_upper:
+            achieved = float(
+                poisson.sf(
+                    critical_count - 1,
+                    effect_multiplier * candidate,
+                )
+            )
+            return {
+                "minimum_null_expected_recurrences": candidate,
+                "critical_count": critical_count,
+                "achieved_power": achieved,
+                "alpha": alpha,
+                "effect_multiplier": effect_multiplier,
+                "power_target": power_target,
+                "is_formal_stratified_hypergeometric_power": False,
+            }
+        previous_null_upper = null_upper
+    raise ValueError("power target was not reached within critical-count limit")
+
+
 def evaluate_stage(
     stage: dict[str, object],
     *,
@@ -191,6 +277,14 @@ def evaluate_stage(
     information_multiplier = target_expected / expected
     power_key = f"{float(screening_effect_multiplier):g}x"
     proxy_power = float(proxy["screening_power_by_effect_multiplier"][power_key])
+    power_requirement = minimum_poisson_null_expectation_for_power(
+        alpha=alpha,
+        effect_multiplier=screening_effect_multiplier,
+        power_target=screening_power_target,
+    )
+    required_power_expectation = float(
+        power_requirement["minimum_null_expected_recurrences"]
+    )
     information_gate = (
         expected >= target_expected
         and int(stage["primary_positive_variance_rows"]) >= minimum_positive_variance_rows
@@ -213,7 +307,10 @@ def evaluate_stage(
             "to_expected_1": 1.0 / expected,
             "to_expected_3": 3.0 / expected,
             "to_expected_5": 5.0 / expected,
+            "to_poisson_screening_power_target": required_power_expectation
+            / expected,
         },
+        "poisson_screening_power_requirement": power_requirement,
         "poisson_screen": proxy,
         "information_gate_pass": information_gate,
         "poisson_screening_power_gate_pass": proxy_power_gate,
@@ -251,5 +348,6 @@ __all__ = [
     "build_preflight_report",
     "evaluate_stage",
     "load_stage_information",
+    "minimum_poisson_null_expectation_for_power",
     "poisson_screening_metrics",
 ]

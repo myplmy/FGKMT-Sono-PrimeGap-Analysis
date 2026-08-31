@@ -7,6 +7,7 @@ echo [INFO] Arithmetic, coverage, and reduction remain exact; no constraint is s
 echo [INFO] The saved result is recomputed independently by the original serial exact scanner.
 echo [INFO] CPU budget: 4 physical cores / 8 logical processors; CPU only; decimal 10 GB child cap.
 echo [INFO] Analysis and serial-verification progress files are fsync-written every five minutes.
+echo [INFO] Child stdout and stderr are also shown live in this window by the Python tee broker.
 echo [INFO] Do not run this while P017 or another CPU-heavy experiment is active.
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\experiments\p014\run_p014r2_mod510510_parallel_staged_certificate.ps1" -ConfirmP014R2
 set "RUN_EXIT=%ERRORLEVEL%"

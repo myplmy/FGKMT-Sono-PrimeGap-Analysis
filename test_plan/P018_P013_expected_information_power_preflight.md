@@ -2,7 +2,7 @@
 
 ## 1. 상태와 승인 경계
 
-`DESIGN_APPROVED / IMPLEMENTED_TOY / READ_ONLY_DIAGNOSTIC_PASS / DECISION_CONTRACT_DRAFT / NO_FUTURE_PRIME_SWEEP`
+`DESIGN_APPROVED / IMPLEMENTED_TOY / READ_ONLY_DIAGNOSTIC_PASS / DECISION_CONTRACT_DRAFT / USER_GATE_SELECTION_PENDING / NO_FUTURE_PRIME_SWEEP`
 
 사용자는 P013 expected-information/power preflight 설계 착수를 승인했다. 이 단계는 완료된
 P012/P013 산출물을 읽어 다음 큰 범위 계산이 통계적으로 의미 있을 가능성을 먼저 가늠한다.
@@ -58,7 +58,7 @@ hypergeometric과 family max statistic을 사용하므로 Poisson power를 실�
 
 ## 6. 초안 판정 gate
 
-다음 값은 연구자 판단이 들어간 초안이며 사용자와 합의 후 동결한다.
+다음 값은 연구자 판단이 들어간 균형형 권장 초안이며 사용자와 합의 후 동결한다.
 
 ```text
 two-stage alpha = 0.025
@@ -69,6 +69,10 @@ maximum LOW_INFORMATION primary fraction = 0.5
 screening alternative = 2x enrichment
 Poisson screening-power target = 0.8
 ```
+
+탐색형·균형형·확인형 세 후보와 각 값을 높이거나 낮출 때의 영향, 문헌 근거는
+`docs/method/20260830_P018_gate_options_literature_review.md`에 정리했다. 코드 기본값은 사용자가
+선택하기 전까지 위 균형형을 그대로 유지하며 full future sweep을 승인하지 않는다.
 
 모든 정보 gate와 screening-power gate를 통과해야 다음 range를 자동 권고한다. 한 항목이라도
 실패하면 `HOLD_NEXT_RANGE`이며, 이는 recurrence 가설이 거짓이라는 뜻이 아니라 현재 설계로는
@@ -84,6 +88,8 @@ P(at least one | Poisson null) = 0.0646151
 information multiplier to 50% event probability = 10.3769x
 multiplier to expected 1 / 3 / 5 = 14.9707x / 44.9121x / 74.8534x
 Poisson 2x-enrichment screening power at alpha 0.025 = 0.00817
+Poisson 2x power 0.8에 필요한 null expectation = 11.269069541418046
+현재 expectation 대비 power-target planning multiplier = 168.7057465x
 ```
 
 판정은 `HOLD_NEXT_RANGE`다. 이 수치는 새 decade가 단순히 10.3769배 길어야 한다는 뜻이
@@ -95,6 +101,10 @@ gap-start 수만으로 선형 외삽할 수 없다.
 - `source/recurrence_information_preflight.py`
 - `source/recurrence_information_preflight_cli.py`
 - `tests/test_recurrence_information_preflight.py`
+
+추가 구현은 discrete Poisson rejection threshold가 바뀌는 지점을 그대로 고려해 지정 power에
+필요한 최소 null expectation을 계산한다. 이는 planning proxy의 수치 보완이지 formal power
+인증이 아니다.
 
 toy tests는 Poisson upper-tail critical count, LOW_INFORMATION hold, named decision stage와
 비-pooling, formal-power 비주장을 확인한다.
@@ -115,7 +125,8 @@ toy tests는 Poisson upper-tail critical count, LOW_INFORMATION hold, named deci
 
 권장안은 다음과 같다.
 
-1. 위 초안 gate를 사용자와 합의해 contract v1로 동결한다.
+1. 균형형 B(권장), 탐색형 A, 확인형 C 중 full-range gate를 사용자와 합의해 contract v1로
+   동결한다. 권장안은 B이며 A는 prefix probe 전용 보조 gate로만 사용한다.
 2. P013-C 전체 sweep runner부터 만들지 않는다.
 3. 미래 범위의 정보량을 outcome을 보지 않고 추정할 수 있는 preregistered prefix/segment 설계를
    먼저 연구한다.
@@ -146,4 +157,3 @@ toy tests는 Poisson upper-tail critical count, LOW_INFORMATION hold, named deci
 - P013-A/B 결과의 소급 재분석으로 유의성 만들기
 - 다음 범위의 정보량을 gap-start 수에 단순 선형 외삽
 - 컴퓨팅 시간이 남는다는 이유만으로 P013-C 실행
-

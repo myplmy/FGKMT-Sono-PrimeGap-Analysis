@@ -2,10 +2,9 @@
 
 ## 1. 상태
 
-`APPROVED / USER_ACTUAL_RUNNING` — 구현·toy·preflight·전체 회귀검증은
-`LOCALLY_VERIFIED`다. 사용자가 2026-08-29 combined queue를 시작했고 P017-A child는 PASS했다.
-P017-B는 새 midrange serial oracle을 먼저 계산하는 중이다. 종료 전 중복 실행·active 파일
-이동·process 조작을 하지 않는다.
+`EXPERIMENT_PASS / EXACT_EQUIVALENCE_PASS` — 2026-08-29 combined queue와 P017-A/B 두 child가
+terminal·saved verification을 통과했다. 결과 정본은
+`test_result/202608300229_P017_parallel_calibration_result_analysis.md`다.
 
 P017-A는 완료된 P013-A serial checkpoint/analysis를 oracle로 읽어 새 계산은 8-worker parallel만
 했다. P017-B는 해당 midrange oracle이 없으므로 single-stream serial sweep 뒤 8-worker parallel
@@ -90,9 +89,10 @@ P017-B upper endpoint는 primary width-0.5 log bin의 첫 경계 `10^11.5`보다
 - aggregate 신규 artifact 5 decimal GB 초과 또는 RAM 32 GB 이상 징후
 - output overwrite 시도
 
-## 7. 사용자 실행 명령
+## 7. 완료된 사용자 실행 이력
 
-P013-B가 완전히 종료된 뒤 queue 또는 개별 방식 중 하나만 선택한다.
+사용자는 combined queue 방식을 실행해 완료했다. 아래 명령은 실행 provenance이며 현재 root
+entrypoint는 `test_done/*-done`으로 이관됐으므로 다시 실행하지 않는다.
 
 전체 queue:
 
@@ -109,7 +109,8 @@ cd Z:\FGKMT-Sono-PrimeGap-Analysis
 .\run_P017B_P013B_parallel_midrange_calibration.bat --confirm-after-p013b
 ```
 
-queue와 개별 실행을 중복하지 않는다.
+개별 실행 BAT는 사용하지 않았지만 완료 P017 전용 entrypoint라 같은 run과 함께 보존 이관했다.
+현재 별도 사용자 수행절차는 없다.
 
 ## 8. 산출물
 
@@ -127,11 +128,12 @@ queue와 개별 실행을 중복하지 않는다.
 모두 PASS일 때만 부여한다. 속도가 느려도 정확성 PASS와 성능 음성 결과를 구분한다. P017-B는
 P013-B 전체 결과가 아니며 scientific recurrence 결론에 사용하지 않는다.
 
-## 10. 후속 작업
+## 10. 실행 결과와 후속 작업
 
-사용자는 terminal marker, log, result directory, elapsed time, peak RAM 관찰치를 회신한다.
-Codex는 산출물을 감사한 뒤 기존 P013 runner 승격·4 worker 대 8 worker 추가 비교·serial saved
-verifier 유지 방안을 별도로 제안한다.
+P017-A는 709.687초, P017-B는 15,481.750초, combined queue는 16,191.671초에 PASS했다. P017-B
+내부 동일 범위 비교에서 serial은 12,598.410초, parallel은 준비시간 포함 2,866.160초로 관측
+wall-time 비가 약 4.3956이었다. 다음 단계는 serial 정답표가 없는 새 범위를 위한 서로 다른
+partition의 parallel dual-pass verification을 별도 revision으로 toy 검증하는 것이다.
 
 ## 구현·로컬검증 증거
 
@@ -146,4 +148,5 @@ verifier 유지 방안을 별도로 제안한다.
 - PowerShell parser 4/4, BAT approval-denial 3/3, py_compile PASS
 - Windows sandbox 내부 multiprocessing은 `PermissionError: [WinError 5]`로 차단됐고 동일 시험을
   sandbox 밖 FGKMT Python에서 재실행해 PASS했다. 이는 코드 FAIL이 아니다.
-- P017 actual result directory·log: 생성되지 않음
+- actual queue·A·B result directory와 log: 생성 및 saved verification PASS
+- 결과보고서: `test_result/202608300229_P017_parallel_calibration_result_analysis.md`

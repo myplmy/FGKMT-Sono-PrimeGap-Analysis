@@ -5,6 +5,7 @@ $script:RunnerCaptureDirectory = $null
 $script:RunnerCapturePrefix = $null
 $script:RunnerCurrentStage = 'initialization'
 $script:RunnerUtf8NoBom = [System.Text.UTF8Encoding]::new($false)
+$script:RunnerLiveNativeTee = Join-Path $PSScriptRoot 'live_native_tee.py'
 
 function Initialize-RunnerLogging {
     param(
@@ -113,6 +114,37 @@ function Invoke-LoggedNativeStage {
             }
         }
     }
+    if ($StageExit -ne 0) {
+        throw "Stage '$Name' failed with exit code $StageExit."
+    }
+    Write-RunLine "[PASS] $Name"
+}
+
+function Invoke-LiveLoggedNativeStage {
+    param(
+        [Parameter(Mandatory = $true)][string]$Name,
+        [Parameter(Mandatory = $true)][string]$FilePath,
+        [Parameter(Mandatory = $true)][string[]]$Arguments,
+        [Parameter(Mandatory = $true)][string]$BrokerPythonPath
+    )
+    $script:RunnerCurrentStage = $Name
+    Write-RunLine "[STAGE] $Name"
+    foreach ($Required in @($FilePath, $BrokerPythonPath, $script:RunnerLiveNativeTee)) {
+        if (-not (Test-Path -LiteralPath $Required -PathType Leaf)) {
+            throw "Live-stage prerequisite was not found: $Required"
+        }
+    }
+
+    $ArgumentsJson = ConvertTo-Json -Compress -InputObject @($Arguments)
+    $BrokerArguments = @(
+        '-u', '-B', $script:RunnerLiveNativeTee,
+        '--log-path', $script:RunnerLogPath,
+        '--stage-name', $Name,
+        '--executable', $FilePath,
+        '--arguments-json', $ArgumentsJson
+    )
+    & $BrokerPythonPath @BrokerArguments
+    $StageExit = $LASTEXITCODE
     if ($StageExit -ne 0) {
         throw "Stage '$Name' failed with exit code $StageExit."
     }

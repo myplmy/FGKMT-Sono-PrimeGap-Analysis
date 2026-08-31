@@ -73,7 +73,7 @@ try {
     Write-RunLine "[RUN] progress_source_sha256=$((Get-FileHash -Algorithm SHA256 -LiteralPath $ProgressSource).Hash.ToLowerInvariant())"
     Write-RunLine "[RUN] result_directory=$RunRoot"
 
-    Invoke-LoggedNativeStage -Name 'p014r2-prerequisite-resource-preflight' -FilePath $Python -Arguments @(
+    Invoke-LiveLoggedNativeStage -Name 'p014r2-prerequisite-resource-preflight' -FilePath $Python -BrokerPythonPath $Python -Arguments @(
         '-B', '-m', 'source.finite_gap_mod510510_cli', 'preflight',
         '--g4-result-directory', $G4Root,
         '--chunk-rows', '64',
@@ -82,7 +82,7 @@ try {
         '--physical-cores', '4',
         '--logical-processors', '8'
     )
-    Invoke-LoggedNativeStage -Name 'p014r2-targeted-unit-tests' -FilePath $Python -Arguments @(
+    Invoke-LiveLoggedNativeStage -Name 'p014r2-targeted-unit-tests' -FilePath $Python -BrokerPythonPath $Python -Arguments @(
         '-B', '-m', 'unittest',
         'tests.test_finite_gap_mod510510',
         'tests.test_finite_gap_parallel_exact_scan',
@@ -90,7 +90,7 @@ try {
         'tests.test_finite_gap_separation',
         'tests.test_finite_gap_replay', '-v'
     )
-    Invoke-LoggedNativeStage -Name 'p014r2-parallel-staged-analysis' -FilePath $Python -Arguments @(
+    Invoke-LiveLoggedNativeStage -Name 'p014r2-parallel-staged-analysis' -FilePath $Python -BrokerPythonPath $Python -Arguments @(
         '-u', '-B', '-m', 'source.finite_gap_mod510510_cli', 'run',
         '--approved-by-user',
         '--g4-result-directory', $G4Root,
@@ -112,7 +112,7 @@ try {
         '--heartbeat-seconds', '300',
         '--live-console'
     )
-    Invoke-LoggedNativeStage -Name 'p014r2-saved-full-serial-recomputation' -FilePath $Python -Arguments @(
+    Invoke-LiveLoggedNativeStage -Name 'p014r2-saved-full-serial-recomputation' -FilePath $Python -BrokerPythonPath $Python -Arguments @(
         '-u', '-B', '-m', 'source.finite_gap_mod510510_cli', 'verify',
         '--result-directory', $RunRoot,
         '--report', (Join-Path $RunRoot 'saved_verification_report.json'),

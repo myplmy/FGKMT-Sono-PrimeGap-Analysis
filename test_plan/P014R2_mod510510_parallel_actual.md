@@ -108,12 +108,17 @@ run_P014R2_mod510510_parallel_staged_certificate.bat --confirm-p014r2
 
 ## 8. 진행 관찰
 
+P014-R2 revision은 Python live tee broker를 사용하므로 child stdout·stderr가 실행한 PowerShell
+창에 즉시 표시된다. 이 방식은 .NET `Start-Process` capture나 `2>&1 | Tee-Object`를 사용하지
+않으며, 같은 내용을 main run log에도 즉시 append한다.
+
 runner 시작 시 다음 두 파일의 정확한 경로가 main log에 기록된다.
 
 - `*.p014r2-analysis.progress.jsonl`
 - `*.p014r2-serial-verification.progress.jsonl`
 
-PowerShell 화면이 조용하면 별도 PowerShell에서 runner가 출력한 실제 경로를 사용한다.
+화면 출력과 별도로 durable phase/heartbeat를 확인하거나 창 표시가 중단된 것처럼 보이면 다른
+PowerShell에서 runner가 출력한 실제 경로를 사용한다.
 
 ```powershell
 Get-Content '실제_progress.jsonl_경로' -Wait
@@ -156,4 +161,3 @@ Get-Content '실제_progress.jsonl_경로' -Wait
 승격 근거는 P014-R2 toy의 feasible/infeasible negative control, worker-count invariance,
 modulus-30030 통합 exact equality다. 아직 modulus-510510 wall-time·peak RAM·memory-bandwidth
 speedup은 측정하지 않았으므로 actual 완료 전에는 성능 개선을 주장하지 않는다.
-

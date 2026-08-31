@@ -6,6 +6,7 @@ import unittest
 from source.recurrence_information_preflight import (
     build_preflight_report,
     evaluate_stage,
+    minimum_poisson_null_expectation_for_power,
     poisson_screening_metrics,
 )
 
@@ -35,6 +36,21 @@ class RecurrenceInformationPreflightTests(unittest.TestCase):
         self.assertFalse(evaluated["information_gate_pass"])
         self.assertFalse(evaluated["automatic_next_range_promotion"])
         self.assertFalse(evaluated["formal_power_certified"])
+
+    def test_balanced_proxy_power_requirement_is_reproducible(self) -> None:
+        requirement = minimum_poisson_null_expectation_for_power(
+            alpha=0.025,
+            effect_multiplier=2.0,
+            power_target=0.8,
+        )
+        self.assertEqual(requirement["critical_count"], 19)
+        self.assertAlmostEqual(
+            requirement["minimum_null_expected_recurrences"],
+            11.269069541418046,
+            places=10,
+        )
+        self.assertAlmostEqual(requirement["achieved_power"], 0.8, places=10)
+        self.assertFalse(requirement["is_formal_stratified_hypergeometric_power"])
 
     def test_information_rich_stage_still_requires_proxy_power_gate(self) -> None:
         evaluated = evaluate_stage(
