@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import time
 import unittest
 
 from source.parallel_dual_partition import (
@@ -105,7 +106,24 @@ class ParallelDualPartitionTests(unittest.TestCase):
                 verifier_sieve_segment_span=19,
             )
 
+    def test_expired_deadline_is_rejected_before_parallel_work(self) -> None:
+        with self.assertRaisesRegex(
+            DualPartitionVerificationError,
+            "deadline already expired",
+        ):
+            dual_partition_accumulate_bin_counts(
+                100,
+                200,
+                _toy_plateaus(),
+                expected_gap_start_count=21,
+                worker_count=4,
+                primary_segment_count=8,
+                verifier_segment_count=11,
+                primary_sieve_segment_span=17,
+                verifier_sieve_segment_span=19,
+                deadline_monotonic=time.monotonic() - 1.0,
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
-

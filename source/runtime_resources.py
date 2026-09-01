@@ -8,6 +8,10 @@ import struct
 from dataclasses import asdict, dataclass
 
 
+_PROCESS_JOB_HANDLE: int | None = None
+_PROCESS_JOB_LIMIT_BYTES: int | None = None
+
+
 DEFAULT_PHYSICAL_CORES = 4
 DEFAULT_LOGICAL_PROCESSORS = 8
 THREAD_ENVIRONMENT_VARIABLES = (
@@ -22,6 +26,10 @@ THREAD_ENVIRONMENT_VARIABLES = (
 
 class CpuResourceError(RuntimeError):
     """Raised when the requested CPU-only resource contract cannot be applied."""
+
+
+class MemoryResourceError(RuntimeError):
+    """Raised when a process-tree memory ceiling cannot be applied."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -176,12 +184,130 @@ def configure_cpu_resources(
     return payload
 
 
+def configure_process_tree_memory_limit(*, limit_bytes: int) -> dict[str, int | str | bool]:
+    """Apply a Windows Job Object limit inherited by spawned worker processes."""
+
+    global _PROCESS_JOB_HANDLE, _PROCESS_JOB_LIMIT_BYTES
+    if not 1_000_000_000 <= limit_bytes < 32_000_000_000:
+        raise MemoryResourceError(
+            "process-tree memory limit must be in [1 GB, 32 GB)"
+        )
+    if os.name != "nt":
+        raise MemoryResourceError(
+            "the P018 process-tree memory ceiling is implemented for Windows"
+        )
+    if _PROCESS_JOB_HANDLE is not None:
+        if _PROCESS_JOB_LIMIT_BYTES != limit_bytes:
+            raise MemoryResourceError("a different process-tree memory limit is active")
+        return {
+            "platform": "windows_job_object",
+            "limit_bytes": limit_bytes,
+            "applied": True,
+            "inherited_by_child_processes": True,
+            "already_active": True,
+        }
+
+    from ctypes import wintypes
+
+    class JobObjectBasicLimitInformation(ctypes.Structure):
+        _fields_ = (
+            ("PerProcessUserTimeLimit", ctypes.c_int64),
+            ("PerJobUserTimeLimit", ctypes.c_int64),
+            ("LimitFlags", wintypes.DWORD),
+            ("MinimumWorkingSetSize", ctypes.c_size_t),
+            ("MaximumWorkingSetSize", ctypes.c_size_t),
+            ("ActiveProcessLimit", wintypes.DWORD),
+            ("Affinity", ctypes.c_size_t),
+            ("PriorityClass", wintypes.DWORD),
+            ("SchedulingClass", wintypes.DWORD),
+        )
+
+    class IoCounters(ctypes.Structure):
+        _fields_ = (
+            ("ReadOperationCount", ctypes.c_uint64),
+            ("WriteOperationCount", ctypes.c_uint64),
+            ("OtherOperationCount", ctypes.c_uint64),
+            ("ReadTransferCount", ctypes.c_uint64),
+            ("WriteTransferCount", ctypes.c_uint64),
+            ("OtherTransferCount", ctypes.c_uint64),
+        )
+
+    class JobObjectExtendedLimitInformation(ctypes.Structure):
+        _fields_ = (
+            ("BasicLimitInformation", JobObjectBasicLimitInformation),
+            ("IoInfo", IoCounters),
+            ("ProcessMemoryLimit", ctypes.c_size_t),
+            ("JobMemoryLimit", ctypes.c_size_t),
+            ("PeakProcessMemoryUsed", ctypes.c_size_t),
+            ("PeakJobMemoryUsed", ctypes.c_size_t),
+        )
+
+    kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+    create_job = kernel32.CreateJobObjectW
+    create_job.argtypes = (ctypes.c_void_p, wintypes.LPCWSTR)
+    create_job.restype = wintypes.HANDLE
+    set_information = kernel32.SetInformationJobObject
+    set_information.argtypes = (
+        wintypes.HANDLE,
+        ctypes.c_int,
+        ctypes.c_void_p,
+        wintypes.DWORD,
+    )
+    set_information.restype = wintypes.BOOL
+    assign_process = kernel32.AssignProcessToJobObject
+    assign_process.argtypes = (wintypes.HANDLE, wintypes.HANDLE)
+    assign_process.restype = wintypes.BOOL
+    get_current_process = kernel32.GetCurrentProcess
+    get_current_process.argtypes = ()
+    get_current_process.restype = wintypes.HANDLE
+    close_handle = kernel32.CloseHandle
+    close_handle.argtypes = (wintypes.HANDLE,)
+    close_handle.restype = wintypes.BOOL
+
+    handle = create_job(None, None)
+    if not handle:
+        raise MemoryResourceError(
+            f"CreateJobObjectW failed: {ctypes.get_last_error()}"
+        )
+    job_memory_limit = 0x00000200
+    kill_on_job_close = 0x00002000
+    information = JobObjectExtendedLimitInformation()
+    information.BasicLimitInformation.LimitFlags = (
+        job_memory_limit | kill_on_job_close
+    )
+    information.JobMemoryLimit = limit_bytes
+    if not set_information(
+        handle,
+        9,
+        ctypes.byref(information),
+        ctypes.sizeof(information),
+    ):
+        error = ctypes.get_last_error()
+        close_handle(handle)
+        raise MemoryResourceError(f"SetInformationJobObject failed: {error}")
+    if not assign_process(handle, get_current_process()):
+        error = ctypes.get_last_error()
+        close_handle(handle)
+        raise MemoryResourceError(f"AssignProcessToJobObject failed: {error}")
+    _PROCESS_JOB_HANDLE = int(handle)
+    _PROCESS_JOB_LIMIT_BYTES = limit_bytes
+    return {
+        "platform": "windows_job_object",
+        "limit_bytes": limit_bytes,
+        "applied": True,
+        "inherited_by_child_processes": True,
+        "already_active": False,
+    }
+
+
 __all__ = [
     "CpuResourceError",
     "CpuResourcePlan",
+    "MemoryResourceError",
     "DEFAULT_LOGICAL_PROCESSORS",
     "DEFAULT_PHYSICAL_CORES",
     "THREAD_ENVIRONMENT_VARIABLES",
     "configure_cpu_resources",
+    "configure_process_tree_memory_limit",
     "plan_cpu_resources",
 ]

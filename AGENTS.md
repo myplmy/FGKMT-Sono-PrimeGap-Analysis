@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R2 actual runner 준비 / P017 actual PASS / P018 정보량 gate 후보 선택 대기·HOLD / P019 dual-partition toy PASS
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R2 preflight 전 실패·R3 준비 / P017 actual PASS / P018 B-full·A-prefix 결정 동결 / P019 dual-partition toy PASS
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011–P013-B recurrence 계열은 enrichment를 검출하지 못했다. P013-A/B는 각각 primary 기대 0.077829/0.066797, 관측 0, 모든 행 LOW_INFORMATION이며 사용자 figure QA까지 PASS했다. P017 combined queue와 A/B child는 terminal·saved·exact equality PASS다. P017-B 동일범위 serial 12,598.410초 대 parallel 2,866.160초로 관측 wall-time 비가 약 4.3956이었다. P018 read-only 정보량 gate는 P013-B의 양의 분산 primary row가 1/9, 2x Poisson screening power가 약 0.00817이어서 다음 full range를 `HOLD`하며 사용자 gate 후보 선택을 기다린다. P019는 serial 정답표 없는 future 범위의 서로소 dual-partition parallel full-pass toy를 exact count 21로 검증했지만 actual runner는 없다. P014-R2는 prior 8-worker exact-equality toy를 바탕으로 analysis 병렬·saved serial oracle 구조의 별도 actual runner로 승격했으며, Python live tee로 현재 PowerShell 화면과 main log에 stdout/stderr를 즉시 표시하도록 교정했으나 actual은 미실행이다. 기존 serial P013 runner는 교체하지 않았다. P015 queue는 완료 P013 child와 중복되므로 실행하지 않는다. 결과 연결 정본은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 actual 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011–P013-B recurrence 계열은 enrichment를 검출하지 못했다. P013-A/B는 각각 primary 기대 0.077829/0.066797, 관측 0, 모든 행 LOW_INFORMATION이며 사용자 figure QA까지 PASS했다. P017 combined queue와 A/B child는 terminal·saved·exact equality PASS다. P017-B 동일범위 serial 12,598.410초 대 parallel 2,866.160초로 관측 wall-time 비가 약 4.3956이었다. P018 read-only 사전판정은 P013-B의 양의 분산 primary row가 1/9, 2x Poisson screening power가 약 0.00817이라 full sweep를 HOLD했다. 사용자는 2026-09-01 full-range 정식 gate로 균형형 B, outcome-blind prefix 보조 gate로 탐색형 A를 동결했다. P0/A prefix runner는 raw margin·dual primecount evidence·서로소 dual partition·31.5 GB process-tree ceiling을 포함해 준비됐지만 actual은 미실행이다. P019는 serial 정답표 없는 future 범위의 서로소 dual-partition parallel full-pass toy를 exact count 21로 검증했지만 actual runner는 없다. P014-R2 사용자 실행은 Windows PowerShell 5.1 raw-JSON argv 손상으로 첫 preflight 전에 실패했고 과학 계산·result directory는 0건이다. R2 실행본은 hash 보존해 `test_done` 이관했으며, 수학·자원 인수를 그대로 둔 Base64 transport R3가 준비됐다. 기존 serial P013 runner는 교체하지 않았다. P015 queue는 완료 P013 child와 중복되므로 실행하지 않는다. 결과 연결 정본은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 actual 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -344,18 +344,21 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - 실행 완료 P013-A r2·P013-B 전용 BAT/PS1은 SHA-256을 보존해 `test_done/*-done`으로 이관; 공통 `scripts/runners/run_p013_extension.ps1`은 유지
 - P014 Python-side durable progress heartbeat·phase log와 console bypass 구현·targeted 6 tests/전체 151 tests/Python compile/preflight/PowerShell parser·logging self-test PASS; actual 미실행
 - P016 P013 segment toy와 P014-R2 source-row exact-scan toy PASS: worker 1/2/4/8 serial exact equality, 통합 affinity `0xff` 8-process 관측, P013 68,906 gap starts·P014 synthetic mod30030 35,224,647 constraints 무누락, worker native thread=1, 전체 158 tests PASS
-- P014-R2 actual revision IMPLEMENTED: exact analysis 8-process, source-row 무누락·exact integer reduction, saved full recomputation은 기존 serial oracle; 32 GB RAM·10 GB disk 계약, actual 미실행
+- P014-R2 user run은 PowerShell 5.1 JSON argv quote 손상으로 첫 preflight 전에 USER_RUN_FAILED; 과학 계산·result/progress 0, 실행 BAT/PS1은 hash 보존 `test_done` 이관
+- P014-R3 LOCALLY_VERIFIED: UTF-8 JSON Base64 transport가 Windows PowerShell 5.1 exact argv를 보존하며 R2의 modulus·constraint·threshold·8-worker·serial saved oracle·자원 계약은 불변; actual 미실행
 - P017 P013 parallel calibration EXPERIMENT_PASS: A/B exact statistics·checkpoint·fixed-seed inference equality, A 32/B 64 segments와 worker 8개; B serial/parallel 관측비 약 4.3956, 기존 serial runner는 보존
 - P017 완료 BAT/PS1 6개는 SHA-256을 보존해 `test_done/*-20260829T*-done`으로 이관
-- P018 P013 information/power preflight draft PASS: P013-B expected 0.066797, positive-variance primary 1/9, LOW_INFORMATION 100%, 2x Poisson screening power 약 0.00817; balanced power 0.8에 필요한 null expectation 약 11.2691(현재의 약 168.7x), formal power 미인증, next range HOLD·사용자 후보 선택 대기
+- P018 P013 information/power preflight PASS: P013-B expected 0.066797, positive-variance primary 1/9, LOW_INFORMATION 100%, 2x Poisson screening power 약 0.00817; balanced power 0.8에 필요한 null expectation 약 11.2691(현재의 약 168.7x), formal power 미인증
+- 사용자 결정: B는 full-range 정식 gate, A는 prefix-only 보조 gate. P0 one-plateau calibration과 A two-plateau runner는 blinded margin saved recomputation·raw dual-primecount evidence·16/17 또는 64/65 dual partition·P0/A mutex·31.5 GB Windows process-tree ceiling으로 준비, actual 미실행
 - P019 serial-oracle-free dual-partition toy PASS: 서로소 8/11 segments·worker 4, exact gap count 21, 두 full parallel pass·toy serial core 일치; shared sieve/accumulator common-mode risk 때문에 독립 증명 아님, actual 미승인
-- 새 장시간 Windows runner는 `scripts/common/live_native_tee.py`와 `Invoke-LiveLoggedNativeStage`로 .NET capture 없이 stdout/stderr를 같은 PowerShell 화면과 main log에 즉시 기록; P014-R2부터 적용, toy 3/3·PowerShell 통합 PASS
-- P015 queue는 완료된 P013 child를 중복하므로 이번 cycle `DO_NOT_START`; P014-R2는 다른 CPU-heavy 작업이 없을 때 개별 실행 후보
+- 새 장시간 Windows runner는 `scripts/common/live_native_tee.py`와 `Invoke-LiveLoggedNativeStage`로 .NET process capture 없이 stdout/stderr를 같은 PowerShell 화면과 main log에 즉시 기록; Windows PowerShell 5.1용 UTF-8 JSON Base64 transport 회귀시험 PASS
+- P015 queue는 완료된 P013 child를 중복하므로 이번 cycle `DO_NOT_START`; P014-R3는 다른 CPU-heavy 작업이 없을 때 개별 실행 후보
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018 full-range gate로 균형형 B를 채택할지 사용자와 합의하고, CPU 시간이
-허용되면 P014-R2를 개별 실행하는 것이다. P013-C full-decade 확대와 P019 actual runner는 P018
-decision contract와 future information-rate prefix 설계를 합의하기 전에는 착수하지 않는다.
+다음 권장 행동은 P014-R3를 개별 재실행하거나 P018-P0 exact primecount 준비·calibration을 먼저
+실행하는 것이다. 두 CPU-heavy 실험은 동시에 실행하지 않는다. P018-A는 P0 감사 뒤 동결된
+endpoint/gate를 바꾸지 않고 실행한다. P013-C full-decade 확대와 P019 actual runner는 A 결과를
+감사해 B 설계 검토 가치가 확인되기 전에는 착수하지 않는다.
 P015는 실행하지 않는다.
 P010B large-range acceleration과 P005 Rank 85→86 exhaustive는 coverage 선결조건이 없어 runner를
 만들지 않는다. 상세 영향도는 `docs/method/20260828_48h_runner_impact_analysis.md`다.

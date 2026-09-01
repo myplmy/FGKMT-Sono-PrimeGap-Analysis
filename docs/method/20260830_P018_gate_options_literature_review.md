@@ -1,5 +1,8 @@
 # P018 expected-information gate 후보와 문헌 근거 검토
 
+> 2026-09-01 결정: full-range 판정은 균형형 B, outcome-blind prefix 정보율 보조판정은 탐색형 A로
+> 확정했다. A는 full range를 자동 승격할 수 없다.
+
 최종 갱신: 2026-08-30 KST
 
 ## 1. 먼저 알아둘 핵심

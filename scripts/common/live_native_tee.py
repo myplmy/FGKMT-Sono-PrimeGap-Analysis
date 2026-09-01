@@ -9,6 +9,8 @@ records stream changes in the shared runner log.
 from __future__ import annotations
 
 import argparse
+import base64
+import binascii
 import json
 import queue
 import subprocess
@@ -138,33 +140,88 @@ def run_live_native_tee(
         return exit_code
 
 
+class _BrokerArgumentParser(argparse.ArgumentParser):
+    def error(self, message: str) -> None:
+        raise LiveNativeTeeError(f"broker argument error: {message}")
+
+
 def _parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = _BrokerArgumentParser(description=__doc__)
     parser.add_argument("--log-path", type=Path, required=True)
     parser.add_argument("--stage-name", required=True)
     parser.add_argument("--executable", required=True)
-    parser.add_argument("--arguments-json", required=True)
+    transport = parser.add_mutually_exclusive_group(required=True)
+    transport.add_argument("--arguments-json")
+    transport.add_argument("--arguments-base64")
     return parser
 
 
-def main(argv: Sequence[str] | None = None) -> int:
-    args = _parser().parse_args(argv)
+def _decode_arguments(args: argparse.Namespace) -> list[str]:
+    if args.arguments_base64 is not None:
+        encoded = args.arguments_base64.encode("ascii", errors="strict")
+        payload = base64.b64decode(encoded, validate=True).decode("utf-8")
+    else:
+        payload = args.arguments_json
+    arguments = json.loads(payload)
+    if not isinstance(arguments, list) or not all(
+        isinstance(value, str) for value in arguments
+    ):
+        raise LiveNativeTeeError("arguments JSON must be an array of strings")
+    return arguments
+
+
+def _append_broker_failure(log_path: Path, message: str) -> None:
     try:
-        arguments = json.loads(args.arguments_json)
-        if not isinstance(arguments, list) or not all(
-            isinstance(value, str) for value in arguments
-        ):
-            raise LiveNativeTeeError("arguments JSON must be an array of strings")
+        if log_path.is_file():
+            with log_path.open("a", encoding="utf-8", newline="") as handle:
+                handle.write(message + "\n")
+                handle.flush()
+    except OSError:
+        # The console diagnostic still survives even if the already-initialized
+        # runner log becomes unavailable while handling the broker error.
+        pass
+
+
+def _recover_log_path(argv: Sequence[str]) -> Path | None:
+    values = list(argv)
+    try:
+        index = values.index("--log-path")
+        value = values[index + 1]
+    except (ValueError, IndexError):
+        return None
+    return Path(value) if value else None
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    raw_argv = list(sys.argv[1:] if argv is None else argv)
+    try:
+        args = _parser().parse_args(raw_argv)
+    except LiveNativeTeeError as exc:
+        message = f"[FAIL] live_native_tee={type(exc).__name__}: {exc}"
+        recovered_log = _recover_log_path(raw_argv)
+        if recovered_log is not None:
+            _append_broker_failure(recovered_log, message)
+        print(message, file=sys.stderr, flush=True)
+        return 2
+    try:
+        arguments = _decode_arguments(args)
         return run_live_native_tee(
             [args.executable, *arguments],
             log_path=args.log_path,
             stage_name=args.stage_name,
         )
-    except (json.JSONDecodeError, LiveNativeTeeError) as exc:
-        print(f"[FAIL] live_native_tee={type(exc).__name__}: {exc}", file=sys.stderr)
+    except (
+        UnicodeEncodeError,
+        UnicodeDecodeError,
+        binascii.Error,
+        json.JSONDecodeError,
+        LiveNativeTeeError,
+    ) as exc:
+        message = f"[FAIL] live_native_tee={type(exc).__name__}: {exc}"
+        _append_broker_failure(args.log_path, message)
+        print(message, file=sys.stderr, flush=True)
         return 2
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

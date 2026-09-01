@@ -2,11 +2,17 @@
 
 ## 1. 상태와 승인 경계
 
-`DESIGN_APPROVED / IMPLEMENTED_TOY / READ_ONLY_DIAGNOSTIC_PASS / DECISION_CONTRACT_DRAFT / USER_GATE_SELECTION_PENDING / NO_FUTURE_PRIME_SWEEP`
+`DESIGN_APPROVED / READ_ONLY_DIAGNOSTIC_PASS / USER_GATE_SELECTION_FROZEN / PREFIX_RUNNER_LOCALLY_VERIFIED / NO_FUTURE_FULL_SWEEP`
 
 사용자는 P013 expected-information/power preflight 설계 착수를 승인했다. 이 단계는 완료된
 P012/P013 산출물을 읽어 다음 큰 범위 계산이 통계적으로 의미 있을 가능성을 먼저 가늠한다.
 P013-C 이상의 새 prime sweep는 이 계획의 승인이 아니며 별도 사용자 승인이 필요하다.
+
+2026-09-01 사용자는 full-range gate로 균형형 B를, outcome-blind prefix information probe의 보조
+gate로 탐색형 A를 확정했다. 정본은
+`test_plan/P018_prefix_information_probe_contract_v1.json`과
+`test_plan/P018A_prefix_information_probe.md`다. A PASS는 B 설계 검토만 허용하며 full sweep를
+자동 승인하지 않는다.
 
 ## 2. 문제의식
 
@@ -58,7 +64,7 @@ hypergeometric과 family max statistic을 사용하므로 Poisson power를 실�
 
 ## 6. 초안 판정 gate
 
-다음 값은 연구자 판단이 들어간 균형형 권장 초안이며 사용자와 합의 후 동결한다.
+다음 값은 사용자와 합의해 full-range용 균형형 B로 동결했다.
 
 ```text
 two-stage alpha = 0.025
@@ -72,7 +78,8 @@ Poisson screening-power target = 0.8
 
 탐색형·균형형·확인형 세 후보와 각 값을 높이거나 낮출 때의 영향, 문헌 근거는
 `docs/method/20260830_P018_gate_options_literature_review.md`에 정리했다. 코드 기본값은 사용자가
-선택하기 전까지 위 균형형을 그대로 유지하며 full future sweep을 승인하지 않는다.
+탐색형 A는 prefix-only 보조 gate로만 사용한다. 어느 gate도 full future sweep을 자동 승인하지
+않는다.
 
 모든 정보 gate와 screening-power gate를 통과해야 다음 range를 자동 권고한다. 한 항목이라도
 실패하면 `HOLD_NEXT_RANGE`이며, 이는 recurrence 가설이 거짓이라는 뜻이 아니라 현재 설계로는
@@ -125,14 +132,13 @@ toy tests는 Poisson upper-tail critical count, LOW_INFORMATION hold, named deci
 
 권장안은 다음과 같다.
 
-1. 균형형 B(권장), 탐색형 A, 확인형 C 중 full-range gate를 사용자와 합의해 contract v1로
-   동결한다. 권장안은 B이며 A는 prefix probe 전용 보조 gate로만 사용한다.
-2. P013-C 전체 sweep runner부터 만들지 않는다.
-3. 미래 범위의 정보량을 outcome을 보지 않고 추정할 수 있는 preregistered prefix/segment 설계를
-   먼저 연구한다.
-4. stopping이 관측 recurrence 자체에 의존하지 않고 조건부 검정의 유효성을 보존하는지 수학적
+1. 동결된 P0 runtime calibration을 먼저 사용자 실행·감사한다.
+2. endpoint와 gate를 바꾸지 않은 채 A prefix를 별도 사용자 실행한다.
+3. A 결과는 B 설계 검토 여부만 결정하며 P013-C 전체 sweep runner부터 만들지 않는다.
+4. 미래 범위의 정보량을 outcome을 보지 않고 추정하는 원칙을 유지한다.
+5. stopping이 관측 recurrence 자체에 의존하지 않고 조건부 검정의 유효성을 보존하는지 수학적
    검토를 통과한 경우에만 sequential information design을 구현한다.
-5. formal conditional power simulation은 effect size(권장 2x와 3x), family statistic,
+6. formal conditional power simulation은 effect size(권장 2x와 3x), family statistic,
    multiplicity와 미래 component 생성 규칙을 합의한 뒤 별도 P018-B로 분리한다.
 
 ## 10. 성공·중단 기준

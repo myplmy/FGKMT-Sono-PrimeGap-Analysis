@@ -2,7 +2,14 @@
 
 ## 1. 상태와 승인 경계
 
-`IMPLEMENTED / USER_RUN_AUTHORIZED / ACTUAL_NOT_RUN / DO_NOT_START_WHILE_P017_ACTIVE`
+`USER_RUN_FAILED_BEFORE_PREFLIGHT / SCIENTIFIC_COMPUTATION_NOT_STARTED / SUPERSEDED_BY_P014_R3`
+
+2026-08-31 사용자 실행은 `p014r2-prerequisite-resource-preflight`의 Python child가 시작되기
+전에 Windows PowerShell 5.1의 raw-JSON argv quote 손상으로 종료됐다. 실패 로그는
+`test_result/logs/run_20260831T150343Z_p014r2_mod510510_parallel_staged_certificate.log`이며,
+SHA-256은 `beb57218a5d8403686c31f925d809b2bc37a5a20daf052486b659acc3eb77f3b`다. 결과 디렉터리와
+progress JSONL은 생성되지 않았고 certificate 계산은 0건이다. 본 계획의 수학·자원 계약은
+변경하지 않으며 재시도는 `P014R3_mod510510_parallel_actual.md`의 새 runner로만 수행한다.
 
 사용자는 P014-R2 toy 검증에 문제가 없으면 actual 승격하는 것을 승인했다. 기존 toy는 serial
 정본과 worker `1/2/4/8` exact equality 및 synthetic modulus 30030의 35,224,647 constraints

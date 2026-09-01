@@ -1,0 +1,116 @@
+{
+  "contract_id": "P018_PREFIX_INFORMATION_PROBE_V1",
+  "status": "FROZEN_BEFORE_PREFIX_EXECUTION",
+  "frozen_at_kst": "2026-09-01T00:23:17+09:00",
+  "user_decision": {
+    "full_range_gate": "B_BALANCED",
+    "prefix_auxiliary_gate": "A_EXPLORATORY_PREFIX_ONLY",
+    "decision_received_kst": "2026-09-01",
+    "actual_execution_requires_explicit_user_command": true
+  },
+  "validated_records_sha256": "62ecb9028e77893c79a57512488544b91b628a006bb2bd306b670afa34676297",
+  "source_commit": "1a112a1387052d9ad360686313f501c01fe46b68",
+  "verified_exhaustive_limit": "100000000000000000000",
+  "selection_rules": {
+    "gap_start_range": "half_open_[L,U)",
+    "complete_plateau_rule": "record_start>=L and next_record_start<U",
+    "left_censored_continuation_excluded": true,
+    "right_censored_plateau_excluded": true,
+    "forced_record_removed_from_each_margin": true,
+    "endpoint_choice_uses_only_validated_record_locations": true,
+    "outcome_dependent_stopping_prohibited": true
+  },
+  "gates": {
+    "A_EXPLORATORY_PREFIX_ONLY": {
+      "alpha": 0.05,
+      "event_probability_target": 0.25,
+      "minimum_positive_variance_rows": 2,
+      "maximum_low_information_fraction": 0.75,
+      "effect_multiplier": 5.0,
+      "power_target": 0.6,
+      "may_only_recommend": "REVIEW_BALANCED_B_DESIGN",
+      "may_not_recommend": "PROMOTE_FULL_RANGE"
+    },
+    "B_BALANCED_FULL_RANGE": {
+      "alpha": 0.025,
+      "event_probability_target": 0.5,
+      "minimum_positive_variance_rows": 3,
+      "maximum_low_information_fraction": 0.5,
+      "effect_multiplier": 2.0,
+      "power_target": 0.8,
+      "minimum_poisson_null_expectation": 11.269069541418046,
+      "formal_stratified_hypergeometric_power_certified": false
+    }
+  },
+  "modes": {
+    "P0": {
+      "purpose": "one_plateau_runtime_and_blinded_information_density_calibration_only",
+      "lower_inclusive": "1346294310749",
+      "upper_exclusive": "1408695493610",
+      "expected_complete_record_indices": [51],
+      "primary_segment_count": 16,
+      "verifier_segment_count": 17,
+      "hard_wall_seconds": 7200,
+      "gate_evaluation_allowed": false,
+      "estimated_user_wall_time": "30-60 minutes"
+    },
+    "A": {
+      "purpose": "frozen_exploratory_A_prefix_information_gate",
+      "lower_inclusive": "1000000000000",
+      "upper_exclusive": "1968188556462",
+      "expected_complete_record_indices": [51, 52],
+      "primary_segment_count": 64,
+      "verifier_segment_count": 65,
+      "hard_wall_seconds": 43200,
+      "gate_evaluation_allowed": true,
+      "estimated_user_wall_time": "7-10 hours"
+    },
+    "B_REFERENCE_ONLY": {
+      "purpose": "minimum_three_complete_plateau_nested_prefix_for_future_design_only",
+      "lower_inclusive": "1000000000000",
+      "upper_exclusive": "2614941710600",
+      "expected_complete_record_indices": [51, 52, 53],
+      "runner_authorized": false,
+      "estimated_user_wall_time": "12-16 hours"
+    }
+  },
+  "computation": {
+    "parallel_full_passes": 2,
+    "segment_counts_must_be_coprime": true,
+    "worker_processes": 8,
+    "physical_cores": 4,
+    "logical_processors": 8,
+    "primary_sieve_segment_span": 50000000,
+    "verifier_sieve_segment_span": 47000003,
+    "independent_gap_count_formula": "pi(U-1)-pi(L-1)",
+    "primecount_algorithms": ["gourdon", "deleglise-rivat"],
+    "primecount_algorithms_must_match": true,
+    "ram_bytes_less_than": 32000000000,
+    "disk_bytes_maximum": 5000000000,
+    "gpu_used": false
+  },
+  "blinding": {
+    "gate_reads_only": [
+      "populations",
+      "gap_counts",
+      "exposure_counts"
+    ],
+    "gate_must_not_read": [
+      "exposure_equal_counts",
+      "observed_recurrences",
+      "C",
+      "p_value",
+      "q_value",
+      "z_score"
+    ],
+    "figures_generated": false,
+    "hypothesis_test_performed": false,
+    "enrichment_claim_allowed": false
+  },
+  "interpretation": {
+    "linear_range_extrapolation_allowed": false,
+    "automatic_full_range_promotion_allowed": false,
+    "finite_result_is_not_a_prime_gap_theorem": true,
+    "theorem_claimed": false
+  }
+}

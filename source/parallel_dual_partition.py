@@ -67,6 +67,7 @@ def dual_partition_accumulate_bin_counts(
     verifier_sieve_segment_span: int = 47_003,
     start_method: str = "spawn",
     progress_callback: Callable[[dict[str, object]], None] | None = None,
+    deadline_monotonic: float | None = None,
 ) -> dict[str, object]:
     """Repeat a complete exact scan under two different parallel partitions."""
 
@@ -117,6 +118,7 @@ def dual_partition_accumulate_bin_counts(
             sieve_segment_span=primary_sieve_segment_span,
             start_method=start_method,
             progress_callback=progress("primary"),
+            deadline_monotonic=deadline_monotonic,
         )
         verifier = parallel_accumulate_bin_counts(
             lower_inclusive,
@@ -127,6 +129,7 @@ def dual_partition_accumulate_bin_counts(
             sieve_segment_span=verifier_sieve_segment_span,
             start_method=start_method,
             progress_callback=progress("verifier"),
+            deadline_monotonic=deadline_monotonic,
         )
     except ParallelSegmentError as exc:
         raise DualPartitionVerificationError(str(exc)) from exc
@@ -195,4 +198,3 @@ __all__ = [
     "DualPartitionVerificationError",
     "dual_partition_accumulate_bin_counts",
 ]
-

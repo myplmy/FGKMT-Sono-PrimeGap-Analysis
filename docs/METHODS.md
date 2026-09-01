@@ -4,10 +4,10 @@
 
 이 문서는 `Z:\FGKMT-Sono-PrimeGap-Analysis`에서 수행할 대형 소수간격 비교 실험의 방법론 정본이다.
 
-- 현재 단계: P003/P004 본체와 P005–P012-B 단계별 실제 실행·사후 검증·사용자 시각 QA 완료; P013–P015 사용자 실행 준비
-- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P012-B 실제 실행과 사후 검증
-- 현재 미실행 범위: P013-A/B recurrence extension, P014 modulus-510510 certificate, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 사용자 단계: P015 47시간 queue를 한 번 실행하고 queue·child log/result와 P013 figure 시각 QA를 회신한다.
+- 현재 단계: P003/P004 본체, P005–P013-B 실제 실행, P017 병렬 보정과 사용자 시각 QA 완료; P014-R3·P018 prefix 사용자 실행 준비
+- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P013-B 실제 실행·사후 검증, P017 exact-equivalence calibration
+- 현재 미실행 범위: P014-R3 modulus-510510 actual, P018 P0/A prefix, P019 actual, P010B large-range acceleration, 외부 게시, commit/push/PR
+- 다음 사용자 단계: 다른 CPU-heavy 작업이 없을 때 P014-R3 또는 P018-P0 중 하나만 실행하고 log/result를 회신한다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -569,8 +569,19 @@ P014는 exact P010A G4 certificate를 `30030 | 510510` 배수-modulus 정리로 
 states와 8,524,288,932 constraints를 full matrix 없이 exact signed-int64 streaming으로 먼저
 검증한다. stage-A가 4시간 gate 안이면 최대 12회·working set 100,000의 bounded cutting-plane을
 시도하고, 최종 certificate를 다시 exact 검증한다. 상한 개선은 finite count 결과일 뿐 search
-acceleration이 아니다. P015는 P013-A 4시간, P013-B 20시간, P014 22시간 timeout과 global
-47시간·decimal 50GB를 적용하는 orchestration-only queue다.
+acceleration이 아니다. R2 사용자 실행은 Windows PowerShell 5.1의 raw-JSON argv 손상으로 첫
+preflight 전에 실패했으며 과학 계산은 시작되지 않았다. R3는 과학·자원 인수를 유지하고 UTF-8
+JSON Base64 transport만 교정한다. P015는 완료된 P013 child를 중복하므로 실행하지 않는다.
+
+P017은 P013-A/B의 serial·parallel exact statistics/checkpoint/inference equality를 검증했고,
+P017-B 동일범위 wall-time은 serial 12,598.410초 대 parallel 2,866.160초였다. 이는 계산 engineering
+실측이며 모든 범위의 고정 speedup 보장이 아니다.
+
+P018은 완료 P013-B의 낮은 정보량을 근거로 full-range gate를 균형형 B, outcome-blind prefix
+보조 gate를 탐색형 A로 동결한다. P0/A gate는 관측 recurrence·p/q/z를 읽거나 저장하지 않고
+population·gap count·exposure margin만 사용한다. 서로소 두 parallel partition의 exact equality와
+WSL primecount Gourdon·Deleglise–Rivat endpoint count 일치가 필수다. P0는 calibration-only이고
+A PASS도 B 설계 검토만 허용한다. P019 actual/P013-C는 A 결과 감사 전 만들거나 실행하지 않는다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

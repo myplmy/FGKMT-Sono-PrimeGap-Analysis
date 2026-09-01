@@ -10,8 +10,14 @@ statistics; prime arrays never cross the process boundary.
 from __future__ import annotations
 
 import multiprocessing as mp
+import math
 import os
-from concurrent.futures import ProcessPoolExecutor, as_completed
+import time
+from concurrent.futures import (
+    ProcessPoolExecutor,
+    TimeoutError as FuturesTimeoutError,
+    as_completed,
+)
 from dataclasses import dataclass
 from typing import Callable, Iterable, Sequence
 
@@ -186,11 +192,17 @@ def parallel_accumulate_bin_counts(
     sieve_segment_span: int = 50_000,
     start_method: str = "spawn",
     progress_callback: Callable[[dict[str, object]], None] | None = None,
+    deadline_monotonic: float | None = None,
 ) -> dict[str, object]:
     """Compute exact P013 sufficient statistics with process-isolated segments."""
 
     if not 1 <= worker_count <= 64:
         raise ValueError("worker_count must be in [1, 64]")
+    if deadline_monotonic is not None:
+        if not math.isfinite(deadline_monotonic):
+            raise ValueError("deadline_monotonic must be finite")
+        if deadline_monotonic <= time.monotonic():
+            raise ParallelSegmentError("parallel segment deadline already expired")
     selected_segments = worker_count if segment_count is None else segment_count
     specs = partition_integer_range(
         lower_inclusive,
@@ -212,22 +224,38 @@ def parallel_accumulate_bin_counts(
     ) as executor:
         futures = {executor.submit(_segment_worker, task): task[0] for task in tasks}
         results = []
-        for completed_count, future in enumerate(as_completed(futures), start=1):
-            result = future.result()
-            results.append(result)
-            if progress_callback is not None:
-                progress_callback(
-                    {
-                        "event": "parallel_segment_completed",
-                        "segment_index": int(result["segment_index"]),
-                        "lower_inclusive": str(result["lower_inclusive"]),
-                        "upper_exclusive": str(result["upper_exclusive"]),
-                        "gap_count": int(result["statistics"]["gap_count"]),
-                        "worker_pid": int(result["worker_pid"]),
-                        "segments_completed": completed_count,
-                        "segments_total": len(tasks),
-                    }
-                )
+        try:
+            remaining = (
+                None
+                if deadline_monotonic is None
+                else max(0.0, deadline_monotonic - time.monotonic())
+            )
+            for completed_count, future in enumerate(
+                as_completed(futures, timeout=remaining), start=1
+            ):
+                result = future.result()
+                results.append(result)
+                if progress_callback is not None:
+                    progress_callback(
+                        {
+                            "event": "parallel_segment_completed",
+                            "segment_index": int(result["segment_index"]),
+                            "lower_inclusive": str(result["lower_inclusive"]),
+                            "upper_exclusive": str(result["upper_exclusive"]),
+                            "gap_count": int(result["statistics"]["gap_count"]),
+                            "worker_pid": int(result["worker_pid"]),
+                            "segments_completed": completed_count,
+                            "segments_total": len(tasks),
+                        }
+                    )
+        except FuturesTimeoutError as exc:
+            for future in futures:
+                future.cancel()
+            raise ParallelSegmentError("parallel segment deadline exceeded") from exc
+        except BaseException:
+            for future in futures:
+                future.cancel()
+            raise
     results.sort(key=lambda item: int(item["segment_index"]))
 
     for spec, result in zip(specs, results, strict=True):

@@ -135,13 +135,17 @@ function Invoke-LiveLoggedNativeStage {
         }
     }
 
+    # Windows PowerShell 5.1 strips the embedded quotes from raw JSON passed to
+    # a native process.  Base64 keeps the UTF-8 JSON payload one quote-free argv.
     $ArgumentsJson = ConvertTo-Json -Compress -InputObject @($Arguments)
+    $ArgumentsBytes = [System.Text.Encoding]::UTF8.GetBytes($ArgumentsJson)
+    $ArgumentsBase64 = [System.Convert]::ToBase64String($ArgumentsBytes)
     $BrokerArguments = @(
         '-u', '-B', $script:RunnerLiveNativeTee,
         '--log-path', $script:RunnerLogPath,
         '--stage-name', $Name,
         '--executable', $FilePath,
-        '--arguments-json', $ArgumentsJson
+        '--arguments-base64', $ArgumentsBase64
     )
     & $BrokerPythonPath @BrokerArguments
     $StageExit = $LASTEXITCODE
