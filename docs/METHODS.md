@@ -4,10 +4,10 @@
 
 이 문서는 `Z:\FGKMT-Sono-PrimeGap-Analysis`에서 수행할 대형 소수간격 비교 실험의 방법론 정본이다.
 
-- 현재 단계: P003/P004 본체, P005–P013-B 실제 실행, P017 병렬 보정과 사용자 시각 QA 완료; P014-R3·P018 prefix 사용자 실행 준비
-- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P013-B 실제 실행·사후 검증, P017 exact-equivalence calibration
-- 현재 미실행 범위: P014-R3 modulus-510510 actual, P018 P0/A prefix, P019 actual, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 사용자 단계: 다른 CPU-heavy 작업이 없을 때 P014-R3 또는 P018-P0 중 하나만 실행하고 log/result를 회신한다.
+- 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0 calibration 완료; P018-A 사용자 실행 준비
+- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0 blinded calibration
+- 현재 미실행 범위: P018-A/B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
+- 다음 사용자 단계: WSL count 준비를 반복하지 않고, 다른 CPU-heavy 작업이 없을 때 P018-A 하나만 실행해 log/result를 회신한다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -565,22 +565,27 @@ Bonferroni alpha `0.025`는 contract SHA-256
 각 stage는 range를 한 번 분석하고 saved verifier가 전체 range를 다시 streaming한다. 이는
 경험적 prospective 진단이며 결과를 본 뒤 pooling하지 않는다.
 
-P014는 exact P010A G4 certificate를 `30030 | 510510` 배수-modulus 정리로 lift한다. 92,160
-states와 8,524,288,932 constraints를 full matrix 없이 exact signed-int64 streaming으로 먼저
-검증한다. stage-A가 4시간 gate 안이면 최대 12회·working set 100,000의 bounded cutting-plane을
-시도하고, 최종 certificate를 다시 exact 검증한다. 상한 개선은 finite count 결과일 뿐 search
-acceleration이 아니다. R2 사용자 실행은 Windows PowerShell 5.1의 raw-JSON argv 손상으로 첫
-preflight 전에 실패했으며 과학 계산은 시작되지 않았다. R3는 과학·자원 인수를 유지하고 UTF-8
-JSON Base64 transport만 교정한다. P015는 완료된 P013 child를 중복하므로 실행하지 않는다.
+P014는 exact P010A G4 certificate를 `30030 | 510510` 배수-modulus 정리로 lift한다. R2 사용자
+실행은 Windows PowerShell 5.1의 raw-JSON argv 손상으로 첫 preflight 전에 실패했고 과학 계산은
+시작되지 않았다. transport만 Base64로 교정한 R3 actual은 92,160 states와 8,524,288,932
+constraints를 full matrix 없이 8-worker exact signed-int64 streaming과 saved full serial oracle로
+모두 검증했다. violation 0, minimum slack 0, artifact issue 0으로 실행은 `EXPERIMENT_PASS /
+EXACT_FINITE`다. 그러나 첫 5,000-constraint LP가 unbounded라 새 candidate를 만들지 못했고 상한은
+G4와 같은 `436001550591586306`으로 유지됐다. 따라서 과학적 판정은 `NO_IMPROVEMENT`이며 search
+acceleration이 아니다. 후속 actual 전에 bounded seed sufficient condition과 toy 재현이 필요하다.
+P015는 완료된 P013 child를 중복하므로 실행하지 않는다.
 
 P017은 P013-A/B의 serial·parallel exact statistics/checkpoint/inference equality를 검증했고,
 P017-B 동일범위 wall-time은 serial 12,598.410초 대 parallel 2,866.160초였다. 이는 계산 engineering
 실측이며 모든 범위의 고정 speedup 보장이 아니다.
 
 P018은 완료 P013-B의 낮은 정보량을 근거로 full-range gate를 균형형 B, outcome-blind prefix
-보조 gate를 탐색형 A로 동결한다. P0/A gate는 관측 recurrence·p/q/z를 읽거나 저장하지 않고
-population·gap count·exposure margin만 사용한다. 서로소 두 parallel partition의 exact equality와
-WSL primecount Gourdon·Deleglise–Rivat endpoint count 일치가 필수다. P0는 calibration-only이고
+보조 gate를 탐색형 A로 동결한다. WSL primecount Gourdon·Deleglise–Rivat는 P0/A 네 endpoint에서
+일치했고 P0/A exact gap-start count를 고정했다. P018-P0 actual은 16/17 서로소 partition의 모든
+정수 sufficient statistics와 saved blinded recomputation이 exact 일치해 `EXPERIMENT_PASS`다.
+다만 forced record를 제거한 gap 582 conditioned count가 0이므로 expected·variance도 0이고 P0
+판정은 `CALIBRATION_ONLY_NO_GATE`다. P0/A는 관측 recurrence·p/q/z를 읽거나 저장하지 않고
+population·gap count·exposure margin만 사용한다. P018-A는 동결된 endpoint/gate로 실행 준비됐고,
 A PASS도 B 설계 검토만 허용한다. P019 actual/P013-C는 A 결과 감사 전 만들거나 실행하지 않는다.
 
 coverage-preserving compression의 finite soundness 정본은

@@ -19,6 +19,8 @@
 - 02_핸드오프_규약.md: `handoff/YYYYMMDDHHmm_HANDOFF.md` 필수 내용과 상태 표현
 - 03_실험착수_절차.md: 승인 전 준비와 승인 후 실행 순서
 - 04_사용자실행_로그_완료이관_규약.md: 사용자 명령 형식, 전체 오류 로그, 실패 감사, `test_done` 보존, 시각검사
+- 05_ChatGPT_오류_실수_환각_원장.md: 구현·판정·표기·추정 오류와 재발방지, 미해결 debt
+- 06_스킬_AGENTS_작업규약_개선제안_20260901.md: 사용자 작업성향을 반영한 skill·AGENTS·보조규약 개선안
 
 재사용 가능한 실행 기능은 `scripts/common`, `scripts/runners`, `scripts/tests`,
 `scripts/setup`에 둔다. 특정 완료 실험의 BAT/PS1/SH와 전용 helper는 `test_done`에

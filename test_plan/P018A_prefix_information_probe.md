@@ -4,11 +4,11 @@
 
 ## 1. 상태
 
-`PREPARATION_ONLY / GATE_CONTRACT_FROZEN / IMPLEMENTATION_APPROVED / ACTUAL_NOT_RUN`
+`PRIMECOUNT_AND_P0_EXPERIMENT_PASS / GATE_CONTRACT_FROZEN / P018A_USER_RUN_AUTHORIZED / P018A_ACTUAL_NOT_RUN`
 
 사용자는 2026-09-01 full-range 판정에는 균형형 B, prefix-only 보조 판정에는 탐색형 A를
-승인했다. 이 승인은 설계·runner 구현을 허용하며, actual 계산은 사용자가 승인 플래그를 넣어
-직접 실행한다.
+승인했다. exact prime-count 준비와 P0 calibration은 완료·감사됐고 A의 endpoint·gate는 변경하지
+않았다. P018-A actual은 사용자가 승인 플래그를 넣어 직접 실행한다.
 
 ## 2. 연구 질문과 비목적
 
@@ -104,28 +104,23 @@ WSL primecount는 30,000,000 KiB `ulimit -v`와 topology에서 확인한 물리 
 
 ## 7. 사용자 실행 절차
 
-### 7.1 WSL exact prime-count 준비 — P0/A 공통 1회
+### 7.1 완료 — WSL exact prime-count 준비
 
 환경: WSL Ubuntu. 시작 경로:
 
-```bash
-cd /mnt/z/FGKMT-Sono-PrimeGap-Analysis
-bash ./scripts/experiments/p018/prepare_p018_prefix_primecounts.sh --confirm-p018-prefix-counts
-```
+2026-09-01 실행·감사 완료다. `READY.txt`, CSV, metadata, metrics, 각 endpoint의
+Gourdon·Deleglise–Rivat 원시 출력과 hash manifest가 보존되어 있으므로 다시 실행하지 않는다.
+완료 SH는
+`test_done/prepare_p018_prefix_primecounts-20260901T044708Z-done.sh`로 이관했다.
 
-예상시간은 수분 이내이나 WSL·primecount 버전에 따라 달라질 수 있다. `READY.txt`, CSV, metadata,
-metrics, 각 endpoint의 Gourdon·Deleglise–Rivat 원시 출력과 hash manifest, log를 생성한다. Windows
-BAT가 WSL을 직접 호출하지 않는다.
-
-### 7.2 P0 개별 실행
+### 7.2 완료 — P0 개별 실행
 
 환경: Windows CMD 또는 PowerShell. 시작 경로: `Z:\FGKMT-Sono-PrimeGap-Analysis`.
 
-```bat
-run_P018P0_prefix_information_calibration.bat --confirm-p018p0
-```
-
-P0는 A gate를 판정할 수 없으며 예상 30–60분, hard wall 2시간이다.
+2026-09-01 약 32분 49초에 완료·감사됐다. P0는 A gate를 판정하지 않았으며 결과는
+`CALIBRATION_ONLY_NO_GATE`다. 완료 BAT/PS1은 각각
+`test_done/run_P018P0_prefix_information_calibration-20260901T044856Z-done.bat`와
+`test_done/run_p018p0_prefix_information_calibration-20260901T044856Z-done.ps1`로 이관했다.
 
 ### 7.3 A 개별 실행
 
@@ -165,7 +160,31 @@ figure와 관측 recurrence/p/q/z 표는 만들지 않는다.
 
 ## 10. 후속 작업
 
-1. P0 실행·감사로 wall time과 blinding artifact를 확인
-2. endpoint·gate 불변 상태로 A 실행 여부를 사용자와 재확인
-3. A 결과를 감사한 뒤에만 B 설계 검토
-4. B reference runner, P019 actual, P013-C full은 자동 생성·실행하지 않음
+1. endpoint·gate 불변 상태로 A를 사용자 PC에서 개별 실행
+2. A 결과를 감사한 뒤에만 B 설계 검토
+3. B reference runner, P019 actual, P013-C full은 자동 생성·실행하지 않음
+
+## 11. P0 실행 후 상태 기록 — 2026-09-01
+
+계획·endpoint·gate는 실행 결과를 본 뒤 소급 변경하지 않았다. 아래는 별도 사후 상태 기록이다.
+
+- exact-count log:
+  `test_result/logs/run_20260901T044708Z_p018_prefix_primecount_prepare.log`
+- count evidence:
+  `tmp/p018-prefix-primecounts/20260901T044708Z_p018_prefix_primecount_prepare`
+- P0 log:
+  `test_result/logs/run_20260901T044856Z_p018p0_prefix_information_calibration.log`
+- P0 result:
+  `test_result/run_20260901T044856Z_p018p0_prefix_information_calibration`
+- 정본 분석:
+  `test_result/202609011806_P018P0_result_analysis.md`
+- P0/A 네 endpoint의 Gourdon·Deleglise–Rivat primecount: exact 일치
+- P0 exact gap starts: `2,232,503,547`
+- A 고정 exact gap starts: `34,570,543,382`
+- P0 16/17 서로소 dual partition·saved blinded recomputation: PASS
+- forced record 제거 뒤 gap 582 conditioned count·expected·variance: 모두 0
+- P0 판정: `EXPERIMENT_PASS / CALIBRATION_ONLY_NO_GATE`
+- 관측 recurrence·p/q/z 저장과 hypothesis test: 수행하지 않음
+- P0 실측 단순 외삽 A 계획값: 약 8.47시간; 보장값이 아니므로 12시간 hard wall 유지
+
+P018-A의 기술적 선결조건은 충족됐다. WSL 준비와 P0를 반복하지 않고 7.3의 A 명령만 사용한다.

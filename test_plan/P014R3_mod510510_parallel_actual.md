@@ -4,7 +4,7 @@
 
 ## 1. 상태와 승인 경계
 
-`IMPLEMENTED / LOCALLY_VERIFIED / USER_RUN_AUTHORIZED / ACTUAL_NOT_RUN`
+`EXPERIMENT_PASS / EXACT_FINITE / SCIENTIFIC_NO_IMPROVEMENT / SEARCH_ACCELERATION_NOT_PROVED`
 
 P014-R2 actual은 수학 계산 전에 Windows PowerShell 5.1이 raw JSON 인수의 큰따옴표를 제거해
 Python live broker가 `JSONDecodeError`로 종료됐다. R3는 UTF-8 JSON을 Base64 한 문자열로
@@ -125,3 +125,27 @@ run_P014R3_mod510510_parallel_staged_certificate.bat --confirm-p014r3
 
 R3 결과가 count upper bound를 낮춰도 candidate 위치를 빠짐없이 덮는 mapping과 총 계산비용 감소가
 별도로 증명되지 않으면 search acceleration이라고 부르지 않는다.
+
+## 9. 실행 후 상태 기록 — 2026-09-01
+
+계획·gate는 실행 결과를 본 뒤 소급 변경하지 않았다. 아래는 별도 사후 상태 기록이다.
+
+- actual log:
+  `test_result/logs/run_20260901T042740Z_p014r3_mod510510_parallel_staged_certificate.log`
+- result:
+  `test_result/run_20260901T042740Z_p014r3_mod510510_parallel_staged_certificate`
+- 정본 분석:
+  `test_result/202609011805_P014R3_result_analysis.md`
+- terminal·targeted tests·parallel scan·saved full serial recomputation: PASS
+- states/constraints/violations: `92,160 / 8,524,288,932 / 0`
+- final upper bound: `436001550591586306`, G4 baseline과 동일
+- optimizer: 첫 5,000-constraint LP가 `Unbounded`, candidate 생성 0
+- 판정: 실행·유한검증 PASS, strict improvement 없음, search acceleration 미증명
+- analysis부터 saved serial 종료까지 약 845.4초; 짧은 시간은 첫 solve 조기종료를 포함하므로
+  12회 bounded optimization을 완료했다는 뜻이 아님
+- 완료 실행기:
+  `test_done/run_P014R3_mod510510_parallel_staged_certificate-20260901T042740Z-done.bat`,
+  `test_done/run_p014r3_mod510510_parallel_staged_certificate-20260901T042740Z-done.ps1`
+
+다음 revision은 5,000개 seed set의 boundedness를 보장하는 조건을 이론·toy에서 먼저 검증한 뒤에만
+설계한다. R3 actual을 같은 입력으로 다시 실행할 필요는 없다.

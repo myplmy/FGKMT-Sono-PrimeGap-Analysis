@@ -1,0 +1,191 @@
+# FGKMT-Sono ChatGPT 오류·실수·환각 원장
+
+최종 갱신: 2026-09-01 KST
+
+## 1. 목적
+
+이 문서는 ChatGPT/Codex가 이 프로젝트에서 낸 구현 오류, 성급한 상태판정, 용어·경로 실수,
+과도한 추정과 검증 누락을 숨기지 않고 기록한다. 작은 오류를 즉시 인정·격리·수정하는 편이
+나중에 잘못된 연구결과를 되돌리는 것보다 훨씬 싸고 안전하다.
+
+이 원장은 성공을 자랑하는 문서가 아니다. 이미 고친 오류도 재발 방지 규칙을 남기기 위해 보존한다.
+새 오류가 발견되면 과거 항목을 지우지 말고 새 ID로 추가한다.
+
+## 2. 상태와 분류
+
+| 표시 | 뜻 |
+|---|---|
+| `CORRECTED_BEFORE_ACTUAL` | 실제 결과 전에 발견·수정 |
+| `USER_RUN_FAILED` | 사용자 실행을 실패시킨 구현 오류 |
+| `INVALID_RESULT_NONE` | 실패했지만 채택된 과학 결과는 없음 |
+| `METADATA_DEBT` | 수치는 유효하나 이름·추적 정보가 불완전 |
+| `ESTIMATE_MISS` | 시간·자원 추정이 실제와 크게 다름 |
+| `STATE_JUDGMENT_ERROR` | 불충분한 snapshot으로 실행 상태를 잘못 판단 |
+| `USER_CORRECTED` | 사용자가 오류를 지적해 교정 |
+
+## 3. 오류·실수 이력
+
+### E001 — FGKMT 약칭·연구목적·경로 표기 혼선
+
+- 분류: `USER_CORRECTED / INVALID_RESULT_NONE`
+- 문제:
+  - 초기 문맥에서 FGKMT를 저자 K가 빠진 네 글자 약칭으로 부를 위험이 있었다.
+  - 사용자가 `docs/reveiw`가 아니라 `docs/review`임을 교정했다.
+  - 연구목적을 정리의 재검증처럼 읽힐 수 있게 넓게 잡은 부분을 사용자가 finite empirical 비교로
+    다시 고정했다.
+- 영향: 실제 계산 전 교정되어 유효 결과 오염 없음.
+- 교정: `AGENTS.md`, `docs/METHODS.md`, vocabulary test, 폴더 정본을 고정.
+- 재발 방지: 프로젝트명·review 경로·비목적을 AGENTS의 짧은 불변식으로 유지한다.
+
+### E002 — iterated log를 base-k log로 오해할 가능성
+
+- 분류: `USER_CORRECTED / CORRECTED_BEFORE_ACTUAL`
+- 문제: 작업지시서의 `log_2`, `log_3`, `log_4` 표기가 모호해 base 2/3/4 구현으로 갈 위험이 있었다.
+- 영향: 기존 실제 연구코드·결과가 0건일 때 교정되어 폐기 결과 없음.
+- 교정: `source/definitions.py`, 직접 중첩식, base-k negative control, source 정적감사.
+- 재발 방지: 수식 표기를 기억에 의존하지 않고 METHODS와 test를 먼저 읽는다.
+
+### E003 — P005 calibration의 DB 초기화·실패 manifest 부족
+
+- 분류: `USER_RUN_FAILED / INVALID_RESULT_NONE`
+- 문제: `gap_stats` 전에 `gaps.db`가 없었고 최초 helper는 실패 provenance를 충분히 남기지 못했다.
+- 영향: partial benchmark만 생성됐고 Rank 85→86 결과는 없음.
+- 교정: SQLite ledger 선초기화, 실패 manifest, 새 run에서 PASS.
+- 증거: `test_result/202608240434_P005_cpu_calibration_partial_failure_analysis.md`.
+
+### E004 — P006 정상 stderr를 PowerShell 실패로 오인
+
+- 분류: `USER_RUN_FAILED / INVALID_RESULT_NONE`
+- 문제: unittest가 정상 진행을 stderr에 쓰는데 PowerShell 5.1 pipeline이 `NativeCommandError`로 취급했다.
+- 영향: 실제 analysis 전에 두 차례 중단, 과학 결과 없음.
+- 교정: stdout/stderr 별도 capture, 이후 Python live tee.
+- 증거: `test_result/202608240315_P006_second_pilot_failure_analysis.md`.
+
+### E005 — P007 빈 stderr를 mandatory string으로 전달
+
+- 분류: `USER_RUN_FAILED / INVALID_RESULT_NONE`
+- 문제: 빈 stderr 내용을 허용하지 않는 PowerShell parameter에 전달해 runner 자체가 실패했다.
+- 영향: certificate 결과 채택 전 중단.
+- 교정: empty line 허용·stream별 안전 복사.
+- 증거: `test_result/202608240315_P007_pilot_failure_analysis.md`.
+
+### E006 — P010B 반복 verifier의 alias 오인
+
+- 분류: `CORRECTED_AFTER_RUN`
+- 문제: 같은 의미의 저장 필드를 별개 값처럼 다루는 반복 verifier 결함이 있었다.
+- 영향: bounded queue 결과 감사에서 발견했으며 candidate coverage 원자료는 재검증해 유지됐다.
+- 교정: canonical field binding과 negative regression test 추가.
+- 증거: `test_result/202608270005_P009_P010_bounded_queue_result_analysis.md`.
+
+### E007 — P012 zero-variance의 `z=None`을 plot에서 float로 강제
+
+- 분류: `USER_RUN_FAILED / INVALID_RESULT_NONE`
+- 문제: 통계적으로 올바른 undefined z-score를 그림 코드가 `float(None)`으로 변환했다.
+- 영향: r1 결과는 비정본으로 격리. 통계식을 z=0으로 바꾸지 않았다.
+- 교정: bar 생략+x marker, r2 새 run·saved recomputation·사용자 QA PASS.
+- 증거: `test_result/202608271251_P012A_r1_failure_r2_fix_analysis.md`.
+
+### E008 — P013 NumPy hypergeometric의 10^9 category 한계 누락
+
+- 분류: `USER_RUN_FAILED / INVALID_RESULT_NONE`
+- 문제: 큰 `ngood/nbad`에서 NumPy generator가 거부한다는 제한을 사전검증하지 못했다.
+- 영향: exact range count 뒤 inference 전에 중단, r1 통계 산출물 없음.
+- 교정: exact sequential-symmetry sampler와 작은 PMF 검증, r2 PASS.
+- 증거: `test_result/202608281407_P013A_r1_large_hypergeometric_failure_analysis.md`.
+
+### E009 — P013-B process snapshot을 종료·소실로 성급히 해석할 위험
+
+- 분류: `STATE_JUDGMENT_ERROR / USER_CORRECTED`
+- 문제: 로그가 늦게 flush되고 한 시점 process 조회가 불완전한 상황에서 “프로세스가 사라졌다”는
+  과거 판단이 남을 위험이 있었다.
+- 영향: 실행을 강제 종료하지 않았고 최종 P013-B는 PASS했으나 사용자 불안을 키웠다.
+- 교정: 진행 JSONL, heartbeat, live console, 원본 log와 result marker가 없는 snapshot만으로 종료를
+  단정하지 않는 규칙.
+- 재발 방지: PID·child tree·file write time·heartbeat·terminal marker를 함께 확인한다.
+
+### E010 — 장시간 runner의 출력 buffering과 CPU 병렬성 설명 부족
+
+- 분류: `IMPLEMENTATION/COMMUNICATION_ERROR`
+- 문제: child Python이 flush하지 않거나 바깥 PowerShell이 capture하면 사용자가 진행 여부를 볼 수
+  없었다. affinity를 설정한 것과 실제 8-process 병렬 계산을 같은 것으로 설명할 위험도 있었다.
+- 교정: Python `-u`, fsync JSONL, 5분 heartbeat, `live_native_tee.py`, worker PID·native thread log,
+  P017 serial/parallel exact equality와 wall-time 비교.
+- 증거: `test_result/202608290515_P014_python_live_progress_local_validation.md`,
+  `test_result/202608300229_P017_parallel_calibration_result_analysis.md`.
+
+### E011 — P014-R2 raw JSON argv의 PowerShell 5.1 quote 손상
+
+- 분류: `USER_RUN_FAILED / INVALID_RESULT_NONE`
+- 문제: PowerShell 7 toy만으로는 보이지 않던 PowerShell 5.1 native argv quote removal을 놓쳤다.
+- 영향: 첫 resource preflight 전 실패, constraint scan/result/progress 0.
+- 교정: UTF-8 JSON Base64 transport, Windows PowerShell 5.1 exact round-trip regression, broker 자체
+  오류 main-log 기록. P014-R3 actual PASS.
+- 증거: `test_result/202609010125_P014R2_failure_P014R3_P018_local_validation.md`.
+
+### E012 — P018 구현 초안의 project root·saved verifier·evidence 결함
+
+- 분류: `CORRECTED_BEFORE_ACTUAL`
+- 문제:
+  - 공통 PowerShell runner가 parent 수를 잘못 세어 project root를 `scripts`로 잡았다.
+  - saved verifier가 raw margin에서 components를 재생성하지 않고 저장 components를 신뢰했다.
+  - raw dual-primecount evidence·source hash·mutex·resource limit가 처음에는 부족했다.
+- 영향: actual 전 코드감사에서 발견되어 P018-P0 결과 오염 없음.
+- 교정: root 수정, margin→components→gate 전재계산, raw evidence/hash, 31.5 GB Job limit, mutex,
+  deadline 추가. P018-P0 actual·saved recomputation PASS.
+- 재발 방지: runner root resolution과 saved-verifier independence를 별도 static test로 유지한다.
+
+### E013 — P014-R3 내부 experiment label에 R2가 남음
+
+- 분류: `METADATA_DEBT`
+- 문제: R3가 transport-only revision이라 과학 source/schema를 재사용했고, `summary.json`,
+  `manifest.json`, analysis progress의 experiment 문자열이 P014R2로 남았다.
+- 영향: run ID·runner hash·log 바깥 marker는 R3이고 수치/hash는 유효하지만 사람이 읽을 때 혼동 가능.
+- 처리: actual artifact는 소급 수정하지 않고 결과보고서에 명시했다.
+- 재발 방지: `experiment_family`, `schema_version`, `runner_revision`을 별도 필드로 저장한다.
+
+### E014 — P014-R3 시간 추정이 실제보다 지나치게 큼
+
+- 분류: `ESTIMATE_MISS`
+- 문제: 4–20시간을 예상했으나 analysis+serial verification은 약 14분 5초였다.
+- 원인: parallel exact scan이 예상보다 빨랐고 첫 restricted LP가 unbounded라 새 후보 없이 조기 종료.
+- 영향: 자원 낭비는 없었지만 사용자가 시간을 과도하게 예약할 수 있었다.
+- 재발 방지: `full-search 예상`, `early-exit 예상`, `hard wall`을 별도로 쓰고 각 gate별 시간 모델을 남긴다.
+
+### E015 — sandbox 전체시험이 권한 오류 임시 디렉터리를 남김
+
+- 분류: `ENVIRONMENT_EXECUTION_ERROR`
+- 문제: 2026-09-01 최종 검증에서 전체 unittest를 먼저 sandbox 안에서 실행했고, sandbox가
+  `TemporaryDirectory` 접근·정리를 막아 197개 중 80개가 `PermissionError`로 끝났다.
+- 영향: assertion 기반 코드 실패는 아니었고, 같은 suite를 sandbox 외부에서 재실행해 197/197
+  PASS했다. 다만 접근 권한이 비정상인 임시 디렉터리 16개가 남았다.
+- 교정: 절대경로를 검증해 삭제 없이
+  `tmp/cleanup_candidates/20260901/sandbox_permission_test_artifacts_202609011817`로 격리했다.
+- 재발 방지: sandbox `PermissionError`를 코드 실패로 보고하지 않고, 허가된 동일 명령을 외부에서
+  재실행해 판정을 분리한다. sandbox 실패가 남긴 임시 경로도 즉시 감사·격리한다.
+
+## 4. 아직 남은 오류 위험
+
+1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.
+2. P018 dual partition은 공통 sieve/accumulator kernel 위험을 공유한다.
+3. actual peak RAM을 모든 runner가 직접 저장하지는 않는다.
+4. 오래된 문서의 “다음 우선순위”는 당시 snapshot이라 현재 정본과 다를 수 있다.
+5. `tmp` 안에도 다음 실험 입력과 실제 결과 provenance가 있으므로 경로명만 보고 삭제하면 안 된다.
+
+## 5. 오류 발견 시 행동 규칙
+
+1. 즉시 사용자에게 증상·영향 범위·과학 결과 오염 여부를 분리해 알린다.
+2. 실패 run과 원본 log hash를 보존한다.
+3. 잘못된 결과가 있으면 `INVALID` 또는 비정본으로 명시하고 조용히 덮어쓰지 않는다.
+4. 재시도는 새 revision·새 run ID로 한다.
+5. 수정 전후에 negative regression을 추가한다.
+6. 원인을 모르면 추정이라고 표시하고, 모르는 상태를 성공 설명으로 바꾸지 않는다.
+7. 시간이 짧게 끝났다는 이유로 모든 계획 단계가 충분히 수행됐다고 가정하지 않는다.
+
+## 6. 현재 공개적으로 인정할 미해결 debt
+
+- P014-R3 metadata의 내부 R2 label
+- P014 bounded seed 설계의 근거 부족
+- P018 actual peak RAM 미기록
+- 일부 예전 `temp_work_logs`와 superseded runner의 archive 정책 미확정
+
+이 항목들은 연구 수치의 현재 PASS를 무효화하지 않지만 다음 revision 전에 처리해야 한다.
