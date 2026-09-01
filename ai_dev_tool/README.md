@@ -21,6 +21,7 @@
 - 04_사용자실행_로그_완료이관_규약.md: 사용자 명령 형식, 전체 오류 로그, 실패 감사, `test_done` 보존, 시각검사
 - 05_ChatGPT_오류_실수_환각_원장.md: 구현·판정·표기·추정 오류와 재발방지, 미해결 debt
 - 06_스킬_AGENTS_작업규약_개선제안_20260901.md: 사용자 작업성향을 반영한 skill·AGENTS·보조규약 개선안
+- 07_임시파일_격리_정리_절차.md: tmp 의존성 감사, 복구 가능한 quarantine, 사용자 승인 뒤 정확한 경로 삭제 절차
 
 재사용 가능한 실행 기능은 `scripts/common`, `scripts/runners`, `scripts/tests`,
 `scripts/setup`에 둔다. 특정 완료 실험의 BAT/PS1/SH와 전용 helper는 `test_done`에
@@ -28,7 +29,7 @@ hash를 남기고 다시 실행하지 않는다.
 
 ## Codex 스킬
 
-현재 프로젝트는 `.agents/skills`만 Codex 스킬 정본으로 사용한다. `.claude` 호환 미러는 복원하거나 사용하지 않는다.
+현재 프로젝트는 `.agents/skills`만 Codex 스킬 정본으로 사용한다. `.claude` 호환 미러는 복원하거나 사용하지 않는다. 결과 감사는 profile 기반 `log-to-result`, 완료 실행기 이관은 `runner-retirement`, 전체 연구현황 정리는 `research-status-synthesis`를 사용한다.
 
 ## 실행 경계
 

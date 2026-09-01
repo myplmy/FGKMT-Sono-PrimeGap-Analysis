@@ -2,7 +2,7 @@
 
 ## 프로젝트 정체성
 
-이 저장소는 검증된 maximal prime-gap record로 end-bounded \(G(x)\)를 복원하고 FGKMT large-gap scale 및 Sono의 explicit constant와 경험적으로 비교하는 계산수론 연구용이다. 이전 실험의 모델 학습 및 GPU 벤치마크 규약은 이 저장소에 적용하지 않는다.
+이 저장소는 검증된 maximal prime-gap record로 end-bounded \(G(x)\)를 복원하고 FGKMT large-gap scale 및 Sono의 explicit constant와 경험적으로 비교하는 계산수론 연구용이다. 후속 이론축으로 Sono의 “sufficiently large \(X\)”를 명시적 numerical threshold로 바꿀 수 있는지도 연구하되, finite observed threshold와 theorem threshold를 구분한다. 이전 실험의 모델 학습 및 GPU 벤치마크 규약은 이 저장소에 적용하지 않는다.
 
 작업 루트:
 
@@ -115,7 +115,7 @@ tmp/              읽기/렌더링 임시 파일; 최종 산출물 아님
 Codex의 저장소 스킬 정본 발견 경로는 `.agents/skills/`다. 현재 프로젝트에서는 `.claude` 호환 미러를 복원하거나 사용하지 않는다.
 
 - 작업이 스킬 description과 명확히 일치하거나 사용자가 스킬을 지명하면 해당 SKILL.md 전체를 먼저 읽는다.
-- 이번 연구의 핵심 스킬은 exp-plan, exp-preflight, log-to-result, run-batch, session-handoff다.
+- 이번 연구의 핵심 스킬은 exp-plan, exp-preflight, log-to-result, runner-retirement, research-status-synthesis, run-batch, session-handoff다.
 - 스킬 수정은 `.agents/skills/`에만 반영하고 해당 SKILL.md 검증을 통과시킨다.
 - 스킬은 사용자 승인 경계를 확장하지 않는다. exp-preflight가 READY여도 실제 실험 허가가 없으면 실행하지 않는다.
 - issue, PR, push, merge 같은 외부 변경 스킬은 사용자의 명시적 요청 범위에서만 사용한다.
@@ -275,6 +275,16 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 모든 승인 실행기는 stdout과 stderr, 빈 줄, stage exit code, Python traceback, PowerShell/shell 예외를 `test_result/logs/`에 run id별로 보존한다. 실패한 WSL 실행은 run root에 `manifest.failed.txt`도 남긴다. terminal PASS와 필수 manifest·산출물을 확인하기 전에는 실험 PASS로 기록하지 않는다.
 
 결과를 본 뒤 계획서를 소급해 바꾸지 않는다. 변경이 필요하면 새 계획 버전과 이유를 남긴다.
+
+## revision·runtime·결과 metadata 불변식
+
+- 신규 actual artifact는 가능한 경우 `experiment_family`, `schema_version`, `runner_revision`을 별도 저장한다. transport-only revision도 과거 runner label을 현재 revision처럼 재사용하지 않는다.
+- 예상시간은 `expected full path`, `possible early exit`, `hard wall`을 구분한다. 조기종료 시간을 full search 예상으로 재사용하지 않는다.
+- `EXPERIMENT_PASS`와 `SCIENTIFIC_NO_IMPROVEMENT`, `LOW_INFORMATION`, `CALIBRATION_ONLY` 같은 과학적 판정을 동시에 허용하고 서로 대체하지 않는다.
+- `tmp` 경로라도 downstream `READY`, checkpoint, raw evidence, actual provenance는 의존 실험과 감사가 끝날 때까지 `RETAIN`한다. 경로명만으로 삭제하지 않는다.
+- memory는 사전 추정치와 관측 peak process-tree 값을 구분한다. 관측하지 않았으면 `not measured`라고 기록한다.
+- actual result artifact는 metadata 오기가 있어도 소급 수정하지 않는다. 정정 보고서 또는 새 revision으로 교정한다.
+- 한 번의 PID 조회, 낮은 CPU snapshot 또는 조용한 console만으로 장기실행 종료를 단정하지 않는다. process tree, heartbeat, file write time, terminal marker를 함께 본다.
 
 ## 사용자 실행·보고 불변식
 

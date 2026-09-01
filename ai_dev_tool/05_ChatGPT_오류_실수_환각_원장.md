@@ -163,6 +163,20 @@
 - 재발 방지: sandbox `PermissionError`를 코드 실패로 보고하지 않고, 허가된 동일 명령을 외부에서
   재실행해 판정을 분리한다. sandbox 실패가 남긴 임시 경로도 즉시 감사·격리한다.
 
+### E016 — 공식 skill validator의 의존성·Windows 인코딩 전제
+
+- 분류: `TOOLING_VALIDATION_ENVIRONMENT`
+- 문제: `skill-creator/scripts/quick_validate.py`가 `PyYAML`을 요구하지만 FGKMT·Codex 번들 Python
+  양쪽에 모듈이 없었다. 의존성 우회 뒤에는 `Path.read_text()`의 Windows 기본 CP949가 UTF-8
+  한국어 `SKILL.md`를 읽지 못했다.
+- 영향: 세 skill이 잘못된 것은 아니며 validator가 frontmatter 검사 전에 종료됐다. 연구 계산과
+  actual artifact에는 영향이 없다.
+- 교정: 패키지를 임의 설치하지 않고, 이번처럼 단순한 두 필드 frontmatter에 한정한 in-memory
+  flat-YAML shim과 Python `-X utf8`로 공식 validator 본문을 실행해 세 skill 모두 `Skill is valid!`를
+  확인했다.
+- 재발 방지: 한국어 project skill은 validator 실행환경의 YAML 의존성과 UTF-8 mode를 먼저 확인한다.
+  중첩 YAML을 쓰게 되면 shim을 확대하지 말고 사용자 허가를 받아 정식 PyYAML 환경을 준비한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

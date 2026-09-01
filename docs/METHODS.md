@@ -21,7 +21,7 @@ G(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n)
 
 을 복원하고 FGKMT large-gap asymptotic scale에 대한 \(H(x)=G(x)/F(x)\)의 변화와 lower envelope를 분석한다. record 사이의 감소, 새 record에서의 회복, interval minima, global running minimum과 local empirical envelope, Wolf 계열 경험적 관찰, Sono explicit constant와의 정량적 격차를 조사한다.
 
-유한 계산으로 FGKMT 또는 Sono의 무한 범위 정리를 재증명·검증하지 않으며, 계산 범위의 부등식을 모든 더 큰 \(x\)로 일반화하지 않는다. 관찰 패턴은 empirical statement로 분리하고, 후속 추측·명시적 임계값·이론 연구 후보로만 제안한다.
+유한 계산으로 FGKMT 또는 Sono의 무한 범위 정리를 재증명·검증하지 않으며, 계산 범위의 부등식을 모든 더 큰 \(x\)로 일반화하지 않는다. 관찰 패턴은 empirical statement로 분리한다. 동시에 Sono의 “sufficiently large \(X\)”를 실제 숫자로 바꾸는 explicit-threshold 연구를 별도 이론축으로 둔다. 첫 목표는 증명 가능한 유한 상한 \(X_0^{\mathrm{cert}}\)의 도출 가능성을 판정하는 것이며, 이를 유한 자료의 첫 관측점이나 실제 전역 최소 threshold와 혼동하지 않는다.
 
 자연로그와 반복로그를 다음과 같이 정의한다.
 
@@ -135,6 +135,41 @@ G_k(X)\ge \frac{c_{\mathrm{LG}}}{k^2}F(X),
 - 정리의 문구는 “for any sufficiently large X”이며, 출판본에 바로 사용할 수 있는 수치 \(X_0\)가 제시되어 있지 않다.
 - 유한 데이터에서 \(H(x)<c_{\mathrm{Sono}}\)가 나와도 정의와 계산이 맞다면 정리 반례가 아니라 그 \(x\)가 보장 구간 밖이라는 정보이다.
 - 유한 데이터에서 항상 \(H(x)\ge c_{\mathrm{Sono}}\)여도 정리를 계산으로 입증한 것이 아니다.
+
+### 2.2.1 threshold 연구의 세 수준
+
+Sono의 \(k=1\) explicit inequality에 대해 다음 세 양을 분리한다.
+
+1. 검증 상한 \(B\)까지의 유한 관측 threshold
+
+   \[
+   X_{\mathrm{emp}}(B)=\min\{x_0\ge X_{\mathrm{scale+}}:
+   H(x)\ge c_{\mathrm{Sono}}\text{ for all integers }x_0\le x\le B\}.
+   \]
+
+   P003의 정본 범위에서는 \(X_{\mathrm{scale+}}=3{,}814{,}280\), \(B=10^{20}\)이고 전체
+   interval의 최소 \(H\approx37.8168604>2\times10^{-17}\)이므로
+   \(X_{\mathrm{emp}}(10^{20})=3{,}814{,}280\)이다. 이는 분석 정의역 안의 exact finite 사실이다.
+
+2. 증명이 보장하는 명시적 threshold
+
+   \[
+   X_{\mathrm{proof}}=\min\{X_0:\text{현재 증명이 모든 }X\ge X_0\text{에서 부등식을 보장}\}.
+   \]
+
+   Sono 출판본은 numerical \(X_0\)를 제공하지 않는다. 이를 만들려면 증명의 \(o(1)\), analytic
+   estimates, sieve·covering parameter를 모두 effective inequality로 추적해야 한다. 먼저 어떤
+   값이라도 증명 가능한 \(X_0^{\mathrm{cert}}\)를 만들고, 이후 상한을 낮춘다.
+
+3. 실제 부등식의 가장 작은 전역 threshold
+
+   후보 이후의 무한 tail 전체 성립과 더 작은 후보의 배제를 함께 증명해야 한다. 유한 record
+   계산만으로는 정할 수 없다. 특히 `3,814,280`은 \(F>0\)인 분석 시작점이지 Sono 정리가 보장한
+   threshold가 아니다.
+
+Sono가 직접 explicit화한 것은 FMT chain theorem이며, FGKMT는 같은 large-gap scale의 중요한
+결과다. 따라서 문서에는 “FGKMT/FMT 계열 scale과 Sono \(k=1\) explicit inequality의 threshold
+연구”라고 쓰고 Sono 상수를 FGKMT 5인 논문의 명시 상수로 돌리지 않는다.
 
 ### 2.3 Wolf 기준선의 지위
 
