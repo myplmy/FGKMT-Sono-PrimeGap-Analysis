@@ -9,6 +9,10 @@
   [`../../review/22_20260902_Sono_FMT_numerical_threshold_proof_dependency_audit.md`](../../review/22_20260902_Sono_FMT_numerical_threshold_proof_dependency_audit.md)
 - hard-node 현실성 판정:
   [`../../review/23_20260902_Sono_FMT_T1_hard_node_feasibility.md`](../../review/23_20260902_Sono_FMT_T1_hard_node_feasibility.md)
+- H1 good-weight source tracing:
+  [`../../review/24_20260902_Sono_FMT_H1_good_sieve_weight_recoverability.md`](../../review/24_20260902_Sono_FMT_H1_good_sieve_weight_recoverability.md)
+- H1 machine trace:
+  [`data/Sono_FMT_H1_good_sieve_weight_trace_v1.json`](data/Sono_FMT_H1_good_sieve_weight_trace_v1.json)
 
 ## 1. 결론
 
@@ -258,17 +262,32 @@ Sono의 parameter를 대입한 명목 계수는
 이 결과는 `T1_DIRECT_EDGE_INVENTORY_COMPLETE`이면서 동시에
 `NUMERICAL_THRESHOLD_NOT_READY`다. 두 판정은 모순이 아니다.
 
-## 9. 다음 gate
+## 9. H1 후속 판정과 다음 gate
 
-권장 순서는 다음과 같다.
+2026-09-02 H1은 Sono pp. 541–542, FMT Theorem 6, FGKMT Theorems 5–6·Lemma 7.2,
+Maynard Proposition 6.1·(8.25)–(8.27)·Sections 8–9를 source level로 추적했다.
 
-1. `SIV-01`, `SIV-06`, `SIV-07`, `SIV-08`을 한 묶음으로 감사해 sieve-weight 층이 현실적으로
-   정량화 가능한지 먼저 판정한다.
-2. 동시에 상대적으로 쉬운 `TRN-01`–`TRN-05`, `UB-05`–`UB-07`, `AN-01`–`AN-02`에 사용할
-   현대 explicit theorem 후보를 수집한다. 실제 verifier는 후보 정리를 고른 뒤 만든다.
-3. sieve-weight가 가능 판정이면 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
-4. PAP는 Gallagher/Jutila의 implied constant를 얻을 수 있는지 독립 gate로 둔다.
-5. 이 hard node들이 모두 닫힌 뒤에만 T2 slack budget과 threshold calculator를 구현한다.
+| 질문 | H1 판정 |
+|---|---|
+| finite (J_r/I_r) lower bound | `CONSTRUCTIVE_PATH_IDENTIFIED` |
+| finite (r_0)과 공통 시작 (x) | upstream moment·Hypothesis 1에 `DEPENDENCY_BLOCKED` |
+| Proposition 6.1 상수 | `QUANTITATIVE_REPROOF_REQUIRED` |
+| FGKMT Hypothesis 1 상수 | `QUANTITATIVE_REPROOF_REQUIRED` |
+| numerical Theorem 6 package | `DEPENDENCY_BLOCKED` |
+
+Sono가 (c_0=1/5)을 인쇄했지만 finite (r_0)과 그 선택이 모든 uniformity·absorption 조건과
+동시에 맞는 공통 시작점은 주지 않는다. Maynard는 effectivity를 명시하므로 constructive path는
+원칙상 존재하지만 ready-made numerical package는 아니다. 따라서 H1 전체 판정은
+`CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`이며
+(X_{\mathrm{cert}})는 계속 `OPEN`이다.
+
+이제 권장 순서는 다음과 같다.
+
+1. `H1a`: Maynard (8.25)–(8.27)을 standalone finite-r integral lemma로 정식화한다.
+2. `H1b`: Proposition 6.1 Sections 8–9의 상수·cutoff ledger를 만든다.
+3. `H1c`: FGKMT Lemma 7.2의 effective character/Bombieri–Vinogradov package를 PAP와 공동 추적한다.
+4. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
+5. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
 
 현재 사용자 PC에 계산을 요청할 단계는 아니다. 병목은 연산시간이 아니라 논문 속 숨은 상수와
 유효범위를 수학적으로 복원하는 일이다.
@@ -279,8 +298,8 @@ Sono의 parameter를 대입한 명목 계수는
 
 ```powershell
 & 'W:\miniforge3\envs\FGKMT\python.exe' -m unittest `
-  tests.test_threshold_proof_obligation_ledger -v
+  tests.test_threshold_proof_obligation_ledger `
+  tests.test_h1_good_sieve_weight_trace -v
 ```
 
-검증기는 66행 schema, ID 유일성, source key, dependency 존재성, DAG, root fail-closed 상태,
-Sono·FGKMT 로컬 PDF SHA-256을 확인한다.
+검증기는 66행 T1 schema·DAG·source hash와 9행 H1 source trace의 fail-closed 상태를 확인한다.

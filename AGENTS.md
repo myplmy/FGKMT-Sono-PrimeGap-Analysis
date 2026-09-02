@@ -10,14 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT threshold T1 원장 완료·X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT T1·H1 완료·X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011–P013-B recurrence 계열은 enrichment를 검출하지 못했다. P013-A/B는 각각 primary 기대 0.077829/0.066797, 관측 0, 모든 행 LOW_INFORMATION이며 사용자 figure QA까지 PASS했다. P017 combined queue와 A/B child는 terminal·saved·exact equality PASS다. P017-B 동일범위 serial 12,598.410초 대 parallel 2,866.160초로 관측 wall-time 비가 약 4.3956이었다. P014-R3는 modulus 510510의 92,160 states와 8,524,288,932 constraints를 parallel exact scan과 saved serial oracle로 issue 0 검증했지만, 첫 5,000-constraint LP가 unbounded라 새 후보를 만들지 못했고 상한은 G4와 같은 `436,001,550,591,586,306`이다. 따라서 실행은 PASS지만 과학적 결과는 `NO_IMPROVEMENT`이고 search acceleration은 미증명이다. P018 read-only 사전판정 뒤 사용자는 full-range 정식 gate로 균형형 B, prefix 보조 gate로 탐색형 A를 동결했다. exact prime-count 준비와 P018-P0 one-plateau calibration은 terminal·saved·dual-partition 검증 PASS다. P0는 gap 582의 forced record 제거 뒤 conditioned count·기대값·분산이 모두 0인 calibration-only 결과였고 A/B gate를 판정하지 않았다. P018-A actual은 34,570,543,382 gap-start를 64/65 dual partition과 saved blinded recomputation으로 issue 0 검증했지만 primary gap 582·588 모두 forced record 제거 뒤 conditioned count·expected·variance가 0이고 LOW_INFORMATION이 100%였다. 따라서 실행은 `EXPERIMENT_PASS`, 과학적 판정은 `HOLD_PREFIX_INFORMATION`이며 B 자동승격은 없다. 2026-09-02 사후감사는 이 gate가 강한 outcome-blind가 아니라 `margin-only / allocation-blinded`임을 확인했다. zero conditioned margin은 recurrence 0을 드러내므로 A 범위는 미래 독립 holdout이 아니다. P020은 성공 정본 8개를 새 prime 계산 없이 종합해 72,178,455,399 gap-start 회계와 6개 figure family를 saved 검증했다. stationary→stratified 기대는 92.1274% 교정됐고, 후기 범위에서 계산량이 정보량을 보장하지 않음을 확인했다. 사용자 figure QA는 대기 중이다. Sono/FMT 1차 threshold 감사는 coefficient가 explicit·proof가 effective-in-principle이지만 numerical `X_cert`를 내려면 PAP/UB·sieve weight·hypergraph probability·x→X의 수치 rate가 더 필요함을 확인했다. `X_emp(10^20)=3,814,280`은 finite exact이고 `X_cert`와 실제 전역 최소는 OPEN이다. 정본은 `docs/review/21_20260902_P018_recurrence_설계사후감사_전체시각화_타당성검토.md`, `test_result/202609021151_P020_recurrence_artifact_synthesis_result_analysis.md`, `docs/review/22_20260902_Sono_FMT_numerical_threshold_proof_dependency_audit.md`다. P019는 serial 정답표 없는 future 범위의 서로소 dual-partition parallel full-pass toy를 exact count 21로 검증했지만 actual runner는 없다. P014-R2 transport 실패와 P014-R3/P018-P0/A 완료 실행기는 hash 보존해 `test_done` 이관했다. P015 queue는 완료 P013 child와 중복되므로 실행하지 않는다. 결과 연결 정본은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 actual 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
-
-상기 장문 상태 요약의 `P020 사용자 figure QA 대기`는 후속 사용자 확인으로 닫혔다. 사용자는
-2026-09-02에 R2 figure 6개 모두 문제없다고 확인했다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011–P013-B recurrence 계열은 enrichment를 검출하지 못했다. P013-A/B는 각각 primary 기대 0.077829/0.066797, 관측 0, 모든 행 LOW_INFORMATION이며 사용자 figure QA까지 PASS했다. P017 combined queue와 A/B child는 terminal·saved·exact equality PASS다. P017-B 동일범위 serial 12,598.410초 대 parallel 2,866.160초로 관측 wall-time 비가 약 4.3956이었다. P014-R3는 modulus 510510의 92,160 states와 8,524,288,932 constraints를 parallel exact scan과 saved serial oracle로 issue 0 검증했지만, 첫 5,000-constraint LP가 unbounded라 새 후보를 만들지 못했고 상한은 G4와 같은 `436,001,550,591,586,306`이다. 따라서 실행은 PASS지만 과학적 결과는 `NO_IMPROVEMENT`이고 search acceleration은 미증명이다. P018 read-only 사전판정 뒤 사용자는 full-range 정식 gate로 균형형 B, prefix 보조 gate로 탐색형 A를 동결했다. exact prime-count 준비와 P018-P0 one-plateau calibration은 terminal·saved·dual-partition 검증 PASS다. P0는 gap 582의 forced record 제거 뒤 conditioned count·기대값·분산이 모두 0인 calibration-only 결과였고 A/B gate를 판정하지 않았다. P018-A actual은 34,570,543,382 gap-start를 64/65 dual partition과 saved blinded recomputation으로 issue 0 검증했지만 primary gap 582·588 모두 forced record 제거 뒤 conditioned count·expected·variance가 0이고 LOW_INFORMATION이 100%였다. 따라서 실행은 `EXPERIMENT_PASS`, 과학적 판정은 `HOLD_PREFIX_INFORMATION`이며 B 자동승격은 없다. 2026-09-02 사후감사는 이 gate가 강한 outcome-blind가 아니라 `margin-only / allocation-blinded`임을 확인했다. zero conditioned margin은 recurrence 0을 드러내므로 A 범위는 미래 독립 holdout이 아니다. P020은 성공 정본 8개를 새 prime 계산 없이 종합해 72,178,455,399 gap-start 회계와 6개 figure family를 saved 검증했다. stationary→stratified 기대는 92.1274% 교정됐고, 후기 범위에서 계산량이 정보량을 보장하지 않음을 확인했다. 2026-09-02 사용자 figure QA도 PASS했다. Sono/FMT 1차 threshold 감사는 coefficient가 explicit·proof가 effective-in-principle이지만 numerical `X_cert`를 내려면 PAP/UB·sieve weight·hypergraph probability·x→X의 수치 rate가 더 필요함을 확인했다. `X_emp(10^20)=3,814,280`은 finite exact이고 `X_cert`와 실제 전역 최소는 OPEN이다. 정본은 `docs/review/21_20260902_P018_recurrence_설계사후감사_전체시각화_타당성검토.md`, `test_result/202609021151_P020_recurrence_artifact_synthesis_result_analysis.md`, `docs/review/22_20260902_Sono_FMT_numerical_threshold_proof_dependency_audit.md`다. P019는 serial 정답표 없는 future 범위의 서로소 dual-partition parallel full-pass toy를 exact count 21로 검증했지만 actual runner는 없다. P014-R2 transport 실패와 P014-R3/P018-P0/A 완료 실행기는 hash 보존해 `test_done` 이관했다. P015 queue는 완료 P013 child를 중복하므로 실행하지 않는다. 결과 연결 정본은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 actual 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 Sono/FMT T1은 direct proof edge 66개를 source/page/equation/dependency 단위로 등록하고 DAG·source
 hash를 검증했다. 5개만 해당 행 자체가 `EXPLICIT`이고, 30개는 rate 누락, 16개는 hard blocker다.
@@ -26,6 +23,15 @@ arbitrary-X coverage가 root critical path다. 정본은
 `docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md`와
 `docs/review/23_20260902_Sono_FMT_T1_hard_node_feasibility.md`다. 모든 hard input이 닫히기 전에는
 threshold calculator나 장시간 계산 runner를 만들지 않는다.
+
+Sono/FMT H1 source tracing은 FMT Theorem 6→FGKMT Theorems 5–6→Maynard Proposition 6.1과
+FGKMT Hypothesis 1을 추적했다. good weight는 symbolic·effective-in-principle이지만 finite
+`r_0`, moment implied constants와 Hypothesis 1의 수치 package가 없어 정량 재증명이 필요하다.
+H1 판정은 `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`이고
+`X_cert`는 계속 OPEN이다. 정본은
+`docs/review/24_20260902_Sono_FMT_H1_good_sieve_weight_recoverability.md`와
+`docs/method/theory/data/Sono_FMT_H1_good_sieve_weight_trace_v1.json`이다. 다음 gate는 H1a
+finite-r integral lemma이며 그 전에는 새 prime sweep·threshold calculator를 만들지 않는다.
 
 허가 전 허용:
 
@@ -385,14 +391,14 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P019 serial-oracle-free dual-partition toy PASS: 서로소 8/11 segments·worker 4, exact gap count 21, 두 full parallel pass·toy serial core 일치; shared sieve/accumulator common-mode risk 때문에 독립 증명 아님, actual 미승인
 - P020 recurrence artifact synthesis R2 EXPERIMENT_PASS / SYNTHESIS_ONLY: 성공 정본 8개·중복 제거 72,178,455,399 gap-start 회계, 새 prime 계산 없음, 6개 표·PNG/PDF 12파일 saved QA PASS; stationary→stratified 기대 92.1274% 교정, 후기 information collapse 확인; 2026-09-02 사용자 figure QA PASS
 - Sono/FMT numerical-threshold 1차 audit: 대입 계수 약 `2.0038612046196704e-17`, `2e-17`은 proved coefficient이나 출판본의 numerical `X_cert`는 없음; top-level proof는 effective-in-principle, PAP/UB·sieve/hypergraph·x→X 수치 rate가 blocker; 실제 전역 최소도 OPEN
-- Sono/FMT T1 원장: 66 obligations, dependency DAG와 로컬 PDF hash PASS; 5 EXPLICIT / 11 PARTIAL / 30 RATE_MISSING / 4 SOURCE_REVIEW_REQUIRED / 16 HARD_BLOCKER. 다음 gate는 sieve-weight recoverability H1이며 `X_cert`는 계속 OPEN
+- Sono/FMT T1 원장: 66 obligations, dependency DAG와 로컬 PDF hash PASS; 5 EXPLICIT / 11 PARTIAL / 30 RATE_MISSING / 4 SOURCE_REVIEW_REQUIRED / 16 HARD_BLOCKER. H1 source tracing은 finite-r integral에 constructive path를 확인했으나 Maynard moment·FGKMT Hypothesis 1의 정량 재증명이 필요하다고 판정했고 `X_cert`는 계속 OPEN
 - 새 장시간 Windows runner는 `scripts/common/live_native_tee.py`와 `Invoke-LiveLoggedNativeStage`로 .NET process capture 없이 stdout/stderr를 같은 PowerShell 화면과 main log에 즉시 기록; Windows PowerShell 5.1용 UTF-8 JSON Base64 transport 회귀시험 PASS
 - P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018-B를 자동 실행하지 않고 Sono/FMT threshold H1에서 FMT/Maynard good
-sieve-weight의 `r_0`, `c_0`, finite-r integral error와 Hypothesis 1 상수를 실제 숫자로 복원할
-constructive path가 있는지 먼저 판정하는 것이다. H1과 병행할 수 있는 보조축은 explicit
+다음 권장 행동은 P018-B를 자동 실행하지 않고 Sono/FMT threshold H1a에서 Maynard
+(8.25)–(8.27)의 finite-r integral error를 standalone quantitative lemma로 정식화하는 것이다.
+H1과 병행할 수 있는 보조축은 explicit
 primorial·Mertens·iterated-log transfer theorem 후보 수집이다. numerical threshold calculator는
 모든 dependency가 explicit해진 뒤에만 만든다. P014 후속은 5,000-constraint
 seed LP의 boundedness를 먼저 이론·toy로 확인하고 strict improvement 가능성이 보일 때만 새

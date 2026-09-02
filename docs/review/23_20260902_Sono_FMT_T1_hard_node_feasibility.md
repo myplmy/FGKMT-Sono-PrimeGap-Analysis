@@ -196,3 +196,17 @@ SIV-06을 수치화했지만 SIV-07이 막힌다는 정확한 결과도 매우 �
 - Kevin S. McCurley, DOI: https://doi.org/10.1016/0022-314X(84)90089-1
 - P. X. Gallagher, DOI: https://doi.org/10.1007/BF01403187
 - Matti Jutila, DOI: https://doi.org/10.7146/math.scand.a-11701
+
+## 9. 2026-09-02 H1 실행 결과
+
+사용자 승인 뒤 source tracing을 실제 수행했다. 상세 정본은
+[`24_20260902_Sono_FMT_H1_good_sieve_weight_recoverability.md`](24_20260902_Sono_FMT_H1_good_sieve_weight_recoverability.md)다.
+
+- Maynard (8.25)–(8.27)은 standalone finite-r lemma로 복원할 constructive path가 확인됐다.
+- Proposition 6.1과 FGKMT Hypothesis 1은 effective-in-principle이지만 ready-made numerical
+  constant가 아니며 정량 재증명이 필요하다.
+- Sono의 (c_0=1/5) 선택은 인쇄돼 있으나 finite (r_0)과 모든 error의 공통 시작 (x)는 없다.
+- 따라서 H1은 실패나 불가능 판정이 아니라
+  `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`다.
+- 다음 최소 gate는 H1a finite-r integral lemma이며 threshold calculator·새 prime sweep은 계속
+  fail-closed다.
