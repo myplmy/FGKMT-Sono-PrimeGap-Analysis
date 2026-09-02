@@ -78,3 +78,63 @@ zero variance다. 따라서 holdout에서 극단적 모형 불일치는 검출�
 시각 QA도 2026-08-28 PASS했다. P013-A/B는 `[10^10,10^11)`, `[10^11,10^12)` 범위·seed·
 exact gap-start count와 stage별 alpha 0.025를 actual 전에 동결했으며, 결과를 본 뒤 pooling하지
 않는다. 이는 정보량 증가와 모형의 유한범위 적합성을 보는 경험적 진단이다.
+
+## P013 prospective 확장 결과
+
+P013-A/B actual은 terminal·saved full recomputation·artifact hash·사용자 figure QA를 모두
+PASS했다. 각각 4개와 9개의 complete plateau를 분석했지만 recurrence 관측은 모두 0이었다.
+primary 기대값은 `0.0778288`, `0.0667972`이고 모든 통계행이 `LOW_INFORMATION`이었다.
+P013-B에서는 primary 양의 분산 행도 1/9뿐이었다.
+
+따라서 “더 큰 decade를 전수 계산하면 정보량이 자동 증가한다”는 전략은
+`REJECTED_AS_STATED`다. 이는 recurrence 구조가 없다는 뜻이 아니라, 큰 x에서 exact
+record-gap 자체의 비교 occurrence가 매우 희소하다는 유한 계산 결과다. P017은 P013의
+segment-parallel 통계·checkpoint·fixed-seed inference가 serial과 exact 일치함을 확인했지만
+새 과학 범위를 추가하지 않는다.
+
+## P018 expected-information gate와 사후감사
+
+P018은 가설검정 전에 계산가치를 판단한다. P0와 A는 관측 `exposure_equal_counts`, `C`, p/q/z를
+gate에 사용하지 않고 population·target-gap total·plateau exposure margin만 사용했다.
+P018-P0/A의 exact prime-count, 서로소 dual partition과 saved margin 재계산은 PASS했다.
+
+P018-A는 `[10^12,1,968,188,556,462)`의 gap-start `34,570,543,382`개를 처리했으나 gap
+582·588은 forced record 제거 후 conditioned count·expected·variance가 모두 0이었다.
+primary 2/2와 sensitivity 5/5가 `LOW_INFORMATION`이므로 판정은
+`EXPERIMENT_PASS / HOLD_PREFIX_INFORMATION / NO_AUTOMATIC_PROMOTION`이다.
+
+사후감사에서 `gap_counts` margin은 target gap의 plateau/control 배치를 숨기지만, conditioned
+count가 0인 경우 recurrence도 0임을 논리적으로 드러낸다는 점을 확인했다. 따라서 향후 명칭은
+강한 `outcome-blind`보다 `margin-only / allocation-blinded`가 정확하다. 이 보정은 A의 HOLD를
+바꾸지 않지만 A 범위를 미래 독립 holdout으로 재사용하지 못하게 한다. nested B를 연구하려면
+독립 범위 또는 stopping rule을 포함한 formal conditional design이 먼저 필요하다.
+
+현재 상태:
+
+- stratified null이 P011 stationary 과대예측을 줄인다는 진단: `EMPIRICAL SUPPORTED`
+- record-gap recurrence enrichment: `OPEN / NOT DETECTED`
+- recurrence 구조 부재: 주장 불가
+- P018-B·P013-C brute-force: `HOLD`
+- 기존 artifact를 이용한 전체 증거 종합 시각화: P020 R2 `EXPERIMENT_PASS / SYNTHESIS_ONLY`, 사용자 시각 QA 대기
+
+상세 사후감사와 시각화 3안은
+`docs/review/21_20260902_P018_recurrence_설계사후감사_전체시각화_타당성검토.md`를 따른다.
+
+## P020 artifact 전수 종합 결과
+
+P020은 성공 정본 8개를 새 prime 계산 없이 종합했다. 중복 제거 보고 처리량은
+`72,178,455,399` gap-start이며 raw 721억 행이 저장됐다는 뜻은 아니다. P006의 complete
+plateau 29개 중 11개에서 recurrence가 있고 recurrence 합은 20이었다. 같은 development
+21개 row에서 P011 stationary 기대 합 109.0790은 P012-A stratified 기대 합 8.58738로
+92.1274% 줄었다.
+
+P012-B·P013-A/B의 primary 기대는 0.49702·0.07783·0.06680이고, 양의 분산 row 비율은
+3/4·1/4·1/9로 줄었다. P018-P0/A는 forced record 제거 뒤 conditioned count와 분산이 0이다.
+따라서 큰 처리량이 exact-record-gap recurrence의 정보량 증가를 보장하지 않는다는 판정이
+전체 figure에서 일관된다. 이는 구조 부재 증명이 아니라 현재 질문의 구조적 희소성 진단이다.
+
+정본:
+
+- 계획: `test_plan/P020_recurrence_artifact_synthesis_visualization.md`
+- 결과: `test_result/202609021151_P020_recurrence_artifact_synthesis_result_analysis.md`
+- run: `test_result/run_20260902T024622Z_p020r2_recurrence_artifact_synthesis`

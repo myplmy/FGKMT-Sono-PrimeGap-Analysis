@@ -4,10 +4,10 @@
 
 이 문서는 `Z:\FGKMT-Sono-PrimeGap-Analysis`에서 수행할 대형 소수간격 비교 실험의 방법론 정본이다.
 
-- 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A 완료; A는 정보량 HOLD
-- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A blinded information pipeline
+- 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A와 설계 사후감사, P020 recurrence artifact 종합 완료; A는 정보량 HOLD
+- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 단계: P018-B를 자동 실행하지 않고 recurrence 설계 사후감사와 Sono/FMT numerical-threshold proof-dependency audit를 먼저 수행한다.
+- 다음 단계: P018-B를 자동 실행하지 않는다. 완료한 Sono/FMT numerical-threshold 1차 dependency audit를 바탕으로 모든 `o(1)`·implicit constant·유효범위의 T1 proof-obligation 원장을 설계한다. P020 figure는 사용자 시각 QA만 남아 있다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -614,7 +614,7 @@ P017은 P013-A/B의 serial·parallel exact statistics/checkpoint/inference equal
 P017-B 동일범위 wall-time은 serial 12,598.410초 대 parallel 2,866.160초였다. 이는 계산 engineering
 실측이며 모든 범위의 고정 speedup 보장이 아니다.
 
-P018은 완료 P013-B의 낮은 정보량을 근거로 full-range gate를 균형형 B, outcome-blind prefix
+P018은 완료 P013-B의 낮은 정보량을 근거로 full-range gate를 균형형 B, margin-only prefix
 보조 gate를 탐색형 A로 동결한다. WSL primecount Gourdon·Deleglise–Rivat는 P0/A 네 endpoint에서
 일치했고 P0/A exact gap-start count를 고정했다. P018-P0 actual은 16/17 서로소 partition의 모든
 정수 sufficient statistics와 saved blinded recomputation이 exact 일치해 `EXPERIMENT_PASS`다.
@@ -626,6 +626,33 @@ gap-start 34,570,543,382개 안에서 primary gap 582·588은 forced record 제�
 count가 모두 0이었고 expected·variance도 0, LOW_INFORMATION은 100%였다. 따라서 A는
 `EXPERIMENT_PASS / HOLD_PREFIX_INFORMATION / NO_AUTOMATIC_PROMOTION`이다. P018-B,
 P019 actual, P013-C는 새 설계·가치 gate 없이 만들거나 실행하지 않는다.
+
+P018의 기존 artifact명 `blinded`는 `exposure_equal_counts`와 plateau/control 배치를 gate에서
+제외했다는 뜻으로 한정한다. bin 전체 `gap_counts`는 margin으로 저장되므로 conditioned count가
+0이면 recurrence 0도 논리적으로 드러난다. 따라서 이후 방법론 명칭은
+`margin-only / allocation-blinded`를 사용하고, P018-A 범위를 독립 holdout으로 재사용하지 않는다.
+상세 사후감사는
+`docs/review/21_20260902_P018_recurrence_설계사후감사_전체시각화_타당성검토.md`다.
+
+P020은 P006·P011·P012-A/B·P013-A/B·P018-P0/A의 성공 정본 8개를 읽기 전용으로
+종합했다. 새 prime sweep 없이 중복 제거 처리량 `72,178,455,399` gap-start를 회계하고,
+coverage·P006 기술통계·null 교정·prospective 단계·정보량 붕괴·P018 forced-record funnel의
+6개 표와 PNG/PDF figure를 생성했다. 정본 R2는 입력 manifest와 모든 등록 artifact hash,
+원 saved-verifier 증거, 새 표·summary full recomputation, P018 margin-only contract와 figure
+자동 QA를 모두 PASS했다. P011 stationary 기대 109.0790은 P012 층화 후 8.58738로
+92.1274% 줄었고, 후기 범위에서 처리량 증가가 positive-variance row나 기대 recurrence 증가로
+이어지지 않았다. 과학적 판정은 `SYNTHESIS_ONLY`, 사용자 figure QA는 `PENDING_USER`다.
+정본 해석은 `test_result/202609021151_P020_recurrence_artifact_synthesis_result_analysis.md`다.
+
+Sono/FMT numerical-threshold 1차 감사는 coefficient explicit화와 threshold explicit화를 분리한다.
+Sono Theorem 3.6의 parameter를 대입한 계수는 약
+`2.0038612046196704e-17`이지만, 출판본은 `sufficiently large X`의 숫자를 주지 않는다.
+FMT는 exceptional zero를 제거해 proof를 effective하게 만들었으나 PAP/UB, Mertens/PNT,
+smooth-number remainder, sieve weight, hypergraph probability와 x→X 변환에 수치 rate·유효범위가
+남아 있다. 따라서 `X_emp(10^20)=3,814,280`은 finite exact이고 theorem-level `X_cert`와 실제
+전역 최소 `X_star`는 계속 OPEN이다. 의존성 정본은
+`docs/review/22_20260902_Sono_FMT_numerical_threshold_proof_dependency_audit.md`다. 모든 proof
+node가 explicit해지기 전에 numerical threshold calculator를 만들지 않는다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

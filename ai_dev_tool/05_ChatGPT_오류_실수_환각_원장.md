@@ -198,6 +198,22 @@
 - 재발 방지: `functions.exec`에서 `apply_patch` freeform을 조합할 때 JavaScript delimiter와 Markdown
   delimiter를 분리하고, 실패 뒤에는 대상 파일이 실제로 불변인지 확인한다.
 
+### E018 — P020 사전검증에서 무거운 saved verifier를 경량 hash 검사로 오인
+
+- 분류: `APPROVAL_SCOPE / PREFLIGHT_DESIGN_ERROR / INTERRUPTED_BEFORE_RESULT`
+- 문제: 2026-09-02 P020 artifact-only 시각화 사전검증에서 P012/P013의 `verify_saved_*`를
+  “저장 artifact만 다시 검사하는 함수”라고 충분히 확인하지 않고 호출했다. 실제 함수는 고정 seed
+  통계뿐 아니라 해당 prime range의 segmented sieve 전수 재계산도 수행한다.
+- 영향: 고정 Python P020 preflight가 P013 full recomputation에 들어간 뒤 약 수분·CPU 약 135초를
+  사용했다. 결과·figure·P020 run directory는 생성되기 전이었고 다른 Python 프로세스는 건드리지
+  않았다. no-new-prime-sweep 승인 경계와 충돌함을 확인한 즉시 해당 세션 PID만 중단했다.
+- 교정: P020 입력 검사는 pinned manifest hash, manifest 내 모든 artifact hash, 원 actual이 저장한
+  `saved_verification_report.json`의 clean PASS와 manifest 연결만 재검증한다. 새 prime sweep flag는
+  명시적으로 `false`로 저장한다.
+- 재발 방지: 함수명만으로 비용·부작용을 추정하지 않는다. actual artifact verifier를 새 파이프라인에
+  연결하기 전에 구현 본문에서 raw input iterator, segmented sieve, network/write 동작을 확인하고
+  `hash-only`, `saved-stat recomputation`, `full-range recomputation`으로 분류한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

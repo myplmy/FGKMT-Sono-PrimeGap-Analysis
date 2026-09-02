@@ -22,6 +22,8 @@
 - 05_ChatGPT_오류_실수_환각_원장.md: 구현·판정·표기·추정 오류와 재발방지, 미해결 debt
 - 06_스킬_AGENTS_작업규약_개선제안_20260901.md: 사용자 작업성향을 반영한 skill·AGENTS·보조규약 개선안
 - 07_임시파일_격리_정리_절차.md: tmp 의존성 감사, 복구 가능한 quarantine, 사용자 승인 뒤 정확한 경로 삭제 절차
+- 08_작업원장_작성규약_양식.md: 장기 작업의 단계별 기록, 중단 후 재개, `-done` 완료 표시 규약과 양식
+- work_ledgers/: 진행 중 작업원장과 완료된 `WORK_LEDGER-done.md` 보존 경로
 
 재사용 가능한 실행 기능은 `scripts/common`, `scripts/runners`, `scripts/tests`,
 `scripts/setup`에 둔다. 특정 완료 실험의 BAT/PS1/SH와 전용 helper는 `test_done`에

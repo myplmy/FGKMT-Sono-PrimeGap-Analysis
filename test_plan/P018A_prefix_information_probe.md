@@ -231,3 +231,21 @@ P018-A의 기술적 선결조건은 충족됐다. WSL 준비와 P0를 반복하�
 즉시 실행하지 않는다. 새 revision을 검토한다면 development evidence와 독립 판정 범위를
 분리하고, positive-variance 정보를 얻을 사전 근거와 outcome-dependent selection 방지 규칙을
 먼저 문서화한다.
+
+## 13. P018 설계 사후감사 기록 — 2026-09-02
+
+동결 contract, endpoint, gate와 actual artifact는 변경하지 않았다. 사후감사는 다음 명칭·독립성
+보정만 이후 설계에 적용한다.
+
+1. gate가 `exposure_equal_counts`, 관측 `C`, p/q/z를 읽지 않은 사실은 PASS다.
+2. 그러나 `gap_counts` margin에서 forced record 제거 후 conditioned count가 0이면 recurrence도
+   0임이 논리적으로 드러난다. 따라서 강한 `outcome-blind`보다
+   `margin-only / allocation-blinded information probe`가 정확한 설명이다.
+3. 이 보정은 A의 사전등록 HOLD를 바꾸지 않는다. A는 가설검정이나 enrichment 주장을 하지 않았다.
+4. A 범위는 development·diagnostic evidence로 간주한다. A를 포함하는 nested B reference를
+   독립 holdout으로 취급하지 않는다.
+5. 미래 B에는 disjoint validation range 또는 stopping rule을 포함한 formal conditional design,
+   exact type-I error·power simulation이 먼저 필요하다.
+
+정본 사후감사:
+`docs/review/21_20260902_P018_recurrence_설계사후감사_전체시각화_타당성검토.md`.

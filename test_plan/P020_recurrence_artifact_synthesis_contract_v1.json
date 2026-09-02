@@ -1,0 +1,107 @@
+{
+  "contract_version": "p020-recurrence-artifact-synthesis-contract-v1",
+  "frozen_on": "2026-09-02",
+  "approval": "USER_APPROVED_EXISTING_ARTIFACT_LEVEL_A_VISUALIZATION",
+  "input_runs": {
+    "p006_full": {
+      "path": "test_result/run_20260824T065339Z_p006_full_1000000000",
+      "manifest_sha256": "4492d1a9d235f7a5490133bafba731d16436860256164da3409c6fadd9233bde",
+      "role": "descriptive_development"
+    },
+    "p011": {
+      "path": "test_result/run_20260826T100938Z_p011_recurrence_null_pilot",
+      "manifest_sha256": "3b7b982d6fbcada92331e5dbea05f28219c25ae6de97f8808685b0da67aa78a0",
+      "role": "stationary_null_diagnostic"
+    },
+    "p012a_r2": {
+      "path": "test_result/run_20260827T054007Z_p012a_stratified_null_development_r2",
+      "manifest_sha256": "723bd82778c92b7ebe3e9f614fd7411e86f5619d3043ed292ddac93fa6966c09",
+      "role": "stratified_development"
+    },
+    "p012b": {
+      "path": "test_result/run_20260827T121734Z_p012b_stratified_null_holdout",
+      "manifest_sha256": "299e0bbd3e754c0f5f716ddfaea4b09bb4e0cd6adcb6f98e94e6f0a71abc89e5",
+      "role": "holdout"
+    },
+    "p013a_r2": {
+      "path": "test_result/run_20260828T071601Z_p013a_recurrence_extension_1e11_r2",
+      "manifest_sha256": "86da30eb0045704c7e955433906f58129d9b10a639451ba4b5827bd344a8dbdd",
+      "role": "prospective"
+    },
+    "p013b": {
+      "path": "test_result/run_20260828T090006Z_p013b_recurrence_extension_1e12",
+      "manifest_sha256": "a4272808f4486bbfba04e6255b1693420f46392f28b2c9567fddd82076c6d760",
+      "role": "prospective"
+    },
+    "p018p0": {
+      "path": "test_result/run_20260901T044856Z_p018p0_prefix_information_calibration",
+      "manifest_sha256": "4c871c55208d9699ec00e45f1c4565e0025a155260667c648ca96604ae2d832b",
+      "role": "calibration_margin_only"
+    },
+    "p018a": {
+      "path": "test_result/run_20260901T125849Z_p018a_prefix_information_probe",
+      "manifest_sha256": "c0a1309d7bb33ac5de8f4840f3198f4b223f26f30c198c72490c0742c10b75ad",
+      "role": "prefix_information_margin_only"
+    }
+  },
+  "primary_scheme": "primary_width_0p5_shift_0",
+  "primary_cohort": "primary_start_ge_1000",
+  "unique_processing_accounting": {
+    "included": [
+      "p006_full",
+      "p012b",
+      "p013a_r2",
+      "p013b",
+      "p018a"
+    ],
+    "excluded_as_reuse_or_subset": [
+      "p011",
+      "p012a_r2",
+      "p018p0"
+    ],
+    "expected_gap_start_total": 72178455399
+  },
+  "boundary_annotation": {
+    "x": 1000000000,
+    "gap_start": 999999937,
+    "gap_end": 1000000007,
+    "gap": 70,
+    "meaning": "one crossing gap is absent from a seamless raw-stream union; aggregate experiment artifacts remain valid for their own contracts"
+  },
+  "figures": [
+    "01_recurrence_coverage_map",
+    "02_p006_descriptive_recurrence",
+    "03_null_model_correction",
+    "04_prospective_stage_summary",
+    "05_information_collapse",
+    "06_p018_forced_record_funnel"
+  ],
+  "p018_access_contract": {
+    "allowed_files": [
+      "manifest.json",
+      "summary.json",
+      "plateaus.json",
+      "blinded_margin_statistics.json",
+      "blinded_information_components.json",
+      "prefix_gate_report.json",
+      "saved_verification_report.json"
+    ],
+    "forbidden_inferences_or_outputs": [
+      "observed_recurrence",
+      "standardized_residual_z",
+      "hypothesis_test_p_value",
+      "multiple_testing_q_value"
+    ],
+    "label": "margin-only / allocation-blinded information"
+  },
+  "prohibited": [
+    "new_prime_sweep",
+    "new_external_data_download",
+    "p018b_execution",
+    "p013c_execution",
+    "p019_actual_execution",
+    "pooling_p_values_across_nulls_ranges_or_cohorts",
+    "raw_point_claim",
+    "theorem_claim"
+  ]
+}
