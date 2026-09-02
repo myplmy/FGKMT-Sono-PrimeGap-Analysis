@@ -4,10 +4,10 @@
 
 이 문서는 `Z:\FGKMT-Sono-PrimeGap-Analysis`에서 수행할 대형 소수간격 비교 실험의 방법론 정본이다.
 
-- 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0 calibration 완료; P018-A 사용자 실행 준비
-- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0 blinded calibration
-- 현재 미실행 범위: P018-A/B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 사용자 단계: WSL count 준비를 반복하지 않고, 다른 CPU-heavy 작업이 없을 때 P018-A 하나만 실행해 log/result를 회신한다.
+- 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A 완료; A는 정보량 HOLD
+- 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A blinded information pipeline
+- 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
+- 다음 단계: P018-B를 자동 실행하지 않고 recurrence 설계 사후감사와 Sono/FMT numerical-threshold proof-dependency audit를 먼저 수행한다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -621,7 +621,11 @@ P018은 완료 P013-B의 낮은 정보량을 근거로 full-range gate를 균형
 다만 forced record를 제거한 gap 582 conditioned count가 0이므로 expected·variance도 0이고 P0
 판정은 `CALIBRATION_ONLY_NO_GATE`다. P0/A는 관측 recurrence·p/q/z를 읽거나 저장하지 않고
 population·gap count·exposure margin만 사용한다. P018-A는 동결된 endpoint/gate로 실행 준비됐고,
-A PASS도 B 설계 검토만 허용한다. P019 actual/P013-C는 A 결과 감사 전 만들거나 실행하지 않는다.
+2026-09-01 actual에서 64/65 dual partition과 saved blinded recomputation이 PASS했다. 그러나
+gap-start 34,570,543,382개 안에서 primary gap 582·588은 forced record 제거 후 conditioned
+count가 모두 0이었고 expected·variance도 0, LOW_INFORMATION은 100%였다. 따라서 A는
+`EXPERIMENT_PASS / HOLD_PREFIX_INFORMATION / NO_AUTOMATIC_PROMOTION`이다. P018-B,
+P019 actual, P013-C는 새 설계·가치 gate 없이 만들거나 실행하지 않는다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

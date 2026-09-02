@@ -10,11 +10,11 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0 PASS·A 실행 준비 / P019 dual-partition toy PASS
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 dual-partition toy PASS
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011–P013-B recurrence 계열은 enrichment를 검출하지 못했다. P013-A/B는 각각 primary 기대 0.077829/0.066797, 관측 0, 모든 행 LOW_INFORMATION이며 사용자 figure QA까지 PASS했다. P017 combined queue와 A/B child는 terminal·saved·exact equality PASS다. P017-B 동일범위 serial 12,598.410초 대 parallel 2,866.160초로 관측 wall-time 비가 약 4.3956이었다. P014-R3는 modulus 510510의 92,160 states와 8,524,288,932 constraints를 parallel exact scan과 saved serial oracle로 issue 0 검증했지만, 첫 5,000-constraint LP가 unbounded라 새 후보를 만들지 못했고 상한은 G4와 같은 `436,001,550,591,586,306`이다. 따라서 실행은 PASS지만 과학적 결과는 `NO_IMPROVEMENT`이고 search acceleration은 미증명이다. P018 read-only 사전판정 뒤 사용자는 full-range 정식 gate로 균형형 B, outcome-blind prefix 보조 gate로 탐색형 A를 동결했다. exact prime-count 준비와 P018-P0 one-plateau calibration은 terminal·saved·dual-partition 검증 PASS다. P0는 gap 582의 forced record 제거 뒤 conditioned count·기대값·분산이 모두 0인 calibration-only 결과였고 A/B gate를 판정하지 않았다. 동결된 P018-A endpoint·gate와 31.5 GB process-tree ceiling은 그대로 실행 준비됐으며 WSL count 준비를 다시 할 필요가 없다. P019는 serial 정답표 없는 future 범위의 서로소 dual-partition parallel full-pass toy를 exact count 21로 검증했지만 actual runner는 없다. P014-R2 transport 실패와 P014-R3/P018-P0 완료 실행기는 hash 보존해 `test_done` 이관했다. P015 queue는 완료 P013 child와 중복되므로 실행하지 않는다. 결과 연결 정본은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 actual 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011–P013-B recurrence 계열은 enrichment를 검출하지 못했다. P013-A/B는 각각 primary 기대 0.077829/0.066797, 관측 0, 모든 행 LOW_INFORMATION이며 사용자 figure QA까지 PASS했다. P017 combined queue와 A/B child는 terminal·saved·exact equality PASS다. P017-B 동일범위 serial 12,598.410초 대 parallel 2,866.160초로 관측 wall-time 비가 약 4.3956이었다. P014-R3는 modulus 510510의 92,160 states와 8,524,288,932 constraints를 parallel exact scan과 saved serial oracle로 issue 0 검증했지만, 첫 5,000-constraint LP가 unbounded라 새 후보를 만들지 못했고 상한은 G4와 같은 `436,001,550,591,586,306`이다. 따라서 실행은 PASS지만 과학적 결과는 `NO_IMPROVEMENT`이고 search acceleration은 미증명이다. P018 read-only 사전판정 뒤 사용자는 full-range 정식 gate로 균형형 B, outcome-blind prefix 보조 gate로 탐색형 A를 동결했다. exact prime-count 준비와 P018-P0 one-plateau calibration은 terminal·saved·dual-partition 검증 PASS다. P0는 gap 582의 forced record 제거 뒤 conditioned count·기대값·분산이 모두 0인 calibration-only 결과였고 A/B gate를 판정하지 않았다. P018-A actual은 34,570,543,382 gap-start를 64/65 dual partition과 saved blinded recomputation으로 issue 0 검증했지만 primary gap 582·588 모두 forced record 제거 뒤 conditioned count·expected·variance가 0이고 LOW_INFORMATION이 100%였다. 따라서 실행은 `EXPERIMENT_PASS`, 과학적 판정은 `HOLD_PREFIX_INFORMATION`이며 B 자동승격은 없다. P019는 serial 정답표 없는 future 범위의 서로소 dual-partition parallel full-pass toy를 exact count 21로 검증했지만 actual runner는 없다. P014-R2 transport 실패와 P014-R3/P018-P0/A 완료 실행기는 hash 보존해 `test_done` 이관했다. P015 queue는 완료 P013 child와 중복되므로 실행하지 않는다. 결과 연결 정본은 `test_result/00_실험결과_분석보고서_색인.md`다. 추가 actual 실행, 외부 게시, commit/push/PR은 별도 사용자 행동·승인 없이 수행하지 않는다.
 
 허가 전 허용:
 
@@ -359,17 +359,17 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P017 P013 parallel calibration EXPERIMENT_PASS: A/B exact statistics·checkpoint·fixed-seed inference equality, A 32/B 64 segments와 worker 8개; B serial/parallel 관측비 약 4.3956, 기존 serial runner는 보존
 - P017 완료 BAT/PS1 6개는 SHA-256을 보존해 `test_done/*-20260829T*-done`으로 이관
 - P018 P013 information/power preflight PASS: P013-B expected 0.066797, positive-variance primary 1/9, LOW_INFORMATION 100%, 2x Poisson screening power 약 0.00817; balanced power 0.8에 필요한 null expectation 약 11.2691(현재의 약 168.7x), formal power 미인증
-- 사용자 결정: B는 full-range 정식 gate, A는 prefix-only 보조 gate. WSL exact primecount 4 endpoints의 두 알고리즘 일치와 P018-P0 one-plateau calibration은 EXPERIMENT_PASS; P0는 16/17 dual partition exact equality와 saved blinded recomputation PASS지만 conditioned count·기대·분산 0인 `CALIBRATION_ONLY_NO_GATE`. A는 64/65 dual partition·P0/A mutex·31.5 GB Windows process-tree ceiling으로 준비, actual 미실행
+- 사용자 결정: B는 full-range 정식 gate, A는 prefix-only 보조 gate. WSL exact primecount 4 endpoints의 두 알고리즘 일치와 P018-P0 one-plateau calibration은 EXPERIMENT_PASS; P0는 16/17 dual partition exact equality와 saved blinded recomputation PASS지만 conditioned count·기대·분산 0인 `CALIBRATION_ONLY_NO_GATE`. P018-A actual은 64/65 dual partition·saved blinded recomputation PASS, 34,570,543,382 gap-start, conditioned count·expected·variance 0, LOW_INFORMATION 100%로 `HOLD_PREFIX_INFORMATION`이며 B 자동승격 없음
 - P019 serial-oracle-free dual-partition toy PASS: 서로소 8/11 segments·worker 4, exact gap count 21, 두 full parallel pass·toy serial core 일치; shared sieve/accumulator common-mode risk 때문에 독립 증명 아님, actual 미승인
 - 새 장시간 Windows runner는 `scripts/common/live_native_tee.py`와 `Invoke-LiveLoggedNativeStage`로 .NET process capture 없이 stdout/stderr를 같은 PowerShell 화면과 main log에 즉시 기록; Windows PowerShell 5.1용 UTF-8 JSON Base64 transport 회귀시험 PASS
-- P014-R3와 P018-P0 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
+- P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 WSL count 준비를 반복하지 않고 P018-A를 개별 실행하는 것이다. 다른
-CPU-heavy 실험과 동시에 실행하지 않으며 동결된 endpoint/gate를 바꾸지 않는다. P014 후속은
-5,000-constraint seed LP의 boundedness를 먼저 이론·toy로 확인하고 strict improvement 가능성이
-보일 때만 새 revision을 만든다. P013-C full-decade 확대와 P019 actual runner는 A 결과를 감사해
-B 설계 검토 가치가 확인되기 전에는 착수하지 않는다.
+다음 권장 행동은 P018-B를 자동 실행하지 않고 P018 recurrence 설계 사후감사와 Sono/FMT
+numerical-threshold proof-dependency audit를 수행하는 것이다. P014 후속은 5,000-constraint
+seed LP의 boundedness를 먼저 이론·toy로 확인하고 strict improvement 가능성이 보일 때만 새
+revision을 만든다. P013-C full-decade 확대, P018-B, P019 actual runner는 새 설계·가치 gate가
+확인되기 전에는 착수하지 않는다.
 P015는 실행하지 않는다.
 P010B large-range acceleration과 P005 Rank 85→86 exhaustive는 coverage 선결조건이 없어 runner를
 만들지 않는다. 상세 영향도는 `docs/method/20260828_48h_runner_impact_analysis.md`다.

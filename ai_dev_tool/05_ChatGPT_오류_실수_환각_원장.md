@@ -162,6 +162,15 @@
   `tmp/cleanup_candidates/20260901/sandbox_permission_test_artifacts_202609011817`로 격리했다.
 - 재발 방지: sandbox `PermissionError`를 코드 실패로 보고하지 않고, 허가된 동일 명령을 외부에서
   재실행해 판정을 분리한다. sandbox 실패가 남긴 임시 경로도 즉시 감사·격리한다.
+- 2026-09-02 재발 기록:
+  - P018-A 사후 targeted 25 tests를 sandbox 안에서 먼저 실행해 23개가
+    `TemporaryDirectory`·multiprocessing pipe `PermissionError`로 종료됐다.
+  - 같은 고정 Python·같은 25 tests를 정상 로컬 권한으로 재실행해 25/25 PASS했다.
+  - 프로젝트 안에 남은 0-item·0-byte 디렉터리 5개는
+    `tmp/cleanup_candidates/20260902/sandbox_permission_test_artifacts_202609021006`으로
+    격리했다.
+  - 시스템 `%TEMP%`의 6개 디렉터리는 다른 프로그램과의 소유권 혼동을 피하기 위해 건드리지
+    않았다.
 
 ### E016 — 공식 skill validator의 의존성·Windows 인코딩 전제
 
@@ -176,6 +185,18 @@
   확인했다.
 - 재발 방지: 한국어 project skill은 validator 실행환경의 YAML 의존성과 UTF-8 mode를 먼저 확인한다.
   중첩 YAML을 쓰게 되면 shim을 확대하지 말고 사용자 허가를 받아 정식 PyYAML 환경을 준비한다.
+
+### E017 — Markdown backtick이 apply_patch JavaScript wrapper를 먼저 종료
+
+- 분류: `TOOL_WRAPPER_SYNTAX / CORRECTED_BEFORE_WRITE`
+- 문제: 2026-09-02 P018-A 결과 색인 patch의 첫 시도에서 Markdown backtick을 JavaScript template
+  literal 안에 그대로 넣어 `SyntaxError`가 발생했다.
+- 영향: `apply_patch` 자체가 호출되기 전에 wrapper parsing이 실패했으므로 파일 변경·부분 patch·연구
+  결과 오염은 없었다.
+- 교정: patch 안의 backtick을 임시 marker로 바꾸고 tool 호출 직전에 `replaceAll`로 복원해 같은
+  patch를 정상 적용했다.
+- 재발 방지: `functions.exec`에서 `apply_patch` freeform을 조합할 때 JavaScript delimiter와 Markdown
+  delimiter를 분리하고, 실패 뒤에는 대상 파일이 실제로 불변인지 확인한다.
 
 ## 4. 아직 남은 오류 위험
 
@@ -194,6 +215,8 @@
 5. 수정 전후에 negative regression을 추가한다.
 6. 원인을 모르면 추정이라고 표시하고, 모르는 상태를 성공 설명으로 바꾸지 않는다.
 7. 시간이 짧게 끝났다는 이유로 모든 계획 단계가 충분히 수행됐다고 가정하지 않는다.
+8. `TemporaryDirectory` 또는 multiprocessing을 쓰는 suite는 이 저장소에서 이미 sandbox
+   권한 실패가 반복됐으므로, 첫 판정 실행부터 허가된 정상 로컬 권한을 우선한다.
 
 ## 6. 현재 공개적으로 인정할 미해결 debt
 

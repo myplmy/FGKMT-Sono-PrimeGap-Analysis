@@ -74,3 +74,13 @@ BAT·PowerShell·WSL 진입점과, 해당 완료 실험에만 쓰인 보조파�
 - 일반 FGKMT pipeline: `scripts/runners/run_fgkmt_pipeline.ps1`
 - 공통 self-test: `scripts/tests/`
 - 신규 실험별 toy 진입점: `scripts/experiments/<experiment>/`
+
+## 2026-09-01 P018-A 실행 원본
+
+| 보존 파일 | SHA-256 | 연결 로그·역할 | 판정 |
+|---|---|---|---|
+| `run_P018A_prefix_information_probe-20260901T125849Z-done.bat` | `3402F68C47E396D42C67C5A64D156F45E60C1725F1EFD559FC739E1FC1DFD437` | `test_result/logs/run_20260901T125849Z_p018a_prefix_information_probe.log`의 사용자 entrypoint | terminal·launcher PASS; `HOLD_PREFIX_INFORMATION` |
+| `run_p018a_prefix_information_probe-20260901T125849Z-done.ps1` | `0A780A440C5F91C9C110CCD350BC151135FC118E849F3D7EFCBD0835B38C2BF5` | 위 BAT가 호출한 P018-A 전용 얇은 PowerShell entrypoint | common runner 전달 PASS; 재실행 금지 |
+
+공통 `scripts/runners/run_p018_prefix_information.ps1`, 계산 source, frozen contract, result artifact와
+primecount evidence는 재현성과 후속 설계 감사에 필요하므로 active 위치에 남겼다.

@@ -188,3 +188,46 @@ figure와 관측 recurrence/p/q/z 표는 만들지 않는다.
 - P0 실측 단순 외삽 A 계획값: 약 8.47시간; 보장값이 아니므로 12시간 hard wall 유지
 
 P018-A의 기술적 선결조건은 충족됐다. WSL 준비와 P0를 반복하지 않고 7.3의 A 명령만 사용한다.
+
+## 12. P018-A 실행 후 상태 기록 — 2026-09-02
+
+계획·endpoint·gate·중단조건은 결과를 본 뒤 소급 변경하지 않았다. 1절의 상태는 실행 전 동결
+상태를 보존하며, 현재 사후 판정은 아래와 같다.
+
+- 실행 ID: `20260901T125849Z_p018a_prefix_information_probe`
+- log:
+  `test_result/logs/run_20260901T125849Z_p018a_prefix_information_probe.log`
+- result:
+  `test_result/run_20260901T125849Z_p018a_prefix_information_probe`
+- 정본 분석:
+  `test_result/202609021000_P018A_result_analysis.md`
+- terminal·25 targeted tests·64/65 dual partition·saved blinded recomputation: PASS
+- exact gap starts: `34,570,543,382`
+- actual full-path runtime: `20,940.094`초, 약 `5.8167`시간
+- primary row: 2
+- forced record 제거 후 conditioned gap count: 두 행 모두 0
+- primary expected recurrence: 0
+- positive-variance row: 0
+- LOW_INFORMATION: 2/2 = 100%
+- 5x Poisson planning power: 0
+- A gate: FAIL
+- recommendation: `HOLD_PREFIX_INFORMATION`
+- observed recurrence·p/q/z 저장과 hypothesis test: 수행하지 않음
+- automatic full-range promotion: 수행하지 않음
+- theorem claim: 없음
+- 완료 BAT:
+  `test_done/run_P018A_prefix_information_probe-20260901T125849Z-done.bat`
+  - SHA-256:
+    `3402f68c47e396d42c67c5a64d156f45e60c1725f1efd559fc739e1fc1dfd437`
+- 완료 전용 PS1:
+  `test_done/run_p018a_prefix_information_probe-20260901T125849Z-done.ps1`
+  - SHA-256:
+    `0a780a440c5f91c9c110ccd350bc151135fc118e849f3d7efcbd0835b38c2bf5`
+- 공통 `scripts/runners/run_p018_prefix_information.ps1`와 source·evidence: 재현성과 후속 설계용
+  `KEEP_ACTIVE`
+
+판정은 `EXPERIMENT_PASS / HOLD_PREFIX_INFORMATION / NO_AUTOMATIC_PROMOTION`이다. B reference
+범위가 논리적으로 불가능하다는 뜻은 아니지만, A가 사전등록 gate를 통과하지 못했으므로 B를
+즉시 실행하지 않는다. 새 revision을 검토한다면 development evidence와 독립 판정 범위를
+분리하고, positive-variance 정보를 얻을 사전 근거와 outcome-dependent selection 방지 규칙을
+먼저 문서화한다.
