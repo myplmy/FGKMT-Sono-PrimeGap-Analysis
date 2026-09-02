@@ -115,7 +115,7 @@ count가 0인 경우 recurrence도 0임을 논리적으로 드러낸다는 점�
 - record-gap recurrence enrichment: `OPEN / NOT DETECTED`
 - recurrence 구조 부재: 주장 불가
 - P018-B·P013-C brute-force: `HOLD`
-- 기존 artifact를 이용한 전체 증거 종합 시각화: P020 R2 `EXPERIMENT_PASS / SYNTHESIS_ONLY`, 사용자 시각 QA 대기
+- 기존 artifact를 이용한 전체 증거 종합 시각화: P020 R2 `EXPERIMENT_PASS / SYNTHESIS_ONLY`, 2026-09-02 사용자 시각 QA PASS
 
 상세 사후감사와 시각화 3안은
 `docs/review/21_20260902_P018_recurrence_설계사후감사_전체시각화_타당성검토.md`를 따른다.
@@ -138,3 +138,4 @@ P012-B·P013-A/B의 primary 기대는 0.49702·0.07783·0.06680이고, 양의 �
 - 계획: `test_plan/P020_recurrence_artifact_synthesis_visualization.md`
 - 결과: `test_result/202609021151_P020_recurrence_artifact_synthesis_result_analysis.md`
 - run: `test_result/run_20260902T024622Z_p020r2_recurrence_artifact_synthesis`
+- figure QA: 자동 QA와 2026-09-02 사용자 시각 QA PASS

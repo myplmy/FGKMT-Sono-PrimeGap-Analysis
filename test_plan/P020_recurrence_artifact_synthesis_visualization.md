@@ -177,3 +177,15 @@ P018 gap 582·588은 forced record 제거 후 conditioned count와 분산이 0�
 정본 해석은
 `test_result/202609021151_P020_recurrence_artifact_synthesis_result_analysis.md`에 있다. Codex의
 수치·파일·배치 점검은 완료했지만, 사용자 시각 확인 전에는 figure QA를 PASS로 올리지 않는다.
+
+## 14. 사용자 시각 QA — 2026-09-02
+
+사용자가 R2의 여섯 figure를 확인하고 `문제 없음`으로 회신했다.
+
+```text
+visual_qa = PASS
+visual_qa_source = USER_CONFIRMATION
+visual_qa_date = 2026-09-02
+```
+
+이 사후 상태 기록은 동결된 P020 계산 계약·수치·manifest를 바꾸지 않는다.

@@ -7,7 +7,7 @@
 - contract SHA-256: `5dc9c131b5f0c5eb4580af6cd0e971a40b8c079f2189846e088ea12313f6eacc`
 - 실행 판정: `EXPERIMENT_PASS`
 - 과학적 판정: `SYNTHESIS_ONLY`
-- 사용자 시각 QA: `PENDING_USER`
+- 사용자 시각 QA: `PASS` (2026-09-02 사용자 확인)
 - 새 prime 계산: **없음**
 
 ## 1. 한눈에 보는 결론
@@ -261,9 +261,8 @@ pooling하지 않았다.
 2. recurrence 축은 폐기하지 않고 새 질문·formal power·독립 holdout 설계를 기다린다.
 3. 다음 주 연구축은 계산을 더 늘리는 것보다 Sono/FMT numerical-threshold proof dependency를
    감사하는 쪽이 가치가 높다.
-4. 사용자는 R2의 6개 PNG를 시각 검사해 라벨 잘림, 글자 겹침, 색 구분, 설명과 그림의 불일치가
-   없는지만 확인한다. 자동 수치 검사는 이미 PASS했지만 사용자 확인 전 `visual_qa=PASS`로
-   바꾸지 않는다.
+4. 사용자는 2026-09-02 R2의 6개 PNG에 문제가 없다고 확인했다. 자동 수치 QA와 사용자
+   시각 QA가 모두 PASS다.
 
 ## 9. 최종 판정
 
@@ -274,7 +273,7 @@ pooling하지 않았다.
 &\text{새 prime 계산: 없음}\\
 &\text{recurrence enrichment: OPEN / NOT DETECTED}\\
 &\text{P018-B 자동승격: HOLD}\\
-&\text{사용자 figure QA: PENDING}
+&\text{사용자 figure QA: PASS}
 \end{aligned}
 }
 \]
@@ -282,3 +281,9 @@ pooling하지 않았다.
 P020의 가장 중요한 성과는 여러 실험을 한 그림에 넣었다는 사실보다, **계산량·재현성·통계
 정보량을 서로 다른 축으로 분리했다는 것**이다. 현재 recurrence 연구의 다음 병목은 연산 능력이
 아니라 답할 수 있는 표본을 만드는 연구 질문의 재설계다.
+
+## 10. 사용자 시각 QA 사후 기록 — 2026-09-02
+
+사용자가 여섯 figure 모두 문제없다고 회신했다. 이 확인은 배치·가독성 판정이며 저장 수치,
+통계 해석, `SYNTHESIS_ONLY` 과학 판정을 바꾸지 않는다. 실제 run의 immutable manifest에 남은
+`PENDING_USER`는 소급 수정하지 않고 이 결과보고서와 계획서에서 후속 증거로 닫는다.

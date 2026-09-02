@@ -7,7 +7,7 @@
 - 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A와 설계 사후감사, P020 recurrence artifact 종합 완료; A는 정보량 HOLD
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 단계: P018-B를 자동 실행하지 않는다. 완료한 Sono/FMT numerical-threshold 1차 dependency audit를 바탕으로 모든 `o(1)`·implicit constant·유효범위의 T1 proof-obligation 원장을 설계한다. P020 figure는 사용자 시각 QA만 남아 있다.
+- 다음 단계: P018-B를 자동 실행하지 않는다. 승인된 Sono/FMT numerical-threshold T1에서 모든 `o(1)`·implicit constant·유효범위를 proof-obligation 원장에 등록한다. P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -641,7 +641,7 @@ coverage·P006 기술통계·null 교정·prospective 단계·정보량 붕괴·
 원 saved-verifier 증거, 새 표·summary full recomputation, P018 margin-only contract와 figure
 자동 QA를 모두 PASS했다. P011 stationary 기대 109.0790은 P012 층화 후 8.58738로
 92.1274% 줄었고, 후기 범위에서 처리량 증가가 positive-variance row나 기대 recurrence 증가로
-이어지지 않았다. 과학적 판정은 `SYNTHESIS_ONLY`, 사용자 figure QA는 `PENDING_USER`다.
+이어지지 않았다. 과학적 판정은 `SYNTHESIS_ONLY`이며, 자동 QA와 2026-09-02 사용자 figure QA가 모두 PASS했다.
 정본 해석은 `test_result/202609021151_P020_recurrence_artifact_synthesis_result_analysis.md`다.
 
 Sono/FMT numerical-threshold 1차 감사는 coefficient explicit화와 threshold explicit화를 분리한다.
@@ -653,6 +653,15 @@ smooth-number remainder, sieve weight, hypergraph probability와 x→X 변환에
 전역 최소 `X_star`는 계속 OPEN이다. 의존성 정본은
 `docs/review/22_20260902_Sono_FMT_numerical_threshold_proof_dependency_audit.md`다. 모든 proof
 node가 explicit해지기 전에 numerical threshold calculator를 만들지 않는다.
+
+2026-09-02 T1 후속 원장은 Sono/FMT/FGKMT/Maynard의 직접 proof edge를 66개 obligation으로
+등록했다. machine-readable 정본은
+`docs/method/theory/data/Sono_FMT_T1_proof_obligations_v1.json`, 사람이 읽는 정본은
+`docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md`다. dependency id·DAG·source key·로컬
+PDF hash 검증을 통과했지만 numerical PAP·UB, good sieve weight, finite covering probability와
+arbitrary-X transfer가 열려 있어 `X_cert`는 계속 `OPEN`이다. 다음 proof gate는
+`docs/review/23_20260902_Sono_FMT_T1_hard_node_feasibility.md`의 H1이며, 이 gate가 닫히기 전에는
+threshold calculator 또는 실제 threshold 계산 runner를 작성하지 않는다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

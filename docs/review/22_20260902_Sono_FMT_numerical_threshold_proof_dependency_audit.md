@@ -451,3 +451,20 @@ numerical (X_0) 계산기를 만들지 않았다.
 좋은 결과가 나오면 이 연구는 단순 계산 개선이 아니라, Sono/FMT 정리를 실제 숫자부터 적용할 수
 있는 explicit theorem으로 강화할 수 있다. 그러나 지금은 그 숫자를 계산할 단계가 아니라, 숫자를
 계산할 수 있도록 증명의 모든 숨은 유효범위를 드러내는 단계다.
+
+## 14. 2026-09-02 T1 후속 완료
+
+사용자 승인 후 direct proof edge를 66개 obligation으로 등록했다.
+
+- 사람이 읽는 원장:
+  `docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md`
+- machine-readable 원장:
+  `docs/method/theory/data/Sono_FMT_T1_proof_obligations_v1.json`
+- hard-node 가능성 검토:
+  `docs/review/23_20260902_Sono_FMT_T1_hard_node_feasibility.md`
+
+분류는 `EXPLICIT 5`, `PARTIAL 11`, `RATE_MISSING 30`,
+`SOURCE_REVIEW_REQUIRED 4`, `HARD_BLOCKER 16`이다. dependency graph와 source key는 전부
+검증됐고 cycle은 0건이다. 이로써 T1 inventory는 완료됐지만 numerical `X_cert`는 계속 OPEN이다.
+다음 gate는 FMT/Maynard good-sieve-weight 층의 상수와 finite range를 실제로 복원할 수 있는지
+판정하는 H1이다.
