@@ -7,7 +7,7 @@
 - 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A와 설계 사후감사, P020 recurrence artifact 종합 완료; A는 정보량 HOLD
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 (J_r/I_r>\log r/(4r))를 모든 정수 (r\ge36)에서 project theorem으로 닫았으며, 다음 gate는 H1b Maynard Proposition 6.1 constant ledger다. `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 (J_r/I_r>\log r/(4r))를 모든 정수 (r\ge36)에서 project theorem으로 닫았다. H1b는 Maynard Proposition 6.1의 상수 의존성을 17개 행으로 등록했지만 numerical package는 열려 있다. 다음 gate는 H1b-1 기본 summation 상수와 H1c Hypothesis 1/PAP package다. `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -674,8 +674,20 @@ simplex-supported 함수 사이의 concentration 이동을 exact하게 채워 �
 (X_{cert})는 계속 `OPEN`이다. 정본은
 `docs/review/24_20260902_Sono_FMT_H1_good_sieve_weight_recoverability.md`와
 `docs/method/theory/data/Sono_FMT_H1_good_sieve_weight_trace_v1.json`,
-`docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md`다. 다음 gate는 H1b이며, 모든
-root dependency가 닫히기 전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
+`docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md`다. 2026-09-04 H1b는 Hypothesis 1,
+Proposition 6.1, Lemmas 8.1–8.6, Propositions 9.1–9.5와 common-cutoff를 17개 obligation으로
+등록했다. 인쇄된 exponent와 parameter 범위는 확인했지만 multiplier·finite cutoff·공통 error
+budget은 열려 있으므로 `SIV-07/09`와 `X_cert`는 변하지 않는다. 정본은
+`docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md`다. 다음 gate는
+H1b-1과 H1c이며, 모든 root dependency가 닫히기 전에는 장시간 prime sweep이나 threshold
+calculator를 만들지 않는다.
+
+`article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus와 분리한다. 두 원고가
+주장하는 `H_1<=240`과 `H_1<=186`의 `H_1`은 bounded-gap liminf 기호이며 본 프로젝트의 H1
+good-weight gate와 다르다. peer review·독립 검증 전에는 theorem input으로 사용하지 않고,
+exact/interval certificate 및 proof-obligation 설계만 방법론 후보로 참고한다. 검토 정본은
+`docs/review/25_20260904_Stadlmann_Bounded_Gaps_240_unverified.md`와
+`docs/review/26_20260904_OpenAI_Improved_Short_Gaps_186_unverified.md`다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

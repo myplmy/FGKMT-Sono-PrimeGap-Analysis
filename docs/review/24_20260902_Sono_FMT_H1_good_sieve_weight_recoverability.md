@@ -12,6 +12,9 @@
 > 모든 정수 (r\ge36)에서 project theorem으로 닫았다. 이 문서의 당시 미완료 서술은 연구
 > 이력으로 보존하며, 현재 판정은 10절과
 > [`13_Sono_FMT_H1a_finite_r_integral_lemma.md`](../method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md)를 따른다.
+>
+> **2026-09-04 H1b 갱신:** Proposition 6.1·Sections 8–9의 상수 의존성을 17개 행으로
+> 등록했다. numerical package는 닫히지 않았으며 현재 다음 gate는 11절의 H1b-1/H1c다.
 
 ## 1. 먼저 답부터
 
@@ -300,6 +303,24 @@ Sono의 (r=\lfloor(\log x)^{1/5}\rfloor)을 이 한 조건에만 대입하면
 (x\ge\exp(36^5)=\exp(60{,}466{,}176))이면 H1a gate를 통과한다. 이 수는 약 26,260,127자리지만,
 다른 proof node와 (x\to X) 변환을 포함하지 않으므로 Sono/FMT 정리의 threshold가 아니다.
 
-다음 gate는 H1b Maynard Proposition 6.1 상수 원장이다. H1a 정본과 기계 판독 contract는 각각
+당시 다음 gate로 H1b Maynard Proposition 6.1 상수 원장을 지정했다. H1a 정본과 기계 판독 contract는 각각
 [`13_Sono_FMT_H1a_finite_r_integral_lemma.md`](../method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md),
 [`Sono_FMT_H1a_finite_r_integral_contract_v1.json`](../method/theory/data/Sono_FMT_H1a_finite_r_integral_contract_v1.json)이다.
+
+## 11. 2026-09-04 H1b 실행 결과
+
+Maynard Proposition 6.1과 Sections 8–9를 Hypothesis 1 세 조건, parameter gate, Lemmas 8.1–8.6,
+Propositions 9.1–9.5와 common-cutoff 합성으로 나눠 17개 obligation을 등록했다.
+
+- 인쇄된 \((\log x)^{-1/10}\), \((\log x)^{-100k^2}\), \(k\le(\log x)^{1/5}\) 같은
+  **rate 모양**은 확인됐다.
+- 그 앞의 multiplier, 최초 유효 \(x\), singular-series/divisor-sum 상수와 numerical
+  Hypothesis 1 package는 인쇄돼 있지 않다.
+- H1a의 \(k\ge36\) 적분비는 한 component만 닫으며 moment 주항·오차를 닫지 않는다.
+- 따라서 `SIV-07`, `SIV-09`, 전체 good-weight package와 \(X_{\mathrm{cert}}\)는 계속 OPEN이다.
+
+정본은
+[`14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md`](../method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md),
+machine-readable 원장은
+[`Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json`](../method/theory/data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json)이다.
+다음 gate는 H1b-1 기본 summation 상수와 H1c Hypothesis 1/PAP 숫자 package다.

@@ -1008,7 +1008,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "quantitative reproof",
-      "notes": "The paper states effectivity conditional on effective Hypothesis 1 constants, not numerical instantiation."
+      "notes": "H1b registered 17 Maynard Section 8-9 obligations. The paper states effectivity conditional on effective Hypothesis 1 constants, not numerical instantiation; SIV-07 therefore remains a hard blocker."
     },
     {
       "id": "SIV-08",
@@ -1042,7 +1042,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "finite moment certificate",
-      "notes": "The off-target estimate may be noncritical for k=1 only after a dependency-pruning proof."
+      "notes": "H1b mapped the Maynard moment inputs but supplied no missing multipliers or common cutoff. The off-target estimate may be noncritical for k=1 only after a dependency-pruning proof."
     },
     {
       "id": "SIV-10",
@@ -1076,7 +1076,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "root-blocker",
       "checker": "proof certificate",
-      "notes": "No numerical x_sieve is available from the reviewed papers."
+      "notes": "No numerical x_sieve is available from the reviewed papers. H1a closes only the integral ratio; H1b is an inventory and does not close the composed package."
     },
 
     {

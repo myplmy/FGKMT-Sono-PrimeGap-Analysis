@@ -13,6 +13,8 @@
   [`../../review/24_20260902_Sono_FMT_H1_good_sieve_weight_recoverability.md`](../../review/24_20260902_Sono_FMT_H1_good_sieve_weight_recoverability.md)
 - H1 machine trace:
   [`data/Sono_FMT_H1_good_sieve_weight_trace_v1.json`](data/Sono_FMT_H1_good_sieve_weight_trace_v1.json)
+- H1b Maynard constant ledger:
+  [`14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md`](14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md)
 
 ## 1. 결론
 
@@ -262,7 +264,7 @@ Sono의 parameter를 대입한 명목 계수는
 이 결과는 `T1_DIRECT_EDGE_INVENTORY_COMPLETE`이면서 동시에
 `NUMERICAL_THRESHOLD_NOT_READY`다. 두 판정은 모순이 아니다.
 
-## 9. H1/H1a 후속 판정과 다음 gate
+## 9. H1/H1a/H1b 후속 판정과 다음 gate
 
 2026-09-02 H1은 Sono pp. 541–542, FMT Theorem 6, FGKMT Theorems 5–6·Lemma 7.2,
 Maynard Proposition 6.1·(8.25)–(8.27)·Sections 8–9를 source level로 추적했다.
@@ -293,13 +295,20 @@ package는 아니다. 따라서 H1 전체 판정은
 `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`이며
 (X_{\mathrm{cert}})는 계속 `OPEN`이다.
 
+2026-09-04 H1b는 Proposition 6.1, Hypothesis 1, Lemmas 8.1–8.6과 Propositions 9.1–9.5를
+17개 constant obligation으로 등록했다. 인쇄된 parameter 범위와 decay exponent는 확인했지만,
+multiplier·finite cutoff·Hypothesis 1 입력과 공통 error budget은 제공되지 않는다. 따라서
+`SIV-07`과 `SIV-09`의 상태와 이 문서의 66행 상태 수는 바뀌지 않는다. H1b 완료는
+`CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN`을 뜻한다.
+
 이제 권장 순서는 다음과 같다.
 
-1. `H1b`: Proposition 6.1 Sections 8–9의 상수·cutoff ledger를 만든다.
+1. `H1b-1`: Lemmas 8.1–8.4와 인용 multiplicative/divisor-sum 상수를 explicit화한다.
 2. `H1c`: FGKMT Lemma 7.2의 effective character/Bombieri–Vinogradov package를 PAP와 공동 추적한다.
-3. H1b/H1c 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
-4. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
-5. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
+3. `H1b-2`: H1b-1/H1c 뒤 Propositions 9.1–9.5의 finite moment와 공통 cutoff를 합성한다.
+4. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
+5. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
+6. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
 
 현재 사용자 PC에 계산을 요청할 단계는 아니다. 병목은 연산시간이 아니라 논문 속 숨은 상수와
 유효범위를 수학적으로 복원하는 일이다.
@@ -311,7 +320,9 @@ package는 아니다. 따라서 H1 전체 판정은
 ```powershell
 & 'W:\miniforge3\envs\FGKMT\python.exe' -m unittest `
   tests.test_threshold_proof_obligation_ledger `
-  tests.test_h1_good_sieve_weight_trace -v
+  tests.test_h1_good_sieve_weight_trace `
+  tests.test_h1b_maynard_constant_ledger -v
 ```
 
-검증기는 66행 T1 schema·DAG·source hash와 9행 H1 source trace의 fail-closed 상태를 확인한다.
+검증기는 66행 T1 schema·DAG·source hash, 9행 H1 source trace와 17행 H1b constant ledger의
+fail-closed 상태를 확인한다.

@@ -7,7 +7,8 @@
   "overall_outcome": "CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED",
   "numerical_x_cert_ready": false,
   "actual_threshold_computed": false,
-  "scope_note": "This file records source-level recoverability plus the project H1a update for SIV-06. H1a is documented separately; this trace is not a full good-weight proof, a numerical threshold certificate, or a runtime guarantee.",
+  "scope_note": "This file records source-level recoverability plus the project H1a update for SIV-06 and the H1b constant-dependency inventory for SIV-07/SIV-09. H1a and H1b are documented separately; this trace is not a full good-weight proof, a numerical threshold certificate, or a runtime guarantee.",
+  "h1b_ledger": "docs/method/theory/data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
     "CONSTRUCTIVE_PATH_IDENTIFIED": "The proof gives enough structure to formulate a finite lemma, but the printed source does not supply its final numeric constant.",
@@ -123,7 +124,7 @@
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "Create a lemma-by-lemma constant ledger for Maynard Sections 8-9; do not treat the displayed log rate as having unit constant.",
+      "next_action": "H1b has registered 17 source-level obligations without closing this row. Continue with H1b-1 for Lemmas 8.1-8.4 and imported summation constants, and H1c for numerical Hypothesis 1 inputs; do not treat displayed log rates as having unit constants.",
       "threshold_ready": false
     },
     {
@@ -157,7 +158,7 @@
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "Build the quantitative Maynard ledger first, then replay the FGKMT substitutions with exact coefficient-size bounds.",
+      "next_action": "Use the completed H1b dependency inventory to explicitize Propositions 9.1-9.5 only after H1b-1 and H1c provide their lower-level constants; then replay the FGKMT substitutions with exact coefficient-size bounds.",
       "threshold_ready": false
     },
     {
@@ -190,7 +191,7 @@
       ],
       "recoverability": "DEPENDENCY_BLOCKED",
       "reproof_scale": "RESEARCH_PROGRAM",
-      "next_action": "Do not build a threshold calculator. H1a is complete; continue with H1b Maynard Proposition 6.1 constants and H1c Hypothesis 1/PAP dependencies.",
+      "next_action": "Do not build a threshold calculator. H1a is complete and H1b mapped the missing constants, but the numerical package remains open. Continue with H1b-1 and H1c, followed by H1b-2 moment composition.",
       "threshold_ready": false
     }
   ]

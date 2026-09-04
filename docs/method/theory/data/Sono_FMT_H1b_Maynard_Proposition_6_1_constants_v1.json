@@ -1,0 +1,410 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-04",
+  "gate": "H1b Maynard Proposition 6.1 constant ledger",
+  "target_obligations": [
+    "SIV-07",
+    "SIV-09"
+  ],
+  "scope": "Source-level inventory of the constants, cutoffs, and Hypothesis 1 inputs needed to turn Maynard Proposition 6.1 and Sections 8-9 into finite numerical inequalities. This is not a quantitative reproof or a numerical threshold certificate.",
+  "outcome": "CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN",
+  "full_good_sieve_weight_closed": false,
+  "siv_07_closed": false,
+  "siv_09_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "source_registry": [
+    {
+      "key": "MAYNARD2016",
+      "title": "Dense Clusters of Primes in Subsets",
+      "author": "James Maynard",
+      "publication": "Compositio Mathematica 152 (2016), 1517-1554",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "url": "https://doi.org/10.1112/S0010437X16007296",
+      "reviewed_locations": "Hypothesis 1; Theorem 3.1; Proposition 6.1; Sections 7-9; Lemmas 8.1-8.6; Propositions 9.1, 9.2, 9.4, 9.5; Lemma 9.3"
+    },
+    {
+      "key": "GGPY2009_CITED",
+      "title": "Small gaps between primes or almost primes",
+      "authors": "Goldston, Graham, Pintz, Yildirim",
+      "role": "Maynard Lemma 8.3 cites a multiplicative summation result from this source; its proof constants were not audited in H1b.",
+      "status": "SOURCE_REVIEW_REQUIRED"
+    }
+  ],
+  "status_vocabulary": {
+    "PRINTED_EXPLICIT": "The reviewed source prints a usable finite formula or numerical exponent for this row, although upstream rows may remain open.",
+    "PARTIAL_EXPLICIT": "Some parameters or decay exponents are printed, but at least one multiplier or finite cutoff is missing.",
+    "PROJECT_FINITE_COMPONENT_CLOSED": "A separate project theorem closes only the named component, not the composed Maynard package.",
+    "RATE_MISSING": "The row contains O, o, Vinogradov notation, or sufficiently-large language without a usable numerical multiplier and range.",
+    "SOURCE_REVIEW_REQUIRED": "The row imports a cited lower-level result whose quantitative proof was not audited here.",
+    "INPUT_PACKAGE_MISSING": "The row requires numerical Hypothesis 1 inputs that the source assumes rather than supplies.",
+    "HARD_BLOCKER": "The package cannot be composed into a numerical certificate until upstream constants and a common cutoff are supplied."
+  },
+  "printed_parameter_domain": {
+    "alpha": "alpha > 0",
+    "theta": "0 < theta < 1",
+    "linear_form_coefficients": "|a_i|, |b_i| <= x^alpha",
+    "dimension": "k <= (log x)^(1/5)",
+    "exceptional_modulus_parameter": "B <= x^alpha",
+    "sieve_level": "x^(theta/10) <= R <= x^(theta/3)",
+    "roughness_parameters": "k (log log x)^2 / log x <= rho, xi <= theta/10",
+    "constant_dependence": "All Proposition 6.1 implied constants may depend on theta, alpha, and the implied constants in Hypothesis 1."
+  },
+  "obligations": [
+    {
+      "id": "H1B-P61-01",
+      "locator": "Proposition 6.1, hypotheses",
+      "role": "parameter domain and uniformity",
+      "printed_bound": "The ranges for alpha, theta, coefficients, k, B, R, rho, and xi are displayed; there exists a constant C depending only on alpha/theta, and k >= C.",
+      "explicit_parts": [
+        "the exponent 1/5 in k <= (log x)^(1/5)",
+        "the exponent interval theta/10 to theta/3 for R",
+        "the lower and upper shapes for rho and xi"
+      ],
+      "missing_numeric_inputs": [
+        "a numerical value of C(alpha/theta)",
+        "a common numerical lower cutoff for x",
+        "compatibility with every later small-o absorption"
+      ],
+      "upstream": [],
+      "status": "PARTIAL_EXPLICIT",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-HYP-01",
+      "locator": "Hypothesis 1(1)",
+      "role": "distribution of A in arithmetic progressions",
+      "printed_bound": "The total discrepancy is bounded by #A(x)/(log x)^(100 k^2).",
+      "explicit_parts": [
+        "the displayed logarithmic exponent 100 k^2"
+      ],
+      "missing_numeric_inputs": [
+        "the implied multiplier",
+        "the valid starting x",
+        "the numerical constants in the no-concentration assumptions used with it"
+      ],
+      "upstream": [],
+      "status": "INPUT_PACKAGE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-HYP-02",
+      "locator": "Hypothesis 1(2)",
+      "role": "distribution of primes represented by each linear form",
+      "printed_bound": "The total prime discrepancy has denominator (log x)^(100 k^2), with moduli restricted by coprimality to B.",
+      "explicit_parts": [
+        "the displayed logarithmic exponent 100 k^2",
+        "the coprimality condition involving B"
+      ],
+      "missing_numeric_inputs": [
+        "the implied multiplier uniform in the permitted linear forms",
+        "the valid starting x",
+        "a numerical lower bound for the prime density #P_{L,A}(x) used in relative-error absorption"
+      ],
+      "upstream": [],
+      "status": "INPUT_PACKAGE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-HYP-03",
+      "locator": "Hypothesis 1(3)",
+      "role": "non-concentration of A in individual progressions",
+      "printed_bound": "#A(x;q,a) is bounded by an implied constant times #A(x)/q for q < x^theta.",
+      "explicit_parts": [
+        "the modulus range q < x^theta"
+      ],
+      "missing_numeric_inputs": [
+        "the implied absolute multiplier",
+        "the uniform starting range"
+      ],
+      "upstream": [],
+      "status": "INPUT_PACKAGE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-L81",
+      "locator": "Lemma 8.1",
+      "role": "singular-series lower bound",
+      "printed_bound": "The singular series is bounded below by exp(-O(k)).",
+      "explicit_parts": [
+        "the exponential-in-k shape"
+      ],
+      "missing_numeric_inputs": [
+        "the constant multiplying k in the exponent",
+        "the finite range and exceptional-prime bookkeeping"
+      ],
+      "upstream": [],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-L82",
+      "locator": "Lemma 8.2",
+      "role": "Lipschitz control when coefficient arguments move",
+      "printed_bound": "The change is O(T_k Y log A / log R), in the notation of the lemma.",
+      "explicit_parts": [
+        "the dependence shape on T_k, Y, A, and R"
+      ],
+      "missing_numeric_inputs": [
+        "the O-multiplier",
+        "the exact norm convention and common range needed in later substitutions"
+      ],
+      "upstream": [],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-L83",
+      "locator": "Lemma 8.3 and its cited multiplicative summation lemma",
+      "role": "one-dimensional multiplicative summation",
+      "printed_bound": "The error is O_{A1,A2}(c_gamma (1+L) G_max).",
+      "explicit_parts": [
+        "the qualitative dependence on c_gamma, L, and G_max"
+      ],
+      "missing_numeric_inputs": [
+        "the constant as a function of A1 and A2",
+        "the constants inherited from the cited Goldston-Graham-Pintz-Yildirim result",
+        "a finite admissible range for every later invocation"
+      ],
+      "upstream": [],
+      "status": "SOURCE_REVIEW_REQUIRED",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-L84",
+      "locator": "Lemma 8.4",
+      "role": "iterated multiplicative summation",
+      "printed_bound": "The lemma permits r <= k << (log R)^(1/5), W_i <= R^(O(k)), and g(p)=p+O(k), with an error controlled through Omega_G log log R / log R.",
+      "explicit_parts": [
+        "the 1/5 exponent",
+        "the displayed small parameter Omega_G log log R / log R"
+      ],
+      "missing_numeric_inputs": [
+        "all constants in the two Vinogradov/O terms",
+        "a numerical upper bound for Omega_G after the actual test function is substituted",
+        "a numerical condition ensuring the small parameter is sufficiently small after r iterations"
+      ],
+      "upstream": [
+        "H1B-L82",
+        "H1B-L83"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-L85",
+      "locator": "Lemma 8.5",
+      "role": "coefficient and weight-size bounds",
+      "printed_bound": "Bounds for lambda_max and w_n are given using Vinogradov and o(1) notation, including w_n << R^(2+o(1)).",
+      "explicit_parts": [
+        "the leading power R^2",
+        "the finite-sum square construction of the nonnegative weight"
+      ],
+      "missing_numeric_inputs": [
+        "the multiplier in the lambda bound",
+        "a finite replacement for o(1) in the exponent",
+        "a common R and k range compatible with moment-error estimates"
+      ],
+      "upstream": [
+        "H1B-L81",
+        "H1B-L84"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-L86-RATIO",
+      "locator": "Lemma 8.6 and equations (8.25)-(8.27)",
+      "role": "test-function integral ratio component",
+      "printed_bound": "Maynard obtains J_k/I_k on the scale (log k)/(4k) with a relative O(1/log k) term for the product core.",
+      "explicit_parts": [
+        "the leading constant 1/4",
+        "project H1a proves a simplex-supported ratio strictly above log(k)/(4k) for every integer k >= 36"
+      ],
+      "missing_numeric_inputs": [],
+      "upstream": [],
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-L86-SIZE",
+      "locator": "Lemma 8.6",
+      "role": "absolute integral-size lower bounds",
+      "printed_bound": "I_k is bounded below on the scale (2 k log k)^(-k-1), and J_k is compared with (log k/k) I_k using Vinogradov notation.",
+      "explicit_parts": [
+        "the displayed scale of I_k",
+        "the displayed scale of J_k/I_k"
+      ],
+      "missing_numeric_inputs": [
+        "the absolute multipliers in the lower bounds",
+        "a common finite k range for the exact test function used in all moment estimates"
+      ],
+      "upstream": [
+        "H1B-L86-RATIO"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-P91",
+      "locator": "Proposition 9.1",
+      "role": "zeroth moment S1",
+      "printed_bound": "The main term has relative error 1+O((log x)^(-1/10)).",
+      "explicit_parts": [
+        "the decay exponent -1/10",
+        "the displayed principal term"
+      ],
+      "missing_numeric_inputs": [
+        "the relative-error multiplier",
+        "the divisor-moment and support-count constants used to absorb the Hypothesis 1 discrepancy",
+        "the finite x at which the principal term is positive and dominates"
+      ],
+      "upstream": [
+        "H1B-HYP-01",
+        "H1B-HYP-03",
+        "H1B-L81",
+        "H1B-L84",
+        "H1B-L85",
+        "H1B-L86-SIZE"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-P92",
+      "locator": "Proposition 9.2",
+      "role": "prime-weighted first moment",
+      "printed_bound": "The prime moment has a relative 1+O((log x)^(-1/10)) term plus a displayed additive error involving B^k, #A(x), (log R)^(k-1), and I_k.",
+      "explicit_parts": [
+        "the decay exponent -1/10",
+        "the algebraic shape of the additive error"
+      ],
+      "missing_numeric_inputs": [
+        "the multiplier in the relative error",
+        "the multiplier in the additive error",
+        "a numerical lower bound for the prime-density main term",
+        "a finite x at which both errors fit the chosen slack"
+      ],
+      "upstream": [
+        "H1B-HYP-02",
+        "H1B-L81",
+        "H1B-L84",
+        "H1B-L85",
+        "H1B-L86-SIZE",
+        "H1B-L93"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-L93",
+      "locator": "Lemma 9.3",
+      "role": "diagonal array approximation in the prime moment",
+      "printed_bound": "H equals F plus O(T_k (log log R)^2 / log R times F_2).",
+      "explicit_parts": [
+        "the displayed decay shape in R"
+      ],
+      "missing_numeric_inputs": [
+        "the O-multiplier",
+        "an explicit F_2/F comparison for the selected test function",
+        "a numerical R for the allocated error margin"
+      ],
+      "upstream": [
+        "H1B-L82",
+        "H1B-L84"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-P94",
+      "locator": "Proposition 9.4",
+      "role": "rough-number or additional-linear-form upper moment",
+      "printed_bound": "An upper bound is proved with Vinogradov notation under the Proposition 6.1 parameter restrictions.",
+      "explicit_parts": [
+        "the dependence structure used by the later good-weight construction"
+      ],
+      "missing_numeric_inputs": [
+        "the leading multiplier",
+        "finite constants for the extra linear-form singular factors",
+        "a common x range with Propositions 9.1 and 9.2"
+      ],
+      "upstream": [
+        "H1B-HYP-01",
+        "H1B-HYP-03",
+        "H1B-L81",
+        "H1B-L84",
+        "H1B-L85"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-P95",
+      "locator": "Proposition 9.5",
+      "role": "small-prime-factor penalty",
+      "printed_bound": "The penalty is bounded on the displayed scale rho^2 k^4 (log k)^2 times the main weight scale.",
+      "explicit_parts": [
+        "the displayed dependence rho^2 k^4 (log k)^2"
+      ],
+      "missing_numeric_inputs": [
+        "the Vinogradov multiplier",
+        "the finite range for the auxiliary prime sums",
+        "the allocated penalty margin in the composed good-weight theorem"
+      ],
+      "upstream": [
+        "H1B-HYP-01",
+        "H1B-HYP-03",
+        "H1B-L81",
+        "H1B-L84",
+        "H1B-L85"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B-COMP-01",
+      "locator": "Proposition 6.1 composition of Sections 8-9",
+      "role": "single common finite cutoff and error budget",
+      "printed_bound": "Theorem 3.1 states that the constants are effectively computable if the implied constants in Hypothesis 1 are effective.",
+      "explicit_parts": [
+        "effectivity in principle",
+        "the allowed dependency only on alpha, theta, and Hypothesis 1 constants"
+      ],
+      "missing_numeric_inputs": [
+        "numeric Hypothesis 1 constants and cutoffs",
+        "explicit constants for Lemmas 8.1-8.5 and 9.3",
+        "explicit constants for Propositions 9.1, 9.2, 9.4, and 9.5",
+        "one error-budget allocation and maximum cutoff satisfying every row simultaneously"
+      ],
+      "upstream": [
+        "H1B-P61-01",
+        "H1B-HYP-01",
+        "H1B-HYP-02",
+        "H1B-HYP-03",
+        "H1B-L81",
+        "H1B-L82",
+        "H1B-L83",
+        "H1B-L84",
+        "H1B-L85",
+        "H1B-L86-RATIO",
+        "H1B-L86-SIZE",
+        "H1B-P91",
+        "H1B-P92",
+        "H1B-L93",
+        "H1B-P94",
+        "H1B-P95"
+      ],
+      "status": "HARD_BLOCKER",
+      "threshold_ready": false
+    }
+  ],
+  "composition": {
+    "project_h1a_input": "H1B-L86-RATIO is closed for every integer k >= 36, but this does not provide the absolute integral-size, moment, or Hypothesis 1 constants.",
+    "printed_decay_exponents_are_not_unit_constants": true,
+    "common_cutoff_available": false,
+    "ready_for_threshold_calculator": false,
+    "next_gate": "H1b-1: make Lemmas 8.1-8.4 and imported multiplicative/divisor-sum constants explicit; H1c in parallel: construct a numerical Hypothesis 1/PAP input package. Only then attempt H1b-2 for Propositions 9.1-9.5."
+  }
+}

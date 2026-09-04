@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT T1·H1/H1a 완료·X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT T1·H1/H1a·H1b 원장 완료·X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
@@ -33,9 +33,19 @@ H1 판정은 `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQ
 `docs/method/theory/data/Sono_FMT_H1_good_sieve_weight_trace_v1.json`이다. H1a는 exact envelope와
 Cantelli transfer로 (J_r/I_r>\log r/(4r))를 모든 정수 (r\ge36)에서 project theorem으로 닫아
 `SIV-06`을 `EXPLICIT`으로 바꿨다. 정본은
-`docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md`다. 다음 gate는 H1b Maynard
-Proposition 6.1 constant ledger이며, 모든 root dependency가 닫히기 전에는 새 prime
-sweep·threshold calculator를 만들지 않는다.
+`docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md`다. H1b는 Maynard Proposition
+6.1·Hypothesis 1·Sections 8–9를 17개 constant obligation으로 등록했지만 multiplier·finite
+cutoff·공통 error budget을 얻지 못해 `SIV-07/09`와 `X_cert`를 닫지 않았다. 정본은
+`docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md`다. 다음 gate는
+H1b-1 기본 summation 상수와 H1c Hypothesis 1/PAP package이며, 모든 root dependency가
+닫히기 전에는 새 prime sweep·threshold calculator를 만들지 않는다.
+
+`article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus에 합산하지 않는다.
+Stadlmann의 `H_1<=240`과 OpenAI의 `H_1<=186`은 peer review·독립 검증 전 주장으로만 기록한다.
+후자의 공개 Lean 결과는 핵심 project axiom 3개에 조건부이고 Python certificate는 analytic
+추정 전체를 증명하지 않는다. 상세 판정은
+`docs/review/25_20260904_Stadlmann_Bounded_Gaps_240_unverified.md`와
+`docs/review/26_20260904_OpenAI_Improved_Short_Gaps_186_unverified.md`를 따른다.
 
 허가 전 허용:
 
@@ -109,7 +119,8 @@ statsmodels 0.14.6
 ## 폴더 규약
 
 ```text
-article/          제공된 선행논문 PDF 9편; 원본 수정 금지
+article/          검토 완료 정본 선행논문 PDF 9편; 원본 수정 금지
+article/unverified/ 미심사·미독립검증 후보 원고; 정본 9편 corpus와 분리, 원본 수정 금지
 datas/            source registry와 승인 후 commit별 raw/validated 데이터
 source/           정의, source parser, provenance, validation, end-bounded 분석, plotting, CLI
 tests/            데이터 비의존 및 toy-record 사전검증 단위시험
@@ -344,7 +355,8 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 ## 현재 준비 완료 항목
 
 - 작업지시서 검토 완료
-- `article/` PDF 9편, 총 253쪽 검토 완료
+- `article/` 정본 PDF 9편, 총 253쪽 검토 완료
+- `article/unverified/` 신규 원고 2편 검토 완료; peer review·독립 검증 전이라 theorem input 미채택
 - 논문별 리뷰와 종합 비교 문서 준비
 - `docs/METHODS.md`를 이번 연구 기준으로 교체
 - FGKMT Conda 환경과 requirements 일치 확인
@@ -395,13 +407,14 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P019 serial-oracle-free dual-partition toy PASS: 서로소 8/11 segments·worker 4, exact gap count 21, 두 full parallel pass·toy serial core 일치; shared sieve/accumulator common-mode risk 때문에 독립 증명 아님, actual 미승인
 - P020 recurrence artifact synthesis R2 EXPERIMENT_PASS / SYNTHESIS_ONLY: 성공 정본 8개·중복 제거 72,178,455,399 gap-start 회계, 새 prime 계산 없음, 6개 표·PNG/PDF 12파일 saved QA PASS; stationary→stratified 기대 92.1274% 교정, 후기 information collapse 확인; 2026-09-02 사용자 figure QA PASS
 - Sono/FMT numerical-threshold 1차 audit: 대입 계수 약 `2.0038612046196704e-17`, `2e-17`은 proved coefficient이나 출판본의 numerical `X_cert`는 없음; top-level proof는 effective-in-principle, PAP/UB·sieve/hypergraph·x→X 수치 rate가 blocker; 실제 전역 최소도 OPEN
-- Sono/FMT T1 원장: 66 obligations, dependency DAG와 로컬 PDF hash PASS; H1a 뒤 6 EXPLICIT / 10 PARTIAL / 30 RATE_MISSING / 4 SOURCE_REVIEW_REQUIRED / 16 HARD_BLOCKER. H1a는 모든 정수 `r>=36`에서 `J_r/I_r>log(r)/(4r)`를 project theorem으로 닫았지만 Maynard moment·FGKMT Hypothesis 1의 정량 재증명이 필요하고 `X_cert`는 계속 OPEN
+- Sono/FMT T1 원장: 66 obligations, dependency DAG와 로컬 PDF hash PASS; H1a 뒤 6 EXPLICIT / 10 PARTIAL / 30 RATE_MISSING / 4 SOURCE_REVIEW_REQUIRED / 16 HARD_BLOCKER. H1a는 모든 정수 `r>=36`에서 `J_r/I_r>log(r)/(4r)`를 project theorem으로 닫았다. H1b는 Maynard 상수 의존성을 17행으로 등록했지만 수치 multiplier·cutoff를 얻지 못해 상태 수와 `X_cert`는 그대로 OPEN
 - 새 장시간 Windows runner는 `scripts/common/live_native_tee.py`와 `Invoke-LiveLoggedNativeStage`로 .NET process capture 없이 stdout/stderr를 같은 PowerShell 화면과 main log에 즉시 기록; Windows PowerShell 5.1용 UTF-8 JSON Base64 transport 회귀시험 PASS
 - P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018-B를 자동 실행하지 않고 Sono/FMT threshold H1b에서 Maynard
-Proposition 6.1 Sections 8–9의 상수·finite cutoff를 lemma별 원장으로 정식화하는 것이다.
+다음 권장 행동은 P018-B를 자동 실행하지 않고 Sono/FMT threshold H1b-1에서 Maynard
+Lemmas 8.1–8.4와 인용 multiplicative/divisor-sum 상수를 explicit화하는 것이다. H1c의
+FGKMT Hypothesis 1/PAP 수치 package는 병렬 연구축이다.
 H1과 병행할 수 있는 보조축은 explicit
 primorial·Mertens·iterated-log transfer theorem 후보 수집이다. numerical threshold calculator는
 모든 dependency가 explicit해진 뒤에만 만든다. P014 후속은 5,000-constraint
