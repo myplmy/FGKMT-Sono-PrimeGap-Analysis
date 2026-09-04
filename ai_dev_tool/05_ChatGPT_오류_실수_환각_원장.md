@@ -1,6 +1,6 @@
 # FGKMT-Sono ChatGPT 오류·실수·환각 원장
 
-최종 갱신: 2026-09-01 KST
+최종 갱신: 2026-09-04 KST
 
 ## 1. 목적
 
@@ -213,6 +213,27 @@
 - 재발 방지: 함수명만으로 비용·부작용을 추정하지 않는다. actual artifact verifier를 새 파이프라인에
   연결하기 전에 구현 본문에서 raw input iterator, segmented sieve, network/write 동작을 확인하고
   `hash-only`, `saved-stat recomputation`, `full-range recomputation`으로 분류한다.
+
+### E019 — H1b-1a 초안의 LaTeX backslash가 도구 wrapper에서 제어문자로 변환
+
+- 분류: `TOOL_WRAPPER_SYNTAX / CORRECTED_BEFORE_ACTUAL`
+- 문제: 2026-09-04 H1b-1a 정식 문서의 첫 patch를 일반 JavaScript 문자열로 조합하면서
+  `\vartheta` 등의 backslash escape가 탭·수직탭 같은 제어문자로 바뀌었다.
+- 영향: 새 이론 문서 초안 한 파일만 손상됐고, actual 실험·기존 정본·수치 결과에는 영향이 없다.
+- 교정: 손상된 새 파일을 즉시 제거한 뒤 raw-string patch로 전면 재작성했다. 텍스트 확장자만
+  대상으로 ASCII 제어문자 검사를 수행하고 `git diff --check`를 최종 gate에 넣었다.
+- 재발 방지: 수식이 있는 patch는 항상 raw string 또는 안전한 placeholder를 사용한다. binary
+  `__pycache__`를 텍스트 제어문자 검사 대상으로 넣지 않으며, 실패 직후 부분 변경 여부를 확인한다.
+
+### E020 — H1b-1a 작업원장 중간 기록에 아직 오지 않은 시각을 기입
+
+- 분류: `METADATA_DEBT / CORRECTED_BEFORE_ACTUAL`
+- 문제: 2026-09-04 작업원장 두 단계의 시각을 실제 현재시각보다 뒤인 22:05, 22:31 KST로
+  잘못 적었다.
+- 영향: 수학 문서·코드·검증값에는 영향이 없고, 완료 전 작업 이력의 시각 metadata만 잘못됐다.
+- 교정: 시스템 `Get-Date`가 21:45 KST임을 확인한 뒤 두 항목을 “21:45 KST 기록”으로
+  고치고, 이는 앞서 끝난 단계를 사후 기록한 시각임을 명시했다.
+- 재발 방지: 작업원장 timestamp는 문맥에서 추정하지 않고 기록 직전 시스템 시각을 조회한다.
 
 ## 4. 아직 남은 오류 위험
 

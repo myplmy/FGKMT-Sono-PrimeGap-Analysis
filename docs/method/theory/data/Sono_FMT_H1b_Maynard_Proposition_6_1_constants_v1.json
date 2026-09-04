@@ -15,6 +15,7 @@
   "numerical_x_cert_ready": false,
   "actual_threshold_computed": false,
   "h1b1_ledger": "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
+  "h1b1a_ledger": "docs/method/theory/data/Sono_FMT_H1b1a_explicit_cutoff_summation_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016",
@@ -131,11 +132,13 @@
       "role": "singular-series lower bound",
       "printed_bound": "The singular series is bounded below by exp(-O(k)).",
       "explicit_parts": [
-        "the exponential-in-k shape"
+        "the exponential-in-k shape",
+        "project H1b-1a proves part (i) as S_B(L)>exp(-9k/2) for every integer k>=1",
+        "project H1b-1a proves the equation (8.5) Euler product is below 24 log(k) for every integer k>=2"
       ],
       "missing_numeric_inputs": [
-        "the constant multiplying k in the exponent",
-        "the finite range and exceptional-prime bookkeeping"
+        "the numeric input normalization constants in part (ii)",
+        "a common finite x range absorbing the parameterized large-divisor term in part (ii)"
       ],
       "upstream": [],
       "status": "RATE_MISSING",
@@ -147,10 +150,11 @@
       "role": "Lipschitz control when coefficient arguments move",
       "printed_bound": "The change is O(T_k Y log A / log R), in the notation of the lemma.",
       "explicit_parts": [
-        "the dependence shape on T_k, Y, A, and R"
+        "the dependence shape on T_k, Y, A, and R",
+        "project H1b-1a fixes a Maynard-compatible C-infinity cutoff with sup|psi'|<50"
       ],
       "missing_numeric_inputs": [
-        "the O-multiplier",
+        "the O-multiplier after propagating the explicit cutoff norm through all factors of F2",
         "the exact norm convention and common range needed in later substitutions"
       ],
       "upstream": [],
@@ -408,6 +412,6 @@
     "printed_decay_exponents_are_not_unit_constants": true,
     "common_cutoff_available": false,
     "ready_for_threshold_calculator": false,
-    "next_gate": "H1b-1a: fix an explicit smooth cutoff and elementary prime-product/totient bounds; H1c-1 in parallel: quantify the character-distribution inputs. Only then attempt the full Lemma 8.4 and H1b-2 moment compositions."
+    "next_gate": "H1b-1b: propagate the explicit cutoff norm through Lemma 8.2 and recover GGPY/Halberstam-Richert numerical multipliers; H1c-1 in parallel: quantify the character-distribution inputs. Only then attempt the full Lemma 8.4 and H1b-2 moment compositions."
   }
 }

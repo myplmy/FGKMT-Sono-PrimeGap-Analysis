@@ -129,6 +129,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             self.document["h1b1_ledger"],
             "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
         )
+        self.assertEqual(
+            self.document["h1b1a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1a_explicit_cutoff_summation_v1.json",
+        )
         self.assertEqual(self.by_id["H1B-L83"]["status"], "RATE_MISSING")
         self.assertTrue(self.by_id["H1B-L83"]["missing_numeric_inputs"])
 

@@ -10,6 +10,8 @@
   [`data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json`](data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json)
 - H1b-1 하위 감사:
   [`15_Sono_FMT_H1b1_basic_summation_constant_audit.md`](15_Sono_FMT_H1b1_basic_summation_constant_audit.md)
+- H1b-1a finite package:
+  [`17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`](17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md)
 
 ## 1. 결론부터
 
@@ -187,14 +189,16 @@ CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN
 
 ## 8. 다음 proof gate
 
-1. **H1b-1a:** explicit smooth cutoff와 elementary prime-product/totient bound를 먼저 고정한다.
+1. **H1b-1a 완료:** explicit smooth cutoff, Lemma 8.1(i)의 \(C=9/2\), 식 (8.5)의
+   \(E(k)<24\log k\), parameterized divisor majorant를 고정했다.
 2. **H1c-1:** FGKMT (7.2)–(7.3)의 character/Bombieri–Vinogradov package를 정량화한다.
-3. **H1b-1b:** GGPY/HR multiplier와 Lemma 8.4의 반복오차를 합성한다.
+3. **H1b-1b:** Lemma 8.2 multiplier, GGPY/HR multiplier와 Lemma 8.4의 반복오차를 합성한다.
 4. **H1b-2:** 위 입력을 받은 뒤 Propositions 9.1–9.5를 지정 error budget으로 재증명한다.
-4. **H1d:** FMT/FGKMT의 \(u\), good-event, covering 단계와 공통 \((r,x)\) slack을 합성한다.
+5. **H1d:** FMT/FGKMT의 \(u\), good-event, covering 단계와 공통 \((r,x)\) slack을 합성한다.
 
-H1b-1 source trace와 H1c source trace는 완료됐지만 numerical package는 둘 다 열려 있다.
-H1b-1a와 H1c-1은 논리적으로 병렬 조사할 수 있다. H1b-2는 두 입력 없이 수치화할 수 없다.
+H1b-1/H1c source trace와 H1b-1a의 세 finite component는 완료됐지만 numerical package는
+계속 열려 있다. H1b-1b와 H1c-1은 논리적으로 병렬 조사할 수 있다. H1b-2는 두 입력 없이
+수치화할 수 없다.
 이 단계가 끝날 때까지 threshold calculator와 장시간 prime sweep을 만들지 않는다.
 
 ## 9. 검증 계약

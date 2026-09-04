@@ -2,11 +2,13 @@
 
 - 작성: 2026-09-04 KST
 - 증거 수준: `SOURCE-LEVEL QUANTITATIVE DEPENDENCY AUDIT`
-- 판정: `SOURCE_CHAIN_TRACED_NUMERICAL_SUMMATION_CONSTANTS_OPEN`
+- 판정: `SOURCE_CHAIN_TRACED_PARTIAL_FINITE_COMPONENTS_CLOSED_NUMERICAL_PACKAGE_OPEN`
 - `SIV-07`: `HARD_BLOCKER` 유지
 - numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
 - 기계 판독 정본:
   [`data/Sono_FMT_H1b1_basic_summation_constants_v1.json`](data/Sono_FMT_H1b1_basic_summation_constants_v1.json)
+- H1b-1a 후속 정식화:
+  [`17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`](17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md)
 
 ## 1. 결론부터
 
@@ -22,10 +24,11 @@ Maynard의 Lemmas 8.1–8.4에는 Proposition 6.1의 moment 계산을 가능하�
 2. 각 숨은 상수는 계산 불가능한 추상적 대상이라기보다, explicit cutoff 함수·소수곱·미분
    norm·한 차원 summation error를 정량적으로 다시 증명하면 얻을 수 있는 대상으로 보인다.
 
-그러나 **사용할 수 있는 숫자 상수는 아직 얻지 못했다.** Lemma 8.1의 \(\exp(-Ck)\)에서
-\(C\), Lemma 8.2의 Lipschitz multiplier, Lemma 8.3의
-\(O_{A_1,A_2}\) multiplier, Lemma 8.4의 반복오차와 최초 \((k,R)\) 범위가 모두 열려 있다.
-따라서 이 단계는 source trace 완료이지 numerical lemma 완료가 아니다.
+2026-09-04 H1b-1a 후속 정식화는 Lemma 8.1(i)의 \(C=9/2\), explicit cutoff의
+\(\|\psi'\|_\infty<50\), 식 (8.5)의 \(E(k)<24\log k\)를 프로젝트 유한 보조정리로
+닫았다. 그러나 Lemma 8.1(ii)의 입력 정규화와 공통 cutoff, Lemma 8.2의 전체 Lipschitz
+multiplier, Lemma 8.3의 \(O_{A_1,A_2}\) multiplier, Lemma 8.4의 반복오차는 열려 있다.
+따라서 numerical basic-summation package 전체는 아직 완료가 아니다.
 
 쉬운 비유로 말하면, 네 개의 조립 공정과 공급업체 도면까지 찾았지만 각 부품의 실제 허용오차와
 조립 온도 범위는 아직 숫자로 써 있지 않다. 공급업체 이름을 찾았다는 이유만으로 완제품 인증을
@@ -156,10 +159,10 @@ finite 명제는 아직 없다.
 
 | ID | 대상 | 상태 | 남은 핵심 |
 |---|---|---|---|
-| `H1B1-L81-SMALL` | 작은 소수곱 | `CONSTRUCTIVE_SUBPROBLEM` | explicit finite product 하한 |
-| `H1B1-L81-TAIL` | 큰 소수 tail | `RATE_MISSING` | Taylor remainder·tail 상수 |
-| `H1B1-L81II-DIVISOR` | extra-form 평균 | `RATE_MISSING` | totient·Euler product·흡수 cutoff |
-| `H1B1-L82-CUTOFF` | smooth \(\psi\) | `CONSTRUCTIVE_SUBPROBLEM` | 실제 함수와 derivative norm |
+| `H1B1-L81-SMALL` | 작은 소수곱 | `PROJECT_FINITE_COMPONENT_CLOSED` | \(>e^{-4k}\) |
+| `H1B1-L81-TAIL` | 큰 소수 tail | `PROJECT_FINITE_COMPONENT_CLOSED` | \(>e^{-k/2}\) |
+| `H1B1-L81II-DIVISOR` | extra-form 평균 | `PARTIAL_EXPLICIT` | 입력 계수·공통 흡수 cutoff |
+| `H1B1-L82-CUTOFF` | smooth \(\psi\) | `PROJECT_FINITE_COMPONENT_CLOSED` | \(\|\psi'\|_\infty<50\) |
 | `H1B1-L82-LIPSCHITZ` | Lipschitz bound | `RATE_MISSING` | norm 의존 multiplier |
 | `H1B1-L83-GGPY4` | 1차원 합 | `SOURCE_CHAIN_TRACED` | \(A_1,A_2\)별 multiplier |
 | `H1B1-L83-PUBLISHED-NOTE` | 출판본 보정 | `PRINTED_STRUCTURAL_FACT` | 숫자 multiplier는 여전히 없음 |
@@ -174,18 +177,18 @@ finite 명제는 아직 없다.
 
 ## 5. 무엇이 가능하고 무엇이 아직 불가능한가
 
-### 지금 Codex가 계속할 수 있는 일
+### H1b-1a에서 완료한 일
 
-- explicit smooth cutoff 후보를 정하고 derivative norm을 엄밀히 상계
-- Rosser–Schoenfeld 또는 이후 explicit prime-product/totient 부등식 후보를 1차 출처에서 선정
-- Lemma 8.1의 small-prime finite product와 tail을 directed interval 부등식으로 정식화
-- \((1+C\varepsilon)^r\)의 보수적인 exact accumulation lemma 작성
+- explicit smooth cutoff와 첫 derivative norm을 고정
+- Dusart 및 Rosser–Schoenfeld의 explicit prime-product/totient 부등식을 1차 출처에서 선정
+- Lemma 8.1(i)의 small-prime product와 tail을 \(e^{-9k/2}\)로 정식화
+- Lemma 8.1(ii)의 식 (8.5) Euler product와 parameterized finite majorant를 정식화
 
-### 사용자 PC 계산이 나중에 도울 수 있는 일
+### 다음 단계에서 Codex와 사용자 PC가 도울 수 있는 일
 
-- 고정 \(k\) 범위에서 유한 소수곱과 norm의 interval certificate 생성
-- 선택한 cutoff의 도함수 최대값을 interval subdivision으로 검증
-- 해석적 꼬리로 넘기기 전 작은 \(k,R\) 범위 전수검사
+- GGPY/HR의 숨은 multiplier를 증명에서 복원
+- Lemma 8.2의 전체 Lipschitz multiplier와 Lemma 8.4의 축적오차를 합성
+- 정식 lemma가 고정된 뒤 작은 \(k,R\) 범위의 exact/interval certificate를 생성
 
 이는 새 maximal-gap sweep이 아니라 보조 부등식 certificate 계산이다. runner는 정식 lemma와
 검증 범위가 먼저 동결된 뒤에만 만드는 편이 안전하다.
@@ -196,18 +199,16 @@ finite 명제는 아직 없다.
 - Proposition 6.1의 moment error multiplier가 얻어졌다는 주장
 - `SIV-07`, `SIV-09`, good weight 또는 \(X_{\mathrm{cert}}\)의 closure
 
-## 6. 다음 gate: H1b-1a
+## 6. H1b-1a 결과와 다음 gate
 
-다음 단계는 **explicit cutoff·초등 소수곱 package**가 적절하다.
+H1b-1a는 세 유한 component를 닫고 divisor 평균을 parameterized 식으로 바꿨다. 다음
+권장 gate는 **H1b-1b**다.
 
-1. \(\psi\)의 식, support, plateau와 필요한 미분 차수를 고정한다.
-2. 각 derivative norm을 rational 또는 directed interval로 인증한다.
-3. Lemma 8.1에 필요한 소수곱·\(\Delta/\varphi(\Delta)\)의 explicit source를 고정한다.
-4. 작은 \(k\) finite check와 큰 \(k\) analytic tail의 접합점을 증명한다.
-5. 그 뒤 Lemma 8.3 하위 constant와 Lemma 8.4의 \(r\)-fold error를 합성한다.
+1. Lemma 8.2의 cutoff norm을 \(F_2\) 전체에 전파해 explicit Lipschitz multiplier를 만든다.
+2. GGPY Lemmas 3–4와 Halberstam–Richert Lemmas 5.3–5.4의 multiplier·유효 범위를 복원한다.
+3. 그 입력이 준비된 뒤 Lemma 8.4의 \(r\)-fold error와 공통 \((k,R)\) cutoff를 합성한다.
 
-예상 규모는 cutoff·초등 bound 정식화에 1–3일, GGPY/HR 상수까지 포함한 Lemma 8.4 전체
-정량 재증명에는 수일에서 수주 이상이다. 현재 사용자 실행 절차는 없다.
+H1b-1b의 source/constant 복원은 수일에서 수주 이상 걸릴 수 있다. 현재 사용자 실행 절차는 없다.
 
 ```text
 별도 수행절차 필요없음
@@ -217,6 +218,9 @@ finite 명제는 아직 없다.
 
 ```text
 H1b-1 source chain          = TRACED
+H1b-1a finite components    = 3 CLOSED
+Lemma 8.1(i) exponent       = 9/2
+cutoff first-derivative norm= <50
 Lemma 8.3 cited source      = IDENTIFIED_AND_CORRECTED
 numerical multiplier table = OPEN
 common finite cutoff       = OPEN

@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-04",
+  "gate": "H1b-1a explicit cutoff and elementary summation package",
+  "target_obligations": [
+    "H1B1-L81-SMALL",
+    "H1B1-L81-TAIL",
+    "H1B1-L81II-DIVISOR",
+    "H1B1-L82-CUTOFF"
+  ],
+  "scope": "Project finite lemmas for one explicit C-infinity cutoff, Maynard Lemma 8.1(i), the Euler product in equation (8.5), and a parameterized majorant for Lemma 8.1(ii). This is not a numerical reproof of Maynard Proposition 6.1.",
+  "outcome": "THREE_FINITE_COMPONENTS_CLOSED_PARAMETERIZED_DIVISOR_MAJORANT_DERIVED",
+  "finite_components_closed": 3,
+  "lemma_8_1_i_explicit": true,
+  "lemma_8_1_ii_common_range_closed": false,
+  "lemma_8_2_full_lipschitz_multiplier_closed": false,
+  "numerical_basic_summation_package_ready": false,
+  "siv_07_closed": false,
+  "full_good_sieve_weight_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false,
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_PUBLISHED",
+      "title": "Dense Clusters of Primes in Subsets",
+      "authors": "James Maynard",
+      "publication": "Compositio Mathematica 152 (2016), 1517-1554",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "url": "https://compositio.nl/Content/prize2018_maynard.pdf",
+      "retrieved_utc": "2026-09-04T12:19:14Z",
+      "local_review_copy": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "reviewed_locations": "Equation (7.10), Lemma 8.1 and equations (8.1)-(8.5), Lemma 8.2 and equations (8.6)-(8.8), Lemmas 8.3-8.4"
+    },
+    {
+      "key": "DUSART2010",
+      "title": "Estimates of Some Functions Over Primes without R.H.",
+      "authors": "Pierre Dusart",
+      "publication": "arXiv:1002.0442 (2010); later published in The Ramanujan Journal",
+      "doi": "10.1007/s11139-016-9839-4",
+      "arxiv": "1002.0442",
+      "url": "https://arxiv.org/pdf/1002.0442",
+      "retrieved_utc": "2026-09-04T12:19:14Z",
+      "local_review_copy": "tmp/pdfs/h1b1a/Dusart2010_Explicit_estimates_over_primes.pdf",
+      "sha256": "3f11eca84613ad00e6a447f99b318d5c3d76e360283efcc6d3eebdda25ff3923",
+      "reviewed_locations": "Theorem 5.2 with power index 0; Theorems 6.11-6.12"
+    },
+    {
+      "key": "ROSSER_SCHOENFELD1962",
+      "title": "Approximate Formulas for Some Functions of Prime Numbers",
+      "authors": "J. Barkley Rosser and Lowell Schoenfeld",
+      "publication": "Illinois Journal of Mathematics 6 (1962), 64-94",
+      "doi": "10.1215/ijm/1255631807",
+      "url": "https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-6/issue-1/Approximate-formulas-for-some-functions-of-prime-numbers/10.1215/ijm/1255631807.pdf",
+      "retrieved_utc": "2026-09-04T12:20:40Z",
+      "local_review_copy": "tmp/pdfs/h1b1a/Rosser_Schoenfeld_1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "reviewed_locations": "Theorem 15, equations (3.41)-(3.42), proof on printed pages 88-89"
+    }
+  ],
+  "constants": {
+    "cutoff_transition_scale": 10,
+    "cutoff_plateau_right_endpoint": "9/10",
+    "cutoff_first_derivative_sup_upper": "50",
+    "small_prime_log_loss_coefficient": "4",
+    "large_prime_tail_log_loss_coefficient": "1/2",
+    "lemma_8_1_i_exponent_coefficient": "9/2",
+    "equation_8_5_euler_product_coefficient": "24",
+    "finite_prime_product_scan_start": 2,
+    "finite_prime_product_scan_stop": 2973,
+    "analytic_prime_product_start": 2974,
+    "prime_divisor_sum_source_start": 2975,
+    "rosser_schoenfeld_uniform_exception_constant": "250637/100000"
+  },
+  "cutoff_contract": {
+    "flat_bump": "b(u)=exp(-1/u) for u>0 and b(u)=0 for u<=0",
+    "smooth_step": "sigma(u)=b(u)/(b(u)+b(1-u))",
+    "maynard_cutoff": "psi(t)=sigma(10(1-t)) for t>=0",
+    "range": "[0,1]",
+    "support": "[0,1] in the domain [0,infinity)",
+    "plateau": "psi(t)=1 for 0<=t<=9/10",
+    "monotonicity": "non-increasing",
+    "smoothness": "C-infinity",
+    "first_derivative_bound": "sup |psi'(t)| < 50",
+    "higher_numeric_derivative_norms_claimed": false
+  },
+  "lemma_8_1_i_contract": {
+    "small_prime_part": "product_{p<=2k}(1/p) > exp(-4k)",
+    "tail_part": "product_{p>2k}(1-k/p)(1-1/p)^(-k) > exp(-k/2)",
+    "composed_bound": "S_B(L) > exp(-9k/2)",
+    "integer_range": "k>=1",
+    "depends_on_sufficiently_large": false,
+    "depends_on_unspecified_multiplier": false
+  },
+  "equation_8_5_contract": {
+    "product": "E(k)=product_{p<=k} p/(p-1) times product_{p>k}(1+k/(p(p-1)))",
+    "uniform_bound": "E(k)<24 log(k)",
+    "integer_range": "k>=2",
+    "finite_branch": {
+      "range": "2<=k<=2973",
+      "method": "Exact Fraction verification of product_{p<=k} p/(p-1) < 16(k-1)/(k+1) <= 8 log(k)",
+      "checked_integer_count": 2972,
+      "failure_count": 0,
+      "maximum_surrogate_ratio_k": 2971,
+      "maximum_surrogate_ratio_decimal_for_display_only": "7.148780502325333",
+      "rows_sha256": "6dfb28c63afebdc47de0077f50d0a90f7e6c70d3c673f9f1e7413d32a62259e5"
+    },
+    "analytic_branch": {
+      "range": "k>=2974",
+      "source": "Dusart Theorem 6.12",
+      "small_prime_product_bound": "product_{p<=k} p/(p-1) < 8 log(k)",
+      "large_prime_product_bound": "product_{p>k}(1+k/(p(p-1))) < 3"
+    }
+  },
+  "lemma_8_1_ii_parameterized_majorant": {
+    "conditions": [
+      "integer k>=2",
+      "Y=eta log(x)>1",
+      "M is an integer at least max(16, Delta_b) for every included b",
+      "a is a nonzero integer",
+      "A_phi=abs(a)/phi(abs(a))"
+    ],
+    "definitions": {
+      "L_M": "max(1,log(log(M)))",
+      "Z_M": "max(2975,log(M))",
+      "U_M": "3 L_M + 2.50637",
+      "V_M": "log(Z_M)+2"
+    },
+    "bound": "sum_b Delta_b/phi(Delta_b) < 72 A_phi Y log(k) + 3 Y U_M V_M/log(Y)",
+    "simple_absorption_sufficient_condition": "3 U_M V_M <= log(Y) log(k)",
+    "result_under_simple_absorption": "sum_b Delta_b/phi(Delta_b) < (72 A_phi + 1) Y log(k)",
+    "input_size_bound_if_numeric_coefficients_are_known": "M=ceil(A0^(k+1)*((B0+eta)*log(x))^k) is admissible when abs(a)<=A0 and abs(b_i)<=B0 log(x)",
+    "hidden_input_coefficients_recovered": false,
+    "common_x_cutoff_recovered": false
+  },
+  "status_vocabulary": {
+    "PROJECT_FINITE_COMPONENT_CLOSED": "The named component has a project proof with explicit constants and range; this does not close a parent package.",
+    "PARTIAL_EXPLICIT": "A finite majorant is explicit after numeric input normalization, but the source does not yet supply all normalizing constants or a common range.",
+    "RATE_MISSING": "At least one later multiplier, norm propagation, or finite absorption range remains non-numeric.",
+    "HARD_BLOCKER": "The composed package cannot be certified until every upstream input has a numeric bound and common cutoff."
+  },
+  "obligation_updates": [
+    {
+      "id": "H1B1-L81-SMALL",
+      "old_status": "CONSTRUCTIVE_SUBPROBLEM",
+      "new_status": "PROJECT_FINITE_COMPONENT_CLOSED",
+      "explicit_result": "product_{p<=2k}(1/p)>exp(-4k)",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L81-TAIL",
+      "old_status": "RATE_MISSING",
+      "new_status": "PROJECT_FINITE_COMPONENT_CLOSED",
+      "explicit_result": "tail product>exp(-k/2)",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L82-CUTOFF",
+      "old_status": "CONSTRUCTIVE_SUBPROBLEM",
+      "new_status": "PROJECT_FINITE_COMPONENT_CLOSED",
+      "explicit_result": "psi is fixed and sup|psi'|<50",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L81II-DIVISOR",
+      "old_status": "RATE_MISSING",
+      "new_status": "PARTIAL_EXPLICIT",
+      "explicit_result": "A parameterized finite majorant and one sufficient absorption inequality are proved.",
+      "remaining": [
+        "numeric A0 and B0 replacing source Vinogradov notation",
+        "uniform composition with the allowed k, eta, and x ranges",
+        "one common x cutoff and allocated error budget"
+      ],
+      "threshold_ready": false
+    }
+  ],
+  "parent_state": {
+    "H1B-L81": "RATE_MISSING",
+    "H1B-L82": "RATE_MISSING",
+    "H1B1-PACKAGE": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "next_gate": {
+    "recommended": "H1b-1b",
+    "description": "Compose the full Lemma 8.2 Lipschitz multiplier, recover numerical constants from GGPY Lemmas 3-4 and Halberstam-Richert Lemmas 5.3-5.4, and only then quantify Lemma 8.4 iteration.",
+    "parallel_theory_axis": "H1c-1 quantitative character and PAP package",
+    "ready_for_threshold_calculator": false
+  }
+}

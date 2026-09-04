@@ -55,8 +55,9 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 7,
-                    "CONSTRUCTIVE_SUBPROBLEM": 2,
+                    "RATE_MISSING": 5,
+                    "PROJECT_FINITE_COMPONENT_CLOSED": 3,
+                    "PARTIAL_EXPLICIT": 1,
                     "SOURCE_CHAIN_TRACED": 1,
                     "PRINTED_STRUCTURAL_FACT": 1,
                     "LOWER_SOURCE_REVIEW_REQUIRED": 1,
@@ -80,7 +81,10 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
         for row in self.rows:
             self.assertEqual(set(row), required, row["id"])
             self.assertIn(row["status"], allowed, row["id"])
-            self.assertTrue(row["missing_numeric_inputs"], row["id"])
+            if row["status"] == "PROJECT_FINITE_COMPONENT_CLOSED":
+                self.assertEqual(row["missing_numeric_inputs"], [], row["id"])
+            else:
+                self.assertTrue(row["missing_numeric_inputs"], row["id"])
             self.assertFalse(row["threshold_ready"], row["id"])
             self.assertTrue(set(row["upstream"]).issubset(self.by_id), row["id"])
 
@@ -128,6 +132,11 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
         self.assertEqual(
             parent["h1b1_ledger"],
             "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b1a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1a_explicit_cutoff_summation_v1.json",
         )
 
 

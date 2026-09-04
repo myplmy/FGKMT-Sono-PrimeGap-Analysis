@@ -1,16 +1,18 @@
 {
   "schema_version": "1.0.0",
   "created_kst": "2026-09-04",
+  "updated_kst": "2026-09-04",
   "gate": "H1b-1 Maynard Lemmas 8.1-8.4 basic summation constant audit",
   "target_obligation": "SIV-07",
   "scope": "Source-level decomposition of the singular-series, Lipschitz, one-dimensional multiplicative summation, and iterated summation constants used in Maynard Lemmas 8.1-8.4. This is not a quantitative reproof and supplies no numerical theorem threshold.",
-  "outcome": "SOURCE_CHAIN_TRACED_NUMERICAL_SUMMATION_CONSTANTS_OPEN",
+  "outcome": "SOURCE_CHAIN_TRACED_PARTIAL_FINITE_COMPONENTS_CLOSED_NUMERICAL_PACKAGE_OPEN",
   "lemma_8_3_citation_identified": true,
   "lemma_8_3_numeric_multiplier_recovered": false,
   "numerical_basic_summation_package_ready": false,
   "siv_07_closed": false,
   "numerical_x_cert_ready": false,
   "actual_threshold_computed": false,
+  "h1b1a_ledger": "docs/method/theory/data/Sono_FMT_H1b1a_explicit_cutoff_summation_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016_PUBLISHED",
@@ -58,6 +60,8 @@
     "PRINTED_STRUCTURAL_FACT": "The source explicitly states the structural fact, but this alone is not a numerical summation bound.",
     "SOURCE_CHAIN_TRACED": "The cited lower-level theorem and specialization are identified, while its implied multiplier remains non-numeric.",
     "CONSTRUCTIVE_SUBPROBLEM": "A finite choice or inequality can be specified by the project, but has not yet been quantitatively proved and composed.",
+    "PROJECT_FINITE_COMPONENT_CLOSED": "A project proof supplies a finite explicit formula and range for the named component, without closing the parent package.",
+    "PARTIAL_EXPLICIT": "A finite majorant is explicit after numeric input normalization, but at least one source coefficient or common range remains open.",
     "RATE_MISSING": "At least one O, o, Vinogradov multiplier, norm, or sufficiently-large cutoff is not numerical.",
     "LOWER_SOURCE_REVIEW_REQUIRED": "A lower cited proof must be quantitatively reconstructed before a multiplier can be certified.",
     "HARD_BLOCKER": "The composed basic-summation package cannot be certified until every upstream row has a numerical bound and common range."
@@ -67,55 +71,47 @@
       "id": "H1B1-L81-SMALL",
       "locator": "Maynard Lemma 8.1(i), product over p <= 2k",
       "role": "small-prime part of the singular-series lower bound",
-      "printed_information": "The proof isolates a finite product containing 1/p factors and concludes a lower bound of exponential size in k.",
+      "printed_information": "H1b-1a proves product_{p<=2k}(1/p)>exp(-4k); together with the tail this gives S_B(L)>exp(-9k/2) for every integer k>=1.",
       "missing_numeric_inputs": [
-        "an explicit lower bound for the finite prime product as a function of k",
-        "the finite k range compatible with all exceptional-prime cases"
       ],
       "upstream": [],
-      "status": "CONSTRUCTIVE_SUBPROBLEM",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED",
       "threshold_ready": false
     },
     {
       "id": "H1B1-L81-TAIL",
       "locator": "Maynard Lemma 8.1(i), product over p > 2k",
       "role": "large-prime tail of the singular-series lower bound",
-      "printed_information": "The factors are expanded with an O(k^2/p^2) logarithmic error and combined into exp(-Ck).",
+      "printed_information": "H1b-1a proves the tail product is greater than exp(-k/2), so together with the small-prime part S_B(L)>exp(-9k/2) for every integer k>=1.",
       "missing_numeric_inputs": [
-        "a uniform remainder constant in the logarithmic expansion",
-        "an explicit bound for the prime-square tail",
-        "a numerical value of C and its valid k range"
       ],
       "upstream": [],
-      "status": "RATE_MISSING",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED",
       "threshold_ready": false
     },
     {
       "id": "H1B1-L81II-DIVISOR",
       "locator": "Maynard Lemma 8.1(ii)",
       "role": "average Delta/phi(Delta) estimate for nearby extra linear forms",
-      "printed_information": "The proof gives a bound of order eta log x log k through Delta/phi(Delta), prime-divisor sums, and Euler products.",
+      "printed_information": "H1b-1a proves E(k)<24 log(k) and a parameterized finite majorant 72 A_phi Y log(k)+3Y U(M)V(M)/log(Y).",
       "missing_numeric_inputs": [
-        "explicit constants in Delta/phi(Delta) and the prime-divisor sums",
-        "the Euler-product multiplier",
-        "the cutoff needed to absorb the o(eta log x) term"
+        "numeric A0 and B0 replacing the source Vinogradov input bounds",
+        "uniform composition with the permitted k, eta, and x ranges",
+        "the common cutoff needed to absorb the second term into the allocated error budget"
       ],
       "upstream": [],
-      "status": "RATE_MISSING",
+      "status": "PARTIAL_EXPLICIT",
       "threshold_ready": false
     },
     {
       "id": "H1B1-L82-CUTOFF",
       "locator": "Maynard Section 8 before Lemma 8.2",
       "role": "fully specified smooth cutoff psi and its norms",
-      "printed_information": "A fixed smooth psi supported on [0,1] and equal to 1 on [0,9/10] is required, but no formula or numerical derivative norm is fixed.",
+      "printed_information": "H1b-1a fixes psi(t)=sigma(10(1-t)) from the standard flat bump and proves sup|psi'|<50.",
       "missing_numeric_inputs": [
-        "an explicit smooth formula for psi",
-        "certified sup norms for every derivative used later",
-        "proof that the selected psi preserves all support and normalization requirements"
       ],
       "upstream": [],
-      "status": "CONSTRUCTIVE_SUBPROBLEM",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED",
       "threshold_ready": false
     },
     {
@@ -124,7 +120,7 @@
       "role": "Lipschitz control for shifted coefficient arguments",
       "printed_information": "The change is O(T_k Y log A/log R), with a companion estimate using Y_r+Y_s.",
       "missing_numeric_inputs": [
-        "the O multiplier in terms of the chosen cutoff norms",
+        "the full O multiplier after propagating the now-explicit cutoff norm through every factor of F2",
         "a finite bound for T_k and Y after the actual test function is fixed",
         "a common valid range for all later substitutions"
       ],
@@ -208,7 +204,7 @@
       "role": "smooth-test-function derivative norm Omega_G",
       "printed_information": "The error is controlled by r Omega_G log log R/log R times the main scale.",
       "missing_numeric_inputs": [
-        "a numerical Omega_G for the selected test function",
+        "a numerical Omega_G after propagating the explicit cutoff norm through the actual k-dependent test function",
         "the constants connecting Omega_G to G_max and the integral",
         "a finite proof of r Omega_G=o(log R/log log R)"
       ],
