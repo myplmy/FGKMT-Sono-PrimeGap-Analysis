@@ -8,6 +8,11 @@
 - machine-readable source trace:
   [`../method/theory/data/Sono_FMT_H1_good_sieve_weight_trace_v1.json`](../method/theory/data/Sono_FMT_H1_good_sieve_weight_trace_v1.json)
 
+> **2026-09-04 H1a 갱신:** 아래 source-tracing에서 제안한 H1a를 수행해 `SIV-06`을
+> 모든 정수 (r\ge36)에서 project theorem으로 닫았다. 이 문서의 당시 미완료 서술은 연구
+> 이력으로 보존하며, 현재 판정은 10절과
+> [`13_Sono_FMT_H1a_finite_r_integral_lemma.md`](../method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md)를 따른다.
+
 ## 1. 먼저 답부터
 
 ### 지금 조사하는 것이 “부등식이 성립하기 시작하는 하한 (X)”인가?
@@ -274,3 +279,27 @@ Sono/FMT H1a finite-r integral lemma 정식화 착수 승인.
 
 runtime 외삽은 고정 FGKMT Python과 80-dps `mpmath.li`를 사용했다. 새로운 소수 또는 maximal-gap
 dataset을 생성하지 않았다.
+
+## 10. 2026-09-04 H1a 실행 결과
+
+H1a는 Maynard (8.27)의 unrestricted product 함수 (F_1)를 Sono가 요구하는 simplex-supported
+함수 (F)와 곧바로 동일시하지 않았다. exact one-dimensional envelope와 Cantelli concentration을
+사용해 그 사이의 이동을 유한 부등식으로 채웠다.
+
+결과는 다음과 같다.
+
+- 모든 정수 (r\ge36)에서 어떤 허용 함수 (F)에 대해
+  (J_r(F)/I_r(F)>\log r/(4r))임을 project theorem으로 증명했다.
+- (36\le r\le8103)의 8,068개 정수는 60-dps directed interval로 전수 검사했고 failure는 0이다.
+- 정수 (r\ge8104)는 (\log r\ge9)의 단조 해석적 꼬리로 덮었다.
+- (r=35)의 실패는 이 보수적 certificate의 실패일 뿐, 다른 함수까지 포함한 불가능성 증명이 아니다.
+- 따라서 T1 `SIV-06`은 `EXPLICIT`으로 바뀌지만 H1 전체 판정과 (X_{\mathrm{cert}})는 그대로
+  `OPEN`이다.
+
+Sono의 (r=\lfloor(\log x)^{1/5}\rfloor)을 이 한 조건에만 대입하면
+(x\ge\exp(36^5)=\exp(60{,}466{,}176))이면 H1a gate를 통과한다. 이 수는 약 26,260,127자리지만,
+다른 proof node와 (x\to X) 변환을 포함하지 않으므로 Sono/FMT 정리의 threshold가 아니다.
+
+다음 gate는 H1b Maynard Proposition 6.1 상수 원장이다. H1a 정본과 기계 판독 contract는 각각
+[`13_Sono_FMT_H1a_finite_r_integral_lemma.md`](../method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md),
+[`Sono_FMT_H1a_finite_r_integral_contract_v1.json`](../method/theory/data/Sono_FMT_H1a_finite_r_integral_contract_v1.json)이다.

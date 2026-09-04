@@ -21,8 +21,8 @@ Sono의 (k=1) 정리를 numerical threshold로 바꾸는 직접 proof edge를 7�
 
 | 상태 | 행 수 | 뜻 |
 |---|---:|---|
-| `EXPLICIT` | 5 | 해당 행의 식·정의는 숫자 또는 exact algebra로 닫힘 |
-| `PARTIAL` | 11 | 일부 상수·방향은 명시됐지만 유효범위 또는 다른 수치 입력이 빠짐 |
+| `EXPLICIT` | 6 | 해당 행의 식·정의는 숫자 또는 exact algebra로 닫힘 |
+| `PARTIAL` | 10 | 일부 상수·방향은 명시됐지만 유효범위 또는 다른 수치 입력이 빠짐 |
 | `RATE_MISSING` | 30 | (o(1)), (O), (ll), `sufficiently large`의 숫자 rate가 없음 |
 | `SOURCE_REVIEW_REQUIRED` | 4 | 인용된 하위 원문 정리를 더 깊게 감사해야 함 |
 | `HARD_BLOCKER` | 16 | 현재 공개 서술만으로는 숫자 certificate가 닫히지 않음 |
@@ -229,7 +229,7 @@ Sono의 parameter를 대입한 명목 계수는
 | `SIV-03` | (sigma y) Mertens error | `PARTIAL` |
 | `SIV-04` | (	au\ge x^{-o(1)}) | `RATE_MISSING` |
 | `SIV-05` | (u\asymp\log r) | `RATE_MISSING` |
-| `SIV-06` | Maynard (J_r/I_r) finite-r bound | `PARTIAL` |
+| `SIV-06` | Maynard (J_r/I_r) finite-r bound | `EXPLICIT` (`r>=36`, project H1a) |
 | `SIV-07` | Maynard Proposition 6.1 constants | `HARD_BLOCKER` |
 | `SIV-08` | FGKMT Hypothesis 1 constants | `HARD_BLOCKER` |
 | `SIV-09` | FMT weight moment formulas | `HARD_BLOCKER` |
@@ -262,30 +262,42 @@ Sono의 parameter를 대입한 명목 계수는
 이 결과는 `T1_DIRECT_EDGE_INVENTORY_COMPLETE`이면서 동시에
 `NUMERICAL_THRESHOLD_NOT_READY`다. 두 판정은 모순이 아니다.
 
-## 9. H1 후속 판정과 다음 gate
+## 9. H1/H1a 후속 판정과 다음 gate
 
 2026-09-02 H1은 Sono pp. 541–542, FMT Theorem 6, FGKMT Theorems 5–6·Lemma 7.2,
 Maynard Proposition 6.1·(8.25)–(8.27)·Sections 8–9를 source level로 추적했다.
 
 | 질문 | H1 판정 |
 |---|---|
-| finite (J_r/I_r) lower bound | `CONSTRUCTIVE_PATH_IDENTIFIED` |
+| finite (J_r/I_r) lower bound | `PROJECT_FINITE_LEMMA_PROVED`; 모든 정수 (r\ge36) |
 | finite (r_0)과 공통 시작 (x) | upstream moment·Hypothesis 1에 `DEPENDENCY_BLOCKED` |
 | Proposition 6.1 상수 | `QUANTITATIVE_REPROOF_REQUIRED` |
 | FGKMT Hypothesis 1 상수 | `QUANTITATIVE_REPROOF_REQUIRED` |
 | numerical Theorem 6 package | `DEPENDENCY_BLOCKED` |
 
-Sono가 (c_0=1/5)을 인쇄했지만 finite (r_0)과 그 선택이 모든 uniformity·absorption 조건과
-동시에 맞는 공통 시작점은 주지 않는다. Maynard는 effectivity를 명시하므로 constructive path는
-원칙상 존재하지만 ready-made numerical package는 아니다. 따라서 H1 전체 판정은
+2026-09-04 H1a는 Maynard의 unrestricted product core와 Sono가 요구하는 simplex-supported
+함수를 구분하고, exact envelope와 Cantelli concentration으로
+
+\[
+\frac{J_r(F)}{I_r(F)}>\frac{\log r}{4r}\qquad(r\ge36, r\in\mathbb Z)
+\]
+
+를 증명했다. (36\le r\le8103)은 60-dps directed interval로 전수 확인했고,
+(\log r\ge9), 즉 정수 (r\ge8104)는 해석적 꼬리로 닫았다. 상세 정본은
+[`13_Sono_FMT_H1a_finite_r_integral_lemma.md`](13_Sono_FMT_H1a_finite_r_integral_lemma.md)다.
+
+이는 `SIV-06` 하나만 닫는다. Sono가 (c_0=1/5)을 인쇄했지만 finite (r_0)과 그 선택이 모든
+uniformity·absorption 조건과 동시에 맞는 공통 시작점은 여전히 주어지지 않는다. Maynard는
+effectivity를 명시하므로 나머지 constructive path는 원칙상 존재하지만 ready-made numerical
+package는 아니다. 따라서 H1 전체 판정은
 `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`이며
 (X_{\mathrm{cert}})는 계속 `OPEN`이다.
 
 이제 권장 순서는 다음과 같다.
 
-1. `H1a`: Maynard (8.25)–(8.27)을 standalone finite-r integral lemma로 정식화한다.
-2. `H1b`: Proposition 6.1 Sections 8–9의 상수·cutoff ledger를 만든다.
-3. `H1c`: FGKMT Lemma 7.2의 effective character/Bombieri–Vinogradov package를 PAP와 공동 추적한다.
+1. `H1b`: Proposition 6.1 Sections 8–9의 상수·cutoff ledger를 만든다.
+2. `H1c`: FGKMT Lemma 7.2의 effective character/Bombieri–Vinogradov package를 PAP와 공동 추적한다.
+3. H1b/H1c 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
 4. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
 5. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
 

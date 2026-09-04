@@ -210,3 +210,14 @@ SIV-06을 수치화했지만 SIV-07이 막힌다는 정확한 결과도 매우 �
   `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`다.
 - 다음 최소 gate는 H1a finite-r integral lemma이며 threshold calculator·새 prime sweep은 계속
   fail-closed다.
+
+## 10. 2026-09-04 H1a 사후 갱신
+
+H1a를 실제 정식화하여 `SIV-06`을 모든 정수 (r\ge36)에서 `EXPLICIT`으로 닫았다. 유한
+(36\le r\le8103)은 directed interval 전수검사, (r\ge8104)는 해석적 꼬리 증명이다. 따라서
+이 문서의 “SIV-06을 수치화할 수 있는가?”라는 질문에는 이제 **예**라고 답할 수 있다.
+
+다만 `SIV-07` Proposition 6.1 moment 상수, `SIV-08` Hypothesis 1/PAP, `SIV-09/10/11` 합성
+오차가 남아 있으므로 전체 H1과 (X_{\mathrm{cert}})는 열려 있다. 다음 최소 gate는 H1b이며,
+threshold calculator·새 prime sweep의 fail-closed 상태도 유지한다. 상세 증명은
+[`13_Sono_FMT_H1a_finite_r_integral_lemma.md`](../method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md)다.

@@ -984,14 +984,14 @@
       "source_page": "19",
       "equation": "(8.27)",
       "quantity": "J_r/I_r",
-      "direction": "two-sided approximation",
-      "explicit_bound": "log r/(4r)*(1+O(1/log r))",
-      "valid_range": "r tends to infinity for the constructed test function",
+      "direction": "lower bound",
+      "explicit_bound": "J_r(F)/I_r(F) > log r/(4r) for every integer r>=36 (project H1a finite lemma)",
+      "valid_range": "every integer r>=36 for the explicit simplex-supported Maynard-type test function in the H1a contract",
       "depends_on": [],
-      "status": "PARTIAL",
+      "status": "EXPLICIT",
       "criticality": "hard",
-      "checker": "finite-r integral proof",
-      "notes": "This supports c_IJ=1/4 asymptotically; the O constant and numeric r threshold are absent."
+      "checker": "H1a analytic proof plus 60-dps directed-interval scan",
+      "notes": "Maynard (8.27) itself concerns unrestricted F_1. The project H1a lemma supplies the missing transfer to a simplex-supported F, scans every integer 36<=r<=8103, and proves the tail for log r>=9. Independent expert review remains recommended; this row does not close the composed good-weight package or X_cert."
     },
     {
       "id": "SIV-07",

@@ -69,7 +69,10 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             self.assertEqual(set(row), required, row["id"])
             self.assertTrue(set(row["source_keys"]).issubset(source_keys), row["id"])
             self.assertIn(row["recoverability"], allowed, row["id"])
-            self.assertTrue(row["missing_numeric_inputs"], row["id"])
+            if row["recoverability"] == "PROJECT_FINITE_LEMMA_PROVED":
+                self.assertEqual(row["missing_numeric_inputs"], [], row["id"])
+            else:
+                self.assertTrue(row["missing_numeric_inputs"], row["id"])
             self.assertFalse(row["threshold_ready"], row["id"])
 
     def test_fail_closed_threshold_status(self) -> None:
@@ -82,11 +85,12 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
         package = self.by_id["H1-SIV-11"]
         self.assertEqual(package["recoverability"], "DEPENDENCY_BLOCKED")
 
-    def test_finite_integral_is_path_not_certificate(self) -> None:
+    def test_finite_integral_project_lemma_is_closed_but_not_threshold(self) -> None:
         integral = self.by_id["H1-SIV-06"]
-        self.assertEqual(integral["recoverability"], "CONSTRUCTIVE_PATH_IDENTIFIED")
+        self.assertEqual(integral["recoverability"], "PROJECT_FINITE_LEMMA_PROVED")
         self.assertFalse(integral["threshold_ready"])
-        self.assertIn("O(1/log r)", integral["printed_information"])
+        self.assertIn("r>=36", integral["printed_information"])
+        self.assertEqual(integral["missing_numeric_inputs"], [])
 
 
 if __name__ == "__main__":

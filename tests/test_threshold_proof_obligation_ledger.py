@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import unittest
+from collections import Counter
 from pathlib import Path
 
 
@@ -111,6 +112,20 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         self.assertGreaterEqual(len(root_blockers), 6)
         for row in root_blockers:
             self.assertNotEqual(row["status"], "EXPLICIT", row["id"])
+
+    def test_status_counts_include_only_the_h1a_promotion(self) -> None:
+        self.assertEqual(
+            Counter(row["status"] for row in self.rows),
+            Counter(
+                {
+                    "EXPLICIT": 6,
+                    "PARTIAL": 10,
+                    "RATE_MISSING": 30,
+                    "SOURCE_REVIEW_REQUIRED": 4,
+                    "HARD_BLOCKER": 16,
+                }
+            ),
+        )
 
 
 if __name__ == "__main__":

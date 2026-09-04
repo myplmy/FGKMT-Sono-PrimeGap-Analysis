@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-04 05:56",
+  "gate": "Sono/FMT H1a finite-r integral lemma",
+  "outcome": "FINITE_R_INTEGRAL_LEMMA_PROVED_IN_PROJECT",
+  "claim_scope": "For every integer r >= 36, an explicit Maynard-type symmetric test function in the simplex satisfies J_r(F)/I_r(F) > log(r)/(4r).",
+  "not_claimed": [
+    "This is not a peer-reviewed replacement for Maynard, FGKMT, FMT, or Sono.",
+    "This does not close Maynard Proposition 6.1, the FMT good-sieve-weight moments, Hypothesis 1, PAP, UB, covering probability, or the x-to-X transfer.",
+    "The value 36 is the first r certified by this particular envelope-and-concentration contract; it is not asserted to be the mathematical minimum over all test functions.",
+    "No numerical X_cert or global minimum X_star is computed."
+  ],
+  "certified_uniform_r_start": 36,
+  "finite_interval_scan": {
+    "start": 36,
+    "stop": 8103,
+    "count": 8068,
+    "arithmetic": "mpmath.iv outward-rounded interval arithmetic",
+    "dps": 60,
+    "expected_failures": 0,
+    "minimum_relative_margin_lower_gt": 0.025,
+    "minimum_margin_r": 36
+  },
+  "analytic_tail": {
+    "condition": "log(r) >= 9",
+    "first_integer_r": 8104,
+    "method": "explicit one-dimensional envelope bounds plus one-sided Chebyshev-Cantelli concentration and monotonic endpoint inequalities",
+    "variance_endpoint_chain": "V/(2c) < 1/414720 + 1/640 = 649/414720 < 9/2500 < d^2",
+    "hidden_asymptotic_constants_used": false
+  },
+  "source_registry": [
+    {
+      "key": "MAYNARD2016",
+      "title": "Dense Clusters of Primes in Subsets",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "locators": [
+        "(7.10)",
+        "(7.12)",
+        "Lemma 8.6",
+        "(8.22)-(8.27)"
+      ],
+      "role": "Defines F, F1, I_r and J_r and supplies the asymptotic product-integral calculation."
+    },
+    {
+      "key": "MAYNARD2015",
+      "title": "Small Gaps Between Primes",
+      "doi": "10.4007/annals.2015.181.1.7",
+      "arxiv": "1311.4600",
+      "locators": [
+        "Section 7",
+        "(7.5)-(7.14)"
+      ],
+      "role": "Primary-source precedent for transferring an unrestricted product integral into the simplex by a second-moment concentration bound."
+    },
+    {
+      "key": "SONO2025",
+      "title": "An Explicit Lower Bound for Large Gaps Between Some Consecutive Primes",
+      "doi": "10.4418/2025.80.2.2",
+      "locators": [
+        "(2.3)",
+        "pp. 541-542"
+      ],
+      "role": "Uses c_IJ=1/4 and propagates J_r/I_r into the parameter u."
+    }
+  ],
+  "definitions": {
+    "q": "9/10",
+    "ell": "log(r)",
+    "T": "r*ell",
+    "U": "r^(-1/2)",
+    "f": "psi(t/U)/(1+T*t)",
+    "F1": "product_i f(t_i)",
+    "F": "psi(sum_i t_i)*F1",
+    "psi_contract": "smooth non-increasing [0,infinity)->[0,1], equal to 1 on [0,9/10], supported on [0,1]"
+  },
+  "finite_formula": {
+    "A_minus": "q*U/(1+q*T*U)",
+    "A_plus": "U/(1+T*U)",
+    "B_minus": "log(1+q*T*U)/T",
+    "C_of_z": "(log(1+T*z)+(1+T*z)^(-1)-1)/T^2",
+    "D_plus": "(1+T*U-2*log(1+T*U)-(1+T*U)^(-1))/T^3",
+    "mu_minus": "C(q*U)/A_plus",
+    "mu_plus": "C(U)/A_minus",
+    "variance_plus": "D_plus/A_minus-mu_minus^2",
+    "deviation": "q-U-(r-1)*mu_plus",
+    "concentration_minus": "deviation^2/(deviation^2+(r-1)*variance_plus)",
+    "ratio_lower": "B_minus^2/A_plus*concentration_minus",
+    "target": "log(r)/(4r)"
+  },
+  "proof_partition": [
+    {
+      "id": "H1A-01",
+      "claim": "I_r(F1)=A^r and J_r(F1)=B^2*A^(r-1) exactly.",
+      "status": "EXACT_ALGEBRA"
+    },
+    {
+      "id": "H1A-02",
+      "claim": "The psi envelope gives explicit A, B, first-moment and second-moment bounds without an O-term.",
+      "status": "PROVED_IN_PROJECT"
+    },
+    {
+      "id": "H1A-03",
+      "claim": "Cantelli concentration on the first r-1 coordinates transfers the product-core bound to the simplex-supported F.",
+      "status": "PROVED_IN_PROJECT"
+    },
+    {
+      "id": "H1A-04",
+      "claim": "All integers 36 through 8103 pass the directed-interval formula; log(r)>=9 is covered analytically.",
+      "status": "DIRECTED_INTERVAL_PLUS_ANALYTIC_PROOF"
+    },
+    {
+      "id": "H1A-05",
+      "claim": "T1 SIV-06 is numerically explicit for r>=36.",
+      "status": "CLOSED"
+    },
+    {
+      "id": "H1A-06",
+      "claim": "The composed FMT good-sieve-weight package and X_cert are ready.",
+      "status": "BLOCKED_BY_SIV_05_07_08_09_10_11"
+    }
+  ],
+  "source_module": "source/h1a_finite_r_integral.py",
+  "test_module": "tests/test_h1a_finite_r_integral.py",
+  "full_good_sieve_weight_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "independent_expert_review_recommended": true
+}

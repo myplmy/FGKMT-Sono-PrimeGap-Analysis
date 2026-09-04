@@ -7,7 +7,7 @@
 - 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A와 설계 사후감사, P020 recurrence artifact 종합 완료; A는 정보량 HOLD
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT numerical-threshold T1 66행 원장과 H1 good-weight source tracing을 완료했으며, 다음 gate는 Maynard (8.25)–(8.27)의 H1a finite-r integral lemma다. P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 (J_r/I_r>\log r/(4r))를 모든 정수 (r\ge36)에서 project theorem으로 닫았으며, 다음 gate는 H1b Maynard Proposition 6.1 constant ledger다. `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -664,13 +664,18 @@ arbitrary-X transfer가 열려 있어 `X_cert`는 계속 `OPEN`이다. 다음 pr
 threshold calculator 또는 실제 threshold 계산 runner를 작성하지 않는다.
 
 2026-09-02 H1 source tracing은 FMT Theorem 6→FGKMT Theorem 5/6→Maynard Proposition 6.1과
-FGKMT Lemma 7.2의 chain을 추적했다. finite (J_r/I_r)에는 constructive path가 있으나, finite
-(r_0), moment formula implied constants, Hypothesis 1 상수와 공통 시작 (x)는 인쇄돼 있지 않다.
+FGKMT Lemma 7.2의 chain을 추적했다. 2026-09-04 H1a는 unrestricted product core와
+simplex-supported 함수 사이의 concentration 이동을 exact하게 채워 모든 정수 (r\ge36)에서
+(J_r/I_r>\log r/(4r))를 증명했다. (36\le r\le8103)의 8,068개 정수는 60-dps directed interval,
+(r\ge8104)는 해석적 꼬리로 닫았다. 그러나 finite
+(r_0)의 나머지 조건, moment formula implied constants, Hypothesis 1 상수와 공통 시작 (x)는
+인쇄돼 있지 않다.
 판정은 `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`이며
 (X_{cert})는 계속 `OPEN`이다. 정본은
 `docs/review/24_20260902_Sono_FMT_H1_good_sieve_weight_recoverability.md`와
-`docs/method/theory/data/Sono_FMT_H1_good_sieve_weight_trace_v1.json`이다. H1a 이전에는 장시간
-prime sweep이나 threshold calculator를 만들지 않는다.
+`docs/method/theory/data/Sono_FMT_H1_good_sieve_weight_trace_v1.json`,
+`docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md`다. 다음 gate는 H1b이며, 모든
+root dependency가 닫히기 전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
 
 coverage-preserving compression의 finite soundness 정본은
 `docs/method/theory/10_coverage_preserving_compression_정식화.md`다.

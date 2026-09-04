@@ -1,15 +1,17 @@
 {
   "schema_version": "1.0.0",
   "created_kst": "2026-09-02 20:24",
+  "updated_kst": "2026-09-04",
   "gate": "H1 good-sieve-weight recoverability source tracing",
   "target": "Determine whether the hidden constants needed for the FMT good sieve weight can be recovered constructively without inventing a numerical threshold.",
   "overall_outcome": "CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED",
   "numerical_x_cert_ready": false,
   "actual_threshold_computed": false,
-  "scope_note": "This file records source-level recoverability. It is not a proof, a numerical threshold certificate, or a runtime guarantee.",
+  "scope_note": "This file records source-level recoverability plus the project H1a update for SIV-06. H1a is documented separately; this trace is not a full good-weight proof, a numerical threshold certificate, or a runtime guarantee.",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
     "CONSTRUCTIVE_PATH_IDENTIFIED": "The proof gives enough structure to formulate a finite lemma, but the printed source does not supply its final numeric constant.",
+    "PROJECT_FINITE_LEMMA_PROVED": "A project theorem closes this individual finite lemma with an explicit range, while downstream theorem composition remains open.",
     "QUANTITATIVE_REPROOF_REQUIRED": "The proof is effective in principle, but multiple implied constants or sufficiently-large absorptions must be reconstructed.",
     "DEPENDENCY_BLOCKED": "This package cannot be assigned numbers until its upstream quantitative lemmas are closed."
   },
@@ -58,7 +60,7 @@
       ],
       "recoverability": "DEPENDENCY_BLOCKED",
       "reproof_scale": "LARGE",
-      "next_action": "Close H1-SIV-06 through H1-SIV-10, then take the maximum of their finite-r and finite-x requirements.",
+      "next_action": "Use the closed H1-SIV-06 input, close H1-SIV-07 through H1-SIV-10, and then take the maximum of their finite-r and finite-x requirements.",
       "threshold_ready": false
     },
     {
@@ -83,15 +85,15 @@
       "question": "Can the comparison u asymp log r be assigned explicit two-sided constants?",
       "source_keys": ["SONO2025", "FMT2018", "FGKMT2016", "MAYNARD2016"],
       "source_locator": "Sono p. 542 u bounds; FMT Theorem 6 (6.3); FGKMT Theorem 5 (6.3); Maynard integral ratio (8.27)",
-      "printed_information": "The sources state u is comparable to log r; the leading integral ratio has coefficient 1/4 with a relative O(1/log r) term.",
+      "printed_information": "The sources state u is comparable to log r. Project H1a now supplies the finite leading integral-ratio inequality J_r/I_r > log(r)/(4r) for every integer r>=36.",
       "missing_numeric_inputs": [
-        "an explicit constant in the O(1/log r) remainder",
-        "the exact algebra carrying J_r/I_r into FMT's u",
-        "a common finite starting r"
+        "finite bounds for the non-integral moment and error factors entering FMT's u",
+        "the exact algebra carrying the certified J_r/I_r bound into FMT's u",
+        "a common finite starting r and x for all remaining factors"
       ],
       "recoverability": "CONSTRUCTIVE_PATH_IDENTIFIED",
       "reproof_scale": "MODERATE_TO_LARGE",
-      "next_action": "After H1-SIV-06, propagate the certified ratio through the FGKMT/FMT definition of u.",
+      "next_action": "Propagate the H1a certified ratio through the FGKMT/FMT definition of u after the required moment constants are exposed.",
       "threshold_ready": false
     },
     {
@@ -100,15 +102,11 @@
       "question": "Can Maynard's finite-r J_r/I_r lower bound be certified?",
       "source_keys": ["MAYNARD2016"],
       "source_locator": "Maynard equations (8.25)-(8.27), Lemmas 8.1, 8.5 and 8.6",
-      "printed_information": "J_r(F_1)/I_r(F_1) = (log r)/(4r) * (1 + O(1/log r)); the preceding proof reduces the ratio to one-dimensional integrals with displayed tail terms.",
-      "missing_numeric_inputs": [
-        "absolute constants in the displayed O-terms",
-        "explicit bounds for the smoothing and tail truncation",
-        "a verified r from which a chosen lower ratio holds"
-      ],
-      "recoverability": "CONSTRUCTIVE_PATH_IDENTIFIED",
-      "reproof_scale": "MODERATE",
-      "next_action": "Formulate H1a as a standalone finite-r integral lemma and prove it symbolically before using interval arithmetic for selected r.",
+      "printed_information": "Maynard prints J_r(F_1)/I_r(F_1) = (log r)/(4r) * (1 + O(1/log r)) for the unrestricted product core. Project H1a supplies an exact envelope-and-Cantelli transfer to a simplex-supported F and proves J_r(F)/I_r(F) > log(r)/(4r) for every integer r>=36.",
+      "missing_numeric_inputs": [],
+      "recoverability": "PROJECT_FINITE_LEMMA_PROVED",
+      "reproof_scale": "COMPLETED_FOR_THIS_ROW",
+      "next_action": "Treat r>=36 as the SIV-06 input, seek independent expert review, and propagate it only after H1-SIV-07 through H1-SIV-10 are quantitatively closed.",
       "threshold_ready": false
     },
     {
@@ -192,7 +190,7 @@
       ],
       "recoverability": "DEPENDENCY_BLOCKED",
       "reproof_scale": "RESEARCH_PROGRAM",
-      "next_action": "Do not build a threshold calculator. Start with H1a finite-r integral and H1b Hypothesis 1 dependency ledgers.",
+      "next_action": "Do not build a threshold calculator. H1a is complete; continue with H1b Maynard Proposition 6.1 constants and H1c Hypothesis 1/PAP dependencies.",
       "threshold_ready": false
     }
   ]
