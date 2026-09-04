@@ -7,7 +7,7 @@
 - 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A와 설계 사후감사, P020 recurrence artifact 종합 완료; A는 정보량 HOLD
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 (J_r/I_r>\log r/(4r))를 모든 정수 (r\ge36)에서 project theorem으로 닫았다. H1b는 Maynard Proposition 6.1의 상수 의존성을 17개 행으로 등록했지만 numerical package는 열려 있다. 다음 gate는 H1b-1 기본 summation 상수와 H1c Hypothesis 1/PAP package다. `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 (J_r/I_r>\log r/(4r))를 모든 정수 (r\ge36)에서 project theorem으로 닫았다. H1b/H1b-1/H1c는 17·13·20행 source/dependency 원장을 완료했지만 numerical package는 열려 있다. 다음 gate는 H1b-1a explicit cutoff·초등 소수곱과 H1c-1 quantitative character/Bombieri–Vinogradov package다. `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -679,8 +679,22 @@ Proposition 6.1, Lemmas 8.1–8.6, Propositions 9.1–9.5와 common-cutoff를 17
 등록했다. 인쇄된 exponent와 parameter 범위는 확인했지만 multiplier·finite cutoff·공통 error
 budget은 열려 있으므로 `SIV-07/09`와 `X_cert`는 변하지 않는다. 정본은
 `docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md`다. 다음 gate는
-H1b-1과 H1c이며, 모든 root dependency가 닫히기 전에는 장시간 prime sweep이나 threshold
-calculator를 만들지 않는다.
+H1b-1과 H1c다. 2026-09-04 H1b-1 source 감사는 Lemmas 8.1–8.4를 13개 하위 node로 분해하고
+Lemma 8.3의 정확한 GGPY Lemma 4 \(\kappa=1\) source를 확인했다. 이로써 source identity는
+닫혔지만 GGPY/HR multiplier, explicit smooth cutoff norm과 Lemma 8.4 공통 cutoff는 열려 있다.
+정본은 `docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md`다.
+
+같은 날 H1c는 FGKMT Hypothesis 1과 Sono PAP를 20개 node로 분리했다. \(\mathcal A=\mathbb Z\)인
+Hypothesis 1(1)은 `floor(y^(1/3))*(log y)^(100 k^2) <= N`, (3)은 `N>=q`일 때 implied
+constant 2라는 exact sufficient reduction이 있다. 그러나 condition (2)의 character/Bombieri–
+Vinogradov·affine-form·prime-density package와 PAP의 principal/nonprincipal·`psi->pi` finite
+rate는 열려 있다. PAP와 Hypothesis 1은 shared source를 가진 sibling obligation이지 서로를
+함의하지 않으므로 T1의 잘못된 `SIV-08 -> PAP-11` 직접 의존선을 제거했다. Jutila source 연도는
+1977로 정정했다. 정본은
+`docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`다. 이 graph·서지 교정은
+`SIV-07/08/09`, `PAP-11` 또는 `X_cert`를 닫지 않는다. 다음 gate는 H1b-1a explicit cutoff·
+초등 소수곱 package와 H1c-1 quantitative character package다. 모든 root dependency가 닫히기
+전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus와 분리한다. 두 원고가
 주장하는 `H_1<=240`과 `H_1<=186`의 `H_1`은 bounded-gap liminf 기호이며 본 프로젝트의 H1

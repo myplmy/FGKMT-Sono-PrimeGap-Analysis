@@ -1,0 +1,462 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-04",
+  "gate": "H1c FGKMT Hypothesis 1 and Sono PAP source tracing",
+  "target_obligations": [
+    "SIV-08",
+    "PAP-11"
+  ],
+  "scope": "Separate source traces for the average-discrepancy package used to verify FGKMT Hypothesis 1 and the pointwise lower-bound package called PAP by Sono. Shared zero-free and character-distribution inputs are recorded without asserting that either package implies the other.",
+  "outcome": "SIBLING_SOURCE_CHAINS_TRACED_NUMERICAL_PACKAGES_OPEN",
+  "hypothesis1_implies_pap": false,
+  "pap_implies_hypothesis1": false,
+  "shared_analytic_inputs_do_not_create_logical_dependency": true,
+  "numerical_hypothesis1_package_ready": false,
+  "numerical_pap_package_ready": false,
+  "siv_08_closed": false,
+  "pap_11_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "source_registry": [
+    {
+      "key": "FGKMT2016",
+      "title": "Long Gaps Between Primes",
+      "authors": "K. Ford, B. Green, S. Konyagin, J. Maynard, T. Tao",
+      "publication": "Journal of the American Mathematical Society 31 (2018), 65-105",
+      "arxiv": "1412.5029",
+      "url": "https://arxiv.org/abs/1412.5029",
+      "local_locator": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "reviewed_locations": "Hypothesis 1; Lemmas 7.1-7.2; Corollary 6; equations (7.2)-(7.3)",
+      "status": "PRIMARY_REVIEWED"
+    },
+    {
+      "key": "SONO2025",
+      "title": "An Explicit Lower Bound for Large Gaps Between Some Consecutive Primes",
+      "authors": "Keiju Sono",
+      "publication": "Le Matematiche 80(2) (2025), 521-542",
+      "doi": "10.4418/2025.80.2.2",
+      "url": "https://doi.org/10.4418/2025.80.2.2",
+      "local_locator": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+      "reviewed_locations": "Assumption 3.2 and Section 5, especially (3.7) and (5.1)-(5.3)",
+      "status": "PRIMARY_REVIEWED"
+    },
+    {
+      "key": "DAVENPORT2000",
+      "title": "Multiplicative Number Theory, third edition",
+      "authors": "H. Davenport; revised by H. L. Montgomery",
+      "publication": "Graduate Texts in Mathematics 74, Springer (2000)",
+      "doi": null,
+      "url": null,
+      "reviewed_locations": "FGKMT cites Chapters 20 and 28; the chapter-level numerical constants were not reconstructed",
+      "status": "LOWER_SOURCE_NUMERICAL_REVIEW_REQUIRED"
+    },
+    {
+      "key": "MCCURLEY1984",
+      "title": "Explicit Zero-Free Regions for Dirichlet L-Functions",
+      "authors": "K. S. McCurley",
+      "publication": "Journal of Number Theory 19 (1984), 7-32",
+      "doi": "10.1016/0022-314X(84)90089-1",
+      "url": "https://doi.org/10.1016/0022-314X(84)90089-1",
+      "reviewed_locations": "Sono Proposition 5.1 imports Theorem 1 and records R=9.645908801...",
+      "status": "PRIMARY_METADATA_AND_IMPORTED_CONSTANT_REVIEWED"
+    },
+    {
+      "key": "GALLAGHER1970",
+      "title": "A Large Sieve Density Estimate near sigma=1",
+      "authors": "P. X. Gallagher",
+      "publication": "Inventiones Mathematicae 11 (1970), 329-339",
+      "doi": "10.1007/BF01403187",
+      "url": "https://doi.org/10.1007/BF01403187",
+      "reviewed_locations": "Sono invokes the density estimates summarized in (5.2); numerical implied constants and cutoffs were not reconstructed",
+      "status": "SOURCE_CHAIN_TRACED_NUMERICAL_REVIEW_REQUIRED"
+    },
+    {
+      "key": "JUTILA1977",
+      "title": "On Linnik's Constant",
+      "authors": "Matti Jutila",
+      "publication": "Mathematica Scandinavica 41 (1977), 45-62",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "reviewed_locations": "Sono invokes Theorem 1 for the zero-density exponent; c_ZD=16 is selected after combining ranges",
+      "status": "PRIMARY_METADATA_AND_IMPORTED_EXPONENT_REVIEWED"
+    },
+    {
+      "key": "MAIER1981",
+      "title": "Chains of Large Gaps Between Consecutive Primes",
+      "authors": "Helmut Maier",
+      "publication": "Advances in Mathematics 39 (1981), 257-269",
+      "doi": "10.1016/0001-8708(81)90003-7",
+      "url": "https://doi.org/10.1016/0001-8708(81)90003-7",
+      "reviewed_locations": "Sono cites Lemma 2 as the transfer from character estimates to PAP; numerical constants were not reconstructed",
+      "status": "SOURCE_CHAIN_TRACED_NUMERICAL_REVIEW_REQUIRED"
+    },
+    {
+      "key": "AKBARY_HAMBROOK2015",
+      "title": "A Variant of the Bombieri-Vinogradov Theorem with Explicit Constants and Applications",
+      "authors": "Amir Akbary and Kyle Hambrook",
+      "publication": "Mathematics of Computation 84 (2015)",
+      "arxiv": "1309.2730",
+      "url": "https://arxiv.org/abs/1309.2730",
+      "reviewed_locations": "Theorem 1.3 applicability conditions, including the least-prime-factor restriction on moduli",
+      "status": "ALTERNATIVE_SOURCE_REVIEWED"
+    }
+  ],
+  "status_vocabulary": {
+    "EXACT_SUFFICIENT_REDUCTION": "An elementary exact condition sufficient for the named Hypothesis 1 clause is derived, but the common numerical threshold has not been solved.",
+    "PARTIAL_NUMERIC": "A numerical exponent or constant is printed, while at least one multiplier or starting range remains missing.",
+    "SOURCE_CHAIN_TRACED": "The primary and lower cited sources are identified, but no numerical package is recovered.",
+    "RATE_MISSING": "The printed statement contains an implied constant, o term, or sufficiently-large range without a usable number.",
+    "SOURCE_REVIEW_REQUIRED": "A cited proof must be reconstructed quantitatively before the row can be certified.",
+    "ALTERNATIVE_NOT_DIRECT_SUBSTITUTE": "The source is explicitly quantitative but has hypotheses that do not cover the required modulus family without an additional proof reorganization.",
+    "LOGICAL_RELATION_CORRECTED": "A prior dependency edge is removed because the two statements are distinct obligations sharing inputs rather than implications.",
+    "HARD_BLOCKER": "The numerical package or common cutoff cannot be certified until all upstream rows close."
+  },
+  "obligations": [
+    {
+      "id": "H1C-HYP1-1",
+      "branch": "HYPOTHESIS_1",
+      "locator": "FGKMT Hypothesis 1(1), A=Z and theta=1/3",
+      "role": "distribution of the integer interval in arithmetic progressions",
+      "printed_or_derived_information": "For an interval containing N integers, each residue-class count differs from N/q by at most 1. Hence floor(y^(1/3))*(log y)^(100 k^2) <= N is an exact sufficient condition for clause (1).",
+      "missing_numeric_inputs": [
+        "a common y satisfying this inequality together with every hard clause",
+        "exact endpoint conventions for the A(y) interval used in each application"
+      ],
+      "upstream": [],
+      "status": "EXACT_SUFFICIENT_REDUCTION",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-HYP1-3",
+      "branch": "HYPOTHESIS_1",
+      "locator": "FGKMT Hypothesis 1(3), A=Z",
+      "role": "no concentration of the integer interval in one residue class",
+      "printed_or_derived_information": "The exact count is at most N/q+1. If N>=q this is at most 2N/q, giving an explicit sufficient constant 2 for clause (3).",
+      "missing_numeric_inputs": [
+        "verification of N>=q over the exact common parameter range",
+        "composition with the same interval endpoint convention as clause (1)"
+      ],
+      "upstream": [],
+      "status": "EXACT_SUFFICIENT_REDUCTION",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-HYP1-LP",
+      "branch": "HYPOTHESIS_1",
+      "locator": "FGKMT Lemma 7.1 and Davenport Chapter 20",
+      "role": "effective Landau-Page dichotomy",
+      "printed_or_derived_information": "FGKMT gives an effective zero-free alternative or one real quadratic exceptional character for Q>=100.",
+      "missing_numeric_inputs": [
+        "the constant in 1-sigma >> 1/log(Q(1+|t|))",
+        "the constant in q_Q >> log^2 Q",
+        "a numerical range uniform in the later character sum"
+      ],
+      "upstream": [],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-HYP1-B",
+      "branch": "HYPOTHESIS_1",
+      "locator": "FGKMT Corollary 6 and proof",
+      "role": "selection and size of the exceptional prime B",
+      "printed_or_derived_information": "B is 1 or the largest prime factor of the exceptional conductor; log q_Q << B follows using the prime number theorem.",
+      "missing_numeric_inputs": [
+        "the implied constant in log q_Q << B",
+        "an explicit PNT input and cutoff",
+        "the switch point between the exceptional and non-exceptional cases"
+      ],
+      "upstream": [
+        "H1C-HYP1-LP"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-HYP1-CHAR",
+      "branch": "HYPOTHESIS_1",
+      "locator": "FGKMT Lemma 7.2, equation (7.2)",
+      "role": "effective primitive-character psi estimate",
+      "printed_or_derived_information": "With Q=exp(c1 sqrt(log x)), FGKMT obtains a bound of shape x exp(-3c sqrt(log x)) for q<exp(2c sqrt(log x)), after choosing c1 sufficiently small.",
+      "missing_numeric_inputs": [
+        "specific admissible c1 and c",
+        "the implied multiplier",
+        "the first x for all q,z and exceptional-prime cases"
+      ],
+      "upstream": [
+        "H1C-HYP1-B"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-HYP1-BV",
+      "branch": "HYPOTHESIS_1",
+      "locator": "FGKMT Lemma 7.2, equation (7.3); Davenport Chapter 28",
+      "role": "average prime discrepancy through Bombieri-Vinogradov",
+      "printed_or_derived_information": "A standard Bombieri-Vinogradov proof yields a bound through q<x^(1/2-epsilon) with an exponential-decay term and the character sum from (7.2).",
+      "missing_numeric_inputs": [
+        "a fixed numerical epsilon",
+        "all large-sieve and character-sum multipliers",
+        "a finite starting x and endpoint-uniform version"
+      ],
+      "upstream": [
+        "H1C-HYP1-CHAR"
+      ],
+      "status": "SOURCE_REVIEW_REQUIRED",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-HYP1-LFORM",
+      "branch": "HYPOTHESIS_1",
+      "locator": "FGKMT Lemma 7.2, conversion of L(n)=an+b to progressions",
+      "role": "uniform affine-form to arithmetic-progression mapping",
+      "printed_or_derived_information": "A residue class for n modulo q maps to a prime progression whose modulus includes |a|q and whose endpoints depend on ay+b.",
+      "missing_numeric_inputs": [
+        "exact gcd and sign case splits",
+        "a finite inequality placing every |a|q inside the certified modulus range",
+        "exact endpoint and short-interval discrepancy bookkeeping"
+      ],
+      "upstream": [
+        "H1C-HYP1-BV"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-HYP1-DENSITY",
+      "branch": "HYPOTHESIS_1",
+      "locator": "FGKMT Hypothesis 1(2), normalization by #P_L,A(x)",
+      "role": "uniform positive lower estimate for represented primes",
+      "printed_or_derived_information": "The discrepancy denominator uses the actual prime population represented by each selected linear form.",
+      "missing_numeric_inputs": [
+        "an explicit PNT or PNT-in-AP lower bound on that population",
+        "prime-power and endpoint corrections",
+        "a common range uniform in all allowed a,b,y"
+      ],
+      "upstream": [],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-HYP1-PACKAGE",
+      "branch": "HYPOTHESIS_1",
+      "locator": "Composition of FGKMT Hypothesis 1(1)-(3) and Lemma 7.2",
+      "role": "numerical Hypothesis 1 package for all required linear forms",
+      "printed_or_derived_information": "Clauses (1) and (3) have elementary finite sufficient reductions, while clause (2) remains an average prime-distribution problem.",
+      "missing_numeric_inputs": [
+        "all hard clause-(2) constants",
+        "one common cutoff satisfying the elementary and analytic clauses",
+        "a checked uniformity certificate for every form used by FGKMT"
+      ],
+      "upstream": [
+        "H1C-HYP1-1",
+        "H1C-HYP1-3",
+        "H1C-HYP1-LFORM",
+        "H1C-HYP1-DENSITY"
+      ],
+      "status": "HARD_BLOCKER",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-PAP-ZFR",
+      "branch": "PAP",
+      "locator": "Sono Proposition 5.1 and Definition 5.1; equation (5.1)",
+      "role": "explicit zero-free-region input",
+      "printed_or_derived_information": "Sono records McCurley's R=9.645908801... and uses the simplified choice c_ZFR=1/24.",
+      "missing_numeric_inputs": [
+        "all subsidiary validity conditions from McCurley's theorem",
+        "the exact exceptional-zero case cutoff used in the PAP composition"
+      ],
+      "upstream": [],
+      "status": "PARTIAL_NUMERIC",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-PAP-GALLAGHER",
+      "branch": "PAP",
+      "locator": "Sono Section 5, equation (5.2); Gallagher density theorem",
+      "role": "zero-density estimate near sigma=1",
+      "printed_or_derived_information": "Sono uses absolute constants a,b and later chooses a=(3/10)c_ZFR=1/80.",
+      "missing_numeric_inputs": [
+        "the Vinogradov multiplier",
+        "the full numerical parameter range",
+        "the finite x at which the chosen a is valid in every case"
+      ],
+      "upstream": [
+        "H1C-PAP-ZFR"
+      ],
+      "status": "SOURCE_REVIEW_REQUIRED",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-PAP-JUTILA",
+      "branch": "PAP",
+      "locator": "Sono Section 5, Jutila Theorem 1",
+      "role": "zero-density exponent used to set D_PAP",
+      "printed_or_derived_information": "Jutila's 1977 theorem gives exponent 6+epsilon in the high-alpha range; Sono combines ranges using c_ZD=16 and takes D_PAP=10c_ZD=160.",
+      "missing_numeric_inputs": [
+        "the epsilon-dependent implied multiplier",
+        "the finite valid range",
+        "the numerical bridge between the high- and low-alpha cases"
+      ],
+      "upstream": [],
+      "status": "PARTIAL_NUMERIC",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-PAP-MAIER",
+      "branch": "PAP",
+      "locator": "Sono Section 5, invocation of Maier Lemma 2",
+      "role": "transfer from density estimates to a pointwise progression lower bound",
+      "printed_or_derived_information": "Sono states that Maier's proof is valid for x>=Q^(10 c_ZD).",
+      "missing_numeric_inputs": [
+        "all constants and endpoint conditions inside Maier Lemma 2",
+        "a numerical verification that the Gallagher/Jutila inputs meet those conditions"
+      ],
+      "upstream": [
+        "H1C-PAP-GALLAGHER",
+        "H1C-PAP-JUTILA"
+      ],
+      "status": "SOURCE_REVIEW_REQUIRED",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-PAP-PRINCIPAL",
+      "branch": "PAP",
+      "locator": "Sono Section 5, principal-character term after Maier Lemma 2",
+      "role": "positive main term for psi(x;q,a)",
+      "printed_or_derived_information": "The principal contribution is written as (1+o(1))x/phi(q).",
+      "missing_numeric_inputs": [
+        "a one-sided numerical rate for the o(1) term",
+        "a finite starting x uniform over q"
+      ],
+      "upstream": [
+        "H1C-PAP-MAIER"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-PAP-NONPRINCIPAL",
+      "branch": "PAP",
+      "locator": "Sono Section 5, nonprincipal-character contribution",
+      "role": "subtraction error below the principal term",
+      "printed_or_derived_information": "The contribution is O_<= of x exp(-aD)/phi(q), leading formally to C_PAP=1-exp(-2) for a=1/80 and D=160.",
+      "missing_numeric_inputs": [
+        "the finite cutoff hidden in O_<=",
+        "case-complete exceptional-character bookkeeping",
+        "a simultaneous one-sided comparison with the principal term"
+      ],
+      "upstream": [
+        "H1C-PAP-MAIER"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-PAP-PSI-PI",
+      "branch": "PAP",
+      "locator": "Sono Assumption 3.2, transition from weighted psi estimates to pi",
+      "role": "prime-power removal and partial summation",
+      "printed_or_derived_information": "The target is a lower bound for pi(x;q,a), while Section 5 works through character sums for psi.",
+      "missing_numeric_inputs": [
+        "explicit prime-power error",
+        "one-sided partial-summation constants",
+        "endpoint and log variation bounds uniform in q"
+      ],
+      "upstream": [
+        "H1C-PAP-PRINCIPAL",
+        "H1C-PAP-NONPRINCIPAL"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-PAP-PACKAGE",
+      "branch": "PAP",
+      "locator": "Sono Assumption 3.2 and Section 5 composition",
+      "role": "numerical PAP with C_PAP=1-e^-2 and D_PAP=160",
+      "printed_or_derived_information": "The coefficient and exponent are explicit, but the theorem is still stated with 1+o(1) and sufficiently-large conditions.",
+      "missing_numeric_inputs": [
+        "all upstream multipliers and cutoffs",
+        "a common q,x range including the exceptional case",
+        "an independently checked one-sided pi lower-bound certificate"
+      ],
+      "upstream": [
+        "H1C-PAP-ZFR",
+        "H1C-PAP-PSI-PI"
+      ],
+      "status": "HARD_BLOCKER",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-AH-ALTERNATIVE",
+      "branch": "ALTERNATIVE",
+      "locator": "Akbary-Hambrook, arXiv:1309.2730, Theorem 1.3",
+      "role": "candidate explicit Bombieri-Vinogradov input",
+      "printed_or_derived_information": "The theorem supplies explicit constants for a restricted modulus family whose least prime factor exceeds a prescribed threshold.",
+      "missing_numeric_inputs": [
+        "a proof reducing every required FGKMT modulus to the rough-modulus family",
+        "a complete treatment of the omitted small-prime-factor moduli",
+        "compatibility with the exceptional-prime and affine-form conditions"
+      ],
+      "upstream": [],
+      "status": "ALTERNATIVE_NOT_DIRECT_SUBSTITUTE",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-RELATION",
+      "branch": "LOGICAL_RELATION",
+      "locator": "Comparison of FGKMT Hypothesis 1(2) with Sono Assumption PAP",
+      "role": "prevent a false implication in the proof DAG",
+      "printed_or_derived_information": "Hypothesis 1(2) is an average discrepancy estimate through moduli up to y^(1/3); PAP is a pointwise lower bound with x>=q^160, hence q<=x^(1/160). They share analytic inputs but neither statement implies the other as printed.",
+      "missing_numeric_inputs": [
+        "separate numerical closures for both sibling packages"
+      ],
+      "upstream": [],
+      "status": "LOGICAL_RELATION_CORRECTED",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1C-COMMON-CUTOFF",
+      "branch": "COMPOSITION",
+      "locator": "Joint downstream use in the Sono/FMT threshold proof",
+      "role": "one x range satisfying the sibling Hypothesis 1 and PAP packages",
+      "printed_or_derived_information": "The two packages may both be needed downstream, but they must be proved separately before their cutoffs can be maximized.",
+      "missing_numeric_inputs": [
+        "a numerical Hypothesis 1 package",
+        "a numerical PAP package",
+        "all parameter translations to one common variable and range"
+      ],
+      "upstream": [
+        "H1C-HYP1-PACKAGE",
+        "H1C-PAP-PACKAGE",
+        "H1C-RELATION"
+      ],
+      "status": "HARD_BLOCKER",
+      "threshold_ready": false
+    }
+  ],
+  "canonical_corrections": [
+    {
+      "target": "T1 source key and PAP-04",
+      "old": "JUTILA1970",
+      "new": "JUTILA1977",
+      "reason": "Sono reference [10] and the journal record identify volume 41 as 1977."
+    },
+    {
+      "target": "T1 SIV-08 dependency",
+      "old": "depends_on PAP-11",
+      "new": "no direct dependency",
+      "reason": "The average-discrepancy Hypothesis 1 package and pointwise PAP lower bound are sibling obligations, not logical implications."
+    }
+  ],
+  "next_gate": {
+    "id": "H1c-1",
+    "description": "Quantitatively audit the character-distribution path behind FGKMT (7.2)-(7.3), including a fixed epsilon, explicit affine-form mapping, and an explicit prime-density lower bound; evaluate the Akbary-Hambrook route only as a separate proof redesign.",
+    "ready_for_threshold_calculator": false
+  }
+}

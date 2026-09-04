@@ -127,6 +127,18 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             ),
         )
 
+    def test_h1c_source_and_sibling_dependency_corrections(self) -> None:
+        source_keys = {source["key"] for source in self.document["source_registry"]}
+        self.assertIn("JUTILA1977", source_keys)
+        self.assertNotIn("JUTILA1970", source_keys)
+        self.assertEqual(self.by_id["PAP-04"]["source_key"], "JUTILA1977")
+        self.assertEqual(self.by_id["SIV-08"]["depends_on"], [])
+        self.assertEqual(self.by_id["SIV-08"]["status"], "HARD_BLOCKER")
+        self.assertEqual(
+            self.document["h1c_ledger"],
+            "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

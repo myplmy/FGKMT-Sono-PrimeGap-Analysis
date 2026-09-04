@@ -1,6 +1,9 @@
 {
   "schema_version": "1.0.0",
   "created_kst": "2026-09-02 17:22",
+  "updated_kst": "2026-09-04",
+  "h1b1_ledger": "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
+  "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
   "target": "For every X >= X_cert, G_1(X) >= 2e-17 * log(X) * log_2(X) * log_4(X) / log_3(X)",
   "scope": "Direct proof edges from Sono Theorem 3.6 through the cited FMT, FGKMT, and Maynard layers. This is an obligation inventory, not a numerical threshold certificate.",
   "status_vocabulary": {
@@ -55,9 +58,9 @@
       "url": "https://doi.org/10.1007/BF01403187"
     },
     {
-      "key": "JUTILA1970",
+      "key": "JUTILA1977",
       "title": "On Linnik's Constant",
-      "locator": "Sono reference [11]",
+      "locator": "Sono reference [10], Mathematica Scandinavica 41 (1977), 45-62",
       "sha256": null,
       "url": "https://doi.org/10.7146/math.scand.a-11701"
     },
@@ -194,7 +197,7 @@
       "id": "PAP-04",
       "stage": "PAP",
       "node": "Jutila zero-density exponent",
-      "source_key": "JUTILA1970",
+      "source_key": "JUTILA1977",
       "source_page": "Sono 535-536",
       "equation": "zero-density input preceding (5.3)",
       "quantity": "c_ZD",
@@ -1021,11 +1024,11 @@
       "direction": "upper errors and lower main terms",
       "explicit_bound": "decay powers such as log^-100k^2 x and log^-1/10 x are printed; implied constants and x threshold are not",
       "valid_range": "k<=log^(1/5)x and all Hypothesis 1 conditions",
-      "depends_on": ["PAP-11"],
+      "depends_on": [],
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "uniform AP-distribution certificate",
-      "notes": "Maynard says the resulting constants are effective if these implied constants are effective."
+      "notes": "H1c shows that clauses (1) and (3) have elementary finite sufficient reductions, while clause (2) still needs a quantitative character/Bombieri-Vinogradov and prime-density package. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
     },
     {
       "id": "SIV-09",

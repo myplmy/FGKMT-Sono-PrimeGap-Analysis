@@ -7,8 +7,10 @@
   "overall_outcome": "CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED",
   "numerical_x_cert_ready": false,
   "actual_threshold_computed": false,
-  "scope_note": "This file records source-level recoverability plus the project H1a update for SIV-06 and the H1b constant-dependency inventory for SIV-07/SIV-09. H1a and H1b are documented separately; this trace is not a full good-weight proof, a numerical threshold certificate, or a runtime guarantee.",
+  "scope_note": "This file records source-level recoverability plus the project H1a update for SIV-06, the H1b/H1b-1 inventories for SIV-07/SIV-09, and the H1c sibling source traces for SIV-08 and PAP-11. These audits are documented separately; this trace is not a full good-weight proof, a numerical threshold certificate, or a runtime guarantee.",
   "h1b_ledger": "docs/method/theory/data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json",
+  "h1b1_ledger": "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
+  "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
     "CONSTRUCTIVE_PATH_IDENTIFIED": "The proof gives enough structure to formulate a finite lemma, but the printed source does not supply its final numeric constant.",
@@ -116,7 +118,7 @@
       "question": "Can Maynard Proposition 6.1 constants be written as explicit functions of Hypothesis 1 constants?",
       "source_keys": ["MAYNARD2016", "FGKMT2016"],
       "source_locator": "Maynard Proposition 6.1 and Sections 8-9; FGKMT Theorem 6 (7.5)-(7.9)",
-      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)).",
+      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1 identified the correct GGPY Lemma 4 source and the kappa=1 specialization used by Lemma 8.3.",
       "missing_numeric_inputs": [
         "the constants multiplying all moment errors",
         "finite cutoffs in repeated negligible-error arguments",
@@ -124,7 +126,7 @@
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "H1b has registered 17 source-level obligations without closing this row. Continue with H1b-1 for Lemmas 8.1-8.4 and imported summation constants, and H1c for numerical Hypothesis 1 inputs; do not treat displayed log rates as having unit constants.",
+      "next_action": "H1b-1 traced 13 lower summation nodes but recovered no numerical multiplier table. Continue with H1b-1a for an explicit cutoff and elementary prime-product/totient bounds, then reconstruct the GGPY/HR multiplier and Lemma 8.4 accumulation; do not treat displayed log rates as having unit constants.",
       "threshold_ready": false
     },
     {
@@ -133,7 +135,7 @@
       "question": "Are FGKMT Hypothesis 1 constants numerically available for the required linear forms?",
       "source_keys": ["FGKMT2016"],
       "source_locator": "FGKMT Lemma 7.2 and equations (7.2)-(7.3)",
-      "printed_information": "Lemma 7.2 states uniform absolute implied constants and uses an effective character-sum bound followed by a standard Bombieri-Vinogradov proof.",
+      "printed_information": "Lemma 7.2 states uniform absolute implied constants and uses an effective character-sum bound followed by a standard Bombieri-Vinogradov proof. H1c gives exact sufficient reductions for the elementary A=Z clauses (1) and (3), but not for the prime-distribution clause (2).",
       "missing_numeric_inputs": [
         "a numerical sufficiently-small exceptional-zero parameter",
         "constants and starting ranges in the Landau-Page and zero-free estimates",
@@ -141,7 +143,7 @@
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "Treat this as a joint SIV/PAP dependency and trace the character-sum package before assigning any Hypothesis 1 number.",
+      "next_action": "H1c established that Hypothesis 1 and PAP are sibling obligations rather than implications. Quantitatively reconstruct FGKMT (7.2)-(7.3), the affine-form map, and the represented-prime lower bound before assigning any Hypothesis 1 number.",
       "threshold_ready": false
     },
     {
@@ -191,7 +193,7 @@
       ],
       "recoverability": "DEPENDENCY_BLOCKED",
       "reproof_scale": "RESEARCH_PROGRAM",
-      "next_action": "Do not build a threshold calculator. H1a is complete and H1b mapped the missing constants, but the numerical package remains open. Continue with H1b-1 and H1c, followed by H1b-2 moment composition.",
+      "next_action": "Do not build a threshold calculator. H1a is complete; H1b-1 and H1c traced their lower sources but left both numerical packages open. Continue with H1b-1a and H1c-1, then attempt H1b-2 moment composition.",
       "threshold_ready": false
     }
   ]

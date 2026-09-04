@@ -468,3 +468,30 @@ numerical (X_0) 계산기를 만들지 않았다.
 검증됐고 cycle은 0건이다. 이로써 T1 inventory는 완료됐지만 numerical `X_cert`는 계속 OPEN이다.
 다음 gate는 FMT/Maynard good-sieve-weight 층의 상수와 finite range를 실제로 복원할 수 있는지
 판정하는 H1이다.
+
+## 15. 2026-09-04 H1b-1·H1c 후속 감사
+
+H1a 뒤 T1 분류는 `EXPLICIT 6`, `PARTIAL 10`, `RATE_MISSING 30`,
+`SOURCE_REVIEW_REQUIRED 4`, `HARD_BLOCKER 16`이다. H1b-1과 H1c는 source·논리관계를 더
+정확하게 만들었지만 T1 row 자체의 status 수는 바꾸지 않았다.
+
+- H1b-1: Maynard Lemmas 8.1–8.4를 13개 node로 분해하고 Lemma 8.3의 정확한 GGPY source를
+  확인했다. numerical summation multiplier와 common cutoff는 OPEN이다.
+- H1c: FGKMT Hypothesis 1과 Sono PAP를 20개 node로 분리했다. Hypothesis 1(1),(3)은
+  \(\mathcal A=\mathbb Z\)에서 exact sufficient reduction이 있지만, condition (2)와 PAP의
+  finite rate는 OPEN이다.
+- 논리 정정: `PAP-11 -> SIV-08`은 함의 관계가 아니므로 제거했다. 둘은 shared analytic source를
+  가진 sibling root다.
+- 서지 정정: Jutila *On Linnik's Constant*는 1970이 아니라 1977 출판이다.
+
+따라서 최종 판정은 변하지 않는다.
+
+```text
+X_cert = OPEN
+threshold calculator = NOT READY
+새 prime sweep = NOT A CURRENT PROOF BOTTLENECK
+```
+
+상세 정본은
+`docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md`와
+`docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`다.

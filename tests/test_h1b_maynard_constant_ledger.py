@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import unittest
+from collections import Counter
 from pathlib import Path
 
 
@@ -46,12 +47,29 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
-        self.assertEqual(sources, {"MAYNARD2016", "GGPY2009_CITED"})
+        self.assertEqual(sources, {"MAYNARD2016", "GGPY2009"})
         maynard = next(
             row for row in self.document["source_registry"] if row["key"] == "MAYNARD2016"
         )
         self.assertEqual(maynard["doi"], "10.1112/S0010437X16007296")
         self.assertEqual(maynard["arxiv"], "1405.2593")
+        ggpy = next(
+            row for row in self.document["source_registry"] if row["key"] == "GGPY2009"
+        )
+        self.assertEqual(ggpy["doi"], "10.1112/plms/pdn046")
+        self.assertEqual(ggpy["title"], "Small Gaps Between Products of Two Primes")
+        self.assertEqual(
+            Counter(row["status"] for row in self.rows),
+            Counter(
+                {
+                    "RATE_MISSING": 11,
+                    "INPUT_PACKAGE_MISSING": 3,
+                    "PARTIAL_EXPLICIT": 1,
+                    "PROJECT_FINITE_COMPONENT_CLOSED": 1,
+                    "HARD_BLOCKER": 1,
+                }
+            ),
+        )
 
     def test_required_fields_statuses_and_dependencies(self) -> None:
         required = {
@@ -105,6 +123,14 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "H1B-P95",
         ):
             self.assertIn(row_id, self.by_id)
+
+    def test_h1b1_trace_resolves_source_identity_not_numeric_rate(self) -> None:
+        self.assertEqual(
+            self.document["h1b1_ledger"],
+            "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
+        )
+        self.assertEqual(self.by_id["H1B-L83"]["status"], "RATE_MISSING")
+        self.assertTrue(self.by_id["H1B-L83"]["missing_numeric_inputs"])
 
     def test_h1a_component_is_closed_without_promoting_package(self) -> None:
         ratio = self.by_id["H1B-L86-RATIO"]

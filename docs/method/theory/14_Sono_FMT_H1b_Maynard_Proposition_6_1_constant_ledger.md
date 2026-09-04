@@ -8,6 +8,8 @@
 - numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
 - 기계 판독 정본:
   [`data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json`](data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json)
+- H1b-1 하위 감사:
+  [`15_Sono_FMT_H1b1_basic_summation_constant_audit.md`](15_Sono_FMT_H1b1_basic_summation_constant_audit.md)
 
 ## 1. 결론부터
 
@@ -51,8 +53,11 @@ moment가 어떤 주항과 오차 모양을 갖는지, 그 상수들이 \(\alpha
 - Lemmas 8.1–8.6의 singular series, summation, coefficient, integral bound
 - Propositions 9.1, 9.2, 9.4, 9.5와 Lemma 9.3의 moment 증명
 
-Lemma 8.3이 인용하는 Goldston–Graham–Pintz–Yıldırım의 하위 summation lemma는 이번 단계에서
-증명 내부까지 재감사하지 않았다. 그 상수는 `SOURCE_REVIEW_REQUIRED`로 남겼다.
+H1b-1 후속 감사에서 Lemma 8.3의 정확한 하위 source가
+Goldston–Graham–Pintz–Yıldırım의 *Small Gaps Between Products of Two Primes*, Lemma 4의
+\(\kappa=1\) 특수화임을 확인했다. source identity는 닫혔지만 GGPY Lemma 3과
+Halberstam–Richert에서 올라오는 multiplier·finite range는 숫자로 복원되지 않았다. 따라서 이
+행은 `SOURCE_REVIEW_REQUIRED`가 아니라 `RATE_MISSING`으로 정정하되, closed로 승격하지 않는다.
 
 ## 3. Proposition 6.1에 실제로 인쇄된 parameter gate
 
@@ -77,8 +82,8 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 |---|---:|
 | `PARTIAL_EXPLICIT` | 1 |
 | `PROJECT_FINITE_COMPONENT_CLOSED` | 1 |
-| `RATE_MISSING` | 10 |
-| `SOURCE_REVIEW_REQUIRED` | 1 |
+| `RATE_MISSING` | 11 |
+| `SOURCE_REVIEW_REQUIRED` | 0 |
 | `INPUT_PACKAGE_MISSING` | 3 |
 | `HARD_BLOCKER` | 1 |
 | **합계** | **17** |
@@ -91,7 +96,7 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-HYP-03` | Hypothesis 1(3) | progression 집중 방지 | `INPUT_PACKAGE_MISSING` | \(\ll\) 상수·시작점 |
 | `H1B-L81` | Lemma 8.1 | singular series 하한 | `RATE_MISSING` | \(\exp(-Ck)\)의 \(C\) |
 | `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `RATE_MISSING` | \(O\)-multiplier |
-| `H1B-L83` | Lemma 8.3 | multiplicative sum | `SOURCE_REVIEW_REQUIRED` | 인용 lemma의 상수 |
+| `H1B-L83` | Lemma 8.3 | multiplicative sum | `RATE_MISSING` | GGPY/HR multiplier·finite range |
 | `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | 반복될 오차의 상수·smallness cutoff |
 | `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `RATE_MISSING` | \(R^{2+o(1)}\)의 finite 대체 |
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
@@ -182,12 +187,14 @@ CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN
 
 ## 8. 다음 proof gate
 
-1. **H1b-1:** Lemmas 8.1–8.4와 인용 multiplicative/divisor-sum lemma의 상수를 explicit화한다.
-2. **H1c:** FGKMT Lemma 7.2에서 Hypothesis 1/PAP의 숫자 package를 별도로 복원한다.
-3. **H1b-2:** 위 두 입력을 받은 뒤 Propositions 9.1–9.5를 지정 error budget으로 재증명한다.
+1. **H1b-1a:** explicit smooth cutoff와 elementary prime-product/totient bound를 먼저 고정한다.
+2. **H1c-1:** FGKMT (7.2)–(7.3)의 character/Bombieri–Vinogradov package를 정량화한다.
+3. **H1b-1b:** GGPY/HR multiplier와 Lemma 8.4의 반복오차를 합성한다.
+4. **H1b-2:** 위 입력을 받은 뒤 Propositions 9.1–9.5를 지정 error budget으로 재증명한다.
 4. **H1d:** FMT/FGKMT의 \(u\), good-event, covering 단계와 공통 \((r,x)\) slack을 합성한다.
 
-H1b-1과 H1c는 논리적으로 병렬 조사할 수 있다. H1b-2는 두 입력 없이 수치화할 수 없다.
+H1b-1 source trace와 H1c source trace는 완료됐지만 numerical package는 둘 다 열려 있다.
+H1b-1a와 H1c-1은 논리적으로 병렬 조사할 수 있다. H1b-2는 두 입력 없이 수치화할 수 없다.
 이 단계가 끝날 때까지 threshold calculator와 장시간 prime sweep을 만들지 않는다.
 
 ## 9. 검증 계약
@@ -202,3 +209,22 @@ H1b-1과 H1c는 논리적으로 병렬 조사할 수 있다. H1b-2는 두 입력
 
 이 검증은 문서의 내부 정합성을 검사한다. Maynard의 정리를 독립 재증명하거나 수치 상수를
 계산하는 실험은 아니다.
+
+## 10. 2026-09-04 H1b-1 source 감사 반영
+
+H1b-1은 Lemmas 8.1–8.4를 13개 하위 node로 분해했다. source chain은 추적됐지만 숫자 상수표는
+얻지 못했다. 특히 다음이 남는다.
+
+- Lemma 8.1의 \(\exp(-Ck)\)에서 실제 \(C\)
+- 고정 smooth cutoff의 식과 derivative norm
+- GGPY Lemmas 3–4 및 Halberstam–Richert에서 오는 multiplier
+- Lemma 8.4의 \(r\)-fold error smallness와 common cutoff
+
+따라서 parent 원장의 상태 이동은 오직 다음 하나다.
+
+```text
+H1B-L83: SOURCE_REVIEW_REQUIRED -> RATE_MISSING
+```
+
+이는 source 이름을 찾았다는 뜻이며 numerical closure가 아니다. `SIV-07`, `SIV-09`와
+\(X_{\mathrm{cert}}\)는 그대로 `OPEN`이다.

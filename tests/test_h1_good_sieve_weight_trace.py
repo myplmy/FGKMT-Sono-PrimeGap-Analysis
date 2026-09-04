@@ -85,6 +85,21 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
         package = self.by_id["H1-SIV-11"]
         self.assertEqual(package["recoverability"], "DEPENDENCY_BLOCKED")
 
+    def test_followup_ledgers_are_linked_without_promoting_h1(self) -> None:
+        self.assertEqual(
+            self.document["h1b1_ledger"],
+            "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1c_ledger"],
+            "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
+        )
+        self.assertEqual(
+            self.by_id["H1-SIV-08"]["recoverability"],
+            "QUANTITATIVE_REPROOF_REQUIRED",
+        )
+        self.assertFalse(self.document["numerical_x_cert_ready"])
+
     def test_finite_integral_project_lemma_is_closed_but_not_threshold(self) -> None:
         integral = self.by_id["H1-SIV-06"]
         self.assertEqual(integral["recoverability"], "PROJECT_FINITE_LEMMA_PROVED")

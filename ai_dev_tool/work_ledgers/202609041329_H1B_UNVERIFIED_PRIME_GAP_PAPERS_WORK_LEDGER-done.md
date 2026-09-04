@@ -89,7 +89,7 @@
 - 권장 순서: H1b-1 기본 summation 상수 → H1c Hypothesis 1/PAP → H1b-2 moment 합성;
   PrimeGaps186 독립 재현은 별도 보조축으로 분리했다.
 - 사용자 현재 실행 명령: 없음. 별도 승인 전 PrimeGaps186 clone/install/run과 actual prime 실험은 금지.
-- 최종 감사: PDF hash 2/2 일치, 금지 용어 `FGMT` 0, 상대 링크 누락 0,
+- 최종 감사: 금지된 4글자 프로젝트명 오타 0, PDF hash 2/2 일치, 상대 링크 누락 0,
   control character 0, handoff 존재 확인, `git diff --check` error 0.
 
 ## 현재 재개점

@@ -1,0 +1,275 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-04",
+  "gate": "H1b-1 Maynard Lemmas 8.1-8.4 basic summation constant audit",
+  "target_obligation": "SIV-07",
+  "scope": "Source-level decomposition of the singular-series, Lipschitz, one-dimensional multiplicative summation, and iterated summation constants used in Maynard Lemmas 8.1-8.4. This is not a quantitative reproof and supplies no numerical theorem threshold.",
+  "outcome": "SOURCE_CHAIN_TRACED_NUMERICAL_SUMMATION_CONSTANTS_OPEN",
+  "lemma_8_3_citation_identified": true,
+  "lemma_8_3_numeric_multiplier_recovered": false,
+  "numerical_basic_summation_package_ready": false,
+  "siv_07_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_PUBLISHED",
+      "title": "Dense Clusters of Primes in Subsets",
+      "authors": "James Maynard",
+      "publication": "Compositio Mathematica 152 (2016), 1517-1554",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "url": "https://www.cambridge.org/core/journals/compositio-mathematica/article/dense-clusters-of-primes-in-subsets/B49458BB98CB2D9C93ACF3BB09B4B08D",
+      "reviewed_locations": "Lemmas 8.1-8.4 and the published correction note following Lemma 8.3",
+      "status": "PRIMARY_REVIEWED"
+    },
+    {
+      "key": "GGPY2009",
+      "title": "Small Gaps Between Products of Two Primes",
+      "authors": "D. A. Goldston, S. W. Graham, J. Pintz, C. Y. Yildirim",
+      "publication": "Proceedings of the London Mathematical Society 98 (2009), 741-774",
+      "doi": "10.1112/plms/pdn046",
+      "url": "https://doi.org/10.1112/plms/pdn046",
+      "reviewed_locations": "Lemmas 3-4; Maynard Lemma 8.3 invokes Lemma 4 with kappa=1",
+      "status": "PRIMARY_REVIEWED_TO_IMPORTED_LEMMA"
+    },
+    {
+      "key": "GGPY2013_CORRIGENDUM",
+      "title": "Corrigendum: Small Gaps Between Products of Two Primes",
+      "authors": "D. A. Goldston, S. W. Graham, J. Pintz, C. Y. Yildirim",
+      "publication": "Proceedings of the London Mathematical Society 106 (2013)",
+      "doi": "10.1112/plms/pds053",
+      "url": "https://doi.org/10.1112/plms/pds053",
+      "reviewed_locations": "bibliographic scope and stated correction target",
+      "status": "METADATA_AND_SCOPE_REVIEWED"
+    },
+    {
+      "key": "HR1974",
+      "title": "Sieve Methods",
+      "authors": "H. Halberstam and H.-E. Richert",
+      "publication": "London Mathematical Society Monographs 4 (1974)",
+      "doi": null,
+      "url": null,
+      "reviewed_locations": "GGPY Lemma 3 cites Lemmas 5.3 and 5.4; their numerical proof constants were not reconstructed",
+      "status": "LOWER_SOURCE_NUMERICAL_REVIEW_REQUIRED"
+    }
+  ],
+  "status_vocabulary": {
+    "PRINTED_STRUCTURAL_FACT": "The source explicitly states the structural fact, but this alone is not a numerical summation bound.",
+    "SOURCE_CHAIN_TRACED": "The cited lower-level theorem and specialization are identified, while its implied multiplier remains non-numeric.",
+    "CONSTRUCTIVE_SUBPROBLEM": "A finite choice or inequality can be specified by the project, but has not yet been quantitatively proved and composed.",
+    "RATE_MISSING": "At least one O, o, Vinogradov multiplier, norm, or sufficiently-large cutoff is not numerical.",
+    "LOWER_SOURCE_REVIEW_REQUIRED": "A lower cited proof must be quantitatively reconstructed before a multiplier can be certified.",
+    "HARD_BLOCKER": "The composed basic-summation package cannot be certified until every upstream row has a numerical bound and common range."
+  },
+  "obligations": [
+    {
+      "id": "H1B1-L81-SMALL",
+      "locator": "Maynard Lemma 8.1(i), product over p <= 2k",
+      "role": "small-prime part of the singular-series lower bound",
+      "printed_information": "The proof isolates a finite product containing 1/p factors and concludes a lower bound of exponential size in k.",
+      "missing_numeric_inputs": [
+        "an explicit lower bound for the finite prime product as a function of k",
+        "the finite k range compatible with all exceptional-prime cases"
+      ],
+      "upstream": [],
+      "status": "CONSTRUCTIVE_SUBPROBLEM",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L81-TAIL",
+      "locator": "Maynard Lemma 8.1(i), product over p > 2k",
+      "role": "large-prime tail of the singular-series lower bound",
+      "printed_information": "The factors are expanded with an O(k^2/p^2) logarithmic error and combined into exp(-Ck).",
+      "missing_numeric_inputs": [
+        "a uniform remainder constant in the logarithmic expansion",
+        "an explicit bound for the prime-square tail",
+        "a numerical value of C and its valid k range"
+      ],
+      "upstream": [],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L81II-DIVISOR",
+      "locator": "Maynard Lemma 8.1(ii)",
+      "role": "average Delta/phi(Delta) estimate for nearby extra linear forms",
+      "printed_information": "The proof gives a bound of order eta log x log k through Delta/phi(Delta), prime-divisor sums, and Euler products.",
+      "missing_numeric_inputs": [
+        "explicit constants in Delta/phi(Delta) and the prime-divisor sums",
+        "the Euler-product multiplier",
+        "the cutoff needed to absorb the o(eta log x) term"
+      ],
+      "upstream": [],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L82-CUTOFF",
+      "locator": "Maynard Section 8 before Lemma 8.2",
+      "role": "fully specified smooth cutoff psi and its norms",
+      "printed_information": "A fixed smooth psi supported on [0,1] and equal to 1 on [0,9/10] is required, but no formula or numerical derivative norm is fixed.",
+      "missing_numeric_inputs": [
+        "an explicit smooth formula for psi",
+        "certified sup norms for every derivative used later",
+        "proof that the selected psi preserves all support and normalization requirements"
+      ],
+      "upstream": [],
+      "status": "CONSTRUCTIVE_SUBPROBLEM",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L82-LIPSCHITZ",
+      "locator": "Maynard Lemma 8.2",
+      "role": "Lipschitz control for shifted coefficient arguments",
+      "printed_information": "The change is O(T_k Y log A/log R), with a companion estimate using Y_r+Y_s.",
+      "missing_numeric_inputs": [
+        "the O multiplier in terms of the chosen cutoff norms",
+        "a finite bound for T_k and Y after the actual test function is fixed",
+        "a common valid range for all later substitutions"
+      ],
+      "upstream": [
+        "H1B1-L82-CUTOFF"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L83-GGPY4",
+      "locator": "Maynard Lemma 8.3; GGPY2009 Lemma 4 with kappa=1",
+      "role": "one-dimensional multiplicative summation",
+      "printed_information": "The main term and error shape c_gamma(1+L)G_max are printed; the imported general lemma has an implied constant depending on A1, A2, and kappa.",
+      "missing_numeric_inputs": [
+        "the implied constant for kappa=1 as a function of A1 and A2",
+        "the finite z range inherited from the proof"
+      ],
+      "upstream": [
+        "H1B1-L83-GGPY3"
+      ],
+      "status": "SOURCE_CHAIN_TRACED",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L83-PUBLISHED-NOTE",
+      "locator": "Maynard published version, note following Lemma 8.3",
+      "role": "version-control correction for the general kappa statement",
+      "printed_information": "The published paper notes that a c_gamma(L+1)^kappa error is needed in general, but that this issue does not affect the kappa=1 application.",
+      "missing_numeric_inputs": [
+        "the numerical multiplier still hidden in the kappa=1 error term"
+      ],
+      "upstream": [],
+      "status": "PRINTED_STRUCTURAL_FACT",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L83-GGPY3",
+      "locator": "GGPY2009 Lemma 3; Halberstam-Richert Lemmas 5.3-5.4",
+      "role": "lower-level summation estimate used by GGPY Lemma 4",
+      "printed_information": "GGPY identifies the lower sieve lemmas from which the estimate follows, but does not instantiate a project-ready numerical multiplier.",
+      "missing_numeric_inputs": [
+        "the constants and ranges in the cited Halberstam-Richert lemmas",
+        "a checked propagation of those constants into GGPY Lemma 3"
+      ],
+      "upstream": [],
+      "status": "LOWER_SOURCE_REVIEW_REQUIRED",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L84-GAMMA",
+      "locator": "Maynard Lemma 8.4, verification of Lemma 8.3 hypotheses",
+      "role": "numerical A1 and A2 for the multiplicative function gamma",
+      "printed_information": "The proof has gamma(p)=0 on excluded primes and gamma(p)=1+O(k/p) otherwise, and says fixed A1,A2 are available for sufficiently large k.",
+      "missing_numeric_inputs": [
+        "the O multiplier in gamma(p)=1+O(k/p)",
+        "specific admissible values of A1 and A2",
+        "the first k for which the hypotheses hold uniformly"
+      ],
+      "upstream": [],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L84-L",
+      "locator": "Maynard Lemma 8.4, bound for L",
+      "role": "prime-divisor discrepancy parameter in repeated summation",
+      "printed_information": "The proof bounds L by a constant multiple of log log R after splitting small and large prime divisors.",
+      "missing_numeric_inputs": [
+        "constants in both prime-divisor sums",
+        "the hidden exponent in W/product(e_i) <= R^(O(k^2))",
+        "a finite R and k range"
+      ],
+      "upstream": [],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L84-SMOOTH",
+      "locator": "Maynard Lemma 8.4 and equation (8.15)",
+      "role": "smooth-test-function derivative norm Omega_G",
+      "printed_information": "The error is controlled by r Omega_G log log R/log R times the main scale.",
+      "missing_numeric_inputs": [
+        "a numerical Omega_G for the selected test function",
+        "the constants connecting Omega_G to G_max and the integral",
+        "a finite proof of r Omega_G=o(log R/log log R)"
+      ],
+      "upstream": [
+        "H1B1-L82-CUTOFF"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-L84-ITERATION",
+      "locator": "Maynard Lemma 8.4, r-fold application of Lemma 8.3",
+      "role": "accumulation and absorption of one-dimensional summation errors",
+      "printed_information": "The proof applies Lemma 8.3 repeatedly and replaces products of 1+O(epsilon) by a total O(r epsilon) error.",
+      "missing_numeric_inputs": [
+        "a certified smallness range for epsilon",
+        "the exact binomial or exponential accumulation multiplier",
+        "a common range after all r iterations"
+      ],
+      "upstream": [
+        "H1B1-L82-LIPSCHITZ",
+        "H1B1-L83-GGPY4",
+        "H1B1-L84-GAMMA",
+        "H1B1-L84-L",
+        "H1B1-L84-SMOOTH"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1-PACKAGE",
+      "locator": "Composition of Maynard Lemmas 8.1-8.4",
+      "role": "single numerical basic-summation package for later moment proofs",
+      "printed_information": "The source chain and qualitative error shapes are identified, but no common numerical cutoff or multiplier table is printed.",
+      "missing_numeric_inputs": [
+        "all upstream numerical constants",
+        "one explicit cutoff function and norm package",
+        "a shared error budget and maximum finite cutoff"
+      ],
+      "upstream": [
+        "H1B1-L81-SMALL",
+        "H1B1-L81-TAIL",
+        "H1B1-L81II-DIVISOR",
+        "H1B1-L82-LIPSCHITZ",
+        "H1B1-L83-PUBLISHED-NOTE",
+        "H1B1-L84-ITERATION"
+      ],
+      "status": "HARD_BLOCKER",
+      "threshold_ready": false
+    }
+  ],
+  "parent_ledger_update": {
+    "parent_row": "H1B-L83",
+    "old_status": "SOURCE_REVIEW_REQUIRED",
+    "new_status": "RATE_MISSING",
+    "reason": "The correct GGPY Lemma 4 source and its kappa=1 specialization are now traced. The remaining failure is numerical: the multiplier and finite range, including lower Halberstam-Richert constants, are not instantiated.",
+    "does_not_close_parent": true
+  },
+  "next_gate": {
+    "id": "H1b-1a",
+    "description": "Choose an explicit smooth cutoff psi, certify all needed derivative norms, and derive finite elementary prime-product and totient bounds before attempting the full Lemma 8.4 composition.",
+    "ready_for_threshold_calculator": false
+  }
+}

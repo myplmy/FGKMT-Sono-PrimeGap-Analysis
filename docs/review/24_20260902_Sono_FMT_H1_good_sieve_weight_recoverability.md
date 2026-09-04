@@ -206,7 +206,7 @@ negligible error absorption이 여러 겹 남아 있다.
 | `SIV-01` (r_0,c_0) | Sono가 (c_0=1/5)을 인쇄 | finite (r_0), 모든 조건의 공통 시작점 | `DEPENDENCY_BLOCKED` |
 | `SIV-02` weight 존재 | weight가 finite sum의 제곱으로 구성돼 symbolic constructive | 모든 근사·uniformity의 수치 bound | `QUANTITATIVE_REPROOF_REQUIRED` |
 | `SIV-05` (u\asymp\log r) | leading scale와 (1/4) 계수 구조 | 양방향 finite 상수 | `CONSTRUCTIVE_PATH_IDENTIFIED` |
-| `SIV-06` (J_r/I_r) | Maynard (8.27)의 (1+O(1/\log r))와 전 단계 적분식 | (O)-상수, smoothing/tail bound, 최초 (r) | `CONSTRUCTIVE_PATH_IDENTIFIED` |
+| `SIV-06` (J_r/I_r) | H1a project theorem: 모든 정수 (r\ge36) | 이 row에는 없음; downstream은 별도 | `PROJECT_FINITE_LEMMA_PROVED` |
 | `SIV-07` Proposition 6.1 | Hypothesis 1 상수에 대한 effectivity 선언 | Sections 8–9의 모든 implied constant | `QUANTITATIVE_REPROOF_REQUIRED` |
 | `SIV-08` Hypothesis 1 | uniform absolute constants·effective character bound의 존재 | Landau–Page/BV/(\psi\to\pi)의 실제 상수·범위 | `QUANTITATIVE_REPROOF_REQUIRED` |
 | `SIV-09` moment formulas | 주항과 일부 (\log x)^{-1/10} rate 모양 | rate 앞의 상수와 공통 유효범위 | `QUANTITATIVE_REPROOF_REQUIRED` |
@@ -230,7 +230,7 @@ negligible error absorption이 여러 겹 남아 있다.
 
 ## 7. 다음 proof 연구 순서와 예상시간
 
-### 1순위 — H1a finite-r integral lemma
+### 완료 — H1a finite-r integral lemma
 
 - 내용: Maynard (8.25)–(8.27)의 smoothing·tail 적분을 명시 부등식으로 다시 쓰고, 선택한 (r)에
   대해 (J_r/I_r)의 rigorous lower bound를 만든다.
@@ -238,19 +238,19 @@ negligible error absorption이 여러 겹 남아 있다.
 - 예상 연구시간: source·수식 추적 1–5일; lemma가 완성된 뒤 interval 계산 수분–수시간.
 - 사용자 수행절차: 현재 별도 명령 없음.
 
-### 2순위 — H1b Maynard Proposition 6.1 constant ledger
+### 완료 — H1b Maynard Proposition 6.1 constant ledger
 
 - 내용: Sections 8–9의 각 lemma에서 상수 의존성과 finite cutoff를 행 단위로 등록한다.
 - 이유: `SIV-06` 하나가 성공해도 moment formula가 수치화되지 않으면 good weight는 닫히지 않는다.
 - 예상 연구시간: 1차 ledger 2–7일; 완전 정량 재증명은 수주 이상일 수 있다.
 - 사용자 수행절차: 현재 별도 명령 없음.
 
-### 3순위 — H1c Hypothesis 1/PAP 공동 추적
+### 완료 — H1b-1/H1c source tracing; 다음은 quantitative sub-gate
 
-- 내용: FGKMT Lemma 7.2가 호출하는 effective Landau–Page, zero-free, Bombieri–Vinogradov,
-  (\psi\to\pi) 상수를 실제 함수로 복원한다.
-- 이유: Maynard가 effectivity를 이 입력에 조건부로 두므로 독립 root blocker다.
-- 예상 연구시간: 수일–수주 이상; 전문 분석수론 검토가 필요할 가능성이 높다.
+- 내용: H1b-1은 기본 summation source를, H1c는 Hypothesis 1/PAP source를 분리해 추적했다.
+  다음 sub-gate는 H1b-1a explicit cutoff·소수곱과 H1c-1 quantitative character package다.
+- 이유: source 이름은 확인됐지만 수치 multiplier·finite cutoff는 아직 독립 root blocker다.
+- 예상 연구시간: 각 source-level 정식화 수일; 완전 정량 재증명은 수주 이상일 수 있다.
 - 사용자 수행절차: 현재 별도 명령 없음.
 
 ### 그 뒤 — T2 slack budget과 threshold calculator
@@ -262,13 +262,11 @@ negligible error absorption이 여러 겹 남아 있다.
 ## 8. 사용자에게 지금 요청할 사항
 
 현재 사용자 PC에서 실행할 명령은 없다. 새 prime sweep, WSL, PARI/GP 또는 장시간 runner도
-필요하지 않다. 다음 Codex 단계에서 H1a finite-r integral lemma 정식화에 착수할지 승인만 결정하면
-된다.
-
-권장 회신:
+필요하지 않다. H1a, H1b, H1b-1과 H1c source tracing은 완료됐고, 다음 Codex 수학 작업은
+H1b-1a 또는 H1c-1의 quantitative sub-gate다.
 
 ```text
-Sono/FMT H1a finite-r integral lemma 정식화 착수 승인.
+별도 수행절차 필요없음
 ```
 
 ## 9. 재현에 사용한 수치 근거
@@ -323,4 +321,27 @@ Propositions 9.1–9.5와 common-cutoff 합성으로 나눠 17개 obligation을 
 [`14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md`](../method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md),
 machine-readable 원장은
 [`Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json`](../method/theory/data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json)이다.
-다음 gate는 H1b-1 기본 summation 상수와 H1c Hypothesis 1/PAP 숫자 package다.
+당시 지정한 다음 gate는 H1b-1 기본 summation 상수와 H1c Hypothesis 1/PAP source trace였고,
+아래 Section 12에서 그 완료 결과와 새 quantitative sub-gate를 기록한다.
+
+## 12. 2026-09-04 H1b-1·H1c source 감사 결과
+
+H1b-1은 Maynard Lemmas 8.1–8.4를 13개 하위 node로 분해했다. Lemma 8.3의 source가 GGPY
+*Small Gaps Between Products of Two Primes* Lemma 4의 \(\kappa=1\) 특수화임을 확인했고,
+출판본의 일반-\(\kappa\) 보정 주석도 반영했다. 그러나 GGPY/HR multiplier, explicit smooth
+cutoff norm, 소수곱 tail과 \(r\)-fold accumulation cutoff는 열려 있다. 따라서 parent
+`H1B-L83`은 source 미확인에서 `RATE_MISSING`으로만 정정되며 `SIV-07`은 닫히지 않는다.
+
+H1c는 FGKMT Hypothesis 1과 Sono PAP를 같은 package로 합치지 않았다. \(\mathcal A=\mathbb Z\)에서
+Hypothesis 1(1),(3)은 exact sufficient inequality로 줄였지만, condition (2)의 character/BV와
+prime-density package는 계속 열린다. Sono PAP의 \(C_{PAP}=1-e^{-2}\), \(D_{PAP}=160\)도
+finite 시작점을 주지 않는다. 두 명제는 일부 source를 공유하는 sibling이므로 T1의 잘못된
+`SIV-08.depends_on=[PAP-11]`을 제거했다. Jutila source 연도는 1977로 정정했다.
+
+정본은 다음과 같다.
+
+- [`15_Sono_FMT_H1b1_basic_summation_constant_audit.md`](../method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md)
+- [`16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`](../method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md)
+
+최종 판정은 `SOURCE CHAINS TRACED / NUMERICAL PACKAGES OPEN`이며 \(X_{\mathrm{cert}}\)는
+계속 `OPEN`이다.

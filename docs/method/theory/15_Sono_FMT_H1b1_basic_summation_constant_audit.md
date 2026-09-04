@@ -1,0 +1,229 @@
+# Sono/FMT H1b-1 기본 summation 상수 감사
+
+- 작성: 2026-09-04 KST
+- 증거 수준: `SOURCE-LEVEL QUANTITATIVE DEPENDENCY AUDIT`
+- 판정: `SOURCE_CHAIN_TRACED_NUMERICAL_SUMMATION_CONSTANTS_OPEN`
+- `SIV-07`: `HARD_BLOCKER` 유지
+- numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
+- 기계 판독 정본:
+  [`data/Sono_FMT_H1b1_basic_summation_constants_v1.json`](data/Sono_FMT_H1b1_basic_summation_constants_v1.json)
+
+## 1. 결론부터
+
+Maynard의 Lemmas 8.1–8.4에는 Proposition 6.1의 moment 계산을 가능하게 하는 기본 합 공식이
+들어 있다. 이번 감사에서는 그 식들이 어디서 오고 어떤 숨은 상수를 쓰는지 13개 하위 의무로
+분해했다.
+
+긍정적인 결과는 두 가지다.
+
+1. Lemma 8.3의 인용 원문과 정확한 특수화가 확인됐다. 인용 논문은
+   Goldston–Graham–Pintz–Yıldırım의 *Small Gaps Between Products of Two Primes*이고,
+   Maynard는 그 논문의 Lemma 4를 \(\kappa=1\)로 사용한다.
+2. 각 숨은 상수는 계산 불가능한 추상적 대상이라기보다, explicit cutoff 함수·소수곱·미분
+   norm·한 차원 summation error를 정량적으로 다시 증명하면 얻을 수 있는 대상으로 보인다.
+
+그러나 **사용할 수 있는 숫자 상수는 아직 얻지 못했다.** Lemma 8.1의 \(\exp(-Ck)\)에서
+\(C\), Lemma 8.2의 Lipschitz multiplier, Lemma 8.3의
+\(O_{A_1,A_2}\) multiplier, Lemma 8.4의 반복오차와 최초 \((k,R)\) 범위가 모두 열려 있다.
+따라서 이 단계는 source trace 완료이지 numerical lemma 완료가 아니다.
+
+쉬운 비유로 말하면, 네 개의 조립 공정과 공급업체 도면까지 찾았지만 각 부품의 실제 허용오차와
+조립 온도 범위는 아직 숫자로 써 있지 않다. 공급업체 이름을 찾았다는 이유만으로 완제품 인증을
+내릴 수는 없다.
+
+## 2. 감사 범위와 정본 source
+
+정본은 James Maynard,
+[*Dense Clusters of Primes in Subsets*](https://doi.org/10.1112/S0010437X16007296),
+*Compositio Mathematica* 152 (2016), 1517–1554이다. arXiv 식별자는
+[`1405.2593`](https://arxiv.org/abs/1405.2593)이다.
+
+Lemma 8.3의 하위 source는 다음이다.
+
+- D. A. Goldston, S. W. Graham, J. Pintz, C. Y. Yıldırım,
+  [*Small Gaps Between Products of Two Primes*](https://doi.org/10.1112/plms/pdn046),
+  *Proceedings of the London Mathematical Society* 98 (2009), Lemmas 3–4.
+- 같은 논문의
+  [corrigendum](https://doi.org/10.1112/plms/pds053)도 존재한다. 공개된 정정 범위만으로
+  Lemma 4의 숫자 multiplier가 제공된다고 볼 수 없으므로, 정량 재증명 시 본문과 정정문을 함께
+  대조해야 한다.
+- GGPY Lemma 3은 Halberstam–Richert, *Sieve Methods*의 Lemmas 5.3–5.4를 하위 근거로 든다.
+  이 책의 상수를 프로젝트용 숫자로 재구성하는 일은 아직 하지 않았다.
+
+기존 H1b 원장의 source 제목 `Small gaps between primes or almost primes`는 잘못된 식별이었다.
+이번에 올바른 논문명과 DOI로 정정한다.
+
+## 3. Lemma별 감사 결과
+
+### 3.1 Lemma 8.1: singular series와 extra-form 평균
+
+Lemma 8.1(i)의 하한은 대략 다음 두 부분을 곱한다.
+
+```text
+p <= 2k의 유한 소수곱
+times
+p > 2k의 tail product
+```
+
+작은 소수 부분은 유한하므로 원칙적으로 exact rational 또는 directed interval로 계산할 수 있다.
+큰 소수 부분에서는 로그를 전개한 뒤 \(O(k^2/p^2)\)를 합쳐 \(\exp(-Ck)\)를 얻는다. 여기서
+전개 remainder의 multiplier와 소수 제곱 역수 tail의 explicit bound가 필요하다. 논문은 최종
+숫자 \(C\)를 주지 않는다.
+
+Lemma 8.1(ii)는 인접한 추가 선형식에 대해
+
+\[
+\frac{\Delta}{\varphi(\Delta)}
+\]
+
+의 평균을 제어한다. 증명은 \(\Delta/\varphi(\Delta)\), 소인수 합, Euler product와
+\(o(\eta\log x)\) 흡수를 사용한다. 각 단계는 explicit한 초등 부등식으로 바꿀 후보가 있지만,
+현재 source만으로 multiplier와 흡수 시작점을 읽을 수는 없다.
+
+판정은 `CONSTRUCTIVE_SUBPROBLEM` 또는 `RATE_MISSING`이다.
+
+### 3.2 Lemma 8.2: cutoff 함수와 Lipschitz 상수
+
+논문은 \([0,1]\)에 지지되고 \([0,9/10]\)에서 1인 고정 smooth 함수 \(\psi\)를 사용한다.
+하지만 \(\psi\)의 실제 식이나 도함수 sup norm은 고정하지 않는다. 따라서
+
+\[
+y_{\mathbf s}=y_{\mathbf r}
+ +O\!\left(T_kY_{\mathbf r}\frac{\log A}{\log R}\right)
+\]
+
+에서 \(O\) 앞 숫자를 계산할 수 없다.
+
+이 결손은 비교적 구체적이다. 프로젝트가 explicit \(C^\infty\) cutoff를 하나 선택하고,
+필요한 모든 미분 norm과 support를 interval arithmetic으로 인증하면 입력을 만들 수 있다.
+다만 cutoff를 선택하는 것만으로 Lemma 8.2 전체가 자동 증명되는 것은 아니며, 증명 전체에서 그
+norm이 어떻게 증폭되는지를 다시 추적해야 한다.
+
+### 3.3 Lemma 8.3: 한 차원 multiplicative summation
+
+출판본의 형식은 조건
+
+\[
+0\le \frac{\gamma(p)}p\le1-A_1
+\]
+
+및 소수합 discrepancy가 \(A_2,L\)로 제어될 때, 주항에 더해 대략
+
+\[
+O_{A_1,A_2}\!\left(c_\gamma(1+L)G_{\max}\right)
+\]
+
+의 error를 준다. 이 결과는 GGPY Lemma 4의 \(\kappa=1\) 특수화다.
+
+출판본에는 중요한 version-control 주석이 있다. 일반 \(\kappa\)에는
+\(c_\gamma(L+1)^\kappa\) 형태의 항이 추가로 필요하지만, Maynard가 실제로 쓰는
+\(\kappa=1\)에는 문제가 없다고 설명한다. 따라서 오래된 arXiv 표현만 보고 일반화하면 안 되고,
+출판본을 정본으로 삼아야 한다.
+
+하지만 이 확인은 error multiplier의 숫자를 주지 않는다. GGPY Lemma 4의 implied constant는
+\(A_1,A_2,\kappa\)에 의존하며, 그 증명은 다시 Lemma 3과 Halberstam–Richert 결과를 사용한다.
+따라서 parent H1b의 `H1B-L83`은 “source 미확인”에서는 벗어나지만 “수치 rate 누락” 상태다.
+
+```text
+기존: SOURCE_REVIEW_REQUIRED
+정정: RATE_MISSING
+```
+
+이는 진전이지만 closure는 아니다.
+
+### 3.4 Lemma 8.4: r회 반복 합성
+
+Lemma 8.4는 Lemma 8.3을 \(r\)번 적용한다. 논문에는 다음 구조가 보인다.
+
+- \(r\le k\ll(\log R)^{1/5}\)
+- \(W_i\le R^{O(k)}\)
+- \(g(p)=p+O(k)\)
+- total relative error의 기본 크기
+  \(r\Omega_G\log\log R/\log R\)
+
+그러나 실제 숫자를 내려면 다음을 모두 알아야 한다.
+
+1. \(g(p)=p+O(k)\)와 \(W_i\)의 multiplier·지수
+2. Lemma 8.3에 넣을 특정 \(A_1,A_2,L\)
+3. 선택한 test function의 \(\Omega_G\)
+4. \((1+O(\varepsilon))^r\)를 \(1+O(r\varepsilon)\)로 바꾸는 정확한 smallness 조건
+5. 위 조건이 동시에 성립하는 최초 \((k,R)\)
+
+따라서 “error가 0으로 간다”는 사실은 확인되지만, “어느 \(R\)부터 목표 error보다 작다”는
+finite 명제는 아직 없다.
+
+## 4. 13개 obligation 요약
+
+| ID | 대상 | 상태 | 남은 핵심 |
+|---|---|---|---|
+| `H1B1-L81-SMALL` | 작은 소수곱 | `CONSTRUCTIVE_SUBPROBLEM` | explicit finite product 하한 |
+| `H1B1-L81-TAIL` | 큰 소수 tail | `RATE_MISSING` | Taylor remainder·tail 상수 |
+| `H1B1-L81II-DIVISOR` | extra-form 평균 | `RATE_MISSING` | totient·Euler product·흡수 cutoff |
+| `H1B1-L82-CUTOFF` | smooth \(\psi\) | `CONSTRUCTIVE_SUBPROBLEM` | 실제 함수와 derivative norm |
+| `H1B1-L82-LIPSCHITZ` | Lipschitz bound | `RATE_MISSING` | norm 의존 multiplier |
+| `H1B1-L83-GGPY4` | 1차원 합 | `SOURCE_CHAIN_TRACED` | \(A_1,A_2\)별 multiplier |
+| `H1B1-L83-PUBLISHED-NOTE` | 출판본 보정 | `PRINTED_STRUCTURAL_FACT` | 숫자 multiplier는 여전히 없음 |
+| `H1B1-L83-GGPY3` | 하위 sieve lemma | `LOWER_SOURCE_REVIEW_REQUIRED` | HR 상수의 재구성 |
+| `H1B1-L84-GAMMA` | \(\gamma\) 조건 | `RATE_MISSING` | explicit \(A_1,A_2,k_0\) |
+| `H1B1-L84-L` | discrepancy \(L\) | `RATE_MISSING` | 소인수합·지수 상수 |
+| `H1B1-L84-SMOOTH` | \(\Omega_G\) | `RATE_MISSING` | test function 수치 norm |
+| `H1B1-L84-ITERATION` | \(r\)-fold 합성 | `RATE_MISSING` | 축적오차·공통 range |
+| `H1B1-PACKAGE` | 기본 합 package | `HARD_BLOCKER` | 전 행과 공통 error budget |
+
+모든 행의 `threshold_ready`는 `false`다.
+
+## 5. 무엇이 가능하고 무엇이 아직 불가능한가
+
+### 지금 Codex가 계속할 수 있는 일
+
+- explicit smooth cutoff 후보를 정하고 derivative norm을 엄밀히 상계
+- Rosser–Schoenfeld 또는 이후 explicit prime-product/totient 부등식 후보를 1차 출처에서 선정
+- Lemma 8.1의 small-prime finite product와 tail을 directed interval 부등식으로 정식화
+- \((1+C\varepsilon)^r\)의 보수적인 exact accumulation lemma 작성
+
+### 사용자 PC 계산이 나중에 도울 수 있는 일
+
+- 고정 \(k\) 범위에서 유한 소수곱과 norm의 interval certificate 생성
+- 선택한 cutoff의 도함수 최대값을 interval subdivision으로 검증
+- 해석적 꼬리로 넘기기 전 작은 \(k,R\) 범위 전수검사
+
+이는 새 maximal-gap sweep이 아니라 보조 부등식 certificate 계산이다. runner는 정식 lemma와
+검증 범위가 먼저 동결된 뒤에만 만드는 편이 안전하다.
+
+### 현재 할 수 없는 주장
+
+- Lemmas 8.1–8.4가 특정 숫자 \(x\)부터 모두 성립한다는 주장
+- Proposition 6.1의 moment error multiplier가 얻어졌다는 주장
+- `SIV-07`, `SIV-09`, good weight 또는 \(X_{\mathrm{cert}}\)의 closure
+
+## 6. 다음 gate: H1b-1a
+
+다음 단계는 **explicit cutoff·초등 소수곱 package**가 적절하다.
+
+1. \(\psi\)의 식, support, plateau와 필요한 미분 차수를 고정한다.
+2. 각 derivative norm을 rational 또는 directed interval로 인증한다.
+3. Lemma 8.1에 필요한 소수곱·\(\Delta/\varphi(\Delta)\)의 explicit source를 고정한다.
+4. 작은 \(k\) finite check와 큰 \(k\) analytic tail의 접합점을 증명한다.
+5. 그 뒤 Lemma 8.3 하위 constant와 Lemma 8.4의 \(r\)-fold error를 합성한다.
+
+예상 규모는 cutoff·초등 bound 정식화에 1–3일, GGPY/HR 상수까지 포함한 Lemma 8.4 전체
+정량 재증명에는 수일에서 수주 이상이다. 현재 사용자 실행 절차는 없다.
+
+```text
+별도 수행절차 필요없음
+```
+
+## 7. 엄밀한 최종 판정
+
+```text
+H1b-1 source chain          = TRACED
+Lemma 8.3 cited source      = IDENTIFIED_AND_CORRECTED
+numerical multiplier table = OPEN
+common finite cutoff       = OPEN
+SIV-07                     = HARD_BLOCKER
+X_cert                     = OPEN
+```
+
+이번 감사가 보여 준 것은 “정량화할 경로가 없다”가 아니라 “어느 하위 부등식을 숫자로 다시
+증명해야 하는지 알게 됐다”는 것이다. 모르는 multiplier를 1로 두지 않았기 때문에 임계값 숫자는
+계산하지 않는다.
