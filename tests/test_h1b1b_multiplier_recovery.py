@@ -13,6 +13,8 @@ from source.h1b1b_multiplier_recovery import (
     H1B1B_GGPY4_KAPPA1_TRANSFER_FACTOR,
     H1B1B_LEMMA82_MULTIPLIER,
     H1B1B_NORMALIZED_LIPSCHITZ_UPPER_BOUND,
+    H1B1B_PRINTED_C_GAMMA_ERROR_JUSTIFIED_BY_STATED_HYPOTHESES,
+    ggpy4_kappa1_relative_transfer_certificate,
     ggpy4_kappa1_transfer_certificate,
     lemma82_normalized_multiplier,
     lemma82_one_coordinate_margin,
@@ -63,15 +65,25 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         cls.contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
 
     def test_contract_provenance_and_scope(self) -> None:
-        self.assertEqual(self.contract["schema_version"], "1.0.0")
+        self.assertEqual(self.contract["schema_version"], "1.1.0")
         self.assertEqual(
             self.contract["outcome"],
-            "LEMMA82_EXPLICIT_GGPY4_TRANSFER_PARAMETERIZED_"
-            "HR_BASE_MULTIPLIER_SOURCE_BLOCKED",
+            "LEMMA82_EXPLICIT_GGPY4_ABSOLUTE_TRANSFER_PARAMETERIZED_"
+            "MODERN_REPRODUCTION_REVIEWED_RELATIVE_ERROR_OPEN",
         )
         self.assertTrue(self.contract["lemma_8_2_project_component_closed"])
         self.assertEqual(self.contract["lemma_8_2_uniform_multiplier"], 89)
         self.assertTrue(self.contract["ggpy_lemma_4_transfer_factor_closed"])
+        self.assertTrue(
+            self.contract["ggpy_lemma_4_absolute_transfer_factor_closed"]
+        )
+        self.assertFalse(
+            self.contract[
+                "ggpy_maynard_relative_error_valid_under_printed_hypotheses"
+            ]
+        )
+        self.assertTrue(self.contract["castillo_absolute_error_shape_reviewed"])
+        self.assertTrue(self.contract["kuperberg_structural_reproduction_reviewed"])
         self.assertFalse(self.contract["ggpy_lemma_3_numeric_multiplier_recovered"])
         self.assertFalse(
             self.contract["hr_lemmas_5_3_5_4_numeric_multiplier_recovered"]
@@ -93,6 +105,10 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
                 "GGPY2009_ARXIV_SOURCE",
                 "GGPY2013_CORRIGENDUM",
                 "HR1974_2011_REPRINT",
+                "KUPERBERG2023",
+                "KUPERBERG2023_ARXIV_SOURCE",
+                "CASTILLO_ET_AL_2015",
+                "CASTILLO_ET_AL_ARXIV_SOURCE",
             },
         )
         self.assertEqual(
@@ -110,6 +126,14 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         self.assertEqual(
             sources["HR1974_2011_REPRINT"]["status"],
             "SOURCE_ACCESS_BLOCKED",
+        )
+        self.assertEqual(
+            sources["KUPERBERG2023"]["sha256"],
+            "653dcd731f11c6bab47fa61989b31f50dc3318464fc4d300276698045ba48939",
+        )
+        self.assertEqual(
+            sources["CASTILLO_ET_AL_2015"]["sha256"],
+            "af2f402f1d0ecf67ea2b02a18f9cc2384514cb04fc3467807e20b278e3d463ca",
         )
 
     def test_exact_uniform_multiplier_certificate(self) -> None:
@@ -187,13 +211,23 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
 
     def test_ggpy_kappa1_transfer_is_conditional(self) -> None:
         certificate = ggpy4_kappa1_transfer_certificate(Fraction(7, 3))
-        self.assertEqual(certificate.lemma3_multiplier, Fraction(7, 3))
+        self.assertEqual(certificate.lemma3_absolute_multiplier, Fraction(7, 3))
+        self.assertFalse(certificate.assumed_error_contains_c_gamma)
         self.assertEqual(certificate.boundary_factor, 1)
         self.assertEqual(certificate.derivative_integral_factor, 1)
         self.assertEqual(H1B1B_GGPY4_KAPPA1_TRANSFER_FACTOR, 2)
-        self.assertEqual(certificate.lemma4_multiplier, Fraction(14, 3))
+        self.assertEqual(certificate.lemma4_absolute_multiplier, Fraction(14, 3))
+        self.assertFalse(
+            H1B1B_PRINTED_C_GAMMA_ERROR_JUSTIFIED_BY_STATED_HYPOTHESES
+        )
         self.assertIn(
             "C3(A1,A2)",
+            self.contract["ggpy_kappa_1_transfer_contract"][
+                "assumed_lemma_3_error"
+            ],
+        )
+        self.assertNotIn(
+            "C3(A1,A2) c_gamma",
             self.contract["ggpy_kappa_1_transfer_contract"][
                 "assumed_lemma_3_error"
             ],
@@ -206,6 +240,16 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         )
         with self.assertRaises(ValueError):
             ggpy4_kappa1_transfer_certificate(0)
+
+    def test_relative_transfer_requires_separate_positive_c_gamma_bound(self) -> None:
+        certificate = ggpy4_kappa1_relative_transfer_certificate(
+            Fraction(7, 3), Fraction(1, 5)
+        )
+        self.assertEqual(certificate.lemma4_absolute_multiplier, Fraction(14, 3))
+        self.assertEqual(certificate.c_gamma_lower_bound, Fraction(1, 5))
+        self.assertEqual(certificate.lemma4_relative_multiplier, Fraction(70, 3))
+        with self.assertRaises(ValueError):
+            ggpy4_kappa1_relative_transfer_certificate(1, 0)
 
     def test_child_closure_does_not_promote_parent_package(self) -> None:
         h1b1 = json.loads(H1B1_LEDGER.read_text(encoding="utf-8"))
@@ -224,7 +268,7 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         )
         self.assertEqual(
             h1b1_rows["H1B1-L83-GGPY3"]["status"],
-            "SOURCE_ACCESS_BLOCKED",
+            "RATE_MISSING",
         )
         self.assertEqual(h1b1_rows["H1B1-PACKAGE"]["status"], "HARD_BLOCKER")
 

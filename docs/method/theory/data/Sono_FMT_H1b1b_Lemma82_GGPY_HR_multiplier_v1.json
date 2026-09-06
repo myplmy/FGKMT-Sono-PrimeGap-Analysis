@@ -1,14 +1,18 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "created_kst": "2026-09-06",
   "updated_kst": "2026-09-06",
   "gate": "H1b-1b Maynard Lemma 8.2 and GGPY/HR multiplier recovery",
   "target_obligation": "SIV-07",
-  "scope": "An exact project proof makes Maynard Lemma 8.2 explicit for the H1b-1a cutoff and a conditional partial-summation contract transfers a future explicit GGPY Lemma 3 constant into Lemma 4 at kappa=1. The Halberstam-Richert base multiplier and finite range remain unavailable, so this is not a numerical basic-summation package or theorem threshold certificate.",
-  "outcome": "LEMMA82_EXPLICIT_GGPY4_TRANSFER_PARAMETERIZED_HR_BASE_MULTIPLIER_SOURCE_BLOCKED",
+  "scope": "An exact project proof makes Maynard Lemma 8.2 explicit for the H1b-1a cutoff. At kappa=1, partial summation transfers a future corrected absolute GGPY Lemma 3 error into Lemma 4 with factor 2. Castillo et al. show that the c_gamma-normalized error printed by GGPY and Maynard needs an additional size hypothesis; Kuperberg gives a modern structural HR reproduction but no numerical uniform multiplier or cutoff. This is not a numerical basic-summation package or theorem threshold certificate.",
+  "outcome": "LEMMA82_EXPLICIT_GGPY4_ABSOLUTE_TRANSFER_PARAMETERIZED_MODERN_REPRODUCTION_REVIEWED_RELATIVE_ERROR_OPEN",
   "lemma_8_2_project_component_closed": true,
   "lemma_8_2_uniform_multiplier": 89,
   "ggpy_lemma_4_transfer_factor_closed": true,
+  "ggpy_lemma_4_absolute_transfer_factor_closed": true,
+  "ggpy_maynard_relative_error_valid_under_printed_hypotheses": false,
+  "castillo_absolute_error_shape_reviewed": true,
+  "kuperberg_structural_reproduction_reviewed": true,
   "ggpy_lemma_3_numeric_multiplier_recovered": false,
   "hr_lemmas_5_3_5_4_numeric_multiplier_recovered": false,
   "numerical_basic_summation_package_ready": false,
@@ -99,6 +103,62 @@
         "ee5835afe56938e94ebd2797477602a20e2ab4391807affc3b402bf5f2d006c1"
       ],
       "status": "SOURCE_ACCESS_BLOCKED"
+    },
+    {
+      "key": "KUPERBERG2023",
+      "title": "Sums of singular series with large sets and the tail of the distribution of primes",
+      "author": "Vivian Kuperberg",
+      "publication": "Quarterly Journal of Mathematics 74 (2023), 1457-1479",
+      "doi": "10.1093/qmath/haad030",
+      "arxiv": "2210.09775v2",
+      "url": "https://arxiv.org/abs/2210.09775",
+      "retrieved_utc": "2026-09-06T07:33:11Z",
+      "local_path": "tmp/pdfs/h1b1b_followup/Kuperberg2023_Sums_of_singular_series_arxiv_v2.pdf",
+      "sha256": "653dcd731f11c6bab47fa61989b31f50dc3318464fc4d300276698045ba48939",
+      "reviewed_locations": "Lemma 4.3 and its proof following HR Lemma 5.4, PDF pages 16-19; arXiv source lines 674-761",
+      "status": "PRIMARY_MODERN_REPRODUCTION_REVIEWED_RATE_MISSING"
+    },
+    {
+      "key": "KUPERBERG2023_ARXIV_SOURCE",
+      "title": "Sums of singular series with large sets and the tail of the distribution of primes source package",
+      "author": "Vivian Kuperberg",
+      "arxiv": "2210.09775v2",
+      "url": "https://export.arxiv.org/e-print/2210.09775v2",
+      "retrieved_utc": "2026-09-06T07:33:11Z",
+      "local_path": "tmp/pdfs/h1b1b_followup/Kuperberg2023_Sums_of_singular_series_source_v2.tar",
+      "sha256": "53bc19fdfae8c0a39530dfffdf4c36481e9060bf3c098075805a44f0ce76c620",
+      "extracted_path": "tmp/pdfs/h1b1b_followup/kuperberg_source/distributiontail_15_june.tex",
+      "extracted_sha256": "dd5c4e581200742c0e5c0d96756d06150b38822d58c9fedf0b348ad3260bab21",
+      "reviewed_locations": "TeX lines 674-761",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "CASTILLO_ET_AL_2015",
+      "title": "Bounded gaps between primes in number fields and function fields",
+      "authors": "A. Castillo, C. Hall, R. J. Lemke Oliver, P. Pollack, L. Thompson",
+      "publication": "Proceedings of the American Mathematical Society 143 (2015), 2841-2856",
+      "doi": "10.1090/S0002-9939-2015-12554-3",
+      "arxiv": "1403.5808",
+      "url": "https://lemkeoliver.github.io/papers/11-BoundedGaps.pdf",
+      "retrieved_utc": "2026-09-06T07:33:11Z",
+      "local_path": "tmp/pdfs/h1b1b_followup/Castillo_Hall_LemkeOliver_Pollack_Thompson_BoundedGaps.pdf",
+      "sha256": "af2f402f1d0ecf67ea2b02a18f9cc2384514cb04fc3467807e20b278e3d463ca",
+      "reviewed_locations": "Lemma 2.5 and following remark and proof, PDF page 11",
+      "status": "PRIMARY_PEER_REVIEWED_CORRECTION_REVIEWED"
+    },
+    {
+      "key": "CASTILLO_ET_AL_ARXIV_SOURCE",
+      "title": "Bounded gaps between primes in number fields and function fields source package",
+      "authors": "A. Castillo, C. Hall, R. J. Lemke Oliver, P. Pollack, L. Thompson",
+      "arxiv": "1403.5808",
+      "url": "https://export.arxiv.org/e-print/1403.5808",
+      "retrieved_utc": "2026-09-06T07:33:11Z",
+      "local_path": "tmp/pdfs/h1b1b_followup/CastilloEtAl2014_BoundedGaps_source.tar",
+      "sha256": "62131d8cd8a3c3211e8a3f9f785333408644db40d0a373d1e37f84f3f6675558",
+      "extracted_path": "tmp/pdfs/h1b1b_followup/castillo_source/method.tex",
+      "extracted_sha256": "ba12e64ecc20038e43bb642158b36e5303d82b5abbb2c65e70e30fd6a317106f",
+      "reviewed_locations": "method.tex lines 267-305",
+      "status": "PRIMARY_SOURCE_REVIEWED"
     }
   ],
   "lemma_8_2_contract": {
@@ -120,14 +180,16 @@
   },
   "ggpy_kappa_1_transfer_contract": {
     "source_norm": "M(F)=sup_{0<=x<=1}(|F(x)|+|F'(x)|)",
-    "assumed_lemma_3_error": "|E(u)| <= C3(A1,A2) c_gamma (L+1) uniformly for 1<=u<=z",
+    "assumed_lemma_3_error": "|E(u)| <= C3(A1,A2) (L+1) uniformly for 1<=u<=z; no c_gamma factor is assumed",
+    "error_normalization": "ABSOLUTE_WITHOUT_C_GAMMA",
     "boundary_term_factor": 1,
     "derivative_integral_factor": 1,
     "safe_transfer_factor": 2,
-    "derived_lemma_4_error": "<= 2 C3(A1,A2) c_gamma (L+1) M(F)",
+    "derived_lemma_4_error": "<= 2 C3(A1,A2) (L+1) M(F)",
+    "relative_error_recovery": "If a separately certified uniform lower bound c_gamma>=c_min>0 holds, the Maynard-style relative multiplier is at most 2 C3(A1,A2)/c_min.",
     "finite_range": "exactly the common range on which the assumed Lemma 3 error holds",
     "proof_status": "PARAMETERIZED_EXPLICIT",
-    "warning": "The number C3(A1,A2) and its valid range are not supplied by this contract. Setting C3=1 is forbidden."
+    "warning": "The number C3(A1,A2), its valid range, and a uniform c_gamma lower bound or explicit stronger z-versus-L condition are not supplied. Setting an O-constant or c_gamma normalization loss to one is forbidden."
   },
   "obligation_updates": [
     {
@@ -142,14 +204,14 @@
       "old_status": "SOURCE_CHAIN_TRACED",
       "new_status": "PARAMETERIZED_EXPLICIT",
       "threshold_ready": false,
-      "reason": "At kappa=1, an explicit Lemma 3 multiplier C3 transfers to Lemma 4 with safe factor 2, but C3 and its range remain open."
+      "reason": "At kappa=1, a corrected absolute Lemma 3 multiplier C3 transfers to an absolute Lemma 4 error with safe factor 2. The c_gamma-relative form needs an extra lower bound or size condition."
     },
     {
       "id": "H1B1-L83-GGPY3",
       "old_status": "LOWER_SOURCE_REVIEW_REQUIRED",
-      "new_status": "SOURCE_ACCESS_BLOCKED",
+      "new_status": "RATE_MISSING",
       "threshold_ready": false,
-      "reason": "The cited HR Lemmas 5.3-5.4 were located at printed pages 144 and 147-152, but the full proof pages were not legally accessible in the available preview."
+      "reason": "Kuperberg gives an accessible modern structural reproduction after HR Lemma 5.4, but its O constants, B_L, B_k and specialization are not numerical. Original HR proof pages remain inaccessible, so the blocker is now quantitative rather than source identity alone."
     },
     {
       "id": "H1B-L82",
@@ -160,9 +222,10 @@
     }
   ],
   "remaining_blockers": [
-    "recover an explicit C3(A1,A2) and common z range from HR Lemmas 5.3-5.4, including any applicable errata",
+    "recover an explicit absolute C3(A1,A2) and common z range from the HR/Kuperberg proof chain without treating O-constants as one",
+    "either certify a uniform lower bound for every c_gamma in Maynard Lemma 8.4 or prove an explicit z-versus-L condition that restores the stronger c_gamma-normalized error",
     "instantiate Maynard Lemma 8.4 values A1, A2 and L",
-    "bound the Lemma 8.4 test-function norm and r-fold accumulation on one common range",
+    "bound the Lemma 8.4 test-function norm and redo the r-fold accumulation using the corrected error normalization on one common range",
     "complete Lemma 8.1(ii), H1c-1, moment formulas and every other root dependency before any X_cert calculation"
   ],
   "parent_status": {
@@ -172,8 +235,9 @@
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "primary": "Obtain and audit HR Sieve Methods printed pages 144-152, preferably pages 140-153 plus the relevant errata/notes, then reconstruct C3(A1,A2) without treating O-constants as one.",
-    "after_source_recovery": "Compose the recovered C3 with the factor-2 GGPY transfer and audit Maynard Lemma 8.4 gamma, L, smoothness and iteration rows.",
+    "primary": "Quantitatively reconstruct the Kuperberg/HR recurrence, including explicit B_L, B_k and O multipliers, and decide whether a general Maynard gamma specialization is valid.",
+    "parallel": "Derive either a uniform explicit lower bound for the Lemma 8.4 Euler products c_gamma or an explicit z-versus-L gate that justifies the stronger printed relative error.",
+    "after_source_recovery": "Compose the corrected absolute factor-2 transfer with the c_gamma repair and audit Maynard Lemma 8.4 gamma, L, smoothness and r-fold iteration rows.",
     "parallel_theory_axis": "H1c-1 quantitative character/Bombieri-Vinogradov package",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false

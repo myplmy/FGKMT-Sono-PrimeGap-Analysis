@@ -43,11 +43,19 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.0.0")
+        self.assertEqual(self.document["schema_version"], "1.1.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
-        self.assertEqual(sources, {"MAYNARD2016", "GGPY2009"})
+        self.assertEqual(
+            sources,
+            {
+                "MAYNARD2016",
+                "GGPY2009",
+                "KUPERBERG2023",
+                "CASTILLO_ET_AL_2015",
+            },
+        )
         maynard = next(
             row for row in self.document["source_registry"] if row["key"] == "MAYNARD2016"
         )

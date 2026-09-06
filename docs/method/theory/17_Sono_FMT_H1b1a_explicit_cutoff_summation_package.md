@@ -406,8 +406,8 @@ H1B1-L81II-DIVISOR = PARTIAL_EXPLICIT
 | H1B1-L82-CUTOFF | CONSTRUCTIVE_SUBPROBLEM | PROJECT_FINITE_COMPONENT_CLOSED | \(\|\psi'\|_\infty<50\) 확보 |
 | H1B1-L81II-DIVISOR | RATE_MISSING | PARTIAL_EXPLICIT | parameterized majorant만 확보 |
 | H1B1-L82-LIPSCHITZ | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | H1b-1b에서 multiplier 89 |
-| H1B1-L83-GGPY4 | SOURCE_CHAIN_TRACED | PARAMETERIZED_EXPLICIT | \(C_4\le2C_3\) |
-| H1B1-L83-GGPY3 | LOWER_SOURCE_REVIEW_REQUIRED | SOURCE_ACCESS_BLOCKED | HR 144–152쪽 필요 |
+| H1B1-L83-GGPY4 | SOURCE_CHAIN_TRACED | PARAMETERIZED_EXPLICIT | \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\); relative form open |
+| H1B1-L83-GGPY3 | LOWER_SOURCE_REVIEW_REQUIRED | RATE_MISSING | Kuperberg 구조 재현 확인; 수치 상수·범위 open |
 | H1B1-L84-* | open | open | 반복오차·공통 cutoff 없음 |
 | H1B1-PACKAGE | HARD_BLOCKER | HARD_BLOCKER | 변화 없음 |
 
@@ -425,8 +425,8 @@ H1b-1a 부분 closure
 cutoff + Lemma 8.1(i) + (8.5) Euler product = explicit
 Lemma 8.1(ii) common range                  = open
 Lemma 8.2 full Lipschitz multiplier         = 89 closed by H1b-1b
-GGPY Lemma 4 transfer                      = C4 <= 2 C3 parameterized
-HR C3 + Lemma 8.4 composition              = open
+GGPY Lemma 4 absolute transfer             = C4_abs <= 2 C3_abs parameterized
+c_gamma normalization + Lemma 8.4          = open
 SIV-07 / X_cert                            = open
 ~~~
 
@@ -450,9 +450,9 @@ Lean과 새 Python 라이브러리는 이번 단계에 필요하지 않았다. �
 
 ## 9. 다음 proof gate
 
-1. **H1b-1b 계속 (권장):** Lemma 8.2 multiplier 89와 GGPY transfer factor 2는
-   완료됐다. Halberstam–Richert Lemmas 5.3–5.4의 \(C_3(A_1,A_2)\)·유효범위를
-   복원하고 Lemma 8.4에 합성한다.
+1. **H1b-1b 계속 (권장):** Lemma 8.2 multiplier 89와 GGPY absolute transfer factor 2는
+   완료됐다. Kuperberg/HR recurrence의 \(C_{3,\mathrm{abs}}(A_1,A_2)\)·유효범위와
+   \(c_\gamma\) lower-bound 또는 size-gate repair를 복원하고 Lemma 8.4에 합성한다.
 2. **H1c-1 (병렬 이론축):** quantitative character/PAP package를 정식화한다.
 3. 위 두 축이 닫힌 뒤에만 Lemma 8.4의 \(r\)-fold error와 공통 \((k,R,x)\) cutoff를 합친다.
 4. 모든 root dependency가 닫히기 전에는 threshold calculator나 장시간 prime sweep을 만들지 않는다.

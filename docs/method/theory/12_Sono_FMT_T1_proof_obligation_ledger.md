@@ -322,7 +322,8 @@ hard-blocker 수 또는 \(X_{\mathrm{cert}}\)의 상태를 올리지 않는다.
 
 1. `H1b-1a`: explicit cutoff와 elementary prime-product/totient bound를 고정한다.
 2. `H1c-1`: FGKMT (7.2)–(7.3)의 quantitative character/Bombieri–Vinogradov package를 복원한다.
-3. `H1b-1b`: GGPY/HR multiplier와 Lemma 8.4의 반복오차를 합성한다.
+3. `H1b-1b`: Kuperberg/HR absolute multiplier, GGPY 오류항의 \(c_\gamma\)
+   normalization repair와 Lemma 8.4의 반복오차를 합성한다.
 4. `H1b-2`: 위 입력 뒤 Propositions 9.1–9.5의 finite moment와 공통 cutoff를 합성한다.
 5. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
 6. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.

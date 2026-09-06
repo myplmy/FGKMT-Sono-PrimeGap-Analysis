@@ -59,9 +59,10 @@ moment가 어떤 주항과 오차 모양을 갖는지, 그 상수들이 \(\alpha
 
 H1b-1 후속 감사에서 Lemma 8.3의 정확한 하위 source가
 Goldston–Graham–Pintz–Yıldırım의 *Small Gaps Between Products of Two Primes*, Lemma 4의
-\(\kappa=1\) 특수화임을 확인했다. source identity는 닫혔지만 GGPY Lemma 3과
-Halberstam–Richert에서 올라오는 multiplier·finite range는 숫자로 복원되지 않았다. 따라서 이
-행은 `SOURCE_REVIEW_REQUIRED`가 아니라 `RATE_MISSING`으로 정정하되, closed로 승격하지 않는다.
+\(\kappa=1\) 특수화임을 확인했다. 후속 peer-reviewed 감사에서 Castillo et al.은 인쇄된
+\(c_\gamma\)-relative 오류항이 추가 size condition 없이는 증명되지 않음을 지적했다.
+Kuperberg는 HR Lemma 5.4 구조를 현대적으로 재현하지만 수치 multiplier·finite range를
+주지 않는다. 따라서 source identity와 구조는 닫혔어도 행은 `RATE_MISSING`이며 closed로 승격하지 않는다.
 
 ## 3. Proposition 6.1에 실제로 인쇄된 parameter gate
 
@@ -100,8 +101,8 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-HYP-03` | Hypothesis 1(3) | progression 집중 방지 | `INPUT_PACKAGE_MISSING` | \(\ll\) 상수·시작점 |
 | `H1B-L81` | Lemma 8.1 | singular series 하한 | `RATE_MISSING` | \(\exp(-Ck)\)의 \(C\) |
 | `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `PROJECT_FINITE_COMPONENT_CLOSED` | H1b-1b에서 multiplier 89, \(k\ge2\) |
-| `H1B-L83` | Lemma 8.3 | multiplicative sum | `RATE_MISSING` | GGPY/HR multiplier·finite range |
-| `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | 반복될 오차의 상수·smallness cutoff |
+| `H1B-L83` | Lemma 8.3 | multiplicative sum | `RATE_MISSING` | absolute multiplier·finite range·\(c_\gamma\) normalization |
+| `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | 교정된 절대오차의 반복 상수·smallness cutoff |
 | `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `RATE_MISSING` | \(R^{2+o(1)}\)의 finite 대체 |
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
 | `H1B-L86-SIZE` | Lemma 8.6 | 절대 적분 크기 | `RATE_MISSING` | lower-bound multiplier |
@@ -194,9 +195,10 @@ CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN
 1. **H1b-1a 완료:** explicit smooth cutoff, Lemma 8.1(i)의 \(C=9/2\), 식 (8.5)의
    \(E(k)<24\log k\), parameterized divisor majorant를 고정했다.
 2. **H1c-1:** FGKMT (7.2)–(7.3)의 character/Bombieri–Vinogradov package를 정량화한다.
-3. **H1b-1b 진행:** Lemma 8.2는 multiplier 89로 닫혔고 GGPY Lemma 3→4 전달은
-   \(C_4\le2C_3\)로 정식화됐다. HR Lemmas 5.3–5.4에서 \(C_3(A_1,A_2)\)와
-   유효범위를 복원한 뒤 Lemma 8.4의 반복오차를 합성한다.
+3. **H1b-1b 진행:** Lemma 8.2는 multiplier 89로 닫혔고 교정된 GGPY Lemma 3→4
+   절대오차 전달은 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)로 정식화됐다.
+   Kuperberg/HR recurrence의 수치 상수·범위와 \(c_\gamma\) normalization repair를 복원한
+   뒤 Lemma 8.4의 반복오차를 다시 합성한다.
 4. **H1b-2:** 위 입력을 받은 뒤 Propositions 9.1–9.5를 지정 error budget으로 재증명한다.
 5. **H1d:** FMT/FGKMT의 \(u\), good-event, covering 단계와 공통 \((r,x)\) slack을 합성한다.
 
@@ -244,8 +246,10 @@ H1b-1b는 H1b-1a에서 고정한 \(\|\psi'\|_\infty<50\)을 Maynard Lemma 8.2의
 모든 인자에 직접 전파해 두 부분 모두에 uniform multiplier 89를 증명했다. 따라서
 `H1B-L82`는 `PROJECT_FINITE_COMPONENT_CLOSED`로 이동한다.
 
-GGPY Lemma 4의 \(\kappa=1\) 부분적분은 하위 Lemma 3의 multiplier를
-\(C_3(A_1,A_2)\)라고 할 때 \(C_4\le2C_3\)로 명시됐다. 그러나
-Halberstam–Richert Lemmas 5.3–5.4의 전체 proof pages를 확보하지 못해 \(C_3\)과
-공통 finite range는 여전히 없다. 따라서 `H1B-L83`, `H1B-COMP-01`,
+GGPY Lemma 4의 \(\kappa=1\) 부분적분은 하위 Lemma 3의 **절대오차** multiplier를
+\(C_{3,\mathrm{abs}}(A_1,A_2)\)라고 할 때
+\(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)로 명시됐다. Castillo et al.의 교정 때문에
+Maynard에 인쇄된 \(c_\gamma\)-relative 형태에는 별도 \(c_\gamma\) 하한 또는 명시적
+\(z\)-대-\(L\) gate가 필요하다. Kuperberg의 현대 HR 구조 재현에도 숫자 상수와 공통
+finite range는 없다. 따라서 `H1B-L83`, `H1B-COMP-01`,
 `SIV-07`과 \(X_{\mathrm{cert}}\)는 승격하지 않는다.

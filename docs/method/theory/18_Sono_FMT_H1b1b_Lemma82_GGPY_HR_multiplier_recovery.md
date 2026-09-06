@@ -1,17 +1,21 @@
-# Sono/FMT H1b-1b Maynard Lemma 8.2·GGPY/HR multiplier 복원
+# Sono/FMT H1b-1b Maynard Lemma 8.2·GGPY/HR multiplier 복원과 오류항 교정
 
 - 작성일: 2026-09-06
 - 대상: Maynard, *Dense Clusters of Primes in Subsets*, Lemma 8.2와
-  GGPY, *Small Gaps Between Products of Two Primes*, Lemmas 3–4
+  GGPY, *Small Gaps Between Products of Two Primes*, Lemmas 3–4,
+  Kuperberg arXiv:2210.09775v2, Castillo et al. arXiv:1403.5808
 - 상위 obligation: SIV-07
 - 기계 계약:
   docs/method/theory/data/Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json
+- 후속 proof-obligation 원장:
+  [H1b-1b-2 c_gamma 오류 정규화·Lemma 8.4 보정](19_Sono_FMT_H1b1b2_cgamma_error_normalization_ledger.md)
 - 판정:
 
 ~~~text
 Maynard Lemma 8.2 multiplier       = 89 (PROJECT FINITE COMPONENT CLOSED)
-GGPY Lemma 3 -> Lemma 4 transfer  = C4 <= 2 C3 (PARAMETERIZED EXPLICIT)
-HR Lemmas 5.3-5.4 base C3         = SOURCE ACCESS BLOCKED / OPEN
+GGPY Lemma 3 -> Lemma 4 transfer  = C4_abs <= 2 C3_abs (PARAMETERIZED)
+printed c_gamma-relative error     = NOT JUSTIFIED BY STATED HYPOTHESES
+modern HR structural reproduction = REVIEWED; NUMERICAL RATE/CUTOFF OPEN
 Maynard Lemma 8.4 composition      = OPEN
 SIV-07 / X_cert                    = OPEN
 ~~~
@@ -24,14 +28,23 @@ SIV-07 / X_cert                    = OPEN
 부등식을 다시 전개해 **89**라는 안전한 숫자로 바꿨다. 이는 원문의 정성적 “어떤 상수가
 존재한다”를 이 프로젝트에서 실제로 사용할 수 있는 유한 부등식으로 바꾼 것이다.
 
-둘째, GGPY Lemma 4의 숨은 상수는 그 바로 아래 Lemma 3의 상수를 \(C_3(A_1,A_2)\)라고
-부르면 **최대 \(2C_3(A_1,A_2)\)** 로 전달된다는 것을 명시했다. 그러나 \(C_3\) 자체는
-Halberstam–Richert의 책에 있는 Lemmas 5.3–5.4의 증명에서 복원해야 한다. 해당 쪽의 위치는
-찾았지만 현재 합법적으로 열람 가능한 미리보기에는 전체 증명이 노출되지 않았다.
+둘째, GGPY Lemma 4의 부분적분 자체는 바로 아래 Lemma 3의 **절대오차** 상수를
+\(C_{3,\mathrm{abs}}(A_1,A_2)\)라고 부르면 최대
+\(2C_{3,\mathrm{abs}}(A_1,A_2)\)로 전달된다. 그러나 Castillo et al.이 지적했듯이 GGPY와
+Maynard에 인쇄된 오류항의 \(c_\gamma\) 인자는 원래 가정만으로 따라오지 않는다. 따라서
+기존 문서가 가정했던
+\(\lvert E\rvert\le C_3c_\gamma(L+1)\) 계약을
+\(\lvert E\rvert\le C_{3,\mathrm{abs}}(L+1)\)로 교정했다.
 
-비유하면, 한 기계의 두 기어 중 첫 기어의 배율 89는 확정했고, 둘째 기어는 “앞 기어의
-배율에 2를 곱한다”까지 확정했다. 하지만 둘째 기어 앞에 들어오는 \(C_3\)의 숫자가 아직
-없으므로 전체 기계의 최종 배율과 작동 시작점은 계산할 수 없다.
+셋째, Kuperberg는 HR Lemma 5.4를 따라가는 현대적 증명을 공개해 구조적 source blocker를
+상당 부분 해소한다. 하지만 그 증명도 \(B_L,B_k\)와 여러 \(O\)-상수를 숫자로 주지 않고,
+특수한 prime-tuple sieve function을 다룬다. 그러므로 Maynard Lemma 8.4 전체에 쓸 수 있는
+숫자 \(C_{3,\mathrm{abs}}\)와 공통 시작점은 아직 없다.
+
+비유하면, 첫 기어의 배율 89는 확정됐다. 둘째 기어는 절대오차를 두 배 이하로 전달한다.
+그런데 원래 도면은 이 오차에 작은 할인율 \(c_\gamma\)가 자동 적용된 것처럼 적었다.
+그 할인은 공짜가 아니며 별도 조건이나 \(c_\gamma\) 하한 증명이 필요하다. 따라서 전체 기계의
+최종 배율과 작동 시작점은 여전히 계산할 수 없다.
 
 ## 2. 1차 출처와 provenance
 
@@ -41,13 +54,16 @@ Halberstam–Richert의 책에 있는 Lemmas 5.3–5.4의 증명에서 복원해
 | Goldston–Graham–Pintz–Yıldırım, *Small Gaps Between Products of Two Primes*, DOI 10.1112/plms/pdn046, arXiv math/0609615 | Lemmas 3–4, PDF 9–10쪽; TeX 803–882행 | 조건, norm, 부분합 공식을 직접 대조 |
 | GGPY corrigendum, DOI 10.1112/plms/pds053 | 서지·수정 대상 metadata | 출판사 PDF 접근 제한으로 본문은 미검토 |
 | Halberstam–Richert, *Sieve Methods* | Lemma 5.3: 인쇄 144쪽; Lemma 5.4: 인쇄 147–152쪽 | Google Books 검색으로 위치 확인, 전체 proof는 제한되어 수치 복원 불가 |
+| Vivian Kuperberg, *Sums of singular series with large sets and the tail of the distribution of primes*, DOI 10.1093/qmath/haad030, arXiv:2210.09775v2 | Lemma 4.3과 proof, PDF 16–19쪽 | HR 5.4 구조 재현 확인; \(B_L,B_k,O\)-상수와 일반화는 비명시적 |
+| Castillo–Hall–Lemke Oliver–Pollack–Thompson, *Bounded gaps between primes in number fields and function fields*, DOI 10.1090/S0002-9939-2015-12554-3, arXiv:1403.5808 | Lemma 2.5와 직후 Remark·proof, PDF 11쪽 | GGPY/Maynard 오류항의 \(c_\gamma\) 문제 확인 |
 
 로컬 hash와 취득시각은 기계 계약의 source_registry에 고정했다. GGPY arXiv source 응답은
 파일명이 .tar였지만 실제 형식은 **단일 TeX를 gzip으로 압축한 payload**였다. 처음 이를 tar로
 해제하려 한 시도는 잘못된 0-byte 항목들을 만들며 실패했다. 원본 hash를 유지한 채 gzip stream으로
 다시 풀었고, 이후 감사에는 SHA-256
 e58cc895e8b44f6369741f184bd81b595ed177463cf09cee8d0ad74558efce45인 TeX만 사용했다.
-이는 도구 처리 실패이며 논문의 오류가 아니다.
+이는 도구 처리 실패이며 논문의 오류가 아니다. 2026-09-06 추가 PDF·source의 URL, 취득 UTC,
+SHA-256과 TeX 행 범위도 기계 계약에 고정했다.
 
 ## 3. Maynard Lemma 8.2의 명시적 상수
 
@@ -170,134 +186,214 @@ T_k\delta\left[1+\frac{50(1+\sqrt k)}{k\log k}\right]F_2(\mathbf u).\tag{H1b-1b.
 두 경로의 오차가 이미 \(Y_{\mathbf r}+Y_{\mathbf s}\) 안에 따로 들어가므로 multiplier를 178로
 다시 곱하지 않는다.
 
-## 4. GGPY Lemma 3에서 Lemma 4로의 multiplier 전달
+## 4. GGPY Lemma 3–4 오류항 감사
 
-### 4.1 원문 구조
+### 4.1 GGPY와 Maynard에 인쇄된 형태
 
 GGPY Lemma 3은 multiplicative \(\gamma\)가 \((\Omega_1)\),
-\((\Omega_2(\kappa,L))\) 조건을 만족할 때
+\((\Omega_2(\kappa,L))\)을 만족할 때 누적합을
 
 \[
-G(u)=\sum_{d<u}\mu^2(d)g(d)
-=c_\gamma\frac{(\log u)^\kappa}{\Gamma(\kappa+1)}+E(u)
+G(u)=c_\gamma\frac{(\log u)^\kappa}{\Gamma(\kappa+1)}+E(u)
 \]
 
-의 오차를 준다. 이 lemma는 Halberstam–Richert Lemmas 5.3–5.4의 결합이라고 원문이
-명시하며, 숨은 상수는 \(A_1,A_2,\kappa\)에는 의존할 수 있지만 \(L\)에는 의존하지 않는다고
-한다.
+로 쓴다. GGPY Lemma 4와 Maynard Lemma 8.3에 인쇄된 오류항은
+\(c_\gamma L\) 또는 \(c_\gamma(1+L)\)을 포함한다. Maynard가 Lemma 8.4에서 쓰는
+경우는 \(\kappa=1\)이다.
 
-GGPY Lemma 4는 위 누적합에 piecewise differentiable \(F\)를 넣고 Stieltjes 부분적분을
-사용한다. Maynard가 쓰는 경우는 \(\kappa=1\)이다.
+### 4.2 peer-reviewed correction의 판정
 
-### 4.2 조건부이지만 정확한 factor 2
-
-HR 증명을 복원한 뒤 어떤 명시적 \(C_3(A_1,A_2)>0\)와 공통 범위에서
+Castillo et al. Lemma 2.5(PDF 11쪽)는 정수의 경우 \(c_A=1\)로 두면 주항에
+\(c_\gamma\)가 있으나 안전한 오류항은
 
 \[
-|E(u)|\le C_3(A_1,A_2)c_\gamma(L+1)\qquad(1\le u\le z)\tag{H1b-1b.4}
+O_{A_1,A_2,\kappa}
+\left(L\,G_{\max}(\log z)^{\kappa-1}\right)
+\tag{H1b-1b.4}
 \]
 
-를 얻었다고 가정한다. \(L+1\)은 작은 \(L\)까지 안전하게 포함하는 Maynard 출판본의
-\(\kappa=1\) 사용형이다. 이를 GGPY의 부분적분식에 대입하면 lower endpoint에서는
-\(E(1^-)=0\)이고,
+처럼 \(c_\gamma\)를 포함하지 않는 형태로 제시한다. 직후 Remark는 GGPY와 Maynard가 더
+강한 \(c_\gamma\)-포함 오류항을 썼지만, 그 증명은 \(z\)가 \(L\)에 비해 더 크다는 추가
+가정 아래에서만 그 형태를 지지한다고 명시한다. 저자들은 자신들의 정성적 응용에서는 다른
+더 큰 오류항에 흡수되므로 문제가 없다고 설명한다.
+
+따라서 다음 두 문장은 동시에 참이다.
+
+- 이 지적은 실제이며 \(\kappa=1\)에도 적용된다.
+- 이것만으로 GGPY나 Maynard의 최종 정성적 정리가 틀렸다고 결론낼 수는 없다.
+
+Maynard 출판본이 Lemma 8.3 뒤에 추가한 “일반 \(\kappa\)에서는
+\(c_\gamma(L+1)^\kappa\)가 필요하지만 \(\kappa=1\) 응용에는 영향 없다”는 주석은 다른
+문제다. 그 주석은 이번에 확인한 “오류항 앞 \(c_\gamma\)가 원 가정만으로 나오는가”를
+해결하지 않는다.
+
+### 4.3 교정된 절대오차에서 factor 2
+
+어떤 명시적 \(C_{3,\mathrm{abs}}(A_1,A_2)>0\)와 공통 범위에서
 
 \[
-\begin{aligned}
+|E(u)|\le C_{3,\mathrm{abs}}(A_1,A_2)(L+1)
+\qquad(1\le u\le z)\tag{H1b-1b.5}
+\]
+
+를 얻었다고 가정한다. Stieltjes 부분적분과
+
+\[
+M(F)=\sup_{0\le x\le1}\bigl(|F(x)|+|F'(x)|\bigr)
+\]
+
+을 사용하면 경계항 한 번과 미분 적분항 한 번으로
+
+\[
 \left|\int_{1^-}^{z}F\!\left(\frac{\log(z/u)}{\log z}\right)dE(u)\right|
-&\le C_3c_\gamma(L+1)\left(\lvert F(0)\rvert+\|F'\|_\infty\right)\\
-&\le 2C_3c_\gamma(L+1)M(F),
-\end{aligned}
+\le 2C_{3,\mathrm{abs}}(L+1)M(F).\tag{H1b-1b.6}
 \]
+
+따라서 안전하게 닫힌 것은
 
 \[
-M(F)=\sup_{0\le x\le1}\bigl(|F(x)|+|F'(x)|\bigr).
+\boxed{C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}}.\tag{H1b-1b.7}
 \]
 
-따라서 안전한 전달식은
+이라는 **절대오차 전달계수 2**다. \(C_{3,\mathrm{abs}}\)의 숫자와 범위는 여전히
+미복원이다.
+
+Maynard에 인쇄된 상대오차 형태로 되돌리려면 모든 호출에서
+\(c_\gamma\ge c_{\min}>0\)을 별도로 증명해야 한다. 그러면
 
 \[
-\boxed{C_4(A_1,A_2)\le2C_3(A_1,A_2)}.\tag{H1b-1b.5}
+2C_{3,\mathrm{abs}}(L+1)M(F)
+\le
+\frac{2C_{3,\mathrm{abs}}}{c_{\min}}\,
+c_\gamma(L+1)M(F).\tag{H1b-1b.8}
 \]
 
-이다. factor 2는 **복원 완료**, \(C_3\)은 **미복원**이다. (H1b-1b.5)에 임의로
-\(C_3=1\)을 넣는 것은 금지한다. 또한 HR의 실제 부등식이 (H1b-1b.4)를 \(u\ge u_0>1\)에서만
-준다면 \(1\le u<u_0\)의 유한합을 별도로 더해야 하므로, 유효범위 확인도 생략할 수 없다.
+즉 상대 multiplier는 \(2C_{3,\mathrm{abs}}/c_{\min}\)이다. \(c_{\min}=1\)을 임의로
+넣거나 오류항에 \(c_\gamma\)를 다시 붙이는 것은 금지한다.
 
-## 5. HR 원문 접근 blocker
+## 5. Kuperberg arXiv:2210.09775가 제공하는 것
 
-GGPY의 인용과 Google Books 검색 결과를 함께 대조해 다음 위치를 확정했다.
+Kuperberg Lemma 4.3(PDF 17쪽)는 HR Lemma 5.4를 따라 특수한 prime-tuple sieve
+function \(\nu_{\mathcal H}\)에 대해
 
-- Lemma 5.3: *Sieve Methods* 인쇄 144쪽
-- Lemma 5.4: 인쇄 147쪽에서 시작해 152쪽에서 끝남
-- 관련 notes: 인쇄 185쪽에 Lemma 5.4를 언급하는 항목이 있음
+\[
+\frac1{G(z)}
+=W(z)e^{\gamma\kappa}\Gamma(\kappa+1)
+\left(1+O\!\left(\frac{L+\kappa^4}{\log z}\right)\right)
+\tag{H1b-1b.9}
+\]
 
-그러나 공개 미리보기는 검색 snippet만 제공하고 144–152쪽의 전체 식과 증명을 열어 주지 않는다.
-OCR snippet은 수식이 크게 손상되어 상수 복원의 증거로 사용할 수 없다. 따라서 현재 상태는
-“수학적으로 불가능”이 아니라 **필요한 1차 출처 쪽을 아직 읽을 수 없음**이다.
+형태를 재현한다. 적용 가정에는 어떤 충분히 큰 \(B_L,B_\kappa\)에 대해
 
-다음 중 하나가 필요하다.
+\[
+L\le\frac{\log z}{B_L},
+\qquad
+\kappa^2\le\frac{\log z}{B_\kappa}
+\tag{H1b-1b.10}
+\]
 
-1. Dover 2011 reprint, ISBN 9780486479392, 또는 Academic Press 1974,
-   ISBN 0123182506의 인쇄 144–152쪽 스캔·사진·PDF
-2. 문맥과 errata를 확인하기 위해 가능하면 140–153쪽, 앞부분 errata와 185쪽 notes도 함께 제공
+가 들어간다. proof는 HR 5.2–5.4의 recurrence와 Euler product tail을 상당히 자세히
+재현한다. 이는 Castillo et al.의 “\(z\) 대 \(L\) 추가 크기조건 아래 더 강한 상대오차를
+구제할 수 있다”는 설명과 구조적으로 일치한다.
 
-사용자는 합법적으로 보유한 책·전자책에서 해당 쪽만 프로젝트에 전달하면 된다. 원문을 받으면
-판본·쪽·식 번호를 먼저 고정하고 \(C_3(A_1,A_2)\)의 유도 전체를 다시 계산한다.
+그러나 다음 때문에 현재 목표를 닫지는 못한다.
 
-## 6. 상태 변경과 바뀌지 않은 것
+1. \(B_L,B_\kappa\)와 \(O(k)\), \(O(k^3/\log a)\), \(O(k^4)\)의 multiplier가 숫자가 아니다.
+2. \(\nu_{\mathcal H}\)라는 특수 함수에 대한 결과이지, Maynard Lemma 8.4에서 좌표마다 생기는
+   모든 \(\gamma\)에 대한 uniform theorem이 아니다.
+3. “나머지는 HR proof와 동일”한 단계에 원 HR 상수 의존성이 남는다.
+4. Lemma 8.4의 \(r\)회 반복에서 같은 조건과 같은 error budget이 유지되는지 증명하지 않는다.
 
-| obligation | 이전 | 현재 | 의미 |
+따라서 HR 원문만이 유일한 blocker였다는 과거 설명은 고친다. 현대의 접근 가능한 구조적
+재현은 확보했지만, blocker는 이제 **수치 multiplier·유효범위·일반화·오류 정규화**다.
+원 HR 140–153쪽은 여전히 계보와 누락된 상수 확인에 유용하지만, 그것만 확보한다고 자동으로
+\(X_{\mathrm{cert}}\)가 계산되지는 않는다.
+
+## 6. Maynard Lemma 8.4에 생긴 새 proof obligation
+
+Maynard Lemma 8.4 proof는 Lemma 8.3을 좌표별로 \(r\)회 적용한다. 인쇄된 전개는 각 단계
+오류항에도 해당 단계의 Euler product \(c_{\gamma,j}\)가 붙는 것을 이용해 모든 주항 곱과
+같은 공통 인자를 꺼낸 뒤 \(O(r\varepsilon)\)로 모은다.
+
+교정된 절대오차에서는 이 인수분해가 자동이 아니다. 다음 셋 중 하나를 새로 증명해야 한다.
+
+1. **크기조건 경로:** 모든 단계에서 명시적인 \(z\)-대-\(L\) 조건을 만족시켜
+   \(c_{\gamma,j}\)-포함 오류항 자체를 복원한다.
+2. **Euler 곱 하한 경로:** 모든 단계의 \(c_{\gamma,j}\ge c_{\min,j}>0\)를 명시적으로
+   증명하고, \(\prod_j c_{\gamma,j}\)에 대한 상대 손실을 전부 추적한다.
+3. **직접 다변수 경로:** 절대오차들을 공통 주항에 대해 다시 합성해 더 나은 전역 경계를
+   직접 증명한다.
+
+어느 경로도 현재 닫히지 않았다. 이 때문에 Lemma 8.4는 계속 RATE_MISSING이고
+SIV-07과 \(X_{\mathrm{cert}}\)도 OPEN이다.
+
+## 7. 상태 변경과 바뀌지 않은 것
+
+| obligation | 과거 상태 | 현재 상태 | 의미 |
 |---|---|---|---|
-| H1B1-L82-LIPSCHITZ | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | multiplier 89, \(k\ge2\) |
+| H1B1-L82-LIPSCHITZ | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | multiplier 89, \(k\ge2\), 영향 없음 |
 | H1B-L82 | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | Lemma 8.2 자체는 닫힘 |
-| H1B1-L83-GGPY4 | SOURCE_CHAIN_TRACED | PARAMETERIZED_EXPLICIT | \(C_4\le2C_3\), \(C_3\)은 open |
-| H1B1-L83-GGPY3 | LOWER_SOURCE_REVIEW_REQUIRED | SOURCE_ACCESS_BLOCKED | HR proof pages 필요 |
-| H1B-L83 | RATE_MISSING | RATE_MISSING | 최종 숫자·range 없음 |
-| H1B1-PACKAGE | HARD_BLOCKER | HARD_BLOCKER | Lemma 8.4 등 미합성 |
+| H1B1-L83-GGPY4 | PARAMETERIZED_EXPLICIT | PARAMETERIZED_EXPLICIT | 절대오차에 한해 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\) |
+| H1B1-L83-GGPY3 | SOURCE_ACCESS_BLOCKED | RATE_MISSING | 현대 구조 재현은 확보, 숫자·범위·일반화는 open |
+| H1B-L83 | RATE_MISSING | RATE_MISSING | 상대오차 복원까지 필요 |
+| H1B1-L84-ITERATION | RATE_MISSING | RATE_MISSING | \(c_\gamma\) 없는 절대오차로 \(r\)회 합성 재증명 필요 |
+| H1B1-PACKAGE | HARD_BLOCKER | HARD_BLOCKER | 공통 cutoff와 multiplier 없음 |
 | SIV-07 | HARD_BLOCKER | HARD_BLOCKER | 변화 없음 |
 | \(X_{\mathrm{cert}}\) | OPEN | OPEN | 계산 불가 |
 
-Lemma 8.2에서 \(T_k\)와 \(Y\)가 기호로 남는 것은 숨은 상수가 남았다는 뜻이 아니다. 이 둘은
-lemma가 원래 제어하는 명시적 변수다. 반면 \(C_3(A_1,A_2)\)는 실제 숫자가 필요한 숨은
-multiplier이므로 두 상태를 구분했다.
+Lemma 8.2에서 \(T_k\)와 \(Y\)가 기호로 남는 것은 숨은 상수가 남았다는 뜻이 아니다.
+반면 \(C_{3,\mathrm{abs}}\), \(c_{\min}\), \(B_L,B_\kappa\)는 실제 숫자와 공통 범위가
+필요한 입력이다.
 
-## 7. 기계검증 계약
+## 8. 기계검증 계약
 
-source/h1b1b_multiplier_recovery.py와
-tests/test_h1b1b_multiplier_recovery.py는 다음을 확인한다.
+source/h1b1b_multiplier_recovery.py와 tests/test_h1b1b_multiplier_recovery.py는 다음을
+확인한다.
 
 - \(\log2>69/100\), \(1/\sqrt2<71/100\), \(6119/69<89\)의 exact rational chain
-- 여러 \(k\), support 경계, 작은·큰 \(\delta\)에서 직접 계산한 \(F,F_2\) 회귀검사
-- GGPY \(\kappa=1\) 전달식 \(C_4=2C_3\)의 exact symbolic contract
-- Maynard Lemma 8.2 child만 닫고 GGPY3, Lemma 8.4, package, SIV-07,
+- 여러 \(k\), support 경계, 작은·큰 \(\delta\)에서 \(F,F_2\) 회귀검사
+- 교정된 절대오차 전달 \(C_{4,\mathrm{abs}}=2C_{3,\mathrm{abs}}\)
+- 별도 \(c_\gamma\ge c_{\min}>0\) 입력이 있을 때만 상대 multiplier
+  \(2C_{3,\mathrm{abs}}/c_{\min}\)을 허용하는 negative regression
+- Maynard Lemma 8.2 child만 닫고 Lemma 8.4, package, SIV-07,
   \(X_{\mathrm{cert}}\)를 fail-closed로 유지하는지
-- 문헌 source hash와 HR source-access blocker가 기계 원장과 일치하는지
+- 문헌 source hash와 기계 원장 상태의 일치
 
 수치 grid는 구현 회귀검사이고 §3의 전 구간 증명을 대신하지 않는다. 이번 gate에는 Lean이나
 새 Python 라이브러리가 필요하지 않다.
 
-## 8. 다음 권장 순서
+## 9. 다음 권장 순서
 
-1. **HR 원문 확보·C3 복원:** 원문을 받은 뒤 2–6시간의 1차 식 감사가 예상된다. 증명 안의
-   또 다른 비명시적 정리가 발견되면 1–3일 이상으로 늘어날 수 있다.
-2. **H1b-1b 후반 Lemma 8.4 합성:** \(A_1,A_2,L,\Omega_G\), \(r\)-fold error를 한 범위에
-   묶는다. \(C_3\) 확보 뒤 약 6–20시간의 문헌·수식 작업이 예상된다.
-3. **H1c-1 병렬 이론축:** quantitative character/Bombieri–Vinogradov package를 복원한다.
-   여러 외부 명시적 정리가 연결되어 수일–수주가 걸릴 수 있다.
-4. **H1b-2:** 위 두 축이 준비된 뒤 Sections 9의 moment error를 합성한다.
+1. **H1b-1b-2 오류 정규화 repair:** Maynard Lemma 8.4의 실제 \(\gamma\)를 식별하고
+   \(c_\gamma\)의 explicit lower bound 또는 Kuperberg형 \(z\)-대-\(L\) gate 중 어느 경로가
+   더 작은 손실인지 비교한다. 1차 식 감사 4–10시간, 정식 증명은 수일 이상 걸릴 수 있다.
+2. **Kuperberg/HR recurrence 정량화:** \(B_L,B_\kappa\)와 모든 \(O\)-상수를 추적하고
+   Maynard의 일반 \(\gamma\)로 확장 가능한지 판정한다. 8–24시간 이상이며 추가 하위 정리가
+   나오면 수일–수주가 될 수 있다.
+3. **Lemma 8.4 재합성:** 위 두 입력이 숫자로 닫힌 뒤 \(A_1,A_2,L,\Omega_G\)와 \(r\)-fold
+   error를 한 공통 범위에 묶는다. 8–24시간 이상.
+4. **H1c-1 병렬 이론축:** quantitative character/Bombieri–Vinogradov package를 복원한다.
 5. 모든 root dependency가 숫자와 공통 범위로 닫힌 뒤에만 threshold calculator와
    \(X_{\mathrm{cert}}\) 계산을 설계한다.
 
-현재 CPU actual 실험이나 장시간 runner를 돌릴 단계가 아니다. HR 쪽을 받기 전 사용자 수행절차는
-해당 쪽을 전달하는 것 외에는 없다.
+현재 CPU actual 실험이나 장시간 runner를 돌릴 단계가 아니다. 사용자에게 필요한 즉시 수행절차는
+없다. HR 원문 140–153쪽을 합법적으로 구할 수 있다면 추가 대조에 유용하지만 필수 선결조건으로
+남겨 두지는 않는다.
 
 ## 참고문헌
 
 - James Maynard, “Dense Clusters of Primes in Subsets,” *Compositio Mathematica* 152 (2016),
-  DOI 10.1112/S0010437X16007296, arXiv 1405.2593.
+  DOI 10.1112/S0010437X16007296, arXiv:1405.2593.
 - D. A. Goldston, S. W. Graham, J. Pintz, C. Y. Yıldırım, “Small Gaps Between Products of
   Two Primes,” *Proceedings of the London Mathematical Society* 98 (2009),
-  DOI 10.1112/plms/pdn046, arXiv math/0609615.
+  DOI 10.1112/plms/pdn046, arXiv:math/0609615.
 - 같은 저자, corrigendum, DOI 10.1112/plms/pds053.
 - H. Halberstam and H.-E. Richert, *Sieve Methods*, London Mathematical Society Monographs 4,
   Academic Press (1974); Dover reprint (2011), ISBN 9780486479392.
+- Vivian Kuperberg, “Sums of singular series with large sets and the tail of the distribution
+  of primes,” *Quarterly Journal of Mathematics* 74 (2023), 1457–1479,
+  DOI 10.1093/qmath/haad030, arXiv:2210.09775.
+- A. Castillo, C. Hall, R. J. Lemke Oliver, P. Pollack, L. Thompson,
+  “Bounded gaps between primes in number fields and function fields,”
+  *Proceedings of the American Mathematical Society* 143 (2015), 2841–2856,
+  DOI 10.1090/S0002-9939-2015-12554-3, arXiv:1403.5808.

@@ -35,7 +35,7 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_rows(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.0.0")
+        self.assertEqual(self.document["schema_version"], "1.1.0")
         self.assertEqual(len(self.rows), 13)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -46,6 +46,8 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
                 "GGPY2009",
                 "GGPY2013_CORRIGENDUM",
                 "HR1974",
+                "KUPERBERG2023",
+                "CASTILLO_ET_AL_2015",
             },
         )
         ggpy = next(row for row in self.document["source_registry"] if row["key"] == "GGPY2009")
@@ -55,12 +57,11 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 4,
+                    "RATE_MISSING": 5,
                     "PROJECT_FINITE_COMPONENT_CLOSED": 4,
                     "PARTIAL_EXPLICIT": 1,
                     "PARAMETERIZED_EXPLICIT": 1,
                     "PRINTED_STRUCTURAL_FACT": 1,
-                    "SOURCE_ACCESS_BLOCKED": 1,
                     "HARD_BLOCKER": 1,
                 }
             ),
@@ -113,7 +114,11 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
         )
         self.assertEqual(
             self.by_id["H1B1-L83-GGPY3"]["status"],
-            "SOURCE_ACCESS_BLOCKED",
+            "RATE_MISSING",
+        )
+        self.assertIn(
+            "c_gamma",
+            " ".join(self.by_id["H1B1-L83-GGPY4"]["missing_numeric_inputs"]),
         )
         self.assertIn(
             "kappa=1",

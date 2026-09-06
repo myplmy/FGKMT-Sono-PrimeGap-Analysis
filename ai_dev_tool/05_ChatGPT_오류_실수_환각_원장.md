@@ -1,6 +1,6 @@
 # FGKMT-Sono ChatGPT 오류·실수·환각 원장
 
-최종 갱신: 2026-09-04 KST
+최종 갱신: 2026-09-06 KST
 
 ## 1. 목적
 
@@ -229,6 +229,9 @@
   template delimiter와 분리하지 않아 wrapper parse 단계에서 멈췄다. 두 시도 모두 파일을
   만들지 않았고, backtick-free raw patch로 정상 생성했다. 이후 수식 문서 patch는 첫 시도부터
   raw 입력을 사용하고 template 안의 Markdown backtick도 사전 제거·escape한다.
+- 같은 날 후속 정본 동기화에서 이 규칙을 일관되게 적용하지 않아 AGENTS 1회와 묶음 문서 1회가
+  다시 wrapper parse 단계에서 멈췄다. 두 호출 모두 apply_patch 실행 전이어서 파일 변경은 0건이며,
+  이후 호출은 backtick 자리표시자 치환으로 통일했다.
 
 ### E020 — H1b-1a 작업원장 중간 기록에 아직 오지 않은 시각을 기입
 
@@ -252,6 +255,27 @@
   extracted TeX의 SHA-256을 각각 기계 원장에 기록했다.
 - 재발 방지: arXiv source는 확장자나 Content-Disposition만 믿지 않고 magic bytes와 container
   listing을 먼저 확인한다. 해제 실패 출력으로 만들어진 파일은 source 증거로 채택하지 않는다.
+
+### E022 — GGPY Lemma 3–4 오류항에 `c_gamma`가 자동 포함된다고 계약
+
+- 분류: `MATHEMATICAL_CONTRACT_ERROR / CORRECTED_BEFORE_PARENT_CLOSURE`
+- 문제: H1b-1b 첫 정식화에서 GGPY Lemma 3의 base error를
+  `|E| <= C3*c_gamma*(L+1)`로 가정하고 factor 2를 전달했다. Castillo–Hall–Lemke
+  Oliver–Pollack–Thompson의 peer-reviewed Lemma 2.5와 Remark를 대조하면, 원래 가정만으로
+  안전하게 증명되는 오류항에는 `c_gamma`가 없고 더 강한 형태에는 추가적인
+  `z` 대 `L` 크기조건이 필요하다.
+- 영향:
+  - Lemma 8.2 multiplier 89와 부분적분의 절대오차 factor 2는 유효하다.
+  - 그러나 factor 2는 `C4_abs <= 2*C3_abs`로 해석해야 한다.
+  - Maynard Lemma 8.4의 상대오차 합성에는 별도 `c_gamma` 하한 또는 명시적 크기조건이
+    추가로 필요하다.
+  - parent H1b-1 package, SIV-07, `X_cert`가 모두 fail-closed OPEN이었으므로 잘못
+    닫힌 theorem threshold나 actual 결과는 없다.
+- 교정: 코드 계약·기계 원장·방법론 정본에서 절대오차와 상대오차를 분리하고, 양의
+  `c_gamma` 하한 없이는 상대 multiplier를 만들지 못하는 negative regression을 추가했다.
+- 재발 방지: 인용 lemma의 출판본 주석만 확인하지 않고, 후속 peer-reviewed 재서술·정정과 proof의
+  base error normalization을 함께 대조한다. 주항에 들어간 Euler product가 오류항에도 자동
+  들어간다고 추론하지 않는다.
 
 ## 4. 아직 남은 오류 위험
 

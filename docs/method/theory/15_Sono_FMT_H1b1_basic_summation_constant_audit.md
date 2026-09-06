@@ -29,9 +29,10 @@ Maynard의 Lemmas 8.1–8.4에는 Proposition 6.1의 moment 계산을 가능하�
 2026-09-04 H1b-1a 후속 정식화는 Lemma 8.1(i)의 \(C=9/2\), explicit cutoff의
 \(\|\psi'\|_\infty<50\), 식 (8.5)의 \(E(k)<24\log k\)를 프로젝트 유한 보조정리로
 닫았다. 2026-09-06 H1b-1b는 이어서 Lemma 8.2의 전체 Lipschitz multiplier를 89로
-닫고, Lemma 8.3이 가져오는 GGPY Lemma 4의 전달식을 \(C_4\le2C_3\)로 정식화했다.
-그러나 Lemma 8.1(ii)의 입력 정규화와 공통 cutoff, HR에서 시작하는 \(C_3(A_1,A_2)\),
-Lemma 8.4의 반복오차는 열려 있다.
+닫았다. Castillo et al. 교정을 반영한 Lemma 8.3/GGPY Lemma 4의 안전한 전달식은
+\(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)이다. Lemma 8.1(ii)의 입력 정규화와 공통
+cutoff, Kuperberg/HR에서 시작하는 \(C_{3,\mathrm{abs}}(A_1,A_2)\), \(c_\gamma\)
+normalization repair, Lemma 8.4의 반복오차는 열려 있다.
 따라서 numerical basic-summation package 전체는 아직 완료가 아니다.
 
 쉬운 비유로 말하면, 네 개의 조립 공정과 공급업체 도면까지 찾았지만 각 부품의 실제 허용오차와
@@ -168,9 +169,9 @@ finite 명제는 아직 없다.
 | `H1B1-L81II-DIVISOR` | extra-form 평균 | `PARTIAL_EXPLICIT` | 입력 계수·공통 흡수 cutoff |
 | `H1B1-L82-CUTOFF` | smooth \(\psi\) | `PROJECT_FINITE_COMPONENT_CLOSED` | \(\|\psi'\|_\infty<50\) |
 | `H1B1-L82-LIPSCHITZ` | Lipschitz bound | `PROJECT_FINITE_COMPONENT_CLOSED` | multiplier 89, \(k\ge2\) |
-| `H1B1-L83-GGPY4` | 1차원 합 | `PARAMETERIZED_EXPLICIT` | \(C_4\le2C_3\), \(C_3\) open |
-| `H1B1-L83-PUBLISHED-NOTE` | 출판본 보정 | `PRINTED_STRUCTURAL_FACT` | 숫자 multiplier는 여전히 없음 |
-| `H1B1-L83-GGPY3` | 하위 sieve lemma | `SOURCE_ACCESS_BLOCKED` | HR 144–152쪽과 상수 재구성 |
+| `H1B1-L83-GGPY4` | 1차원 합 | `PARAMETERIZED_EXPLICIT` | \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\), relative form open |
+| `H1B1-L83-PUBLISHED-NOTE` | 출판본 보정 | `PRINTED_STRUCTURAL_FACT` | 일반 \(\kappa\) 주석은 별도 \(c_\gamma\) 문제를 해결하지 않음 |
+| `H1B1-L83-GGPY3` | 하위 sieve lemma | `RATE_MISSING` | Kuperberg 구조 확인; 수치 상수·범위·일반화 open |
 | `H1B1-L84-GAMMA` | \(\gamma\) 조건 | `RATE_MISSING` | explicit \(A_1,A_2,k_0\) |
 | `H1B1-L84-L` | discrepancy \(L\) | `RATE_MISSING` | 소인수합·지수 상수 |
 | `H1B1-L84-SMOOTH` | \(\Omega_G\) | `RATE_MISSING` | test function 수치 norm |
@@ -190,9 +191,10 @@ finite 명제는 아직 없다.
 
 ### 다음 단계에서 Codex와 사용자가 도울 수 있는 일
 
-- 사용자가 HR Lemmas 5.3–5.4의 인쇄 144–152쪽을 제공
-- Codex가 HR의 숨은 \(C_3(A_1,A_2)\)와 finite range를 증명에서 복원
-- 이미 닫힌 Lemma 8.2 multiplier 89와 \(C_4\le2C_3\)를 Lemma 8.4 축적오차에 합성
+- Codex가 Maynard Lemma 8.4의 실제 \(\gamma_j,c_{\gamma,j},L_j\)를 식별
+- Kuperberg/HR recurrence의 숨은 absolute \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 finite range를 복원
+- \(c_\gamma\) explicit lower bound 또는 \(z\)-대-\(L\) restoration gate를 증명
+- 이미 닫힌 Lemma 8.2 multiplier 89와 absolute factor 2를 Lemma 8.4 축적오차에 재합성
 - 정식 lemma가 고정된 뒤 작은 \(k,R\) 범위의 exact/interval certificate를 생성
 
 이는 새 maximal-gap sweep이 아니라 보조 부등식 certificate 계산이다. runner는 정식 lemma와
@@ -207,16 +209,17 @@ finite 명제는 아직 없다.
 ## 6. H1b-1a 결과와 다음 gate
 
 H1b-1a는 세 유한 component를 닫고 divisor 평균을 parameterized 식으로 바꿨다. H1b-1b
-전반은 Lemma 8.2 multiplier 89와 GGPY 전달 factor 2를 닫았다. 다음 gate는 H1b-1b의
-HR base multiplier 복원과 Lemma 8.4 합성이다.
+전반은 Lemma 8.2 multiplier 89와 GGPY **절대오차** 전달 factor 2를 닫았다. 다음 gate는
+H1b-1b의 base multiplier·relative normalization repair와 Lemma 8.4 합성이다.
 
-1. Halberstam–Richert Lemmas 5.3–5.4의 전체 원문을 확보한다.
-2. GGPY Lemma 3의 \(C_3(A_1,A_2)\)와 유효범위를 복원한다.
-3. \(C_4\le2C_3\)를 사용해 Lemma 8.4의 \(r\)-fold error와 공통 \((k,R)\) cutoff를 합성한다.
+1. Maynard Lemma 8.4의 각 \(c_{\gamma,j}\)를 정확히 펼쳐 uniform 하한 가능성을 감사한다.
+2. Kuperberg의 HR recurrence에서 \(B_L,B_k\)와 \(O\)-상수를 수치화하고 일반 \(\gamma\)
+   특수화를 검증한다.
+3. absolute factor 2와 상대오차 repair를 사용해 Lemma 8.4의 \(r\)-fold error와 공통
+   \((k,R)\) cutoff를 합성한다.
 
-원문 확보 뒤 H1b-1b의 source/constant 복원은 수시간에서 수일 이상 걸릴 수 있다. 사용자는
-합법적으로 보유한 *Sieve Methods*의 인쇄 144–152쪽을 제공해야 한다. 가능하면 문맥용
-140–153쪽과 관련 errata/185쪽 notes도 함께 제공한다.
+원 HR 140–153쪽은 계보와 상수 누락을 대조하는 데 여전히 유용하지만, 현대 구조 재현이
+확보됐으므로 사용자 제공이 유일한 선결조건은 아니다.
 
 ```text
 실행 환경·명령어: 없음
@@ -230,8 +233,9 @@ HR base multiplier 복원과 Lemma 8.4 합성이다.
 H1b-1 source chain          = TRACED
 H1b-1a finite components    = 3 CLOSED
 H1b-1b Lemma 8.2            = multiplier 89 CLOSED
-GGPY Lemma 4 transfer       = C4 <= 2 C3 PARAMETERIZED
-HR base C3                  = SOURCE ACCESS BLOCKED
+GGPY Lemma 4 absolute       = C4_abs <= 2 C3_abs PARAMETERIZED
+printed c_gamma-relative    = EXTRA CONDITION REQUIRED
+modern HR reproduction      = STRUCTURE REVIEWED / RATE MISSING
 Lemma 8.1(i) exponent       = 9/2
 cutoff first-derivative norm= <50
 Lemma 8.3 cited source      = IDENTIFIED_AND_CORRECTED

@@ -268,9 +268,11 @@ H1b-1a 또는 H1c-1의 quantitative sub-gate다.
 ### 2026-09-06 후속 상태
 
 H1b-1a는 cutoff·Lemma 8.1(i)·식 (8.5)의 세 finite component를 닫았다. 이어진 H1b-1b는
-Maynard Lemma 8.2의 uniform multiplier를 89로 닫고, GGPY \(\kappa=1\) 부분합 전달을
-\(C_4\le2C_3\)로 정식화했다. Halberstam–Richert Lemmas 5.3–5.4의 전체 proof pages가
-없어 base \(C_3(A_1,A_2)\)와 유효범위는 계속 OPEN이다. 최신 정본은
+Maynard Lemma 8.2의 uniform multiplier를 89로 닫았다. 2026-09-06 후속 source 감사에서
+Castillo et al.의 peer-reviewed 교정을 반영하여 GGPY \(\kappa=1\) 부분합 전달은
+절대오차 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)로 고쳤다. Kuperberg의 현대 HR 구조
+재현은 확인했지만 base \(C_{3,\mathrm{abs}}(A_1,A_2)\), 유효범위와
+\(c_\gamma\)-relative 오류항 repair는 계속 OPEN이다. 최신 정본은
 `docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`를 따른다.
 
 ```text

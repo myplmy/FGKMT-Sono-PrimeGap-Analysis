@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-06",
+  "updated_kst": "2026-09-06",
+  "gate": "H1b-1b-2 corrected c_gamma error normalization and Lemma 8.4 route decision",
+  "target_obligation": "SIV-07",
+  "scope": "A fail-closed decomposition of the additional proof needed after the peer-reviewed correction to the GGPY/Maynard c_gamma-normalized error. This ledger does not prove a numerical lower bound, choose a successful repair route, certify Maynard Lemma 8.4, or compute X_cert.",
+  "outcome": "PROOF_OBLIGATIONS_REGISTERED_NO_NUMERICAL_REPAIR_ROUTE_CLOSED",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_SOURCE",
+      "title": "Dense Clusters of Primes in Subsets",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "reviewed_locations": "TeX lines 530-604, especially 570-600",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "CASTILLO_ET_AL_2015",
+      "title": "Bounded gaps between primes in number fields and function fields",
+      "doi": "10.1090/S0002-9939-2015-12554-3",
+      "arxiv": "1403.5808",
+      "local_path": "tmp/pdfs/h1b1b_followup/Castillo_Hall_LemkeOliver_Pollack_Thompson_BoundedGaps.pdf",
+      "sha256": "af2f402f1d0ecf67ea2b02a18f9cc2384514cb04fc3467807e20b278e3d463ca",
+      "reviewed_locations": "PDF page 11, Lemma 2.5 and following remark and proof",
+      "status": "PRIMARY_PEER_REVIEWED_CORRECTION_REVIEWED"
+    },
+    {
+      "key": "KUPERBERG2023",
+      "title": "Sums of singular series with large sets and the tail of the distribution of primes",
+      "doi": "10.1093/qmath/haad030",
+      "arxiv": "2210.09775v2",
+      "local_path": "tmp/pdfs/h1b1b_followup/Kuperberg2023_Sums_of_singular_series_arxiv_v2.pdf",
+      "sha256": "653dcd731f11c6bab47fa61989b31f50dc3318464fc4d300276698045ba48939",
+      "reviewed_locations": "PDF pages 16-19, Lemmas 4.2-4.3 and proof",
+      "status": "PRIMARY_MODERN_REPRODUCTION_REVIEWED"
+    }
+  ],
+  "status_vocabulary": {
+    "PRINTED_EXACT_STRUCTURE": "The source prints the exact algebraic structure, but it is not yet a numerical bound.",
+    "PARAMETERIZED_EXPLICIT": "An exact propagation formula is proved once named positive numerical inputs are supplied.",
+    "RATE_MISSING": "At least one multiplier, exponent constant, or finite range remains implicit.",
+    "SPECIALIZATION_REQUIRED": "A result for a special sieve function has not been proved uniformly for Maynard's actual functions.",
+    "HARD_BLOCKER": "No route can be promoted until all upstream bounds and a common range are numerical."
+  },
+  "obligations": [
+    {
+      "id": "H1B1B2-GAMMA-FORM",
+      "locator": "Maynard Lemma 8.4 proof, source lines 568-575",
+      "role": "identify the one-dimensional multiplicative function at iteration j",
+      "printed_information": "gamma_j(p)=0 if p divides W_{j+1} product_{i=j+2}^r e_i, and otherwise gamma_j(p)=p/(1+n_j(p)+g(p)).",
+      "missing_numeric_inputs": [
+        "an explicit bound replacing g(p)=p+O(k)",
+        "the first uniform k and R range"
+      ],
+      "upstream": [],
+      "status": "PRINTED_EXACT_STRUCTURE",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2-CGAMMA-PRODUCT",
+      "locator": "Maynard Lemmas 8.3-8.4, source lines 535-537 and 593-600",
+      "role": "express the Euler product whose lower bound is needed",
+      "printed_information": "c_gamma_j=product_p (1-gamma_j(p)/p)^(-1)(1-1/p), and Maynard gives the exact identity linking c_j c_gamma_j to c_{j+1} and g_j/g_{j+1}.",
+      "missing_numeric_inputs": [
+        "uniform lower control of every local factor",
+        "a finite truncation and tail error"
+      ],
+      "upstream": [
+        "H1B1B2-GAMMA-FORM"
+      ],
+      "status": "PRINTED_EXACT_STRUCTURE",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2-CMIN-SMALL-EXCLUDED",
+      "locator": "excluded primes in c_gamma_j; W_i contains every p<=2k^2",
+      "role": "lower-bound the product of (1-1/p) over mandatory small excluded primes",
+      "printed_information": "The mandatory contribution includes product_{p<=2k^2}(1-1/p).",
+      "missing_numeric_inputs": [
+        "an explicit Mertens or totient-product lower bound with finite cutoff",
+        "compatibility with the chosen k range"
+      ],
+      "upstream": [
+        "H1B1B2-CGAMMA-PRODUCT"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2-CMIN-LARGE-EXCLUDED",
+      "locator": "Maynard Lemma 8.4 proof, source lines 570-579",
+      "role": "lower-bound factors from prime divisors of W_{j+1} product e_i above 2k^2",
+      "printed_information": "The proof only states that the relevant integer is at most R^(O(k^2)) and that its prime-divisor harmonic sum is O(log log R).",
+      "missing_numeric_inputs": [
+        "the exponent hidden in R^(O(k^2))",
+        "an explicit lower bound for the corresponding finite Euler product",
+        "uniformity in j and the remaining e_i"
+      ],
+      "upstream": [
+        "H1B1B2-CGAMMA-PRODUCT"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2-CMIN-NONEXCLUDED",
+      "locator": "Maynard Lemma 8.4 proof, source lines 570-578",
+      "role": "lower-bound the convergent product over nonexcluded primes",
+      "printed_information": "For nonexcluded primes gamma_j(p)=1+O(k/p), but the O multiplier is not printed.",
+      "missing_numeric_inputs": [
+        "an explicit local-factor lower bound from g(p)",
+        "an explicit tail-product bound beyond 2k^2",
+        "a common k cutoff"
+      ],
+      "upstream": [
+        "H1B1B2-CGAMMA-PRODUCT"
+      ],
+      "status": "RATE_MISSING",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2-CMIN-COMPOSE",
+      "locator": "project lower-bound route",
+      "role": "produce one positive c_min valid at every Lemma 8.4 iteration",
+      "printed_information": "If c_gamma_j>=c_min>0 uniformly, the corrected absolute Lemma 4 error converts to a relative multiplier 2*C3_abs/c_min.",
+      "missing_numeric_inputs": [
+        "all three local-product bounds",
+        "one common j,k,r,R range",
+        "a certified absolute C3_abs(A1,A2)"
+      ],
+      "upstream": [
+        "H1B1B2-CMIN-SMALL-EXCLUDED",
+        "H1B1B2-CMIN-LARGE-EXCLUDED",
+        "H1B1B2-CMIN-NONEXCLUDED"
+      ],
+      "status": "PARAMETERIZED_EXPLICIT",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2-SIZE-GATE",
+      "locator": "Kuperberg Lemma 4.3 after HR Lemma 5.4",
+      "role": "alternative route restoring a c_gamma-relative error by making z sufficiently large compared with L and k",
+      "printed_information": "The special prime-tuple result assumes L<=log(z)/B_L and k^2<=log(z)/B_k and has relative error O((L+k^4)/log z).",
+      "missing_numeric_inputs": [
+        "numeric B_L and B_k",
+        "all O multipliers",
+        "a proof for every Maynard gamma_j rather than only nu_H",
+        "one common j,k,r,R range"
+      ],
+      "upstream": [
+        "H1B1B2-GAMMA-FORM"
+      ],
+      "status": "SPECIALIZATION_REQUIRED",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2-ROUTE-DECISION",
+      "locator": "project composition gate",
+      "role": "choose a proved lower-bound, size-gate, or direct multivariate repair without mixing hypotheses",
+      "printed_information": "The lower-bound and size-gate routes are sufficient in principle; a direct absolute-error multivariate proof is a third possible route.",
+      "missing_numeric_inputs": [
+        "at least one fully numerical route",
+        "a comparison of the resulting error loss and cutoff"
+      ],
+      "upstream": [
+        "H1B1B2-CMIN-COMPOSE",
+        "H1B1B2-SIZE-GATE"
+      ],
+      "status": "HARD_BLOCKER",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2-RFOLD-COMPOSITION",
+      "locator": "Maynard Lemma 8.4, source lines 558-604",
+      "role": "redo the j=0 to r induction and binomial error accumulation with the corrected normalization",
+      "printed_information": "The printed proof uses c_j*c_gamma_j factorization at every step and then replaces the binomial error by O(j epsilon).",
+      "missing_numeric_inputs": [
+        "a successful normalization repair route",
+        "explicit Omega_G and L constants",
+        "a numerical smallness condition for the binomial accumulation",
+        "a common finite cutoff"
+      ],
+      "upstream": [
+        "H1B1B2-ROUTE-DECISION"
+      ],
+      "status": "HARD_BLOCKER",
+      "threshold_ready": false
+    }
+  ],
+  "route_status": {
+    "explicit_c_gamma_lower_bound": "OPEN",
+    "explicit_z_vs_L_restoration_gate": "OPEN",
+    "direct_multivariate_absolute_error_reproof": "UNSCOPED_OPTION",
+    "route_selected": false
+  },
+  "parent_status": {
+    "H1B1-L84-ITERATION": "RATE_MISSING",
+    "H1B1-PACKAGE": "HARD_BLOCKER",
+    "H1B-L83": "RATE_MISSING",
+    "H1B-L84": "RATE_MISSING",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "next_gate": {
+    "recommended": "Derive explicit local-factor bounds for Maynard's actual gamma_j and determine whether c_gamma_j has a usable uniform lower bound before investing in the full Kuperberg/HR constant reconstruction.",
+    "parallel": "Trace explicit Mertens/totient-product bounds and quantify the Kuperberg recurrence constants.",
+    "ready_for_threshold_calculator": false,
+    "ready_for_actual_prime_experiment": false,
+    "new_python_dependency_required": false,
+    "lean_required": false
+  }
+}

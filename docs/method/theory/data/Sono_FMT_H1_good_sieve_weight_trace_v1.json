@@ -118,16 +118,17 @@
       "question": "Can Maynard Proposition 6.1 constants be written as explicit functions of Hypothesis 1 constants?",
       "source_keys": ["MAYNARD2016", "FGKMT2016"],
       "source_locator": "Maynard Proposition 6.1 and Sections 8-9; FGKMT Theorem 6 (7.5)-(7.9)",
-      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1 identified the correct GGPY source; H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89 and parameterized the kappa=1 GGPY transfer as C4<=2*C3.",
+      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1 identified the correct GGPY source; H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89 and parameterized only the corrected kappa=1 absolute transfer as C4_abs<=2*C3_abs. The printed c_gamma-relative error needs an additional size gate or c_gamma lower bound.",
       "missing_numeric_inputs": [
         "the constants multiplying all moment errors",
         "finite cutoffs in repeated negligible-error arguments",
         "explicit singular-series and coefficient bounds uniform in r and the linear forms",
-        "the HR-derived base multiplier C3(A1,A2) and its common finite range"
+        "the Kuperberg/HR-derived absolute base multiplier C3_abs(A1,A2) and its common finite range",
+        "the c_gamma normalization repair required by the peer-reviewed GGPY error-term correction"
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "Obtain HR Sieve Methods printed pages 144-152, recover C3(A1,A2) and its range, then combine the H1b-1b factor-2 GGPY transfer with Lemma 8.4. Do not treat the missing base multiplier as one.",
+      "next_action": "Identify Maynard Lemma 8.4's actual c_gamma factors, compare an explicit lower-bound repair with a Kuperberg-style z-versus-L gate, recover C3_abs(A1,A2) and its range, then redo the factor-2 GGPY transfer and r-fold composition. Do not treat any missing multiplier or normalization loss as one.",
       "threshold_ready": false
     },
     {

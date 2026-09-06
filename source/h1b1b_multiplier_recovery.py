@@ -4,9 +4,13 @@ The accompanying proof is recorded in
 ``docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md``.
 This module checks the finite rational inequalities used to make Maynard's
 Lemma 8.2 explicit and the *conditional* partial-summation transfer from
-GGPY Lemma 3 to Lemma 4 when ``kappa=1``.  It deliberately does not invent
-the still-missing Halberstam--Richert base multiplier, certify Maynard
-Lemma 8.4, or compute ``X_cert``.
+the corrected absolute GGPY Lemma 3 error to Lemma 4 when ``kappa=1``.
+Castillo--Hall--Lemke Oliver--Pollack--Thompson show that the factor
+``c_gamma`` printed in the GGPY/Maynard error is not available from the
+stated hypotheses without an additional size condition.  This module keeps
+that normalization loss explicit.  It deliberately does not invent the
+still-missing base multiplier, certify Maynard Lemma 8.4, or compute
+``X_cert``.
 """
 
 from __future__ import annotations
@@ -28,6 +32,7 @@ H1B1B_INV_SQRT2_UPPER_BOUND = Fraction(71, 100)
 H1B1B_NORMALIZED_LIPSCHITZ_UPPER_BOUND = Fraction(6119, 69)
 H1B1B_LEMMA82_MULTIPLIER = 89
 H1B1B_GGPY4_KAPPA1_TRANSFER_FACTOR = 2
+H1B1B_PRINTED_C_GAMMA_ERROR_JUSTIFIED_BY_STATED_HYPOTHESES = False
 
 
 @dataclass(frozen=True)
@@ -44,21 +49,38 @@ class Lemma82UniformCertificate:
 
 @dataclass(frozen=True)
 class GGPY4Kappa1TransferCertificate:
-    """Conditional transfer of a Lemma 3 error constant into Lemma 4.
+    """Conditional transfer of a corrected absolute Lemma 3 error.
 
-    ``lemma3_multiplier`` denotes a certified number ``C3`` such that
+    ``lemma3_absolute_multiplier`` denotes a certified number ``C3_abs``
+    such that
 
-    ``|E(u)| <= C3 * c_gamma * (L + 1)``
+    ``|E(u)| <= C3_abs * (L + 1)``
 
-    uniformly on the required interval.  The returned Lemma 4 multiplier is
-    valid for GGPY's norm ``M(F)=sup(|F|+|F'|)``.  This function does not
-    establish that such a ``C3`` is available.
+    uniformly on the required interval.  No ``c_gamma`` factor is assumed.
+    The returned absolute Lemma 4 multiplier is valid for GGPY's norm
+    ``M(F)=sup(|F|+|F'|)``.  This function does not establish that such a
+    ``C3_abs`` is available.
     """
 
-    lemma3_multiplier: Fraction
+    lemma3_absolute_multiplier: Fraction
+    assumed_error_contains_c_gamma: bool
     boundary_factor: int
     derivative_integral_factor: int
-    lemma4_multiplier: Fraction
+    lemma4_absolute_multiplier: Fraction
+
+
+@dataclass(frozen=True)
+class GGPY4Kappa1RelativeTransferCertificate:
+    """Convert the corrected absolute bound to a ``c_gamma``-relative one.
+
+    This conversion is valid only when a separately proved uniform lower
+    bound ``c_gamma >= c_gamma_lower_bound > 0`` holds on every invocation.
+    """
+
+    lemma3_absolute_multiplier: Fraction
+    lemma4_absolute_multiplier: Fraction
+    c_gamma_lower_bound: Fraction
+    lemma4_relative_multiplier: Fraction
 
 
 def lemma82_uniform_certificate() -> Lemma82UniformCertificate:
@@ -180,36 +202,70 @@ def lemma82_one_coordinate_margin(
 
 
 def ggpy4_kappa1_transfer_certificate(
-    lemma3_multiplier: int | Fraction,
+    lemma3_absolute_multiplier: int | Fraction,
 ) -> GGPY4Kappa1TransferCertificate:
-    """Transfer an assumed explicit GGPY Lemma 3 constant to Lemma 4.
+    """Transfer a corrected absolute Lemma 3 constant to Lemma 4.
 
-    One copy of ``C3`` bounds the upper boundary term and one copy bounds the
-    derivative integral.  With GGPY's pointwise-sum norm this gives the safe
-    multiplier ``C4=2*C3``.  The missing HR reconstruction is precisely the
-    missing certified input ``C3(A1,A2)`` and its common finite range.
+    One copy of ``C3_abs`` bounds the upper boundary term and one copy bounds
+    the derivative integral.  With GGPY's pointwise-sum norm this gives the
+    safe absolute multiplier ``C4_abs=2*C3_abs``.  It does *not* prove the
+    printed relative error ``C4*c_gamma*(L+1)*M(F)``.
     """
 
-    multiplier = Fraction(lemma3_multiplier)
+    multiplier = Fraction(lemma3_absolute_multiplier)
     if multiplier <= 0:
-        raise ValueError("lemma3_multiplier must be positive")
+        raise ValueError("lemma3_absolute_multiplier must be positive")
     return GGPY4Kappa1TransferCertificate(
-        lemma3_multiplier=multiplier,
+        lemma3_absolute_multiplier=multiplier,
+        assumed_error_contains_c_gamma=False,
         boundary_factor=1,
         derivative_integral_factor=1,
-        lemma4_multiplier=H1B1B_GGPY4_KAPPA1_TRANSFER_FACTOR * multiplier,
+        lemma4_absolute_multiplier=(
+            H1B1B_GGPY4_KAPPA1_TRANSFER_FACTOR * multiplier
+        ),
+    )
+
+
+def ggpy4_kappa1_relative_transfer_certificate(
+    lemma3_absolute_multiplier: int | Fraction,
+    c_gamma_lower_bound: int | Fraction,
+) -> GGPY4Kappa1RelativeTransferCertificate:
+    """Recover a relative multiplier from a certified ``c_gamma`` lower bound.
+
+    If ``|E_4| <= 2*C3_abs*(L+1)*M(F)`` and ``c_gamma >= c_min > 0``, then
+
+    ``|E_4| <= (2*C3_abs/c_min)*c_gamma*(L+1)*M(F)``.
+
+    Supplying ``c_min`` is a new proof obligation; this function only checks
+    the exact rational propagation once that input exists.
+    """
+
+    absolute = ggpy4_kappa1_transfer_certificate(lemma3_absolute_multiplier)
+    lower_bound = Fraction(c_gamma_lower_bound)
+    if lower_bound <= 0:
+        raise ValueError("c_gamma_lower_bound must be positive")
+    return GGPY4Kappa1RelativeTransferCertificate(
+        lemma3_absolute_multiplier=absolute.lemma3_absolute_multiplier,
+        lemma4_absolute_multiplier=absolute.lemma4_absolute_multiplier,
+        c_gamma_lower_bound=lower_bound,
+        lemma4_relative_multiplier=(
+            absolute.lemma4_absolute_multiplier / lower_bound
+        ),
     )
 
 
 __all__ = [
     "GGPY4Kappa1TransferCertificate",
+    "GGPY4Kappa1RelativeTransferCertificate",
     "H1B1B_GGPY4_KAPPA1_TRANSFER_FACTOR",
+    "H1B1B_PRINTED_C_GAMMA_ERROR_JUSTIFIED_BY_STATED_HYPOTHESES",
     "H1B1B_INV_SQRT2_UPPER_BOUND",
     "H1B1B_LEMMA82_MULTIPLIER",
     "H1B1B_LN2_LOWER_BOUND",
     "H1B1B_NORMALIZED_LIPSCHITZ_UPPER_BOUND",
     "Lemma82UniformCertificate",
     "ggpy4_kappa1_transfer_certificate",
+    "ggpy4_kappa1_relative_transfer_certificate",
     "lemma82_normalized_multiplier",
     "lemma82_one_coordinate_margin",
     "lemma82_uniform_certificate",

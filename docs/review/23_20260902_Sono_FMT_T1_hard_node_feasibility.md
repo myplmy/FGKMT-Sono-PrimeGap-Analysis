@@ -49,7 +49,7 @@
 
 | node | 무엇을 하면 되는가 | 난도·시간 추정 | 전체 threshold에 주는 효과 |
 |---|---|---|---|
-| `TRN-01`–`TRN-05` | explicit (artheta(x)), primorial, 반복로그 단조성·rounding 부등식 선택 | 문헌 4–12시간, 구현·검증 4–12시간 | 필요한 층이지만 단독으로 (X_{cert})를 주지 않음 |
+| `TRN-01`–`TRN-05` | explicit \\(\\vartheta(x)\\), primorial, 반복로그 단조성·rounding 부등식 선택 | 문헌 4–12시간, 구현·검증 4–12시간 | 필요한 층이지만 단독으로 \\(X_{cert}\\)를 주지 않음 |
 | `AN-01`–`AN-02`, `UB-05` | explicit Mertens/PNT 정리를 interval inequality로 옮김 | 1–3일 | 쉬운 rate를 닫고 다른 blocker 크기를 드러냄 |
 | `UB-06`–`UB-07` | (B_0), (a-b) finite product를 직접 상계 | 4–12시간 | UB의 elementary 부분 정리 |
 | `SIV-06` | Maynard (8.27)의 finite-(r) remainder를 다시 추적 | 1–5일 | (c_{I,J}=1/4)의 시작 (r) 후보를 줌; sieve 전체는 안 닫힘 |
@@ -162,7 +162,7 @@ nominal coefficient와 목표 사이의 상대차는 약 0.192688%다. 그러나
 
 H1과 병행하되 계산기는 만들지 않는다.
 
-- explicit (artheta(x))/primorial theorem 후보
+- explicit \\(\\vartheta(x)\\)/primorial theorem 후보
 - explicit Mertens product 후보
 - (F(X)) 단조성·rounding lemma
 - construction parameter에서 arbitrary (X)를 덮는 규칙

@@ -7,7 +7,7 @@
 - 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A와 설계 사후감사, P020 recurrence artifact 종합 완료; A는 정보량 HOLD
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 \(J_r/I_r>\log r/(4r)\)를 모든 정수 \(r\ge36\)에서 project theorem으로 닫았다. H1b-1a는 세 finite component를 닫았고, H1b-1b는 Maynard Lemma 8.2 multiplier를 89로 닫고 GGPY \(\kappa=1\) 전달을 \(C_4\le2C_3\)로 정식화했다. Halberstam–Richert proof pages가 없어 \(C_3(A_1,A_2)\)와 finite range는 `SOURCE_ACCESS_BLOCKED`이며 Lemma 8.4 합성도 OPEN이다. 병렬 gate는 H1c-1 quantitative character/Bombieri–Vinogradov package다. `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 \(J_r/I_r>\log r/(4r)\)를 모든 정수 \(r\ge36\)에서 project theorem으로 닫았다. H1b-1a는 세 finite component를 닫았고, H1b-1b는 Maynard Lemma 8.2 multiplier를 89로 닫았다. Castillo et al.의 peer-reviewed 교정을 반영하면 GGPY \(\kappa=1\)에서 닫힌 것은 절대오차 전달 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)이며, 인쇄된 \(c_\gamma\)-relative 오류항에는 추가 size gate 또는 uniform \(c_\gamma\) 하한이 필요하다. Kuperberg arXiv:2210.09775는 HR 구조를 재현하지만 numerical multiplier·finite range·일반화가 `RATE_MISSING`이고 Lemma 8.4 합성도 OPEN이다. 병렬 gate는 H1c-1 quantitative character/Bombieri–Vinogradov package다. `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -686,13 +686,19 @@ Lemma 8.1(i)의 \(\mathfrak S_B(\mathcal L)>e^{-9k/2}\), 식 (8.5)의
 \(E(k)<24\log k\)를 프로젝트 유한 보조정리로 닫았다. Lemma 8.1(ii)는 숫자
 \(A_0,B_0\)와 공통 흡수 cutoff가 주어졌을 때 평가 가능한 parameterized majorant까지만
 얻었으므로 `PARTIAL_EXPLICIT`이다. 2026-09-06 H1b-1b는 Lemma 8.2의 multiplier를
-모든 정수 \(k\ge2\)에 대해 89로 닫았다. 또한 GGPY Lemma 3의 오차 multiplier를
-\(C_3(A_1,A_2)\)라고 두면 \(\kappa=1\) Lemma 4의 안전한 multiplier가 \(2C_3\) 이하임을
-부분적분으로 명시했다. 그러나 HR Lemmas 5.3–5.4의 인쇄 144–152쪽 전체 증명에 접근하지
-못해 \(C_3\)과 finite range는 `SOURCE_ACCESS_BLOCKED`이고 Lemma 8.4 공통 cutoff도 열려 있다.
+모든 정수 \(k\ge2\)에 대해 89로 닫았다. 또한 교정된 GGPY Lemma 3의 절대오차 multiplier를
+\(C_{3,\mathrm{abs}}(A_1,A_2)\)라고 두면 \(\kappa=1\) Lemma 4의 절대오차 multiplier가
+\(2C_{3,\mathrm{abs}}\) 이하임을 부분적분으로 명시했다. Castillo et al.의 Lemma 2.5와
+Remark는 GGPY/Maynard에 인쇄된 오류항의 \(c_\gamma\) 인자가 추가적인 \(z\)-대-\(L\)
+크기조건 없이는 나오지 않음을 확인한다. Kuperberg는 HR Lemma 5.4 구조를 접근 가능하게
+재현하지만 \(B_L,B_k,O\)-상수, 일반 Maynard \(\gamma\) 특수화와 finite range는
+`RATE_MISSING`이다. 따라서 Lemma 8.4의 상대오차·공통 cutoff도 열려 있다.
 정본은 `docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md`와
 `docs/method/theory/17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`,
 `docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`다.
+추가 proof obligation과 세 repair 경로는
+`docs/method/theory/19_Sono_FMT_H1b1b2_cgamma_error_normalization_ledger.md`에
+fail-closed로 등록했으며, 아직 numerical route는 선택되지 않았다.
 
 같은 날 H1c는 FGKMT Hypothesis 1과 Sono PAP를 20개 node로 분리했다. \(\mathcal A=\mathbb Z\)인
 Hypothesis 1(1)은 `floor(y^(1/3))*(log y)^(100 k^2) <= N`, (3)은 `N>=q`일 때 implied
@@ -703,7 +709,7 @@ rate는 열려 있다. PAP와 Hypothesis 1은 shared source를 가진 sibling ob
 1977로 정정했다. 정본은
 `docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`다. 이 graph·서지 교정은
 `SIV-07/08/09`, `PAP-11` 또는 `X_cert`를 닫지 않는다. 다음 gate는 H1b-1b의
-HR base multiplier·Lemma 8.4 composition과 H1c-1 quantitative character package다. 모든 root dependency가 닫히기
+absolute base multiplier·\(c_\gamma\) normalization repair·Lemma 8.4 composition과 H1c-1 quantitative character package다. 모든 root dependency가 닫히기
 전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus와 분리한다. 두 원고가
