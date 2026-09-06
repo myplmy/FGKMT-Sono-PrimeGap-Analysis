@@ -118,15 +118,16 @@
       "question": "Can Maynard Proposition 6.1 constants be written as explicit functions of Hypothesis 1 constants?",
       "source_keys": ["MAYNARD2016", "FGKMT2016"],
       "source_locator": "Maynard Proposition 6.1 and Sections 8-9; FGKMT Theorem 6 (7.5)-(7.9)",
-      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1 identified the correct GGPY Lemma 4 source and the kappa=1 specialization used by Lemma 8.3.",
+      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1 identified the correct GGPY source; H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89 and parameterized the kappa=1 GGPY transfer as C4<=2*C3.",
       "missing_numeric_inputs": [
         "the constants multiplying all moment errors",
         "finite cutoffs in repeated negligible-error arguments",
-        "explicit singular-series and coefficient bounds uniform in r and the linear forms"
+        "explicit singular-series and coefficient bounds uniform in r and the linear forms",
+        "the HR-derived base multiplier C3(A1,A2) and its common finite range"
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "H1b-1 traced 13 lower summation nodes but recovered no numerical multiplier table. Continue with H1b-1a for an explicit cutoff and elementary prime-product/totient bounds, then reconstruct the GGPY/HR multiplier and Lemma 8.4 accumulation; do not treat displayed log rates as having unit constants.",
+      "next_action": "Obtain HR Sieve Methods printed pages 144-152, recover C3(A1,A2) and its range, then combine the H1b-1b factor-2 GGPY transfer with Lemma 8.4. Do not treat the missing base multiplier as one.",
       "threshold_ready": false
     },
     {
@@ -193,7 +194,7 @@
       ],
       "recoverability": "DEPENDENCY_BLOCKED",
       "reproof_scale": "RESEARCH_PROGRAM",
-      "next_action": "Do not build a threshold calculator. H1a is complete; H1b-1 and H1c traced their lower sources but left both numerical packages open. Continue with H1b-1a and H1c-1, then attempt H1b-2 moment composition.",
+      "next_action": "Do not build a threshold calculator. H1a and four H1b-1 finite components are closed, but HR C3, Lemma 8.4, the remaining H1b moments and H1c-1 are open. Continue the HR/Lemma 8.4 and H1c-1 axes before H1b-2 composition.",
       "threshold_ready": false
     }
   ]

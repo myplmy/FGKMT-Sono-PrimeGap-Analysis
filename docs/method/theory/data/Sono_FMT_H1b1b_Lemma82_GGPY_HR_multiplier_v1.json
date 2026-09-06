@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-06",
+  "updated_kst": "2026-09-06",
+  "gate": "H1b-1b Maynard Lemma 8.2 and GGPY/HR multiplier recovery",
+  "target_obligation": "SIV-07",
+  "scope": "An exact project proof makes Maynard Lemma 8.2 explicit for the H1b-1a cutoff and a conditional partial-summation contract transfers a future explicit GGPY Lemma 3 constant into Lemma 4 at kappa=1. The Halberstam-Richert base multiplier and finite range remain unavailable, so this is not a numerical basic-summation package or theorem threshold certificate.",
+  "outcome": "LEMMA82_EXPLICIT_GGPY4_TRANSFER_PARAMETERIZED_HR_BASE_MULTIPLIER_SOURCE_BLOCKED",
+  "lemma_8_2_project_component_closed": true,
+  "lemma_8_2_uniform_multiplier": 89,
+  "ggpy_lemma_4_transfer_factor_closed": true,
+  "ggpy_lemma_3_numeric_multiplier_recovered": false,
+  "hr_lemmas_5_3_5_4_numeric_multiplier_recovered": false,
+  "numerical_basic_summation_package_ready": false,
+  "siv_07_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false,
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_PUBLISHED",
+      "title": "Dense Clusters of Primes in Subsets",
+      "author": "James Maynard",
+      "publication": "Compositio Mathematica 152 (2016), 1517-1554",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "url": "https://www.cambridge.org/core/journals/compositio-mathematica/article/dense-clusters-of-primes-in-subsets/B49458BB98CB2D9C93ACF3BB09B4B08D",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "reviewed_locations": "Section 8 definitions (7.10), Lemma 8.2 and equations (8.6)-(8.8), printed pages 16-18",
+      "status": "PRIMARY_REVIEWED"
+    },
+    {
+      "key": "MAYNARD2016_ARXIV_SOURCE",
+      "title": "Dense Clusters of Primes in Subsets source package",
+      "author": "James Maynard",
+      "arxiv": "1405.2593",
+      "url": "https://export.arxiv.org/e-print/1405.2593",
+      "retrieved_utc": "2026-09-05T23:20:37Z",
+      "local_path": "tmp/pdfs/h1b1b/Maynard2016_Dense_Clusters_source.tar",
+      "sha256": "fe7dc61e037595736ef605592c74ab2ead1945e574034c9e620063604e686200",
+      "reviewed_locations": "Subsets.tex lines 411-427 and 488-514",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "GGPY2009_ARXIV_V1",
+      "title": "Small Gaps Between Products of Two Primes",
+      "authors": "D. A. Goldston, S. W. Graham, J. Pintz, C. Y. Yildirim",
+      "publication": "Proceedings of the London Mathematical Society 98 (2009), 741-774",
+      "doi": "10.1112/plms/pdn046",
+      "arxiv": "math/0609615v1",
+      "url": "https://arxiv.org/abs/math/0609615",
+      "retrieved_utc": "2026-09-05T23:20:37Z",
+      "local_path": "tmp/pdfs/h1b1b/GGPY2009_Small_gaps_products_two_primes_arxiv_v1.pdf",
+      "sha256": "411a638e959e6fa41d9f489477b26a8abe6550f3a61e5f2058ccdc88a6461680",
+      "reviewed_locations": "Lemmas 3-4, PDF pages 9-10",
+      "status": "PRIMARY_REVIEWED"
+    },
+    {
+      "key": "GGPY2009_ARXIV_SOURCE",
+      "title": "Small Gaps Between Products of Two Primes source payload",
+      "authors": "D. A. Goldston, S. W. Graham, J. Pintz, C. Y. Yildirim",
+      "url": "https://export.arxiv.org/e-print/math/0609615",
+      "retrieved_utc": "2026-09-05T23:27:14Z",
+      "local_path": "tmp/pdfs/h1b1b/GGPY2009_source.tar",
+      "sha256": "6b18e87b45538576b18ead12fa32098cc2fbac123be2bf476c508c2d8358cb63",
+      "payload_format": "gzip-compressed single TeX file, not a tar archive",
+      "extracted_path": "tmp/pdfs/h1b1b/GGPY2009_source.tex",
+      "extracted_sha256": "e58cc895e8b44f6369741f184bd81b595ed177463cf09cee8d0ad74558efce45",
+      "reviewed_locations": "TeX lines 803-882",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "GGPY2013_CORRIGENDUM",
+      "title": "Corrigendum: Small Gaps Between Products of Two Primes",
+      "authors": "D. A. Goldston, S. W. Graham, J. Pintz, C. Y. Yildirim",
+      "publication": "Proceedings of the London Mathematical Society 106 (2013)",
+      "doi": "10.1112/plms/pds053",
+      "url": "https://doi.org/10.1112/plms/pds053",
+      "reviewed_locations": "bibliographic metadata only; publisher PDF returned HTTP 403",
+      "status": "METADATA_ONLY_SOURCE_ACCESS_BLOCKED"
+    },
+    {
+      "key": "HR1974_2011_REPRINT",
+      "title": "Sieve Methods",
+      "authors": "H. Halberstam and H.-E. Richert",
+      "publication": "Academic Press 1974; Dover reprint 2011",
+      "isbn_1974": "0123182506",
+      "isbn_2011": "9780486479392",
+      "url": "https://books.google.com/books?id=keKvAAAAQBAJ",
+      "reviewed_locations": "Google Books search snippets identify Lemma 5.3 at printed page 144 and Lemma 5.4 at pages 147-152; full pages are restricted",
+      "snippet_paths": [
+        "tmp/pdfs/h1b1b/google_books_hr_lemma53.json",
+        "tmp/pdfs/h1b1b/google_books_hr_lemma54.json"
+      ],
+      "snippet_sha256": [
+        "00457785fc7722e98219a781476b0fb99bdf74696da33ff1008678b66c872ff9",
+        "ee5835afe56938e94ebd2797477602a20e2ab4391807affc3b402bf5f2d006c1"
+      ],
+      "status": "SOURCE_ACCESS_BLOCKED"
+    }
+  ],
+  "lemma_8_2_contract": {
+    "domain": "integer k >= 2; nonnegative argument vectors in the support used by Maynard Lemma 8.2",
+    "cutoff": "psi(t)=sigma(10(1-t)), 0<=psi<=1, nonincreasing, psi=1 on [0,9/10], support in [0,1]",
+    "cutoff_slope_strict_upper_bound": "50",
+    "one_coordinate_exact_coefficient": "T_k + 50(1+1/U_k)",
+    "normalization": "T_k=k log(k), U_k=k^(-1/2)",
+    "normalized_coefficient": "1 + 50(1+sqrt(k))/(k log(k))",
+    "rational_bounds": {
+      "log_2": "log(2) > 56/81 > 69/100",
+      "inverse_sqrt_2": "1/sqrt(2) < 71/100",
+      "normalized_coefficient": "< 6119/69 < 89"
+    },
+    "part_i": "|y_s-y_r| <= 89 T_k Y_r log(A)/log(R)",
+    "part_ii": "|y_s-y_r| <= 89 T_k (Y_r+Y_s) log(A)/log(R)",
+    "large_displacement_branch": "If delta>1, F<=F2 and 89 T_k delta>1; if the moved coordinate is at least U_k, both F values vanish.",
+    "proof_status": "PROJECT_FINITE_COMPONENT_CLOSED"
+  },
+  "ggpy_kappa_1_transfer_contract": {
+    "source_norm": "M(F)=sup_{0<=x<=1}(|F(x)|+|F'(x)|)",
+    "assumed_lemma_3_error": "|E(u)| <= C3(A1,A2) c_gamma (L+1) uniformly for 1<=u<=z",
+    "boundary_term_factor": 1,
+    "derivative_integral_factor": 1,
+    "safe_transfer_factor": 2,
+    "derived_lemma_4_error": "<= 2 C3(A1,A2) c_gamma (L+1) M(F)",
+    "finite_range": "exactly the common range on which the assumed Lemma 3 error holds",
+    "proof_status": "PARAMETERIZED_EXPLICIT",
+    "warning": "The number C3(A1,A2) and its valid range are not supplied by this contract. Setting C3=1 is forbidden."
+  },
+  "obligation_updates": [
+    {
+      "id": "H1B1-L82-LIPSCHITZ",
+      "old_status": "RATE_MISSING",
+      "new_status": "PROJECT_FINITE_COMPONENT_CLOSED",
+      "threshold_ready": false,
+      "reason": "The H1b-1a cutoff yields the uniform explicit multiplier 89 for both parts of Maynard Lemma 8.2."
+    },
+    {
+      "id": "H1B1-L83-GGPY4",
+      "old_status": "SOURCE_CHAIN_TRACED",
+      "new_status": "PARAMETERIZED_EXPLICIT",
+      "threshold_ready": false,
+      "reason": "At kappa=1, an explicit Lemma 3 multiplier C3 transfers to Lemma 4 with safe factor 2, but C3 and its range remain open."
+    },
+    {
+      "id": "H1B1-L83-GGPY3",
+      "old_status": "LOWER_SOURCE_REVIEW_REQUIRED",
+      "new_status": "SOURCE_ACCESS_BLOCKED",
+      "threshold_ready": false,
+      "reason": "The cited HR Lemmas 5.3-5.4 were located at printed pages 144 and 147-152, but the full proof pages were not legally accessible in the available preview."
+    },
+    {
+      "id": "H1B-L82",
+      "old_status": "RATE_MISSING",
+      "new_status": "PROJECT_FINITE_COMPONENT_CLOSED",
+      "threshold_ready": false,
+      "reason": "The complete displayed Lemma 8.2 error shape now has a project-certified uniform multiplier 89; later substitutions remain separate obligations."
+    }
+  ],
+  "remaining_blockers": [
+    "recover an explicit C3(A1,A2) and common z range from HR Lemmas 5.3-5.4, including any applicable errata",
+    "instantiate Maynard Lemma 8.4 values A1, A2 and L",
+    "bound the Lemma 8.4 test-function norm and r-fold accumulation on one common range",
+    "complete Lemma 8.1(ii), H1c-1, moment formulas and every other root dependency before any X_cert calculation"
+  ],
+  "parent_status": {
+    "H1B1-PACKAGE": "HARD_BLOCKER",
+    "H1B-L83": "RATE_MISSING",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "next_gate": {
+    "primary": "Obtain and audit HR Sieve Methods printed pages 144-152, preferably pages 140-153 plus the relevant errata/notes, then reconstruct C3(A1,A2) without treating O-constants as one.",
+    "after_source_recovery": "Compose the recovered C3 with the factor-2 GGPY transfer and audit Maynard Lemma 8.4 gamma, L, smoothness and iteration rows.",
+    "parallel_theory_axis": "H1c-1 quantitative character/Bombieri-Vinogradov package",
+    "ready_for_threshold_calculator": false,
+    "ready_for_actual_prime_experiment": false
+  }
+}

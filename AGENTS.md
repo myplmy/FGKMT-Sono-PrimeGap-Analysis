@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT T1·H1/H1a·H1b/H1b-1/H1b-1a/H1c 원장 완료·X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·GGPY transfer=2C3·HR base source-blocked / X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
@@ -48,8 +48,12 @@ cutoff의 `sup|psi'|<50`, Lemma 8.1(i)의 `S_B(L)>exp(-9k/2)`, 식 (8.5)의
 `E(k)<24 log k`를 project finite lemma로 닫고 divisor 평균의 parameterized majorant를
 유도했다. 그러나 입력 계수·공통 cutoff·GGPY/HR multiplier는 열려 있어 `SIV-07`과
 `X_cert`는 OPEN이다. 정본은
-`docs/method/theory/17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`다. 다음 gate는
-H1b-1b Lemma 8.2·GGPY/HR multiplier와 H1c-1 quantitative character package이며, 모든 root
+`docs/method/theory/17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`다. H1b-1b는
+Maynard Lemma 8.2의 uniform multiplier를 89로 닫고 GGPY Lemma 3→4의 \(\kappa=1\)
+전달식을 \(C_4\le2C_3\)로 정식화했다. HR Lemmas 5.3–5.4의 인쇄 144–152쪽 전체 proof가
+없어 \(C_3(A_1,A_2)\)와 finite range는 `SOURCE_ACCESS_BLOCKED`다. 정본은
+`docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`다. 다음 gate는
+HR base multiplier·Lemma 8.4 합성과 H1c-1 quantitative character package이며, 모든 root
 dependency가 닫히기 전에는 새 prime sweep·threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus에 합산하지 않는다.
@@ -419,13 +423,14 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P019 serial-oracle-free dual-partition toy PASS: 서로소 8/11 segments·worker 4, exact gap count 21, 두 full parallel pass·toy serial core 일치; shared sieve/accumulator common-mode risk 때문에 독립 증명 아님, actual 미승인
 - P020 recurrence artifact synthesis R2 EXPERIMENT_PASS / SYNTHESIS_ONLY: 성공 정본 8개·중복 제거 72,178,455,399 gap-start 회계, 새 prime 계산 없음, 6개 표·PNG/PDF 12파일 saved QA PASS; stationary→stratified 기대 92.1274% 교정, 후기 information collapse 확인; 2026-09-02 사용자 figure QA PASS
 - Sono/FMT numerical-threshold 1차 audit: 대입 계수 약 `2.0038612046196704e-17`, `2e-17`은 proved coefficient이나 출판본의 numerical `X_cert`는 없음; top-level proof는 effective-in-principle, PAP/UB·sieve/hypergraph·x→X 수치 rate가 blocker; 실제 전역 최소도 OPEN
-- Sono/FMT T1 원장: 66 obligations, dependency DAG와 로컬 PDF hash PASS; H1a 뒤 6 EXPLICIT / 10 PARTIAL / 30 RATE_MISSING / 4 SOURCE_REVIEW_REQUIRED / 16 HARD_BLOCKER. H1a는 모든 정수 `r>=36`에서 `J_r/I_r>log(r)/(4r)`를 project theorem으로 닫았다. H1b/H1b-1/H1c는 17·13·20행 원장을 등록했다. H1b-1a는 cutoff·Lemma 8.1(i)·식 (8.5) Euler product 세 finite component를 닫았지만 parent T1 상태와 `X_cert`는 그대로 OPEN
+- Sono/FMT T1 원장: 66 obligations, dependency DAG와 로컬 PDF hash PASS; H1a는 모든 정수 `r>=36`에서 `J_r/I_r>log(r)/(4r)`를 project theorem으로 닫았다. H1b/H1b-1/H1c는 17·13·20행 원장을 등록했다. H1b-1a는 세 finite component를 닫았고 H1b-1b는 Lemma 8.2 multiplier 89와 GGPY transfer factor 2를 닫았지만 HR base \(C_3\), parent T1 상태와 `X_cert`는 그대로 OPEN
 - 새 장시간 Windows runner는 `scripts/common/live_native_tee.py`와 `Invoke-LiveLoggedNativeStage`로 .NET process capture 없이 stdout/stderr를 같은 PowerShell 화면과 main log에 즉시 기록; Windows PowerShell 5.1용 UTF-8 JSON Base64 transport 회귀시험 PASS
 - P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018-B를 자동 실행하지 않고 Sono/FMT threshold H1b-1b에서 Lemma 8.2의
-full Lipschitz multiplier와 GGPY/HR summation multiplier를 복원하는 것이다. H1c-1의 FGKMT
+다음 권장 행동은 P018-B를 자동 실행하지 않고 합법적으로 확보한 Halberstam–Richert
+*Sieve Methods* 인쇄 144–152쪽에서 \(C_3(A_1,A_2)\)와 finite range를 복원한 뒤,
+H1b-1b의 factor 2와 Maynard Lemma 8.4를 합성하는 것이다. H1c-1의 FGKMT
 character/Bombieri–Vinogradov 수치 package는 병렬 연구축이다.
 H1과 병행할 수 있는 보조축은 explicit
 primorial·Mertens·iterated-log transfer theorem 후보 수집이다. numerical threshold calculator는

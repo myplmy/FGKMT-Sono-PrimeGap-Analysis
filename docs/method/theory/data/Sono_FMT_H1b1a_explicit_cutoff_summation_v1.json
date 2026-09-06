@@ -179,14 +179,14 @@
   ],
   "parent_state": {
     "H1B-L81": "RATE_MISSING",
-    "H1B-L82": "RATE_MISSING",
+    "H1B-L82": "PROJECT_FINITE_COMPONENT_CLOSED",
     "H1B1-PACKAGE": "HARD_BLOCKER",
     "SIV-07": "HARD_BLOCKER",
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "recommended": "H1b-1b",
-    "description": "Compose the full Lemma 8.2 Lipschitz multiplier, recover numerical constants from GGPY Lemmas 3-4 and Halberstam-Richert Lemmas 5.3-5.4, and only then quantify Lemma 8.4 iteration.",
+    "recommended": "H1b-1b-continuation",
+    "description": "H1b-1b closed the full Lemma 8.2 multiplier at 89 and parameterized GGPY Lemma 4 as C4<=2*C3. Obtain HR Lemmas 5.3-5.4, recover C3(A1,A2) and its range, and only then quantify Lemma 8.4 iteration.",
     "parallel_theory_axis": "H1c-1 quantitative character and PAP package",
     "ready_for_threshold_calculator": false
   }

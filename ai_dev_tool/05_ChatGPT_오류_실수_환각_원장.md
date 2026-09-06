@@ -224,6 +224,11 @@
   대상으로 ASCII 제어문자 검사를 수행하고 `git diff --check`를 최종 gate에 넣었다.
 - 재발 방지: 수식이 있는 patch는 항상 raw string 또는 안전한 placeholder를 사용한다. binary
   `__pycache__`를 텍스트 제어문자 검사 대상으로 넣지 않으며, 실패 직후 부분 변경 여부를 확인한다.
+- 2026-09-06 재발: H1b-1b 정식 문서의 첫 patch에서도 `\\frac`의 `\\f`가 제어문자로
+  변환되어 patch 검증 단계에서 거부됐다. 첫 raw 재시도도 Markdown backtick을 JavaScript
+  template delimiter와 분리하지 않아 wrapper parse 단계에서 멈췄다. 두 시도 모두 파일을
+  만들지 않았고, backtick-free raw patch로 정상 생성했다. 이후 수식 문서 patch는 첫 시도부터
+  raw 입력을 사용하고 template 안의 Markdown backtick도 사전 제거·escape한다.
 
 ### E020 — H1b-1a 작업원장 중간 기록에 아직 오지 않은 시각을 기입
 
@@ -234,6 +239,19 @@
 - 교정: 시스템 `Get-Date`가 21:45 KST임을 확인한 뒤 두 항목을 “21:45 KST 기록”으로
   고치고, 이는 앞서 끝난 단계를 사후 기록한 시각임을 명시했다.
 - 재발 방지: 작업원장 timestamp는 문맥에서 추정하지 않고 기록 직전 시스템 시각을 조회한다.
+
+### E021 — GGPY arXiv source payload를 tar archive로 오인
+
+- 분류: `SOURCE_CONTAINER_MISCLASSIFICATION / CORRECTED_BEFORE_ANALYSIS`
+- 문제: 2026-09-06 arXiv e-print 응답을 파일명 `.tar`만 보고 tar archive로 해제했다.
+  실제 payload는 단일 TeX 파일의 gzip stream이어서 Windows tar가 TeX token을 경로처럼
+  해석하고 임시 폴더에 다수의 잘못된 0-byte 항목을 만들었다.
+- 영향: source 원본과 정본 파일은 손상되지 않았고 수학 분석 전 단계에서 실패했다. 잘못 생긴
+  항목은 `tmp/pdfs/h1b1b/ggpy_source/`에만 있으며 근거 자료로 사용하지 않았다.
+- 교정: magic bytes가 gzip임을 확인하고 GZipStream으로 단일 TeX를 해제했다. 원 payload와
+  extracted TeX의 SHA-256을 각각 기계 원장에 기록했다.
+- 재발 방지: arXiv source는 확장자나 Content-Disposition만 믿지 않고 magic bytes와 container
+  listing을 먼저 확인한다. 해제 실패 출력으로 만들어진 파일은 source 증거로 채택하지 않는다.
 
 ## 4. 아직 남은 오류 위험
 

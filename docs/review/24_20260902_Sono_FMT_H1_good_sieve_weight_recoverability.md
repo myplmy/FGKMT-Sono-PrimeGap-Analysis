@@ -265,6 +265,14 @@ negligible error absorption이 여러 겹 남아 있다.
 필요하지 않다. H1a, H1b, H1b-1과 H1c source tracing은 완료됐고, 다음 Codex 수학 작업은
 H1b-1a 또는 H1c-1의 quantitative sub-gate다.
 
+### 2026-09-06 후속 상태
+
+H1b-1a는 cutoff·Lemma 8.1(i)·식 (8.5)의 세 finite component를 닫았다. 이어진 H1b-1b는
+Maynard Lemma 8.2의 uniform multiplier를 89로 닫고, GGPY \(\kappa=1\) 부분합 전달을
+\(C_4\le2C_3\)로 정식화했다. Halberstam–Richert Lemmas 5.3–5.4의 전체 proof pages가
+없어 base \(C_3(A_1,A_2)\)와 유효범위는 계속 OPEN이다. 최신 정본은
+`docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`를 따른다.
+
 ```text
 별도 수행절차 필요없음
 ```

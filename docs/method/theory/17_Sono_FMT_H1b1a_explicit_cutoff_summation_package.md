@@ -405,8 +405,9 @@ H1B1-L81II-DIVISOR = PARTIAL_EXPLICIT
 | H1B1-L81-TAIL | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | \(e^{-k/2}\) 입력 확보 |
 | H1B1-L82-CUTOFF | CONSTRUCTIVE_SUBPROBLEM | PROJECT_FINITE_COMPONENT_CLOSED | \(\|\psi'\|_\infty<50\) 확보 |
 | H1B1-L81II-DIVISOR | RATE_MISSING | PARTIAL_EXPLICIT | parameterized majorant만 확보 |
-| H1B1-L82-LIPSCHITZ | RATE_MISSING | RATE_MISSING | 전체 multiplier 미합성 |
-| H1B1-L83-GGPY3/4 | open | open | HR/GGPY multiplier 없음 |
+| H1B1-L82-LIPSCHITZ | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | H1b-1b에서 multiplier 89 |
+| H1B1-L83-GGPY4 | SOURCE_CHAIN_TRACED | PARAMETERIZED_EXPLICIT | \(C_4\le2C_3\) |
+| H1B1-L83-GGPY3 | LOWER_SOURCE_REVIEW_REQUIRED | SOURCE_ACCESS_BLOCKED | HR 144–152쪽 필요 |
 | H1B1-L84-* | open | open | 반복오차·공통 cutoff 없음 |
 | H1B1-PACKAGE | HARD_BLOCKER | HARD_BLOCKER | 변화 없음 |
 
@@ -423,8 +424,9 @@ H1b-1a 부분 closure
 ~~~text
 cutoff + Lemma 8.1(i) + (8.5) Euler product = explicit
 Lemma 8.1(ii) common range                  = open
-Lemma 8.2 full Lipschitz multiplier         = open
-GGPY/HR multiplier + Lemma 8.4 composition = open
+Lemma 8.2 full Lipschitz multiplier         = 89 closed by H1b-1b
+GGPY Lemma 4 transfer                      = C4 <= 2 C3 parameterized
+HR C3 + Lemma 8.4 composition              = open
 SIV-07 / X_cert                            = open
 ~~~
 
@@ -436,7 +438,8 @@ tests/test_h1b1a_explicit_package.py는 다음을 fail-closed로 검사한다.
 - finite certificate row digest와 최대 witness가 정본 JSON과 일치하는가
 - tail의 rational majorant와 망원합 identity가 맞는가
 - cutoff의 plateau/support/range/monotonicity와 analytic derivative formula가 구현에 반영됐는가
-- 새로 닫힌 세 subrow 외의 parent package, SIV-07, \(X_{\mathrm{cert}}\)가 계속 false인가
+- H1b-1b에서 Lemma 8.2가 추가로 닫혀도 parent package, SIV-07,
+  \(X_{\mathrm{cert}}\)가 계속 false인가
 
 cutoff grid 검사는 구현 회귀검사일 뿐 \(C^\infty\) 또는 전 구간 sup bound의 증명이 아니다.
 그 증명은 §3의 기호 부등식이다. exact prime-product 검사는 외부 maximal-gap 데이터나 actual
@@ -447,14 +450,15 @@ Lean과 새 Python 라이브러리는 이번 단계에 필요하지 않았다. �
 
 ## 9. 다음 proof gate
 
-1. **H1b-1b (권장):** Lemma 8.2의 explicit Lipschitz multiplier를 합성하고, GGPY Lemmas
-   3–4와 Halberstam–Richert Lemmas 5.3–5.4의 수치 multiplier를 복원한다.
+1. **H1b-1b 계속 (권장):** Lemma 8.2 multiplier 89와 GGPY transfer factor 2는
+   완료됐다. Halberstam–Richert Lemmas 5.3–5.4의 \(C_3(A_1,A_2)\)·유효범위를
+   복원하고 Lemma 8.4에 합성한다.
 2. **H1c-1 (병렬 이론축):** quantitative character/PAP package를 정식화한다.
 3. 위 두 축이 닫힌 뒤에만 Lemma 8.4의 \(r\)-fold error와 공통 \((k,R,x)\) cutoff를 합친다.
 4. 모든 root dependency가 닫히기 전에는 threshold calculator나 장시간 prime sweep을 만들지 않는다.
 
-현재 사용자 실행 절차는 없다.
+사용자에게는 합법적으로 보유한 *Sieve Methods* 인쇄 144–152쪽 제공이 필요하다.
 
 ~~~text
-별도 수행절차 필요없음
+실행 명령어는 없다. 해당 PDF·스캔·사진을 대화에 첨부하거나 프로젝트 경로를 알려 준다.
 ~~~

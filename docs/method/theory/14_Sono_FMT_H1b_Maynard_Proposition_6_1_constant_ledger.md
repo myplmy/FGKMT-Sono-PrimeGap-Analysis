@@ -12,6 +12,8 @@
   [`15_Sono_FMT_H1b1_basic_summation_constant_audit.md`](15_Sono_FMT_H1b1_basic_summation_constant_audit.md)
 - H1b-1a finite package:
   [`17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`](17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md)
+- H1b-1b multiplier 복원:
+  [`18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`](18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md)
 
 ## 1. 결론부터
 
@@ -83,8 +85,8 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | 상태 | 행 수 |
 |---|---:|
 | `PARTIAL_EXPLICIT` | 1 |
-| `PROJECT_FINITE_COMPONENT_CLOSED` | 1 |
-| `RATE_MISSING` | 11 |
+| `PROJECT_FINITE_COMPONENT_CLOSED` | 2 |
+| `RATE_MISSING` | 10 |
 | `SOURCE_REVIEW_REQUIRED` | 0 |
 | `INPUT_PACKAGE_MISSING` | 3 |
 | `HARD_BLOCKER` | 1 |
@@ -97,7 +99,7 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-HYP-02` | Hypothesis 1(2) | 선형식의 소수 분포 | `INPUT_PACKAGE_MISSING` | uniform multiplier·prime-density 하한 |
 | `H1B-HYP-03` | Hypothesis 1(3) | progression 집중 방지 | `INPUT_PACKAGE_MISSING` | \(\ll\) 상수·시작점 |
 | `H1B-L81` | Lemma 8.1 | singular series 하한 | `RATE_MISSING` | \(\exp(-Ck)\)의 \(C\) |
-| `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `RATE_MISSING` | \(O\)-multiplier |
+| `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `PROJECT_FINITE_COMPONENT_CLOSED` | H1b-1b에서 multiplier 89, \(k\ge2\) |
 | `H1B-L83` | Lemma 8.3 | multiplicative sum | `RATE_MISSING` | GGPY/HR multiplier·finite range |
 | `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | 반복될 오차의 상수·smallness cutoff |
 | `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `RATE_MISSING` | \(R^{2+o(1)}\)의 finite 대체 |
@@ -192,7 +194,9 @@ CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN
 1. **H1b-1a 완료:** explicit smooth cutoff, Lemma 8.1(i)의 \(C=9/2\), 식 (8.5)의
    \(E(k)<24\log k\), parameterized divisor majorant를 고정했다.
 2. **H1c-1:** FGKMT (7.2)–(7.3)의 character/Bombieri–Vinogradov package를 정량화한다.
-3. **H1b-1b:** Lemma 8.2 multiplier, GGPY/HR multiplier와 Lemma 8.4의 반복오차를 합성한다.
+3. **H1b-1b 진행:** Lemma 8.2는 multiplier 89로 닫혔고 GGPY Lemma 3→4 전달은
+   \(C_4\le2C_3\)로 정식화됐다. HR Lemmas 5.3–5.4에서 \(C_3(A_1,A_2)\)와
+   유효범위를 복원한 뒤 Lemma 8.4의 반복오차를 합성한다.
 4. **H1b-2:** 위 입력을 받은 뒤 Propositions 9.1–9.5를 지정 error budget으로 재증명한다.
 5. **H1d:** FMT/FGKMT의 \(u\), good-event, covering 단계와 공통 \((r,x)\) slack을 합성한다.
 
@@ -208,7 +212,8 @@ H1b-1/H1c source trace와 H1b-1a의 세 finite component는 완료됐지만 nume
 - 17개 obligation ID와 dependency가 유효하고 중복이 없는가
 - Hypothesis 1(1)–(3), Propositions 9.1, 9.2, 9.4, 9.5와 Lemma 9.3이 빠지지 않았는가
 - missing constant가 있는 행이 closed 상태로 잘못 표시되지 않았는가
-- H1a component가 닫혀도 `SIV-07`, `SIV-09`, 전체 weight와 \(X_{\mathrm{cert}}\)가 false인가
+- H1a와 Lemma 8.2 component가 닫혀도 `SIV-07`, `SIV-09`, 전체 weight와
+  \(X_{\mathrm{cert}}\)가 false인가
 - common-cutoff 행이 나머지 16개 행 전부를 의존하고 `HARD_BLOCKER`인가
 
 이 검증은 문서의 내부 정합성을 검사한다. Maynard의 정리를 독립 재증명하거나 수치 상수를
@@ -232,3 +237,15 @@ H1B-L83: SOURCE_REVIEW_REQUIRED -> RATE_MISSING
 
 이는 source 이름을 찾았다는 뜻이며 numerical closure가 아니다. `SIV-07`, `SIV-09`와
 \(X_{\mathrm{cert}}\)는 그대로 `OPEN`이다.
+
+## 11. 2026-09-06 H1b-1b 반영
+
+H1b-1b는 H1b-1a에서 고정한 \(\|\psi'\|_\infty<50\)을 Maynard Lemma 8.2의
+모든 인자에 직접 전파해 두 부분 모두에 uniform multiplier 89를 증명했다. 따라서
+`H1B-L82`는 `PROJECT_FINITE_COMPONENT_CLOSED`로 이동한다.
+
+GGPY Lemma 4의 \(\kappa=1\) 부분적분은 하위 Lemma 3의 multiplier를
+\(C_3(A_1,A_2)\)라고 할 때 \(C_4\le2C_3\)로 명시됐다. 그러나
+Halberstam–Richert Lemmas 5.3–5.4의 전체 proof pages를 확보하지 못해 \(C_3\)과
+공통 finite range는 여전히 없다. 따라서 `H1B-L83`, `H1B-COMP-01`,
+`SIV-07`과 \(X_{\mathrm{cert}}\)는 승격하지 않는다.

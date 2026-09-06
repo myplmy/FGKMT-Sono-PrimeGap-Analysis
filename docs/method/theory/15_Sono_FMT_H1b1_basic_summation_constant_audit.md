@@ -2,13 +2,15 @@
 
 - 작성: 2026-09-04 KST
 - 증거 수준: `SOURCE-LEVEL QUANTITATIVE DEPENDENCY AUDIT`
-- 판정: `SOURCE_CHAIN_TRACED_PARTIAL_FINITE_COMPONENTS_CLOSED_NUMERICAL_PACKAGE_OPEN`
+- 판정: `SOURCE_CHAIN_TRACED_FOUR_FINITE_COMPONENTS_CLOSED_GGPY4_PARAMETERIZED_HR_SOURCE_BLOCKED_PACKAGE_OPEN`
 - `SIV-07`: `HARD_BLOCKER` 유지
 - numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
 - 기계 판독 정본:
   [`data/Sono_FMT_H1b1_basic_summation_constants_v1.json`](data/Sono_FMT_H1b1_basic_summation_constants_v1.json)
 - H1b-1a 후속 정식화:
   [`17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`](17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md)
+- H1b-1b multiplier 복원:
+  [`18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`](18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md)
 
 ## 1. 결론부터
 
@@ -26,8 +28,10 @@ Maynard의 Lemmas 8.1–8.4에는 Proposition 6.1의 moment 계산을 가능하�
 
 2026-09-04 H1b-1a 후속 정식화는 Lemma 8.1(i)의 \(C=9/2\), explicit cutoff의
 \(\|\psi'\|_\infty<50\), 식 (8.5)의 \(E(k)<24\log k\)를 프로젝트 유한 보조정리로
-닫았다. 그러나 Lemma 8.1(ii)의 입력 정규화와 공통 cutoff, Lemma 8.2의 전체 Lipschitz
-multiplier, Lemma 8.3의 \(O_{A_1,A_2}\) multiplier, Lemma 8.4의 반복오차는 열려 있다.
+닫았다. 2026-09-06 H1b-1b는 이어서 Lemma 8.2의 전체 Lipschitz multiplier를 89로
+닫고, Lemma 8.3이 가져오는 GGPY Lemma 4의 전달식을 \(C_4\le2C_3\)로 정식화했다.
+그러나 Lemma 8.1(ii)의 입력 정규화와 공통 cutoff, HR에서 시작하는 \(C_3(A_1,A_2)\),
+Lemma 8.4의 반복오차는 열려 있다.
 따라서 numerical basic-summation package 전체는 아직 완료가 아니다.
 
 쉬운 비유로 말하면, 네 개의 조립 공정과 공급업체 도면까지 찾았지만 각 부품의 실제 허용오차와
@@ -163,10 +167,10 @@ finite 명제는 아직 없다.
 | `H1B1-L81-TAIL` | 큰 소수 tail | `PROJECT_FINITE_COMPONENT_CLOSED` | \(>e^{-k/2}\) |
 | `H1B1-L81II-DIVISOR` | extra-form 평균 | `PARTIAL_EXPLICIT` | 입력 계수·공통 흡수 cutoff |
 | `H1B1-L82-CUTOFF` | smooth \(\psi\) | `PROJECT_FINITE_COMPONENT_CLOSED` | \(\|\psi'\|_\infty<50\) |
-| `H1B1-L82-LIPSCHITZ` | Lipschitz bound | `RATE_MISSING` | norm 의존 multiplier |
-| `H1B1-L83-GGPY4` | 1차원 합 | `SOURCE_CHAIN_TRACED` | \(A_1,A_2\)별 multiplier |
+| `H1B1-L82-LIPSCHITZ` | Lipschitz bound | `PROJECT_FINITE_COMPONENT_CLOSED` | multiplier 89, \(k\ge2\) |
+| `H1B1-L83-GGPY4` | 1차원 합 | `PARAMETERIZED_EXPLICIT` | \(C_4\le2C_3\), \(C_3\) open |
 | `H1B1-L83-PUBLISHED-NOTE` | 출판본 보정 | `PRINTED_STRUCTURAL_FACT` | 숫자 multiplier는 여전히 없음 |
-| `H1B1-L83-GGPY3` | 하위 sieve lemma | `LOWER_SOURCE_REVIEW_REQUIRED` | HR 상수의 재구성 |
+| `H1B1-L83-GGPY3` | 하위 sieve lemma | `SOURCE_ACCESS_BLOCKED` | HR 144–152쪽과 상수 재구성 |
 | `H1B1-L84-GAMMA` | \(\gamma\) 조건 | `RATE_MISSING` | explicit \(A_1,A_2,k_0\) |
 | `H1B1-L84-L` | discrepancy \(L\) | `RATE_MISSING` | 소인수합·지수 상수 |
 | `H1B1-L84-SMOOTH` | \(\Omega_G\) | `RATE_MISSING` | test function 수치 norm |
@@ -184,10 +188,11 @@ finite 명제는 아직 없다.
 - Lemma 8.1(i)의 small-prime product와 tail을 \(e^{-9k/2}\)로 정식화
 - Lemma 8.1(ii)의 식 (8.5) Euler product와 parameterized finite majorant를 정식화
 
-### 다음 단계에서 Codex와 사용자 PC가 도울 수 있는 일
+### 다음 단계에서 Codex와 사용자가 도울 수 있는 일
 
-- GGPY/HR의 숨은 multiplier를 증명에서 복원
-- Lemma 8.2의 전체 Lipschitz multiplier와 Lemma 8.4의 축적오차를 합성
+- 사용자가 HR Lemmas 5.3–5.4의 인쇄 144–152쪽을 제공
+- Codex가 HR의 숨은 \(C_3(A_1,A_2)\)와 finite range를 증명에서 복원
+- 이미 닫힌 Lemma 8.2 multiplier 89와 \(C_4\le2C_3\)를 Lemma 8.4 축적오차에 합성
 - 정식 lemma가 고정된 뒤 작은 \(k,R\) 범위의 exact/interval certificate를 생성
 
 이는 새 maximal-gap sweep이 아니라 보조 부등식 certificate 계산이다. runner는 정식 lemma와
@@ -201,17 +206,22 @@ finite 명제는 아직 없다.
 
 ## 6. H1b-1a 결과와 다음 gate
 
-H1b-1a는 세 유한 component를 닫고 divisor 평균을 parameterized 식으로 바꿨다. 다음
-권장 gate는 **H1b-1b**다.
+H1b-1a는 세 유한 component를 닫고 divisor 평균을 parameterized 식으로 바꿨다. H1b-1b
+전반은 Lemma 8.2 multiplier 89와 GGPY 전달 factor 2를 닫았다. 다음 gate는 H1b-1b의
+HR base multiplier 복원과 Lemma 8.4 합성이다.
 
-1. Lemma 8.2의 cutoff norm을 \(F_2\) 전체에 전파해 explicit Lipschitz multiplier를 만든다.
-2. GGPY Lemmas 3–4와 Halberstam–Richert Lemmas 5.3–5.4의 multiplier·유효 범위를 복원한다.
-3. 그 입력이 준비된 뒤 Lemma 8.4의 \(r\)-fold error와 공통 \((k,R)\) cutoff를 합성한다.
+1. Halberstam–Richert Lemmas 5.3–5.4의 전체 원문을 확보한다.
+2. GGPY Lemma 3의 \(C_3(A_1,A_2)\)와 유효범위를 복원한다.
+3. \(C_4\le2C_3\)를 사용해 Lemma 8.4의 \(r\)-fold error와 공통 \((k,R)\) cutoff를 합성한다.
 
-H1b-1b의 source/constant 복원은 수일에서 수주 이상 걸릴 수 있다. 현재 사용자 실행 절차는 없다.
+원문 확보 뒤 H1b-1b의 source/constant 복원은 수시간에서 수일 이상 걸릴 수 있다. 사용자는
+합법적으로 보유한 *Sieve Methods*의 인쇄 144–152쪽을 제공해야 한다. 가능하면 문맥용
+140–153쪽과 관련 errata/185쪽 notes도 함께 제공한다.
 
 ```text
-별도 수행절차 필요없음
+실행 환경·명령어: 없음
+사용자 절차: 합법적으로 보유한 해당 쪽의 PDF·스캔·사진을 대화에 첨부하거나
+             프로젝트 경로를 알려 준다.
 ```
 
 ## 7. 엄밀한 최종 판정
@@ -219,10 +229,13 @@ H1b-1b의 source/constant 복원은 수일에서 수주 이상 걸릴 수 있다
 ```text
 H1b-1 source chain          = TRACED
 H1b-1a finite components    = 3 CLOSED
+H1b-1b Lemma 8.2            = multiplier 89 CLOSED
+GGPY Lemma 4 transfer       = C4 <= 2 C3 PARAMETERIZED
+HR base C3                  = SOURCE ACCESS BLOCKED
 Lemma 8.1(i) exponent       = 9/2
 cutoff first-derivative norm= <50
 Lemma 8.3 cited source      = IDENTIFIED_AND_CORRECTED
-numerical multiplier table = OPEN
+numerical multiplier table = PARTIAL / BASE OPEN
 common finite cutoff       = OPEN
 SIV-07                     = HARD_BLOCKER
 X_cert                     = OPEN

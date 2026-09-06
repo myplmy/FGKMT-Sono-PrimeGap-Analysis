@@ -55,12 +55,12 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 5,
-                    "PROJECT_FINITE_COMPONENT_CLOSED": 3,
+                    "RATE_MISSING": 4,
+                    "PROJECT_FINITE_COMPONENT_CLOSED": 4,
                     "PARTIAL_EXPLICIT": 1,
-                    "SOURCE_CHAIN_TRACED": 1,
+                    "PARAMETERIZED_EXPLICIT": 1,
                     "PRINTED_STRUCTURAL_FACT": 1,
-                    "LOWER_SOURCE_REVIEW_REQUIRED": 1,
+                    "SOURCE_ACCESS_BLOCKED": 1,
                     "HARD_BLOCKER": 1,
                 }
             ),
@@ -104,13 +104,16 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
         for row_id in self.by_id:
             visit(row_id)
 
-    def test_published_version_and_imported_lemma_are_not_numeric(self) -> None:
+    def test_imported_lemma_transfer_is_explicit_but_base_rate_is_not(self) -> None:
         self.assertTrue(self.document["lemma_8_3_citation_identified"])
         self.assertFalse(self.document["lemma_8_3_numeric_multiplier_recovered"])
-        self.assertEqual(self.by_id["H1B1-L83-GGPY4"]["status"], "SOURCE_CHAIN_TRACED")
+        self.assertEqual(
+            self.by_id["H1B1-L83-GGPY4"]["status"],
+            "PARAMETERIZED_EXPLICIT",
+        )
         self.assertEqual(
             self.by_id["H1B1-L83-GGPY3"]["status"],
-            "LOWER_SOURCE_REVIEW_REQUIRED",
+            "SOURCE_ACCESS_BLOCKED",
         )
         self.assertIn(
             "kappa=1",
@@ -137,6 +140,11 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             self.document["h1b1a_ledger"],
             "docs/method/theory/data/"
             "Sono_FMT_H1b1a_explicit_cutoff_summation_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b1b_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json",
         )
 
 

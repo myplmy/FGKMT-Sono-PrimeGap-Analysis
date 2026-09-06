@@ -211,7 +211,10 @@ class H1b1aExplicitPackageTests(unittest.TestCase):
         h1b = json.loads(H1B_LEDGER.read_text(encoding="utf-8"))
         parent_rows = {row["id"]: row for row in h1b["obligations"]}
         self.assertEqual(parent_rows["H1B-L81"]["status"], "RATE_MISSING")
-        self.assertEqual(parent_rows["H1B-L82"]["status"], "RATE_MISSING")
+        self.assertEqual(
+            parent_rows["H1B-L82"]["status"],
+            "PROJECT_FINITE_COMPONENT_CLOSED",
+        )
         self.assertFalse(h1b["numerical_x_cert_ready"])
 
         t1 = json.loads(T1_LEDGER.read_text(encoding="utf-8"))

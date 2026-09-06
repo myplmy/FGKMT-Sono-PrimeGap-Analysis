@@ -62,10 +62,10 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 11,
+                    "RATE_MISSING": 10,
                     "INPUT_PACKAGE_MISSING": 3,
                     "PARTIAL_EXPLICIT": 1,
-                    "PROJECT_FINITE_COMPONENT_CLOSED": 1,
+                    "PROJECT_FINITE_COMPONENT_CLOSED": 2,
                     "HARD_BLOCKER": 1,
                 }
             ),
@@ -134,13 +134,26 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "docs/method/theory/data/"
             "Sono_FMT_H1b1a_explicit_cutoff_summation_v1.json",
         )
+        self.assertEqual(
+            self.document["h1b1b_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json",
+        )
+        self.assertEqual(
+            self.by_id["H1B-L82"]["status"],
+            "PROJECT_FINITE_COMPONENT_CLOSED",
+        )
         self.assertEqual(self.by_id["H1B-L83"]["status"], "RATE_MISSING")
         self.assertTrue(self.by_id["H1B-L83"]["missing_numeric_inputs"])
 
-    def test_h1a_component_is_closed_without_promoting_package(self) -> None:
+    def test_project_components_are_closed_without_promoting_package(self) -> None:
         ratio = self.by_id["H1B-L86-RATIO"]
         self.assertEqual(ratio["status"], "PROJECT_FINITE_COMPONENT_CLOSED")
         self.assertIn("k >= 36", " ".join(ratio["explicit_parts"]))
+        self.assertEqual(
+            self.by_id["H1B-L82"]["missing_numeric_inputs"],
+            [],
+        )
         self.assertFalse(self.document["full_good_sieve_weight_closed"])
         self.assertFalse(self.document["siv_07_closed"])
         self.assertFalse(self.document["siv_09_closed"])
