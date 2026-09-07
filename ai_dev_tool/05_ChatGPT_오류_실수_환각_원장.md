@@ -344,6 +344,62 @@
 - 재발 방지: PowerShell 검증은 `$ErrorActionPreference='Stop'` 또는 `-AsHashtable`을 쓰며,
   PASS는 오류가 없고 종료코드 0인 뒤에만 출력한다. escape-sensitive 검사는 문자 리터럴보다
   codepoint 정수 집합을 사용한다.
+- 재발 기록(2026-09-08): H1b-1b-2c 최종 감사에서 `$ErrorActionPreference='Stop'`은
+  설정했지만 `ConvertFrom-Json`의 대소문자 키 충돌 자체를 잊고 같은 parser를 다시 선택했다.
+  이번에는 오류 즉시 명령이 중단되어 거짓 PASS는 없었고 연구 파일에도 영향이 없었다.
+  향후 theory JSON 전수 파싱은 예외 없이 고정 FGKMT Python `json`을 사용한다.
+
+### E027 — H1b-1b-2c 보조 도구 가용성을 확인하기 전에 호출
+
+- 분류: `TOOL_AVAILABILITY_ASSUMPTION / NO_RESEARCH_IMPACT`
+- 문제:
+  - 초등 합 상계를 확인하는 탐색 단계에서 고정 FGKMT 환경에 설치되지 않은 `sympy`를 먼저
+    호출해 `ModuleNotFoundError`가 발생했다.
+  - PDF 텍스트 추출에서는 번들 dependency 안내 경로 아래에 `pdftotext.exe`가 있을 것으로
+    가정했으나 해당 실행파일이 없었고, 시스템 `pdftotext`는 MiKTeX 로그 권한 오류를 냈다.
+  - 큰 표준 라이브러리 합을 한 번 직접 계산하려던 보조 명령은 출력 없이 종료돼 증거로 쓸 수 없었다.
+  - 최종 규칙 검색 한 번에서 Windows PowerShell이 확장하지 않은 `ai_dev_tool/*.md`를
+    `rg`에 직접 넘겨 경로 구문 오류가 났다. 필요한 AGENTS/METHODS 검색 결과는 얻었지만
+    이 실패 호출 자체는 검증 증거로 세지 않았다.
+- 영향: 새 패키지를 설치하지 않았고, 실패 출력이나 미완료 합을 수학적 증거로 사용하지 않았다.
+  기존 로컬 PDF의 SHA-256, 번들 Python `pypdf` 추출과 렌더링한 원문 페이지를 사용해 다시
+  확인했다. 연구 결과·actual 데이터·`SIV-07`·`X_cert`에는 영향이 없다.
+- 교정: 필요한 부등식을 `fractions`, `mpmath`와 초등 적분으로 검증해 추가 dependency를 없앴다.
+- 재발 방지: optional library는 먼저 import 가능 여부를 검사하고, 없어도 표준 라이브러리로
+  해결 가능한지 판단한다. PDF 도구는 안내된 상위 경로만 믿지 말고 실제 실행파일 존재를
+  확인하며, 추출 command의 종료코드가 0이 아닐 때 출력 텍스트도 정본 증거로 승격하지 않는다.
+  Windows의 `rg`에는 디렉터리 경로를 주고 `-g '*.md'`를 쓰며 Unix식 path wildcard를
+  직접 인수로 넘기지 않는다.
+
+### E028 — H1b-1b-2c 상위 정본 동기화 중 patch·회귀 기대값 불일치
+
+- 분류: `PATCH_CONTEXT_ERROR / TEST_EXPECTATION_SYNC / CORRECTED_DURING_WORK`
+- 문제: 여러 문서를 한 번에 갱신한 `apply_patch`에서 T1 문단 context 한 줄이 달라 전체 patch가
+  사전 거부됐다. 이후 schema·상태를 갱신한 첫 표적 회귀시험은 이전 version/status 문자열을
+  기대하는 시험 3건, 두 번째 실행은 boolean 기대값 1건이 실패했다. 최종 전체 suite의 첫
+  실행에서도 실제 입력 하위 행의 빈 `missing_numeric_inputs`를 허용하지 않는 구형 불변식 1건이
+  남아 있었고, 이를 고치며 `H1B1-L84-GAMMA/L`의 뒤늦은 상태 동기화도 발견했다.
+- 영향: 거부된 patch는 원자적으로 적용되지 않았다. 시험 실패는 새 수학식의 실패가 아니라
+  기계 계약의 현재 schema/status와 시험 기대값 사이의 동기화 실패였으며, 실패 상태에서 완료나
+  PASS를 선언하지 않았다.
+- 교정: patch를 작은 문서 단위로 나누고 현재 context를 다시 읽었다. schema, outcome,
+  `H1B-L83` 상태와 fail-closed parent 기대값을 함께 갱신했다. 실제 gamma와 discrepancy 입력
+  하위 행도 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 정정하고 표적·전체 suite를 다시
+  통과시켰다.
+- 재발 방지: 상위 JSON schema를 올릴 때 같은 patch 또는 바로 다음 patch에서 이를 검증하는
+  모든 시험을 검색해 갱신한다. 대형 다중파일 patch 전에 각 대상의 정확한 주변 문맥을 다시 읽는다.
+
+### E029 — CRLF 저장소에서 `core.autocrlf=false`로 diff 검사를 왜곡
+
+- 분류: `VALIDATION_CONFIGURATION_ERROR / NO_RESEARCH_IMPACT`
+- 문제: 2026-09-08 마지막 확인의 경고를 줄이려 `git -c core.autocrlf=false diff --check`를
+  실행했다. 이 임시 설정은 작업트리의 기존 CRLF에서 `\r`을 각 줄의 후행 공백처럼 보이게 해
+  대량의 거짓 `trailing whitespace`를 보고했다.
+- 영향: 이 명령은 읽기 전용이었고 파일, 수학 결과, 테스트 결과에는 영향이 없다. 해당 FAIL은
+  저장소 품질 판정에서 폐기했다.
+- 교정: 저장소의 정상 line-ending 설정을 유지한 기본 `git diff --check`로 다시 검사한다.
+- 재발 방지: 줄바꿈 경고를 감추기 위해 Git 변환 설정을 바꾸지 않는다. 필요하면 stderr만
+  별도로 보존하되, 프로젝트 기본 설정에서 얻은 종료코드를 판정에 사용한다.
 
 ## 4. 아직 남은 오류 위험
 

@@ -2,7 +2,7 @@
 
 - 작성: 2026-09-04 KST
 - 증거 수준: `SOURCE-LEVEL QUANTITATIVE DEPENDENCY AUDIT`
-- 판정: `CORRECTED_KAPPA1_BASE_RATE_PARAMETERIZED_EXPLICIT_ACTUAL_INPUTS_RFOLD_PACKAGE_OPEN`
+- 판정: `CORRECTED_KAPPA1_ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT_RFOLD_PACKAGE_OPEN`
 - `SIV-07`: `HARD_BLOCKER` 유지
 - numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
 - 기계 판독 정본:
@@ -16,6 +16,8 @@
   및 [`21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md`](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
 - H1b-1b-2b 교정된 kappa=1 multiplier:
   [`22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`](22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md)
+- H1b-1b-2c actual 입력 특수화:
+  [`23_Sono_FMT_H1b1b2c_actual_parameter_specialization.md`](23_Sono_FMT_H1b1b2c_actual_parameter_specialization.md)
 
 ## 1. 결론부터
 
@@ -39,9 +41,10 @@ Maynard의 Lemmas 8.1–8.4에는 Proposition 6.1의 moment 계산을 가능하�
 Maynard Section 8의 추적된 실제 호출에서 비제외 local factor를 닫고, 이어진
 H1b-1b-2a.1은 11개 analytic subapplication의 확대 제외모듈을 전수 인증했다.
 따라서 추적 호출 전체에서 uniform parameterized \(c_{\gamma,j}\) 하한 경로가 닫혔다.
-Lemma 8.1(ii)의 입력 정규화와 공통 cutoff,
-Kuperberg/HR에서 시작하는 \(C_{3,\mathrm{abs}}(A_1,A_2)\), 실제 \(A_1,A_2,L\),
-그리고 보정된 Lemma 8.4 반복오차는 열려 있다.
+H1b-1b-2c는 실제 네 family에 공통인
+\(a=1/2,A_2=8,L=5+\log\Lambda_*\)도 인증했다. Lemma 8.1(ii)의 입력 정규화와
+공통 cutoff, 보정된 Lemma 8.4 반복오차는 열려 있다. 절대
+\(C_{3,\mathrm{abs}}(A_1,A_2)\) 경로는 보조 교차검사로 남는다.
 따라서 numerical basic-summation package 전체는 아직 완료가 아니다.
 
 쉬운 비유로 말하면, 네 개의 조립 공정과 공급업체 도면까지 찾았지만 각 부품의 실제 허용오차와
@@ -178,11 +181,11 @@ finite 명제는 아직 없다.
 | `H1B1-L81II-DIVISOR` | extra-form 평균 | `PARTIAL_EXPLICIT` | 입력 계수·공통 흡수 cutoff |
 | `H1B1-L82-CUTOFF` | smooth \(\psi\) | `PROJECT_FINITE_COMPONENT_CLOSED` | \(\|\psi'\|_\infty<50\) |
 | `H1B1-L82-LIPSCHITZ` | Lipschitz bound | `PROJECT_FINITE_COMPONENT_CLOSED` | multiplier 89, \(k\ge2\) |
-| `H1B1-L83-GGPY4` | 1차원 합 | `PARAMETERIZED_EXPLICIT` | \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\); relative factor는 공통 \(\Lambda_*\)로 parameterized |
+| `H1B1-L83-GGPY4` | 1차원 합 | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 교정 multiplier와 공통 \(a=1/2,A_2=8,L=5+\log\Lambda_*\) |
 | `H1B1-L83-PUBLISHED-NOTE` | 출판본 보정 | `PRINTED_STRUCTURAL_FACT` | 일반 \(\kappa\) 주석은 별도 \(c_\gamma\) 문제를 해결하지 않음 |
-| `H1B1-L83-GGPY3` | 하위 sieve lemma | `RATE_MISSING` | Kuperberg 구조 확인; 수치 상수·범위·일반화 open |
-| `H1B1-L84-GAMMA` | \(\gamma\) 조건 | `RATE_MISSING` | local factor·application 제외모듈은 닫힘; explicit \(A_1,A_2,k_0\) 필요 |
-| `H1B1-L84-L` | discrepancy \(L\) | `RATE_MISSING` | 소인수합·지수 상수 |
+| `H1B1-L83-GGPY3` | 하위 sieve lemma | `PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1` | 교정된 \(\kappa=1\) 상수와 전 범위 \(z\ge2\) |
+| `H1B1-L84-GAMMA` | \(\gamma\) 조건 | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 실제 네 family에 공통인 \(a=1/2,A_2=8\), \(k\ge2\) |
+| `H1B1-L84-L` | discrepancy \(L\) | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | \(L=5+\log\Lambda_*\) |
 | `H1B1-L84-SMOOTH` | \(\Omega_G\) | `RATE_MISSING` | test function 수치 norm |
 | `H1B1-L84-ITERATION` | \(r\)-fold 합성 | `RATE_MISSING` | 축적오차·공통 range |
 | `H1B1-PACKAGE` | 기본 합 package | `HARD_BLOCKER` | 전 행과 공통 error budget |
@@ -200,8 +203,8 @@ finite 명제는 아직 없다.
 
 ### 다음 단계에서 Codex와 사용자가 도울 수 있는 일
 
-- Codex가 식별한 Maynard Lemma 8.4의 실제 \(\gamma_j,c_{\gamma,j},L_j\)에서 \(A_1,A_2,L\)을 수치화
-- Kuperberg/HR recurrence의 숨은 absolute \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 finite range를 복원
+- 인증된 실제 \(a,A_2,L\)과 \(C_{8.3}(1/2,8)\)을 smooth norm에 결합
+- Kuperberg/HR의 absolute \(C_{3,\mathrm{abs}}\) 경로는 필요할 때 sharpness 교차검사로 복원
 - \(c_\gamma\) explicit lower bound 또는 \(z\)-대-\(L\) restoration gate를 증명
 - 이미 닫힌 Lemma 8.2 multiplier 89와 absolute factor 2를 Lemma 8.4 축적오차에 재합성
 - 정식 lemma가 고정된 뒤 작은 \(k,R\) 범위의 exact/interval certificate를 생성
@@ -222,12 +225,12 @@ H1b-1a는 세 유한 component를 닫고 divisor 평균을 parameterized 식으�
 H1b-1b-2a.1은 실제 호출별 비제외 local factor와 제외 소수곱의 exact 변환에 더해
 \(dW_i,W_i',a_mWBr,rW_m,W_0\)를 포함한 11개 subapplication의 상계를 전수
 인증했다. 공통 상계 \(\Lambda_*\)와 uniform parameterized \(c_\gamma\) 하한을 얻었지만,
-아래 numerical input과 합성은 계속 열려 있다.
+아래 합성은 계속 열려 있다.
 
-1. Kuperberg/HR recurrence에서 \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 최초 유효범위를 복원한다.
-2. Maynard 실제 호출의 \(A_1,A_2,L\)을 수치화한다.
-3. \(6C_{3,\mathrm{abs}}(1+\log\Lambda_*)\)를 사용해 Lemma 8.4의 \(r\)-fold error와
-   공통 \((k,R)\) cutoff를 합성한다.
+1. 실제 test function에서 \(\Omega_G\)와 각 derivative/integral norm을 명시한다.
+2. \(C_{8.3}(1/2,8)\{6+\log\Lambda_*\}\)를 사용해 Lemma 8.4의
+   corrected \(r\)-fold error를 합성한다.
+3. 한 공통 \((k,R)\) smallness cutoff를 도출한다.
 
 원 HR 140–153쪽은 계보와 상수 누락을 대조하는 데 여전히 유용하지만, 현대 구조 재현이
 확보됐으므로 사용자 제공이 유일한 선결조건은 아니다.
@@ -269,11 +272,11 @@ X_cert                     = OPEN
 
 ```text
 Lemma 8.3 corrected one-step rate = C_L83(a,A2), every z>=2
-actual common a,A2,L             = OPEN
+actual common a,A2,L             = 1/2, 8, 5+log(Lambda_star) CLOSED PARAMETERIZED
 legacy C3_abs + c_gamma route    = OPTIONAL CROSS-CHECK
 Lemma 8.4 r-fold composition     = OPEN
 SIV-07 / X_cert                  = HARD_BLOCKER / OPEN
 ```
 
-따라서 다음 직접 gate는 절대 \(C_3\) 탐색이 아니라 실제 호출 전체에 공통인
-\(a,A_2,L\)을 인증하는 H1b-1b-2c다.
+H1b-1b-2c가 실제 호출 전체에 공통인 \(a,A_2,L\)을 인증했다. 따라서 다음 직접 gate는
+절대 \(C_3\) 탐색이 아니라 actual smooth norm과 corrected \(r\)-회 합성을 닫는 H1b-1b-2d다.

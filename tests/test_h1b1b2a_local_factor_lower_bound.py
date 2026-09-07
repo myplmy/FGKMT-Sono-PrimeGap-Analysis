@@ -44,7 +44,7 @@ class H1b1b2aLocalFactorLowerBoundTests(unittest.TestCase):
         cls.contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
 
     def test_contract_is_fail_closed(self) -> None:
-        self.assertEqual(self.contract["schema_version"], "1.2.0")
+        self.assertEqual(self.contract["schema_version"], "1.3.0")
         self.assertEqual(
             self.contract["outcome"],
             "ACTUAL_LOCAL_FACTORS_AND_EXCLUDED_MODULI_EXPLICIT_OPTIONAL_"

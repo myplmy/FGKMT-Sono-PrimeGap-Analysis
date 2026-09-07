@@ -12,7 +12,7 @@
 Ford corrected structural theorem                 SOURCE REVIEWED
 kappa=1 finite multiplier as a function of a,A2   PROJECT PARAMETERIZED EXPLICIT
 valid summation range                              every real x >= 2
-actual Maynard a,A2,L                              OPEN
+actual Maynard a,A2,L                              CLOSED BY H1b-1b-2c, PARAMETERIZED
 corrected Lemma 8.4 r-fold composition             OPEN
 H1B1-PACKAGE / SIV-07 / X_cert                    HARD_BLOCKER / HARD_BLOCKER / OPEN
 ~~~
@@ -365,8 +365,8 @@ identity이며 새 수치 \(O\)-상수를 도입하지 않는다. 이로써 (22.
 | obligation | 이전 | 현재 | 주의 |
 |---|---|---|---|
 | `H1B1-L83-GGPY3` | `RATE_MISSING` | `PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1` | 절대 \(C_3\) 대신 교정된 상대 경로 |
-| `H1B1-L83-GGPY4` | 절대 factor 2만 parameterized | 교정된 \(C_{8.3}(a,A)\), \(z\ge2\) | actual 입력은 미대입 |
-| `H1B-L83` | `RATE_MISSING` | `PARAMETERIZED_EXPLICIT_INPUTS_OPEN` | 공통 실제 \(a,A,L\) 필요 |
+| `H1B1-L83-GGPY4` | 절대 factor 2만 parameterized | 교정된 \(C_{8.3}(a,A_2)\), \(z\ge2\) | H1b-1b-2c에서 actual 입력 대입 |
+| `H1B-L83` | `RATE_MISSING` | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | \(a=1/2,A_2=8,L=5+\log\Lambda_*\) |
 | legacy \(C_{3,\mathrm{abs}}\) route | primary | optional secondary | 틀린 경로가 아니라 더 긴 경로 |
 | `H1B-L84` | `RATE_MISSING` | 변화 없음 | \(r\)-회 합성 필요 |
 | `H1B1-PACKAGE` | `HARD_BLOCKER` | 변화 없음 | 다른 Section 8 입력도 남음 |
@@ -386,19 +386,26 @@ identity이며 새 수치 \(O\)-상수를 도입하지 않는다. 이로써 (22.
 - Lemma 8.3 child만 승격하고 Lemma 8.4, package, `SIV-07`,
   \(X_{\rm cert}\)는 승격하지 않는 fail-closed 상태
 
-수치시험은 (22.8)의 분석적 증명을 대신하지 않는다. 상수가 매우 크므로 다음 단계에서
-실제 \(a,A,L\)을 넣은 뒤 크기 병목을 평가하고, 필요할 때만 각 보조상계를 더 날카롭게
+수치시험은 (22.8)의 분석적 증명을 대신하지 않는다. H1b-1b-2c가
+실제 \(a,A_2,L\)을 넣어 크기 병목을 평가했으므로, 이제 합성 결과를 본 뒤 필요할 때만 각 보조상계를 더 날카롭게
 만든다. 지금 미리 최적화하면 실제 병목이 아닌 항에 시간을 쓸 위험이 있다.
 
 ## 11. 다음 gate
 
-1. Maynard Section 8의 모든 실제 호출에서 하나의 공통 수치 \(a,A,L\)을 인증한다.
-2. 그 값을 (22.10)에 넣어 실제 one-step multiplier의 크기를 진단한다.
-3. smooth norm과 \(r\)-회 binomial error를 다시 합성한다.
+1. **완료:** 모든 실제 호출에서 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 인증했다.
+2. **완료:** (22.10)의 weighted multiplier는 약 \(7.9173\times10^{121}\)이다.
+3. **다음:** smooth norm과 \(r\)-회 binomial error를 다시 합성한다.
 4. 독립 root인 H1c/PAP와 나머지 H1b obligation이 닫힐 때까지 threshold calculator는
    만들지 않는다.
 
 사용자 수행절차는 없다. Lean이나 추가 Python 패키지도 필요하지 않았다.
+
+## 12. 2026-09-08 H1b-1b-2c 후속 상태
+
+actual parameter 정본은
+`23_Sono_FMT_H1b1b2c_actual_parameter_specialization.md`다. 이 후속 결과는
+이 문서의 교정된 one-step 정리를 변경하지 않고 실제 입력을 특수화한다. Lemma 8.4
+\(r\)-회 합성, `SIV-07`, \(X_{\rm cert}\)는 승격하지 않는다.
 
 ## 참고문헌
 

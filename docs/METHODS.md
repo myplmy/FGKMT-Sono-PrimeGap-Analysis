@@ -7,7 +7,7 @@
 - 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A와 설계 사후감사, P020 recurrence artifact 종합 완료; A는 정보량 HOLD
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 \(J_r/I_r>\log r/(4r)\)를 모든 정수 \(r\ge36\)에서 project theorem으로 닫았다. H1b-1a는 세 finite component를 닫았고, H1b-1b는 Maynard Lemma 8.2 multiplier를 89로 닫았다. Castillo et al.의 peer-reviewed 교정을 반영하면 GGPY \(\kappa=1\)에서 닫힌 것은 절대오차 전달 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)이다. H1b-1b-2a.1은 실제 Section 8의 11개 analytic subapplication에서 local factor와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\) 제외모듈을 전수 인증해 공통 \(\log Q_j\le\Lambda_*\)와 \(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 얻었다. 다음은 \(C_{3,\mathrm{abs}}\)·finite range·실제 \(A_1,A_2,L\)·수정된 \(r\)-회 합성이다. Kuperberg arXiv:2210.09775의 size gate는 대체 비교 경로이고 numerical multiplier는 `RATE_MISSING`이다. 병렬 gate는 H1c-1 quantitative character/Bombieri–Vinogradov package다. `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 \(J_r/I_r>\log r/(4r)\)를 모든 정수 \(r\ge36\)에서 project theorem으로 닫았다. H1b-1a는 세 finite component를 닫았고, H1b-1b는 Maynard Lemma 8.2 multiplier를 89로 닫았다. Castillo et al.의 peer-reviewed 교정을 반영한 H1b-1b-2b는 Ford 정리에서 \(\kappa=1\) one-step multiplier를 명시했다. H1b-1b-2a.1은 실제 Section 8의 11개 analytic subapplication에서 local factor와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\) 제외모듈을 전수 인증해 공통 \(\log Q_j\le\Lambda_*\)와 \(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 얻었다. H1b-1b-2c는 모든 실제 호출에 공통인 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)를 인증해 `H1B-L83`을 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 진전시켰다. 다음은 smooth norm과 수정된 Lemma 8.4 \(r\)-회 합성이다. Kuperberg arXiv:2210.09775의 size gate와 절대 \(C_3\)+\(c_\gamma\) 경로는 보조 비교 경로다. 병렬 gate는 H1c-1 quantitative character/Bombieri–Vinogradov package다. `SIV-07`과 `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -700,10 +700,12 @@ canonical \(W_i\)와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\)를 모두 포함해
 \(c_\gamma(L+1)^\kappa\)를 보존한 교정 proof를 \(\kappa=1\)에 명시화했다.
 이에 따라
 \(C_{8.3}(a,A_2)=2\{40960D(a,A_2)e^{256+A_2}+2\}\)와 \(z\ge2\)가
-project-parameterized explicit가 되었고, `H1B-L83`은
-`PARAMETERIZED_EXPLICIT_INPUTS_OPEN`이다. 기존 절대 \(C_3\)+\(c_\gamma\) 하한 및
-Kuperberg size gate는 독립·sharpness 비교용 보조 경로로 보존한다. 실제 호출 전체의 공통
-\(a,A_2,L\), smooth norm과 수정된 \(r\)-회 합성은 `OPEN/HARD_BLOCKER`다.
+ project-parameterized explicit가 되었다. 이어진 H1b-1b-2c는 실제 네 local family와
+ Rosser--Schoenfeld의 양 끝 포함 구간 보정을 결합해 공통
+ \(a=1/2,A_2=8,L=5+\log\Lambda_*\)를 인증했다. 따라서 `H1B-L83`은
+ `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다. 기존 절대 \(C_3\)+\(c_\gamma\) 하한 및
+ Kuperberg size gate는 독립·sharpness 비교용 보조 경로로 보존한다. smooth norm과 수정된
+ \(r\)-회 합성은 계속 `OPEN/HARD_BLOCKER`다.
 정본은 `docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md`와
 `docs/method/theory/17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`,
 `docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`다.
@@ -712,9 +714,11 @@ Kuperberg size gate는 독립·sharpness 비교용 보조 경로로 보존한다
 fail-closed로 등록했고, actual local-factor와 application 제외모듈 하한 증명은
 `docs/method/theory/20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`와
 `docs/method/theory/21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md`가 정본이다.
-교정된 one-step multiplier 정본은
-`docs/method/theory/22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`다.
-one-step 공식이 명시됐어도 numerical package는 아직 아니다.
+ 교정된 one-step multiplier 정본은
+ `docs/method/theory/22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`다.
+ actual 입력 특수화 정본은
+ `docs/method/theory/23_Sono_FMT_H1b1b2c_actual_parameter_specialization.md`다.
+ actual one-step 입력이 명시됐어도 \(r\)-회 합성과 numerical threshold package는 아직 아니다.
 
 같은 날 H1c는 FGKMT Hypothesis 1과 Sono PAP를 20개 node로 분리했다. \(\mathcal A=\mathbb Z\)인
 Hypothesis 1(1)은 `floor(y^(1/3))*(log y)^(100 k^2) <= N`, (3)은 `N>=q`일 때 implied

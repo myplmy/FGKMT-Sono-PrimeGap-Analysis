@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-08",
+  "gate": "H1b-1b-2c actual Maynard Section 8 parameter specialization",
+  "outcome": "ACTUAL_FOUR_FAMILY_INPUTS_PARAMETERIZED_EXPLICIT",
+  "scope": "The eleven source-traced analytic subapplications of Maynard Section 8 only. This contract supplies common Lemma 8.3 inputs; it does not certify the corrected r-fold Lemma 8.4 composition, SIV-07, or X_cert.",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_SOURCE",
+      "title": "Dense Clusters of Primes in Subsets",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "reviewed_locations": "definitions and actual gamma construction at source lines 531-604; external applications as listed below",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "ROSSER_SCHOENFELD_1962",
+      "title": "Approximate Formulas for Some Functions of Prime Numbers",
+      "doi": "10.1215/ijm/1255631807",
+      "local_path": "tmp/pdfs/h1b1a/Rosser_Schoenfeld_1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "reviewed_locations": "printed pages 65 and 70; equations (2.8), (3.21), (3.24)",
+      "status": "PRIMARY_EXPLICIT_PRIME_SUM_INPUT"
+    },
+    {
+      "key": "FORD_2023_NOTES",
+      "title": "Sieve Methods Lecture Notes",
+      "author": "Kevin Ford",
+      "local_path": "tmp/pdfs/h1b1b2b/Ford_Sieve_Methods_Lecture_Notes_2023.pdf",
+      "sha256": "a6e8462f1e76606614e5c2891b419515be408d5f11f0b82915f5c24e05c00e06",
+      "reviewed_locations": "Theorem 4.4 and proof",
+      "status": "PRIMARY_CORRECTED_WIRSING_STRUCTURE"
+    },
+    {
+      "key": "CASTILLO_ET_AL_2015",
+      "title": "Bounded Gaps Between Primes in Number Fields and Function Fields",
+      "doi": "10.1090/S0002-9939-2015-12554-3",
+      "arxiv": "1403.5808",
+      "local_path": "tmp/pdfs/h1b1b_followup/Castillo_Hall_LemkeOliver_Pollack_Thompson_BoundedGaps.pdf",
+      "sha256": "af2f402f1d0ecf67ea2b02a18f9cc2384514cb04fc3467807e20b278e3d463ca",
+      "reviewed_locations": "Lemma 2.5, following Remark, and proof",
+      "status": "PEER_REVIEWED_CORRECTION_APPLIED"
+    },
+    {
+      "key": "DUSART_2010",
+      "title": "Estimates of Some Functions Over Primes without R.H.",
+      "arxiv": "1002.0442",
+      "local_path": "tmp/pdfs/h1b1a/Dusart2010_Explicit_estimates_over_primes.pdf",
+      "sha256": "3f11eca84613ad00e6a447f99b318d5c3d76e360283efcc6d3eebdda25ff3923",
+      "reviewed_locations": "explicit weighted-prime-sum estimates",
+      "status": "REVIEWED_NOT_NEEDED_FOR_SELECTED_ALL_RANGE_BOUND"
+    }
+  ],
+  "literature_first_assessment": {
+    "workflow_accepted": true,
+    "predecessor_theorems_individually_audited": true,
+    "complete_actual_package_found_in_targeted_search": false,
+    "global_novelty_claimed": false,
+    "direct_project_proof_scope": "Only the four-family algebra, inclusive-left-endpoint conversion, excluded-prime split, and their common specialization"
+  },
+  "common_parameters": {
+    "maynard_a1_gap": "1/2",
+    "ggpy_a1_cap": 2,
+    "A2": 8,
+    "L": "5+log(Lambda_star)",
+    "Lambda_star": "2k^2 log(2k^2)+k(k-1)log2+[10 alpha(2k^2-k+1)/theta+k]logR",
+    "domain": "k>=2, alpha>0, theta>0, R>1, with the source-traced Section 8 application assumptions"
+  },
+  "proved_components": {
+    "local_denominator_defect": "0<=p-(1+n+g(p))<=3(root_count-1)<=3k",
+    "local_density": "0<=rho_p-1/p<=12k/p^2 and rho_p<1/2 for nonexcluded p>2k^2",
+    "nonexcluded_positive_correction": "sum_{p>2k^2}(rho_p-1/p)log p<4",
+    "inclusive_interval_mertens": "-7/2<sum_{w<=p<=z}log(p)/p-log(z/w)<4 for all real 2<=w<=z",
+    "excluded_prime_loss": "sum_{p|Q}log(p)/p<log(Lambda_star)+1 when log Q<=Lambda_star and Q>=210",
+    "combined_prime_sum": "-(5+log Lambda_star)<sum rho_p log p-log(z/w)<8"
+  },
+  "applications": [
+    {"id": "L620_dW", "source_locator": "620-622", "family": "p_minus_a", "root_count": "omega(p)"},
+    {"id": "L737_canonical", "source_locator": "723-739", "family": "square_over_p_minus_1", "root_count": "omega(p)"},
+    {"id": "L752_canonical", "source_locator": "750-760", "family": "p_minus_a", "root_count": "omega(p)"},
+    {"id": "L885_W_prime", "source_locator": "883-888", "family": "square_over_p_minus_1", "root_count": "omega(p)"},
+    {"id": "L905_W_prime", "source_locator": "903-910", "family": "p_minus_a", "root_count": "omega(p)"},
+    {"id": "L995_a_m_W_B_r", "source_locator": "995-999", "family": "p_minus_a", "root_count": "omega(p)"},
+    {"id": "L1015_r_W_m", "source_locator": "1015-1019", "family": "adjusted_linear", "root_count": "omega(p)"},
+    {"id": "L1096_W0", "source_locator": "1096-1098", "family": "p_minus_a", "root_count": "1"},
+    {"id": "L1135_W0_factor", "source_locator": "1112-1141 r_0 factor", "family": "square_over_p_plus_a_minus_2", "root_count": "omega*(p)"},
+    {"id": "L1135_canonical_factor", "source_locator": "1112-1141 r-vector factor", "family": "square_over_p_plus_a_minus_2", "root_count": "omega*(p)"},
+    {"id": "L1232_canonical", "source_locator": "1228-1237", "family": "square_over_p_plus_a_minus_2", "root_count": "omega(p)"}
+  ],
+  "corrected_multiplier_evaluation": {
+    "delta_multiplier": "14801/69",
+    "tail_exponent": 264,
+    "log_C_sum_80dps": "279.988694780153318738707597080262875864268401220286210102443",
+    "weighted_C_8_3_80dps": "7.91726413329524339049264537950501605182616217306044080058892e121",
+    "log10_weighted_C_8_3_80dps": "121.898575133978376139095914011377885650242410401271274724967",
+    "one_step_error_coefficient": "C_8_3*(6+log Lambda_star)",
+    "numerical_values_are_diagnostics_not_directed_rounding_certificates": true
+  },
+  "r_fold_composition_closed": false,
+  "siv_07_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "actual_prime_experiment_performed": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false,
+  "parent_status": {
+    "H1B-L83": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+    "H1B-L84": "RATE_MISSING",
+    "H1B1-PACKAGE": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "next_gate": {
+    "id": "H1b-1b-2d",
+    "description": "Recompose the corrected Lemma 8.4 r-fold binomial error using the actual common inputs and explicit smooth-function norm bounds.",
+    "ready_for_threshold_calculator": false,
+    "ready_for_actual_prime_experiment": false
+  }
+}

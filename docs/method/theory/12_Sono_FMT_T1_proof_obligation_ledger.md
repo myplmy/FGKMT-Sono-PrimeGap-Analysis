@@ -314,7 +314,8 @@ multiplier·finite cutoff·Hypothesis 1 입력과 공통 error budget은 제공�
 GGPY의 *Small Gaps Between Products of Two Primes*, Lemma 4의 \(\kappa=1\) 특수화다. source
 identity가 닫혔으므로 당시 parent `H1B-L83`은 `SOURCE_REVIEW_REQUIRED`에서
 `RATE_MISSING`으로 정정됐다. 이 2026-09-04 이력은 2026-09-08 H1b-1b-2b의
-`PARAMETERIZED_EXPLICIT_INPUTS_OPEN` 판정으로 후속 대체됐다.
+`PARAMETERIZED_EXPLICIT_INPUTS_OPEN` 판정으로 한 번 대체됐고, 다시 H1b-1b-2c의
+`ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` 판정으로 후속 대체됐다.
 
 H1c는 FGKMT Hypothesis 1과 Sono PAP를 별도 source chain으로 분리했다. Hypothesis 1(1),(3)은
 \(\mathcal A=\mathbb Z\)일 때 exact sufficient inequality로 줄일 수 있지만, condition (2)의
@@ -326,10 +327,9 @@ hard-blocker 수 또는 \(X_{\mathrm{cert}}\)의 상태를 올리지 않는다.
 
 현재 권장 순서는 다음과 같다.
 
-1. `H1b-1b-2b`: Kuperberg/HR absolute multiplier
-   \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 finite range를 복원한다.
-2. Maynard 실제 호출의 \(A_1,A_2,L\)을 수치화하고,
-   인증된 \(6C_{3,\mathrm{abs}}(1+\log\Lambda_*)\) 손실을 넣어
+1. **완료:** H1b-1b-2b가 corrected one-step multiplier를, H1b-1b-2c가
+   실제 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 인증했다.
+2. `H1b-1b-2d`: actual smooth norm과 corrected \(r\)-회 손실을 넣어
    Lemma 8.4를 재합성한다.
 3. 병렬 이론축 `H1c-1`에서 FGKMT (7.2)–(7.3)의 quantitative
    character/Bombieri–Vinogradov package를 복원한다.
@@ -370,9 +370,9 @@ c_{\gamma,j}>\frac{1}{3(1+\log\Lambda_*)}
 \]
 
 은 추적된 actual call 전체에 대해 project-parameterized explicit이며 lower-bound
-repair 경로가 선택됐다. 다만
+repair 경로가 선택됐다. 다만 이 단계 당시에는
 \(C_{3,\mathrm{abs}}\), 실제 \(A_1,A_2,L\), 공통 finite range와 \(r\)-회 합성이
-없으므로 T1의 66행 상태 수, `SIV-07`, \(X_{\mathrm{cert}}\)는 바뀌지 않는다.
+없었으므로 T1의 66행 상태 수, `SIV-07`, \(X_{\mathrm{cert}}\)는 바뀌지 않았다.
 
 ## 12. 2026-09-08 Ford 교정 Wirsing 경로 반영
 
@@ -384,9 +384,24 @@ Ford Theorem 4.4는 GGPY/Maynard 계열의 기존 증명에서 빠진
 C_{8.3}(a,A_2)c_\gamma(L+1)G_{\max}
 \]
 
-형태로 모든 \(z\ge2\)에서 명시했다. 이 때문에 `H1B-L83`은
-`PARAMETERIZED_EXPLICIT_INPUTS_OPEN`으로 세분화된다. 그러나 실제 호출 전체에 공통인
+형태로 모든 \(z\ge2\)에서 명시했다. 이 때문에 `H1B-L83`은 당시
+`PARAMETERIZED_EXPLICIT_INPUTS_OPEN`으로 세분화됐다. 그러나 당시 실제 호출 전체에 공통인
 \(a,A_2,L\), smooth norm, Lemma 8.4의 \(r\)-회 합성과 다른 moment/Hypothesis 1
 상수가 없으므로 T1의 66행 상태 수, `SIV-07`, `SIV-09`,
 \(X_{\mathrm{cert}}\)는 그대로다. 기존 \(c_\gamma\) 하한은 버리지 않고
 독립 교차검사용 보조 경로로 보존한다.
+
+## 13. 2026-09-08 actual \(a,A_2,L\) 특수화 반영
+
+H1b-1b-2c는 Maynard Section 8의 네 actual denominator family와 11개 application에
+공통인
+
+\[
+a=\frac12,\qquad A_2=8,\qquad L=5+\log\Lambda_*
+\]
+
+을 인증했다. 따라서 child `H1B-L83`은
+`ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 진전한다. 그러나 corrected Lemma 8.4의
+smooth norm·\(r\)-회 합성, 다른 moment 상수, H1c/PAP와 arbitrary-X 전달은 남아 있다.
+그러므로 T1의 66행 root 상태 수, `SIV-07`, `SIV-09`,
+\(X_{\mathrm{cert}}\)는 바뀌지 않는다.

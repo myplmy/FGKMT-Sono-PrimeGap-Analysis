@@ -233,5 +233,6 @@ Ford Theorem 4.4가 누락된 \(c_\gamma(L+1)^\kappa\) 항을 포함한 교정 p
 
 기존의 `PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED`는 당시 가능한 repair 선택을 기록한
 역사적 판정이며, 지금은 optional independent cross-check다. 다음 gate는
-`actual a,A2,L -> C_L83 평가 -> corrected r-fold composition`이다.
+H1b-1b-2c에서 `actual a=1/2, A2=8, L=5+log Lambda_star -> C_L83 평가`까지
+완료했다. 최신 gate는 explicit smooth norm을 포함한 `corrected r-fold composition`이다.
 `SIV-07`과 \(X_{\mathrm{cert}}\)는 계속 닫히지 않는다.

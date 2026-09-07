@@ -434,5 +434,6 @@ Lean이나 새 Python 라이브러리는 필요하지 않다.
 이 문서의 \(c_\gamma\) 하한과 \(\Lambda_*\)는 그대로 유효하다. 다만 H1b-1b-2b가
 Ford의 교정된 \(\kappa=1\) 상대오차를 직접 명시했으므로, 이 하한은 더 이상
 Lemma 8.3 base rate를 복원하기 위한 주 선결조건이 아니다. 독립 교차검사와 actual-call
-assumption 관리에 보존한다. 최신 다음 gate는 공통 actual \(a,A_2,L\) 인증과
-Lemma 8.4 \(r\)-회 합성이다.
+assumption 관리에 보존한다. H1b-1b-2c는 공통 actual
+\(a=1/2,A_2=8,L=5+\log\Lambda_*\) 인증을 완료했다. 최신 다음 gate는
+이 입력을 사용한 Lemma 8.4 \(r\)-회 합성이다.

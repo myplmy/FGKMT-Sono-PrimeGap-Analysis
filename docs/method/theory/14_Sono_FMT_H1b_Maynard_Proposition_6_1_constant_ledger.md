@@ -92,9 +92,10 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 |---|---:|
 | `PARTIAL_EXPLICIT` | 1 |
 | `PROJECT_FINITE_COMPONENT_CLOSED` | 2 |
-| `RATE_MISSING` | 10 |
+| `RATE_MISSING` | 9 |
 | `SOURCE_REVIEW_REQUIRED` | 0 |
 | `INPUT_PACKAGE_MISSING` | 3 |
+| `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 1 |
 | `HARD_BLOCKER` | 1 |
 | **합계** | **17** |
 
@@ -106,8 +107,8 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-HYP-03` | Hypothesis 1(3) | progression 집중 방지 | `INPUT_PACKAGE_MISSING` | \(\ll\) 상수·시작점 |
 | `H1B-L81` | Lemma 8.1 | singular series 하한 | `RATE_MISSING` | \(\exp(-Ck)\)의 \(C\) |
 | `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `PROJECT_FINITE_COMPONENT_CLOSED` | H1b-1b에서 multiplier 89, \(k\ge2\) |
-| `H1B-L83` | Lemma 8.3 | multiplicative sum | `PARAMETERIZED_EXPLICIT_INPUTS_OPEN` | 교정된 \(C_{8.3}(a,A_2)\), \(z\ge2\)는 닫힘; 공통 actual \(a,A_2,L\)·\(r\)-회 합성 필요 |
-| `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | 실제 \(A_1,A_2,L,\Omega_G\)·보정 반복 상수·smallness cutoff |
+| `H1B-L83` | Lemma 8.3 | multiplicative sum | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | \(C_{8.3}\), \(z\ge2\), 공통 \(a=1/2,A_2=8,L=5+\log\Lambda_*\) 닫힘 |
+| `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | 실제 \(\Omega_G\)·보정 반복 상수·smallness cutoff |
 | `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `RATE_MISSING` | \(R^{2+o(1)}\)의 finite 대체 |
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
 | `H1B-L86-SIZE` | Lemma 8.6 | 절대 적분 크기 | `RATE_MISSING` | lower-bound multiplier |
@@ -205,8 +206,8 @@ CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN
    H1b-1b-2a.1은 actual-call 비제외 local factor와
    \(dW_i,W'_i,a_mWBr,rW_m,W_0\)의 호출별 overhead를 전수 인증해 공통
    \(\Lambda_*\)를 얻었다. 이제 Kuperberg/HR recurrence의
-   \(C_{3,\mathrm{abs}}\)·유효범위와 실제 \(A_1,A_2,L\)을 복원한 뒤
-   \(6C_{3,\mathrm{abs}}(1+\log\Lambda_*)\) 손실을 넣어 Lemma 8.4를 다시 합성한다.
+   H1b-1b-2c가 실제 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 복원했다. 이제
+   교정된 \(C_{8.3}\)과 smooth norm을 넣어 Lemma 8.4를 다시 합성한다.
 4. **H1b-2:** 위 입력을 받은 뒤 Propositions 9.1–9.5를 지정 error budget으로 재증명한다.
 5. **H1d:** FMT/FGKMT의 \(u\), good-event, covering 단계와 공통 \((r,x)\) slack을 합성한다.
 
@@ -246,7 +247,8 @@ H1B-L83: SOURCE_REVIEW_REQUIRED -> RATE_MISSING  (2026-09-04 이력)
 ```
 
 이는 source 이름을 찾았다는 뜻이며 numerical closure가 아니었다. 2026-09-08의 최신
-상태는 아래 §13의 `PARAMETERIZED_EXPLICIT_INPUTS_OPEN`이다. `SIV-07`, `SIV-09`와
+상태는 아래 §13의 당시 `PARAMETERIZED_EXPLICIT_INPUTS_OPEN`이었다. 현재는 §14의
+`ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다. `SIV-07`, `SIV-09`와
 \(X_{\mathrm{cert}}\)는 계속 `OPEN`이다.
 
 ## 11. 2026-09-06 H1b-1b 반영
@@ -281,8 +283,8 @@ subapplication으로 분해하고, 모든 호출·iteration에서
 \(\log Q_j\le\Lambda_*\)를 인증했다. 따라서 local normalization 경로는 추적된
 actual call 전체에 대해 project-parameterized explicit 상태로 닫혔다.
 
-또한 숫자 \(C_{3,\mathrm{abs}}\), 그 finite range, 실제 \(A_1,A_2,L\), 그리고
-\(r\)-회 보정 합성은 아직 없다. 따라서 `H1B-L83`, `H1B-L84`, `H1B-COMP-01`,
+또한 숫자 \(C_{3,\mathrm{abs}}\), 그 finite range, 당시 실제 \(A_1,A_2,L\), 그리고
+\(r\)-회 보정 합성은 이 단계에는 없었다. 따라서 당시 `H1B-L83`, `H1B-L84`, `H1B-COMP-01`,
 `SIV-07`, \(X_{\mathrm{cert}}\)의 상태는 바뀌지 않는다.
 
 ## 13. 2026-09-08 H1b-1b-2b 반영
@@ -296,7 +298,21 @@ C_{8.3}(a,A_2)=2\{40960D(a,A_2)e^{256+A_2}+2\}
 \]
 
 를 모든 \(z\ge2\)에서 얻었다. 따라서 `H1B-L83`은 더 이상 base rate 자체가
-미확정인 상태가 아니라 `PARAMETERIZED_EXPLICIT_INPUTS_OPEN`이다. 아직 닫히지 않은 것은
+미확정인 상태가 아니라 당시 `PARAMETERIZED_EXPLICIT_INPUTS_OPEN`이었다. 아직 닫히지 않은 것은
 모든 실제 호출에 공통인 Maynard/Ford \(a,A_2,L\)의 수치 인증과 Lemma 8.4
 \(r\)-회 합성이다. 이 child 진전만으로 `H1B-COMP-01`, `SIV-07` 또는
+\(X_{\mathrm{cert}}\)를 승격하지 않는다.
+
+## 14. 2026-09-08 H1b-1b-2c 반영
+
+Maynard Section 8의 11개 actual subapplication에 대해
+
+\[
+a=\frac12,\qquad A_2=8,\qquad L=5+\log\Lambda_*
+\]
+
+라는 공통 입력이 인증됐다. 따라서 `H1B-L83`은
+`ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 이동한다. `H1B-L84`의 smooth norm,
+corrected \(r\)-회 합성·smallness cutoff는 여전히 `RATE_MISSING`이며,
+이 child 진전은 `H1B-COMP-01`, `SIV-07`, `SIV-09` 또는
 \(X_{\mathrm{cert}}\)를 승격하지 않는다.

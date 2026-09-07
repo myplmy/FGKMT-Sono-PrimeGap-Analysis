@@ -1,11 +1,12 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "created_kst": "2026-09-07",
   "updated_kst": "2026-09-08",
   "gate": "H1b-1b-2a.1 actual application-exclusion inventory",
   "outcome": "ALL_TRACED_APPLICATION_EXCLUDED_MODULUS_BOUNDS_EXPLICIT_OPTIONAL_CGAMMA_CROSSCHECK",
-  "scope": "All external uses of Maynard Lemma 8.4 and direct external uses of Lemma 8.3 in the audited Section 8 source. The line-1135 product is split into its W0 one-variable factor and canonical r-vector factor. This closes application excluded-modulus size bounds. After H1b-1b-2b the resulting c_gamma lower bound is an optional cross-check; actual a/A2/L, corrected r-fold composition, SIV-07 and X_cert remain open.",
+  "scope": "All external uses of Maynard Lemma 8.4 and direct external uses of Lemma 8.3 in the audited Section 8 source. The line-1135 product is split into its W0 one-variable factor and canonical r-vector factor. This closes application excluded-modulus size bounds. H1b-1b-2c uses this inventory to certify actual a=1/2, A2=8 and L=5+log(Lambda_star). The c_gamma lower bound remains an optional cross-check; corrected r-fold composition, SIV-07 and X_cert remain open.",
   "corrected_wirsing_contract": "docs/method/theory/data/Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+  "actual_parameter_contract": "docs/method/theory/data/Sono_FMT_H1b1b2c_actual_parameter_specialization_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016_SOURCE",
@@ -210,19 +211,20 @@
     "abstract_g_equals_p_plus_Ok_lemma_closed": false,
     "C3_abs_numeric_multiplier_recovered": false,
     "actual_A1_A2_L_numeric": false,
+    "actual_A1_A2_L_parameterized_explicit": true,
     "corrected_rfold_composition_closed": false,
     "numerical_route_complete": false
   },
   "parent_status": {
     "H1B1-L84-ITERATION": "RATE_MISSING",
     "H1B1-PACKAGE": "HARD_BLOCKER",
-    "H1B-L83": "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+    "H1B-L83": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
     "H1B-L84": "RATE_MISSING",
     "SIV-07": "HARD_BLOCKER",
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "recommended": "H1b-1b-2c: certify common actual Maynard/Ford a, A2 and L values, evaluate C_L83(a,A2), and then recompute the r-fold error; retain Lambda_star for assumptions and independent c_gamma checks.",
+    "recommended": "H1b-1b-2d: use the certified a=1/2, A2=8 and L=5+log(Lambda_star) package to recompose the corrected r-fold error with explicit smooth norms; retain Lambda_star for assumptions and independent c_gamma checks.",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false,
     "new_python_dependency_required": false,

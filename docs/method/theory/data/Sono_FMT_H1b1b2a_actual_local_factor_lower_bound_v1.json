@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2.0",
+  "schema_version": "1.3.0",
   "created_kst": "2026-09-07",
   "updated_kst": "2026-09-08",
   "gate": "H1b-1b-2a actual-call local-factor and excluded-prime lower bound",
@@ -11,10 +11,11 @@
     "H1B1B2-ROUTE-DECISION",
     "SIV-07"
   ],
-  "scope": "A project proof for the exact prime-local denominator families used by the traced Section 8 calls of Maynard Lemmas 8.3-8.4, plus the H1b-1b-2a.1 inventory that certifies the excluded-modulus size of all 11 traced analytic subapplications. After H1b-1b-2b this lower-bound route is an optional independent cross-check, not the primary one-step summation route. This does not prove the same local statement for arbitrary g(p)=p+O(k), make actual a/A2/L numerical, certify the corrected r-fold composition, close SIV-07, or compute X_cert.",
+  "scope": "A project proof for the exact prime-local denominator families used by the traced Section 8 calls of Maynard Lemmas 8.3-8.4, plus the H1b-1b-2a.1 inventory that certifies the excluded-modulus size of all 11 traced analytic subapplications. H1b-1b-2c subsequently certifies actual a=1/2, A2=8 and L=5+log(Lambda_star). This lower-bound route remains an optional independent cross-check, not the primary one-step summation route. This does not prove the same local statement for arbitrary g(p)=p+O(k), certify the corrected r-fold composition, close SIV-07, or compute X_cert.",
   "outcome": "ACTUAL_LOCAL_FACTORS_AND_EXCLUDED_MODULI_EXPLICIT_OPTIONAL_CGAMMA_CROSSCHECK",
   "application_inventory_contract": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
   "corrected_wirsing_contract": "docs/method/theory/data/Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+  "actual_parameter_contract": "docs/method/theory/data/Sono_FMT_H1b1b2c_actual_parameter_specialization_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016_SOURCE",
@@ -209,13 +210,13 @@
   "parent_status": {
     "H1B1-L84-ITERATION": "RATE_MISSING",
     "H1B1-PACKAGE": "HARD_BLOCKER",
-    "H1B-L83": "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+    "H1B-L83": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
     "H1B-L84": "RATE_MISSING",
     "SIV-07": "HARD_BLOCKER",
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "recommended": "Certify one common actual Maynard/Ford a, A2 and L package, evaluate C_L83(a,A2), and then redo the r-fold accumulation; retain this c_gamma lower bound as an independent cross-check.",
+    "recommended": "Use the H1b-1b-2c actual parameter package to redo the corrected r-fold accumulation with explicit smooth norms; retain this c_gamma lower bound as an independent cross-check.",
     "parallel": "Continue H1c-1 quantitative character and Bombieri-Vinogradov source tracing.",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false,

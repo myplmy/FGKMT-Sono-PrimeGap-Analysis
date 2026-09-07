@@ -65,11 +65,11 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         cls.contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
 
     def test_contract_provenance_and_scope(self) -> None:
-        self.assertEqual(self.contract["schema_version"], "1.2.0")
+        self.assertEqual(self.contract["schema_version"], "1.3.0")
         self.assertEqual(
             self.contract["outcome"],
-            "LEMMA82_EXPLICIT_CORRECTED_KAPPA1_BASE_RATE_PARAMETERIZED_"
-            "ACTUAL_INPUTS_RFOLD_OPEN",
+            "LEMMA82_EXPLICIT_CORRECTED_KAPPA1_ACTUAL_INPUTS_"
+            "PARAMETERIZED_EXPLICIT_RFOLD_OPEN",
         )
         self.assertEqual(
             self.contract["h1b1b2a_ledger"],
@@ -107,7 +107,9 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
             corrected["proof_status"],
             "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
         )
-        self.assertFalse(corrected["actual_inputs_instantiated"])
+        self.assertTrue(corrected["actual_inputs_instantiated"])
+        self.assertFalse(corrected["fully_numeric_global_inputs"])
+        self.assertIn("a=1/2", corrected["actual_inputs_instantiation_scope"])
         self.assertFalse(self.contract["ggpy_lemma_3_numeric_multiplier_recovered"])
         self.assertFalse(
             self.contract["hr_lemmas_5_3_5_4_numeric_multiplier_recovered"]
@@ -294,11 +296,19 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         )
         self.assertEqual(
             h1b1_rows["H1B1-L83-GGPY4"]["status"],
-            "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
         self.assertEqual(
             h1b1_rows["H1B1-L83-GGPY3"]["status"],
             "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
+        )
+        self.assertEqual(
+            h1b1_rows["H1B1-L84-GAMMA"]["status"],
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+        )
+        self.assertEqual(
+            h1b1_rows["H1B1-L84-L"]["status"],
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
         self.assertEqual(h1b1_rows["H1B1-PACKAGE"]["status"], "HARD_BLOCKER")
 
@@ -311,7 +321,7 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         self.assertEqual(h1b_rows["H1B-L82"]["missing_numeric_inputs"], [])
         self.assertEqual(
             h1b_rows["H1B-L83"]["status"],
-            "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
         self.assertEqual(h1b_rows["H1B-COMP-01"]["status"], "HARD_BLOCKER")
         self.assertFalse(h1b["numerical_x_cert_ready"])

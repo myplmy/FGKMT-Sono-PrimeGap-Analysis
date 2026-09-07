@@ -104,7 +104,7 @@ class CorrectedKappa1WirsingTests(unittest.TestCase):
 
     def test_contract_provenance_and_parent_nonpromotion(self) -> None:
         contract = self.contract
-        self.assertEqual(contract["schema_version"], "1.0.0")
+        self.assertEqual(contract["schema_version"], "1.1.0")
         self.assertEqual(
             contract["outcome"],
             "CORRECTED_KAPPA1_RELATIVE_BASE_RATE_PARAMETERIZED_EXPLICIT",
@@ -112,7 +112,8 @@ class CorrectedKappa1WirsingTests(unittest.TestCase):
         self.assertEqual(contract["finite_x_minimum"], 2)
         self.assertTrue(contract["corrected_extra_term_included"])
         self.assertFalse(contract["legacy_absolute_c3_required_on_primary_route"])
-        self.assertFalse(contract["actual_a1_a2_l_instantiated"])
+        self.assertTrue(contract["actual_a1_a2_l_instantiated"])
+        self.assertTrue(contract["actual_a1_a2_l_parameterized_explicit"])
         self.assertFalse(contract["r_fold_composition_closed"])
         self.assertFalse(contract["siv_07_closed"])
         self.assertFalse(contract["numerical_x_cert_ready"])
@@ -128,7 +129,7 @@ class CorrectedKappa1WirsingTests(unittest.TestCase):
             self.assertEqual(digest, source["sha256"])
 
         parent = contract["parent_status"]
-        self.assertEqual(parent["H1B-L83"], "PARAMETERIZED_EXPLICIT_INPUTS_OPEN")
+        self.assertEqual(parent["H1B-L83"], "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT")
         self.assertEqual(parent["H1B-L84"], "RATE_MISSING")
         self.assertEqual(parent["H1B1-PACKAGE"], "HARD_BLOCKER")
         self.assertEqual(parent["SIV-07"], "HARD_BLOCKER")

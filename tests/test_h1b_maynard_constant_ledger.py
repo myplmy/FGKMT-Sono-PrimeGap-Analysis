@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.2.0")
+        self.assertEqual(self.document["schema_version"], "1.3.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -74,7 +74,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
                     "INPUT_PACKAGE_MISSING": 3,
                     "PARTIAL_EXPLICIT": 1,
                     "PROJECT_FINITE_COMPONENT_CLOSED": 2,
-                    "PARAMETERIZED_EXPLICIT_INPUTS_OPEN": 1,
+                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 1,
                     "HARD_BLOCKER": 1,
                 }
             ),
@@ -164,9 +164,12 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         )
         self.assertEqual(
             self.by_id["H1B-L83"]["status"],
-            "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
-        self.assertTrue(self.by_id["H1B-L83"]["missing_numeric_inputs"])
+        self.assertEqual(
+            self.by_id["H1B-L83"]["missing_numeric_inputs"],
+            ["the corrected r-fold Lemma 8.4 composition and its smooth-function norms"],
+        )
         self.assertIn(
             "C_L83(a,A2)",
             " ".join(self.by_id["H1B-L83"]["explicit_parts"]),

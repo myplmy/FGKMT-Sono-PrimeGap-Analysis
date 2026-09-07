@@ -1,14 +1,15 @@
 {
-  "schema_version": "1.2.0",
+  "schema_version": "1.3.0",
   "created_kst": "2026-09-06",
   "updated_kst": "2026-09-08",
   "gate": "H1b-1b Maynard Lemma 8.2 and GGPY/HR multiplier recovery",
   "target_obligation": "SIV-07",
-  "scope": "An exact project proof makes Maynard Lemma 8.2 explicit for the H1b-1a cutoff. The earlier kappa=1 absolute GGPY Lemma 3-to-4 transfer remains a secondary cross-check. H1b-1b-2b follows Ford's corrected Wirsing theorem and supplies a project-explicit relative one-step multiplier for every z>=2, while actual a, A2, L and corrected r-fold composition remain open. H1b-1b-2a.1 separately closes all 11 traced application excluded-modulus bounds. This is not a numerical basic-summation package or theorem threshold certificate.",
-  "outcome": "LEMMA82_EXPLICIT_CORRECTED_KAPPA1_BASE_RATE_PARAMETERIZED_ACTUAL_INPUTS_RFOLD_OPEN",
+  "scope": "An exact project proof makes Maynard Lemma 8.2 explicit for the H1b-1a cutoff. The earlier kappa=1 absolute GGPY Lemma 3-to-4 transfer remains a secondary cross-check. H1b-1b-2b supplies a corrected one-step multiplier, H1b-1b-2a.1 closes all 11 excluded-modulus bounds, and H1b-1b-2c certifies actual a=1/2, A2=8 and L=5+log(Lambda_star). Corrected r-fold composition remains open. This is not a numerical basic-summation package or theorem threshold certificate.",
+  "outcome": "LEMMA82_EXPLICIT_CORRECTED_KAPPA1_ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT_RFOLD_OPEN",
   "h1b1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
   "h1b1b2a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
   "h1b1b2b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+  "h1b1b2c_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2c_actual_parameter_specialization_v1.json",
   "lemma_8_2_project_component_closed": true,
   "lemma_8_2_uniform_multiplier": 89,
   "ggpy_lemma_4_transfer_factor_closed": true,
@@ -195,7 +196,7 @@
     "relative_error_recovery": "H1b-1b-2a.1 certifies Lambda_app,j<=Lambda_star for every traced actual call, so c_gamma_j>1/[3(1+log Lambda_star)] and the Maynard-style relative multiplier is at most 6 C3(A1,A2)(1+log Lambda_star).",
     "finite_range": "exactly the common range on which the assumed Lemma 3 error holds",
     "proof_status": "PARAMETERIZED_EXPLICIT",
-    "warning": "C3(A1,A2), its valid range, actual A1/A2/L bounds and corrected r-fold composition are not supplied. Setting an O-constant or normalization loss to one is forbidden."
+    "warning": "The legacy C3(A1,A2) route remains parameterized. The primary route now has actual a=1/2, A2=8 and L=5+log(Lambda_star), but corrected r-fold composition is not supplied. Setting an O-constant or normalization loss to one is forbidden."
   },
   "corrected_kappa1_wirsing_contract": {
     "route_role": "PRIMARY",
@@ -205,7 +206,9 @@
     "weighted_multiplier": "C_L83(a,A2)=2*(C_sum(a,A2)+2)",
     "finite_range": "every real z>=2",
     "corrected_extra_term_included": true,
-    "actual_inputs_instantiated": false,
+    "actual_inputs_instantiated": true,
+    "actual_inputs_instantiation_scope": "H1b-1b-2c supplies common a=1/2, A2=8, and L=5+log(Lambda_star); Lambda_star remains a named global parameter rather than a final numeric threshold input.",
+    "fully_numeric_global_inputs": false,
     "proof_status": "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1"
   },
   "obligation_updates": [
@@ -221,14 +224,14 @@
       "old_status": "SOURCE_CHAIN_TRACED",
       "new_status": "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
       "threshold_ready": false,
-      "reason": "Ford's corrected Wirsing theorem retains the missing c_gamma(L+1)^kappa term. A project kappa=1 rederivation gives C_L83(a,A2) and z>=2; actual a, A2 and L remain open. The absolute factor-2 route is retained only as a secondary cross-check."
+      "reason": "Ford's corrected Wirsing theorem retains the missing c_gamma(L+1)^kappa term. A project kappa=1 rederivation gives C_L83(a,A2) and z>=2; H1b-1b-2c later supplies the actual common inputs. The absolute factor-2 route is retained only as a secondary cross-check."
     },
     {
       "id": "H1B1-L83-GGPY3",
       "old_status": "LOWER_SOURCE_REVIEW_REQUIRED",
       "new_status": "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
       "threshold_ready": false,
-      "reason": "Ford gives the corrected structural proof and a project kappa=1 explicit rederivation supplies the finite multiplier. Kuperberg remains a structural cross-check; actual Maynard/Ford a, A2 and L specialization is a separate open gate."
+      "reason": "Ford gives the corrected structural proof and a project kappa=1 explicit rederivation supplies the finite multiplier. Kuperberg remains a structural cross-check; H1b-1b-2c now supplies the source-traced actual Maynard/Ford a, A2 and L specialization."
     },
     {
       "id": "H1B-L82",
@@ -239,21 +242,19 @@
     }
   ],
   "remaining_blockers": [
-    "instantiate one common Maynard/Ford a, A2 and L certificate for every traced Lemma 8.4 invocation",
-    "map every actual denominator and excluded-modulus family into those common assumptions",
     "bound the Lemma 8.4 test-function norm and redo the r-fold accumulation with C_L83(a,A2) on one common range",
     "complete Lemma 8.1(ii), H1c-1, moment formulas and every other root dependency before any X_cert calculation"
   ],
   "parent_status": {
     "H1B1-PACKAGE": "HARD_BLOCKER",
-    "H1B-L83": "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+    "H1B-L83": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
     "SIV-07": "HARD_BLOCKER",
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "primary": "H1b-1b-2c: certify one common actual Maynard/Ford a, A2 and L package for every traced call and evaluate C_L83(a,A2).",
+    "primary": "H1b-1b-2d: use the certified actual package and C_L83(1/2,8) to recompose Lemma 8.4 with explicit smooth norms.",
     "parallel": "Retain the legacy absolute C3 route and Kuperberg z-versus-L condition only as optional sharpness and independent cross-checks.",
-    "after_source_recovery": "Use the actual C_L83(a,A2), certified Lambda_star and smooth norms to redo Maynard Lemma 8.4 gamma, L and r-fold iteration rows.",
+    "after_source_recovery": "The actual gamma and L inputs are now explicit; next use C_L83(1/2,8), the certified Lambda_star and explicit smooth norms to redo the Maynard Lemma 8.4 r-fold iteration row.",
     "parallel_theory_axis": "H1c-1 quantitative character/Bombieri-Vinogradov package",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false

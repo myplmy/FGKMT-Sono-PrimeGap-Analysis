@@ -334,4 +334,6 @@ CPU-heavy 계산은 이번 단계에 필요하지 않았다.
 §8의 `C3_abs` 우선순위는 H1b-1b-2b 이전의 역사적 경로다. Ford의 교정
 \(\kappa=1\) 정리를 명시화한 뒤 주 경로는 \(C_{8.3}(a,A_2)\)를 직접 사용한다.
 이 문서의 11개 application inventory와 공통 \(\Lambda_*\)는 폐기하지 않으며,
-공통 actual \(a,A_2,L\)을 인증하고 독립 \(c_\gamma\) 검사를 수행할 때 재사용한다.
+H1b-1b-2c는 이 \(\Lambda_*\)를 재사용해 공통 actual
+\(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 인증했다. 최신 다음 gate는 해당 입력과
+독립 \(c_\gamma\) 검사를 보존한 corrected Lemma 8.4 \(r\)-회 합성이다.

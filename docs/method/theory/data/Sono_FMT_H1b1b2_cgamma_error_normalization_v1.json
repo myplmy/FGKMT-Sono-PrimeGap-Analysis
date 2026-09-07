@@ -1,14 +1,15 @@
 {
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
   "created_kst": "2026-09-06",
   "updated_kst": "2026-09-08",
   "gate": "H1b-1b-2 corrected c_gamma error normalization and Lemma 8.4 route decision",
   "target_obligation": "SIV-07",
-  "scope": "A fail-closed decomposition of the correction needed for the GGPY/Maynard c_gamma-normalized error. H1b-1b-2b now selects Ford's corrected kappa=1 Wirsing theorem as the primary route and supplies a project-explicit relative one-step multiplier for every z>=2. H1b-1b-2a.1 still closes the excluded-modulus size inventory and c_gamma lower bounds for all 11 traced analytic subapplications, but that path is now an optional independent cross-check. This ledger does not make actual a/A2/L numerical, certify the corrected r-fold Lemma 8.4 composition, close SIV-07, or compute X_cert.",
-  "outcome": "CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED_ACTUAL_INPUTS_AND_RFOLD_OPEN",
+  "scope": "A fail-closed decomposition of the correction needed for the GGPY/Maynard c_gamma-normalized error. H1b-1b-2b selects Ford's corrected kappa=1 Wirsing theorem as the primary route and supplies a project-explicit relative one-step multiplier for every z>=2. H1b-1b-2a.1 closes the excluded-modulus inventory, and H1b-1b-2c certifies actual a=1/2, A2=8 and L=5+log(Lambda_star). The c_gamma path is an optional independent cross-check. This ledger does not certify the corrected r-fold Lemma 8.4 composition, close SIV-07, or compute X_cert.",
+  "outcome": "CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED_ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT_RFOLD_OPEN",
   "child_contract": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
   "application_inventory_contract": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
   "corrected_wirsing_contract": "docs/method/theory/data/Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+  "actual_parameter_contract": "docs/method/theory/data/Sono_FMT_H1b1b2c_actual_parameter_specialization_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016_SOURCE",
@@ -51,7 +52,7 @@
     "PROJECT_PARAMETERIZED_EXPLICIT": "A hidden asymptotic term has been replaced by a formula in named parameters, but the parent numerical package remains open.",
     "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS": "The project supplies one formula in named parameters that bounds every source-traced actual application, while the parent numerical package remains open.",
     "PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED": "The actual-call inventory closes the lower-bound normalization route; alternative routes remain optional comparisons.",
-    "PRIMARY_CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED": "Ford's corrected theorem is the primary one-step route for kappa=1; actual parameters and r-fold composition remain open.",
+    "PRIMARY_CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED": "Ford's corrected theorem is the primary one-step route for kappa=1; H1b-1b-2c closes the actual parameter specialization, while r-fold composition remains open.",
     "OPTIONAL_SECONDARY_ROUTE": "This route remains an alternative comparison route and may become necessary if the primary candidate cannot be closed."
   },
   "obligations": [
@@ -163,7 +164,6 @@
       "role": "choose a proved lower-bound, size-gate, or direct multivariate repair without mixing hypotheses",
       "printed_information": "Ford Theorem 4.4 keeps the missing c_gamma(L+1)^kappa term; the project kappa=1 rederivation gives C_L83(a,A2)c_gamma(L+1) directly for every z>=2. The certified c_gamma lower-bound route, Kuperberg size gate and direct absolute route remain optional comparisons.",
       "missing_numeric_inputs": [
-        "one common actual Maynard/Ford a, A2 and L package",
         "the corrected r-fold error accumulation, smooth norms and common cutoff"
       ],
       "upstream": [
@@ -179,8 +179,7 @@
       "role": "redo the j=0 to r induction and binomial error accumulation with the corrected normalization",
       "printed_information": "The printed proof uses c_j*c_gamma_j factorization at every step and then replaces the binomial error by O(j epsilon).",
       "missing_numeric_inputs": [
-        "one common numerical a, A2 and L package for every actual call",
-        "the resulting explicit C_L83(a,A2) and actual Omega_G constants",
+        "the actual Omega_G constants used with the certified C_L83(1/2,8)",
         "a numerical smallness condition for the binomial accumulation",
         "a common finite cutoff"
       ],
@@ -205,13 +204,13 @@
   "parent_status": {
     "H1B1-L84-ITERATION": "RATE_MISSING",
     "H1B1-PACKAGE": "HARD_BLOCKER",
-    "H1B-L83": "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+    "H1B-L83": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
     "H1B-L84": "RATE_MISSING",
     "SIV-07": "HARD_BLOCKER",
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "recommended": "Certify one common actual Maynard/Ford a, A2 and L package, evaluate C_L83(a,A2), and then redo the r-fold accumulation with explicit smooth norms.",
+    "recommended": "H1b-1b-2d: redo the r-fold accumulation with the certified actual parameter package and explicit smooth norms.",
     "parallel": "Continue H1c-1 quantitative character and Bombieri-Vinogradov source tracing. Retain the c_gamma lower-bound, absolute C3 and Kuperberg size-gate routes only as optional independent or sharpness comparisons.",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false,

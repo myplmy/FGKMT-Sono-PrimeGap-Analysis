@@ -44,7 +44,7 @@ class H1b1b2a1ApplicationExclusionInventoryTests(unittest.TestCase):
         cls.rows = cls.contract["applications"]
 
     def test_contract_scope_and_source_hash(self) -> None:
-        self.assertEqual(self.contract["schema_version"], "1.1.0")
+        self.assertEqual(self.contract["schema_version"], "1.2.0")
         self.assertEqual(len(self.rows), 11)
         self.assertEqual(
             self.contract["trace_completeness"],
@@ -178,6 +178,7 @@ class H1b1b2a1ApplicationExclusionInventoryTests(unittest.TestCase):
         )
         self.assertFalse(route["C3_abs_numeric_multiplier_recovered"])
         self.assertFalse(route["actual_A1_A2_L_numeric"])
+        self.assertTrue(route["actual_A1_A2_L_parameterized_explicit"])
         self.assertFalse(route["corrected_rfold_composition_closed"])
         self.assertFalse(route["numerical_route_complete"])
         self.assertEqual(self.contract["parent_status"]["SIV-07"], "HARD_BLOCKER")

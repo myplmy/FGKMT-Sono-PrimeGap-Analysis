@@ -27,10 +27,11 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_scope_sources_and_unique_obligations(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.3.0")
+        self.assertEqual(self.document["schema_version"], "1.4.0")
         self.assertEqual(
             self.document["outcome"],
-            "CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED_ACTUAL_INPUTS_AND_RFOLD_OPEN",
+            "CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED_ACTUAL_INPUTS_"
+            "PARAMETERIZED_EXPLICIT_RFOLD_OPEN",
         )
         self.assertEqual(len(self.rows), 9)
         self.assertEqual(len(self.by_id), len(self.rows))

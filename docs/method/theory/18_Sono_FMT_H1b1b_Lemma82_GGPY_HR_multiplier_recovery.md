@@ -350,8 +350,9 @@ C_{4,\mathrm{rel},j}
 \le 6C_{3,\mathrm{abs}}(1+\log\Lambda_*)
 \]
 
-로 parameterize할 수 있다. 현재 \(C_{3,\mathrm{abs}}(A_1,A_2)\),
-공통 finite range, 실제 \(A_1,A_2,L\), 그리고 이 손실을 포함한 \(r\)-회 합성은 열려 있다.
+로 parameterize할 수 있다. 이 문장까지는 보조 절대오차 경로의 이력이다.
+H1b-1b-2c가 주 경로의 실제 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 닫았지만,
+공통 smallness range와 이 손실을 포함한 \(r\)-회 합성은 열려 있다.
 추상 조건 \(g(p)=p+O(k)\) 전체에도 이 하한을 일반화하지 않는다. 그러므로 local
 normalization route는 진전했지만 Lemma 8.4는 계속 RATE_MISSING이고 SIV-07과
 \(X_{\mathrm{cert}}\)도 OPEN이다.
@@ -363,10 +364,10 @@ normalization route는 진전했지만 Lemma 8.4는 계속 RATE_MISSING이고 SI
 | H1B1-L82-LIPSCHITZ | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | multiplier 89, \(k\ge2\), 영향 없음 |
 | H1B-L82 | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | Lemma 8.2 자체는 닫힘 |
 | H1B1-L83-GGPY4 | PARAMETERIZED_EXPLICIT | PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1 | 교정된 \(C_{8.3}(a,A_2)\), \(z\ge2\); 절대 factor 2는 보조 경로 |
-| H1B1-L83-GGPY3 | SOURCE_ACCESS_BLOCKED | PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1 | Ford 구조를 \(\kappa=1\)에 명시화; actual 입력은 open |
+| H1B1-L83-GGPY3 | SOURCE_ACCESS_BLOCKED | PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1 | Ford 구조를 \(\kappa=1\)에 명시화 |
 | H1B1B2-CMIN-COMPOSE | PARAMETERIZED_EXPLICIT | PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS | 공통 \(\Lambda_*\) 인증 |
 | H1B1B2-ROUTE-DECISION | HARD_BLOCKER | PRIMARY_CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED | lower-bound 경로는 optional cross-check |
-| H1B-L83 | RATE_MISSING | PARAMETERIZED_EXPLICIT_INPUTS_OPEN | 공통 actual \(a,A_2,L\), \(r\)-회 합성 필요 |
+| H1B-L83 | RATE_MISSING | ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT | 공통 \(a=1/2,A_2=8,L=5+\log\Lambda_*\); \(r\)-회 합성은 별도 |
 | H1B1-L84-ITERATION | RATE_MISSING | RATE_MISSING | 새 \(O(\log\log R)\) normalization 손실을 넣어 \(r\)회 합성 재증명 필요 |
 | H1B1-PACKAGE | HARD_BLOCKER | HARD_BLOCKER | 공통 cutoff와 multiplier 없음 |
 | SIV-07 | HARD_BLOCKER | HARD_BLOCKER | 변화 없음 |
@@ -418,7 +419,8 @@ source/h1b1b_multiplier_recovery.py와 tests/test_h1b1b_multiplier_recovery.py�
 위 §9의 1단계는 H1b-1b-2b가 대체했다. Ford의 교정 구조를 \(\kappa=1\)에
 명시화하여 \(C_{8.3}(a,A_2)\)와 \(z\ge2\)를 얻었으므로, 더 이상
 \(C_{3,\mathrm{abs}}\) 복원이 주 경로의 선결조건은 아니다. 최신 순서는
-`공통 actual a,A2,L 인증 -> C_L83 평가 -> smooth norm과 r-fold 합성`이다.
+H1b-1b-2c에서 `공통 actual a=1/2,A2=8,L=5+log Lambda_star 인증 -> C_L83 평가`를
+완료했다. 최신 순서는 `smooth norm과 corrected r-fold 합성`이다.
 이 갱신은 Lemma 8.2의 89, Castillo 오류 판정 또는 기존 절대오차 전달을 부정하지 않는다.
 
 ## 참고문헌

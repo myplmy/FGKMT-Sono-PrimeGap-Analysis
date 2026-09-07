@@ -1,9 +1,10 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "created_kst": "2026-09-08",
+  "updated_kst": "2026-09-08",
   "gate": "H1b-1b-2b corrected kappa=1 Wirsing multiplier",
   "target_obligation": "H1B1-L83-GGPY3 and H1B-L83",
-  "scope": "Ford Theorem 4.4 supplies the missing corrected structural theorem with the additional c_gamma*(L+1)^kappa term. A project proof makes a deliberately coarse kappa=1 multiplier explicit under Maynard's inclusive-endpoint hypotheses. This does not instantiate actual A1, A2 or L, compose Lemma 8.4 r times, close SIV-07, or compute X_cert.",
+  "scope": "Ford Theorem 4.4 supplies the missing corrected structural theorem with the additional c_gamma*(L+1)^kappa term. A project proof makes a deliberately coarse kappa=1 multiplier explicit under Maynard's inclusive-endpoint hypotheses. H1b-1b-2c subsequently instantiates the eleven actual applications with a=1/2, A2=8 and L=5+log(Lambda_star). This does not compose Lemma 8.4 r times, close SIV-07, or compute X_cert.",
   "outcome": "CORRECTED_KAPPA1_RELATIVE_BASE_RATE_PARAMETERIZED_EXPLICIT",
   "finite_x_minimum": 2,
   "maynard_parameterization": "0 < a1_gap <= 1 and gamma(p)/p <= 1-a1_gap",
@@ -18,7 +19,9 @@
   "legacy_absolute_c3_required_on_primary_route": false,
   "legacy_absolute_route_status": "OPTIONAL_SECONDARY_ROUTE_REMAINS_PARAMETERIZED",
   "finite_range_status": "PROJECT_EXPLICIT_FOR_ALL_REAL_X_AT_LEAST_2",
-  "actual_a1_a2_l_instantiated": false,
+  "actual_parameter_contract": "docs/method/theory/data/Sono_FMT_H1b1b2c_actual_parameter_specialization_v1.json",
+  "actual_a1_a2_l_instantiated": true,
+  "actual_a1_a2_l_parameterized_explicit": true,
   "r_fold_composition_closed": false,
   "siv_07_closed": false,
   "numerical_x_cert_ready": false,
@@ -72,20 +75,19 @@
   "parent_status": {
     "H1B1-L83-GGPY3": "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
     "H1B1-L83-GGPY4": "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
-    "H1B-L83": "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+    "H1B-L83": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
     "H1B-L84": "RATE_MISSING",
     "H1B1-PACKAGE": "HARD_BLOCKER",
     "SIV-07": "HARD_BLOCKER",
     "X_cert": "OPEN"
   },
   "remaining_blockers": [
-    "certify one common numerical a1_gap, A2 and L for all actual Maynard Lemma 8.4 invocations",
     "bound every actual smooth-function norm and recompose the corrected error through all r iterations",
     "close the other H1b Section 8-9 and independent H1c/PAP root obligations before any threshold calculation"
   ],
   "next_gate": {
-    "primary": "H1b-1b-2c actual-call a1_gap, A2 and L common numerical specialization",
-    "after_inputs": "H1b-1b-2d corrected r-fold Lemma 8.4 composition using C_L83",
+    "primary": "H1b-1b-2d corrected r-fold Lemma 8.4 composition using the certified actual C_L83 inputs and smooth-function norms",
+    "completed_input_gate": "H1b-1b-2c actual-call a1_gap=1/2, A2=8 and L=5+log(Lambda_star)",
     "parallel_theory_axis": "H1c-1 quantitative character and PAP package",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false
