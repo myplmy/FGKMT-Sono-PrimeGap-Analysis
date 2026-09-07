@@ -14,8 +14,9 @@
   [`17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`](17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md)
 - H1b-1b multiplier 복원:
   [`18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`](18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md)
-- H1b-1b-2a actual-call local-factor·base-W 하한:
+- H1b-1b-2a actual-call local-factor·제외모듈 하한:
   [`20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
+  및 [`21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md`](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
 
 ## 1. 결론부터
 
@@ -103,7 +104,7 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-HYP-03` | Hypothesis 1(3) | progression 집중 방지 | `INPUT_PACKAGE_MISSING` | \(\ll\) 상수·시작점 |
 | `H1B-L81` | Lemma 8.1 | singular series 하한 | `RATE_MISSING` | \(\exp(-Ck)\)의 \(C\) |
 | `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `PROJECT_FINITE_COMPONENT_CLOSED` | H1b-1b에서 multiplier 89, \(k\ge2\) |
-| `H1B-L83` | Lemma 8.3 | multiplicative sum | `RATE_MISSING` | \(C_{3,\mathrm{abs}}(A_1,A_2)\)·finite range·actual-call 제외모듈 overhead |
+| `H1B-L83` | Lemma 8.3 | multiplicative sum | `RATE_MISSING` | application 제외모듈은 닫힘; \(C_{3,\mathrm{abs}}(A_1,A_2)\)·finite range 필요 |
 | `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | 실제 \(A_1,A_2,L,\Omega_G\)·보정 반복 상수·smallness cutoff |
 | `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `RATE_MISSING` | \(R^{2+o(1)}\)의 finite 대체 |
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
@@ -199,11 +200,11 @@ CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN
 2. **H1c-1:** FGKMT (7.2)–(7.3)의 character/Bombieri–Vinogradov package를 정량화한다.
 3. **H1b-1b 진행:** Lemma 8.2는 multiplier 89로 닫혔고 교정된 GGPY Lemma 3→4
    절대오차 전달은 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)로 정식화됐다.
-   actual-call 비제외 local factor와 canonical \(W_i\) 상계는 닫혔지만,
-   \(dW_i,W_i',a_mWBr,rW_m,W_0\)의 호출별 overhead는 열려 있다. 이를 먼저
-   \(\Lambda^{\rm app}_{\max}\)로 인증하고 Kuperberg/HR recurrence의
+   H1b-1b-2a.1은 actual-call 비제외 local factor와
+   \(dW_i,W'_i,a_mWBr,rW_m,W_0\)의 호출별 overhead를 전수 인증해 공통
+   \(\Lambda_*\)를 얻었다. 이제 Kuperberg/HR recurrence의
    \(C_{3,\mathrm{abs}}\)·유효범위와 실제 \(A_1,A_2,L\)을 복원한 뒤
-   \(6C_{3,\mathrm{abs}}(1+\log\Lambda^{\rm app}_{\max})\) 손실을 넣어 Lemma 8.4를 다시 합성한다.
+   \(6C_{3,\mathrm{abs}}(1+\log\Lambda_*)\) 손실을 넣어 Lemma 8.4를 다시 합성한다.
 4. **H1b-2:** 위 입력을 받은 뒤 Propositions 9.1–9.5를 지정 error budget으로 재증명한다.
 5. **H1d:** FMT/FGKMT의 \(u\), good-event, covering 단계와 공통 \((r,x)\) slack을 합성한다.
 
@@ -259,7 +260,7 @@ Maynard에 인쇄된 \(c_\gamma\)-relative 형태에는 별도 \(c_\gamma\) 하�
 finite range는 없다. 따라서 `H1B-L83`, `H1B-COMP-01`,
 `SIV-07`과 \(X_{\mathrm{cert}}\)는 승격하지 않는다.
 
-## 12. 2026-09-07 H1b-1b-2a 반영
+## 12. 2026-09-07 H1b-1b-2a·2a.1 반영
 
 Maynard Section 8에서 실제 Lemma 8.4에 들어가는 prime-local denominator를 원정의까지
 추적하면 네 family 모두 \(0<g(p)\le p-a(p)\)를 만족한다. 비제외 소수에서는 현재
@@ -269,13 +270,13 @@ Maynard Section 8에서 실제 Lemma 8.4에 들어가는 prime-local denominator
 \[
 c_{\gamma,j}\ge\frac{\varphi(Q_j)}{Q_j}
 >
-\frac{1}{3(1+\log\Lambda^{\rm app}_j)}
+\frac{1}{3(1+\log\Lambda_*)}
 \]
 
-로 하한화할 수 있다. 다만 이 마지막 부등식은 호출별
-\(\Lambda^{\rm app}_j\ge\log Q_j\)를 인증한 경우에만 유효하다. 현재는 canonical
-\(W_i\)의 base 상계만 닫혔고 확대 제외모듈 전수감사는 OPEN이므로, local normalization
-의무 전체가 actual call에 대해 닫혔다고 기록하지 않는다.
+로 하한화할 수 있다. H1b-1b-2a.1은 10개 source call을 11개 analytic
+subapplication으로 분해하고, 모든 호출·iteration에서
+\(\log Q_j\le\Lambda_*\)를 인증했다. 따라서 local normalization 경로는 추적된
+actual call 전체에 대해 project-parameterized explicit 상태로 닫혔다.
 
 또한 숫자 \(C_{3,\mathrm{abs}}\), 그 finite range, 실제 \(A_1,A_2,L\), 그리고
 \(r\)-회 보정 합성은 아직 없다. 따라서 `H1B-L83`, `H1B-L84`, `H1B-COMP-01`,

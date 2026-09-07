@@ -7,7 +7,7 @@
 - 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A와 설계 사후감사, P020 recurrence artifact 종합 완료; A는 정보량 HOLD
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 \(J_r/I_r>\log r/(4r)\)를 모든 정수 \(r\ge36\)에서 project theorem으로 닫았다. H1b-1a는 세 finite component를 닫았고, H1b-1b는 Maynard Lemma 8.2 multiplier를 89로 닫았다. Castillo et al.의 peer-reviewed 교정을 반영하면 GGPY \(\kappa=1\)에서 닫힌 것은 절대오차 전달 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)이다. H1b-1b-2a는 실제 Section 8 호출의 비제외 local factor와 canonical \(W_i\) base 상계를 닫았다. 하지만 \(dW_i,a_mWBr,rW_m,W_0\) 같은 호출별 제외모듈 overhead가 OPEN이므로 uniform actual-call \(c_{\gamma,j}\) 하한은 아직 아니다. 우선 이를 전수 인증한 뒤 \(C_{3,\mathrm{abs}}\)·finite range·수정된 \(r\)-회 합성으로 진행한다. Kuperberg arXiv:2210.09775의 size gate는 대체 비교 경로이고 numerical multiplier는 `RATE_MISSING`이다. 병렬 gate는 H1c-1 quantitative character/Bombieri–Vinogradov package다. `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 \(J_r/I_r>\log r/(4r)\)를 모든 정수 \(r\ge36\)에서 project theorem으로 닫았다. H1b-1a는 세 finite component를 닫았고, H1b-1b는 Maynard Lemma 8.2 multiplier를 89로 닫았다. Castillo et al.의 peer-reviewed 교정을 반영하면 GGPY \(\kappa=1\)에서 닫힌 것은 절대오차 전달 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)이다. H1b-1b-2a.1은 실제 Section 8의 11개 analytic subapplication에서 local factor와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\) 제외모듈을 전수 인증해 공통 \(\log Q_j\le\Lambda_*\)와 \(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 얻었다. 다음은 \(C_{3,\mathrm{abs}}\)·finite range·실제 \(A_1,A_2,L\)·수정된 \(r\)-회 합성이다. Kuperberg arXiv:2210.09775의 size gate는 대체 비교 경로이고 numerical multiplier는 `RATE_MISSING`이다. 병렬 gate는 H1c-1 quantitative character/Bombieri–Vinogradov package다. `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -691,26 +691,24 @@ Lemma 8.1(i)의 \(\mathfrak S_B(\mathcal L)>e^{-9k/2}\), 식 (8.5)의
 \(2C_{3,\mathrm{abs}}\) 이하임을 부분적분으로 명시했다. Castillo et al.의 Lemma 2.5와
 Remark는 GGPY/Maynard에 인쇄된 오류항의 \(c_\gamma\) 인자가 추가적인 \(z\)-대-\(L\)
 크기조건 없이는 나오지 않음을 확인한다. 2026-09-07 H1b-1b-2a는 Maynard Section 8의
-actual-call 분모를 네 exact family로 환원해 비제외 local factor가 1 이상임을 증명하고,
-canonical \(W_i\)에 대해서만 숨은 \(R^{O(k^2)}\)를
-\(\log Q^{\rm base}_j\le\Lambda^{\rm base}_j\)로 명시했다. 실제 호출에는
-\(dW_i,W_i',a_mWBr,rW_m,W_0\)가 나타나므로 호출별 추가 상계
-\(\eta_{\rm app,j}\)가 필요하다. 이를 인증해
-\(\Lambda^{\rm app}_j=\Lambda^{\rm base}_j+\eta_{\rm app,j}\)를 얻은 경우에만
-Rosser--Schoenfeld로 \(c_{\gamma,j}>1/[3(1+\log\Lambda^{\rm app}_j)]\)와
-조건부 상대 multiplier \(6C_{3,\mathrm{abs}}(1+\log\Lambda^{\rm app}_j)\)를 쓸 수 있다.
+actual-call 분모를 네 exact family로 환원해 비제외 local factor가 1 이상임을 증명했다.
+H1b-1b-2a.1은 이어서 10개 source call을 11개 analytic subapplication으로 분해하고,
+canonical \(W_i\)와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\)를 모두 포함해
+\(\log Q_j\le\Lambda_*\)를 인증했다. 따라서 Rosser--Schoenfeld로 추적 호출 전체에서
+\(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)와 조건부 상대 multiplier
+\(6C_{3,\mathrm{abs}}(1+\log\Lambda_*)\)를 쓸 수 있다.
 따라서 Kuperberg의 \(B_L,B_k\) size gate는 계속 대체 비교 경로로 보존한다.
-호출별 제외모듈, \(C_{3,\mathrm{abs}}\), finite range, \(A_1,A_2,L\) 수치값과 수정된
+\(C_{3,\mathrm{abs}}\), finite range, \(A_1,A_2,L\) 수치값과 수정된
 \(r\)-회 합성은 `RATE_MISSING/HARD_BLOCKER`다.
 정본은 `docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md`와
 `docs/method/theory/17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`,
 `docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`다.
 추가 proof obligation과 세 repair 경로는
 `docs/method/theory/19_Sono_FMT_H1b1b2_cgamma_error_normalization_ledger.md`에
-fail-closed로 등록했고, actual local-factor와 base-W 하한 증명은
-`docs/method/theory/20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`가 정본이다.
-하한 route는 주요 후보지만 application-exclusion 전수감사 전에는 actual-call 전체에
-선택 완료된 것으로 기록하지 않는다.
+fail-closed로 등록했고, actual local-factor와 application 제외모듈 하한 증명은
+`docs/method/theory/20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`와
+`docs/method/theory/21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md`가 정본이다.
+하한 route는 추적된 actual-call 전체에서 선택 완료됐지만 numerical package는 아직 아니다.
 
 같은 날 H1c는 FGKMT Hypothesis 1과 Sono PAP를 20개 node로 분리했다. \(\mathcal A=\mathbb Z\)인
 Hypothesis 1(1)은 `floor(y^(1/3))*(log y)^(100 k^2) <= N`, (3)은 `N>=q`일 때 implied

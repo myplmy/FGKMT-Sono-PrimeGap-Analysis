@@ -1,15 +1,17 @@
 """Exact local-factor checks for the H1b-1b-2a Maynard repair.
 
-The proof and source audit live in
+The local-factor proof and source audit live in
 ``docs/method/theory/20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md``.
+The application inventory and size proofs live in
+``docs/method/theory/21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md``.
 This module covers only the prime-local denominator families that occur in
 the traced Section 8 applications of Maynard's Lemmas 8.3--8.4.  The bound
 for the canonical ``W_i`` construction is deliberately separated from the
-extra excluded factors introduced by a particular application.  Callers
-must supply a certified logarithmic overhead for those factors; zero is not
-assumed implicitly.  The module does not claim the same local statement for
-an arbitrary function satisfying only ``g(p)=p+O(k)``, certify every actual
-application overhead, recover the still-missing absolute GGPY multiplier,
+extra excluded factors introduced by a particular application.  Generic
+callers must supply a certified logarithmic overhead; named actual
+applications use the audited inventory below.  The module does not claim
+the same local statement for an arbitrary function satisfying only
+``g(p)=p+O(k)``, recover the still-missing absolute GGPY multiplier,
 certify the r-fold error accumulation, or compute ``X_cert``.
 """
 
@@ -37,6 +39,18 @@ MAYNARD_ACTUAL_LOCAL_FAMILIES = frozenset(
         LOCAL_FAMILY_ADJUSTED_LINEAR,
     }
 )
+
+APPLICATION_L620_D_W = "L620_dW"
+APPLICATION_L737_CANONICAL = "L737_canonical"
+APPLICATION_L752_CANONICAL = "L752_canonical"
+APPLICATION_L885_W_PRIME = "L885_W_prime"
+APPLICATION_L905_W_PRIME = "L905_W_prime"
+APPLICATION_L995_A_M_W_B_R = "L995_a_m_W_B_r"
+APPLICATION_L1015_R_W_M = "L1015_r_W_m"
+APPLICATION_L1096_W0 = "L1096_W0"
+APPLICATION_L1135_W0_FACTOR = "L1135_W0_factor"
+APPLICATION_L1135_CANONICAL_FACTOR = "L1135_canonical_factor"
+APPLICATION_L1232_CANONICAL = "L1232_canonical"
 
 MINIMUM_EXCLUDED_INTEGER_K_GE_2 = 2 * 3 * 5 * 7
 ROSSER_SCHOENFELD_EXCEPTION_SAFE_COEFFICIENT = mp.mpf("2.50637")
@@ -68,6 +82,139 @@ class UniformCgammaEvaluation:
     log_excluded_integer_upper: mp.mpf
     rosser_schoenfeld_lower_bound: mp.mpf
     elementary_lower_bound: mp.mpf
+
+
+@dataclass(frozen=True)
+class ApplicationExclusionSpec:
+    """One source-traced excluded-modulus application."""
+
+    application_id: str
+    source_locator: str
+    lemma: str
+    dimension_mode: str
+    effective_excluded_modulus: str
+    log_r_overhead_coefficient: int
+    size_reason: str
+
+
+@dataclass(frozen=True)
+class W0BaseDominationCertificate:
+    """Coefficient proof that the canonical base upper bound dominates W0."""
+
+    k: int
+    base_log_two_coefficient: int
+    w0_log_two_coefficient: int
+    log_two_margin: int
+    base_alpha_log_x_coefficient: int
+    w0_alpha_log_x_coefficient: int
+    alpha_log_x_margin: int
+
+
+MAYNARD_APPLICATION_EXCLUSION_SPECS = (
+    ApplicationExclusionSpec(
+        APPLICATION_L620_D_W,
+        "Maynard source line 620",
+        "Lemma 8.4",
+        "k",
+        "rad(d*W_i)",
+        1,
+        "canonical support plus d<=R",
+    ),
+    ApplicationExclusionSpec(
+        APPLICATION_L737_CANONICAL,
+        "Maynard source line 737",
+        "Lemma 8.4",
+        "k",
+        "W_i",
+        0,
+        "canonical W_i",
+    ),
+    ApplicationExclusionSpec(
+        APPLICATION_L752_CANONICAL,
+        "Maynard source line 752",
+        "Lemma 8.4",
+        "k",
+        "W_i",
+        0,
+        "canonical W_i",
+    ),
+    ApplicationExclusionSpec(
+        APPLICATION_L885_W_PRIME,
+        "Maynard source lines 803-805 and 885",
+        "Lemma 8.4",
+        "k_minus_one",
+        "W_i'=rad(W_i*(a_i*b_m-a_m*b_i)), i!=m",
+        0,
+        "the added determinant is already a factor of D_L",
+    ),
+    ApplicationExclusionSpec(
+        APPLICATION_L905_W_PRIME,
+        "Maynard source lines 803-805 and 905",
+        "Lemma 8.4",
+        "k_minus_one",
+        "W_i'=rad(W_i*(a_i*b_m-a_m*b_i)), i!=m",
+        0,
+        "the added determinant is already a factor of D_L",
+    ),
+    ApplicationExclusionSpec(
+        APPLICATION_L995_A_M_W_B_R,
+        "Maynard source lines 939-995",
+        "Lemma 8.4",
+        "one",
+        "rad(a_m*W*B*r)",
+        1,
+        "a_m*W*B support is in W*B*D_L and r<=R",
+    ),
+    ApplicationExclusionSpec(
+        APPLICATION_L1015_R_W_M,
+        "Maynard source lines 939-1020",
+        "Lemma 8.3",
+        "one",
+        "rad(r*W_m)",
+        1,
+        "canonical W_m plus r<=R",
+    ),
+    ApplicationExclusionSpec(
+        APPLICATION_L1096_W0,
+        "Maynard source lines 1045-1098",
+        "Lemma 8.3",
+        "one",
+        "rad(W_0), W_0=D_aux*V*Delta_L",
+        0,
+        "the separately proved W_0 upper is dominated by the base upper",
+    ),
+    ApplicationExclusionSpec(
+        APPLICATION_L1135_W0_FACTOR,
+        "Maynard source lines 1114-1141, r_0 factor",
+        "Lemma 8.4 one-variable factor",
+        "one",
+        "rad(W_0), W_0=D_aux*V*Delta_L",
+        0,
+        "the separately proved W_0 upper is dominated by the base upper",
+    ),
+    ApplicationExclusionSpec(
+        APPLICATION_L1135_CANONICAL_FACTOR,
+        "Maynard source lines 1114-1141, r-vector factor",
+        "Lemma 8.4",
+        "k",
+        "W_i",
+        0,
+        "canonical W_i; the displayed product is split into two factors",
+    ),
+    ApplicationExclusionSpec(
+        APPLICATION_L1232_CANONICAL,
+        "Maynard source lines 1228-1237",
+        "Lemma 8.4",
+        "k",
+        "W_i",
+        0,
+        "canonical W_i",
+    ),
+)
+
+MAYNARD_APPLICATION_EXCLUSION_IDS = frozenset(
+    spec.application_id for spec in MAYNARD_APPLICATION_EXCLUSION_SPECS
+)
 
 
 def _validate_prime_local_inputs(prime: int, root_count: int) -> None:
@@ -276,6 +423,128 @@ def maynard_log_excluded_integer_upper(
     ) + overhead
 
 
+def application_exclusion_spec(
+    application_id: str,
+) -> ApplicationExclusionSpec:
+    """Return the immutable source-traced application specification."""
+
+    for spec in MAYNARD_APPLICATION_EXCLUSION_SPECS:
+        if spec.application_id == application_id:
+            return spec
+    raise ValueError(f"unknown Maynard application: {application_id}")
+
+
+def maynard_application_dimension(k: int, application_id: str) -> int:
+    """Return the number of variables in one audited application."""
+
+    if isinstance(k, bool) or not isinstance(k, int) or k < 2:
+        raise ValueError("k must be an integer at least 2")
+    mode = application_exclusion_spec(application_id).dimension_mode
+    if mode == "k":
+        return k
+    if mode == "k_minus_one":
+        return k - 1
+    if mode == "one":
+        return 1
+    raise AssertionError(f"unhandled dimension mode: {mode}")
+
+
+def maynard_application_log_overhead(
+    application_id: str,
+    log_r: int | float | str | mp.mpf,
+) -> mp.mpf:
+    """Return the certified overhead beyond the canonical base upper.
+
+    The only positive overhead in the traced applications is one additional
+    factor bounded by `R`.  A zero here is an audited result, not an
+    implicit default.
+    """
+
+    log_r_value = mp.mpf(log_r)
+    if log_r_value <= 0:
+        raise ValueError("log_r must be positive")
+    coefficient = application_exclusion_spec(
+        application_id
+    ).log_r_overhead_coefficient
+    return coefficient * log_r_value
+
+
+def maynard_application_log_q_upper(
+    *,
+    application_id: str,
+    k: int,
+    iteration: int,
+    alpha: int | float | str | mp.mpf,
+    theta: int | float | str | mp.mpf,
+    log_r: int | float | str | mp.mpf,
+) -> mp.mpf:
+    """Evaluate `Lambda_app,j` for one audited actual application."""
+
+    dimension = maynard_application_dimension(k, application_id)
+    overhead = maynard_application_log_overhead(application_id, log_r)
+    return maynard_log_excluded_integer_upper(
+        k=k,
+        r=dimension,
+        iteration=iteration,
+        alpha=alpha,
+        theta=theta,
+        log_r=log_r,
+        application_log_overhead=overhead,
+    )
+
+
+def maynard_uniform_application_log_q_upper(
+    *,
+    k: int,
+    alpha: int | float | str | mp.mpf,
+    theta: int | float | str | mp.mpf,
+    log_r: int | float | str | mp.mpf,
+) -> mp.mpf:
+    """Return the largest certified first-iteration bound in the inventory."""
+
+    return max(
+        maynard_application_log_q_upper(
+            application_id=spec.application_id,
+            k=k,
+            iteration=0,
+            alpha=alpha,
+            theta=theta,
+            log_r=log_r,
+        )
+        for spec in MAYNARD_APPLICATION_EXCLUSION_SPECS
+    )
+
+
+def w0_base_domination_certificate(k: int) -> W0BaseDominationCertificate:
+    """Certify that the base size upper dominates the auxiliary `W_0`.
+
+    The canonical upper before converting `x` to `R` has coefficients
+    `k(k-1)` on `log(2)` and `2k^2-k+1` on
+    `alpha*log(x)`.  From `D_aux<=x^alpha` and
+    `Delta_L<=2^k*x^[alpha(2k+1)]`, the `W_0` coefficients are
+    `k` and `2k+2`.  Both margins are nonnegative for `k>=2`.
+    """
+
+    if isinstance(k, bool) or not isinstance(k, int) or k < 2:
+        raise ValueError("k must be an integer at least 2")
+    base_log_two = k * (k - 1)
+    w0_log_two = k
+    base_alpha_log_x = 2 * k * k - k + 1
+    w0_alpha_log_x = 2 * k + 2
+    certificate = W0BaseDominationCertificate(
+        k=k,
+        base_log_two_coefficient=base_log_two,
+        w0_log_two_coefficient=w0_log_two,
+        log_two_margin=base_log_two - w0_log_two,
+        base_alpha_log_x_coefficient=base_alpha_log_x,
+        w0_alpha_log_x_coefficient=w0_alpha_log_x,
+        alpha_log_x_margin=base_alpha_log_x - w0_alpha_log_x,
+    )
+    if certificate.log_two_margin < 0 or certificate.alpha_log_x_margin < 0:
+        raise AssertionError("base upper failed to dominate W_0")
+    return certificate
+
+
 def rosser_schoenfeld_cgamma_lower_bound(
     log_excluded_integer_upper: int | float | str | mp.mpf,
 ) -> mp.mpf:
@@ -347,21 +616,42 @@ def maynard_uniform_cgamma_evaluation(
 
 
 __all__ = [
+    "APPLICATION_L1015_R_W_M",
+    "APPLICATION_L1096_W0",
+    "APPLICATION_L1135_CANONICAL_FACTOR",
+    "APPLICATION_L1135_W0_FACTOR",
+    "APPLICATION_L1232_CANONICAL",
+    "APPLICATION_L620_D_W",
+    "APPLICATION_L737_CANONICAL",
+    "APPLICATION_L752_CANONICAL",
+    "APPLICATION_L885_W_PRIME",
+    "APPLICATION_L905_W_PRIME",
+    "APPLICATION_L995_A_M_W_B_R",
+    "ApplicationExclusionSpec",
     "LOCAL_FAMILY_ADJUSTED_LINEAR",
     "LOCAL_FAMILY_LINEAR",
     "LOCAL_FAMILY_SQUARE_OVER_P_MINUS_1",
     "LOCAL_FAMILY_SQUARE_OVER_P_PLUS_A_MINUS_2",
     "LocalFactorCertificate",
     "MAYNARD_ACTUAL_LOCAL_FAMILIES",
+    "MAYNARD_APPLICATION_EXCLUSION_IDS",
+    "MAYNARD_APPLICATION_EXCLUSION_SPECS",
     "MINIMUM_EXCLUDED_INTEGER_K_GE_2",
     "ROSSER_SCHOENFELD_EXCEPTION_SAFE_COEFFICIENT",
     "UniformCgammaEvaluation",
+    "W0BaseDominationCertificate",
+    "application_exclusion_spec",
     "elementary_cgamma_lower_bound",
     "excluded_totient_ratio",
+    "maynard_application_dimension",
+    "maynard_application_log_overhead",
+    "maynard_application_log_q_upper",
     "maynard_base_log_excluded_integer_upper",
     "maynard_local_denominator",
     "maynard_log_excluded_integer_upper",
     "maynard_uniform_cgamma_evaluation",
+    "maynard_uniform_application_log_q_upper",
     "nonexcluded_local_factor_certificate",
     "rosser_schoenfeld_cgamma_lower_bound",
+    "w0_base_domination_certificate",
 ]

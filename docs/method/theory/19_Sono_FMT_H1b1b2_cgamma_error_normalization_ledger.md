@@ -9,8 +9,10 @@
   [Kuperberg·GGPY 오류항 검토](../../review/27_20260906_H1b1b_Kuperberg_GGPY_error_term_타당성검토.md)
 - 기계 원장:
   data/Sono_FMT_H1b1b2_cgamma_error_normalization_v1.json
-- actual-call local-factor·base-W 정식화:
-  [H1b-1b-2a local-factor·base-W 하한](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
+- actual-call local-factor·제외모듈 정식화:
+  [H1b-1b-2a local-factor·제외모듈 하한](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
+- application 전수감사:
+  [H1b-1b-2a.1 actual application-exclusion inventory](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
 
 ## 1. 목적
 
@@ -23,9 +25,10 @@ GGPY/Maynard에 인쇄된 \(c_\gamma\)-포함 오류항은 원래 가정만으�
    복원하는 경로
 3. \(c_\gamma\)로 나누지 않고 절대오차를 다변수 합 전체에서 직접 합성하는 경로
 
-2026-09-07 H1b-1b-2a는 첫 번째 경로의 actual 비제외 local factor와 canonical
-\(W_i\) base 상계를 닫았다. 그러나 확대된 실제 제외모듈의 application별 상계가
-남아 있어 첫 번째 경로 전체는 `PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN`이다. 이는 추상
+2026-09-07 H1b-1b-2a.1은 첫 번째 경로의 actual 비제외 local factor와 확대된
+제외모듈 11개 subapplication의 상계를 모두 닫았다. 따라서 첫 번째 경로는
+`PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED`이고 모든 추적 호출에서
+\(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 쓸 수 있다. 이는 추상
 `g(p)=p+O(k)` 전체나 Lemma 8.4의 수정된 (r)-회 오류 합성을 닫은 것이 아니다.
 기본 절대오차 상수 (C_{3,\mathrm{abs}})도 계속 빠져 있으므로 이 문서는 여전히
 전체 증명 완료 보고서가 아니라 proof-obligation 원장이다.
@@ -81,17 +84,25 @@ H1b-1b-2a는 canonical \(W_i\) 구성의 prime support를 계수 판별식까지
 \log Q^{\rm base}_j\le\Lambda^{\rm base}_j
 \]
 
-의 명시식을 얻었다. 그러나 실제 호출은 \(dW_i,W_i',a_mWBr,rW_m,W_0\)도 사용한다.
-호출별 \(\eta_{\rm app,j}\)를 인증해
-\(\Lambda^{\rm app}_j=\Lambda^{\rm base}_j+\eta_{\rm app,j}\)를 얻으면
+의 명시식을 얻었다. H1b-1b-2a.1은 실제 호출의
+\(dW_i,W_i',a_mWBr,rW_m,W_0\)를 전수 감사해 호출별
+\(\eta_{\rm app,j}\in\{0,\log R\}\)를 인증했다. 모든 호출·iteration에 대해
+
+\[
+\Lambda^{\rm app}_j\le\Lambda_*=
+2k^2\log(2k^2)+k(k-1)\log2+
+\left\{\frac{10\alpha(2k^2-k+1)}\theta+k\right\}\log R.
+\]
+
 Rosser--Schoenfeld Theorem 15에 의해 작은·큰 제외 소수의 손실 전체는
 
 \[
 \frac{\varphi(Q_j)}{Q_j}>
-\frac{1}{3(1+\log\Lambda^{\rm app}_j)}
+\frac{1}{3(1+\log\Lambda_*)}
 \]
 
-로 내려간다. 변환은 explicit하지만 application overhead 전수감사는 아직 OPEN이다.
+로 내려간다. 이는 named parameter를 남긴 project-parameterized explicit 결과이며,
+수치형 finite theorem은 아니다.
 
 ### 3.3 제외되지 않은 소수
 
@@ -117,15 +128,14 @@ p-a-\frac{a-1}{p-1}
 
 ### 3.4 합성
 
-actual call의 위 세 부분을 합치려면 모든 단계의 유효 제외모듈을 먼저 인증해야 한다.
-그 인증이 있으면
+H1b-1b-2a.1이 모든 추적 단계의 유효 제외모듈을 인증했으므로
 
 \[
 c_{\gamma,j}\ge c_{\min}(k,r,R)>0
 \]
 
 를 얻는다. 보수적 공통 선택은 인증된
-\(c_{\min}=1/[3(1+\log\Lambda^{\rm app}_{\max})]\)이다.
+\(c_{\min}=1/[3(1+\log\Lambda_*)]\)이다.
 H1b-1b의 절대오차 transfer와 결합한 상대 multiplier는
 
 \[
@@ -137,11 +147,11 @@ H1b-1b의 절대오차 transfer와 결합한 상대 multiplier는
 
 \[
 \frac{2C_{3,\mathrm{abs}}}{c_{\min}}
-\le6C_{3,\mathrm{abs}}(1+\log\Lambda^{\rm app}_{\max})
+\le6C_{3,\mathrm{abs}}(1+\log\Lambda_*)
 \]
 
-이다. 현재는 \(\Lambda^{\rm app}_{\max}\), \(C_{3,\mathrm{abs}}\), 그 유효범위와
-수정된 \(r\)-회 합성이 모두 아직 없다.
+이다. 현재 \(\Lambda_*\)는 닫혔지만, \(C_{3,\mathrm{abs}}\), 그 유효범위와
+수정된 \(r\)-회 합성은 아직 없다.
 
 ## 4. Kuperberg형 size-gate 경로
 
@@ -179,26 +189,20 @@ k^2\le\frac{\log z}{B_k}
 | H1B1B2-GAMMA-FORM | 단계별 \(\gamma_j\) 식 | PRINTED_EXACT_STRUCTURE |
 | H1B1B2-CGAMMA-PRODUCT | \(c_{\gamma,j}\)와 product identity | PRINTED_EXACT_STRUCTURE |
 | H1B1B2-CMIN-SMALL-EXCLUDED | 작은 제외 소수 곱 하한 | PRIMARY_EXPLICIT_BOUND_AVAILABLE |
-| H1B1B2-CMIN-LARGE-EXCLUDED | 큰 제외 소수 곱 하한 | BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN |
+| H1B1B2-CMIN-LARGE-EXCLUDED | 큰 제외 소수 곱 하한 | PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS |
 | H1B1B2-CMIN-NONEXCLUDED | 나머지 무한곱 하한 | PROJECT_FINITE_COMPONENT_CLOSED_FOR_ACTUAL_CALLS |
-| H1B1B2-CMIN-COMPOSE | uniform \(c_{\min}\) 합성 | PARAMETERIZED_EXPLICIT_APPLICATION_INPUT_OPEN |
+| H1B1B2-CMIN-COMPOSE | uniform \(c_{\min}\) 합성 | PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS |
 | H1B1B2-SIZE-GATE | Kuperberg형 복원 | OPTIONAL_SECONDARY_ROUTE |
-| H1B1B2-ROUTE-DECISION | 증명된 경로 선택 | PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN |
+| H1B1B2-ROUTE-DECISION | 증명된 경로 선택 | PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED |
 | H1B1B2-RFOLD-COMPOSITION | \(r\)회 오류 누적 | HARD_BLOCKER |
 
 ## 7. 먼저 할 일과 중단 조건
 
 ### 권장 1단계
 
-Maynard 실제 호출의 \(dW_i,W_i',a_mWBr,rW_m,W_0\)와 남은 \(e_i\)를 전수 고정하고
-\(\eta_{\rm app,j}\)를 증명한다. 예상 6–16시간. 한 호출이라도 support·범위가 모호하면
-uniform \(c_{\min}\)을 만들지 않고 그 호출을 OPEN으로 유지한다.
-
-### 권장 2단계
-
 Kuperberg/HR recurrence에서 \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 그 최초 유효범위를
 복원한다. 예상 8–24시간 이상. 그 뒤 Maynard actual call의 \(A_1,A_2,L\) bound와
-\(6C_{3,\mathrm{abs}}(1+\log\Lambda^{\rm app}_{\max})\) 손실을 넣어 Lemma 8.4의
+\(6C_{3,\mathrm{abs}}(1+\log\Lambda_*)\) 손실을 넣어 Lemma 8.4의
 \(r\)-회 귀납을 재합성한다. \(C_{3,\mathrm{abs}}\)가 없으면 합성에 착수하지 않는다.
 
 ### 병렬 권장

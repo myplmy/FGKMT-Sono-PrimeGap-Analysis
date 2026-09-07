@@ -2,7 +2,7 @@
 
 - 작성: 2026-09-04 KST
 - 증거 수준: `SOURCE-LEVEL QUANTITATIVE DEPENDENCY AUDIT`
-- 판정: `SOURCE_CHAIN_TRACED_LOCAL_FACTOR_CLOSED_APPLICATION_EXCLUSIONS_BASE_RATE_RFOLD_PACKAGE_OPEN`
+- 판정: `SOURCE_CHAIN_TRACED_APPLICATION_EXCLUSIONS_CLOSED_BASE_RATE_RFOLD_PACKAGE_OPEN`
 - `SIV-07`: `HARD_BLOCKER` 유지
 - numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
 - 기계 판독 정본:
@@ -11,8 +11,9 @@
   [`17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`](17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md)
 - H1b-1b multiplier 복원:
   [`18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`](18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md)
-- H1b-1b-2a actual-call local-factor·base-W 하한:
+- H1b-1b-2a actual-call local-factor·제외모듈 하한:
   [`20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
+  및 [`21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md`](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
 
 ## 1. 결론부터
 
@@ -33,9 +34,10 @@ Maynard의 Lemmas 8.1–8.4에는 Proposition 6.1의 moment 계산을 가능하�
 닫았다. 2026-09-06 H1b-1b는 이어서 Lemma 8.2의 전체 Lipschitz multiplier를 89로
 닫았다. Castillo et al. 교정을 반영한 Lemma 8.3/GGPY Lemma 4의 안전한 전달식은
 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)이다. 2026-09-07 H1b-1b-2a는
-Maynard Section 8의 추적된 실제 호출에서 비제외 local factor를 닫고 canonical
-\(W_i\)의 base 상계를 명시했다. 호출별 확대 제외모듈이 남아 있어 uniform
-\(c_{\gamma,j}\) 하한은 아직 아니다. Lemma 8.1(ii)의 입력 정규화와 공통 cutoff,
+Maynard Section 8의 추적된 실제 호출에서 비제외 local factor를 닫고, 이어진
+H1b-1b-2a.1은 11개 analytic subapplication의 확대 제외모듈을 전수 인증했다.
+따라서 추적 호출 전체에서 uniform parameterized \(c_{\gamma,j}\) 하한 경로가 닫혔다.
+Lemma 8.1(ii)의 입력 정규화와 공통 cutoff,
 Kuperberg/HR에서 시작하는 \(C_{3,\mathrm{abs}}(A_1,A_2)\), 실제 \(A_1,A_2,L\),
 그리고 보정된 Lemma 8.4 반복오차는 열려 있다.
 따라서 numerical basic-summation package 전체는 아직 완료가 아니다.
@@ -174,10 +176,10 @@ finite 명제는 아직 없다.
 | `H1B1-L81II-DIVISOR` | extra-form 평균 | `PARTIAL_EXPLICIT` | 입력 계수·공통 흡수 cutoff |
 | `H1B1-L82-CUTOFF` | smooth \(\psi\) | `PROJECT_FINITE_COMPONENT_CLOSED` | \(\|\psi'\|_\infty<50\) |
 | `H1B1-L82-LIPSCHITZ` | Lipschitz bound | `PROJECT_FINITE_COMPONENT_CLOSED` | multiplier 89, \(k\ge2\) |
-| `H1B1-L83-GGPY4` | 1차원 합 | `PARAMETERIZED_EXPLICIT` | \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\); relative factor는 호출별 \(\Lambda^{\rm app}\) 인증 뒤 조건부 |
+| `H1B1-L83-GGPY4` | 1차원 합 | `PARAMETERIZED_EXPLICIT` | \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\); relative factor는 공통 \(\Lambda_*\)로 parameterized |
 | `H1B1-L83-PUBLISHED-NOTE` | 출판본 보정 | `PRINTED_STRUCTURAL_FACT` | 일반 \(\kappa\) 주석은 별도 \(c_\gamma\) 문제를 해결하지 않음 |
 | `H1B1-L83-GGPY3` | 하위 sieve lemma | `RATE_MISSING` | Kuperberg 구조 확인; 수치 상수·범위·일반화 open |
-| `H1B1-L84-GAMMA` | \(\gamma\) 조건 | `RATE_MISSING` | actual nonexcluded local factor는 닫힘; application 제외모듈·explicit \(A_1,A_2,k_0\) 필요 |
+| `H1B1-L84-GAMMA` | \(\gamma\) 조건 | `RATE_MISSING` | local factor·application 제외모듈은 닫힘; explicit \(A_1,A_2,k_0\) 필요 |
 | `H1B1-L84-L` | discrepancy \(L\) | `RATE_MISSING` | 소인수합·지수 상수 |
 | `H1B1-L84-SMOOTH` | \(\Omega_G\) | `RATE_MISSING` | test function 수치 norm |
 | `H1B1-L84-ITERATION` | \(r\)-fold 합성 | `RATE_MISSING` | 축적오차·공통 range |
@@ -196,7 +198,7 @@ finite 명제는 아직 없다.
 
 ### 다음 단계에서 Codex와 사용자가 도울 수 있는 일
 
-- Codex가 Maynard Lemma 8.4의 실제 \(\gamma_j,c_{\gamma,j},L_j\)를 식별
+- Codex가 식별한 Maynard Lemma 8.4의 실제 \(\gamma_j,c_{\gamma,j},L_j\)에서 \(A_1,A_2,L\)을 수치화
 - Kuperberg/HR recurrence의 숨은 absolute \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 finite range를 복원
 - \(c_\gamma\) explicit lower bound 또는 \(z\)-대-\(L\) restoration gate를 증명
 - 이미 닫힌 Lemma 8.2 multiplier 89와 absolute factor 2를 Lemma 8.4 축적오차에 재합성
@@ -215,15 +217,14 @@ finite 명제는 아직 없다.
 
 H1b-1a는 세 유한 component를 닫고 divisor 평균을 parameterized 식으로 바꿨다. H1b-1b
 전반은 Lemma 8.2 multiplier 89와 GGPY **절대오차** 전달 factor 2를 닫았다.
-H1b-1b-2a는 실제 호출별 비제외 local factor와 제외 소수곱의 exact 변환을 닫고,
-canonical \(W_i\)의 base 상계를 얻었다. 하지만 실제 호출마다 추가되는
-\(dW_i,W_i',a_mWBr,rW_m,W_0\) 상계는 아직 전수 인증되지 않았다. 다음 gate는
-이 application-exclusion inventory를 먼저 닫는 것이다.
+H1b-1b-2a.1은 실제 호출별 비제외 local factor와 제외 소수곱의 exact 변환에 더해
+\(dW_i,W_i',a_mWBr,rW_m,W_0\)를 포함한 11개 subapplication의 상계를 전수
+인증했다. 공통 상계 \(\Lambda_*\)와 uniform parameterized \(c_\gamma\) 하한을 얻었지만,
+아래 numerical input과 합성은 계속 열려 있다.
 
-1. 실제 호출의 유효 제외모듈과 \(\eta_{\rm app,j}\)를 전수 인증한다.
-2. Kuperberg/HR recurrence에서 \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 최초 유효범위를 복원한다.
-3. Maynard 실제 호출의 \(A_1,A_2,L\)을 수치화한다.
-4. \(6C_{3,\mathrm{abs}}(1+\log\Lambda^{\rm app}_{\max})\)를 사용해 Lemma 8.4의 \(r\)-fold error와
+1. Kuperberg/HR recurrence에서 \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 최초 유효범위를 복원한다.
+2. Maynard 실제 호출의 \(A_1,A_2,L\)을 수치화한다.
+3. \(6C_{3,\mathrm{abs}}(1+\log\Lambda_*)\)를 사용해 Lemma 8.4의 \(r\)-fold error와
    공통 \((k,R)\) cutoff를 합성한다.
 
 원 HR 140–153쪽은 계보와 상수 누락을 대조하는 데 여전히 유용하지만, 현대 구조 재현이
@@ -248,6 +249,7 @@ Lemma 8.1(i) exponent       = 9/2
 cutoff first-derivative norm= <50
 Lemma 8.3 cited source      = IDENTIFIED_AND_CORRECTED
 numerical multiplier table = PARTIAL / BASE OPEN
+application exclusions      = ALL 11 TRACED SUBAPPLICATIONS CLOSED
 common finite cutoff       = OPEN
 SIV-07                     = HARD_BLOCKER
 X_cert                     = OPEN

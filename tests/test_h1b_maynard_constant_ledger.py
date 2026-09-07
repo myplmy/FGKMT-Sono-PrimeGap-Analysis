@@ -159,7 +159,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         self.assertEqual(self.by_id["H1B-L83"]["status"], "RATE_MISSING")
         self.assertTrue(self.by_id["H1B-L83"]["missing_numeric_inputs"])
         self.assertIn(
-            "6*C3_abs*(1+log Lambda_app,j)",
+            "6*C3_abs*(1+log Lambda_star)",
             " ".join(self.by_id["H1B-L83"]["explicit_parts"]),
         )
 

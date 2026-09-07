@@ -1,12 +1,13 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "created_kst": "2026-09-06",
   "updated_kst": "2026-09-07",
   "gate": "H1b-1b-2 corrected c_gamma error normalization and Lemma 8.4 route decision",
   "target_obligation": "SIV-07",
-  "scope": "A fail-closed decomposition of the additional proof needed after the peer-reviewed correction to the GGPY/Maynard c_gamma-normalized error. H1b-1b-2a proves the traced actual prime-local denominator inequalities and a canonical-W_i size bound, but actual application-specific excluded-modulus overheads remain open. This ledger does not recover C3_abs, certify the corrected r-fold Lemma 8.4 composition, close SIV-07, or compute X_cert.",
-  "outcome": "LOCAL_FACTOR_CLOSED_APPLICATION_EXCLUDED_MODULUS_INVENTORY_OPEN_BASE_CONSTANT_AND_RFOLD_OPEN",
+  "scope": "A fail-closed decomposition of the additional proof needed after the peer-reviewed correction to the GGPY/Maynard c_gamma-normalized error. H1b-1b-2a.1 closes the excluded-modulus size inventory for all 11 traced analytic subapplications and selects the parameterized explicit c_gamma lower-bound route. This ledger does not recover C3_abs or its finite range, make actual A1/A2/L numerical, certify the corrected r-fold Lemma 8.4 composition, close SIV-07, or compute X_cert.",
+  "outcome": "ALL_TRACED_APPLICATION_CGAMMA_LOWER_BOUNDS_PROJECT_PARAMETERIZED_EXPLICIT_BASE_CONSTANT_AND_RFOLD_OPEN",
   "child_contract": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
+  "application_inventory_contract": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016_SOURCE",
@@ -47,9 +48,8 @@
     "PRIMARY_EXPLICIT_BOUND_AVAILABLE": "A primary source supplies the required finite inequality.",
     "PROJECT_FINITE_COMPONENT_CLOSED_FOR_ACTUAL_CALLS": "The project proves this component for every traced actual application, not for the abstract g(p)=p+O(k) class.",
     "PROJECT_PARAMETERIZED_EXPLICIT": "A hidden asymptotic term has been replaced by a formula in named parameters, but the parent numerical package remains open.",
-    "BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN": "The canonical W_i contribution is explicit, but augmented effective excluded moduli in actual calls are not yet all certified.",
-    "PARAMETERIZED_EXPLICIT_APPLICATION_INPUT_OPEN": "The analytic conversion is explicit once an application-specific excluded-modulus bound is supplied, but that input is not yet certified for every call.",
-    "PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN": "The explicit lower-bound route is the primary candidate, but it is not proved for every actual call until the excluded-modulus inventory is closed.",
+    "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS": "The project supplies one formula in named parameters that bounds every source-traced actual application, while the parent numerical package remains open.",
+    "PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED": "The actual-call inventory closes the lower-bound normalization route; alternative routes remain optional comparisons.",
     "OPTIONAL_SECONDARY_ROUTE": "This route remains an alternative comparison route and may become necessary if the primary candidate cannot be closed."
   },
   "obligations": [
@@ -97,16 +97,14 @@
       "id": "H1B1B2-CMIN-LARGE-EXCLUDED",
       "locator": "Maynard Lemma 8.4 proof, source lines 570-579",
       "role": "lower-bound factors from prime divisors of W_{j+1} product e_i above 2k^2",
-      "printed_information": "H1b-1b-2a replaces the printed R^(O(k^2)) for the canonical W_i construction by log(Q_base,j)<=Lambda_base,j. Actual calls also use d W_i, W_i', a_m W B r, r W_m and W_0, whose additional eta_app,j bounds are not yet all certified.",
+      "printed_information": "H1b-1b-2a.1 proves for all 11 traced analytic subapplications that log(Q_app,j)<=Lambda_app,j and uniformly log(Q_app,j)<=Lambda_star, including d W_i, W_i', a_m W B r, r W_m and W_0.",
       "missing_numeric_inputs": [
-        "an application-by-application effective excluded-modulus inventory",
-        "certified eta_app,j overheads for every actual call",
         "the final proof-chain choices of alpha, theta, k, r and R"
       ],
       "upstream": [
         "H1B1B2-CGAMMA-PRODUCT"
       ],
-      "status": "BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS",
       "threshold_ready": false
     },
     {
@@ -127,9 +125,8 @@
       "id": "H1B1B2-CMIN-COMPOSE",
       "locator": "project lower-bound route",
       "role": "produce one positive c_min valid at every Lemma 8.4 iteration",
-      "printed_information": "For any actual call with a certified log(Q_j)<=Lambda_app,j, Rosser-Schoenfeld gives c_gamma_j>1/[3(1+log Lambda_app,j)]. A common worst-case bound cannot be fixed until every application overhead eta_app,j is certified.",
+      "printed_information": "For every traced actual call, H1b-1b-2a.1 gives log(Q_j)<=Lambda_star, so Rosser-Schoenfeld gives c_gamma_j>1/[3(1+log Lambda_star)].",
       "missing_numeric_inputs": [
-        "the complete application-specific excluded-modulus inventory and eta_app,j bounds",
         "a certified absolute C3_abs(A1,A2) and its finite range",
         "the final common parameter choices",
         "the corrected r-fold accumulation"
@@ -139,7 +136,7 @@
         "H1B1B2-CMIN-LARGE-EXCLUDED",
         "H1B1B2-CMIN-NONEXCLUDED"
       ],
-      "status": "PARAMETERIZED_EXPLICIT_APPLICATION_INPUT_OPEN",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS",
       "threshold_ready": false
     },
     {
@@ -163,9 +160,8 @@
       "id": "H1B1B2-ROUTE-DECISION",
       "locator": "project composition gate",
       "role": "choose a proved lower-bound, size-gate, or direct multivariate repair without mixing hypotheses",
-      "printed_information": "H1b-1b-2a identifies the explicit c_gamma lower-bound route as the primary candidate, but actual application-specific excluded moduli are not yet all certified. Kuperberg and a direct absolute multivariate proof remain alternative routes.",
+      "printed_information": "H1b-1b-2a.1 certifies every traced application-specific excluded modulus and selects the explicit c_gamma lower-bound route. Kuperberg and a direct absolute multivariate proof remain optional comparison routes.",
       "missing_numeric_inputs": [
-        "application-by-application eta_app,j bounds",
         "C3_abs(A1,A2) and its finite range",
         "the corrected r-fold error accumulation and common cutoff"
       ],
@@ -173,7 +169,7 @@
         "H1B1B2-CMIN-COMPOSE",
         "H1B1B2-SIZE-GATE"
       ],
-      "status": "PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN",
+      "status": "PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED",
       "threshold_ready": false
     },
     {
@@ -184,7 +180,7 @@
       "missing_numeric_inputs": [
         "a numerical C3_abs(A1,A2) and finite range",
         "explicit Omega_G and L constants",
-        "the additional 6*C3_abs*(1+log Lambda_app,max) normalization loss",
+        "the additional 6*C3_abs*(1+log Lambda_star) normalization loss",
         "a numerical smallness condition for the binomial accumulation",
         "a common finite cutoff"
       ],
@@ -196,11 +192,12 @@
     }
   ],
   "route_status": {
-    "explicit_c_gamma_lower_bound": "CONDITIONAL_ON_APPLICATION_EXCLUDED_MODULUS_CERTIFICATE",
+    "explicit_c_gamma_lower_bound": "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS",
     "explicit_z_vs_L_restoration_gate": "OPTIONAL_SECONDARY_ROUTE",
     "direct_multivariate_absolute_error_reproof": "OPTIONAL_UNSCOPED",
-    "explicit_lower_bound_route_primary_candidate": true,
-    "all_actual_application_overheads_certified": false,
+    "explicit_lower_bound_route_primary_candidate": false,
+    "explicit_lower_bound_route_selected": true,
+    "all_actual_application_overheads_certified": true,
     "numerical_route_complete": false
   },
   "parent_status": {
@@ -212,8 +209,8 @@
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "recommended": "First certify the effective excluded modulus and eta_app,j for every traced actual application. Then recover a numerical absolute C3_abs(A1,A2), its finite range and explicit A1, A2 and L bounds before redoing the r-fold accumulation with 6*C3_abs*(1+log Lambda_app,max).",
-    "parallel": "Continue H1c-1 quantitative character and Bombieri-Vinogradov source tracing. Retain the Kuperberg size gate as an alternative until the primary application audit closes.",
+    "recommended": "Recover a numerical absolute C3_abs(A1,A2), its finite range and explicit A1, A2 and L bounds before redoing the r-fold accumulation with 6*C3_abs*(1+log Lambda_star).",
+    "parallel": "Continue H1c-1 quantitative character and Bombieri-Vinogradov source tracing. Retain the Kuperberg size gate only as an optional sharpness comparison.",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false,
     "new_python_dependency_required": false,

@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-07",
+  "updated_kst": "2026-09-07",
+  "gate": "H1b-1b-2a.1 actual application-exclusion inventory",
+  "outcome": "ALL_TRACED_APPLICATION_EXCLUDED_MODULUS_BOUNDS_PROJECT_PARAMETERIZED_EXPLICIT_BASE_CONSTANT_AND_RFOLD_OPEN",
+  "scope": "All external uses of Maynard Lemma 8.4 and direct external uses of Lemma 8.3 in the audited Section 8 source. The line-1135 product is split into its W0 one-variable factor and canonical r-vector factor. This closes application excluded-modulus size bounds, not C3_abs, its finite range, actual A1/A2/L, corrected r-fold composition, SIV-07 or X_cert.",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_SOURCE",
+      "title": "Dense Clusters of Primes in Subsets",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "reviewed_locations": "definitions 366, 376-407, 413-421, 531-604; external Lemma 8.4 calls 620,737,752,885,905,995,1135,1232; direct Lemma 8.3 calls 1015,1096",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "ROSSER_SCHOENFELD_1962",
+      "title": "Approximate Formulas for Some Functions of Prime Numbers",
+      "doi": "10.1215/ijm/1255631807",
+      "local_path": "tmp/pdfs/h1b1b2_local_factor/Rosser_Schoenfeld_1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "status": "PRIMARY_EXPLICIT_TOTIENT_BOUND_REUSED"
+    }
+  ],
+  "trace_completeness": {
+    "external_multiple_summation_call_sites": 8,
+    "external_partial_summation_call_sites": 2,
+    "analytic_subapplications": 11,
+    "line_1135_split_subapplications": 2,
+    "internal_lemma_proof_calls_excluded": [
+      558,
+      568,
+      581,
+      591
+    ],
+    "all_traced_calls_closed": true
+  },
+  "shared_bounds": {
+    "base_bad_prime_integer": "D_L=product_i |a_i| product_{i!=l}|a_i b_l-b_i a_l|",
+    "base_W_upper": "U_W=(2k^2)^(2k^2) 2^[k(k-1)] R^[10 alpha(2k^2-k+1)/theta]",
+    "iteration_upper": "Lambda_app,j=2k^2 log(2k^2)+k(k-1)log2+[10 alpha(2k^2-k+1)/theta+s-j-1+delta_app]logR",
+    "uniform_upper": "Lambda_star=2k^2 log(2k^2)+k(k-1)log2+[10 alpha(2k^2-k+1)/theta+k]logR",
+    "uniform_attained_by": "L620_dW at iteration j=0",
+    "minimum_effective_excluded_integer": 210,
+    "uniform_cgamma_lower": "c_gamma,j>1/[3(1+log Lambda_star)]"
+  },
+  "applications": [
+    {
+      "id": "L620_dW",
+      "locator": "line 620",
+      "lemma": "Lemma 8.4",
+      "dimension_mode": "k",
+      "effective_excluded_modulus": "rad(d W_i)",
+      "prime_support_certificate": "canonical support union support(d)",
+      "size_certificate": "d<=R from lambda support, hence rad(d W_i)<=U_W R",
+      "delta_log_r": 1,
+      "minimum_q_certificate": "W_i is a multiple of WB",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "L737_canonical",
+      "locator": "line 737",
+      "lemma": "Lemma 8.4",
+      "dimension_mode": "k",
+      "effective_excluded_modulus": "W_i",
+      "prime_support_certificate": "canonical",
+      "size_certificate": "W_i<=U_W",
+      "delta_log_r": 0,
+      "minimum_q_certificate": "W_i is a multiple of WB",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "L752_canonical",
+      "locator": "line 752",
+      "lemma": "Lemma 8.4",
+      "dimension_mode": "k",
+      "effective_excluded_modulus": "W_i",
+      "prime_support_certificate": "canonical",
+      "size_certificate": "W_i<=U_W",
+      "delta_log_r": 0,
+      "minimum_q_certificate": "W_i is a multiple of WB",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "L885_W_prime",
+      "locator": "lines 803-805 and 885",
+      "lemma": "Lemma 8.4",
+      "dimension_mode": "k_minus_one",
+      "effective_excluded_modulus": "W_i'=rad(W_i(a_i b_m-a_m b_i)), i!=m",
+      "prime_support_certificate": "the added ordered determinant is already a factor of D_L",
+      "size_certificate": "W_i'<=rad(W B D_L)<=U_W",
+      "delta_log_r": 0,
+      "minimum_q_certificate": "W_i' contains W_i and hence WB",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "L905_W_prime",
+      "locator": "lines 803-805 and 905",
+      "lemma": "Lemma 8.4",
+      "dimension_mode": "k_minus_one",
+      "effective_excluded_modulus": "W_i'=rad(W_i(a_i b_m-a_m b_i)), i!=m",
+      "prime_support_certificate": "the added ordered determinant is already a factor of D_L",
+      "size_certificate": "W_i'<=rad(W B D_L)<=U_W",
+      "delta_log_r": 0,
+      "minimum_q_certificate": "W_i' contains W_i and hence WB",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "L995_a_m_W_B_r",
+      "locator": "lines 939-995",
+      "lemma": "Lemma 8.4",
+      "dimension_mode": "one",
+      "effective_excluded_modulus": "rad(a_m W B r)",
+      "prime_support_certificate": "a_m divides the first factor product in D_L and WB is canonical",
+      "size_certificate": "the fixed r divides a supported d/e product and r<=R, hence Q<=U_W R",
+      "delta_log_r": 1,
+      "minimum_q_certificate": "WB contains every prime <=2k^2",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "L1015_r_W_m",
+      "locator": "lines 939-1020",
+      "lemma": "Lemma 8.3",
+      "dimension_mode": "one",
+      "effective_excluded_modulus": "rad(r W_m)",
+      "prime_support_certificate": "canonical W_m union support(r)",
+      "size_certificate": "r<=R, hence rad(r W_m)<=U_W R",
+      "delta_log_r": 1,
+      "minimum_q_certificate": "W_m is a multiple of WB",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "L1096_W0",
+      "locator": "lines 1045-1098",
+      "lemma": "Lemma 8.3",
+      "dimension_mode": "one",
+      "effective_excluded_modulus": "rad(W_0), W_0=D_aux V Delta_L",
+      "prime_support_certificate": "V contains every prime <=2k^2",
+      "size_certificate": "W_0<=(2k^2)^(2k^2)2^k x^[alpha(2k+2)]<=U_W for k>=2",
+      "delta_log_r": 0,
+      "minimum_q_certificate": "V contains 2,3,5,7 for k>=2",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "L1135_W0_factor",
+      "locator": "lines 1114-1141, r_0 factor",
+      "lemma": "Lemma 8.4 one-variable factor",
+      "dimension_mode": "one",
+      "effective_excluded_modulus": "rad(W_0), W_0=D_aux V Delta_L",
+      "prime_support_certificate": "same W_0 as line 1096",
+      "size_certificate": "same W_0 domination certificate as line 1096",
+      "delta_log_r": 0,
+      "minimum_q_certificate": "V contains 2,3,5,7 for k>=2",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "L1135_canonical_factor",
+      "locator": "lines 1114-1141, r-vector factor",
+      "lemma": "Lemma 8.4",
+      "dimension_mode": "k",
+      "effective_excluded_modulus": "W_i",
+      "prime_support_certificate": "canonical",
+      "size_certificate": "W_i<=U_W",
+      "delta_log_r": 0,
+      "minimum_q_certificate": "W_i is a multiple of WB",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "L1232_canonical",
+      "locator": "lines 1228-1237",
+      "lemma": "Lemma 8.4",
+      "dimension_mode": "k",
+      "effective_excluded_modulus": "W_i",
+      "prime_support_certificate": "canonical",
+      "size_certificate": "W_i<=U_W",
+      "delta_log_r": 0,
+      "minimum_q_certificate": "W_i is a multiple of WB",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT"
+    }
+  ],
+  "project_lemmas": [
+    {
+      "id": "H1B1B2A1-APPLICATION-SIZE",
+      "statement": "Every one of the 11 traced analytic subapplications has rad(Q_app,j)<=U_W R^[s-j-1+delta_app] with delta_app in {0,1}.",
+      "status": "PROJECT_PARAMETERIZED_THEOREM",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2A1-W0-DOMINATION",
+      "statement": "For k>=2, W_0<=U_W because k(k-1)>=k and 2k^2-k+1>=2k+2.",
+      "status": "PROJECT_FINITE_THEOREM",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2A1-UNIFORM-CGAMMA",
+      "statement": "For all traced applications and iterations, c_gamma,j>1/[3(1+log Lambda_star)].",
+      "status": "PROJECT_PARAMETERIZED_THEOREM",
+      "threshold_ready": false
+    }
+  ],
+  "route_status": {
+    "all_actual_application_overheads_certified": true,
+    "uniform_application_log_q_bound": "PROJECT_PARAMETERIZED_EXPLICIT",
+    "explicit_lower_bound_route_selected": true,
+    "abstract_g_equals_p_plus_Ok_lemma_closed": false,
+    "C3_abs_numeric_multiplier_recovered": false,
+    "actual_A1_A2_L_numeric": false,
+    "corrected_rfold_composition_closed": false,
+    "numerical_route_complete": false
+  },
+  "parent_status": {
+    "H1B1-L84-ITERATION": "RATE_MISSING",
+    "H1B1-PACKAGE": "HARD_BLOCKER",
+    "H1B-L83": "RATE_MISSING",
+    "H1B-L84": "RATE_MISSING",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "next_gate": {
+    "recommended": "H1b-1b-2b: recover an explicit C3_abs(A1,A2), its finite range, and actual A1/A2/L before recomputing the r-fold error with Lambda_star.",
+    "ready_for_threshold_calculator": false,
+    "ready_for_actual_prime_experiment": false,
+    "new_python_dependency_required": false,
+    "lean_required": false
+  }
+}

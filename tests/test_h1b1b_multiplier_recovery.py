@@ -68,8 +68,8 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         self.assertEqual(self.contract["schema_version"], "1.1.0")
         self.assertEqual(
             self.contract["outcome"],
-            "LEMMA82_EXPLICIT_GGPY4_ABSOLUTE_TRANSFER_LOCAL_FACTOR_CLOSED_"
-            "APPLICATION_EXCLUSIONS_OPEN_BASE_RATE_OPEN",
+            "LEMMA82_EXPLICIT_GGPY4_ABSOLUTE_TRANSFER_APPLICATION_"
+            "EXCLUSIONS_CLOSED_BASE_RATE_OPEN",
         )
         self.assertEqual(
             self.contract["h1b1b2a_ledger"],
@@ -244,7 +244,7 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
             "PARAMETERIZED_EXPLICIT",
         )
         self.assertIn(
-            "6 C3(A1,A2)(1+log Lambda_app,j)",
+            "6 C3(A1,A2)(1+log Lambda_star)",
             self.contract["ggpy_kappa_1_transfer_contract"][
                 "relative_error_recovery"
             ],

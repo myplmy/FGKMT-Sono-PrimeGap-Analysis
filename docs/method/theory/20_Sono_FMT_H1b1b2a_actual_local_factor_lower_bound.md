@@ -1,4 +1,4 @@
-# Sono/FMT H1b-1b-2a Maynard actual-call local-factor·base-W 하한 정식화
+# Sono/FMT H1b-1b-2a Maynard actual-call local-factor·제외모듈 하한 정식화
 
 - 작성일: 2026-09-07
 - 상위 obligation: `H1B1B2-CMIN-*`, `H1B1B2-ROUTE-DECISION`, `SIV-07`
@@ -6,6 +6,8 @@
   [H1b-1b-2 오류 정규화·Lemma 8.4 보정](19_Sono_FMT_H1b1b2_cgamma_error_normalization_ledger.md)
 - 기계 계약:
   [Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json](data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json)
+- application 전수감사:
+  [H1b-1b-2a.1 actual application-exclusion inventory](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
 - 검증 구현: `source/h1b1b2_local_factor_lower_bound.py`
 
 ## 1. 판정부터 요약
@@ -36,32 +38,38 @@ c_{\gamma,j}\ge\prod_{p\mid Q_j}\left(1-\frac1p\right)
 \]
 
 로 합쳐진다. 정본의 기본 (W_i) 구성에 대해서는 숨은 (R^{O(k^2)})를
-명시적 상계 (Lambda^{\rm base}_j)로 바꿨다. 그러나 실제 응용에는
-(dW_i), (a_mWBr), (rW_m), (W_0=DV\Delta_L) 같은 확대된
-(\widetilde W_i)도 나타난다. 현재 식은 이 추가 인자를 모두 포함하지 않는다.
-
-따라서 호출별 추가 로그 상계 (eta_{\rm app,j})를 별도로 증명해
+명시적 상계 (Lambda^{\rm base}_j)로 바꿨다. 이어진 H1b-1b-2a.1 감사는
+(dW_i), (W'_i), (a_mWBr), (rW_m), (W_0=DV\Delta_L)를 포함한
+11개 actual subapplication을 원문에서 전수 고정하고, 각 추가 로그 비용
+(eta_{\rm app,j})가 0 또는 (log R)임을 증명했다. 따라서
 
 \[
 \log Q_j\le
 \Lambda^{\rm app}_j:=\Lambda^{\rm base}_j+\eta_{\rm app,j}
 \]
 
-를 얻은 경우에만 Rosser--Schoenfeld로
+이며, 모든 호출·iteration에 공통인 상계는
+
+\[
+\Lambda_*=
+2k^2\log(2k^2)+k(k-1)\log2+
+\left\{
+\frac{10\alpha(2k^2-k+1)}{\theta}+k
+\right\}\log R
+\]
+
+이다. Rosser--Schoenfeld로 이제 추적된 actual call 전체에서
 
 \[
 \boxed{
 c_{\gamma,j}>
-\frac{1}{3\{1+\log \Lambda^{\rm app}_j\}}
+\frac{1}{3\{1+\log \Lambda_*\}}
 }
 \]
 
-를 결론낼 수 있다.
-
-이번 단계에서 닫힌 것은 actual-call 네 denominator family의 비제외 local factor와
-기본 (W_i)의 크기 상계다. `uniform c_gamma lower-bound route`는 **주요 후보로
-선정됐지만 모든 actual call에 대해 아직 닫히지 않았다**. 먼저 확대된 제외인자
-전수목록과 (eta_{\rm app,j})를 닫아야 한다. 그 뒤에도 절대오차의 기본 상수
+를 결론낼 수 있다. 따라서 `uniform c_gamma lower-bound route`는 주요 후보 단계를
+넘어 **추적된 actual call 전체에 대해 parameterized explicit 경로로 선택됐다**.
+그 뒤에도 절대오차의 기본 상수
 \(C_{3,\mathrm{abs}}(A_1,A_2)\), 그 유효범위, (L)의 수치 multiplier와 수정된
 (r)-회 합성이 필요하므로 `SIV-07`과 (X_{\mathrm{cert}})는 계속 `OPEN`이다.
 
@@ -292,7 +300,8 @@ R^{10\alpha(2k^2-k+1)/\theta}.
 \]
 
 이는 날카로운 상계가 아니라 base (W_i)의 hidden (O(k^2))를 없애기 위한
-안전한 상계다. §3.1의 확대 모듈에 그대로 적용하는 것은 금지한다.
+안전한 상계다. §3.1의 확대 모듈에는 자동으로 적용하지 않고, H1b-1b-2a.1에서
+각 호출을 별도로 인증했다.
 
 호출별로
 
@@ -309,8 +318,9 @@ R^{10\alpha(2k^2-k+1)/\theta}.
 \Lambda^{\rm base}_j+\eta_{\rm app,j}
 \]
 
-를 사용한다. 구현도 `application_log_overhead`를 필수 인수로 요구하며, 미감사
-호출에서 0을 자동 대입하지 않는다.
+를 사용한다. 구현도 일반 함수에서는 `application_log_overhead`를 필수 인수로
+요구하여 미감사 호출에서 0을 자동 대입하지 않는다. 이름이 고정된 11개 actual
+application만 전수감사 spec을 통해 0 또는 (log R)을 가져온다.
 
 ## 7. Rosser--Schoenfeld의 조건부 (c_{\min}) 변환
 
@@ -368,12 +378,11 @@ C_{4,\mathrm{rel},j}
 }.
 \]
 
-로 둘 수 있다. 다만 (eta_{\rm app,j})의 성장률이 아직 전수 인증되지 않았으므로
-이 손실을 actual-call 전체에서 (O(\log\log R))라고 확정하지 않는다.
-
-base (W_i)만 보면 손실은 느리게 증가하지만, 실제 모든 호출에서도 같은 성장률인지는
-§3.1의 확대인자 감사를 마친 뒤에만 말할 수 있다. 그 뒤에도 모든 multiplier를 넣어
-(r)-회 귀납을 다시 써야 finite theorem으로 승격할 수 있다.
+로 둘 수 있다. H1b-1b-2a.1은 모든 추적 호출에 대해
+(\Lambda^{\rm app}_j\le\Lambda_*)를 닫았다. 따라서 actual-call 제외모듈 때문에
+추가되던 불확실성은 사라졌다. 다만 아직 숫자가 없는 (C_{3,\mathrm{abs}}),
+(A_1,A_2,L), finite range와 모든 multiplier를 넣어 (r)-회 귀납을 다시 써야
+finite theorem으로 승격할 수 있다.
 
 ## 9. 상태 변화와 남은 blocker
 
@@ -381,22 +390,20 @@ base (W_i)만 보면 손실은 느리게 증가하지만, 실제 모든 호출�
 |---|---|---|---|
 | `CMIN-NONEXCLUDED` | `RATE_MISSING` | `PROJECT_FINITE_COMPONENT_CLOSED_FOR_ACTUAL_CALLS` | actual 네 family factor \(\ge1\) |
 | `CMIN-SMALL-EXCLUDED` | `RATE_MISSING` | `PRIMARY_EXPLICIT_BOUND_AVAILABLE` | totient 식에 통합 |
-| `CMIN-LARGE-EXCLUDED` | `RATE_MISSING` | `BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN` | \(\Lambda^{\rm base}_j\)만 닫힘 |
-| `CMIN-COMPOSE` | `PARAMETERIZED_EXPLICIT` | `CONDITIONAL_ON_APPLICATION_INVENTORY` | (Lambda^{\rm app}_j)가 입력되면 명시 |
-| `ROUTE-DECISION` | `HARD_BLOCKER` | `PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN` | lower-bound route를 우선하되 전 actual call 미완료 |
+| `CMIN-LARGE-EXCLUDED` | `RATE_MISSING` | `PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS` | 11개 subapplication에서 \(\Lambda^{\rm app}_j\le\Lambda_*\) |
+| `CMIN-COMPOSE` | `PARAMETERIZED_EXPLICIT` | `PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS` | 공통 \(c_{\min}>1/[3(1+\log\Lambda_*)]\) |
+| `ROUTE-DECISION` | `HARD_BLOCKER` | `PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED` | lower-bound normalization 경로 선택 완료 |
 | `RFOLD-COMPOSITION` | `HARD_BLOCKER` | `HARD_BLOCKER` | 새 손실을 포함한 재합성 필요 |
 | `SIV-07` | `HARD_BLOCKER` | `HARD_BLOCKER` | base constant와 나머지 moment 상수 미복원 |
 | (X_{\mathrm{cert}}) | `OPEN` | `OPEN` | threshold 계산 금지 유지 |
 
 남은 핵심은 다음과 같다.
 
-1. §3.1의 각 actual call에서 (widetilde W_i), 남은 (e_i), support와 차원을
-   전수 고정하고 (eta_{\rm app,j})를 증명한다.
-2. Kuperberg/HR recurrence에서 (C_{3,\mathrm{abs}}(A_1,A_2))와 최초 유효범위를 복원한다.
-3. Maynard 575--579행의 (A_1,A_2,L)을 actual call 전부에 대해 수치화한다.
-4. 인증된 공통 (Lambda^{\rm app}_{\max})를 넣어 Lemma 8.4의 (r)-회
+1. Kuperberg/HR recurrence에서 (C_{3,\mathrm{abs}}(A_1,A_2))와 최초 유효범위를 복원한다.
+2. Maynard 575--579행의 (A_1,A_2,L)을 actual call 전부에 대해 수치화한다.
+3. 인증된 공통 (Lambda_*)를 넣어 Lemma 8.4의 (r)-회
    binomial error를 다시 합성한다.
-5. 그 뒤에만 Lemmas 8.5--8.6과 Propositions 9.1--9.5의 moment error budget으로 진행한다.
+4. 그 뒤에만 Lemmas 8.5--8.6과 Propositions 9.1--9.5의 moment error budget으로 진행한다.
 
 ## 10. 자동 검증 계약
 
@@ -410,6 +417,10 @@ base (W_i)만 보면 손실은 느리게 증가하지만, 실제 모든 호출�
 - `application_log_overhead`가 누락되거나 음수이면 fail-closed하는지
 - Rosser--Schoenfeld 식이 초등 약화보다 강한지
 - 기계 원장이 abstract (p+O(k)), `SIV-07`, (X_{\mathrm{cert}})를 닫지 않는지
+
+별도 `tests/test_h1b1b2a1_application_exclusion_inventory.py`는 10개 source call,
+11개 analytic subapplication, 세 개의 (log R) overhead, (W_0) 지수 지배와
+공통 (Lambda_*) 최댓값을 검증한다.
 
 수치 grid는 대수 증명의 대체물이 아니라 구현 회귀검사다. 본 보조정리의 증명은 §4--§7이다.
 

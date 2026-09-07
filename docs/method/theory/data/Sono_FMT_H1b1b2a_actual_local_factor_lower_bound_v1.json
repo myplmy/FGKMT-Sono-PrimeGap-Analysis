@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "created_kst": "2026-09-07",
   "updated_kst": "2026-09-07",
   "gate": "H1b-1b-2a actual-call local-factor and excluded-prime lower bound",
@@ -11,8 +11,9 @@
     "H1B1B2-ROUTE-DECISION",
     "SIV-07"
   ],
-  "scope": "A project proof for the exact prime-local denominator families used by the traced Section 8 calls of Maynard Lemmas 8.3-8.4, plus a parameterized size bound for the canonical W_i construction. Actual applications can enlarge W_i by d, r, a_m, W_0 or related factors, so a complete application-by-application excluded-modulus inventory remains open. This does not prove the same local statement for arbitrary g(p)=p+O(k), recover C3_abs, certify the corrected r-fold composition, close SIV-07, or compute X_cert.",
-  "outcome": "ACTUAL_LOCAL_FACTORS_CLOSED_EXCLUDED_PRODUCT_TRANSFORM_PARAMETERIZED_BASE_W_BOUND_CLOSED_APPLICATION_EXCLUSIONS_OPEN",
+  "scope": "A project proof for the exact prime-local denominator families used by the traced Section 8 calls of Maynard Lemmas 8.3-8.4, plus the H1b-1b-2a.1 inventory that certifies the excluded-modulus size of all 11 traced analytic subapplications. This does not prove the same local statement for arbitrary g(p)=p+O(k), recover C3_abs or its finite range, make the actual A1/A2/L numerical, certify the corrected r-fold composition, close SIV-07, or compute X_cert.",
+  "outcome": "ACTUAL_LOCAL_FACTORS_AND_ALL_TRACED_APPLICATION_EXCLUDED_MODULI_PROJECT_PARAMETERIZED_EXPLICIT_BASE_CONSTANT_AND_RFOLD_OPEN",
+  "application_inventory_contract": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016_SOURCE",
@@ -133,9 +134,10 @@
     }
   ],
   "application_exclusion_inventory": {
-    "status": "OPEN",
-    "all_traced_calls_closed": false,
-    "reason": "The canonical W_i bound does not by itself cover every effective excluded modulus used in the traced calls.",
+    "status": "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS",
+    "all_traced_calls_closed": true,
+    "analytic_subapplications": 11,
+    "reason": "The H1b-1b-2a.1 source audit proves rad(Q_app)<=U_W for eight subapplications and rad(Q_app)<=U_W R for the three d/r-augmented subapplications.",
     "observed_augmented_forms": [
       "d W_i at source line 620",
       "W_i'=rad(W_i(a_i b_m-a_m b_i)) at source lines 803-805 and calls 885/905",
@@ -143,7 +145,7 @@
       "r W_m at source lines 1015-1019",
       "W_0=D V Delta_L at source lines 1062-1065 and calls 1096/1135"
     ],
-    "required_certificate": "For every application and iteration, prove an explicit eta_app,j>=log(A_app,j) with effective W_tilde_i dividing A_app,i W_i, then use Lambda_app,j=Lambda_base,j+eta_app,j."
+    "uniform_certificate": "Lambda_star=2k^2 log(2k^2)+k(k-1)log2+[10 alpha(2k^2-k+1)/theta+k]logR; it is attained by the line-620 dW application at its first iteration."
   },
   "project_lemmas": [
     {
@@ -160,20 +162,20 @@
     },
     {
       "id": "H1B1B2A-QSIZE",
-      "statement": "For the canonical W_i construction only, log(Q_base,j)<=Lambda_base,j, where Lambda_base,j=2k^2 log(2k^2)+k(k-1)log2+[10 alpha(2k^2-k+1)/theta+r-j-1]logR. An actual call requires Lambda_app,j=Lambda_base,j+eta_app,j with separately certified eta_app,j.",
-      "status": "PROJECT_PARAMETERIZED_BASE_W_ONLY_APPLICATION_OVERHEAD_OPEN",
+      "statement": "For every traced application, log(Q_app,j)<=Lambda_app,j=2k^2 log(2k^2)+k(k-1)log2+[10 alpha(2k^2-k+1)/theta+s-j-1+delta_app]logR, with audited delta_app in {0,1}; uniformly Lambda_app,j<=Lambda_star.",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS",
       "threshold_ready": false
     },
     {
       "id": "H1B1B2A-CMIN",
-      "statement": "Conditional on a certified actual-call bound log(Q_j)<=Lambda_app,j and Q_j>=210, c_gamma_j>1/[exp(EulerGamma) log(Lambda_app,j)+2.50637]>1/[3(1+log(Lambda_app,j))].",
-      "status": "PROJECT_EXPLICIT_TRANSFORM_APPLICATION_INPUT_OPEN",
+      "statement": "For every traced actual call, Q_j>=210 and log(Q_j)<=Lambda_star, so c_gamma_j>1/[exp(EulerGamma) log(Lambda_star)+2.50637]>1/[3(1+log(Lambda_star))].",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS",
       "threshold_ready": false
     },
     {
       "id": "H1B1B2A-RELATIVE-TRANSFER",
-      "statement": "After both an actual-call Lambda_app,j and C3_abs are certified, C4_rel,j<=6 C3_abs [1+log(Lambda_app,j)].",
-      "status": "APPLICATION_BOUND_AND_BASE_MULTIPLIER_MISSING",
+      "statement": "After C3_abs and its finite range are certified, the now-certified Lambda_star gives C4_rel,j<=6 C3_abs [1+log(Lambda_star)] for every traced call.",
+      "status": "BASE_MULTIPLIER_AND_FINITE_RANGE_MISSING",
       "threshold_ready": false
     }
   ],
@@ -184,15 +186,17 @@
     "coefficient_and_B_upper": "B<=x^alpha and x<=R^(10/theta)",
     "W_i_upper": "(2k^2)^(2k^2) 2^[k(k-1)] R^[10 alpha(2k^2-k+1)/theta]",
     "remaining_e_upper": "product_{i=j+2}^r e_i<=R^(r-j-1)",
-    "scope": "canonical W_i only",
-    "actual_application_overhead_required": true,
+    "scope": "canonical W_i plus the separately audited 11 actual analytic subapplications",
+    "actual_application_overhead_required": false,
+    "uniform_actual_application_upper": "Lambda_star=2k^2 log(2k^2)+k(k-1)log2+[10 alpha(2k^2-k+1)/theta+k]logR",
     "hidden_big_o_remaining_for_base_W": false,
-    "hidden_big_o_remaining_for_all_actual_calls": true
+    "hidden_big_o_remaining_for_all_actual_calls": false
   },
   "route_status": {
-    "explicit_c_gamma_lower_bound": "CONDITIONAL_ON_CERTIFIED_APPLICATION_EXCLUDED_MODULUS",
-    "explicit_lower_bound_route_primary_candidate": true,
-    "all_actual_application_overheads_certified": false,
+    "explicit_c_gamma_lower_bound": "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS",
+    "explicit_lower_bound_route_primary_candidate": false,
+    "explicit_lower_bound_route_selected": true,
+    "all_actual_application_overheads_certified": true,
     "abstract_g_equals_p_plus_Ok_lemma_closed": false,
     "kuperberg_size_gate": "OPTIONAL_SECONDARY_ROUTE_NUMERIC_CONSTANTS_MISSING",
     "direct_multivariate_absolute_error_reproof": "OPTIONAL_UNSCOPED",
@@ -209,7 +213,7 @@
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "recommended": "First inventory every actual effective excluded modulus and certify eta_app,j for d W_i, W_i', a_m W B r, r W_m and W_0 applications. Then recover C3_abs(A1,A2), its finite range and explicit A1, A2, L bounds before redoing the r-fold accumulation with a certified common Lambda_app,max.",
+    "recommended": "Recover C3_abs(A1,A2), its finite range and explicit actual A1, A2, L bounds, then redo the r-fold accumulation with the certified common Lambda_star.",
     "parallel": "Continue H1c-1 quantitative character and Bombieri-Vinogradov source tracing.",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false,

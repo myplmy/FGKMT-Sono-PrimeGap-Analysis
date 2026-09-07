@@ -44,11 +44,11 @@ class H1b1b2aLocalFactorLowerBoundTests(unittest.TestCase):
         cls.contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
 
     def test_contract_is_fail_closed(self) -> None:
-        self.assertEqual(self.contract["schema_version"], "1.0.0")
+        self.assertEqual(self.contract["schema_version"], "1.1.0")
         self.assertEqual(
             self.contract["outcome"],
-            "ACTUAL_LOCAL_FACTORS_CLOSED_EXCLUDED_PRODUCT_TRANSFORM_"
-            "PARAMETERIZED_BASE_W_BOUND_CLOSED_APPLICATION_EXCLUSIONS_OPEN",
+            "ACTUAL_LOCAL_FACTORS_AND_ALL_TRACED_APPLICATION_EXCLUDED_MODULI_"
+            "PROJECT_PARAMETERIZED_EXPLICIT_BASE_CONSTANT_AND_RFOLD_OPEN",
         )
         self.assertEqual(len(self.contract["application_map"]), 10)
         self.assertEqual(
@@ -56,8 +56,9 @@ class H1b1b2aLocalFactorLowerBoundTests(unittest.TestCase):
             MAYNARD_ACTUAL_LOCAL_FAMILIES,
         )
         route = self.contract["route_status"]
-        self.assertTrue(route["explicit_lower_bound_route_primary_candidate"])
-        self.assertFalse(route["all_actual_application_overheads_certified"])
+        self.assertFalse(route["explicit_lower_bound_route_primary_candidate"])
+        self.assertTrue(route["explicit_lower_bound_route_selected"])
+        self.assertTrue(route["all_actual_application_overheads_certified"])
         self.assertFalse(route["abstract_g_equals_p_plus_Ok_lemma_closed"])
         self.assertFalse(route["C3_abs_numeric_multiplier_recovered"])
         self.assertFalse(route["corrected_rfold_composition_closed"])

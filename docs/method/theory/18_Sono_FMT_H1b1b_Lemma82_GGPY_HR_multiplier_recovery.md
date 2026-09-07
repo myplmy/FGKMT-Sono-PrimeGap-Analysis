@@ -9,8 +9,9 @@
   docs/method/theory/data/Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json
 - 후속 proof-obligation 원장:
   [H1b-1b-2 c_gamma 오류 정규화·Lemma 8.4 보정](19_Sono_FMT_H1b1b2_cgamma_error_normalization_ledger.md)
-- actual-call local-factor 후속 정식화:
-  [H1b-1b-2a local-factor·base-W 하한](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
+- actual-call local-factor·제외모듈 후속 정식화:
+  [H1b-1b-2a local-factor·제외모듈 하한](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
+  및 [H1b-1b-2a.1 application 전수감사](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
 - 판정:
 
 ~~~text
@@ -326,28 +327,27 @@ Maynard Lemma 8.4 proof는 Lemma 8.3을 좌표별로 \(r\)회 적용한다. 인�
 3. **직접 다변수 경로:** 절대오차들을 공통 주항에 대해 다시 합성해 더 나은 전역 경계를
    직접 증명한다.
 
-2026-09-07 H1b-1b-2a는 두 번째 경로를 주요 후보로 좁혔다. 네 prime-local denominator
+2026-09-07 H1b-1b-2a.1은 두 번째 경로를 추적된 actual call 전체에서 선택했다. 네 prime-local denominator
 family에서 비제외 local factor가 1 이상임을 증명하고, 유효 제외 소수를
 \(Q_j=\widetilde W_{j+1}\prod_{i=j+2}^{r}e_i\)에 합치면
 
 \[
 c_{\gamma,j}\ge\frac{\varphi(Q_j)}{Q_j}
 >
-\frac{1}{3(1+\log\Lambda^{\rm app}_j)}
+\frac{1}{3(1+\log\Lambda_*)}
 \]
 
-가 된다. 단, 현재 닫힌 \(\Lambda^{\rm base}_j\)는 canonical \(W_i\)만 덮고,
-실제 호출의 \(dW_i,W_i',a_mWBr,rW_m,W_0\)에 필요한
-\(\eta_{\rm app,j}\)는 아직 전수 인증되지 않았다. 호출별
-\(\Lambda^{\rm app}_j=\Lambda^{\rm base}_j+\eta_{\rm app,j}\)를 인증한 뒤에만
+가 된다. 실제 호출의 \(dW_i,W_i',a_mWBr,rW_m,W_0\)를 11개
+analytic subapplication으로 분해했고, 모든 호출·iteration에서
+\(\Lambda^{\rm app}_j\le\Lambda_*\)를 인증했다. 따라서 절대오차 상수가 복원되면
 상대오차 multiplier를
 
 \[
 C_{4,\mathrm{rel},j}
-\le 6C_{3,\mathrm{abs}}(1+\log\Lambda^{\rm app}_j)
+\le 6C_{3,\mathrm{abs}}(1+\log\Lambda_*)
 \]
 
-로 parameterize할 수 있다. 현재 application overhead, \(C_{3,\mathrm{abs}}(A_1,A_2)\),
+로 parameterize할 수 있다. 현재 \(C_{3,\mathrm{abs}}(A_1,A_2)\),
 공통 finite range, 실제 \(A_1,A_2,L\), 그리고 이 손실을 포함한 \(r\)-회 합성은 열려 있다.
 추상 조건 \(g(p)=p+O(k)\) 전체에도 이 하한을 일반화하지 않는다. 그러므로 local
 normalization route는 진전했지만 Lemma 8.4는 계속 RATE_MISSING이고 SIV-07과
@@ -361,8 +361,8 @@ normalization route는 진전했지만 Lemma 8.4는 계속 RATE_MISSING이고 SI
 | H1B-L82 | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | Lemma 8.2 자체는 닫힘 |
 | H1B1-L83-GGPY4 | PARAMETERIZED_EXPLICIT | PARAMETERIZED_EXPLICIT | 절대오차에 한해 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\) |
 | H1B1-L83-GGPY3 | SOURCE_ACCESS_BLOCKED | RATE_MISSING | 현대 구조 재현은 확보, 숫자·범위·일반화는 open |
-| H1B1B2-CMIN-COMPOSE | PARAMETERIZED_EXPLICIT | CONDITIONAL_ON_APPLICATION_INVENTORY | 인증된 \(\Lambda^{\rm app}_j\)가 필요 |
-| H1B1B2-ROUTE-DECISION | HARD_BLOCKER | PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN | actual 제외모듈 전수감사 미완료 |
+| H1B1B2-CMIN-COMPOSE | PARAMETERIZED_EXPLICIT | PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS | 공통 \(\Lambda_*\) 인증 |
+| H1B1B2-ROUTE-DECISION | HARD_BLOCKER | PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED | actual 제외모듈 전수감사 완료 |
 | H1B-L83 | RATE_MISSING | RATE_MISSING | \(C_{3,\mathrm{abs}},A_1,A_2,L\), finite range 필요 |
 | H1B1-L84-ITERATION | RATE_MISSING | RATE_MISSING | 새 \(O(\log\log R)\) normalization 손실을 넣어 \(r\)회 합성 재증명 필요 |
 | H1B1-PACKAGE | HARD_BLOCKER | HARD_BLOCKER | 공통 cutoff와 multiplier 없음 |
@@ -381,8 +381,8 @@ source/h1b1b_multiplier_recovery.py와 tests/test_h1b1b_multiplier_recovery.py�
 - \(\log2>69/100\), \(1/\sqrt2<71/100\), \(6119/69<89\)의 exact rational chain
 - 여러 \(k\), support 경계, 작은·큰 \(\delta\)에서 \(F,F_2\) 회귀검사
 - 교정된 절대오차 전달 \(C_{4,\mathrm{abs}}=2C_{3,\mathrm{abs}}\)
-- actual-call 네 family의 비제외 local factor와 canonical \(W_i\) base 상계 회귀검사
-- application overhead를 명시하지 않으면 \(c_{\gamma,j}\) 평가가 실패하는 회귀검사
+- actual-call 네 family의 비제외 local factor와 11개 application 제외모듈 상계 회귀검사
+- 일반 함수는 application overhead가 없으면 실패하고, 이름이 고정된 actual call만 감사값을 사용하는 회귀검사
 - 추상 \(g(p)=p+O(k)\), 숫자 없는 \(C_{3,\mathrm{abs}}\), 미합성 \(r\)-fold
   error가 parent를 닫지 못하도록 하는 negative regression
 - Maynard Lemma 8.2 child만 닫고 Lemma 8.4, package, SIV-07,
@@ -394,19 +394,16 @@ source/h1b1b_multiplier_recovery.py와 tests/test_h1b1b_multiplier_recovery.py�
 
 ## 9. 다음 권장 순서
 
-1. **H1b-1b-2a.1 application-exclusion 감사:** 실제 호출별
-   \(dW_i,W_i',a_mWBr,rW_m,W_0\)와 남은 좌표를 전수 고정하고
-   \(\eta_{\rm app,j}\)를 증명한다. 6–16시간.
-2. **H1b-1b-2b base multiplier 복원:** Kuperberg/HR recurrence에서
+1. **H1b-1b-2b base multiplier 복원:** Kuperberg/HR recurrence에서
    \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 최초 유효범위를 숫자로 복원한다.
    8–24시간 이상이며 하위 \(O\)-상수가 새로 갈라지면 수일 이상 걸릴 수 있다.
-3. **actual-call 입력 수치화:** Maynard 575–579행의 \(A_1,A_2,L\)을 모든 실제 호출에
+2. **actual-call 입력 수치화:** Maynard 575–579행의 \(A_1,A_2,L\)을 모든 실제 호출에
    대해 하나의 공통 식과 범위로 고정한다. 6–16시간 이상.
-4. **Lemma 8.4 재합성:** 위 입력에
-   \(6C_{3,\mathrm{abs}}(1+\log\Lambda^{\rm app}_{\max})\) 손실을 넣어 \(\Omega_G\)와 \(r\)-fold
+3. **Lemma 8.4 재합성:** 위 입력에
+   \(6C_{3,\mathrm{abs}}(1+\log\Lambda_*)\) 손실을 넣어 \(\Omega_G\)와 \(r\)-fold
    error를 한 공통 범위에 묶는다. 8–24시간 이상.
-5. **H1c-1 병렬 이론축:** quantitative character/Bombieri–Vinogradov package를 복원한다.
-6. 모든 root dependency가 숫자와 공통 범위로 닫힌 뒤에만 threshold calculator와
+4. **H1c-1 병렬 이론축:** quantitative character/Bombieri–Vinogradov package를 복원한다.
+5. 모든 root dependency가 숫자와 공통 범위로 닫힌 뒤에만 threshold calculator와
    \(X_{\mathrm{cert}}\) 계산을 설계한다.
 
 현재 CPU actual 실험이나 장시간 runner를 돌릴 단계가 아니다. 사용자에게 필요한 즉시 수행절차는

@@ -27,11 +27,11 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_scope_sources_and_unique_obligations(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.1.0")
+        self.assertEqual(self.document["schema_version"], "1.2.0")
         self.assertEqual(
             self.document["outcome"],
-            "LOCAL_FACTOR_CLOSED_APPLICATION_EXCLUDED_MODULUS_INVENTORY_"
-            "OPEN_BASE_CONSTANT_AND_RFOLD_OPEN",
+            "ALL_TRACED_APPLICATION_CGAMMA_LOWER_BOUNDS_PROJECT_"
+            "PARAMETERIZED_EXPLICIT_BASE_CONSTANT_AND_RFOLD_OPEN",
         )
         self.assertEqual(len(self.rows), 9)
         self.assertEqual(len(self.by_id), len(self.rows))
@@ -82,21 +82,23 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
                 {
                     "PRINTED_EXACT_STRUCTURE": 2,
                     "PRIMARY_EXPLICIT_BOUND_AVAILABLE": 1,
-                    "BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN": 1,
-                    "PARAMETERIZED_EXPLICIT_APPLICATION_INPUT_OPEN": 1,
+                    "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS": 2,
                     "PROJECT_FINITE_COMPONENT_CLOSED_FOR_ACTUAL_CALLS": 1,
                     "OPTIONAL_SECONDARY_ROUTE": 1,
-                    "PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN": 1,
+                    "PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED": 1,
                     "HARD_BLOCKER": 1,
                 }
             ),
         )
-        self.assertTrue(
+        self.assertFalse(
             self.document["route_status"][
                 "explicit_lower_bound_route_primary_candidate"
             ]
         )
-        self.assertFalse(
+        self.assertTrue(
+            self.document["route_status"]["explicit_lower_bound_route_selected"]
+        )
+        self.assertTrue(
             self.document["route_status"][
                 "all_actual_application_overheads_certified"
             ]
@@ -116,7 +118,7 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
             },
         )
         self.assertIn(
-            "application overhead eta_app,j",
+            "Lambda_star",
             compose["printed_information"],
         )
 

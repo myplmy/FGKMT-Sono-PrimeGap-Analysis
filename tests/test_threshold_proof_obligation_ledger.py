@@ -144,7 +144,7 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             "Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
         )
         self.assertIn(
-            "application-specific excluded-modulus overheads",
+            "all 11 application excluded-modulus bounds",
             self.by_id["SIV-07"]["notes"],
         )
         self.assertEqual(self.by_id["SIV-07"]["status"], "HARD_BLOCKER")

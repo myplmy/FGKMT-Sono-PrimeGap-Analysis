@@ -305,6 +305,18 @@
   않는다. 호출별 인수 변환표와 추가 소인수 inventory를 먼저 완성하고, 코드 API에서도
   application-specific overhead를 생략할 수 없게 한다.
 
+### E024 — H1b-1b-2a.1 문서 patch 두 차례 사전 실패
+
+- 분류: `TOOL_WRAPPER_SYNTAX / PATCH_CONTEXT_ERROR / CORRECTED_BEFORE_WRITE`
+- 문제: 2026-09-07 첫 문서 patch에서 Markdown backtick을 JavaScript template literal에
+  그대로 넣어 E017과 같은 wrapper parsing 실패를 반복했다. 이후 상위 문서 일괄 patch 한 번은
+  expected context를 잘못 이어 붙여 `apply_patch verification failed`가 났다.
+- 영향: 두 경우 모두 `apply_patch`가 변경을 적용하기 전에 중단되어 부분 수정이나 연구 결과
+  오염은 없었다. 대상 파일을 다시 읽고 작은 patch로 분할해 정상 적용했다.
+- 재발 방지: backtick 포함 patch는 일반 문자열 delimiter를 사용하고, 여러 문단을 한 호출에
+  묶기 전에 현재 파일의 정확한 context를 다시 읽는다. patch 실패 직후에는 성공으로 간주하지
+  않고 파일 내용과 `git diff`를 확인한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

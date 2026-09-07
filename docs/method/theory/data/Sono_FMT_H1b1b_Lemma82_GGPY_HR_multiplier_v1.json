@@ -4,9 +4,10 @@
   "updated_kst": "2026-09-07",
   "gate": "H1b-1b Maynard Lemma 8.2 and GGPY/HR multiplier recovery",
   "target_obligation": "SIV-07",
-  "scope": "An exact project proof makes Maynard Lemma 8.2 explicit for the H1b-1a cutoff. At kappa=1, partial summation transfers a future corrected absolute GGPY Lemma 3 error into Lemma 4 with factor 2. H1b-1b-2a closes the traced actual nonexcluded local factors and canonical-W_i base bound, while application excluded-modulus overheads remain open. Kuperberg gives a modern structural HR reproduction but no numerical uniform multiplier or cutoff. This is not a numerical basic-summation package or theorem threshold certificate.",
-  "outcome": "LEMMA82_EXPLICIT_GGPY4_ABSOLUTE_TRANSFER_LOCAL_FACTOR_CLOSED_APPLICATION_EXCLUSIONS_OPEN_BASE_RATE_OPEN",
+  "scope": "An exact project proof makes Maynard Lemma 8.2 explicit for the H1b-1a cutoff. At kappa=1, partial summation transfers a future corrected absolute GGPY Lemma 3 error into Lemma 4 with factor 2. H1b-1b-2a.1 closes the traced actual local factors and all 11 application excluded-modulus bounds. Kuperberg gives a modern structural HR reproduction but no numerical uniform multiplier or cutoff. This is not a numerical basic-summation package or theorem threshold certificate.",
+  "outcome": "LEMMA82_EXPLICIT_GGPY4_ABSOLUTE_TRANSFER_APPLICATION_EXCLUSIONS_CLOSED_BASE_RATE_OPEN",
   "h1b1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
+  "h1b1b2a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
   "lemma_8_2_project_component_closed": true,
   "lemma_8_2_uniform_multiplier": 89,
   "ggpy_lemma_4_transfer_factor_closed": true,
@@ -187,10 +188,10 @@
     "derivative_integral_factor": 1,
     "safe_transfer_factor": 2,
     "derived_lemma_4_error": "<= 2 C3(A1,A2) (L+1) M(F)",
-    "relative_error_recovery": "Conditional on a certified actual-call Lambda_app,j, H1b-1b-2a gives c_gamma_j>1/[3(1+log Lambda_app,j)], so the Maynard-style relative multiplier is at most 6 C3(A1,A2)(1+log Lambda_app,j). Every application overhead is not yet certified.",
+    "relative_error_recovery": "H1b-1b-2a.1 certifies Lambda_app,j<=Lambda_star for every traced actual call, so c_gamma_j>1/[3(1+log Lambda_star)] and the Maynard-style relative multiplier is at most 6 C3(A1,A2)(1+log Lambda_star).",
     "finite_range": "exactly the common range on which the assumed Lemma 3 error holds",
     "proof_status": "PARAMETERIZED_EXPLICIT",
-    "warning": "The application-specific eta_app,j values, C3(A1,A2), its valid range, actual A1/A2/L bounds and corrected r-fold composition are not supplied. Setting an application overhead, O-constant or normalization loss to one is forbidden."
+    "warning": "C3(A1,A2), its valid range, actual A1/A2/L bounds and corrected r-fold composition are not supplied. Setting an O-constant or normalization loss to one is forbidden."
   },
   "obligation_updates": [
     {
@@ -205,7 +206,7 @@
       "old_status": "SOURCE_CHAIN_TRACED",
       "new_status": "PARAMETERIZED_EXPLICIT",
       "threshold_ready": false,
-      "reason": "At kappa=1, a corrected absolute Lemma 3 multiplier C3 transfers to an absolute Lemma 4 error with safe factor 2. H1b-1b-2a closes local factors but the application excluded-modulus overheads, C3 and its finite range remain missing."
+      "reason": "At kappa=1, a corrected absolute Lemma 3 multiplier C3 transfers to an absolute Lemma 4 error with safe factor 2. H1b-1b-2a.1 closes all traced application excluded-modulus bounds, while C3 and its finite range remain missing."
     },
     {
       "id": "H1B1-L83-GGPY3",
@@ -223,10 +224,9 @@
     }
   ],
   "remaining_blockers": [
-    "certify every actual application excluded modulus and eta_app,j without silently setting overhead to zero",
     "recover an explicit absolute C3(A1,A2) and common z range from the HR/Kuperberg proof chain without treating O-constants as one",
     "instantiate Maynard Lemma 8.4 values A1, A2 and L",
-    "bound the Lemma 8.4 test-function norm and redo the r-fold accumulation with the additional 6*C3_abs*(1+log Lambda_app,max) normalization loss on one common range",
+    "bound the Lemma 8.4 test-function norm and redo the r-fold accumulation with the additional 6*C3_abs*(1+log Lambda_star) normalization loss on one common range",
     "complete Lemma 8.1(ii), H1c-1, moment formulas and every other root dependency before any X_cert calculation"
   ],
   "parent_status": {
@@ -236,9 +236,9 @@
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "primary": "First certify every actual application excluded modulus and eta_app,j; then quantitatively reconstruct the Kuperberg/HR recurrence, including explicit B_L, B_k and O multipliers, to recover C3_abs(A1,A2) and its finite range.",
+    "primary": "Quantitatively reconstruct the Kuperberg/HR recurrence, including explicit B_L, B_k and O multipliers, to recover C3_abs(A1,A2) and its finite range.",
     "parallel": "Make the actual-call A1, A2 and L bounds numerical; retain the Kuperberg z-versus-L route only as an optional sharpness comparison.",
-    "after_source_recovery": "Compose the corrected absolute factor-2 transfer with a certified Lambda_app,max and redo Maynard Lemma 8.4 gamma, L, smoothness and r-fold iteration rows.",
+    "after_source_recovery": "Compose the corrected absolute factor-2 transfer with the certified Lambda_star and redo Maynard Lemma 8.4 gamma, L, smoothness and r-fold iteration rows.",
     "parallel_theory_axis": "H1c-1 quantitative character/Bombieri-Vinogradov package",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false
