@@ -35,7 +35,7 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_rows(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.1.0")
+        self.assertEqual(self.document["schema_version"], "1.2.0")
         self.assertEqual(len(self.rows), 13)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -57,10 +57,10 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 5,
+                    "RATE_MISSING": 4,
                     "PROJECT_FINITE_COMPONENT_CLOSED": 4,
                     "PARTIAL_EXPLICIT": 1,
-                    "PARAMETERIZED_EXPLICIT": 1,
+                    "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1": 2,
                     "PRINTED_STRUCTURAL_FACT": 1,
                     "HARD_BLOCKER": 1,
                 }
@@ -105,24 +105,27 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
         for row_id in self.by_id:
             visit(row_id)
 
-    def test_imported_lemma_transfer_is_explicit_but_base_rate_is_not(self) -> None:
+    def test_corrected_kappa1_rate_is_parameterized_but_inputs_are_open(self) -> None:
         self.assertTrue(self.document["lemma_8_3_citation_identified"])
         self.assertFalse(self.document["lemma_8_3_numeric_multiplier_recovered"])
+        self.assertTrue(self.document["lemma_8_3_parameterized_multiplier_recovered"])
         self.assertEqual(
             self.by_id["H1B1-L83-GGPY4"]["status"],
-            "PARAMETERIZED_EXPLICIT",
+            "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
         )
         self.assertEqual(
             self.by_id["H1B1-L83-GGPY3"]["status"],
-            "RATE_MISSING",
+            "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
         )
         self.assertIn(
-            "C3(A1,A2)",
+            "common A1, A2 and L",
             " ".join(self.by_id["H1B1-L83-GGPY4"]["missing_numeric_inputs"]),
         )
         self.assertIn(
-            "6*C3_abs",
-            self.by_id["H1B1-L84-ITERATION"]["missing_numeric_inputs"][-1],
+            "C_L83(a,A2)",
+            " ".join(
+                self.by_id["H1B1-L84-ITERATION"]["missing_numeric_inputs"]
+            ),
         )
         self.assertIn(
             "kappa=1",
@@ -139,7 +142,10 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
 
         parent = json.loads(PARENT.read_text(encoding="utf-8"))
         parent_rows = {row["id"]: row for row in parent["obligations"]}
-        self.assertEqual(parent_rows["H1B-L83"]["status"], "RATE_MISSING")
+        self.assertEqual(
+            parent_rows["H1B-L83"]["status"],
+            "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+        )
         self.assertFalse(parent["siv_07_closed"])
         self.assertEqual(
             parent["h1b1_ledger"],
@@ -159,6 +165,11 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             self.document["h1b1b2a_ledger"],
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b1b2b_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
         )
 
 

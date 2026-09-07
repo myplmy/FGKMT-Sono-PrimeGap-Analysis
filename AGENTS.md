@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·GGPY absolute transfer=2C3_abs·11개 actual application 제외모듈 상계 닫힘·base rate/r-fold OPEN / X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·교정 kappa=1 one-step multiplier parameterized explicit·11개 actual application 제외모듈 상계 닫힘·actual inputs/r-fold OPEN / X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
@@ -34,11 +34,11 @@ H1 판정은 `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQ
 Cantelli transfer로 (J_r/I_r>\log r/(4r))를 모든 정수 (r\ge36)에서 project theorem으로 닫아
 `SIV-06`을 `EXPLICIT`으로 바꿨다. 정본은
 `docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md`다. H1b는 Maynard Proposition
-6.1·Hypothesis 1·Sections 8–9를 17개 constant obligation으로 등록했지만 multiplier·finite
-cutoff·공통 error budget을 얻지 못해 `SIV-07/09`와 `X_cert`를 닫지 않았다. 정본은
+6.1·Hypothesis 1·Sections 8–9를 17개 constant obligation으로 등록했지만 전체 moment의
+finite cutoff·공통 error budget을 얻지 못해 `SIV-07/09`와 `X_cert`를 닫지 않았다. 정본은
 `docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md`다. H1b-1은
 Lemmas 8.1–8.4를 13개 하위 node로 감사해 Lemma 8.3의 정확한 GGPY Lemma 4 \(\kappa=1\)
-source를 확인했지만 numerical multiplier를 얻지 못했다. H1c는 Hypothesis 1/PAP를 20개
+source를 확인했다. H1c는 Hypothesis 1/PAP를 20개
 node로 분리하고 Hypothesis 1(1),(3)의 finite sufficient reduction을 얻었지만 condition (2)와
 PAP finite cutoff는 열려 있다. 두 명제는 shared analytic input을 가진 sibling이지 서로를
 함의하지 않으므로 T1의 잘못된 `SIV-08 -> PAP-11` 직접 의존선을 제거했다. Jutila source는
@@ -46,26 +46,25 @@ PAP finite cutoff는 열려 있다. 두 명제는 shared analytic input을 가�
 `docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`다. H1b-1a는 explicit
 cutoff의 `sup|psi'|<50`, Lemma 8.1(i)의 `S_B(L)>exp(-9k/2)`, 식 (8.5)의
 `E(k)<24 log k`를 project finite lemma로 닫고 divisor 평균의 parameterized majorant를
-유도했다. 그러나 입력 계수·공통 cutoff·GGPY/HR multiplier는 열려 있어 `SIV-07`과
+유도했다. 그러나 입력 계수·공통 cutoff는 열려 있어 `SIV-07`과
 `X_cert`는 OPEN이다. 정본은
 `docs/method/theory/17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`다. H1b-1b는
-Maynard Lemma 8.2의 uniform multiplier를 89로 닫았다. Castillo et al.의 peer-reviewed
-교정을 반영하면 GGPY Lemma 3→4에서 닫힌 것은 \(\kappa=1\) 절대오차 전달
-\(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)이다. GGPY/Maynard에 인쇄된
-\(c_\gamma\)-relative 오류항은 추가 \(z\)-대-\(L\) 조건 또는 uniform \(c_\gamma\) 하한이
-필요하다. H1b-1b-2a.1은 Maynard Section 8의 10개 source call을 11개 analytic
+Maynard Lemma 8.2의 uniform multiplier를 89로 닫았다. Castillo et al.의 교정에 따라
+GGPY/Maynard의 인쇄 proof는 그대로 쓰지 않는다. H1b-1b-2b는 Ford Theorem 4.4의
+누락항 \(c_\gamma(L+1)^\kappa\)를 보존한 proof를 \(\kappa=1\)에 명시화해
+\(C_{8.3}(a,A_2)=2\{40960D(a,A_2)e^{256+A_2}+2\}\), \(z\ge2\)를 얻었다.
+이 one-step 결과는 `PARAMETERIZED_EXPLICIT_INPUTS_OPEN`이며 실제 공통 \(a,A_2,L\)은 아직 없다.
+기존 절대오차 전달 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\)와 \(c_\gamma\) 하한은
+optional cross-check다. H1b-1b-2a.1은 Maynard Section 8의 10개 source call을 11개 analytic
 subapplication으로 분해하고, 비제외 local factor와
 \(dW_i,W'_i,a_mWBr,rW_m,W_0\)를 포함한 제외모듈 상계를 전수 인증했다.
 따라서 모든 추적 호출에서 공통 \(\log Q_j\le\Lambda_*\)와
-\(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 쓸 수 있고 lower-bound route가 선택됐다.
-Kuperberg arXiv:2210.09775는 HR Lemma 5.4 구조를 현대적으로 재현하지만
-\(B_L,B_k,O\)-상수와 일반 Maynard \(\gamma\) 특수화가 비명시적이므로 base rate·finite range는
-`RATE_MISSING`이다. 정본은
+\(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 쓸 수 있다. 정본은
 `docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`,
-`docs/method/theory/20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`와
-`docs/review/27_20260906_H1b1b_Kuperberg_GGPY_error_term_타당성검토.md`다. 다음 gate는
-absolute base multiplier \(C_{3,\mathrm{abs}}(A_1,A_2)\)·actual \(A_1,A_2,L\)·
-보정된 Lemma 8.4 재합성과 H1c-1 quantitative character package이며, 모든 root
+`docs/method/theory/20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`,
+`docs/review/27_20260906_H1b1b_Kuperberg_GGPY_error_term_타당성검토.md`와
+`docs/method/theory/22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`다. 다음 gate는
+actual 공통 \(a,A_2,L\)·보정된 Lemma 8.4 재합성과 H1c-1 quantitative character package이며, 모든 root
 dependency가 닫히기 전에는 새 prime sweep·threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus에 합산하지 않는다.

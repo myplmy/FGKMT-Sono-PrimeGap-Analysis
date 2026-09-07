@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "created_kst": "2026-09-02 20:24",
-  "updated_kst": "2026-09-07",
+  "updated_kst": "2026-09-08",
   "gate": "H1 good-sieve-weight recoverability source tracing",
   "target": "Determine whether the hidden constants needed for the FMT good sieve weight can be recovered constructively without inventing a numerical threshold.",
   "overall_outcome": "CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED",
@@ -14,6 +14,7 @@
   "h1b1b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json",
   "h1b1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
   "h1b1b2a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
+  "h1b1b2b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
@@ -122,18 +123,17 @@
       "question": "Can Maynard Proposition 6.1 constants be written as explicit functions of Hypothesis 1 constants?",
       "source_keys": ["MAYNARD2016", "FGKMT2016"],
       "source_locator": "Maynard Proposition 6.1 and Sections 8-9; FGKMT Theorem 6 (7.5)-(7.9)",
-      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89 and the corrected kappa=1 absolute transfer C4_abs<=2*C3_abs. H1b-1b-2a.1 closes the traced actual nonexcluded local factors and all 11 application excluded-modulus bounds with a common Lambda_star.",
+      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89. H1b-1b-2b follows Ford's corrected theorem and supplies a project-explicit kappa=1 one-step multiplier C_L83(a,A2) for every z>=2. H1b-1b-2a.1 separately closes the traced actual nonexcluded local factors and all 11 application excluded-modulus bounds with a common Lambda_star.",
       "missing_numeric_inputs": [
         "the constants multiplying all moment errors",
         "finite cutoffs in repeated negligible-error arguments",
         "explicit singular-series and coefficient bounds uniform in r and the linear forms",
-        "the Kuperberg/HR-derived absolute base multiplier C3_abs(A1,A2) and its common finite range",
-        "explicit A1, A2 and L bounds for every actual call",
-        "the corrected r-fold composition with the additional 6*C3_abs*(1+log Lambda_star) loss"
+        "one common numerical Maynard/Ford a, A2 and L certificate for every actual call",
+        "the corrected r-fold composition using C_L83(a,A2) and explicit smooth norms"
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "Recover C3_abs(A1,A2) and its finite range, make A1, A2 and L numerical, and redo the Lemma 8.4 r-fold composition with Lambda_star. Do not treat any missing multiplier as one.",
+      "next_action": "Certify one common actual Maynard/Ford a, A2 and L package, evaluate C_L83(a,A2), and redo the Lemma 8.4 r-fold composition with explicit smooth norms. Do not treat any missing application parameter as a convenient constant.",
       "threshold_ready": false
     },
     {

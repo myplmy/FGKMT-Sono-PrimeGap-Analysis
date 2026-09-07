@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0.0",
   "created_kst": "2026-09-04",
+  "updated_kst": "2026-09-08",
   "gate": "H1b-1a explicit cutoff and elementary summation package",
   "target_obligations": [
     "H1B1-L81-SMALL",
@@ -186,7 +187,7 @@
   },
   "next_gate": {
     "recommended": "H1b-1b-continuation",
-    "description": "H1b-1b closed the full Lemma 8.2 multiplier at 89 and parameterized the corrected absolute GGPY Lemma 4 transfer as C4_abs<=2*C3_abs. Quantify the Kuperberg/HR recurrence, recover C3_abs(A1,A2) and its range, repair the missing c_gamma normalization, and only then quantify Lemma 8.4 iteration.",
+    "description": "H1b-1b closed the full Lemma 8.2 multiplier at 89. H1b-1b-2b then used Ford's corrected theorem to make the kappa=1 one-step multiplier C_L83(a,A2) explicit for every z>=2. Next certify one common actual a, A2 and L package and only then quantify Lemma 8.4 iteration; retain the absolute C3 and c_gamma route as an optional cross-check.",
     "parallel_theory_axis": "H1c-1 quantitative character and PAP package",
     "ready_for_threshold_calculator": false
   }

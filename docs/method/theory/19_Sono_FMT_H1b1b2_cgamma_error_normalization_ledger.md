@@ -1,7 +1,7 @@
 # Sono/FMT H1b-1b-2 \(c_\gamma\) 오류 정규화·Lemma 8.4 보정 원장
 
 - 작성일: 2026-09-06
-- 갱신일: 2026-09-07
+- 갱신일: 2026-09-08
 - 상위 obligation: SIV-07
 - 입력 정본:
   [H1b-1b multiplier 복원·오류항 교정](18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md)
@@ -13,6 +13,8 @@
   [H1b-1b-2a local-factor·제외모듈 하한](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
 - application 전수감사:
   [H1b-1b-2a.1 actual application-exclusion inventory](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
+- 교정된 kappa=1 주 경로:
+  [H1b-1b-2b Ford--Wirsing multiplier](22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md)
 
 ## 1. 목적
 
@@ -26,12 +28,12 @@ GGPY/Maynard에 인쇄된 \(c_\gamma\)-포함 오류항은 원래 가정만으�
 3. \(c_\gamma\)로 나누지 않고 절대오차를 다변수 합 전체에서 직접 합성하는 경로
 
 2026-09-07 H1b-1b-2a.1은 첫 번째 경로의 actual 비제외 local factor와 확대된
-제외모듈 11개 subapplication의 상계를 모두 닫았다. 따라서 첫 번째 경로는
-`PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED`이고 모든 추적 호출에서
-\(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 쓸 수 있다. 이는 추상
-`g(p)=p+O(k)` 전체나 Lemma 8.4의 수정된 (r)-회 오류 합성을 닫은 것이 아니다.
-기본 절대오차 상수 (C_{3,\mathrm{abs}})도 계속 빠져 있으므로 이 문서는 여전히
-전체 증명 완료 보고서가 아니라 proof-obligation 원장이다.
+제외모듈 11개 subapplication의 상계를 모두 닫았다. 모든 추적 호출에서
+\(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 쓸 수 있다. 2026-09-08 H1b-1b-2b가
+Ford의 누락항을 보존한 \(\kappa=1\) one-step rate를 명시했으므로 현재 주 경로는
+`PRIMARY_CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED`이고, 첫 번째 경로는 독립
+cross-check다. 어느 경로도 Lemma 8.4의 수정된 \(r\)-회 오류 합성까지 닫지는 않았으므로
+이 문서는 전체 증명 완료 보고서가 아니라 proof-obligation 원장이다.
 
 ## 2. Maynard Lemma 8.4의 실제 한 단계
 
@@ -193,7 +195,7 @@ k^2\le\frac{\log z}{B_k}
 | H1B1B2-CMIN-NONEXCLUDED | 나머지 무한곱 하한 | PROJECT_FINITE_COMPONENT_CLOSED_FOR_ACTUAL_CALLS |
 | H1B1B2-CMIN-COMPOSE | uniform \(c_{\min}\) 합성 | PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS |
 | H1B1B2-SIZE-GATE | Kuperberg형 복원 | OPTIONAL_SECONDARY_ROUTE |
-| H1B1B2-ROUTE-DECISION | 증명된 경로 선택 | PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED |
+| H1B1B2-ROUTE-DECISION | 증명된 경로 선택 | PRIMARY_CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED |
 | H1B1B2-RFOLD-COMPOSITION | \(r\)회 오류 누적 | HARD_BLOCKER |
 
 ## 7. 먼저 할 일과 중단 조건
@@ -222,3 +224,14 @@ H1c-1의 quantitative character/Bombieri--Vinogradov package를 계속 source tr
 
 현재 별도 수행절차 필요없음. 이 단계는 문헌·수식 감사이며 CPU-heavy 실험으로 proof
 obligation을 대신할 수 없다. Lean이나 추가 Python 라이브러리도 현재 필요하지 않다.
+
+## 9. 2026-09-08 route decision 갱신
+
+Ford Theorem 4.4가 누락된 \(c_\gamma(L+1)^\kappa\) 항을 포함한 교정 proof를
+제공하고, H1b-1b-2b가 그 \(\kappa=1\) multiplier를 명시화했다. 따라서 현재 주 경로는
+`PRIMARY_CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED`다.
+
+기존의 `PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED`는 당시 가능한 repair 선택을 기록한
+역사적 판정이며, 지금은 optional independent cross-check다. 다음 gate는
+`actual a,A2,L -> C_L83 평가 -> corrected r-fold composition`이다.
+`SIV-07`과 \(X_{\mathrm{cert}}\)는 계속 닫히지 않는다.

@@ -392,7 +392,7 @@ finite theorem으로 승격할 수 있다.
 | `CMIN-SMALL-EXCLUDED` | `RATE_MISSING` | `PRIMARY_EXPLICIT_BOUND_AVAILABLE` | totient 식에 통합 |
 | `CMIN-LARGE-EXCLUDED` | `RATE_MISSING` | `PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS` | 11개 subapplication에서 \(\Lambda^{\rm app}_j\le\Lambda_*\) |
 | `CMIN-COMPOSE` | `PARAMETERIZED_EXPLICIT` | `PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS` | 공통 \(c_{\min}>1/[3(1+\log\Lambda_*)]\) |
-| `ROUTE-DECISION` | `HARD_BLOCKER` | `PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED` | lower-bound normalization 경로 선택 완료 |
+| `ROUTE-DECISION` | `HARD_BLOCKER` | `PRIMARY_CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED` | lower-bound normalization은 optional cross-check |
 | `RFOLD-COMPOSITION` | `HARD_BLOCKER` | `HARD_BLOCKER` | 새 손실을 포함한 재합성 필요 |
 | `SIV-07` | `HARD_BLOCKER` | `HARD_BLOCKER` | base constant와 나머지 moment 상수 미복원 |
 | (X_{\mathrm{cert}}) | `OPEN` | `OPEN` | threshold 계산 금지 유지 |
@@ -428,3 +428,11 @@ finite theorem으로 승격할 수 있다.
 
 별도 수행절차 필요없음. 이 단계는 문헌·대수 감사와 데이터 비의존 단위시험이다.
 Lean이나 새 Python 라이브러리는 필요하지 않다.
+
+## 12. 2026-09-08 주 경로 변경
+
+이 문서의 \(c_\gamma\) 하한과 \(\Lambda_*\)는 그대로 유효하다. 다만 H1b-1b-2b가
+Ford의 교정된 \(\kappa=1\) 상대오차를 직접 명시했으므로, 이 하한은 더 이상
+Lemma 8.3 base rate를 복원하기 위한 주 선결조건이 아니다. 독립 교차검사와 actual-call
+assumption 관리에 보존한다. 최신 다음 gate는 공통 actual \(a,A_2,L\) 인증과
+Lemma 8.4 \(r\)-회 합성이다.

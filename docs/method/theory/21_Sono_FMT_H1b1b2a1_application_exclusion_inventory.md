@@ -288,14 +288,14 @@ Rosser--Schoenfeld 변환을 공통 `Lambda_*`에 적용할 수 있다.
 |---|---|---|
 | H1B1B2-CMIN-LARGE-EXCLUDED | BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN | PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS |
 | H1B1B2-CMIN-COMPOSE | PARAMETERIZED_EXPLICIT_APPLICATION_INPUT_OPEN | PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS |
-| H1B1B2-ROUTE-DECISION | PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN | PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED |
+| H1B1B2-ROUTE-DECISION | PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN | PRIMARY_CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED |
 | H1B1B2-RFOLD-COMPOSITION | HARD_BLOCKER | HARD_BLOCKER |
 | SIV-07 | HARD_BLOCKER | HARD_BLOCKER |
 | X_cert | OPEN | OPEN |
 
-`PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED`는 `c_gamma`의
-normalization 경로를 선택했다는 뜻이다. Lemma 8.3 절대오차 상수나
-Lemma 8.4 전체 오차항이 numerical하게 닫혔다는 뜻은 아니다.
+현재 primary는 교정된 \(\kappa=1\) Wirsing 경로다. 이 inventory가 닫은
+`c_gamma` lower-bound normalization은 optional cross-check이며, Lemma 8.4 전체 오차항이
+numerical하게 닫혔다는 뜻은 아니다.
 
 ## 8. 남은 proof obligation
 
@@ -328,3 +328,10 @@ Lemma 8.4 전체 오차항이 numerical하게 닫혔다는 뜻은 아니다.
 
 별도 수행절차 필요없음. 새 외부 자료, Lean, 추가 Python 라이브러리,
 CPU-heavy 계산은 이번 단계에 필요하지 않았다.
+
+## 11. 2026-09-08 후속 상태
+
+§8의 `C3_abs` 우선순위는 H1b-1b-2b 이전의 역사적 경로다. Ford의 교정
+\(\kappa=1\) 정리를 명시화한 뒤 주 경로는 \(C_{8.3}(a,A_2)\)를 직접 사용한다.
+이 문서의 11개 application inventory와 공통 \(\Lambda_*\)는 폐기하지 않으며,
+공통 actual \(a,A_2,L\)을 인증하고 독립 \(c_\gamma\) 검사를 수행할 때 재사용한다.

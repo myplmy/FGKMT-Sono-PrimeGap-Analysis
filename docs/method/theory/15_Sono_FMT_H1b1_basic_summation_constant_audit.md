@@ -2,7 +2,7 @@
 
 - 작성: 2026-09-04 KST
 - 증거 수준: `SOURCE-LEVEL QUANTITATIVE DEPENDENCY AUDIT`
-- 판정: `SOURCE_CHAIN_TRACED_APPLICATION_EXCLUSIONS_CLOSED_BASE_RATE_RFOLD_PACKAGE_OPEN`
+- 판정: `CORRECTED_KAPPA1_BASE_RATE_PARAMETERIZED_EXPLICIT_ACTUAL_INPUTS_RFOLD_PACKAGE_OPEN`
 - `SIV-07`: `HARD_BLOCKER` 유지
 - numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
 - 기계 판독 정본:
@@ -14,6 +14,8 @@
 - H1b-1b-2a actual-call local-factor·제외모듈 하한:
   [`20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
   및 [`21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md`](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
+- H1b-1b-2b 교정된 kappa=1 multiplier:
+  [`22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`](22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md)
 
 ## 1. 결론부터
 
@@ -258,3 +260,20 @@ X_cert                     = OPEN
 이번 감사가 보여 준 것은 “정량화할 경로가 없다”가 아니라 “어느 하위 부등식을 숫자로 다시
 증명해야 하는지 알게 됐다”는 것이다. 모르는 multiplier를 1로 두지 않았기 때문에 임계값 숫자는
 계산하지 않는다.
+
+## 8. 2026-09-08 교정된 base-rate 갱신
+
+위의 `BASE OPEN` 판정과 \(C_{3,\mathrm{abs}}\) 우선순위는 당시 사용하던
+절대오차 repair 경로의 기록이다. 최신 정본 H1b-1b-2b는 Ford Theorem 4.4의
+추가항을 보존한 \(\kappa=1\) 상대오차를 직접 명시화했다. 현재 상태는 다음과 같다.
+
+```text
+Lemma 8.3 corrected one-step rate = C_L83(a,A2), every z>=2
+actual common a,A2,L             = OPEN
+legacy C3_abs + c_gamma route    = OPTIONAL CROSS-CHECK
+Lemma 8.4 r-fold composition     = OPEN
+SIV-07 / X_cert                  = HARD_BLOCKER / OPEN
+```
+
+따라서 다음 직접 gate는 절대 \(C_3\) 탐색이 아니라 실제 호출 전체에 공통인
+\(a,A_2,L\)을 인증하는 H1b-1b-2c다.

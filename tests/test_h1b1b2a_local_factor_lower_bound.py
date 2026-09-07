@@ -44,11 +44,11 @@ class H1b1b2aLocalFactorLowerBoundTests(unittest.TestCase):
         cls.contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
 
     def test_contract_is_fail_closed(self) -> None:
-        self.assertEqual(self.contract["schema_version"], "1.1.0")
+        self.assertEqual(self.contract["schema_version"], "1.2.0")
         self.assertEqual(
             self.contract["outcome"],
-            "ACTUAL_LOCAL_FACTORS_AND_ALL_TRACED_APPLICATION_EXCLUDED_MODULI_"
-            "PROJECT_PARAMETERIZED_EXPLICIT_BASE_CONSTANT_AND_RFOLD_OPEN",
+            "ACTUAL_LOCAL_FACTORS_AND_EXCLUDED_MODULI_EXPLICIT_OPTIONAL_"
+            "CGAMMA_CROSSCHECK",
         )
         self.assertEqual(len(self.contract["application_map"]), 10)
         self.assertEqual(
@@ -57,7 +57,13 @@ class H1b1b2aLocalFactorLowerBoundTests(unittest.TestCase):
         )
         route = self.contract["route_status"]
         self.assertFalse(route["explicit_lower_bound_route_primary_candidate"])
-        self.assertTrue(route["explicit_lower_bound_route_selected"])
+        self.assertFalse(route["explicit_lower_bound_route_selected"])
+        self.assertTrue(route["corrected_kappa1_wirsing_route_selected"])
+        self.assertEqual(
+            self.contract["corrected_wirsing_contract"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+        )
         self.assertTrue(route["all_actual_application_overheads_certified"])
         self.assertFalse(route["abstract_g_equals_p_plus_Ok_lemma_closed"])
         self.assertFalse(route["C3_abs_numeric_multiplier_recovered"])

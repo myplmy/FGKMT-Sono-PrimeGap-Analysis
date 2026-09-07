@@ -27,11 +27,10 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_scope_sources_and_unique_obligations(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.2.0")
+        self.assertEqual(self.document["schema_version"], "1.3.0")
         self.assertEqual(
             self.document["outcome"],
-            "ALL_TRACED_APPLICATION_CGAMMA_LOWER_BOUNDS_PROJECT_"
-            "PARAMETERIZED_EXPLICIT_BASE_CONSTANT_AND_RFOLD_OPEN",
+            "CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED_ACTUAL_INPUTS_AND_RFOLD_OPEN",
         )
         self.assertEqual(len(self.rows), 9)
         self.assertEqual(len(self.by_id), len(self.rows))
@@ -85,7 +84,7 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
                     "PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS": 2,
                     "PROJECT_FINITE_COMPONENT_CLOSED_FOR_ACTUAL_CALLS": 1,
                     "OPTIONAL_SECONDARY_ROUTE": 1,
-                    "PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED": 1,
+                    "PRIMARY_CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED": 1,
                     "HARD_BLOCKER": 1,
                 }
             ),
@@ -95,8 +94,16 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
                 "explicit_lower_bound_route_primary_candidate"
             ]
         )
-        self.assertTrue(
+        self.assertFalse(
             self.document["route_status"]["explicit_lower_bound_route_selected"]
+        )
+        self.assertTrue(
+            self.document["route_status"]["corrected_kappa1_wirsing_route_selected"]
+        )
+        self.assertEqual(
+            self.document["corrected_wirsing_contract"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
         )
         self.assertTrue(
             self.document["route_status"][

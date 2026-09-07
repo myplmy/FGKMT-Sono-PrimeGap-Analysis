@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-08",
+  "gate": "H1b-1b-2b corrected kappa=1 Wirsing multiplier",
+  "target_obligation": "H1B1-L83-GGPY3 and H1B-L83",
+  "scope": "Ford Theorem 4.4 supplies the missing corrected structural theorem with the additional c_gamma*(L+1)^kappa term. A project proof makes a deliberately coarse kappa=1 multiplier explicit under Maynard's inclusive-endpoint hypotheses. This does not instantiate actual A1, A2 or L, compose Lemma 8.4 r times, close SIV-07, or compute X_cert.",
+  "outcome": "CORRECTED_KAPPA1_RELATIVE_BASE_RATE_PARAMETERIZED_EXPLICIT",
+  "finite_x_minimum": 2,
+  "maynard_parameterization": "0 < a1_gap <= 1 and gamma(p)/p <= 1-a1_gap",
+  "ggpy_parameterization": "A1_GGPY=1/a1_gap and gamma(p)/p <= 1-1/A1_GGPY",
+  "prime_sum_hypothesis": "-L <= sum_{w<=p<=y} gamma(p)log(p)/p - log(y/w) <= A2 for every 2<=w<=y",
+  "corrected_extra_term_included": true,
+  "summatory_error": "|H(x)-c_gamma*log(x)| <= C_sum(a1_gap,A2)*c_gamma*(L+1), x>=2",
+  "summatory_multiplier": "C_sum=40960*D*exp(256+A2)",
+  "delta_factor": "D=4+A2+(A2/a1_gap)*(1+100*A2/69)+2*(1-a1_gap)^2/a1_gap",
+  "weighted_lemma83_error": "error <= C_L83*c_gamma*(L+1)*G_max",
+  "weighted_lemma83_multiplier": "C_L83=2*(C_sum+2)",
+  "legacy_absolute_c3_required_on_primary_route": false,
+  "legacy_absolute_route_status": "OPTIONAL_SECONDARY_ROUTE_REMAINS_PARAMETERIZED",
+  "finite_range_status": "PROJECT_EXPLICIT_FOR_ALL_REAL_X_AT_LEAST_2",
+  "actual_a1_a2_l_instantiated": false,
+  "r_fold_composition_closed": false,
+  "siv_07_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false,
+  "source_registry": [
+    {
+      "key": "FORD2023_NOTES",
+      "title": "Sieve Methods Lecture Notes, Spring 2023",
+      "author": "Kevin Ford",
+      "publication_status": "author lecture notes; not a peer-reviewed paper",
+      "url": "https://ford126.web.illinois.edu/sieve2023.pdf",
+      "retrieved_utc": "2026-09-07T17:44:11Z",
+      "local_path": "tmp/pdfs/h1b1b2b/Ford_Sieve_Methods_Lecture_Notes_2023.pdf",
+      "sha256": "a6e8462f1e76606614e5c2891b419515be408d5f11f0b82915f5c24e05c00e06",
+      "reviewed_locations": "Theorem 4.4 and proof, printed pages 47-51; especially equations (4.8)-(4.15)",
+      "status": "PRIMARY_AUTHOR_NOTES_STRUCTURAL_PROOF_REVIEWED_AND_REDERIVED"
+    },
+    {
+      "key": "DUSART2010",
+      "title": "Estimates of Some Functions Over Primes without R.H.",
+      "author": "Pierre Dusart",
+      "arxiv": "1002.0442v1",
+      "url": "https://arxiv.org/abs/1002.0442",
+      "local_path": "tmp/pdfs/h1b1a/Dusart2010_Explicit_estimates_over_primes.pdf",
+      "sha256": "3f11eca84613ad00e6a447f99b318d5c3d76e360283efcc6d3eebdda25ff3923",
+      "reviewed_locations": "Theorems 6.10-6.12, printed pages 10-12",
+      "status": "PRIMARY_EXPLICIT_PRIME_SUM_AND_PRODUCT_INPUT_REVIEWED"
+    }
+  ],
+  "proof_constants": {
+    "log2_lower_bound": "69/100",
+    "inverse_log2_upper_bound": "100/69",
+    "log6_upper_bound": 2,
+    "global_prime_weighted_deviation_bound": 64,
+    "global_prime_reciprocal_deviation_bound": 16,
+    "global_mertens_product_multiplier": 8192,
+    "interval_log_weighted_deviation_base": 130,
+    "tail_exponent": "256+A2",
+    "summatory_prefactor": 40960,
+    "strict_cumulative_endpoint_allowance": 2,
+    "weighted_partial_summation_factor": 2
+  },
+  "literature_first_applicability": {
+    "exact_prior_numeric_multiplier_found": false,
+    "corrected_structural_prior_proof_found": true,
+    "reason_direct_work_was_still_needed": "Ford leaves O_{kappa,A1,A2} nonnumeric; the project only rederived those finite inequalities for kappa=1.",
+    "stronger_or_different_results_rejected": "General Selberg-Delange and fundamental-lemma results use different analytic hypotheses or norms and were not substituted for the target lemma."
+  },
+  "parent_status": {
+    "H1B1-L83-GGPY3": "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
+    "H1B1-L83-GGPY4": "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
+    "H1B-L83": "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+    "H1B-L84": "RATE_MISSING",
+    "H1B1-PACKAGE": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "remaining_blockers": [
+    "certify one common numerical a1_gap, A2 and L for all actual Maynard Lemma 8.4 invocations",
+    "bound every actual smooth-function norm and recompose the corrected error through all r iterations",
+    "close the other H1b Section 8-9 and independent H1c/PAP root obligations before any threshold calculation"
+  ],
+  "next_gate": {
+    "primary": "H1b-1b-2c actual-call a1_gap, A2 and L common numerical specialization",
+    "after_inputs": "H1b-1b-2d corrected r-fold Lemma 8.4 composition using C_L83",
+    "parallel_theory_axis": "H1c-1 quantitative character and PAP package",
+    "ready_for_threshold_calculator": false,
+    "ready_for_actual_prime_experiment": false
+  }
+}

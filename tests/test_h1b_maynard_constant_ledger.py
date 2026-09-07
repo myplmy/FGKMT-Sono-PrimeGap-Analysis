@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.1.0")
+        self.assertEqual(self.document["schema_version"], "1.2.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -70,10 +70,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 10,
+                    "RATE_MISSING": 9,
                     "INPUT_PACKAGE_MISSING": 3,
                     "PARTIAL_EXPLICIT": 1,
                     "PROJECT_FINITE_COMPONENT_CLOSED": 2,
+                    "PARAMETERIZED_EXPLICIT_INPUTS_OPEN": 1,
                     "HARD_BLOCKER": 1,
                 }
             ),
@@ -153,13 +154,21 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
         )
         self.assertEqual(
+            self.document["h1b1b2b_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1B-L82"]["status"],
             "PROJECT_FINITE_COMPONENT_CLOSED",
         )
-        self.assertEqual(self.by_id["H1B-L83"]["status"], "RATE_MISSING")
+        self.assertEqual(
+            self.by_id["H1B-L83"]["status"],
+            "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+        )
         self.assertTrue(self.by_id["H1B-L83"]["missing_numeric_inputs"])
         self.assertIn(
-            "6*C3_abs*(1+log Lambda_star)",
+            "C_L83(a,A2)",
             " ".join(self.by_id["H1B-L83"]["explicit_parts"]),
         )
 

@@ -17,6 +17,8 @@
 - H1b-1b-2a actual-call local-factor·제외모듈 하한:
   [`20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
   및 [`21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md`](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
+- H1b-1b-2b 교정된 kappa=1 Wirsing multiplier:
+  [`22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`](22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md)
 
 ## 1. 결론부터
 
@@ -104,7 +106,7 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-HYP-03` | Hypothesis 1(3) | progression 집중 방지 | `INPUT_PACKAGE_MISSING` | \(\ll\) 상수·시작점 |
 | `H1B-L81` | Lemma 8.1 | singular series 하한 | `RATE_MISSING` | \(\exp(-Ck)\)의 \(C\) |
 | `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `PROJECT_FINITE_COMPONENT_CLOSED` | H1b-1b에서 multiplier 89, \(k\ge2\) |
-| `H1B-L83` | Lemma 8.3 | multiplicative sum | `RATE_MISSING` | application 제외모듈은 닫힘; \(C_{3,\mathrm{abs}}(A_1,A_2)\)·finite range 필요 |
+| `H1B-L83` | Lemma 8.3 | multiplicative sum | `PARAMETERIZED_EXPLICIT_INPUTS_OPEN` | 교정된 \(C_{8.3}(a,A_2)\), \(z\ge2\)는 닫힘; 공통 actual \(a,A_2,L\)·\(r\)-회 합성 필요 |
 | `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | 실제 \(A_1,A_2,L,\Omega_G\)·보정 반복 상수·smallness cutoff |
 | `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `RATE_MISSING` | \(R^{2+o(1)}\)의 finite 대체 |
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
@@ -237,14 +239,15 @@ H1b-1은 Lemmas 8.1–8.4를 13개 하위 node로 분해했다. source chain은 
 - GGPY Lemmas 3–4 및 Halberstam–Richert에서 오는 multiplier
 - Lemma 8.4의 \(r\)-fold error smallness와 common cutoff
 
-따라서 parent 원장의 상태 이동은 오직 다음 하나다.
+당시 parent 원장의 상태 이동은 오직 다음 하나였다.
 
 ```text
-H1B-L83: SOURCE_REVIEW_REQUIRED -> RATE_MISSING
+H1B-L83: SOURCE_REVIEW_REQUIRED -> RATE_MISSING  (2026-09-04 이력)
 ```
 
-이는 source 이름을 찾았다는 뜻이며 numerical closure가 아니다. `SIV-07`, `SIV-09`와
-\(X_{\mathrm{cert}}\)는 그대로 `OPEN`이다.
+이는 source 이름을 찾았다는 뜻이며 numerical closure가 아니었다. 2026-09-08의 최신
+상태는 아래 §13의 `PARAMETERIZED_EXPLICIT_INPUTS_OPEN`이다. `SIV-07`, `SIV-09`와
+\(X_{\mathrm{cert}}\)는 계속 `OPEN`이다.
 
 ## 11. 2026-09-06 H1b-1b 반영
 
@@ -281,3 +284,19 @@ actual call 전체에 대해 project-parameterized explicit 상태로 닫혔다.
 또한 숫자 \(C_{3,\mathrm{abs}}\), 그 finite range, 실제 \(A_1,A_2,L\), 그리고
 \(r\)-회 보정 합성은 아직 없다. 따라서 `H1B-L83`, `H1B-L84`, `H1B-COMP-01`,
 `SIV-07`, \(X_{\mathrm{cert}}\)의 상태는 바뀌지 않는다.
+
+## 13. 2026-09-08 H1b-1b-2b 반영
+
+Ford Theorem 4.4는 작은 \(z\)에서 빠졌던 \(c_\gamma(L+1)^\kappa\) 항을
+포함해 Wirsing 정리를 고친다. 프로젝트는 이 proof를 \(\kappa=1\)에 한정해
+명시화했고,
+
+\[
+C_{8.3}(a,A_2)=2\{40960D(a,A_2)e^{256+A_2}+2\}
+\]
+
+를 모든 \(z\ge2\)에서 얻었다. 따라서 `H1B-L83`은 더 이상 base rate 자체가
+미확정인 상태가 아니라 `PARAMETERIZED_EXPLICIT_INPUTS_OPEN`이다. 아직 닫히지 않은 것은
+모든 실제 호출에 공통인 Maynard/Ford \(a,A_2,L\)의 수치 인증과 Lemma 8.4
+\(r\)-회 합성이다. 이 child 진전만으로 `H1B-COMP-01`, `SIV-07` 또는
+\(X_{\mathrm{cert}}\)를 승격하지 않는다.

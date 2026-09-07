@@ -687,19 +687,23 @@ Lemma 8.1(i)의 \(\mathfrak S_B(\mathcal L)>e^{-9k/2}\), 식 (8.5)의
 \(A_0,B_0\)와 공통 흡수 cutoff가 주어졌을 때 평가 가능한 parameterized majorant까지만
 얻었으므로 `PARTIAL_EXPLICIT`이다. 2026-09-06 H1b-1b는 Lemma 8.2의 multiplier를
 모든 정수 \(k\ge2\)에 대해 89로 닫았다. 또한 교정된 GGPY Lemma 3의 절대오차 multiplier를
-\(C_{3,\mathrm{abs}}(A_1,A_2)\)라고 두면 \(\kappa=1\) Lemma 4의 절대오차 multiplier가
-\(2C_{3,\mathrm{abs}}\) 이하임을 부분적분으로 명시했다. Castillo et al.의 Lemma 2.5와
-Remark는 GGPY/Maynard에 인쇄된 오류항의 \(c_\gamma\) 인자가 추가적인 \(z\)-대-\(L\)
-크기조건 없이는 나오지 않음을 확인한다. 2026-09-07 H1b-1b-2a는 Maynard Section 8의
+\(C_{3,\mathrm{abs}}(A_1,A_2)\)라고 둘 때의 \(\kappa=1\) factor-2 전달을 보조 경로로
+명시했다. Castillo et al.의 Lemma 2.5와 Remark는 GGPY/Maynard에 인쇄된 proof가
+\(c_\gamma\)-relative 오류를 원 가정만으로 정당화하지 못함을 확인한다.
+2026-09-07 H1b-1b-2a는 Maynard Section 8의
 actual-call 분모를 네 exact family로 환원해 비제외 local factor가 1 이상임을 증명했다.
 H1b-1b-2a.1은 이어서 10개 source call을 11개 analytic subapplication으로 분해하고,
 canonical \(W_i\)와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\)를 모두 포함해
 \(\log Q_j\le\Lambda_*\)를 인증했다. 따라서 Rosser--Schoenfeld로 추적 호출 전체에서
-\(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)와 조건부 상대 multiplier
-\(6C_{3,\mathrm{abs}}(1+\log\Lambda_*)\)를 쓸 수 있다.
-따라서 Kuperberg의 \(B_L,B_k\) size gate는 계속 대체 비교 경로로 보존한다.
-\(C_{3,\mathrm{abs}}\), finite range, \(A_1,A_2,L\) 수치값과 수정된
-\(r\)-회 합성은 `RATE_MISSING/HARD_BLOCKER`다.
+\(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 쓸 수 있음을 별도로 인증했다.
+2026-09-08 H1b-1b-2b는 Ford Theorem 4.4의 누락항
+\(c_\gamma(L+1)^\kappa\)를 보존한 교정 proof를 \(\kappa=1\)에 명시화했다.
+이에 따라
+\(C_{8.3}(a,A_2)=2\{40960D(a,A_2)e^{256+A_2}+2\}\)와 \(z\ge2\)가
+project-parameterized explicit가 되었고, `H1B-L83`은
+`PARAMETERIZED_EXPLICIT_INPUTS_OPEN`이다. 기존 절대 \(C_3\)+\(c_\gamma\) 하한 및
+Kuperberg size gate는 독립·sharpness 비교용 보조 경로로 보존한다. 실제 호출 전체의 공통
+\(a,A_2,L\), smooth norm과 수정된 \(r\)-회 합성은 `OPEN/HARD_BLOCKER`다.
 정본은 `docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md`와
 `docs/method/theory/17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`,
 `docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`다.
@@ -708,7 +712,9 @@ canonical \(W_i\)와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\)를 모두 포함해
 fail-closed로 등록했고, actual local-factor와 application 제외모듈 하한 증명은
 `docs/method/theory/20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`와
 `docs/method/theory/21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md`가 정본이다.
-하한 route는 추적된 actual-call 전체에서 선택 완료됐지만 numerical package는 아직 아니다.
+교정된 one-step multiplier 정본은
+`docs/method/theory/22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`다.
+one-step 공식이 명시됐어도 numerical package는 아직 아니다.
 
 같은 날 H1c는 FGKMT Hypothesis 1과 Sono PAP를 20개 node로 분리했다. \(\mathcal A=\mathbb Z\)인
 Hypothesis 1(1)은 `floor(y^(1/3))*(log y)^(100 k^2) <= N`, (3)은 `N>=q`일 때 implied
@@ -718,8 +724,8 @@ rate는 열려 있다. PAP와 Hypothesis 1은 shared source를 가진 sibling ob
 함의하지 않으므로 T1의 잘못된 `SIV-08 -> PAP-11` 직접 의존선을 제거했다. Jutila source 연도는
 1977로 정정했다. 정본은
 `docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`다. 이 graph·서지 교정은
-`SIV-07/08/09`, `PAP-11` 또는 `X_cert`를 닫지 않는다. 다음 gate는 H1b-1b의
-absolute base multiplier·\(A_1,A_2,L\) 수치화·수정된 Lemma 8.4 composition과 H1c-1 quantitative character package다. 모든 root dependency가 닫히기
+`SIV-07/08/09`, `PAP-11` 또는 `X_cert`를 닫지 않는다. 다음 gate는 H1b-1b-2c의
+actual-call \(a,A_2,L\) 수치화·수정된 Lemma 8.4 composition과 H1c-1 quantitative character package다. 모든 root dependency가 닫히기
 전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus와 분리한다. 두 원고가

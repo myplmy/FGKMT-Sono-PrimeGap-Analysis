@@ -12,13 +12,16 @@
 - actual-call local-factor·제외모듈 후속 정식화:
   [H1b-1b-2a local-factor·제외모듈 하한](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
   및 [H1b-1b-2a.1 application 전수감사](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
+- 교정된 kappa=1 base-rate 후속 정식화:
+  [H1b-1b-2b Ford--Wirsing multiplier](22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md)
 - 판정:
 
 ~~~text
 Maynard Lemma 8.2 multiplier       = 89 (PROJECT FINITE COMPONENT CLOSED)
 GGPY Lemma 3 -> Lemma 4 transfer  = C4_abs <= 2 C3_abs (PARAMETERIZED)
 printed c_gamma-relative error     = NOT JUSTIFIED BY STATED HYPOTHESES
-modern HR structural reproduction = REVIEWED; NUMERICAL RATE/CUTOFF OPEN
+Ford corrected kappa=1 base rate   = PROJECT PARAMETERIZED EXPLICIT; z>=2
+legacy absolute C3 route           = OPTIONAL CROSS-CHECK
 Maynard Lemma 8.4 composition      = OPEN
 SIV-07 / X_cert                    = OPEN
 ~~~
@@ -359,11 +362,11 @@ normalization route는 진전했지만 Lemma 8.4는 계속 RATE_MISSING이고 SI
 |---|---|---|---|
 | H1B1-L82-LIPSCHITZ | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | multiplier 89, \(k\ge2\), 영향 없음 |
 | H1B-L82 | RATE_MISSING | PROJECT_FINITE_COMPONENT_CLOSED | Lemma 8.2 자체는 닫힘 |
-| H1B1-L83-GGPY4 | PARAMETERIZED_EXPLICIT | PARAMETERIZED_EXPLICIT | 절대오차에 한해 \(C_{4,\mathrm{abs}}\le2C_{3,\mathrm{abs}}\) |
-| H1B1-L83-GGPY3 | SOURCE_ACCESS_BLOCKED | RATE_MISSING | 현대 구조 재현은 확보, 숫자·범위·일반화는 open |
+| H1B1-L83-GGPY4 | PARAMETERIZED_EXPLICIT | PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1 | 교정된 \(C_{8.3}(a,A_2)\), \(z\ge2\); 절대 factor 2는 보조 경로 |
+| H1B1-L83-GGPY3 | SOURCE_ACCESS_BLOCKED | PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1 | Ford 구조를 \(\kappa=1\)에 명시화; actual 입력은 open |
 | H1B1B2-CMIN-COMPOSE | PARAMETERIZED_EXPLICIT | PROJECT_PARAMETERIZED_EXPLICIT_FOR_ALL_TRACED_APPLICATIONS | 공통 \(\Lambda_*\) 인증 |
-| H1B1B2-ROUTE-DECISION | HARD_BLOCKER | PRIMARY_EXPLICIT_LOWER_BOUND_ROUTE_SELECTED | actual 제외모듈 전수감사 완료 |
-| H1B-L83 | RATE_MISSING | RATE_MISSING | \(C_{3,\mathrm{abs}},A_1,A_2,L\), finite range 필요 |
+| H1B1B2-ROUTE-DECISION | HARD_BLOCKER | PRIMARY_CORRECTED_KAPPA1_WIRSING_ROUTE_SELECTED | lower-bound 경로는 optional cross-check |
+| H1B-L83 | RATE_MISSING | PARAMETERIZED_EXPLICIT_INPUTS_OPEN | 공통 actual \(a,A_2,L\), \(r\)-회 합성 필요 |
 | H1B1-L84-ITERATION | RATE_MISSING | RATE_MISSING | 새 \(O(\log\log R)\) normalization 손실을 넣어 \(r\)회 합성 재증명 필요 |
 | H1B1-PACKAGE | HARD_BLOCKER | HARD_BLOCKER | 공통 cutoff와 multiplier 없음 |
 | SIV-07 | HARD_BLOCKER | HARD_BLOCKER | 변화 없음 |
@@ -409,6 +412,14 @@ source/h1b1b_multiplier_recovery.py와 tests/test_h1b1b_multiplier_recovery.py�
 현재 CPU actual 실험이나 장시간 runner를 돌릴 단계가 아니다. 사용자에게 필요한 즉시 수행절차는
 없다. HR 원문 140–153쪽을 합법적으로 구할 수 있다면 추가 대조에 유용하지만 필수 선결조건으로
 남겨 두지는 않는다.
+
+### 2026-09-08 후속 판정
+
+위 §9의 1단계는 H1b-1b-2b가 대체했다. Ford의 교정 구조를 \(\kappa=1\)에
+명시화하여 \(C_{8.3}(a,A_2)\)와 \(z\ge2\)를 얻었으므로, 더 이상
+\(C_{3,\mathrm{abs}}\) 복원이 주 경로의 선결조건은 아니다. 최신 순서는
+`공통 actual a,A2,L 인증 -> C_L83 평가 -> smooth norm과 r-fold 합성`이다.
+이 갱신은 Lemma 8.2의 89, Castillo 오류 판정 또는 기존 절대오차 전달을 부정하지 않는다.
 
 ## 참고문헌
 

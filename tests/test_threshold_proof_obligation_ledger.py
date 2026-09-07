@@ -28,7 +28,7 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_and_required_fields(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.0.0")
+        self.assertEqual(self.document["schema_version"], "1.1.0")
         self.assertEqual(len(self.rows), 66)
         self.assertEqual(len(self.by_id), len(self.rows), "obligation ids must be unique")
 
@@ -142,6 +142,11 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             self.document["h1b1b2a_ledger"],
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b1b2b_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
         )
         self.assertIn(
             "all 11 application excluded-modulus bounds",

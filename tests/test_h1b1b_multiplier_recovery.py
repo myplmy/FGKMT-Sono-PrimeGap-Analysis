@@ -65,11 +65,11 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         cls.contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
 
     def test_contract_provenance_and_scope(self) -> None:
-        self.assertEqual(self.contract["schema_version"], "1.1.0")
+        self.assertEqual(self.contract["schema_version"], "1.2.0")
         self.assertEqual(
             self.contract["outcome"],
-            "LEMMA82_EXPLICIT_GGPY4_ABSOLUTE_TRANSFER_APPLICATION_"
-            "EXCLUSIONS_CLOSED_BASE_RATE_OPEN",
+            "LEMMA82_EXPLICIT_CORRECTED_KAPPA1_BASE_RATE_PARAMETERIZED_"
+            "ACTUAL_INPUTS_RFOLD_OPEN",
         )
         self.assertEqual(
             self.contract["h1b1b2a_ledger"],
@@ -89,6 +89,25 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         )
         self.assertTrue(self.contract["castillo_absolute_error_shape_reviewed"])
         self.assertTrue(self.contract["kuperberg_structural_reproduction_reviewed"])
+        self.assertTrue(
+            self.contract["corrected_kappa1_parameterized_multiplier_recovered"]
+        )
+        self.assertEqual(
+            self.contract["corrected_kappa1_finite_range"],
+            "every real z>=2",
+        )
+        self.assertEqual(
+            self.contract["h1b1b2b_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+        )
+        corrected = self.contract["corrected_kappa1_wirsing_contract"]
+        self.assertEqual(corrected["route_role"], "PRIMARY")
+        self.assertEqual(
+            corrected["proof_status"],
+            "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
+        )
+        self.assertFalse(corrected["actual_inputs_instantiated"])
         self.assertFalse(self.contract["ggpy_lemma_3_numeric_multiplier_recovered"])
         self.assertFalse(
             self.contract["hr_lemmas_5_3_5_4_numeric_multiplier_recovered"]
@@ -275,11 +294,11 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         )
         self.assertEqual(
             h1b1_rows["H1B1-L83-GGPY4"]["status"],
-            "PARAMETERIZED_EXPLICIT",
+            "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
         )
         self.assertEqual(
             h1b1_rows["H1B1-L83-GGPY3"]["status"],
-            "RATE_MISSING",
+            "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
         )
         self.assertEqual(h1b1_rows["H1B1-PACKAGE"]["status"], "HARD_BLOCKER")
 
@@ -290,7 +309,10 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
             "PROJECT_FINITE_COMPONENT_CLOSED",
         )
         self.assertEqual(h1b_rows["H1B-L82"]["missing_numeric_inputs"], [])
-        self.assertEqual(h1b_rows["H1B-L83"]["status"], "RATE_MISSING")
+        self.assertEqual(
+            h1b_rows["H1B-L83"]["status"],
+            "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+        )
         self.assertEqual(h1b_rows["H1B-COMP-01"]["status"], "HARD_BLOCKER")
         self.assertFalse(h1b["numerical_x_cert_ready"])
 

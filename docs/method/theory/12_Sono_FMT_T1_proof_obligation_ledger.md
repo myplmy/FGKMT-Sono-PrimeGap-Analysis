@@ -20,6 +20,8 @@
 - H1b-1b-2a actual-call local-factor·제외모듈 하한:
   [`20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
   및 [`21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md`](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
+- H1b-1b-2b 교정된 kappa=1 Wirsing multiplier:
+  [`22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`](22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md)
 - H1c Hypothesis 1·PAP source trace:
   [`16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`](16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md)
 
@@ -310,8 +312,9 @@ multiplier·finite cutoff·Hypothesis 1 입력과 공통 error budget은 제공�
 
 같은 날 H1b-1은 Lemmas 8.1–8.4의 13개 하위 node를 감사했다. Lemma 8.3이 인용하는 source는
 GGPY의 *Small Gaps Between Products of Two Primes*, Lemma 4의 \(\kappa=1\) 특수화다. source
-identity가 닫혔으므로 parent `H1B-L83`은 `SOURCE_REVIEW_REQUIRED`에서 `RATE_MISSING`으로
-정정되지만, GGPY/HR multiplier와 finite range는 계속 열려 있다.
+identity가 닫혔으므로 당시 parent `H1B-L83`은 `SOURCE_REVIEW_REQUIRED`에서
+`RATE_MISSING`으로 정정됐다. 이 2026-09-04 이력은 2026-09-08 H1b-1b-2b의
+`PARAMETERIZED_EXPLICIT_INPUTS_OPEN` 판정으로 후속 대체됐다.
 
 H1c는 FGKMT Hypothesis 1과 Sono PAP를 별도 source chain으로 분리했다. Hypothesis 1(1),(3)은
 \(\mathcal A=\mathbb Z\)일 때 exact sufficient inequality로 줄일 수 있지만, condition (2)의
@@ -370,3 +373,20 @@ c_{\gamma,j}>\frac{1}{3(1+\log\Lambda_*)}
 repair 경로가 선택됐다. 다만
 \(C_{3,\mathrm{abs}}\), 실제 \(A_1,A_2,L\), 공통 finite range와 \(r\)-회 합성이
 없으므로 T1의 66행 상태 수, `SIV-07`, \(X_{\mathrm{cert}}\)는 바뀌지 않는다.
+
+## 12. 2026-09-08 Ford 교정 Wirsing 경로 반영
+
+Ford Theorem 4.4는 GGPY/Maynard 계열의 기존 증명에서 빠진
+\(c_\gamma(L+1)^\kappa\) 항을 보존한다. H1b-1b-2b는 이 구조를
+\(\kappa=1\)에 한정해 다시 전개하여, Maynard Lemma 8.3의 한 단계 오류를
+
+\[
+C_{8.3}(a,A_2)c_\gamma(L+1)G_{\max}
+\]
+
+형태로 모든 \(z\ge2\)에서 명시했다. 이 때문에 `H1B-L83`은
+`PARAMETERIZED_EXPLICIT_INPUTS_OPEN`으로 세분화된다. 그러나 실제 호출 전체에 공통인
+\(a,A_2,L\), smooth norm, Lemma 8.4의 \(r\)-회 합성과 다른 moment/Hypothesis 1
+상수가 없으므로 T1의 66행 상태 수, `SIV-07`, `SIV-09`,
+\(X_{\mathrm{cert}}\)는 그대로다. 기존 \(c_\gamma\) 하한은 버리지 않고
+독립 교차검사용 보조 경로로 보존한다.

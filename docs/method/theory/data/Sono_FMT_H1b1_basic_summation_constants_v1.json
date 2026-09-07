@@ -1,13 +1,14 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "created_kst": "2026-09-04",
-  "updated_kst": "2026-09-07",
+  "updated_kst": "2026-09-08",
   "gate": "H1b-1 Maynard Lemmas 8.1-8.4 basic summation constant audit",
   "target_obligation": "SIV-07",
-  "scope": "Source-level decomposition of the singular-series, Lipschitz, one-dimensional multiplicative summation, and iterated summation constants used in Maynard Lemmas 8.1-8.4. This is not a quantitative reproof and supplies no numerical theorem threshold.",
-  "outcome": "SOURCE_CHAIN_TRACED_APPLICATION_EXCLUSIONS_CLOSED_BASE_RATE_RFOLD_PACKAGE_OPEN",
+  "scope": "Source-level decomposition of the singular-series, Lipschitz, one-dimensional multiplicative summation, and iterated summation constants used in Maynard Lemmas 8.1-8.4. H1b-1b-2b makes the corrected kappa=1 one-dimensional multiplier parameterized explicit for every x>=2. This is not a complete quantitative reproof and supplies no numerical theorem threshold.",
+  "outcome": "CORRECTED_KAPPA1_BASE_RATE_PARAMETERIZED_EXPLICIT_ACTUAL_INPUTS_RFOLD_PACKAGE_OPEN",
   "lemma_8_3_citation_identified": true,
   "lemma_8_3_numeric_multiplier_recovered": false,
+  "lemma_8_3_parameterized_multiplier_recovered": true,
   "numerical_basic_summation_package_ready": false,
   "siv_07_closed": false,
   "numerical_x_cert_ready": false,
@@ -16,6 +17,7 @@
   "h1b1b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json",
   "h1b1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
   "h1b1b2a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
+  "h1b1b2b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016_PUBLISHED",
@@ -87,6 +89,7 @@
     "CONSTRUCTIVE_SUBPROBLEM": "A finite choice or inequality can be specified by the project, but has not yet been quantitatively proved and composed.",
     "PROJECT_FINITE_COMPONENT_CLOSED": "A project proof supplies a finite explicit formula and range for the named component, without closing the parent package.",
     "PARAMETERIZED_EXPLICIT": "The propagation formula is explicit in a named upstream multiplier, but that upstream multiplier or its finite range is still missing.",
+    "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1": "Ford's corrected kappa=1 structure has a project-explicit multiplier and finite range, while actual application parameters remain uninstantiated.",
     "PARTIAL_EXPLICIT": "A finite majorant is explicit after numeric input normalization, but at least one source coefficient or common range remains open.",
     "RATE_MISSING": "At least one O, o, Vinogradov multiplier, norm, or sufficiently-large cutoff is not numerical.",
     "LOWER_SOURCE_REVIEW_REQUIRED": "A lower cited proof must be quantitatively reconstructed before a multiplier can be certified.",
@@ -157,26 +160,24 @@
       "id": "H1B1-L83-GGPY4",
       "locator": "Maynard Lemma 8.3; GGPY2009 Lemma 4 with kappa=1",
       "role": "one-dimensional multiplicative summation",
-      "printed_information": "Castillo et al. show that under the stated hypotheses the safe base error is absolute, without c_gamma. H1b-1b makes the kappa=1 partial-summation transfer explicit: an absolute Lemma 3 multiplier C3(A1,A2) gives absolute Lemma 4 multiplier 2 C3(A1,A2) for GGPY's norm M(F).",
+      "printed_information": "Castillo et al. correctly reject the uncorrected printed c_gamma-relative error. Ford Theorem 4.4 restores the missing c_gamma*(L+1)^kappa term. H1b-1b-2b explicitly rederives the kappa=1 case and gives C_L83(a,A2)=2*(40960*D(a,A2)*exp(256+A2)+2) for every z>=2.",
       "missing_numeric_inputs": [
-        "the numerical absolute upstream multiplier C3(A1,A2) from the HR/Kuperberg proof chain",
-        "the common finite z range inherited from that upstream proof",
         "a certified common A1, A2 and L specialization for every actual invocation"
       ],
       "upstream": [
         "H1B1-L83-GGPY3"
       ],
-      "status": "PARAMETERIZED_EXPLICIT",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
       "threshold_ready": false
     },
     {
       "id": "H1B1-L83-PUBLISHED-NOTE",
       "locator": "Maynard published version, note following Lemma 8.3",
       "role": "version-control correction for the general kappa statement",
-      "printed_information": "The published paper notes that a c_gamma(L+1)^kappa error is needed in general and says this general-kappa issue does not affect kappa=1. Castillo et al. identify a distinct issue that remains at kappa=1: the c_gamma factor in the error does not follow from the stated hypotheses without an additional z-versus-L size condition.",
+      "printed_information": "The published paper notes that a c_gamma(L+1)^kappa error is needed in general. Castillo et al. correctly identify that the uncorrected GGPY/Maynard proof does not justify the printed c_gamma factor. Ford Theorem 4.4 supplies a corrected proof with the missing extra term; for kappa=1 both corrected terms have size c_gamma*(L+1).",
       "missing_numeric_inputs": [
-        "the numerical multiplier still hidden in the kappa=1 absolute error term",
-        "H1b-1b-2a.1 closes every traced application-specific excluded modulus, but not every abstract gamma satisfying only the printed g(p)=p+O(k) hypothesis"
+        "the corrected statement must be cited rather than the uncorrected printed proof",
+        "the H1b-1b-2b multiplier is intentionally coarse and is not a sharp literature constant"
       ],
       "upstream": [],
       "status": "PRINTED_STRUCTURAL_FACT",
@@ -184,16 +185,14 @@
     },
     {
       "id": "H1B1-L83-GGPY3",
-      "locator": "GGPY2009 Lemma 3; Halberstam-Richert Lemmas 5.3-5.4; Kuperberg2023 Lemma 4.3",
+      "locator": "GGPY2009 Lemma 3; Halberstam-Richert Lemmas 5.3-5.4; Ford2023 Theorem 4.4; Dusart2010 Theorems 6.10-6.12",
       "role": "lower-level summation estimate used by GGPY Lemma 4",
-      "printed_information": "GGPY identifies HR Lemmas 5.3-5.4. Kuperberg gives an accessible modern structural reproduction after HR Lemma 5.4 and displays an O((L+k^4)/log z) relative error under implicit B_L and B_k size conditions for a special prime-tuple sieve function. It does not supply project-ready numerical constants or a general Maynard gamma specialization.",
+      "printed_information": "Ford Theorem 4.4 corrects the missing small-x term and proves the required general positive-density summatory estimate. H1b-1b-2b makes its kappa=1 multiplier explicit as C_sum(a,A2)=40960*D(a,A2)*exp(256+A2), uniformly for every x>=2. Maynard/Ford's a maps to GGPY A1 by A1_GGPY=1/a.",
       "missing_numeric_inputs": [
-        "explicit B_L and B_k and every O multiplier in the Kuperberg/HR recurrence",
-        "a checked specialization from the reproduced prime-tuple sieve function to every Maynard Lemma 8.4 gamma",
-        "a common finite range and numerical absolute multiplier"
+        "one common numerical a, A2 and L specialization for every actual Maynard invocation"
       ],
       "upstream": [],
-      "status": "RATE_MISSING",
+      "status": "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1",
       "threshold_ready": false
     },
     {
@@ -248,8 +247,8 @@
         "a certified smallness range for epsilon",
         "the exact binomial or exponential accumulation multiplier",
         "a common range after all r iterations",
-        "a corrected r-fold derivation because the per-step absolute error does not automatically factor with c_gamma",
-        "the now-parameterized 6*C3_abs*(1+log Lambda_star) normalization loss"
+        "a corrected r-fold derivation using the Ford-Wirsing kappa=1 multiplier C_L83(a,A2)",
+        "one common actual a, A2, L and smooth-norm specialization"
       ],
       "upstream": [
         "H1B1-L82-LIPSCHITZ",
@@ -285,14 +284,14 @@
   ],
   "parent_ledger_update": {
     "parent_row": "H1B-L83",
-    "old_status": "SOURCE_REVIEW_REQUIRED",
-    "new_status": "RATE_MISSING",
-    "reason": "The source chain and peer-reviewed error-term correction are traced. H1b-1b-2a.1 closes the actual nonexcluded local factors and all 11 traced application excluded-modulus bounds. Kuperberg/HR numerical constants, finite ranges, actual A1/A2/L values and the corrected r-fold composition remain open.",
+    "old_status": "RATE_MISSING",
+    "new_status": "PARAMETERIZED_EXPLICIT_INPUTS_OPEN",
+    "reason": "Ford Theorem 4.4 supplies the corrected structural result and H1b-1b-2b makes the kappa=1 multiplier explicit for every x>=2. Actual common a, A2 and L values and the corrected r-fold composition remain open.",
     "does_not_close_parent": true
   },
   "next_gate": {
-    "id": "H1b-1b-2b-absolute-base-multiplier",
-    "description": "Reconstruct the Kuperberg/HR recurrence, recover an absolute C3(A1,A2) and finite range, make the actual-call A1/A2/L bounds numerical, and redo Maynard Lemma 8.4 with 6*C3_abs*(1+log Lambda_star).",
+    "id": "H1b-1b-2c-actual-input-specialization",
+    "description": "Make the actual-call Maynard/Ford a, A2 and L bounds numerical, evaluate the corrected C_L83(a,A2), and then redo Maynard Lemma 8.4 r-fold composition.",
     "ready_for_threshold_calculator": false
   }
 }

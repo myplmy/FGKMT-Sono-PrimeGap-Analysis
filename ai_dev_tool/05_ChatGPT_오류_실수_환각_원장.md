@@ -317,6 +317,34 @@
   묶기 전에 현재 파일의 정확한 context를 다시 읽는다. patch 실패 직후에는 성공으로 간주하지
   않고 파일 내용과 `git diff`를 확인한다.
 
+### E025 — H1b-1b-2b 초안의 tail 상수를 과소 계상
+
+- 분류: `MATHEMATICAL_BOUND_ERROR / CORRECTED_BEFORE_PARENT_CLOSURE`
+- 문제: Ford Theorem 4.4의 \(\kappa=1\) proof를 처음 명시화할 때, prime weighted-sum의
+  두 endpoint 오차와 작은 \(x\) reciprocal-prime 구간을 충분히 합산하지 않아 중간 상수를
+  81, 지수 상수를 165로 적었다.
+- 영향: 새 이론 문서 초안·기계 계약·코드의 미검증 상태에만 잠시 존재했다. actual 실험,
+  기존 결과, `SIV-07`, `X_cert` 또는 theorem threshold는 실행·승격되지 않았다.
+- 교정: 원문 식 (4.8)--(4.15)와 Abel 부분합을 다시 전개해 interval bound를
+  `128+A2+L <= (130+A2)(L+1)`로 고쳤다. 작은/큰 \(x\) 분기를 모두 덮도록 지수는
+  보수적인 `256+A2`로 올리고 관련 문서·JSON·코드·시험을 전부 동기화했다.
+- 재발 방지: asymptotic proof를 수치화할 때 endpoint, small-range split, tail integral을
+  별도 행으로 원장화하고, 더 작은 상수보다 먼저 독립적인 안전 상계를 확보한다.
+
+### E026 — JSON·제어문자 보조 검증기가 신뢰할 수 없는 PASS/FAIL을 표시
+
+- 분류: `VALIDATION_SCRIPT_ERROR / CORRECTED_DURING_FINAL_AUDIT`
+- 문제: PowerShell `ConvertFrom-Json`은 `f`와 `F`처럼 대소문자만 다른 키가 있는 기존 JSON에서
+  비종료 오류를 냈지만, 명령 끝의 PASS 문자열은 그대로 출력했다. 별도 Python 제어문자
+  one-liner는 escape를 잘못 써 정상 줄바꿈을 제어문자로 오판했다.
+- 영향: 첫 JSON PASS와 첫 제어문자 FAIL을 모두 폐기했다. 연구 계약 파일의 오류나 수치 오염은
+  없었고, 최종 판정에는 사용하지 않았다.
+- 교정: 고정 FGKMT Python의 `json.loads`로 theory JSON 12개를 엄격 파싱했고, 제어문자는
+  codepoint 9/10/13을 직접 허용하는 방식으로 213개 UTF-8 텍스트를 다시 검사했다.
+- 재발 방지: PowerShell 검증은 `$ErrorActionPreference='Stop'` 또는 `-AsHashtable`을 쓰며,
+  PASS는 오류가 없고 종료코드 0인 뒤에만 출력한다. escape-sensitive 검사는 문자 리터럴보다
+  codepoint 정수 집합을 사용한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

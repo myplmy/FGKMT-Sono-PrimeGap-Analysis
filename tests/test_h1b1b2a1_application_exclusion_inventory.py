@@ -44,7 +44,7 @@ class H1b1b2a1ApplicationExclusionInventoryTests(unittest.TestCase):
         cls.rows = cls.contract["applications"]
 
     def test_contract_scope_and_source_hash(self) -> None:
-        self.assertEqual(self.contract["schema_version"], "1.0.0")
+        self.assertEqual(self.contract["schema_version"], "1.1.0")
         self.assertEqual(len(self.rows), 11)
         self.assertEqual(
             self.contract["trace_completeness"],
@@ -169,7 +169,13 @@ class H1b1b2a1ApplicationExclusionInventoryTests(unittest.TestCase):
     def test_closure_does_not_promote_parent_theorem(self) -> None:
         route = self.contract["route_status"]
         self.assertTrue(route["all_actual_application_overheads_certified"])
-        self.assertTrue(route["explicit_lower_bound_route_selected"])
+        self.assertFalse(route["explicit_lower_bound_route_selected"])
+        self.assertTrue(route["corrected_kappa1_wirsing_route_selected"])
+        self.assertEqual(
+            self.contract["corrected_wirsing_contract"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+        )
         self.assertFalse(route["C3_abs_numeric_multiplier_recovered"])
         self.assertFalse(route["actual_A1_A2_L_numeric"])
         self.assertFalse(route["corrected_rfold_composition_closed"])
