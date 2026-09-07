@@ -17,6 +17,8 @@
   [`14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md`](14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md)
 - H1b-1 basic summation 감사:
   [`15_Sono_FMT_H1b1_basic_summation_constant_audit.md`](15_Sono_FMT_H1b1_basic_summation_constant_audit.md)
+- H1b-1b-2a actual-call local-factor·base-W 하한:
+  [`20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md`](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
 - H1c Hypothesis 1·PAP source trace:
   [`16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`](16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md)
 
@@ -318,16 +320,22 @@ character/Bombieri–Vinogradov package는 열려 있다. PAP도 \(C_{PAP}=1-e^{
 `SIV-08`의 잘못된 `depends_on: [PAP-11]` edge를 제거했다. 이 graph 정정은 `SIV-08`, `PAP-11`,
 hard-blocker 수 또는 \(X_{\mathrm{cert}}\)의 상태를 올리지 않는다.
 
-이제 권장 순서는 다음과 같다.
+현재 권장 순서는 다음과 같다.
 
-1. `H1b-1a`: explicit cutoff와 elementary prime-product/totient bound를 고정한다.
-2. `H1c-1`: FGKMT (7.2)–(7.3)의 quantitative character/Bombieri–Vinogradov package를 복원한다.
-3. `H1b-1b`: Kuperberg/HR absolute multiplier, GGPY 오류항의 \(c_\gamma\)
-   normalization repair와 Lemma 8.4의 반복오차를 합성한다.
-4. `H1b-2`: 위 입력 뒤 Propositions 9.1–9.5의 finite moment와 공통 cutoff를 합성한다.
-5. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
-6. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
-7. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
+1. `H1b-1b-2a.1`: Maynard 실제 호출의 확대 제외모듈
+   \(dW_i,W_i',a_mWBr,rW_m,W_0\)을 전수 감사해 공통
+   \(\Lambda^{\rm app}_{\max}\)를 인증한다.
+2. `H1b-1b-2b`: Kuperberg/HR absolute multiplier
+   \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 finite range를 복원한다.
+3. Maynard 실제 호출의 \(A_1,A_2,L\)을 수치화하고,
+   인증된 \(6C_{3,\mathrm{abs}}(1+\log\Lambda^{\rm app}_{\max})\) 손실을 넣어
+   Lemma 8.4를 재합성한다.
+4. 병렬 이론축 `H1c-1`에서 FGKMT (7.2)–(7.3)의 quantitative
+   character/Bombieri–Vinogradov package를 복원한다.
+5. `H1b-2`: 위 입력 뒤 Propositions 9.1–9.5의 finite moment와 공통 cutoff를 합성한다.
+6. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
+7. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
+8. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
 
 현재 사용자 PC에 계산을 요청할 단계는 아니다. 병목은 연산시간이 아니라 논문 속 숨은 상수와
 유효범위를 수학적으로 복원하는 일이다.
@@ -347,3 +355,19 @@ hard-blocker 수 또는 \(X_{\mathrm{cert}}\)의 상태를 올리지 않는다.
 
 검증기는 66행 T1 schema·DAG·source hash, 9행 H1 source trace, 17행 H1b, 13행 H1b-1과
 20행 H1c ledger의 fail-closed 상태를 확인한다.
+
+## 11. 2026-09-07 actual local-factor·base-W 하한 반영
+
+H1b-1b-2a는 Maynard Section 8의 실제 호출식에서 비제외 prime-local factor가 1 이상임을
+증명하고, 유효 제외 소수의 손실을 \(\varphi(Q_j)/Q_j\)로 합쳤다. canonical
+\(W_i\)의 base 상계는 명시했지만 실제 호출의 \(dW_i,W_i',a_mWBr,rW_m,W_0\)를
+모두 포함하지 않는다. 따라서 Rosser--Schoenfeld 변환
+
+\[
+c_{\gamma,j}>\frac{1}{3(1+\log\Lambda^{\rm app}_j)}
+\]
+
+은 호출별 \(\Lambda^{\rm app}_j\ge\log Q_j\)를 인증한 뒤에만 쓸 수 있다. lower-bound
+repair는 주요 후보지만 application-exclusion inventory가 OPEN이다. 또한
+\(C_{3,\mathrm{abs}}\), 실제 \(A_1,A_2,L\), 공통 finite range와 \(r\)-회 합성이
+없으므로 T1의 66행 상태 수, `SIV-07`, \(X_{\mathrm{cert}}\)는 바뀌지 않는다.

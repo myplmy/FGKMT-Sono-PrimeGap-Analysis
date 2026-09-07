@@ -1,6 +1,7 @@
 # Sono/FMT H1b-1b-2 \(c_\gamma\) 오류 정규화·Lemma 8.4 보정 원장
 
 - 작성일: 2026-09-06
+- 갱신일: 2026-09-07
 - 상위 obligation: SIV-07
 - 입력 정본:
   [H1b-1b multiplier 복원·오류항 교정](18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md)
@@ -8,6 +9,8 @@
   [Kuperberg·GGPY 오류항 검토](../../review/27_20260906_H1b1b_Kuperberg_GGPY_error_term_타당성검토.md)
 - 기계 원장:
   data/Sono_FMT_H1b1b2_cgamma_error_normalization_v1.json
+- actual-call local-factor·base-W 정식화:
+  [H1b-1b-2a local-factor·base-W 하한](20_Sono_FMT_H1b1b2a_actual_local_factor_lower_bound.md)
 
 ## 1. 목적
 
@@ -20,8 +23,12 @@ GGPY/Maynard에 인쇄된 \(c_\gamma\)-포함 오류항은 원래 가정만으�
    복원하는 경로
 3. \(c_\gamma\)로 나누지 않고 절대오차를 다변수 합 전체에서 직접 합성하는 경로
 
-현재는 어느 경로도 닫히지 않았다. 이 문서는 증명 완료 보고서가 아니라
-중복과 가정 혼합을 막는 proof-obligation 원장이다.
+2026-09-07 H1b-1b-2a는 첫 번째 경로의 actual 비제외 local factor와 canonical
+\(W_i\) base 상계를 닫았다. 그러나 확대된 실제 제외모듈의 application별 상계가
+남아 있어 첫 번째 경로 전체는 `PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN`이다. 이는 추상
+`g(p)=p+O(k)` 전체나 Lemma 8.4의 수정된 (r)-회 오류 합성을 닫은 것이 아니다.
+기본 절대오차 상수 (C_{3,\mathrm{abs}})도 계속 빠져 있으므로 이 문서는 여전히
+전체 증명 완료 보고서가 아니라 proof-obligation 원장이다.
 
 ## 2. Maynard Lemma 8.4의 실제 한 단계
 
@@ -62,17 +69,29 @@ local factor는 \(1-1/p\)이다. 따라서 최소한
 \prod_{p\le2k^2}\left(1-\frac1p\right)
 \]
 
-의 explicit lower bound가 필요하다. 정성적 Mertens 식이 아니라 유효한 시작점과
-오류상수가 있는 finite bound여야 한다.
+의 explicit lower bound가 필요하다. H1b-1b-2a에서는 이를 큰 제외 소수와 따로
+추정하지 않고 §3.2의 한 정수 \(Q_j\)에 합쳤다.
 
 ### 3.2 큰 제외 소수
 
-\(W_{j+1}\prod_{i>j+1}e_i\)의 큰 소인수도 local factor \(1-1/p\)를 만든다.
-Maynard proof는 이 정수의 크기를 \(R^{O(k^2)}\)라고만 쓴다. 따라서 다음 숫자가 필요하다.
+\(\widetilde W_{j+1}\prod_{i>j+1}e_i\)의 큰 소인수도 local factor \(1-1/p\)를 만든다.
+H1b-1b-2a는 canonical \(W_i\) 구성의 prime support를 계수 판별식까지 추적해
 
-- \(O(k^2)\)의 실제 계수
-- 주어진 정수 크기 아래에서 \(\prod_{p\mid N}(1-1/p)\)의 finite lower bound
-- 모든 \(j\)와 남은 \(e_i\)에 공통인 범위
+\[
+\log Q^{\rm base}_j\le\Lambda^{\rm base}_j
+\]
+
+의 명시식을 얻었다. 그러나 실제 호출은 \(dW_i,W_i',a_mWBr,rW_m,W_0\)도 사용한다.
+호출별 \(\eta_{\rm app,j}\)를 인증해
+\(\Lambda^{\rm app}_j=\Lambda^{\rm base}_j+\eta_{\rm app,j}\)를 얻으면
+Rosser--Schoenfeld Theorem 15에 의해 작은·큰 제외 소수의 손실 전체는
+
+\[
+\frac{\varphi(Q_j)}{Q_j}>
+\frac{1}{3(1+\log\Lambda^{\rm app}_j)}
+\]
+
+로 내려간다. 변환은 explicit하지만 application overhead 전수감사는 아직 OPEN이다.
 
 ### 3.3 제외되지 않은 소수
 
@@ -83,25 +102,46 @@ Maynard proof는 이 정수의 크기를 \(R^{O(k^2)}\)라고만 쓴다. 따라�
 {1-1/(1+n_j(p)+g(p))}.
 \]
 
-\(g(p)=p+O(k)\)의 multiplier와 부호를 숫자로 알아야 이 무한곱의 앞부분과 tail을
-아래에서 누를 수 있다. 단순히 local factor가 1에 가깝다고 말하는 것으로는 부족하다.
+추상 \(g(p)=p+O(k)\)만으로는 여전히 multiplier와 부호가 부족하다. 그러나 실제 호출은
+
+\[
+p-a,\quad
+\frac{(p-a)^2}{p-1},\quad
+\frac{(p-a)^2}{p+a-2},\quad
+p-a-\frac{a-1}{p-1}
+\]
+
+의 네 family로 덮이며 모두 \(0<g(p)\le p-a\)다. 비제외 소수에서는
+\(n_j(p)\le a-1\)이므로 local factor는 exact하게 1 이상이다. 따라서 actual-call
+비제외 무한곱에는 별도 tail 손실이 없다.
 
 ### 3.4 합성
 
-위 세 부분을 합쳐 모든 단계에서
+actual call의 위 세 부분을 합치려면 모든 단계의 유효 제외모듈을 먼저 인증해야 한다.
+그 인증이 있으면
 
 \[
 c_{\gamma,j}\ge c_{\min}(k,r,R)>0
 \]
 
-를 얻으면, H1b-1b의 절대오차 transfer와 결합해 상대 multiplier
+를 얻는다. 보수적 공통 선택은 인증된
+\(c_{\min}=1/[3(1+\log\Lambda^{\rm app}_{\max})]\)이다.
+H1b-1b의 절대오차 transfer와 결합한 상대 multiplier는
 
 \[
 \frac{2C_{3,\mathrm{abs}}(A_1,A_2)}
 {c_{\min}(k,r,R)}
 \]
 
-를 얻는다. 이 식은 exact하지만 분자와 분모의 수치가 아직 없다.
+이며, 초등 약화를 쓰면
+
+\[
+\frac{2C_{3,\mathrm{abs}}}{c_{\min}}
+\le6C_{3,\mathrm{abs}}(1+\log\Lambda^{\rm app}_{\max})
+\]
+
+이다. 현재는 \(\Lambda^{\rm app}_{\max}\), \(C_{3,\mathrm{abs}}\), 그 유효범위와
+수정된 \(r\)-회 합성이 모두 아직 없다.
 
 ## 4. Kuperberg형 size-gate 경로
 
@@ -138,35 +178,32 @@ k^2\le\frac{\log z}{B_k}
 |---|---|---|
 | H1B1B2-GAMMA-FORM | 단계별 \(\gamma_j\) 식 | PRINTED_EXACT_STRUCTURE |
 | H1B1B2-CGAMMA-PRODUCT | \(c_{\gamma,j}\)와 product identity | PRINTED_EXACT_STRUCTURE |
-| H1B1B2-CMIN-SMALL-EXCLUDED | 작은 제외 소수 곱 하한 | RATE_MISSING |
-| H1B1B2-CMIN-LARGE-EXCLUDED | 큰 제외 소수 곱 하한 | RATE_MISSING |
-| H1B1B2-CMIN-NONEXCLUDED | 나머지 무한곱 하한 | RATE_MISSING |
-| H1B1B2-CMIN-COMPOSE | uniform \(c_{\min}\) 합성 | PARAMETERIZED_EXPLICIT |
-| H1B1B2-SIZE-GATE | Kuperberg형 복원 | SPECIALIZATION_REQUIRED |
-| H1B1B2-ROUTE-DECISION | 증명된 경로 선택 | HARD_BLOCKER |
+| H1B1B2-CMIN-SMALL-EXCLUDED | 작은 제외 소수 곱 하한 | PRIMARY_EXPLICIT_BOUND_AVAILABLE |
+| H1B1B2-CMIN-LARGE-EXCLUDED | 큰 제외 소수 곱 하한 | BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN |
+| H1B1B2-CMIN-NONEXCLUDED | 나머지 무한곱 하한 | PROJECT_FINITE_COMPONENT_CLOSED_FOR_ACTUAL_CALLS |
+| H1B1B2-CMIN-COMPOSE | uniform \(c_{\min}\) 합성 | PARAMETERIZED_EXPLICIT_APPLICATION_INPUT_OPEN |
+| H1B1B2-SIZE-GATE | Kuperberg형 복원 | OPTIONAL_SECONDARY_ROUTE |
+| H1B1B2-ROUTE-DECISION | 증명된 경로 선택 | PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN |
 | H1B1B2-RFOLD-COMPOSITION | \(r\)회 오류 누적 | HARD_BLOCKER |
 
 ## 7. 먼저 할 일과 중단 조건
 
 ### 권장 1단계
 
-Maynard에서 실제로 쓰이는 \(g(p)\), \(n_j(p)\), \(W_i\), \(e_i\) 제약을 더 아래 source까지
-추적해 local factor의 최악값을 식으로 만든다. 예상 4–10시간.
-
-중단 조건:
-
-- \(g(p)=p+O(k)\)의 multiplier가 또 다른 미접근 source에만 있으면 source gate로 돌린다.
-- 얻은 \(c_{\min}\)이 너무 작아 최종 상대오차를 실용적으로 닫지 못하면 size-gate 경로와
-  직접 합성 경로를 우선 비교한다.
+Maynard 실제 호출의 \(dW_i,W_i',a_mWBr,rW_m,W_0\)와 남은 \(e_i\)를 전수 고정하고
+\(\eta_{\rm app,j}\)를 증명한다. 예상 6–16시간. 한 호출이라도 support·범위가 모호하면
+uniform \(c_{\min}\)을 만들지 않고 그 호출을 OPEN으로 유지한다.
 
 ### 권장 2단계
 
-explicit Mertens/totient-product lower bound 후보를 1차 출처에서 수집하고
-작은 범위를 exact integer arithmetic으로 메울 수 있는지 설계한다. 예상 4–12시간.
+Kuperberg/HR recurrence에서 \(C_{3,\mathrm{abs}}(A_1,A_2)\)와 그 최초 유효범위를
+복원한다. 예상 8–24시간 이상. 그 뒤 Maynard actual call의 \(A_1,A_2,L\) bound와
+\(6C_{3,\mathrm{abs}}(1+\log\Lambda^{\rm app}_{\max})\) 손실을 넣어 Lemma 8.4의
+\(r\)-회 귀납을 재합성한다. \(C_{3,\mathrm{abs}}\)가 없으면 합성에 착수하지 않는다.
 
-### 권장 3단계
+### 병렬 권장
 
-Kuperberg recurrence의 \(B_L,B_k,O\)-상수와 일반 \(\gamma\) 확장 가능성을 감사한다.
+H1c-1의 quantitative character/Bombieri--Vinogradov package를 계속 source tracing한다.
 예상 8–24시간 이상.
 
 ### 아직 하지 않을 일
@@ -174,7 +211,7 @@ Kuperberg recurrence의 \(B_L,B_k,O\)-상수와 일반 \(\gamma\) 확장 가능�
 - threshold calculator 작성
 - 장시간 prime sweep
 - P018-B 자동 실행
-- \(c_{\min}\), \(C_{3,\mathrm{abs}}\), \(B_L,B_k\)에 임의 숫자 대입
+- \(C_{3,\mathrm{abs}}\), \(B_L,B_k\)에 임의 숫자 대입
 - SIV-07 또는 \(X_{\mathrm{cert}}\) 상태 승격
 
 ## 8. 사용자 수행사항

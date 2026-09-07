@@ -1,11 +1,12 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "created_kst": "2026-09-06",
-  "updated_kst": "2026-09-06",
+  "updated_kst": "2026-09-07",
   "gate": "H1b-1b-2 corrected c_gamma error normalization and Lemma 8.4 route decision",
   "target_obligation": "SIV-07",
-  "scope": "A fail-closed decomposition of the additional proof needed after the peer-reviewed correction to the GGPY/Maynard c_gamma-normalized error. This ledger does not prove a numerical lower bound, choose a successful repair route, certify Maynard Lemma 8.4, or compute X_cert.",
-  "outcome": "PROOF_OBLIGATIONS_REGISTERED_NO_NUMERICAL_REPAIR_ROUTE_CLOSED",
+  "scope": "A fail-closed decomposition of the additional proof needed after the peer-reviewed correction to the GGPY/Maynard c_gamma-normalized error. H1b-1b-2a proves the traced actual prime-local denominator inequalities and a canonical-W_i size bound, but actual application-specific excluded-modulus overheads remain open. This ledger does not recover C3_abs, certify the corrected r-fold Lemma 8.4 composition, close SIV-07, or compute X_cert.",
+  "outcome": "LOCAL_FACTOR_CLOSED_APPLICATION_EXCLUDED_MODULUS_INVENTORY_OPEN_BASE_CONSTANT_AND_RFOLD_OPEN",
+  "child_contract": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016_SOURCE",
@@ -42,7 +43,14 @@
     "PARAMETERIZED_EXPLICIT": "An exact propagation formula is proved once named positive numerical inputs are supplied.",
     "RATE_MISSING": "At least one multiplier, exponent constant, or finite range remains implicit.",
     "SPECIALIZATION_REQUIRED": "A result for a special sieve function has not been proved uniformly for Maynard's actual functions.",
-    "HARD_BLOCKER": "No route can be promoted until all upstream bounds and a common range are numerical."
+    "HARD_BLOCKER": "No route can be promoted until all upstream bounds and a common range are numerical.",
+    "PRIMARY_EXPLICIT_BOUND_AVAILABLE": "A primary source supplies the required finite inequality.",
+    "PROJECT_FINITE_COMPONENT_CLOSED_FOR_ACTUAL_CALLS": "The project proves this component for every traced actual application, not for the abstract g(p)=p+O(k) class.",
+    "PROJECT_PARAMETERIZED_EXPLICIT": "A hidden asymptotic term has been replaced by a formula in named parameters, but the parent numerical package remains open.",
+    "BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN": "The canonical W_i contribution is explicit, but augmented effective excluded moduli in actual calls are not yet all certified.",
+    "PARAMETERIZED_EXPLICIT_APPLICATION_INPUT_OPEN": "The analytic conversion is explicit once an application-specific excluded-modulus bound is supplied, but that input is not yet certified for every call.",
+    "PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN": "The explicit lower-bound route is the primary candidate, but it is not proved for every actual call until the excluded-modulus inventory is closed.",
+    "OPTIONAL_SECONDARY_ROUTE": "This route remains an alternative comparison route and may become necessary if the primary candidate cannot be closed."
   },
   "obligations": [
     {
@@ -77,65 +85,61 @@
       "id": "H1B1B2-CMIN-SMALL-EXCLUDED",
       "locator": "excluded primes in c_gamma_j; W_i contains every p<=2k^2",
       "role": "lower-bound the product of (1-1/p) over mandatory small excluded primes",
-      "printed_information": "The mandatory contribution includes product_{p<=2k^2}(1-1/p).",
-      "missing_numeric_inputs": [
-        "an explicit Mertens or totient-product lower bound with finite cutoff",
-        "compatibility with the chosen k range"
-      ],
+      "printed_information": "The mandatory contribution is included in phi(Q_j)/Q_j. Rosser-Schoenfeld Theorem 15 supplies an exception-safe explicit bound for every integer Q_j>=3.",
+      "missing_numeric_inputs": [],
       "upstream": [
         "H1B1B2-CGAMMA-PRODUCT"
       ],
-      "status": "RATE_MISSING",
+      "status": "PRIMARY_EXPLICIT_BOUND_AVAILABLE",
       "threshold_ready": false
     },
     {
       "id": "H1B1B2-CMIN-LARGE-EXCLUDED",
       "locator": "Maynard Lemma 8.4 proof, source lines 570-579",
       "role": "lower-bound factors from prime divisors of W_{j+1} product e_i above 2k^2",
-      "printed_information": "The proof only states that the relevant integer is at most R^(O(k^2)) and that its prime-divisor harmonic sum is O(log log R).",
+      "printed_information": "H1b-1b-2a replaces the printed R^(O(k^2)) for the canonical W_i construction by log(Q_base,j)<=Lambda_base,j. Actual calls also use d W_i, W_i', a_m W B r, r W_m and W_0, whose additional eta_app,j bounds are not yet all certified.",
       "missing_numeric_inputs": [
-        "the exponent hidden in R^(O(k^2))",
-        "an explicit lower bound for the corresponding finite Euler product",
-        "uniformity in j and the remaining e_i"
+        "an application-by-application effective excluded-modulus inventory",
+        "certified eta_app,j overheads for every actual call",
+        "the final proof-chain choices of alpha, theta, k, r and R"
       ],
       "upstream": [
         "H1B1B2-CGAMMA-PRODUCT"
       ],
-      "status": "RATE_MISSING",
+      "status": "BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN",
       "threshold_ready": false
     },
     {
       "id": "H1B1B2-CMIN-NONEXCLUDED",
       "locator": "Maynard Lemma 8.4 proof, source lines 570-578",
       "role": "lower-bound the convergent product over nonexcluded primes",
-      "printed_information": "For nonexcluded primes gamma_j(p)=1+O(k/p), but the O multiplier is not printed.",
+      "printed_information": "For every traced actual Section 8 call, the prime-local denominator is one of four exact families satisfying 0<g(p)<=p-a. Since nonexclusion gives n_j(p)<=a-1, every nonexcluded local factor is at least one.",
       "missing_numeric_inputs": [
-        "an explicit local-factor lower bound from g(p)",
-        "an explicit tail-product bound beyond 2k^2",
-        "a common k cutoff"
+        "a separate treatment would still be required for an arbitrary function known only through g(p)=p+O(k)"
       ],
       "upstream": [
         "H1B1B2-CGAMMA-PRODUCT"
       ],
-      "status": "RATE_MISSING",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED_FOR_ACTUAL_CALLS",
       "threshold_ready": false
     },
     {
       "id": "H1B1B2-CMIN-COMPOSE",
       "locator": "project lower-bound route",
       "role": "produce one positive c_min valid at every Lemma 8.4 iteration",
-      "printed_information": "If c_gamma_j>=c_min>0 uniformly, the corrected absolute Lemma 4 error converts to a relative multiplier 2*C3_abs/c_min.",
+      "printed_information": "For any actual call with a certified log(Q_j)<=Lambda_app,j, Rosser-Schoenfeld gives c_gamma_j>1/[3(1+log Lambda_app,j)]. A common worst-case bound cannot be fixed until every application overhead eta_app,j is certified.",
       "missing_numeric_inputs": [
-        "all three local-product bounds",
-        "one common j,k,r,R range",
-        "a certified absolute C3_abs(A1,A2)"
+        "the complete application-specific excluded-modulus inventory and eta_app,j bounds",
+        "a certified absolute C3_abs(A1,A2) and its finite range",
+        "the final common parameter choices",
+        "the corrected r-fold accumulation"
       ],
       "upstream": [
         "H1B1B2-CMIN-SMALL-EXCLUDED",
         "H1B1B2-CMIN-LARGE-EXCLUDED",
         "H1B1B2-CMIN-NONEXCLUDED"
       ],
-      "status": "PARAMETERIZED_EXPLICIT",
+      "status": "PARAMETERIZED_EXPLICIT_APPLICATION_INPUT_OPEN",
       "threshold_ready": false
     },
     {
@@ -152,23 +156,24 @@
       "upstream": [
         "H1B1B2-GAMMA-FORM"
       ],
-      "status": "SPECIALIZATION_REQUIRED",
+      "status": "OPTIONAL_SECONDARY_ROUTE",
       "threshold_ready": false
     },
     {
       "id": "H1B1B2-ROUTE-DECISION",
       "locator": "project composition gate",
       "role": "choose a proved lower-bound, size-gate, or direct multivariate repair without mixing hypotheses",
-      "printed_information": "The lower-bound and size-gate routes are sufficient in principle; a direct absolute-error multivariate proof is a third possible route.",
+      "printed_information": "H1b-1b-2a identifies the explicit c_gamma lower-bound route as the primary candidate, but actual application-specific excluded moduli are not yet all certified. Kuperberg and a direct absolute multivariate proof remain alternative routes.",
       "missing_numeric_inputs": [
-        "at least one fully numerical route",
-        "a comparison of the resulting error loss and cutoff"
+        "application-by-application eta_app,j bounds",
+        "C3_abs(A1,A2) and its finite range",
+        "the corrected r-fold error accumulation and common cutoff"
       ],
       "upstream": [
         "H1B1B2-CMIN-COMPOSE",
         "H1B1B2-SIZE-GATE"
       ],
-      "status": "HARD_BLOCKER",
+      "status": "PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN",
       "threshold_ready": false
     },
     {
@@ -177,8 +182,9 @@
       "role": "redo the j=0 to r induction and binomial error accumulation with the corrected normalization",
       "printed_information": "The printed proof uses c_j*c_gamma_j factorization at every step and then replaces the binomial error by O(j epsilon).",
       "missing_numeric_inputs": [
-        "a successful normalization repair route",
+        "a numerical C3_abs(A1,A2) and finite range",
         "explicit Omega_G and L constants",
+        "the additional 6*C3_abs*(1+log Lambda_app,max) normalization loss",
         "a numerical smallness condition for the binomial accumulation",
         "a common finite cutoff"
       ],
@@ -190,10 +196,12 @@
     }
   ],
   "route_status": {
-    "explicit_c_gamma_lower_bound": "OPEN",
-    "explicit_z_vs_L_restoration_gate": "OPEN",
-    "direct_multivariate_absolute_error_reproof": "UNSCOPED_OPTION",
-    "route_selected": false
+    "explicit_c_gamma_lower_bound": "CONDITIONAL_ON_APPLICATION_EXCLUDED_MODULUS_CERTIFICATE",
+    "explicit_z_vs_L_restoration_gate": "OPTIONAL_SECONDARY_ROUTE",
+    "direct_multivariate_absolute_error_reproof": "OPTIONAL_UNSCOPED",
+    "explicit_lower_bound_route_primary_candidate": true,
+    "all_actual_application_overheads_certified": false,
+    "numerical_route_complete": false
   },
   "parent_status": {
     "H1B1-L84-ITERATION": "RATE_MISSING",
@@ -204,8 +212,8 @@
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "recommended": "Derive explicit local-factor bounds for Maynard's actual gamma_j and determine whether c_gamma_j has a usable uniform lower bound before investing in the full Kuperberg/HR constant reconstruction.",
-    "parallel": "Trace explicit Mertens/totient-product bounds and quantify the Kuperberg recurrence constants.",
+    "recommended": "First certify the effective excluded modulus and eta_app,j for every traced actual application. Then recover a numerical absolute C3_abs(A1,A2), its finite range and explicit A1, A2 and L bounds before redoing the r-fold accumulation with 6*C3_abs*(1+log Lambda_app,max).",
+    "parallel": "Continue H1c-1 quantitative character and Bombieri-Vinogradov source tracing. Retain the Kuperberg size gate as an alternative until the primary application audit closes.",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false,
     "new_python_dependency_required": false,

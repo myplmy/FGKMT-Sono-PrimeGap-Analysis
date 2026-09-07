@@ -91,6 +91,21 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
         )
         self.assertEqual(
+            self.document["h1b1a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1a_explicit_cutoff_summation_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b1b_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b1b2a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
+        )
+        self.assertEqual(
             self.document["h1c_ledger"],
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
         )

@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-07",
+  "updated_kst": "2026-09-07",
+  "gate": "H1b-1b-2a actual-call local-factor and excluded-prime lower bound",
+  "target_obligations": [
+    "H1B1B2-CMIN-SMALL-EXCLUDED",
+    "H1B1B2-CMIN-LARGE-EXCLUDED",
+    "H1B1B2-CMIN-NONEXCLUDED",
+    "H1B1B2-CMIN-COMPOSE",
+    "H1B1B2-ROUTE-DECISION",
+    "SIV-07"
+  ],
+  "scope": "A project proof for the exact prime-local denominator families used by the traced Section 8 calls of Maynard Lemmas 8.3-8.4, plus a parameterized size bound for the canonical W_i construction. Actual applications can enlarge W_i by d, r, a_m, W_0 or related factors, so a complete application-by-application excluded-modulus inventory remains open. This does not prove the same local statement for arbitrary g(p)=p+O(k), recover C3_abs, certify the corrected r-fold composition, close SIV-07, or compute X_cert.",
+  "outcome": "ACTUAL_LOCAL_FACTORS_CLOSED_EXCLUDED_PRODUCT_TRANSFORM_PARAMETERIZED_BASE_W_BOUND_CLOSED_APPLICATION_EXCLUSIONS_OPEN",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_SOURCE",
+      "title": "Dense Clusters of Primes in Subsets",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "reviewed_locations": "lines 366, 376-407, 413-421, 531-604, 620-622, 723-760, 883-910, 995-1019, 1096-1098, 1112-1141, 1228-1237",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "ROSSER_SCHOENFELD_1962",
+      "title": "Approximate Formulas for Some Functions of Prime Numbers",
+      "doi": "10.1215/ijm/1255631807",
+      "local_path": "tmp/pdfs/h1b1b2_local_factor/Rosser_Schoenfeld_1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "acquired_utc": "2026-09-07T04:48:29Z",
+      "reviewed_locations": "PDF page 9, printed page 72, Theorem 15 equations (3.41)-(3.42); proof printed pages 88-89",
+      "status": "PRIMARY_EXPLICIT_TOTIENT_BOUND_REVIEWED"
+    },
+    {
+      "key": "DUSART2010",
+      "title": "Estimates of Some Functions Over Primes without R.H.",
+      "arxiv": "1002.0442",
+      "local_path": "tmp/pdfs/h1b1b2_local_factor/Dusart2010_Estimates_functions_over_primes_arxiv.pdf",
+      "sha256": "3f11eca84613ad00e6a447f99b318d5c3d76e360283efcc6d3eebdda25ff3923",
+      "acquired_utc": "2026-09-07T04:48:29Z",
+      "reviewed_locations": "PDF page 11, Theorem 6.12",
+      "status": "PRIMARY_EXPLICIT_PRIME_PRODUCT_FALLBACK_REVIEWED"
+    }
+  ],
+  "actual_local_families": [
+    {
+      "id": "p_minus_a",
+      "formula": "p-a",
+      "p_minus_a_minus_g": "0",
+      "positive_for": "1<=a<p"
+    },
+    {
+      "id": "square_over_p_minus_1",
+      "formula": "(p-a)^2/(p-1)",
+      "p_minus_a_minus_g": "(p-a)(a-1)/(p-1)",
+      "positive_for": "1<=a<p"
+    },
+    {
+      "id": "square_over_p_plus_a_minus_2",
+      "formula": "(p-a)^2/(p+a-2)",
+      "p_minus_a_minus_g": "2(p-a)(a-1)/(p+a-2)",
+      "positive_for": "1<=a<p"
+    },
+    {
+      "id": "adjusted_linear",
+      "formula": "p-a-(a-1)/(p-1)",
+      "p_minus_a_minus_g": "(a-1)/(p-1)",
+      "positive_for": "1<=a<p"
+    }
+  ],
+  "application_map": [
+    {
+      "locator": "Maynard source lines 620-622",
+      "family": "p_minus_a",
+      "a": "omega(p)",
+      "availability_upper_bound": "omega(p)"
+    },
+    {
+      "locator": "Maynard source lines 723-739",
+      "family": "square_over_p_minus_1",
+      "a": "omega(p)",
+      "availability_upper_bound": "omega(p)"
+    },
+    {
+      "locator": "Maynard source lines 750-760",
+      "family": "p_minus_a",
+      "a": "omega(p)",
+      "availability_upper_bound": "omega(p)"
+    },
+    {
+      "locator": "Maynard source lines 883-888",
+      "family": "square_over_p_minus_1",
+      "a": "omega(p)",
+      "availability_upper_bound": "at most omega(p)"
+    },
+    {
+      "locator": "Maynard source lines 903-910",
+      "family": "p_minus_a",
+      "a": "omega(p)",
+      "availability_upper_bound": "at most omega(p)"
+    },
+    {
+      "locator": "Maynard source lines 995-999",
+      "family": "p_minus_a",
+      "a": "omega(p)",
+      "availability_upper_bound": "one; nonexclusion implies omega(p)>=1"
+    },
+    {
+      "locator": "Maynard source lines 1015-1019",
+      "family": "adjusted_linear",
+      "a": "omega(p)",
+      "availability_upper_bound": "one"
+    },
+    {
+      "locator": "Maynard source lines 1096-1098",
+      "family": "p_minus_a",
+      "a": "1",
+      "availability_upper_bound": "one"
+    },
+    {
+      "locator": "Maynard source lines 1112-1141",
+      "family": "square_over_p_plus_a_minus_2",
+      "a": "omega*(p)",
+      "availability_upper_bound": "at most omega*(p)"
+    },
+    {
+      "locator": "Maynard source lines 1228-1237",
+      "family": "square_over_p_plus_a_minus_2",
+      "a": "omega(p)",
+      "availability_upper_bound": "omega(p)"
+    }
+  ],
+  "application_exclusion_inventory": {
+    "status": "OPEN",
+    "all_traced_calls_closed": false,
+    "reason": "The canonical W_i bound does not by itself cover every effective excluded modulus used in the traced calls.",
+    "observed_augmented_forms": [
+      "d W_i at source line 620",
+      "W_i'=rad(W_i(a_i b_m-a_m b_i)) at source lines 803-805 and calls 885/905",
+      "a_m W B r at source lines 995-999",
+      "r W_m at source lines 1015-1019",
+      "W_0=D V Delta_L at source lines 1062-1065 and calls 1096/1135"
+    ],
+    "required_certificate": "For every application and iteration, prove an explicit eta_app,j>=log(A_app,j) with effective W_tilde_i dividing A_app,i W_i, then use Lambda_app,j=Lambda_base,j+eta_app,j."
+  },
+  "project_lemmas": [
+    {
+      "id": "H1B1B2A-LF",
+      "statement": "For any actual-call family, 1<=a<p and 0<=n<=a-1 imply 0<g<=p-a and (1-1/p)(1+1/(g+n))>=1.",
+      "status": "PROJECT_THEOREM",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2A-EXCLUDED",
+      "statement": "For the effective excluded integer Q_j=W_tilde_{j+1} product_{i=j+2}^r e_i, c_gamma_j>=product_{p|Q_j}(1-1/p)=phi(Q_j)/Q_j.",
+      "status": "PROJECT_THEOREM_FOR_ACTUAL_CALLS",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2A-QSIZE",
+      "statement": "For the canonical W_i construction only, log(Q_base,j)<=Lambda_base,j, where Lambda_base,j=2k^2 log(2k^2)+k(k-1)log2+[10 alpha(2k^2-k+1)/theta+r-j-1]logR. An actual call requires Lambda_app,j=Lambda_base,j+eta_app,j with separately certified eta_app,j.",
+      "status": "PROJECT_PARAMETERIZED_BASE_W_ONLY_APPLICATION_OVERHEAD_OPEN",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2A-CMIN",
+      "statement": "Conditional on a certified actual-call bound log(Q_j)<=Lambda_app,j and Q_j>=210, c_gamma_j>1/[exp(EulerGamma) log(Lambda_app,j)+2.50637]>1/[3(1+log(Lambda_app,j))].",
+      "status": "PROJECT_EXPLICIT_TRANSFORM_APPLICATION_INPUT_OPEN",
+      "threshold_ready": false
+    },
+    {
+      "id": "H1B1B2A-RELATIVE-TRANSFER",
+      "statement": "After both an actual-call Lambda_app,j and C3_abs are certified, C4_rel,j<=6 C3_abs [1+log(Lambda_app,j)].",
+      "status": "APPLICATION_BOUND_AND_BASE_MULTIPLIER_MISSING",
+      "threshold_ready": false
+    }
+  ],
+  "q_size_derivation": {
+    "bad_prime_integer": "D=product_i |a_i| product_{i!=l}|a_i b_l-b_i a_l|",
+    "bad_prime_integer_upper": "2^[k(k-1)] x^[alpha(2k^2-k)]",
+    "wheel_upper": "W<= (2k^2)^(2k^2)",
+    "coefficient_and_B_upper": "B<=x^alpha and x<=R^(10/theta)",
+    "W_i_upper": "(2k^2)^(2k^2) 2^[k(k-1)] R^[10 alpha(2k^2-k+1)/theta]",
+    "remaining_e_upper": "product_{i=j+2}^r e_i<=R^(r-j-1)",
+    "scope": "canonical W_i only",
+    "actual_application_overhead_required": true,
+    "hidden_big_o_remaining_for_base_W": false,
+    "hidden_big_o_remaining_for_all_actual_calls": true
+  },
+  "route_status": {
+    "explicit_c_gamma_lower_bound": "CONDITIONAL_ON_CERTIFIED_APPLICATION_EXCLUDED_MODULUS",
+    "explicit_lower_bound_route_primary_candidate": true,
+    "all_actual_application_overheads_certified": false,
+    "abstract_g_equals_p_plus_Ok_lemma_closed": false,
+    "kuperberg_size_gate": "OPTIONAL_SECONDARY_ROUTE_NUMERIC_CONSTANTS_MISSING",
+    "direct_multivariate_absolute_error_reproof": "OPTIONAL_UNSCOPED",
+    "C3_abs_numeric_multiplier_recovered": false,
+    "corrected_rfold_composition_closed": false,
+    "numerical_route_complete": false
+  },
+  "parent_status": {
+    "H1B1-L84-ITERATION": "RATE_MISSING",
+    "H1B1-PACKAGE": "HARD_BLOCKER",
+    "H1B-L83": "RATE_MISSING",
+    "H1B-L84": "RATE_MISSING",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "next_gate": {
+    "recommended": "First inventory every actual effective excluded modulus and certify eta_app,j for d W_i, W_i', a_m W B r, r W_m and W_0 applications. Then recover C3_abs(A1,A2), its finite range and explicit A1, A2, L bounds before redoing the r-fold accumulation with a certified common Lambda_app,max.",
+    "parallel": "Continue H1c-1 quantitative character and Bombieri-Vinogradov source tracing.",
+    "ready_for_threshold_calculator": false,
+    "ready_for_actual_prime_experiment": false,
+    "new_python_dependency_required": false,
+    "lean_required": false
+  }
+}

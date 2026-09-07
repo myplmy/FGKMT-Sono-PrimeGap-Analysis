@@ -148,11 +148,20 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json",
         )
         self.assertEqual(
+            self.document["h1b1b2a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1B-L82"]["status"],
             "PROJECT_FINITE_COMPONENT_CLOSED",
         )
         self.assertEqual(self.by_id["H1B-L83"]["status"], "RATE_MISSING")
         self.assertTrue(self.by_id["H1B-L83"]["missing_numeric_inputs"])
+        self.assertIn(
+            "6*C3_abs*(1+log Lambda_app,j)",
+            " ".join(self.by_id["H1B-L83"]["explicit_parts"]),
+        )
 
     def test_project_components_are_closed_without_promoting_package(self) -> None:
         ratio = self.by_id["H1B-L86-RATIO"]

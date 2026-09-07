@@ -27,10 +27,11 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_scope_sources_and_unique_obligations(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.0.0")
+        self.assertEqual(self.document["schema_version"], "1.1.0")
         self.assertEqual(
             self.document["outcome"],
-            "PROOF_OBLIGATIONS_REGISTERED_NO_NUMERICAL_REPAIR_ROUTE_CLOSED",
+            "LOCAL_FACTOR_CLOSED_APPLICATION_EXCLUDED_MODULUS_INVENTORY_"
+            "OPEN_BASE_CONSTANT_AND_RFOLD_OPEN",
         )
         self.assertEqual(len(self.rows), 9)
         self.assertEqual(len(self.by_id), len(self.rows))
@@ -54,7 +55,7 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
         for row in self.rows:
             self.assertEqual(set(row), required, row["id"])
             self.assertIn(row["status"], allowed, row["id"])
-            self.assertTrue(row["missing_numeric_inputs"], row["id"])
+            self.assertIsInstance(row["missing_numeric_inputs"], list, row["id"])
             self.assertFalse(row["threshold_ready"], row["id"])
             self.assertTrue(set(row["upstream"]).issubset(self.by_id), row["id"])
 
@@ -80,14 +81,29 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
             Counter(
                 {
                     "PRINTED_EXACT_STRUCTURE": 2,
-                    "RATE_MISSING": 3,
-                    "PARAMETERIZED_EXPLICIT": 1,
-                    "SPECIALIZATION_REQUIRED": 1,
-                    "HARD_BLOCKER": 2,
+                    "PRIMARY_EXPLICIT_BOUND_AVAILABLE": 1,
+                    "BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN": 1,
+                    "PARAMETERIZED_EXPLICIT_APPLICATION_INPUT_OPEN": 1,
+                    "PROJECT_FINITE_COMPONENT_CLOSED_FOR_ACTUAL_CALLS": 1,
+                    "OPTIONAL_SECONDARY_ROUTE": 1,
+                    "PRIMARY_CANDIDATE_APPLICATION_AUDIT_OPEN": 1,
+                    "HARD_BLOCKER": 1,
                 }
             ),
         )
-        self.assertFalse(self.document["route_status"]["route_selected"])
+        self.assertTrue(
+            self.document["route_status"][
+                "explicit_lower_bound_route_primary_candidate"
+            ]
+        )
+        self.assertFalse(
+            self.document["route_status"][
+                "all_actual_application_overheads_certified"
+            ]
+        )
+        self.assertFalse(
+            self.document["route_status"]["numerical_route_complete"]
+        )
 
     def test_relative_repair_has_all_local_product_dependencies(self) -> None:
         compose = self.by_id["H1B1B2-CMIN-COMPOSE"]
@@ -99,7 +115,10 @@ class H1b1b2CgammaErrorLedgerTests(unittest.TestCase):
                 "H1B1B2-CMIN-NONEXCLUDED",
             },
         )
-        self.assertIn("2*C3_abs/c_min", compose["printed_information"])
+        self.assertIn(
+            "application overhead eta_app,j",
+            compose["printed_information"],
+        )
 
     def test_parent_thresholds_remain_open(self) -> None:
         self.assertEqual(self.document["parent_status"]["SIV-07"], "HARD_BLOCKER")

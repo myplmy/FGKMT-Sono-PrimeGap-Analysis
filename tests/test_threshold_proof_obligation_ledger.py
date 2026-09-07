@@ -138,6 +138,16 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             self.document["h1c_ledger"],
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
         )
+        self.assertEqual(
+            self.document["h1b1b2a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
+        )
+        self.assertIn(
+            "application-specific excluded-modulus overheads",
+            self.by_id["SIV-07"]["notes"],
+        )
+        self.assertEqual(self.by_id["SIV-07"]["status"], "HARD_BLOCKER")
 
 
 if __name__ == "__main__":

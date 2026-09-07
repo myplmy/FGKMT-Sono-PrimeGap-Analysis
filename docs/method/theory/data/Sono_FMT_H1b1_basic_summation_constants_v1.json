@@ -1,11 +1,11 @@
 {
   "schema_version": "1.1.0",
   "created_kst": "2026-09-04",
-  "updated_kst": "2026-09-06",
+  "updated_kst": "2026-09-07",
   "gate": "H1b-1 Maynard Lemmas 8.1-8.4 basic summation constant audit",
   "target_obligation": "SIV-07",
   "scope": "Source-level decomposition of the singular-series, Lipschitz, one-dimensional multiplicative summation, and iterated summation constants used in Maynard Lemmas 8.1-8.4. This is not a quantitative reproof and supplies no numerical theorem threshold.",
-  "outcome": "SOURCE_CHAIN_TRACED_FOUR_FINITE_COMPONENTS_CLOSED_GGPY4_ABSOLUTE_TRANSFER_PARAMETERIZED_MODERN_HR_REPRODUCTION_REVIEWED_RELATIVE_ERROR_OPEN_PACKAGE_OPEN",
+  "outcome": "SOURCE_CHAIN_TRACED_LOCAL_FACTOR_CLOSED_APPLICATION_EXCLUSIONS_BASE_RATE_RFOLD_PACKAGE_OPEN",
   "lemma_8_3_citation_identified": true,
   "lemma_8_3_numeric_multiplier_recovered": false,
   "numerical_basic_summation_package_ready": false,
@@ -14,6 +14,7 @@
   "actual_threshold_computed": false,
   "h1b1a_ledger": "docs/method/theory/data/Sono_FMT_H1b1a_explicit_cutoff_summation_v1.json",
   "h1b1b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json",
+  "h1b1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016_PUBLISHED",
@@ -159,7 +160,7 @@
       "missing_numeric_inputs": [
         "the numerical absolute upstream multiplier C3(A1,A2) from the HR/Kuperberg proof chain",
         "the common finite z range inherited from that upstream proof",
-        "a uniform lower bound for c_gamma or an explicit stronger z-versus-L gate before converting the absolute error to Maynard's printed relative form"
+        "a certified common A1, A2 and L specialization for every actual invocation"
       ],
       "upstream": [
         "H1B1-L83-GGPY3"
@@ -174,7 +175,7 @@
       "printed_information": "The published paper notes that a c_gamma(L+1)^kappa error is needed in general and says this general-kappa issue does not affect kappa=1. Castillo et al. identify a distinct issue that remains at kappa=1: the c_gamma factor in the error does not follow from the stated hypotheses without an additional z-versus-L size condition.",
       "missing_numeric_inputs": [
         "the numerical multiplier still hidden in the kappa=1 absolute error term",
-        "the extra condition or c_gamma lower bound needed for the printed relative normalization"
+        "H1b-1b-2a closes the traced actual nonexcluded local factors but not every application-specific excluded modulus or every abstract gamma satisfying the printed hypotheses"
       ],
       "upstream": [],
       "status": "PRINTED_STRUCTURAL_FACT",
@@ -198,7 +199,7 @@
       "id": "H1B1-L84-GAMMA",
       "locator": "Maynard Lemma 8.4, verification of Lemma 8.3 hypotheses",
       "role": "numerical A1 and A2 for the multiplicative function gamma",
-      "printed_information": "The proof has gamma(p)=0 on excluded primes and gamma(p)=1+O(k/p) otherwise, and says fixed A1,A2 are available for sufficiently large k.",
+      "printed_information": "The proof has gamma(p)=0 on excluded primes and gamma(p)=1+O(k/p) otherwise, and says fixed A1,A2 are available for sufficiently large k. H1b-1b-2a additionally proves the exact local-factor lower bound needed for the traced actual calls.",
       "missing_numeric_inputs": [
         "the O multiplier in gamma(p)=1+O(k/p)",
         "specific admissible values of A1 and A2",
@@ -215,7 +216,6 @@
       "printed_information": "The proof bounds L by a constant multiple of log log R after splitting small and large prime divisors.",
       "missing_numeric_inputs": [
         "constants in both prime-divisor sums",
-        "the hidden exponent in W/product(e_i) <= R^(O(k^2))",
         "a finite R and k range"
       ],
       "upstream": [],
@@ -248,7 +248,7 @@
         "the exact binomial or exponential accumulation multiplier",
         "a common range after all r iterations",
         "a corrected r-fold derivation because the per-step absolute error does not automatically factor with c_gamma",
-        "a uniform c_gamma lower bound or explicit z-versus-L gate at every iteration"
+        "the conditional 6*C3_abs*(1+log Lambda_app,max) normalization loss after all application overheads are certified"
       ],
       "upstream": [
         "H1B1-L82-LIPSCHITZ",
@@ -286,12 +286,12 @@
     "parent_row": "H1B-L83",
     "old_status": "SOURCE_REVIEW_REQUIRED",
     "new_status": "RATE_MISSING",
-    "reason": "The source chain and peer-reviewed error-term correction are traced. Kuperberg supplies an accessible structural HR reproduction, but numerical constants, finite ranges, the c_gamma normalization repair and the r-fold composition remain open.",
+    "reason": "The source chain and peer-reviewed error-term correction are traced. H1b-1b-2a closes the actual nonexcluded local factors and canonical-W_i base bound, but application excluded-modulus overheads remain open. Kuperberg/HR numerical constants, finite ranges, actual A1/A2/L values and the corrected r-fold composition also remain open.",
     "does_not_close_parent": true
   },
   "next_gate": {
-    "id": "H1b-1b-continuation",
-    "description": "Quantitatively reconstruct the Kuperberg/HR recurrence, recover an absolute C3(A1,A2) and finite range, prove either a uniform c_gamma lower bound or an explicit z-versus-L restoration gate, and only then redo the factor-2 transfer and Maynard Lemma 8.4 r-fold composition.",
+    "id": "H1b-1b-2a1-application-exclusion-inventory",
+    "description": "First certify every actual effective excluded modulus and eta_app,j. Then reconstruct the Kuperberg/HR recurrence, recover an absolute C3(A1,A2) and finite range, make the actual-call A1/A2/L bounds numerical, and redo Maynard Lemma 8.4 with 6*C3_abs*(1+log Lambda_app,max).",
     "ready_for_threshold_calculator": false
   }
 }

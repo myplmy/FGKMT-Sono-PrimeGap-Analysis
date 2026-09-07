@@ -277,6 +277,34 @@
   base error normalization을 함께 대조한다. 주항에 들어간 Euler product가 오류항에도 자동
   들어간다고 추론하지 않는다.
 
+### E023 — Maynard 기본 W 상계를 모든 actual call의 제외모듈 상계로 과잉 일반화
+
+- 분류: `MATHEMATICAL_SCOPE_ERROR / CORRECTED_BEFORE_PARENT_CLOSURE`
+- 문제: H1b-1b-2a 초안에서 Maynard의 기본 `W_j`와 남은 `e_i`로 만든 상계가
+  Lemma 8.4의 모든 실제 호출에서 쓰이는 effective excluded modulus를 자동으로 덮는다고
+  판단했다.
+- 뒤늦게 확인한 누락:
+  - `(r_j,dW_j)=1`에 들어가는 추가 `d<=R`
+  - `W'_j=rad(W_j(a_j b_m-a_m b_j))`
+  - `a_m W B r`, `rW_m`, `W_0=D V Delta_L` 형태의 응용별 제외 인자
+- 영향:
+  - 실제 네 local denominator family에서 비제외 소수 factor가 1 이상이라는 exact 대수는
+    그대로 유효하다.
+  - effective excluded integer `Q`에 대해 `c_gamma>=phi(Q)/Q`로 환원하는 단계도 유효하다.
+  - 그러나 기본 `W_j` 상계만으로 모든 actual call의 `Q`를 명시적으로 제한했다는 결론은
+    성립하지 않는다.
+  - actual 실험, threshold 계산, `SIV-07`, `X_cert`의 승격은 없었으므로 오염된 계산 결과나
+    잘못 닫힌 theorem threshold는 없다.
+- 교정:
+  - 기본 상계와 응용별 `application_log_overhead`를 분리했다.
+  - 코드에서 overhead를 필수 인수로 만들어 암묵적 0을 금지했다.
+  - 하위·상위 기계 원장, METHODS, AGENTS를
+    `BASE_W_PARAMETERIZED_APPLICATION_OVERHEAD_OPEN`으로 fail-closed 동기화했다.
+  - 누락·음수 overhead를 거부하는 회귀검사를 추가했다.
+- 재발 방지: 실제 호출부가 여러 개인 lemma는 공통 정의만으로 universal closure를 선언하지
+  않는다. 호출별 인수 변환표와 추가 소인수 inventory를 먼저 완성하고, 코드 API에서도
+  application-specific overhead를 생략할 수 없게 한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

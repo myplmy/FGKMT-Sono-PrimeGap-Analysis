@@ -68,8 +68,13 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
         self.assertEqual(self.contract["schema_version"], "1.1.0")
         self.assertEqual(
             self.contract["outcome"],
-            "LEMMA82_EXPLICIT_GGPY4_ABSOLUTE_TRANSFER_PARAMETERIZED_"
-            "MODERN_REPRODUCTION_REVIEWED_RELATIVE_ERROR_OPEN",
+            "LEMMA82_EXPLICIT_GGPY4_ABSOLUTE_TRANSFER_LOCAL_FACTOR_CLOSED_"
+            "APPLICATION_EXCLUSIONS_OPEN_BASE_RATE_OPEN",
+        )
+        self.assertEqual(
+            self.contract["h1b1b2a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
         )
         self.assertTrue(self.contract["lemma_8_2_project_component_closed"])
         self.assertEqual(self.contract["lemma_8_2_uniform_multiplier"], 89)
@@ -237,6 +242,12 @@ class H1b1bMultiplierRecoveryTests(unittest.TestCase):
                 "proof_status"
             ],
             "PARAMETERIZED_EXPLICIT",
+        )
+        self.assertIn(
+            "6 C3(A1,A2)(1+log Lambda_app,j)",
+            self.contract["ggpy_kappa_1_transfer_contract"][
+                "relative_error_recovery"
+            ],
         )
         with self.assertRaises(ValueError):
             ggpy4_kappa1_transfer_certificate(0)

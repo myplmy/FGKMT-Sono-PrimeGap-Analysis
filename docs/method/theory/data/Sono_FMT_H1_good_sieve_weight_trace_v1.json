@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "created_kst": "2026-09-02 20:24",
-  "updated_kst": "2026-09-04",
+  "updated_kst": "2026-09-07",
   "gate": "H1 good-sieve-weight recoverability source tracing",
   "target": "Determine whether the hidden constants needed for the FMT good sieve weight can be recovered constructively without inventing a numerical threshold.",
   "overall_outcome": "CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED",
@@ -10,6 +10,9 @@
   "scope_note": "This file records source-level recoverability plus the project H1a update for SIV-06, the H1b/H1b-1 inventories for SIV-07/SIV-09, and the H1c sibling source traces for SIV-08 and PAP-11. These audits are documented separately; this trace is not a full good-weight proof, a numerical threshold certificate, or a runtime guarantee.",
   "h1b_ledger": "docs/method/theory/data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json",
   "h1b1_ledger": "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
+  "h1b1a_ledger": "docs/method/theory/data/Sono_FMT_H1b1a_explicit_cutoff_summation_v1.json",
+  "h1b1b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json",
+  "h1b1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
@@ -118,17 +121,19 @@
       "question": "Can Maynard Proposition 6.1 constants be written as explicit functions of Hypothesis 1 constants?",
       "source_keys": ["MAYNARD2016", "FGKMT2016"],
       "source_locator": "Maynard Proposition 6.1 and Sections 8-9; FGKMT Theorem 6 (7.5)-(7.9)",
-      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1 identified the correct GGPY source; H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89 and parameterized only the corrected kappa=1 absolute transfer as C4_abs<=2*C3_abs. The printed c_gamma-relative error needs an additional size gate or c_gamma lower bound.",
+      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89 and the corrected kappa=1 absolute transfer C4_abs<=2*C3_abs. H1b-1b-2a closes the traced actual nonexcluded local factors and the canonical-W_i base bound, but application-specific excluded-modulus overheads remain open.",
       "missing_numeric_inputs": [
         "the constants multiplying all moment errors",
         "finite cutoffs in repeated negligible-error arguments",
         "explicit singular-series and coefficient bounds uniform in r and the linear forms",
+        "the application-by-application eta_app,j bounds for d W_i, W_i', a_m W B r, r W_m and W_0",
         "the Kuperberg/HR-derived absolute base multiplier C3_abs(A1,A2) and its common finite range",
-        "the c_gamma normalization repair required by the peer-reviewed GGPY error-term correction"
+        "explicit A1, A2 and L bounds for every actual call",
+        "the corrected r-fold composition with the additional 6*C3_abs*(1+log Lambda_app,max) loss"
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "Identify Maynard Lemma 8.4's actual c_gamma factors, compare an explicit lower-bound repair with a Kuperberg-style z-versus-L gate, recover C3_abs(A1,A2) and its range, then redo the factor-2 GGPY transfer and r-fold composition. Do not treat any missing multiplier or normalization loss as one.",
+      "next_action": "First certify every actual application excluded-modulus overhead eta_app,j. Then recover C3_abs(A1,A2) and its finite range, make A1, A2 and L numerical, and redo the Lemma 8.4 r-fold composition. Do not treat any missing overhead or multiplier as one.",
       "threshold_ready": false
     },
     {

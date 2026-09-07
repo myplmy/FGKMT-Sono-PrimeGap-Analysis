@@ -117,8 +117,12 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             "RATE_MISSING",
         )
         self.assertIn(
-            "c_gamma",
+            "C3(A1,A2)",
             " ".join(self.by_id["H1B1-L83-GGPY4"]["missing_numeric_inputs"]),
+        )
+        self.assertIn(
+            "6*C3_abs",
+            self.by_id["H1B1-L84-ITERATION"]["missing_numeric_inputs"][-1],
         )
         self.assertIn(
             "kappa=1",
@@ -150,6 +154,11 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             self.document["h1b1b_ledger"],
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b1b2a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
         )
 
 
