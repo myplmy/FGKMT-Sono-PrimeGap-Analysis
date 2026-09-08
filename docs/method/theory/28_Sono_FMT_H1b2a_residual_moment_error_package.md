@@ -437,3 +437,12 @@ Proposition 9.4 전체를 컴퓨터가 증명하는 것은 아니다.
 `PROJECT_FINITE_COMPONENT_CLOSED`다. 다만 식 (9.52)의 distribution child는
 `INPUT_PACKAGE_MISSING`이고, 따라서 `H1B-P94=RATE_MISSING`,
 `SIV-07/09=HARD_BLOCKER`, \(X_{\rm cert}=\)`OPEN`은 변하지 않는다.
+
+## 12. 2026-09-08 H1b-2a.2 후속 상태
+
+11절 마지막 문장은 H1b-2a.1 직후의 역사적 상태다. 후속
+[`H1b-2a.2`](30_Sono_FMT_H1b2a2_Proposition94_distribution_error.md)는 실제
+\(\mathcal A=\mathbb Z\)에 한해 식 (9.52)의 distribution child를
+`ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`으로 닫았다. 일반 \(\mathcal A\) 명제와
+P94 부모는 닫히지 않았으며, 다음 단계는 H1b-2a.3의 end-to-end P94 합성이다.
+`SIV-07/09`와 \(X_{\rm cert}\)는 그대로 열린다.

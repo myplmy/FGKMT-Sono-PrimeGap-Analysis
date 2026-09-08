@@ -127,6 +127,14 @@
     "X_cert": "OPEN"
   },
   "h1b2a1_successor_contract": "docs/method/theory/data/Sono_FMT_H1b2a1_Proposition94_Euler_normalization_v1.json",
+  "h1b2a2_successor_contract": "docs/method/theory/data/Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json",
+  "successor_status_update": {
+    "historical_row_preserved": "The INPUT_PACKAGE_MISSING row above records the state when this v1 predecessor contract was created.",
+    "H1B2A-P94-DISTRIBUTION": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT",
+    "H1B-P94": "RATE_MISSING",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
   "literature_search": {
     "result": "NO_DROP_IN_EXPLICIT_REPLACEMENT_FOUND_IN_TARGETED_PRIMARY_SOURCE_SEARCH",
     "limitation": "This is not a global nonexistence or novelty claim. The project lemmas close only the listed connectors."

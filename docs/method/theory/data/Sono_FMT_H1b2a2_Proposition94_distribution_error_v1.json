@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-08",
+  "gate": "H1b-2a.2 Maynard Proposition 9.4 equation-(9.52) distribution error",
+  "scope": "The actual FGKMT/FMT specialization A=Z, D=1, xi=theta/10, k>=36, theta<15/16, Maynard support x^(theta/10)<=R<=x^(theta/3). This contract replaces only the equation-(9.52) E_q^(1) contribution by an explicit finite upper bound. It does not close general-set Proposition 9.4, Hypothesis 1(2), the full Proposition 9.4 multiplier, Proposition 6.1, SIV-07, or X_cert.",
+  "outcome": "ACTUAL_INTEGER_INTERVAL_DISTRIBUTION_ERROR_PARAMETERIZED_EXPLICIT",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016",
+      "title": "Dense Clusters of Primes in Subsets",
+      "author": "James Maynard",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "url": "https://doi.org/10.1112/S0010437X16007296",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "reviewed_locations": "Hypothesis 1, Proposition 9.1 equations (9.1)-(9.3), Proposition 9.4 equations (9.49)-(9.53), printed pp.1538-1539 and 1547-1548",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "MAYNARD2016_AUTHOR_TEX",
+      "title": "Dense Clusters of Primes in Subsets, arXiv v2 author TeX",
+      "author": "James Maynard",
+      "arxiv": "1405.2593",
+      "url": "https://arxiv.org/abs/1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "reviewed_locations": "source lines 67-76, 671-694, 1044-1074, 1088-1099",
+      "status": "SOURCE_VERSION_CROSS_CHECKED"
+    },
+    {
+      "key": "FGKMT2018",
+      "title": "Long Gaps Between Primes",
+      "authors": "K. Ford, B. Green, S. Konyagin, J. Maynard, T. Tao",
+      "doi": "10.1090/jams/876",
+      "arxiv": "1412.5029",
+      "url": "https://arxiv.org/abs/1412.5029",
+      "local_path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "reviewed_locations": "Lemma 7.2 and Theorem 6, especially equations (7.6)-(7.9), printed pp.96-99",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "ROSSER_SCHOENFELD1962",
+      "title": "Approximate Formulas for Some Functions of Prime Numbers",
+      "authors": "J. Barkley Rosser and Lowell Schoenfeld",
+      "doi": "10.1215/ijm/1255631807",
+      "url": "https://doi.org/10.1215/ijm/1255631807",
+      "local_path": "tmp/pdfs/h1b1a/Rosser_Schoenfeld_1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "reviewed_locations": "Theorem 15, equations (3.41)-(3.42), printed pp.88-89",
+      "status": "PRIMARY_EXPLICIT_BOUND_REUSED"
+    }
+  ],
+  "source_reconstruction": {
+    "general_proposition_91": "For general A, Maynard groups tuples by q, bounds their number by O(tau_(3k)(q)), and combines Hypothesis 1(1) and (3) by Cauchy-Schwarz.",
+    "proposition_94_omission": "The equation-(9.52) paragraph says only that the same argument applies in k+1 dimensions.",
+    "actual_application_specialization": "FGKMT sets A=Z, alpha=2, theta=1/3 and invokes Proposition 9.4 with D=1 and xi=theta/10.",
+    "critical_correction": "For the actual consecutive-integer interval, E_q^(1)<=1 exactly for every q and residue. Consequently the P94 distribution child does not require the unknown general Hypothesis 1(1) or (3) multipliers. This does not remove Hypothesis 1(2) from Proposition 9.2 or the full theorem."
+  },
+  "source_version_corrections": [
+    {
+      "location": "Maynard Mobius inversion for tilde_lambda, final equation (9.56), author TeX line 1090",
+      "author_tex": "sum over r_0|d_0",
+      "final_publication": "sum over d_0|r_0",
+      "adopted": "final-publication d_0|r_0",
+      "reason": "The author-TeX order would make the following tilde_lambda_1 sum collapse to r_0=1 and is inconsistent with line 1098; the final publication has the mathematically consistent inversion."
+    }
+  ],
+  "finite_lemmas": [
+    {
+      "id": "H1B2A2-INT-DISCREPANCY",
+      "result": "For N consecutive integers, every residue count differs from N/q by at most 1.",
+      "constant": 1,
+      "status": "EXACT_APPLICATION_INPUT"
+    },
+    {
+      "id": "H1B2A2-TUPLE-MULTIPLICITY",
+      "result": "For fixed squarefree q, each free prime has at most 3(k+1) assignments: one of k+1 coordinates and d-only, e-only, or both. The tuple multiplicity is at most tau_(3(k+1))(q), with no hidden multiplier.",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    },
+    {
+      "id": "H1B2A2-DIVISOR-SUM",
+      "result": "sum_(q<Q) tau_a(q) <= Q(1+log Q)^a for Q>1 and integer a>=1.",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    },
+    {
+      "id": "H1B2A2-TILDE-LAMBDA",
+      "result": "With z=x^xi and C0=W0/phi(W0), |tilde_lambda_d0|<=C0*z; the predecessor sharp gate gives tilde_lambda_1>=xi*log(x)/2.",
+      "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "H1B2A2-ABSORPTION",
+      "result": "The total equation-(9.52) error over all v0 is at most rho_94 times the canonical Proposition 9.4 right-hand-side scale, where log(rho_94) is the explicit expression in theory 30 and source/h1b2a2_proposition94_distribution.py. A closed-form sufficient log-x gate makes rho_94<=1.",
+      "status": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT"
+    }
+  ],
+  "symbolic_bounds": {
+    "dimension": "a=3(k+1)",
+    "V": "log V=theta_Chebyshev(2k^2)<4k^2",
+    "W0": "D=1 and log W0 < 4k^2+k log 2+alpha(2k+1) log x",
+    "W0_totient": "W0/phi(W0) < 3 log(log W0)+2.50637 <= 3 log(Lambda_0)+2.50637",
+    "modulus": "log q < 4k^2+(13 theta/15)log x; log x>=30k^2/theta implies q<x^theta",
+    "lambda": "|lambda_d|<=e(log R/k)^k once the predecessor smooth gate holds",
+    "tilde_lambda": "|tilde_lambda_d0|<=(W0/phi(W0))x^xi and tilde_lambda_1>=xi log x/2",
+    "canonical_scale_lower": "T94>=xi^(-1)(#A)(log R)^(k-1)exp(-9k/2)(2k log k)^(-k)",
+    "interval_size": "#A>=x/2 for x>=2",
+    "decay": "R^2*x^(4xi)/x <= x^(-(1-16theta/15)); hence theta<15/16 is required by this deliberately coarse proof"
+  },
+  "closed_form_gate": {
+    "variable": "y=log x",
+    "decay_exponent": "beta=1-16theta/15",
+    "direct_condition": "log rho_94(y;k,alpha,theta)<=0 together with the modulus, smooth, and sharp predecessor gates",
+    "coarse_majorant": "log rho_94 <= C(k,alpha,theta)+4(k+1)log y-beta*y",
+    "sufficient_analytic_gate": "y>=max(1,2*max(0,C)/beta,[16(k+1)/beta]log[16(k+1)/beta])",
+    "full_gate": "max(log 2,30k^2/theta,10Y_smooth/theta,10Y_sharp/theta,Y_analytic)",
+    "rounding_status": "The symbolic inequalities are the proof. mpmath evaluations are non-directed diagnostics and are not standalone certificates."
+  },
+  "diagnostic_actual_minimum_k": {
+    "parameters": "k=36, alpha=2, theta=1/3",
+    "log_x_sufficient_approx": "3.522743610571028629762402e133",
+    "log10_x_approx": "1.529908111230935597e133",
+    "log_relative_error_upper_at_gate_approx": "-2.270212549034662894735770e133",
+    "dominant_component": "the already existing H1b-1b-2d common smooth gate, not the new distribution absorption gate",
+    "interpretation": "This is a one-component sufficient diagnostic for fixed k, not Sono's X_cert and not a claim that the full theorem starts there."
+  },
+  "status_after_this_gate": {
+    "H1B2A-P94-DISTRIBUTION": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT",
+    "H1B-HYP-01": "EXACT_SUFFICIENT_REDUCTION",
+    "H1B-HYP-02": "INPUT_PACKAGE_MISSING",
+    "H1B-HYP-03": "EXACT_SUFFICIENT_REDUCTION",
+    "H1B-P94": "RATE_MISSING",
+    "H1B-COMP-01": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "SIV-08": "HARD_BLOCKER",
+    "SIV-09": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "parent_nonpromotion_reason": "The distribution child now has a finite actual-application formula, but the P94 main-term subpackages have not yet been assembled into one checked total multiplier and common cutoff. Other moments, especially Proposition 9.2, still need Hypothesis 1(2).",
+  "literature_search": {
+    "sources_checked": [
+      "Maynard, arXiv:1405.2593 and the final Compositio version",
+      "FGKMT, arXiv:1412.5029 and the final JAMS version",
+      "D.H.J. Polymath, arXiv:1407.4897"
+    ],
+    "result": "NO_DROP_IN_FINITE_REPLACEMENT_FOR_THIS_EXACT_ACTUAL_CALL_FOUND_IN_TARGETED_PRIMARY_SOURCE_SEARCH",
+    "limitation": "This is not a global nonexistence or novelty claim."
+  },
+  "hypothesis1_package_closed": false,
+  "actual_prime_experiment_performed": false,
+  "threshold_calculator_created": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false
+}

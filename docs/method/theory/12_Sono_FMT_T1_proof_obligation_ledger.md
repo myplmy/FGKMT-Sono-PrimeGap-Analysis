@@ -521,3 +521,19 @@ H1b-2a.1은 Maynard Proposition 9.4 식 (9.61)의 exact denominator에서 식 (9
 식 (9.52)의 distribution error, 다른 moment와의 공통 cutoff·error budget은 남아
 `SIV-07=HARD_BLOCKER`, T1의 66행 상태 수와 \(X_{\mathrm{cert}}=\)`OPEN`은
 변하지 않는다. 다음 직접 gate는 H1b-2a.2이며 H1c-1이 병렬 선결축이다.
+
+## 20. 2026-09-08 H1b-2a.2 actual distribution child 반영
+
+앞 절 마지막 두 문장은 H1b-2a.1 직후의 역사적 상태다. 후속
+[`H1b-2a.2 정본`](30_Sono_FMT_H1b2a2_Proposition94_distribution_error.md)은 일반
+집합 \(\mathcal A\)와 실제 FGKMT/FMT 호출을 분리했다. 실제
+\(\mathcal A=\mathbb Z,D=1\)에서는 연속 정수 interval의 residue discrepancy가 모든
+modulus에 대해 정확히 1 이하이다. 이를 multiplier 1의
+\(\tau_{3(k+1)}(q)\) tuple 상계 및 기존 finite weight envelope와 결합해 식 (9.52)의
+distribution child를 `ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`으로 닫았다.
+
+이 진전은 T1의 66개 상위 행을 분할하거나 상태 수를 바꾸지 않는다. `SIV-07`은 Proposition
+6.1 전체를 나타내므로 계속 `HARD_BLOCKER`이고, `SIV-08/09`와
+\(X_{\mathrm{cert}}\)도 변하지 않는다. 다음 직접 gate는 H1b-2a.3의 P94 단일
+multiplier·공통 cutoff 합성이다. H1c-1은 actual 식 (9.52)의 선결조건이 아니라
+Proposition 9.2와 전체 good-weight theorem에 필요한 병렬 축이다.

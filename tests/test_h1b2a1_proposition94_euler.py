@@ -166,6 +166,15 @@ class H1b2a1Proposition94EulerTests(unittest.TestCase):
         self.assertEqual(contract["status_after_this_gate"]["X_cert"], "OPEN")
         self.assertFalse(contract["actual_prime_experiment_performed"])
         self.assertFalse(contract["threshold_calculator_created"])
+        self.assertEqual(
+            contract["successor_status_update"]["H1B2A-P94-DISTRIBUTION"],
+            "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT",
+        )
+        self.assertEqual(
+            contract["h1b2a2_successor_contract"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json",
+        )
 
 
 if __name__ == "__main__":

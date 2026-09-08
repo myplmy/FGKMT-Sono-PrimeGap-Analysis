@@ -363,3 +363,11 @@ Lemma 8.5의 finite coefficient·weight envelope와 Lemma 8.6의 absolute integr
 finite하게 닫았다. 현재 직접 gate는 식 (9.52)의 distribution error다. 다른
 Propositions 9.1--9.5 및 H1c-1 입력이 남으므로
 `H1B-COMP-01`, `SIV-07/09`, `X_cert`는 계속 열린다.
+
+## 14. 2026-09-08 H1b-2a.2 후속 상태
+
+앞 절의 “현재 직접 gate” 문장은 H1b-2a.1 직후의 역사적 상태다. theory 30은 actual
+\(\mathcal A=\mathbb Z\)의 exact residue discrepancy를 사용해 식 (9.52) distribution
+child를 parameterized explicit으로 닫았다. 이제 직접 순서는 H1b-2a.3의 P94 단일
+multiplier·공통 cutoff 합성이다. H1c-1은 Proposition 9.2와 전체 good-weight theorem을
+위해 계속 필요하며, 상위 blocker 상태는 바뀌지 않는다.

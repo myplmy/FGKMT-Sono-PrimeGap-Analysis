@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Proposition 9.4 final Euler normalization 닫힘 / SIV-07 HARD_BLOCKER / X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 actual 식 (9.52) distribution child 닫힘 / SIV-07 HARD_BLOCKER / X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
@@ -84,9 +84,13 @@ H1b-1b-2d.1a.1은 최종 출판본 (9.42)--(9.48)을 수치 재증명해
 `docs/method/theory/27_Sono_FMT_H1b1b2d1b_sharp_xi_logx_scale.md`다.
 H1b-2a는 Lemma 8.5 weight envelope와 Lemma 8.6 absolute size를 유한식으로 닫았다.
 H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱과 식 (9.64)의 제곱 보정을
-\(e^{2+6/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이하로 닫았다. Proposition 9.4의 식
-(9.52) distribution error는 열려 있다. 다음 gate는 H1b-2a.2 distribution error와
-H1c-1 quantitative character package다. 모든 root
+\(e^{2+6/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이하로 닫았다. H1b-2a.2는 실제
+\(\mathcal A=\mathbb Z,D=1,\xi=\theta/10\) 호출에서 정확한 \(E_q^{(1)}\le1\)과
+\(\tau_{3(k+1)}\) tuple multiplicity를 사용해 식 (9.52) distribution child를
+`ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`으로 닫았다. 일반 \(\mathcal A\) 명제와 달리
+이 actual child는 Hypothesis 1(1),(3)의 미지 multiplier를 기다리지 않는다. 다음 gate는
+H1b-2a.3의 Proposition 9.4 단일 multiplier·공통 cutoff 합성과 H1c-1 quantitative
+prime-distribution package다. 모든 root
 dependency가 닫히기 전에는 새 prime sweep·threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus에 합산하지 않는다.
@@ -461,16 +465,16 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P020 recurrence artifact synthesis R2 EXPERIMENT_PASS / SYNTHESIS_ONLY: 성공 정본 8개·중복 제거 72,178,455,399 gap-start 회계, 새 prime 계산 없음, 6개 표·PNG/PDF 12파일 saved QA PASS; stationary→stratified 기대 92.1274% 교정, 후기 information collapse 확인; 2026-09-02 사용자 figure QA PASS
 - Sono/FMT numerical-threshold 1차 audit: 대입 계수 약 `2.0038612046196704e-17`, `2e-17`은 proved coefficient이나 출판본의 numerical `X_cert`는 없음; top-level proof는 effective-in-principle, PAP/UB·sieve/hypergraph·x→X 수치 rate가 blocker; 실제 전역 최소도 OPEN
 - Sono/FMT T1 원장: 66 obligations, dependency DAG와 로컬 PDF hash PASS; H1a는 모든 정수 `r>=36`에서 `J_r/I_r>log(r)/(4r)`를 project theorem으로 닫았다. H1b/H1b-1/H1c는 17·13·20행 원장을 등록했다. H1b-1a는 세 finite component를 닫았고 H1b-1b는 Lemma 8.2 multiplier 89와 GGPY absolute transfer factor 2를 닫았다. H1b-1b-2a.1은 11개 actual application의 local-factor·제외모듈 상계를 닫았고, H1b-1b-2c는 공통 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)를 인증했다. H1b-1b-2d와 2d.1a/1a.1은 smooth 8/9와 line-905 scalar package를 닫았고, 2d.1b는 actual sharp scale까지 닫아 Lemma 8.4 관련 하위호출 9/9와 `H1B-L84`를 parameterized explicit으로 만들었다. 전체 moment budget이 남아 `SIV-07`은 HARD_BLOCKER, `X_cert`는 OPEN이다.
-- Sono/FMT H1b-2a는 actual `L620_dW` 오차로 Lemma 8.5의 coefficient·local/global weight envelope를 닫고, plateau cube로 모든 정수 \(k\ge36\)에서 \(I_k(F)\ge(2k\log k)^{-k}\)와 절대 \(J_k\) 하한을 닫았다. H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱을 \(e^{2+2/k}\mathfrak S_{WB}^{-1}\), 식 (9.64)의 제곱 보정까지 포함한 전체 normalization을 \(e^{2+6/k}\mathfrak S_{WB}^{-1}\) 이하로 닫았다. 식 (9.52), `SIV-07/09`, `X_cert`는 계속 열린다.
+- Sono/FMT H1b-2a는 actual `L620_dW` 오차로 Lemma 8.5의 coefficient·local/global weight envelope를 닫고, plateau cube로 모든 정수 \(k\ge36\)에서 \(I_k(F)\ge(2k\log k)^{-k}\)와 절대 \(J_k\) 하한을 닫았다. H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱을 \(e^{2+2/k}\mathfrak S_{WB}^{-1}\), 식 (9.64)의 제곱 보정까지 포함한 전체 normalization을 \(e^{2+6/k}\mathfrak S_{WB}^{-1}\) 이하로 닫았다. H1b-2a.2는 actual \(\mathcal A=\mathbb Z\)에서 식 (9.52)의 distribution child를 explicit \(\rho_{94}\)와 충분조건 \(Y_{94}\)로 닫았다. 이 child-only 진전 뒤에도 P94 전체, `SIV-07/09`, `X_cert`는 계속 열린다.
 - Sono/FMT H1b-1b-2 원장은 Maynard Lemma 8.4의 실제 \(\gamma_j,c_{\gamma,j}\)를 작은 제외 소수·큰 제외 소수·비제외 소수로 분해하고 세 repair 경로를 등록했다. H1b-1b-2a.1은 모든 추적 호출에서 \(\log Q_j\le\Lambda_*\)를 증명했고, H1b-1b-2b/c는 교정된 상대 one-step multiplier와 actual 입력을 닫았다. H1b-1b-2d의 smooth finite-product 합성은 product-profile 절대오차 envelope이며 coupled main 자체의 상대오차로 과장하지 않는다. 2d.1a.1은 source scalar \(\varepsilon\)를 \(C_Y<3.17\times10^{122}\)로 인증했고, 2d.1b는 \(\xi\log x\ge(3/10)\log R\)와 strict \(C_\Sigma+2\)로 sharp factors를 닫았다. legacy \(C_{3,\mathrm{abs}}+c_\gamma\) 경로는 optional cross-check다.
 - 새 장시간 Windows runner는 `scripts/common/live_native_tee.py`와 `Invoke-LiveLoggedNativeStage`로 .NET process capture 없이 stdout/stderr를 같은 PowerShell 화면과 main log에 즉시 기록; Windows PowerShell 5.1용 UTF-8 JSON Base64 transport 회귀시험 PASS
 - P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018-B를 자동 실행하지 않고, H1b-2a.2에서 Proposition 9.4 식 (9.52)의
-distribution error를 H1c-1 입력과 연결하는 것이다. H1c-1의 FGKMT
-character/Bombieri–Vinogradov 수치 package는
-병렬 연구축이다.
+다음 권장 행동은 P018-B를 자동 실행하지 않고, H1b-2a.3에서 지금까지 닫힌 Proposition 9.4
+하위 package를 단일 total multiplier와 공통 cutoff로 합성하는 것이다. H1c-1의 FGKMT
+character/Bombieri–Vinogradov 수치 package는 Proposition 9.2와 전체 good-weight theorem에
+필요한 병렬 연구축이다. actual P94 식 (9.52)의 직접 선결조건으로 다시 연결하지 않는다.
 H1과 병행할 수 있는 보조축은 explicit
 primorial·Mertens·iterated-log transfer theorem 후보 수집이다. numerical threshold calculator는
 모든 dependency가 explicit해진 뒤에만 만든다. P014 후속은 5,000-constraint

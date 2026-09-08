@@ -26,7 +26,7 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_and_unique_expected_rows(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.3.0")
+        self.assertEqual(self.document["schema_version"], "1.4.0")
         self.assertEqual(len(self.rows), 9)
         self.assertEqual(len(self.by_id), len(self.rows))
         self.assertEqual(
@@ -136,6 +136,11 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "Sono_FMT_H1b2a1_Proposition94_Euler_normalization_v1.json",
         )
         self.assertEqual(
+            self.document["h1b2a2_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json",
+        )
+        self.assertEqual(
             self.document["h1c_ledger"],
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
         )
@@ -165,6 +170,10 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
         )
         self.assertIn(
             "H1b-2a.1 closes",
+            siv_07["printed_information"],
+        )
+        self.assertIn(
+            "H1b-2a.2 closes the actual A=Z",
             siv_07["printed_information"],
         )
         self.assertFalse(self.document["numerical_x_cert_ready"])

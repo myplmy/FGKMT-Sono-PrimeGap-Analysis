@@ -404,3 +404,17 @@ factor를 복원했다. 모든 정수 \(k\ge36\)에서 마지막 두 곱은
 error budget은 남아 있다. 그러므로 H1 전체 판정, `SIV-07/09=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}=\)`OPEN`은 그대로다. 다음 직접 순서는 H1b-2a.2이고 H1c-1은
 그 분포 입력을 공급하는 병렬 축이다.
+
+## 16. 2026-09-08 H1b-2a.2 후속 판정
+
+15절 마지막 문장은 H1b-2a.1 직후의 판단이다. 후속
+[`H1b-2a.2 정본`](../method/theory/30_Sono_FMT_H1b2a2_Proposition94_distribution_error.md)은
+실제 FGKMT/FMT 입력 \(\mathcal A=\mathbb Z\)가 연속 정수 interval이라는 점을 사용했다.
+각 residue class 개수는 평균에서 정확히 1 이하만 벗어나므로, 식 (9.52)의
+\(E_q^{(1)}\) contribution은 Hypothesis 1(1),(3)의 숨은 multiplier 없이 finite하게
+지배된다.
+
+이것은 H1c-1이 불필요해졌다는 뜻이 아니다. H1c-1의 소수분포 package는 Proposition 9.2와
+전체 good-weight theorem에 남는다. P94 자체도 모든 하위 package의 단일 multiplier·공통
+cutoff 합성이 필요하다. 따라서 H1 전체 판정과 `SIV-07/08/09`,
+\(X_{\mathrm{cert}}\)는 여전히 열려 있다.

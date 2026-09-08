@@ -115,7 +115,7 @@ P_{\rm can}\le e^2\mathfrak S_{WB}^{-1}
 | 식 (9.64) \(C_{\rm pre}\) 및 제곱 보정 | 닫힘 |
 | 식 (9.66) sharp \(r_0\) Euler product | 닫힘 |
 | 식 (9.66) canonical product / singular-series 비교 | 닫힘 |
-| 식 (9.52) distribution error | 열림 |
+| 식 (9.52) distribution error | 후속 H1b-2a.2에서 actual child 닫힘; 일반 \(\mathcal A\)는 별도 |
 | Proposition 9.4 전체 | 열림 |
 | Proposition 6.1 전체와 SIV-07 | 열림 |
 | numerical \(X_{\rm cert}\) | 열림 |
@@ -128,15 +128,23 @@ Proposition 9.1의 생략된 동일 논증을 actual tuple count와 finite Lemma
 coefficient bound로 복원한다. 다만 Hypothesis 1(1),(3)의 숫자 multiplier는
 H1c-1 입력으로 남겨야 한다. 예상 6--15시간의 Codex 수학·source 감사다.
 
+> **후속 결과:** actual \(\mathcal A=\mathbb Z\)에서는 exact
+> \(E_q^{(1)}\le1\)을 쓸 수 있어 Hypothesis 1(1),(3) multiplier 없이 이 child를
+> 닫았다. 상세는 [theory 30](../method/theory/30_Sono_FMT_H1b2a2_Proposition94_distribution_error.md)과
+> [review 36](36_20260908_H1b2a2_Proposition94_distribution_타당성검토.md)이다.
+
 ### 2순위: H1c-1 quantitative character/Bombieri--Vinogradov package
 
 FGKMT Lemma 7.2가 호출하는 character-sum과 prime-distribution 상수의 원천·유효범위를
-수치화한다. 예상 1--3일 이상의 문헌·증명 감사이며, 실제 난도에 따라 더 길 수 있다.
+수치화한다. 이는 Proposition 9.2와 전체 good-weight theorem에 필요하지만 actual 식
+(9.52)의 선결조건은 아니다. 예상 1--3일 이상의 문헌·증명 감사이며, 실제 난도에 따라 더
+길 수 있다.
 
 ### 3순위: H1b-2b 공통 moment budget
 
-H1b-2a.2와 H1c-1의 입력이 마련된 뒤 Propositions 9.1--9.5를 한 cutoff에서
-동시에 지배하도록 합성한다. 지금 시작하면 열린 기호를 이름만 바꾸게 되므로 보류한다.
+H1b-2a.3에서 먼저 P94 내부의 닫힌 package를 한 multiplier·cutoff로 합성한다. 이후
+H1c-1과 다른 moment 입력이 마련되면 Propositions 9.1--9.5 전체를 한 cutoff에서
+동시에 지배하도록 합성한다.
 
 ## 10. 사용자 요청사항
 

@@ -449,8 +449,9 @@ w_n\le R^{2+\eta_{85}(k,R)}
 Proposition 9.4의 식 (9.56)--(9.64)에서는 square-symmetry multiplier 1,
 exact denominator (\le2/p), 앞쪽 Euler 곱 (\le e^{2/k})를 닫았다. 이 단락 작성 당시에는
 식 (9.66)의 두 exact Euler normalization이 남아 있었으나, 아래 H1b-2a.1 후속에서
-finite하게 닫혔다. 식 (9.52)의 Hypothesis 1 distribution error는 계속 열려 있으므로
-`H1B-P94=RATE_MISSING`이다. 따라서 `H1B-COMP-01`, `SIV-07/09`와
+finite하게 닫혔다. 이 단락 당시 식 (9.52)의 Hypothesis 1 distribution error도 열려
+있었으나, actual \(\mathcal A=\mathbb Z\) child는 아래 H1b-2a.2 후속에서 닫힌다.
+`H1B-P94=RATE_MISSING`은 end-to-end 합성이 남아 유지된다. 따라서 `H1B-COMP-01`, `SIV-07/09`와
 (X_{\mathrm{cert}})는 계속 열린다. H1b-2a 정본은
 [`28_Sono_FMT_H1b2a_residual_moment_error_package.md`](28_Sono_FMT_H1b2a_residual_moment_error_package.md)다.
 
@@ -477,3 +478,15 @@ normalization multiplier는 \(e^{2+6/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이�
 공통 finite range가 남아 있다. 부모와 `H1B-COMP-01`, `SIV-07/09`,
 \(X_{\mathrm{cert}}\)는 승격하지 않는다. 다음 직접 gate는 H1b-2a.2 distribution
 error이고, H1c-1 quantitative character/Bombieri--Vinogradov package가 병렬 입력축이다.
+
+## 21. 2026-09-08 H1b-2a.2 actual distribution child 반영
+
+앞 절의 마지막 문장은 H1b-2a.1 직후 상태다. H1b-2a.2는 실제
+\(\mathcal A=\mathbb Z,D=1,\xi=\theta/10\)에서 정확한 \(E_q^{(1)}\le1\)을 사용해
+식 (9.52) 하위항을 explicit 상대오차 \(\rho_{94}\)와 충분조건 \(Y_{94}\)로 닫았다.
+따라서 이 actual child는 일반 Hypothesis 1(1),(3)의 미지 multiplier를 기다리지 않는다.
+
+그러나 H1B-P94에 등록된 여러 주항·오차 package를 하나의 multiplier와 공통 cutoff로 아직
+합치지 않았으므로 부모의 `RATE_MISSING`은 유지한다. H1c-1은 Proposition 9.2의 소수분포와
+전체 good-weight 합성에 여전히 필요하다. 다음 직접 gate는 H1b-2a.3 P94 합성이며,
+`H1B-COMP-01`, `SIV-07/09`, \(X_{\mathrm{cert}}\)는 계속 열린다.

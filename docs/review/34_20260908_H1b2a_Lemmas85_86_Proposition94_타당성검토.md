@@ -83,7 +83,7 @@ explicit 대체 정리를 찾지 못했다. 따라서 “문헌에 없다”라�
 | (9.56)--(9.57) (ab) 제곱 대수 | 닫힘 | (2|ab|\le a^2+b^2), 대칭 후 multiplier 1 |
 | (9.57) exact denominator | 닫힘 | (p>2k^2,\omega^*\le k+1)에서 (\le2/p) |
 | (9.64) 앞쪽 Euler 곱 | 닫힘 | (\sum_{p>2k^2}4k/p^2\le2/k), 따라서 (\le e^{2/k}) |
-| (9.52) distribution error | 열림 | Hypothesis 1(1),(3)의 숫자 multiplier·cutoff 없음 |
+| (9.52) distribution error | 후속 H1b-2a.2에서 actual child 닫힘 | \(\mathcal A=\mathbb Z\)의 exact \(E_q^{(1)}\le1\); 일반 \(\mathcal A\)는 별도 |
 | (9.66) 마지막 두 Euler 곱 | 후속 H1b-2a.1에서 닫힘 | exact local factor와 singular-series 비교로 \(\le e^{2+2/k}\mathfrak S^{-1}\) |
 | (9.70) residue factor | 새 blocker 아님 | exact factor들이 1 이하 |
 
@@ -119,15 +119,21 @@ Proposition 9.1과 “동일한 논증”이라고 생략된 식 (9.52)를 실�
 (M_{620})로 다시 쓴다. 다만 Hypothesis 1(1),(3)의 multiplier를 입력 변수로 남길
 수밖에 없으므로 H1c-1과 연결된다. 예상 6--15시간이다.
 
+> **후속 결과:** 실제 FGKMT/FMT의 \(\mathcal A=\mathbb Z\)에서는 각 residue class의
+> discrepancy가 정확히 1 이하이므로, 위에서 예상한 Hypothesis 1(1),(3) 입력은 이
+> 식 (9.52) child에 필요하지 않았다. H1b-2a.2가 explicit \(\rho_{94},Y_{94}\)로 이
+> child를 닫았다. 일반 \(\mathcal A\)와 P94 부모는 계속 열린다.
+
 ### 2순위: H1c-1 quantitative character/Bombieri--Vinogradov package
 
-식 (9.52)에 들어가는 Hypothesis 1의 수치 multiplier와 finite cutoff를 공급하는 병렬
-선결축이다. 예상 1--3일 이상의 문헌·증명 감사다.
+Proposition 9.2와 전체 good-weight theorem에 들어가는 Hypothesis 1(2)의 수치
+prime-distribution multiplier와 finite cutoff를 공급하는 병렬 선결축이다. actual
+식 (9.52)의 선결조건은 아니다. 예상 1--3일 이상의 문헌·증명 감사다.
 
 ### 3순위: H1b-2b Propositions 9.1--9.5 공통 budget
 
-위 두 항과 H1c-1이 닫힌 뒤에 수행한다. 현재 바로 착수하면 열린 상수를 기호만 바꿔
-옮기게 되므로 순서를 늦추는 편이 타당하다.
+P94 자체는 H1b-2a.3에서 닫힌 하위 package를 먼저 단일 budget으로 합성한다. 전체
+Propositions 9.1--9.5 공통 budget은 H1c-1과 다른 moment가 닫힌 뒤 수행한다.
 
 ## 9. 계산 자원·사용자 요청
 

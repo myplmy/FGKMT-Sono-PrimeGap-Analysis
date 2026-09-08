@@ -384,6 +384,13 @@ P_{\rm can}
 특히 \(8.73\)이라는 설명용 multiplier는 Sono 부등식의 threshold가 작다는 뜻이 아니다.
 다른 단계의 explicit 상수는 훨씬 크고, 아직 숫자가 없는 분포 정리도 남아 있다.
 
+> **2026-09-08 후속 갱신:** 위 표는 H1b-2a.1 종료 당시 상태다. 후속
+> [`H1b-2a.2`](30_Sono_FMT_H1b2a2_Proposition94_distribution_error.md)가 actual
+> \(\mathcal A=\mathbb Z\)의 식 (9.52) child를
+> `ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`으로 닫았다. 따라서 “Hypothesis
+> 1(1),(3) multiplier 필요”는 일반 \(\mathcal A\)에 대해서만 유지된다. P94 부모와
+> `SIV-07/09`, \(X_{\rm cert}\)의 열린 상태는 변하지 않는다.
+
 ## 11. 기계검증
 
 source/h1b2a1_proposition94_euler.py는 다음을 exact Fraction으로 계산한다.

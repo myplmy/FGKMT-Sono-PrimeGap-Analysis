@@ -198,6 +198,15 @@ class H1b2aResidualMomentPackageTests(unittest.TestCase):
         self.assertEqual(parent["H1B-COMP-01"], "HARD_BLOCKER")
         self.assertEqual(parent["SIV-07"], "HARD_BLOCKER")
         self.assertEqual(parent["X_cert"], "OPEN")
+        self.assertEqual(
+            contract["successor_status_update"]["H1B2A-P94-DISTRIBUTION"],
+            "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT",
+        )
+        self.assertEqual(
+            contract["h1b2a2_successor_contract"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json",
+        )
         self.assertFalse(contract["actual_prime_experiment_performed"])
         self.assertFalse(contract["threshold_calculator_created"])
 

@@ -485,6 +485,26 @@
   모두 부분 쓰기나 수학 판정 오염 없이, raw patch의 delimiter를 정리하고 symbolic
   coefficient는 exact로 유지한 채 수치 비교 tolerance만 \(10^{-75}\)로 명시해 교정했다.
 
+### E032 — H1b-2a.2에서 이미 알려진 Windows 검증 절차 오류 재발
+
+- 분류: `KNOWN_ENVIRONMENT_ERROR_REPEATED / COMMAND_PATTERN_RECURRENCE / NO_RESEARCH_IMPACT`
+- 문제:
+  1. 이 원장 5절 8항에 `TemporaryDirectory`를 쓰는 전체 suite는 허가된 정상 로컬 권한을
+     우선한다고 적혀 있는데도, H1b-2a.2의 첫 전체 unittest를 sandbox 안에서 실행했다.
+     82개가 공통 `PermissionError`로 실패했다.
+  2. 오류 원장 검색에서 Windows `rg`에 `ai_dev_tool/*.md`와 `**/*.md`를 직접 넘겨 이미
+     금지된 path-wildcard 구문 오류를 한 번 반복했다.
+  3. 오래된 문서 한 곳의 실제 문맥이 예상과 달라 긴 다중파일 `apply_patch`가 원자적으로
+     거부됐다.
+- 영향: 첫 unittest와 `rg` 출력은 증거에서 제외했다. 거부된 patch는 아무 파일도 바꾸지
+  않았다. 수학식, actual 데이터, 결과 artifact, theorem 상태에는 영향이 없다.
+- 교정: 사용자 기존 허가 범위에서 동일 전체 suite를 sandbox 밖 FGKMT Python으로 다시
+  실행해 `328/328 OK`를 확인했다. 검색은 디렉터리 또는 `Get-ChildItem`로 바꿨고, patch는
+  현재 문맥을 다시 읽은 뒤 작은 단위로 적용했다.
+- 재발 방지: 이 저장소의 전체 suite는 처음부터 승인된 unrestricted 실행을 사용한다.
+  `rg` glob은 경로 인수에 넣지 않고 `-g`로만 전달한다. 5개 이상 파일을 건드리는 patch는
+  대상별 현재 문맥을 먼저 고정하고 두세 묶음으로 나눈다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.
