@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·교정 kappa=1 one-step·actual `a=1/2,A2=8,L=5+log Lambda*` explicit·smooth Lemma 8.4 7/9 하위호출 합성 explicit·line905 C1 우회 explicit·scalar/sharp OPEN / X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·교정 kappa=1 one-step·actual `a=1/2,A2=8,L=5+log Lambda*` explicit·smooth Lemma 8.4 8/9 하위호출 explicit·line905 scalar `C_Y<3.17e122` explicit·sharp OPEN / X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
@@ -71,11 +71,15 @@ subapplication으로 분해하고, 비제외 local factor와
 support-scaled profile norm과 \(\prod_i(1+\delta_i)-1\) 합성으로 smooth Lemma 8.4
 호출 7개를 하위 package로 닫았다. \(F_2^2\)의 support-\([0,2]\) 좌표는 먼저 합해야
 기존 \(\Lambda_*\)가 유지된다. H1b-1b-2d.1a는 905행에서 전역 \(H\)의 \(C^1\)
-norm을 요구하지 않고 \(A^2,AB,B^2\)로 제곱합을 우회할 수 있음을 닫았다. 그러나
-source 986--999행의 scalar pointwise multiplier와 sharp \(\xi\log x\) finite scale은
-OPEN이다. 정본은 `docs/method/theory/24_Sono_FMT_H1b1b2d_rfold_smooth_composition.md`와
-`docs/method/theory/25_Sono_FMT_H1b1b2d1a_H_remainder_bypass.md`다. 다음 gate는
-H1b-1b-2d.1a.1/1b와 H1c-1 quantitative character package다. 모든 root
+norm을 요구하지 않고 \(A^2,AB,B^2\)로 제곱합을 우회할 수 있음을 닫았다.
+H1b-1b-2d.1a.1은 최종 출판본 (9.42)--(9.48)을 수치 재증명해
+\(C_Y=327680(14801/69)e^{264}+10,143,697<3.17\times10^{122}\)와 finite gate를
+얻었다. 따라서 line-905 scalar/square 하위 package와 smooth Lemma 8.4 8/9는 explicit이다.
+sharp \(\xi\log x\) finite scale은 OPEN이다. 정본은
+`docs/method/theory/24_Sono_FMT_H1b1b2d_rfold_smooth_composition.md`,
+`docs/method/theory/25_Sono_FMT_H1b1b2d1a_H_remainder_bypass.md`,
+`docs/method/theory/26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md`다.
+다음 gate는 H1b-1b-2d.1b와 H1c-1 quantitative character package다. 모든 root
 dependency가 닫히기 전에는 새 prime sweep·threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus에 합산하지 않는다.
@@ -449,14 +453,13 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P019 serial-oracle-free dual-partition toy PASS: 서로소 8/11 segments·worker 4, exact gap count 21, 두 full parallel pass·toy serial core 일치; shared sieve/accumulator common-mode risk 때문에 독립 증명 아님, actual 미승인
 - P020 recurrence artifact synthesis R2 EXPERIMENT_PASS / SYNTHESIS_ONLY: 성공 정본 8개·중복 제거 72,178,455,399 gap-start 회계, 새 prime 계산 없음, 6개 표·PNG/PDF 12파일 saved QA PASS; stationary→stratified 기대 92.1274% 교정, 후기 information collapse 확인; 2026-09-02 사용자 figure QA PASS
 - Sono/FMT numerical-threshold 1차 audit: 대입 계수 약 `2.0038612046196704e-17`, `2e-17`은 proved coefficient이나 출판본의 numerical `X_cert`는 없음; top-level proof는 effective-in-principle, PAP/UB·sieve/hypergraph·x→X 수치 rate가 blocker; 실제 전역 최소도 OPEN
-- Sono/FMT T1 원장: 66 obligations, dependency DAG와 로컬 PDF hash PASS; H1a는 모든 정수 `r>=36`에서 `J_r/I_r>log(r)/(4r)`를 project theorem으로 닫았다. H1b/H1b-1/H1c는 17·13·20행 원장을 등록했다. H1b-1a는 세 finite component를 닫았고 H1b-1b는 Lemma 8.2 multiplier 89와 GGPY absolute transfer factor 2를 닫았다. H1b-1b-2a.1은 11개 actual application의 local-factor·제외모듈 상계를 닫았고, H1b-1b-2c는 공통 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)를 인증했다. H1b-1b-2d는 smooth Lemma 8.4 7/9 호출의 support norm·finite-product 합성을 닫았고 2d.1a는 905행의 functional C1 요구를 square-sum으로 우회했다. scalar multiplier와 sharp scale이 남아 `H1B-L84`, `SIV-07`, `X_cert`는 그대로 OPEN
-- Sono/FMT H1b-1b-2 원장은 Maynard Lemma 8.4의 실제 \(\gamma_j,c_{\gamma,j}\)를 작은 제외 소수·큰 제외 소수·비제외 소수로 분해하고 세 repair 경로를 등록했다. H1b-1b-2a.1은 모든 추적 호출에서 \(\log Q_j\le\Lambda_*\)를 증명했고, H1b-1b-2b/c는 교정된 상대 one-step multiplier와 actual 입력을 닫았다. H1b-1b-2d의 smooth finite-product 합성은 product-profile 절대오차 envelope이며 coupled main 자체의 상대오차로 과장하지 않는다. 2d.1a의 square-sum 우회도 source scalar \(\varepsilon\)를 가정할 뿐 인증하지 않는다. legacy \(C_{3,\mathrm{abs}}+c_\gamma\) 경로는 optional cross-check이고, scalar·sharp finite scale은 open이다.
+- Sono/FMT T1 원장: 66 obligations, dependency DAG와 로컬 PDF hash PASS; H1a는 모든 정수 `r>=36`에서 `J_r/I_r>log(r)/(4r)`를 project theorem으로 닫았다. H1b/H1b-1/H1c는 17·13·20행 원장을 등록했다. H1b-1a는 세 finite component를 닫았고 H1b-1b는 Lemma 8.2 multiplier 89와 GGPY absolute transfer factor 2를 닫았다. H1b-1b-2a.1은 11개 actual application의 local-factor·제외모듈 상계를 닫았고, H1b-1b-2c는 공통 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)를 인증했다. H1b-1b-2d는 direct smooth 7개를 닫았고 2d.1a/1a.1은 line-905 C1 우회와 scalar multiplier를 닫아 smooth Lemma 8.4 하위호출 8/9를 explicit으로 만들었다. sharp scale이 남아 `H1B-L84`, `SIV-07`, `X_cert`는 그대로 OPEN
+- Sono/FMT H1b-1b-2 원장은 Maynard Lemma 8.4의 실제 \(\gamma_j,c_{\gamma,j}\)를 작은 제외 소수·큰 제외 소수·비제외 소수로 분해하고 세 repair 경로를 등록했다. H1b-1b-2a.1은 모든 추적 호출에서 \(\log Q_j\le\Lambda_*\)를 증명했고, H1b-1b-2b/c는 교정된 상대 one-step multiplier와 actual 입력을 닫았다. H1b-1b-2d의 smooth finite-product 합성은 product-profile 절대오차 envelope이며 coupled main 자체의 상대오차로 과장하지 않는다. 2d.1a.1은 source scalar \(\varepsilon\)를 \(C_Y<3.17\times10^{122}\)로 인증했지만 sharp finite scale은 open이다. legacy \(C_{3,\mathrm{abs}}+c_\gamma\) 경로는 optional cross-check다.
 - 새 장시간 Windows runner는 `scripts/common/live_native_tee.py`와 `Invoke-LiveLoggedNativeStage`로 .NET process capture 없이 stdout/stderr를 같은 PowerShell 화면과 main log에 즉시 기록; Windows PowerShell 5.1용 UTF-8 JSON Base64 transport 회귀시험 PASS
 - P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018-B를 자동 실행하지 않고, H1b-1b-2d.1a.1에서 Maynard 986--999행의
-scalar remainder multiplier를 수치 재증명한 뒤 H1b-1b-2d.1b의 sharp
+다음 권장 행동은 P018-B를 자동 실행하지 않고, H1b-1b-2d.1b의 sharp
 \(\xi\log x\) finite scale을 source-trace하는 것이다. H1c-1의 FGKMT
 character/Bombieri–Vinogradov 수치 package는 병렬 연구축이다.
 H1과 병행할 수 있는 보조축은 explicit

@@ -169,6 +169,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
         )
         self.assertEqual(
+            self.document["h1b1b2d1a1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1B-L82"]["status"],
             "PROJECT_FINITE_COMPONENT_CLOSED",
         )
@@ -179,9 +184,8 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         self.assertEqual(
             self.by_id["H1B-L83"]["missing_numeric_inputs"],
             [
-                "downstream full Lemma 8.4 closure still needs the line-905 "
-                "scalar pointwise remainder multiplier and sharp xi*log(x) "
-                "finite scale"
+                "downstream full Lemma 8.4 closure still needs the sharp "
+                "xi*log(x) finite scale and common moment-level error budget"
             ],
         )
         self.assertIn(
@@ -202,11 +206,15 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         self.assertFalse(self.document["siv_09_closed"])
         self.assertEqual(self.by_id["H1B-L84"]["status"], "RATE_MISSING")
         self.assertIn(
-            "seven of nine direct smooth Lemma 8.4 subapplications",
+            "eight of nine Lemma 8.4 subapplications",
             " ".join(self.by_id["H1B-L84"]["explicit_parts"]),
         )
         self.assertIn(
             "square-sum bypass",
+            " ".join(self.by_id["H1B-L84"]["explicit_parts"]),
+        )
+        self.assertIn(
+            "C_Y=",
             " ".join(self.by_id["H1B-L84"]["explicit_parts"]),
         )
 

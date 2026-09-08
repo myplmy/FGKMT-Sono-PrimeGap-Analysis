@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-09-08",
+  "gate": "H1b-1b-2d.1a.1 Maynard equations (9.42)-(9.48) scalar remainder",
+  "outcome": "SCALAR_REMAINDER_PARAMETERIZED_EXPLICIT_PARENT_RATE_MISSING",
+  "scope": "Numerically reprove the pointwise scalar remainder needed by the line-905 square-sum bypass. This contract does not close the two sharp xi*log(x) applications, Proposition 6.1, SIV-07, or X_cert.",
+  "authoritative_source_rule": {
+    "rule": "The final published paper is authoritative over the older author TeX.",
+    "published_equation_9_43": "Delta_m = product_{i != m}(a_m*b_i-a_i*b_m)",
+    "older_tex_issue": "Subsets.tex line 986 includes i=m and therefore has an identically zero factor.",
+    "resolution": "Use the published i != m formula; this is a stale source-TeX typo, not an ambiguity in the final publication."
+  },
+  "source_registry": [
+    {
+      "id": "MAYNARD_PUBLISHED",
+      "citation": "James Maynard, Dense clusters of primes in subsets, Compositio Mathematica 152 (2016), 1517-1554",
+      "doi": "10.1112/S0010437X16007296",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B49458BB98CB2D9C93ACF3BB09B4B08D/S0010437X16007296a.pdf/div-class-title-dense-clusters-of-primes-in-subsets-div.pdf",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "locator": "printed pages 1544-1547, equations (9.39)-(9.48)",
+      "role": "authoritative formula and normalization"
+    },
+    {
+      "id": "MAYNARD_AUTHOR_TEX",
+      "citation": "Author source for arXiv:1405.2593",
+      "url": "https://arxiv.org/abs/1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "locator": "lines 939-1038",
+      "role": "searchable derivation; superseded by the published equation where they differ"
+    },
+    {
+      "id": "ROSSER_SCHOENFELD_1962",
+      "citation": "J. Barkley Rosser and Lowell Schoenfeld, Approximate formulas for some functions of prime numbers, Illinois Journal of Mathematics 6 (1962), 64-94",
+      "doi": "10.1215/ijm/1255631807",
+      "local_path": "tmp/pdfs/h1b1a/Rosser_Schoenfeld_1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "locator": "printed page 70 Theorem 6 equation (3.24); printed page 72 equations (3.41)-(3.42)",
+      "role": "explicit prime log sum and n/phi(n) bounds"
+    },
+    {
+      "id": "PROJECT_LEMMA82",
+      "local_path": "source/h1b1b_multiplier_recovery.py",
+      "sha256": "98a3bc185ef72cc2a318a93ca32273ebf3ee2e4f10992323021ee52454ede7c6",
+      "role": "previously certified YDifference multiplier 89"
+    },
+    {
+      "id": "PROJECT_CORRECTED_LEMMA83",
+      "local_path": "source/h1b1b2b_corrected_wirsing.py",
+      "sha256": "569cb9c19eafb7ed1f168ad1def5e728925e55ffcfb999fd06af12b2554c4596",
+      "role": "corrected weighted one-step multiplier C_8.3"
+    },
+    {
+      "id": "PROJECT_ACTUAL_PARAMETERS",
+      "local_path": "source/h1b1b2c_actual_parameter_package.py",
+      "sha256": "95434d897123c45e33fcaf61f5037774f4251f29b3e0da5dfde686bb79a28154",
+      "role": "actual a=1/2, A2=8 and common Lambda-star package"
+    },
+    {
+      "id": "PROJECT_SMOOTH_RFOLD",
+      "local_path": "source/h1b1b2d_rfold_smooth_package.py",
+      "sha256": "723caae2195945b6c5ff8cdfb83b10b09401d04919f8f89a9c80de7a78f419c1",
+      "role": "support-scaled profile bounds and common smooth finite gate"
+    },
+    {
+      "id": "PROJECT_SQUARE_SUM_BYPASS",
+      "local_path": "source/h1b1b2d1a_h_remainder_bypass.py",
+      "sha256": "11fed87a3d625ecedfe6d39a2f901f95d6d7edc2c519bdcdeffd6cea0f68a076",
+      "role": "line-905 pointwise-to-square-sum reduction"
+    }
+  ],
+  "literature_first_audit": {
+    "reused_results": [
+      "Maynard final equations (9.42)-(9.48)",
+      "Rosser-Schoenfeld sum_{p<=x} log(p)/p < log(x) for x>1",
+      "Rosser-Schoenfeld n/phi(n) explicit upper bound for n>=3",
+      "the project's already corrected Lemma 8.3 multiplier"
+    ],
+    "exact_complete_numeric_lemma_found": false,
+    "qualification": "Targeted searches did not locate a peer-reviewed lemma covering the exact vector multiplicity, published determinant support, corrected one-step normalization, and finite cutoff together. This is not a global novelty claim.",
+    "direct_proof_scope": [
+      "separated s Euler product",
+      "t divisor log-linear sum",
+      "determinant-to-log(R) absorption",
+      "totient/phi_L prefactor cancellation",
+      "direct (9.47) profile envelope",
+      "two-branch scalar constant combination"
+    ]
+  },
+  "assumptions": {
+    "k_minimum": 36,
+    "alpha": "alpha>0",
+    "theta": "0<theta<1",
+    "source_relations": [
+      "k <= (log x)^(1/5)",
+      "x^(theta/10) <= R <= x^(theta/3)",
+      "all eligible s,t primes exceed 2*k^2",
+      "the affine linear forms are distinct and the published nonzero Delta_m is used",
+      "gcd(r,W*B)=1"
+    ]
+  },
+  "elementary_bounds": {
+    "s_euler_product": {
+      "local_upper": "1+4*k/p^(3/2)",
+      "exponent_upper": "4*sqrt(2)<6",
+      "integer_multiplier": 729
+    },
+    "t_divisor_sum": {
+      "exact_identity": "P_D*(1+sum_{p|D} log(p)/(p-omega(p)+1))",
+      "P_D_correction_upper": "exp(1/k)<36/35",
+      "prime_log_correction_upper": "(log(2*k^2)+1)/k<=1/4",
+      "exact_coefficient_before_rounding": "64467/3500",
+      "integer_multiplier": 19
+    },
+    "determinant": {
+      "definition": "Delta_m=product_{i!=m}|a_m*b_i-a_i*b_m|",
+      "growth": "log Delta_m <= C_delta(alpha,theta)*(log R)^(6/5)",
+      "C_delta": "(10/theta)^(1/5)*(log(2)+20*alpha/theta)",
+      "absorption": "log log Delta_m <= 2 log log R at the stated finite gate"
+    },
+    "prefactor": {
+      "exact_base_cancellation": "[a_m*WB/phi(a_m*WB)]*[r/phi_L(r)]*[phi(rad(a_m*WB*r))/rad(a_m*WB*r)]=1",
+      "nonexcluded_local_product_upper": "exp(1/k)<36/35"
+    },
+    "direct_profile": {
+      "integral_lower": "B/P >= (k-1)*I_N >= 1/2",
+      "scaled_c1_upper": "G_max/P <= 51+50/sqrt(k)+sqrt(k)*log(k) <= T_k",
+      "consequence": "G_max <= 2*T_k*B"
+    }
+  },
+  "scalar_remainder": {
+    "source_multiplier_closed": true,
+    "lemma82_multiplier": 89,
+    "s_multiplier": 729,
+    "t_multiplier": 19,
+    "determinant_loglog_multiplier_squared": 4,
+    "em_sum_upper_factor": 2,
+    "prefactor_residual": "36/35",
+    "ym_error_exact_multiplier": "355028832/35",
+    "ym_error_integer_multiplier": 10143681,
+    "weighted_lemma83_multiplier_formula": "C_8.3(1/2,8)=2*(40960*(14801/69)*exp(264)+2)",
+    "direct_branch_multiplier_formula": "4*C_8.3(1/2,8)",
+    "common_C_Y_formula": "4*C_8.3(1/2,8)+10143681 = 327680*(14801/69)*exp(264)+10143697",
+    "common_C_Y_decimal_diagnostic": "3.1669056533180973561970581518e122",
+    "proved_form": "epsilon_Y <= C_Y*T_k*(log log R)^2/log R"
+  },
+  "finite_gate": {
+    "common_smooth_gate_reused": true,
+    "square_bypass_gate": {
+      "kappa_sum_definition": "maximum sum of support-scaled profile coefficients over every A^2, A*B and B^2 tensor family",
+      "sufficient_log_R": "max(1,sqrt(k)*log(2),4*E_sq*log(4*E_sq),2*E_sq*(6+log(A+B))) where E_sq=C_8.3*kappa_sq",
+      "linearization_requirement": "C_8.3*(L+1)*kappa_sq/log(R)<=1"
+    },
+    "additional_determinant_requirement": "log log R >= max(1,(5/4)*max(0,log C_delta))",
+    "additional_discrepancy_requirement": "log log R >= max(1,6+log(A+B))",
+    "A": "2*k^2*log(2*k^2)+k*(k-1)*log(2)",
+    "B": "10*alpha*(2*k^2-k+1)/theta+k",
+    "representative_only": {
+      "k": 36,
+      "alpha": "0.01",
+      "theta": "0.25",
+      "log_R_sufficient": "1.1742478701903428765874673709863923546122457380743e132",
+      "dominant_requirement": "pre-existing common smooth gate",
+      "square_bypass_kappa_sum": "12080541.794064999393",
+      "square_bypass_delta_sum_at_cutoff": "0.25825721787784236253",
+      "certified_scalar_epsilon_at_cutoff": "0.0032175529463407103753",
+      "status": "diagnostic example, not X_cert"
+    }
+  },
+  "parent_status": {
+    "line_905_scalar_subpackage": "PROJECT_FINITE_COMPONENT_CLOSED",
+    "H1B-L84": "RATE_MISSING",
+    "H1B-L84_closed": false,
+    "remaining_H1B_L84_blocker": "two sharp xi*log(x) finite-scale calls",
+    "H1B1-PACKAGE": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "SIV-07_closed": false,
+    "X_cert": "OPEN",
+    "X_cert_ready": false
+  },
+  "actual_prime_experiment_performed": false,
+  "threshold_calculator_executed": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false,
+  "next_gate": {
+    "id": "H1b-1b-2d.1b",
+    "description": "Recover finite lower scales for the two sharp xi*log(x) summatory calls before reconsidering H1B-L84."
+  }
+}

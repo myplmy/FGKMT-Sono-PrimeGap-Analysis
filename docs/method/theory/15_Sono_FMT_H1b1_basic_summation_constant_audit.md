@@ -2,7 +2,7 @@
 
 - 작성: 2026-09-04 KST
 - 증거 수준: `SOURCE-LEVEL QUANTITATIVE DEPENDENCY AUDIT`
-- 판정: `CORRECTED_KAPPA1_ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT_RFOLD_PACKAGE_OPEN`
+- 판정: `CORRECTED_KAPPA1_ACTUAL_INPUTS_SCALAR_EXPLICIT_SHARP_PACKAGE_OPEN`
 - `SIV-07`: `HARD_BLOCKER` 유지
 - numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
 - 기계 판독 정본:
@@ -18,6 +18,8 @@
   [`22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`](22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md)
 - H1b-1b-2c actual 입력 특수화:
   [`23_Sono_FMT_H1b1b2c_actual_parameter_specialization.md`](23_Sono_FMT_H1b1b2c_actual_parameter_specialization.md)
+- H1b-1b-2d.1a.1 scalar remainder:
+  [`26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md`](26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md)
 
 ## 1. 결론부터
 
@@ -44,8 +46,8 @@ H1b-1b-2a.1은 11개 analytic subapplication의 확대 제외모듈을 전수 �
 H1b-1b-2c는 실제 네 family에 공통인
 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)도 인증했다. Lemma 8.1(ii)의 입력 정규화와
 공통 cutoff는 열려 있다. H1b-1b-2d는 7개 smooth Lemma 8.4 call의 support norm과
-보정 finite-product 반복오차를 닫았다. 후속 2d.1a는 905행 전역 \(H\)의 \(C^1\)
-요구를 우회했으나, source scalar multiplier와 sharp \(\xi\) scale은 열려 있다. 절대
+보정 finite-product 반복오차를 닫았다. 후속 2d.1a/1a.1은 905행 전역 \(H\)의 \(C^1\)
+요구를 우회하고 source scalar multiplier를 닫았다. sharp \(\xi\) scale은 열려 있다. 절대
 \(C_{3,\mathrm{abs}}(A_1,A_2)\) 경로는 보조 교차검사로 남는다.
 따라서 numerical basic-summation package 전체는 아직 완료가 아니다.
 
@@ -276,17 +278,17 @@ X_cert                     = OPEN
 Lemma 8.3 corrected one-step rate = C_L83(a,A2), every z>=2
 actual common a,A2,L             = 1/2, 8, 5+log(Lambda_star) CLOSED PARAMETERIZED
 legacy C3_abs + c_gamma route    = OPTIONAL CROSS-CHECK
-Lemma 8.4 smooth subpackage      = 7/9 PROJECT PARAMETERIZED EXPLICIT
-Lemma 8.4 line-905 C1 bypass     = PROJECT EXPLICIT
-Lemma 8.4 scalar/sharp remainder = OPEN
+Lemma 8.4 smooth subpackage      = 8/9 PROJECT PARAMETERIZED EXPLICIT
+Lemma 8.4 line-905 scalar bypass = PROJECT PARAMETERIZED EXPLICIT
+Lemma 8.4 sharp remainder        = OPEN
 SIV-07 / X_cert                  = HARD_BLOCKER / OPEN
 ```
 
 H1b-1b-2c가 실제 호출 전체에 공통인 \(a,A_2,L\)을 인증했고, H1b-1b-2d가
 smooth 하위 package를 닫았다. H1b-1b-2d.1a는 905행의 전역 \(H\) \(C^1\)
-majorant 요구를 square-sum으로 우회했다. 다음 직접 gate는 source 986--999행의
-scalar multiplier를 복원하는 H1b-1b-2d.1a.1과 sharp \(\xi\log x\) finite scale의
-H1b-1b-2d.1b다.
+majorant 요구를 square-sum으로 우회했고, 2d.1a.1은 source scalar multiplier를
+\(C_Y<3.17\times10^{122}\)와 finite gate로 닫았다. 다음 직접 gate는 sharp
+\(\xi\log x\) finite scale의 H1b-1b-2d.1b다.
 
 ## 9. 2026-09-08 H1b-1b-2d 반영
 
@@ -296,7 +298,8 @@ smallness 충분조건도 명시했다. \(F_2^2\)에서는 support-\([0,2]\) 좌
 합해야 theory 23의 \(\Lambda_*\)를 그대로 쓸 수 있다는 순서 조건을 추가했다.
 
 이 결과는 product-profile integral 기준의 절대오차 envelope다. actual coupled main
-integral 자체에 대한 상대오차라고 확장하지 않는다. 또한 line-905 scalar multiplier와 sharp scale이
+integral 자체에 대한 상대오차라고 확장하지 않는다. 이 절은 2d 직후의 당시 상태이며,
+line-905 scalar multiplier는 section 11의 2d.1a.1에서 닫혔다. sharp scale은 계속
 남아 있으므로 H1b-1 basic summation package 전체 및 `SIV-07`은 닫히지 않았다.
 
 ## 10. 2026-09-08 H1b-1b-2d.1a 반영
@@ -310,3 +313,22 @@ integral 자체에 대한 상대오차라고 확장하지 않는다. 또한 line
 finite range는 OPEN이다. 조건부 evaluator가 임의의 \(\varepsilon\)을 받을 수 있다는
 사실은 source certification이 아니다. 따라서 H1b-1 package, `SIV-07`과
 \(X_{\mathrm{cert}}\)는 승격하지 않는다.
+
+## 11. 2026-09-08 H1b-1b-2d.1a.1 반영
+
+최종 출판본 (9.42)--(9.48)을 기준으로 \(s\)-Euler product,
+\(t\mid\Delta_m\) divisor 합, determinant 상계, \(\varphi_L\) prefactor와
+direct partial-summation branch를 재증명했다. 공통 scalar 상수는
+
+\[
+C_Y=327680\frac{14801}{69}e^{264}+10,143,697
+<3.17\times10^{122}.
+\]
+
+theory 25와 합치면 line-905 scalar/square subpackage가 닫힌다. 구 author TeX의
+\(i=m\) determinant는 최종 출판본 (9.43)에서 이미 \(i\ne m\)으로 고쳐졌음을 함께
+정정했다.
+
+따라서 현재 Lemma 8.4 smooth 하위호출은 8/9 explicit이다. 남은 직접 blocker는
+sharp \(\xi\log x\) finite scale이다. 이 진전만으로 `H1B-L84`,
+`SIV-07` 또는 \(X_{\mathrm{cert}}\)를 승격하지 않는다.

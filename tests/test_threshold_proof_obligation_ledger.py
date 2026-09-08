@@ -158,10 +158,20 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
         )
+        self.assertEqual(
+            self.document["h1b1b2d1a1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
+        )
         self.assertIn(
             "all 11 application excluded-modulus bounds",
             self.by_id["SIV-07"]["notes"],
         )
+        self.assertIn(
+            "closes its scalar pointwise multiplier",
+            self.by_id["SIV-07"]["notes"],
+        )
+        self.assertIn("sharp xi*log(x)", self.by_id["SIV-07"]["notes"])
         self.assertEqual(self.by_id["SIV-07"]["status"], "HARD_BLOCKER")
 
 

@@ -116,12 +116,28 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
         )
         self.assertEqual(
+            self.document["h1b1b2d1a1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
+        )
+        self.assertEqual(
             self.document["h1c_ledger"],
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
         )
         self.assertEqual(
             self.by_id["H1-SIV-08"]["recoverability"],
             "QUANTITATIVE_REPROOF_REQUIRED",
+        )
+        siv_07 = next(
+            row for row in self.rows if row["target_obligation"] == "SIV-07"
+        )
+        self.assertNotIn(
+            "scalar pointwise multiplier",
+            " ".join(siv_07["missing_numeric_inputs"]),
+        )
+        self.assertIn(
+            "sharp xi*log(x)",
+            " ".join(siv_07["missing_numeric_inputs"]),
         )
         self.assertFalse(self.document["numerical_x_cert_ready"])
 

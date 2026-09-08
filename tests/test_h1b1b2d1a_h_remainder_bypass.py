@@ -191,6 +191,16 @@ class HSquareBypassTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), source["sha256"])
         parent = contract["parent_status"]
         self.assertEqual(parent["H1B-L84"], "RATE_MISSING")
+        successor = contract["subsequent_resolution_2026_09_08"]
+        self.assertEqual(
+            successor["source_scalar_multiplier"],
+            "PROJECT_FINITE_COMPONENT_CLOSED",
+        )
+        self.assertEqual(
+            successor["line_905_scalar_subpackage"],
+            "PROJECT_FINITE_COMPONENT_CLOSED",
+        )
+        self.assertEqual(successor["H1B-L84"], "RATE_MISSING")
         self.assertEqual(parent["H1B1-PACKAGE"], "HARD_BLOCKER")
         self.assertEqual(parent["SIV-07"], "HARD_BLOCKER")
         self.assertEqual(parent["X_cert"], "OPEN")

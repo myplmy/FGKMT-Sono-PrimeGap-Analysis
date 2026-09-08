@@ -10,6 +10,12 @@
 - 비판적 검토:
   [H remainder 우회 타당성 검토](../../review/31_20260908_H1b1b2d1a_H_remainder_타당성검토.md)
 
+> **후속 상태 정정(2026-09-08):** 이 문서가 OPEN으로 남긴 scalar multiplier는
+> [theory 26](26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md)에서 parameterized finite
+> component로 닫혔다. 다만 H1B-L84, SIV-07, \(X_{\rm cert}\)는 여전히
+> RATE_MISSING, HARD_BLOCKER, OPEN이다. 아래 OPEN 판정은 이 단계가 끝났을 당시의
+> 역사적 판정이다.
+
 ## 1. 결론
 
 이번 단계는 원문이 정의하지 않은 “전역 smooth \(H\)”를 만들어 내지 않는다. 대신 905행이
@@ -95,14 +101,15 @@ DOI 10.1112/S0010437X16007296, arXiv:1405.2593이다.
 1. Lemma 9.3의 844행과 proof 1026행은
    \(T_k(\log\log R)^2/\log R\)인데 915행은 제곱 하나를 잃는다. finite package에서는
    더 약하지만 안전한 제곱형을 보존한다.
-2. 986행의 \(\Delta=\prod_{i=1}^k(a_mb_i-a_ib_m)\)는 \(i=m\) 항 때문에 0이다.
-   실제 \(t_j\)는 \(j\ne m\)에서만 생기므로 의도된 determinant 곱은 \(i\ne m\)으로
-   읽어야 한다.
+2. 구 author TeX 986행의 \(\Delta=\prod_{i=1}^k(a_mb_i-a_ib_m)\)는 \(i=m\) 항 때문에
+   0이지만, 최종 출판본 식 (9.43)은 정확히 \(i\ne m\)으로 고쳐져 있다. 프로젝트는
+   최종 출판본을 정본으로 사용한다.
 3. 998행에서 999행으로 가는 \(\log R\) 정규화는 표시만으로 수치 multiplier를 결정할
    만큼 자세하지 않다. 임의로 누락된 인자를 추정하지 않고 해당 연결을 재증명 대상으로 둔다.
 
-표적 검색에서 위 항목의 출판사 정식 erratum을 확인했다는 주장은 하지 않는다. 이들은
-원문 내부 식과 변수 범위를 대조해 얻은 project source caution이다.
+determinant 항목은 정식 erratum이 필요한 출판 오류가 아니라 오래된 author TeX와 최종
+출판본의 차이다. 나머지 log-log 지수와 수치 정규화는 원문 내부 식과 변수 범위를 대조해
+얻은 project source caution이다.
 
 ## 4. 적분 뒤의 두 명시적 함수
 

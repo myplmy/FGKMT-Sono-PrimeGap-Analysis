@@ -3,7 +3,7 @@
   "created_kst": "2026-09-08",
   "gate": "H1b-1b-2d support-scaled smooth norms and corrected r-fold composition",
   "outcome": "SMOOTH_RFOLD_SUBPACKAGE_PARAMETERIZED_EXPLICIT_ACTUAL_PACKAGE_OPEN",
-  "scope": "The seven direct smooth Lemma 8.4 subapplications and the direct smooth Lemma 8.3 call at source line 1015. Successor H1b-1b-2d.1a bypasses the line-905 functional C1 requirement, but its scalar pointwise remainder multiplier and the sharp-cutoff scale remain open.",
+  "scope": "Eight smooth Lemma 8.4 subapplications, including the successor line-905 square-sum/scalar package, and the direct smooth Lemma 8.3 call at source line 1015. The sharp-cutoff scale remains open.",
   "source_registry": [
     {
       "key": "MAYNARD2016_PUBLISHED",
@@ -72,17 +72,17 @@
   "application_counts": {
     "source_traced_total": 11,
     "lemma84_total": 9,
-    "lemma84_smooth_closed": 7,
+    "lemma84_smooth_closed": 8,
     "smooth_profile_closed": 8,
     "sharp_parameterized": 2,
-    "h_square_bypass_scalar_open": 1
+    "h_square_bypass_scalar_closed": 1
   },
   "applications": [
     {"id": "L620_dW", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "F"},
     {"id": "L737_canonical", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "F2^2", "wide_coordinate_first_required": true},
     {"id": "L752_canonical", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "F^2"},
     {"id": "L885_W_prime", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "F2(t_m=0)^2", "wide_coordinate_first_required": true},
-    {"id": "L905_W_prime", "source_lemma": "8.4", "mode": "H_SQUARE_BYPASS_EXPLICIT_SCALAR_MULTIPLIER_OPEN", "blocker": "H1b-1b-2d.1a removes the need for a global H C1 norm, but source lines 986-999 still lack a numerical scalar pointwise remainder multiplier and finite range"},
+    {"id": "L905_W_prime", "source_lemma": "8.4", "mode": "H_SQUARE_BYPASS_PARAMETERIZED_EXPLICIT", "successor_contract": "Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json"},
     {"id": "L995_a_m_W_B_r", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "one-variable F2"},
     {"id": "L1015_r_W_m", "source_lemma": "8.3", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "one-variable F"},
     {"id": "L1096_W0", "source_lemma": "8.3", "mode": "SHARP_CUTOFF_SUMMATORY_PARAMETERIZED_EXPLICIT", "blocker": "finite lower bound for xi*log(x) remains hidden"},
@@ -110,7 +110,7 @@
   "all_actual_lemma84_calls_closed": false,
   "sharp_scale_closed": false,
   "h_functional_c1_obstruction_removed": true,
-  "h_scalar_pointwise_multiplier_closed": false,
+  "h_scalar_pointwise_multiplier_closed": true,
   "siv_07_closed": false,
   "numerical_x_cert_ready": false,
   "actual_threshold_computed": false,
@@ -125,8 +125,8 @@
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "id": "H1b-1b-2d.1a.1-and-1b",
-    "description": "Numerically reprove the source-lines-986-999 scalar pointwise remainder multiplier and recover the finite xi*log(x) scale for the two sharp calls before composing the whole Lemma 8.4 package.",
+    "id": "H1b-1b-2d.1b",
+    "description": "Recover the finite xi*log(x) scale for the two sharp calls before composing the whole Lemma 8.4 package.",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false
   }

@@ -9,6 +9,7 @@
   "h1b1b2c_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2c_actual_parameter_specialization_v1.json",
   "h1b1b2d_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
   "h1b1b2d1a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
+  "h1b1b2d1a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
   "target": "For every X >= X_cert, G_1(X) >= 2e-17 * log(X) * log_2(X) * log_4(X) / log_3(X)",
   "scope": "Direct proof edges from Sono Theorem 3.6 through the cited FMT, FGKMT, and Maynard layers. This is an obligation inventory, not a numerical threshold certificate.",
@@ -1017,7 +1018,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "quantitative reproof",
-      "notes": "H1b registered 17 Maynard Section 8-9 obligations. H1b-1b-2b supplies a corrected kappa=1 one-step multiplier, H1b-1b-2a.1 closes all 11 application excluded-modulus bounds, and H1b-1b-2c certifies actual a=1/2, A2=8 and L=5+log(Lambda_star). H1b-1b-2d closes support-scaled finite-product composition for seven direct smooth Lemma 8.4 calls. H1b-1b-2d.1a removes the need for a global C1 version of the source-line-905 H remainder, but its scalar pointwise multiplier, sharp xi*log(x) finite scale, moment constants and Hypothesis 1 inputs remain open. The paper states effectivity conditional on effective Hypothesis 1 constants, not numerical instantiation; SIV-07 therefore remains a hard blocker."
+      "notes": "H1b registered 17 Maynard Section 8-9 obligations. H1b-1b-2b supplies a corrected kappa=1 one-step multiplier, H1b-1b-2a.1 closes all 11 application excluded-modulus bounds, and H1b-1b-2c certifies actual a=1/2, A2=8 and L=5+log(Lambda_star). H1b-1b-2d closes support-scaled finite-product composition for eight smooth Lemma 8.4 calls after its successor, H1b-1b-2d.1a removes the need for a global C1 version of the source-line-905 H remainder, and H1b-1b-2d.1a.1 closes its scalar pointwise multiplier. The sharp xi*log(x) finite scale, moment constants and Hypothesis 1 inputs remain open. The paper states effectivity conditional on effective Hypothesis 1 constants, not numerical instantiation; SIV-07 therefore remains a hard blocker."
     },
     {
       "id": "SIV-08",

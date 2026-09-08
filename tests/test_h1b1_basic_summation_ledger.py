@@ -111,6 +111,10 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             visit(row_id)
 
     def test_corrected_kappa1_rate_and_actual_inputs_are_parameterized_explicit(self) -> None:
+        self.assertEqual(
+            self.document["outcome"],
+            "SMOOTH_RFOLD_AND_LINE905_SCALAR_EXPLICIT_SHARP_OPEN",
+        )
         self.assertTrue(self.document["lemma_8_3_citation_identified"])
         self.assertTrue(self.document["lemma_8_3_numeric_multiplier_recovered"])
         self.assertTrue(self.document["lemma_8_3_parameterized_multiplier_recovered"])
@@ -131,11 +135,21 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             self.by_id["H1B1-L84-L"]["status"],
             "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
-        self.assertIn(
+        self.assertNotIn(
             "scalar pointwise multiplier",
             " ".join(
                 self.by_id["H1B1-L84-ITERATION"]["missing_numeric_inputs"]
             ),
+        )
+        self.assertIn(
+            "sharp-cutoff",
+            " ".join(
+                self.by_id["H1B1-L84-ITERATION"]["missing_numeric_inputs"]
+            ),
+        )
+        self.assertNotIn(
+            "scalar pointwise multiplier",
+            " ".join(self.by_id["H1B1-L84-SMOOTH"]["missing_numeric_inputs"]),
         )
         self.assertIn(
             "kappa=1",
@@ -190,6 +204,11 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             self.document["h1b1b2d1a_ledger"],
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b1b2d1a1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
         )
 
 

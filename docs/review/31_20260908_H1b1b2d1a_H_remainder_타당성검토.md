@@ -7,6 +7,11 @@
 - 기계 계약:
   [Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json](../method/theory/data/Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json)
 
+> **후속 상태 정정(2026-09-08):** 아래 판정 당시 OPEN이던 scalar multiplier는
+> [theory 26](../method/theory/26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md)에서
+> parameterized finite component로 닫혔다. 상위 H1B-L84, SIV-07,
+> \(X_{\rm cert}\)는 승격하지 않았다.
+
 ## 1. 최종 판정
 
 \[
@@ -79,7 +84,7 @@ excluded-modulus upper를 손상시키지 않는다.
 
 - 원문의 숨은 \(C_Y\)가 1이라는 주장
 - 915행의 log-log 한 제곱형이 finite 범위에서 옳다는 주장
-- 986행의 인쇄 \(\Delta\)를 그대로 사용해도 된다는 주장
+- 구 author TeX 986행의 \(\Delta\)를 최종 출판본보다 우선한다는 주장
 - conditional evaluator에 넣은 임의 \(\varepsilon\)가 source-certified라는 주장
 - 실제 main \(J_k(F)\)에 대한 작은 상대오차 또는 Proposition 6.1 전체
 
@@ -93,10 +98,10 @@ threshold에는 한 인자가 매우 중요하므로 더 약한 제곱형을 사
 
 ### 4.2 determinant product의 \(i=m\)
 
-인쇄대로면 \(\Delta=0\)이라 “\(t\mid\Delta\)”가 의도한 유한 prime support를 나타내지
-못한다. 실제 construction은 \(j\ne m\)의 \(W'_j/W_j\)만 사용하므로 그 범위에 맞는
-\(\Delta_m\)를 별도 정의하고 상계를 재증명해야 한다. 조용히 오자를 고쳤다고 끝내지 않고
-scalar multiplier gate의 명시 의무로 남겼다.
+구 author TeX 986행만 \(i=m\)을 포함해 \(\Delta=0\)이 되며, 최종 출판본 1545쪽
+식 (9.43)은 정확히 \(i\ne m\)이다. 따라서 “인쇄본 자체가 모호하다”는 이전 표현은
+부정확했다. 최종 출판본을 정본으로 삼고
+\(\Delta_m=\prod_{i\ne m}|a_mb_i-a_ib_m|\)의 크기 상계만 재증명하는 것이 맞다.
 
 ### 4.3 998--999행 정규화
 

@@ -59,8 +59,8 @@ PROFILE_NW = "NW"
 
 APPLICATION_MODE_SMOOTH_COMPOSED = "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT"
 APPLICATION_MODE_SHARP_SUMMATORY = "SHARP_CUTOFF_SUMMATORY_PARAMETERIZED_EXPLICIT"
-APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_OPEN = (
-    "H_SQUARE_BYPASS_EXPLICIT_SCALAR_MULTIPLIER_OPEN"
+APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_CLOSED = (
+    "H_SQUARE_BYPASS_PARAMETERIZED_EXPLICIT"
 )
 
 H1B1B2D_MINIMUM_TARGET_K = 36
@@ -184,10 +184,10 @@ MAYNARD_APPLICATION_SMOOTH_SPECS = (
     ApplicationSmoothSpec(
         APPLICATION_L905_W_PRIME,
         "Maynard source lines 903-916",
-        APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_OPEN,
+        APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_CLOSED,
         "square sum bypassed through A^2, A*B and B^2 tensor families",
         "k-1",
-        "The functional C1 requirement is bypassed, but source lines 986-999 do not give a numerical scalar pointwise remainder multiplier.",
+        None,
     ),
     ApplicationSmoothSpec(
         APPLICATION_L995_A_M_W_B_R,
@@ -449,8 +449,8 @@ def application_kappa_term_families(
     }
     if application_id == APPLICATION_L905_W_PRIME:
         raise ValueError(
-            "L905 cannot use a direct H smooth path; use the conditional "
-            "square-sum bypass while its scalar source multiplier remains open"
+            "L905 cannot use a direct H smooth path; use the certified "
+            "scalar square-sum bypass package"
         )
     if application_id in {APPLICATION_L1096_W0, APPLICATION_L1135_W0_FACTOR}:
         raise ValueError("sharp-cutoff applications require the summatory formula")
@@ -666,7 +666,7 @@ assert {row.application_id for row in MAYNARD_APPLICATION_SMOOTH_SPECS} == (
 
 
 __all__ = [
-    "APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_OPEN",
+    "APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_CLOSED",
     "APPLICATION_MODE_SHARP_SUMMATORY",
     "APPLICATION_MODE_SMOOTH_COMPOSED",
     "ApplicationSmoothSpec",

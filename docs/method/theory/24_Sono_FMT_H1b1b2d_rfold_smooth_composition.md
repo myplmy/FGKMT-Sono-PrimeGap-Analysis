@@ -10,6 +10,8 @@
 - 구현: `source/h1b1b2d_rfold_smooth_package.py`
 - 비판적 검토:
   [H1b-1b-2d 적용성 검토](../../review/30_20260908_H1b1b2d_Lemma84_rfold_smooth_적용성검토.md)
+- 후속 scalar 정본:
+  [H1b-1b-2d.1a.1 scalar remainder](26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md)
 
 ## 1. 판정부터 요약
 
@@ -19,18 +21,19 @@
 ~~~text
 서로 다른 nonnegative smooth profile의 finite product 합성  PROJECT PARAMETERIZED EXPLICIT
 실제 N,W,N^2,W^2,NW profile norm                   PROJECT PARAMETERIZED EXPLICIT
-Lemma 8.4의 smooth actual subapplication             7/9 CLOSED AS SUBPACKAGE
+Lemma 8.4의 smooth actual subapplication             8/9 CLOSED AS SUBPACKAGE
 직접 Lemma 8.3 smooth call                            1/1 ENVELOPE EXPLICIT
 sharp cutoff call                                     2 PARAMETERIZED; FINITE SCALE OPEN
-line 905의 H remainder                                C1 BYPASSED / SCALAR MULTIPLIER OPEN
+line 905의 H remainder                                C1 BYPASSED / SCALAR MULTIPLIER EXPLICIT
 parent H1B-L84 / SIV-07 / X_cert                      RATE_MISSING / HARD_BLOCKER / OPEN
 ~~~
 
 즉 “매끄러운 함수들을 여러 번 합할 때 오차가 어떻게 쌓이는가”는 정확한 유한 곱으로
 바꿨고, 실제로 나타나는 기본 함수들의 보수적인 크기도 계산식으로 만들었다. 그러나 원문
 후속 H1b-1b-2d.1a는 905행의 전역 \(H\) 도함수가 없어도 되는 square-sum 우회를
-정식화했다. 다만 \(O\) 안의 격자점별 scalar multiplier가 공개되지 않았고,
-\(r_0<x^\xi\)인 두 sharp cutoff에는 \(\xi\log x\)의 유한 하한이 없다. 이 때문에 전체
+정식화했고, 2d.1a.1은 \(O\) 안의 격자점별 scalar multiplier와 finite gate를
+수치 재증명했다. \(r_0<x^\xi\)인 두 sharp cutoff에는 여전히 \(\xi\log x\)의 유한 하한이
+없다. 이 때문에 전체
 Lemma 8.4 package나 Sono 정리의 numerical threshold는 아직 닫히지 않는다.
 
 ## 2. 쉬운 설명
@@ -276,7 +279,7 @@ base-wide, wide-cross 네 family만 생긴다. 이 목록을 코드가 직접 �
 | `L737_canonical` | 737 | Lemma 8.4, \(F_2^2\) | smooth explicit; wide-first 필수 |
 | `L752_canonical` | 752 | Lemma 8.4, \(F^2\) | smooth envelope explicit |
 | `L885_W_prime` | 885–892 | Lemma 8.4, sliced \(F_2^2\) | smooth explicit; wide-first 필수 |
-| `L905_W_prime` | 905–916 | Lemma 8.4, \(H\) | **PARTIAL:** 전역 \(C^1\) 우회; scalar multiplier OPEN |
+| `L905_W_prime` | 905–916 | Lemma 8.4, \(H\) | **PARAMETERIZED EXPLICIT:** 전역 \(C^1\) 우회와 scalar multiplier finite gate |
 | `L995_a_m_W_B_r` | 995–999 | 1D Lemma 8.4, \(F_2\) | nonnegative \(N/W\) 합 envelope explicit |
 | `L1015_r_W_m` | 1015–1026 | direct Lemma 8.3, \(F\) | product-profile 절대 envelope explicit |
 | `L1096_W0` | 1096–1098 | direct summatory, sharp cutoff | 공식 explicit; \(\xi\log x\) 하한 OPEN |
@@ -359,8 +362,8 @@ sharp indicator에는 smooth norm을 억지로 적용하지 않고 theory 22의 
 
 남은 두 root는 다음과 같다.
 
-1. `L905_W_prime`: theory 25가 전역 \(\|H\|_{C^1}\) 요구를 제거했지만,
-   \(A^2,AB,B^2\) 우회에 필요한 격자점별 scalar remainder multiplier가 없다.
+1. `L905_W_prime`: theory 25/26이 전역 \(\|H\|_{C^1}\) 요구와 scalar
+   remainder multiplier를 닫았다. 이 행은 더 이상 root blocker가 아니다.
 2. sharp calls: \(\xi\log x\)의 유한 하한과 공통 error budget 연결이 없다.
 
 또한 Lemma 8.4 바깥의 Lemmas 8.5–8.6과 Propositions 9.1–9.5도 남아 있다. 따라서
@@ -393,12 +396,11 @@ X_cert       OPEN
 
 ## 14. 다음 gate
 
-직접 후속은 `H1b-1b-2d.1a.1`과 `H1b-1b-2d.1b`이다.
+직접 후속은 `H1b-1b-2d.1b`이다.
 
-1. theory 25의 square-sum 우회에 필요한 source 986--999행 scalar multiplier와
-   finite range를 수치 재증명한다.
+1. theory 26이 source (9.42)--(9.48)의 scalar multiplier와 finite range를 닫았다.
 2. \(\xi\)의 정의·선택식을 source-trace해 \(\xi\log x\)의 finite lower bound를 만든다.
-3. 두 항을 공통 error budget에 합친 뒤에만 `H1B-L84` 전체 승격을 재검토한다.
+3. sharp 항까지 공통 error budget에 합친 뒤에만 `H1B-L84` 전체 승격을 재검토한다.
 
 병렬 이론축은 `H1c-1` quantitative character/Bombieri–Vinogradov package다. 두 축이
 모두 상위 proof DAG의 root dependency이므로, 어느 하나만으로 \(X_{\rm cert}\)를 계산하지 않는다.

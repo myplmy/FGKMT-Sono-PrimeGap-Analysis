@@ -456,6 +456,35 @@
 - 재발 방지: `mpmath` 수치 시험은 suite 순서와 외부 정밀도 상태에 독립적인 비교를 사용하고,
   완전일치가 필요한 대수 불변식은 정수 또는 `Fraction`으로 검증한다.
 
+### E031 — 구 author TeX를 최종 출판식처럼 읽어 determinant 오류를 잘못 보고
+
+- 분류: SOURCE_VERSION_MISREAD / CORRECTED_BEFORE_NUMERICAL_USE
+- 문제: H1b-1b-2d.1a 검토에서 검색하기 쉬운 author TeX 986행의
+  \(i=1,\ldots,k\) determinant를 보고 “인쇄식도 \(i=m\)을 포함해 0이 된다”는 취지로
+  기록했다. 실제 최종 출판본 1545쪽 식 (9.43)은 이미 \(i\ne m\)으로 고쳐져 있었다.
+  PDF 수식을 시각 대조하기 전에 구 TeX를 출판식과 동일하다고 가정한 source-version 오류다.
+- 영향:
+  - 잘못된 determinant를 코드나 actual 계산에 사용하지 않았고, 해당 scalar 상수는 당시
+    OPEN으로 남겼으므로 수치 결과·threshold·상위 theorem 상태의 오염은 없다.
+  - 다만 theory 25, review 31과 JSON의 source caution 문구가 출판 논문에 존재하지 않는
+    오류를 있는 것처럼 표현했다.
+- 교정:
+  - 최종 출판 PDF의 식 (9.43)을 렌더링·텍스트 추출 양쪽으로 확인했다.
+  - theory 25, review 31과 기계 계약을 “구 author TeX 오자, 최종 출판본 정상”으로 고쳤다.
+  - H1b-1b-2d.1a.1은 출판본의 \(i\ne m\) 식만 사용해 determinant 상계를 재증명했다.
+- 재발 방지: author source와 출판본이 모두 있을 때 수식 하나의 오류를 보고하기 전
+  DOI 출판본의 해당 페이지를 반드시 렌더링해 대조한다. 차이가 있으면 version과 locator를
+  각각 기록하고 최종 출판본을 권위 원천으로 삼는다.
+- 같은 작업의 도구 오류:
+  - 첫 긴 문서 patch는 JavaScript 문자열의 TeX \(\xi\)가 hexadecimal escape로 해석돼
+    쓰기 전에 거부됐다.
+  - 다음 raw-template 다중파일 patch는 Markdown backtick 때문에 parser가 쓰기 전에
+    거부됐다.
+  - 첫 상수 회귀시험은 exp(log(C)) 평가와 직접식의 약 \(1.74\times10^{-79}\) 상대
+    반올림 차이를 exact-default tolerance로 비교해 거짓 실패했다.
+  모두 부분 쓰기나 수학 판정 오염 없이, raw patch의 delimiter를 정리하고 symbolic
+  coefficient는 exact로 유지한 채 수치 비교 tolerance만 \(10^{-75}\)로 명시해 교정했다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

@@ -58,10 +58,11 @@
     },
     {
       "id": "H-SRC-02",
-      "location": "line 986",
-      "finding": "The printed determinant product includes i=m and is then identically zero.",
-      "project_rule": "Use the product over i not equal to m, matching the actual t_j variables, and retain this as a source ambiguity until independently certified.",
-      "formal_erratum_claimed": false
+      "location": "older author TeX line 986 versus final published equation (9.43), printed page 1545",
+      "finding": "Only the older author TeX includes i=m and is then identically zero; the final published equation correctly uses i not equal to m.",
+      "project_rule": "Treat the final publication as authoritative and the older TeX expression as stale.",
+      "formal_erratum_claimed": false,
+      "published_formula_independently_checked": true
     },
     {
       "id": "H-SRC-03",
@@ -133,5 +134,13 @@
     "description": "Numerically reprove the source lines 986-999 scalar YmError chain and obtain one uniform C_Y and finite range; in parallel retain H1b-1b-2d.1b for the sharp xi*log(x) scale.",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false
+  },
+  "subsequent_resolution_2026_09_08": {
+    "contract": "Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
+    "source_scalar_multiplier": "PROJECT_FINITE_COMPONENT_CLOSED",
+    "line_905_scalar_subpackage": "PROJECT_FINITE_COMPONENT_CLOSED",
+    "H1B-L84": "RATE_MISSING",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
   }
 }

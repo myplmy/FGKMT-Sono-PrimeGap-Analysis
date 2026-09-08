@@ -327,18 +327,17 @@ hard-blocker 수 또는 \(X_{\mathrm{cert}}\)의 상태를 올리지 않는다.
 
 현재 권장 순서는 다음과 같다.
 
-1. **완료:** H1b-1b-2b가 corrected one-step multiplier를, H1b-1b-2c가
-   실제 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 인증했다. H1b-1b-2d는
-   7개 smooth Lemma 8.4 call의 support norm·finite-product 합성을 닫았다.
-2. `H1b-1b-2d.1a.1`: theory 25의 square-sum 우회에 필요한 source
-   986--999행 scalar remainder multiplier와 finite range를 복원한다.
-3. `H1b-1b-2d.1b`: 두 sharp call의 \(\xi\log x\) finite lower bound를 복원한다.
-4. 병렬 이론축 `H1c-1`에서 FGKMT (7.2)–(7.3)의 quantitative
+1. **완료:** H1b-1b-2b/c가 corrected one-step multiplier와 실제
+   \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 인증했다. H1b-1b-2d는
+   7개 direct smooth call을, 2d.1a/1a.1은 line-905 square-sum과 scalar
+   multiplier를 닫아 smooth Lemma 8.4 하위호출 8/9를 explicit으로 만들었다.
+2. `H1b-1b-2d.1b`: 두 sharp call의 \(\xi\log x\) finite lower bound를 복원한다.
+3. 병렬 이론축 `H1c-1`에서 FGKMT (7.2)–(7.3)의 quantitative
    character/Bombieri–Vinogradov package를 복원한다.
-5. `H1b-2`: 위 입력 뒤 Propositions 9.1–9.5의 finite moment와 공통 cutoff를 합성한다.
-6. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
-7. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
-8. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
+4. `H1b-2`: 위 입력 뒤 Propositions 9.1–9.5의 finite moment와 공통 cutoff를 합성한다.
+5. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
+6. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
+7. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
 
 현재 사용자 PC에 계산을 요청할 단계는 아니다. 병목은 연산시간이 아니라 논문 속 숨은 상수와
 유효범위를 수학적으로 복원하는 일이다.
@@ -424,9 +423,9 @@ project-parameterized explicit 하위 package로 닫혔다. \(F_2^2\)의 support
 \(W^2\) 좌표를 먼저 합한다는 순서 조건도 고정해 기존 \(\Lambda_*\)를 보존했다.
 
 후속 H1b-1b-2d.1a는 905행의 전역 \(H\) remainder 함수·도함수가 필요 없음을
-square-sum 부등식과 일곱 smooth tensor class로 닫았다. 그러나 source 986--999행의
-격자점별 scalar remainder multiplier와 두 sharp call의 \(\xi\log x\) finite lower
-bound는 열려 있다. 따라서 parent `H1B-L84`는
+square-sum 부등식과 일곱 smooth tensor class로 닫았다. 이 단락은 2d.1a 직후의 당시
+상태이며, 격자점별 scalar remainder multiplier는 section 16의 2d.1a.1에서 닫혔다.
+두 sharp call의 \(\xi\log x\) finite lower bound는 계속 열려 있다. 따라서 parent `H1B-L84`는
 `RATE_MISSING`, `SIV-07`은 `HARD_BLOCKER`, \(X_{\mathrm{cert}}\)는 `OPEN`을 유지한다.
 T1의 66행 root 상태 수도 바뀌지 않는다.
 
@@ -448,3 +447,23 @@ norm은 더 이상 905행 제곱합의 필수 의무가 아니다.
 source certificate가 아니다. 따라서 `H1B-L84=RATE_MISSING`,
 `SIV-07=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`과 T1의 66행 상태
 수는 그대로다.
+
+## 16. 2026-09-08 scalar remainder finite component 반영
+
+H1b-1b-2d.1a.1은 Maynard 최종 출판본 (9.42)--(9.48)을 기준으로 source scalar
+remainder를 수치 재증명했다. \(s\)-Euler product, \(t\)-divisor 합, determinant,
+\(\varphi_L\) prefactor와 direct branch를 분리해
+
+\[
+C_Y=327680\frac{14801}{69}e^{264}+10,143,697
+<3.17\times10^{122}
+\]
+
+와 parameterized finite gate를 얻었다. theory 25의 square-sum 우회와 결합하면
+line-905 scalar/smooth 하위 package는 닫히며 smooth Lemma 8.4 하위호출은 8/9 explicit이다.
+구 author TeX와 달리 최종 출판본 식 (9.43)이 \(i\ne m\)을 사용한다는 source 정정도
+반영했다.
+
+남은 Lemma 8.4 blocker는 두 sharp call의 \(\xi\log x\) finite lower bound다.
+따라서 parent `H1B-L84=RATE_MISSING`, `SIV-07=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}\)=`OPEN`과 T1의 66행 root 상태 수는 유지한다.

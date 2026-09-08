@@ -19,6 +19,8 @@
   및 [`21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md`](21_Sono_FMT_H1b1b2a1_application_exclusion_inventory.md)
 - H1b-1b-2b 교정된 kappa=1 Wirsing multiplier:
   [`22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`](22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md)
+- H1b-1b-2d.1a.1 scalar remainder:
+  [`26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md`](26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md)
 
 ## 1. 결론부터
 
@@ -108,7 +110,7 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-L81` | Lemma 8.1 | singular series 하한 | `RATE_MISSING` | \(\exp(-Ck)\)의 \(C\) |
 | `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `PROJECT_FINITE_COMPONENT_CLOSED` | H1b-1b에서 multiplier 89, \(k\ge2\) |
 | `H1B-L83` | Lemma 8.3 | multiplicative sum | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | \(C_{8.3}\), \(z\ge2\), 공통 \(a=1/2,A_2=8,L=5+\log\Lambda_*\) 닫힘 |
-| `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | smooth 7/9·905행 C1 우회는 explicit; scalar multiplier·sharp \(\xi\log x\) finite scale |
+| `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | smooth 8/9와 905행 scalar package explicit; sharp \(\xi\log x\) finite scale |
 | `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `RATE_MISSING` | \(R^{2+o(1)}\)의 finite 대체 |
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
 | `H1B-L86-SIZE` | Lemma 8.6 | 절대 적분 크기 | `RATE_MISSING` | lower-bound multiplier |
@@ -207,9 +209,10 @@ CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN
    \(dW_i,W'_i,a_mWBr,rW_m,W_0\)의 호출별 overhead를 전수 인증해 공통
    \(\Lambda_*\)를 얻었다. 이제 Kuperberg/HR recurrence의
    H1b-1b-2c가 실제 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 복원했다.
-   H1b-1b-2d는 7개 smooth 호출의 교정 \(r\)-회 합성을 닫았고, 2d.1a는 905행
-   전역 \(H\)의 \(C^1\) 요구를 square-sum으로 우회했다. 이제 source 986--999행의
-   scalar multiplier와 sharp \(\xi\log x\) finite scale을 복원한다.
+   H1b-1b-2d는 7개 smooth 호출의 교정 \(r\)-회 합성을 닫았고, 2d.1a/1a.1은
+   905행 전역 \(H\)의 \(C^1\) 요구를 square-sum으로 우회한 뒤 source
+   986--999행의 scalar multiplier까지 닫았다. 이제 sharp \(\xi\log x\) finite
+   scale을 복원한다.
 4. **H1b-2:** 위 입력을 받은 뒤 Propositions 9.1–9.5를 지정 error budget으로 재증명한다.
 5. **H1d:** FMT/FGKMT의 \(u\), good-event, covering 단계와 공통 \((r,x)\) slack을 합성한다.
 
@@ -327,8 +330,9 @@ project-parameterized explicit 하위 package로 바꿨다. 설명용
 \(k=36,\alpha=0.01,\theta=0.25\) 대입에서 얻은 매우 큰 cutoff는 최종 theorem
 parameter도 directed certificate도 아니므로 \(X_{\mathrm{cert}}\)로 사용하지 않는다.
 
+아래 문장은 2d.1a 직후의 당시 상태이며, section 17의 2d.1a.1 결과가 이를 갱신한다.
 H1b-1b-2d.1a는 line 905에서 전역 \(H\)를 수치 \(C^1\) function으로 만들 필요를
-제거했지만, source 986--999행의 격자점별 scalar remainder multiplier는 열려 있다.
+제거했지만, 그 시점에는 source 986--999행의 격자점별 scalar remainder multiplier가 열려 있었다.
 line 1096·1135의 sharp factor도 \(\xi\log x\) finite 하한이 없다. 그러므로
 `H1B-L84=RATE_MISSING`, `H1B-COMP-01`, `SIV-07`, `SIV-09`와
 \(X_{\mathrm{cert}}\)는 승격하지 않는다.
@@ -351,3 +355,24 @@ line 905의 실제 목표는 \(y_{\mathbf r}^{(m)}\) 제곱합이다. theory 25�
 `H1B-L84` 전체 closure가 아니다. `H1B-L84=RATE_MISSING`,
 `H1B-COMP-01=HARD_BLOCKER`, `SIV-07/SIV-09`과
 \(X_{\mathrm{cert}}\)는 그대로 유지한다.
+
+## 17. 2026-09-08 H1b-1b-2d.1a.1 반영
+
+Maynard 최종 출판본 (9.42)--(9.48)의 scalar remainder를 다시 수치화했다.
+\(s\)-Euler product, \(t\mid\Delta_m\) divisor 합, determinant-to-\(R\) 흡수,
+\(\varphi_L\) prefactor와 direct Lemma 8.3 branch를 분리해
+
+\[
+C_Y=327680\frac{14801}{69}e^{264}+10,143,697
+<3.17\times10^{122}
+\]
+
+와 parameterized finite gate를 얻었다. theory 25의 square-sum 우회와 합치면
+line-905 scalar/smooth 하위 package가 닫혀 Lemma 8.4 smooth 호출은 8/9 explicit이다.
+
+구 author TeX 986행은 \(i=m\)을 포함하지만 최종 출판본 (9.43)은 \(i\ne m\)으로
+정상이다. 따라서 출판 오류가 아니라 source-version 차이로 정정했다.
+
+두 sharp call의 \(\xi\log x\) finite lower bound는 여전히 없다. 그러므로
+`H1B-L84=RATE_MISSING`, `H1B-COMP-01=HARD_BLOCKER`,
+`SIV-07/SIV-09`과 \(X_{\mathrm{cert}}\)는 승격하지 않는다.
