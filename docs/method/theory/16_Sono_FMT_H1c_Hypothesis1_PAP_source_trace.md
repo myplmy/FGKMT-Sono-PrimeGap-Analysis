@@ -3,6 +3,7 @@
 - 작성: 2026-09-04 KST
 - 증거 수준: `SOURCE-LEVEL PROOF-DEPENDENCY AUDIT`
 - 판정: `SIBLING_SOURCE_CHAINS_TRACED_NUMERICAL_PACKAGES_OPEN`
+- `SIV-03`: 후속 H1c-1b.1a.1에서 `EXPLICIT`
 - `SIV-08`: `HARD_BLOCKER` 유지
 - `PAP-11`: `HARD_BLOCKER` 유지
 - numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
@@ -334,3 +335,21 @@ transition strip에서 Maynard의 인쇄된 dimension range를 그대로 만족�
 \(r_s-1\) 보정은 가능하지만 coefficient transfer가 남는다. 그러므로
 `numerical_hypothesis1_package_ready=false`, `SIV-08=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}=\)`OPEN`은 유지한다. 다음 gate는 H1c-1b.1a다.
+
+## 13. 2026-09-09 H1c-1b.1a 후속 판정
+
+후속
+[H1c-1b.1a 정본](34_Sono_FMT_H1c1b1a_dyadic_dimension_coefficient_transfer.md)은
+\(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\)를 actual dimension으로 고정하고,
+H1a의 exact \(J_r/I_r\) 하한과 FGKMT의
+\(R=(x/4)^{\theta/3}\)를 합성했다. 모든 \(r_T\ge36\)에서 dimension·\(R\)
+normalization은 \(39/40\)보다 크다. Sono의 \(16/15\) slack 때문에
+\(\sigma y\le(26/25)80cx\log_2x\)이면 최종 \(c\)를 낮출 필요가 없다.
+
+따라서 dyadic repair의 asymptotic coefficient transfer는 닫혔다. 후속 H1c-1b.1a.1은
+Rosser--Schoenfeld Theorem 7로 (x\ge2\exp(36^5))에서 (26/25)보다 강한
+Mertens upper gate를 증명해 `SIV-03`을 `EXPLICIT`으로 만들었다. common exceptional
+\(B\), count transfer, density와 full error composition은 계속 열려 있다. 그러므로
+`numerical_hypothesis1_package_ready=false`, `SIV-08=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}=\)`OPEN`은 유지한다. 다음 gate는 H1c-1b.2 full quantitative
+distribution composition이다.

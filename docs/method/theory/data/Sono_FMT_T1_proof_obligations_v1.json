@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.5.0",
+  "schema_version": "1.6.0",
   "created_kst": "2026-09-02 17:22",
   "updated_kst": "2026-09-09",
   "h1b1_ledger": "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
@@ -17,6 +17,7 @@
   "h1b2a3_ledger": "docs/method/theory/data/Sono_FMT_H1b2a3_Proposition94_end_to_end_v1.json",
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
   "h1c1a_inventory": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
+  "h1c1b1a1_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
   "target": "For every X >= X_cert, G_1(X) >= 2e-17 * log(X) * log_2(X) * log_4(X) / log_3(X)",
   "scope": "Direct proof edges from Sono Theorem 3.6 through the cited FMT, FGKMT, and Maynard layers. This is an obligation inventory, not a numerical threshold certificate.",
   "status_vocabulary": {
@@ -83,6 +84,14 @@
       "locator": "Sono reference [9], Theorem 5.7",
       "sha256": null,
       "url": null
+    },
+    {
+      "key": "ROSSER_SCHOENFELD1962",
+      "title": "Approximate Formulas for Some Functions of Prime Numbers",
+      "locator": "tmp/pdfs/h1c1b1a1/Rosser_Schoenfeld1962_Approximate_formulas.pdf",
+      "audit_copy": "tmp/pdfs/h1c1b1a1/Rosser_Schoenfeld1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "url": "https://doi.org/10.1215/ijm/1255631807"
     }
   ],
   "obligations": [
@@ -945,18 +954,18 @@
       "id": "SIV-03",
       "stage": "sieve-weight",
       "node": "sigma*y Mertens evaluation",
-      "source_key": "FMT2018",
-      "source_page": "13",
-      "equation": "(6.12)",
+      "source_key": "ROSSER_SCHOENFELD1962",
+      "source_page": "printed p. 70 / PDF p. 7; FMT p. 13",
+      "equation": "Rosser-Schoenfeld Theorem 7 applied to FMT (3.1), (4.1)-(4.2), (6.12)",
       "quantity": "sigma*y",
-      "direction": "two-sided approximation",
-      "explicit_bound": "(1+O(1/log_2^10 x))*80c*x*log_2 x/log x",
-      "valid_range": "sufficiently large x",
-      "depends_on": ["AN-02"],
-      "status": "PARTIAL",
+      "direction": "one-sided upper bound sufficient for coefficient transfer",
+      "explicit_bound": "sigma*y<(1001000/998001)*80c*x*log_2 x<(26/25)*80c*x*log_2 x",
+      "valid_range": "every real x>=2*exp(36^5), for B0=1 or prime",
+      "depends_on": [],
+      "status": "EXPLICIT",
       "criticality": "critical",
-      "checker": "explicit Mertens interval bound",
-      "notes": "The decay shape is explicit; its O constant and starting range are not."
+      "checker": "published explicit Mertens theorem plus exact rational application certificate",
+      "notes": "H1c-1b.1a.1 rewrites the exact interval product as P(z)/P((log x)^20), includes the worst-case removal of the one prime B0, and applies Rosser-Schoenfeld Theorem 7. The proved multiplier 1001000/998001 is strictly below the required 26/25 target. This closes only the SIV-03 one-sided upper gate. AN-02 and UB-05 remain separate RATE_MISSING applications, and the full common exceptional-B distribution obligation remains open. The previous machine-ledger main term incorrectly included /log x; that factor belongs to the survivor count sigma*y/log x."
     },
     {
       "id": "SIV-04",
@@ -990,7 +999,7 @@
       "status": "RATE_MISSING",
       "criticality": "critical",
       "checker": "interval quotient bound",
-      "notes": "Both the J/I and weight-moment errors enter."
+      "notes": "H1a gives the exact lower input J_r/I_r>log r/(4r) for r>=36. H1c-1b.1a sets r_T=floor((log(x/2))^(1/5)), keeps R=(x/4)^(theta/3), and proves u>(theta/48)*(1-log(4)/log x)*log r_T. This closes the one-sided algebraic lower path but not the full two-sided u/C package or the explicit sigma*y cutoff."
     },
     {
       "id": "SIV-06",
@@ -1041,7 +1050,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "uniform AP-distribution certificate",
-      "notes": "H1c shows that clauses (1) and (3) have elementary finite sufficient reductions. H1c-1a found no drop-in numerical source for clause (2), with Bordignon 2021 as the primary composition candidate. H1c-1b.1 distinguishes outer chain k=1 from the growing sieve dimension, prunes the actual Proposition 9.2 call to the identity form, and closes Bordignon modulus capacity. It also finds that Sono/FMT source_r=floor((log x)^(1/5)) is not covered verbatim by the printed Maynard k-range at the recurring x/2 transition strips. A one-step source_r-1 repair is elementary, but its downstream normalization and final-coefficient transfer remain open. One common exceptional B, exact recentering, psi-to-pi, prime density, full multipliers, and a common finite cutoff also remain open. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
+      "notes": "H1c shows that clauses (1) and (3) have elementary finite sufficient reductions. H1c-1a found no drop-in numerical source for clause (2), with Bordignon 2021 as the primary composition candidate. H1c-1b.1 distinguishes outer chain k=1 from the growing sieve dimension, prunes the actual Proposition 9.2 call to the identity form, and closes Bordignon modulus capacity. H1c-1b.1a repairs the recurring x/2 transition strips with r_T=floor((log(x/2))^(1/5)), includes the exact R=(x/4)^(theta/3) factor, and proves that the repair preserves Sono's asymptotic coefficient; a finite coefficient proof now has the explicit sigma*y upper target 26/25. The cutoff for that target, one common exceptional B, exact recentering, psi-to-pi, prime density, full multipliers, and a common finite cutoff remain open. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
     },
     {
       "id": "SIV-09",

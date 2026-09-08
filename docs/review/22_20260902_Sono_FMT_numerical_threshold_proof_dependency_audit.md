@@ -508,3 +508,39 @@ recentring, represented-prime lower bound와 common cutoff를 새로 연결해�
 calculator는 `NOT READY`다. 다음 최소 gate는 H1c-1b의 Bordignon parameter·modulus-envelope
 feasibility다. 상세는
 [`H1c-1a 검토`](38_20260909_H1c1a_quantitative_prime_distribution_타당성검토.md)를 따른다.
+
+## 17. 2026-09-09 H1c-1b.1/1a 후속 감사
+
+H1c-1b.1은 actual Proposition 9.2 호출에서 outer chain parameter와 growing sieve
+dimension을 분리하고, identity form의 Bordignon modulus capacity를 닫았다. 그 과정에서
+source \(r_s=\lfloor(\log x)^{1/5}\rfloor\)가 actual \(T=x/2\)의 반복 transition
+strip에서 Maynard dimension 조건을 어기는 문제를 발견했고,
+\(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\)로 exact repair했다.
+
+후속 H1c-1b.1a는 이 repair의 dimension factor와 실제
+\(R=(x/4)^{\theta/3}\) factor의 곱이 \(39/40\)보다 큼을 증명했다.
+Sono가 원래 확보한 coefficient 여유는 정확히 \(16/15\)이므로
+
+\[
+\sigma y\le\frac{26}{25}\,80cx\log_2x
+\]
+
+인 finite range에서는 두 손실 뒤에도 hypergraph가 요구하는
+\((5/4)\log5\)를 엄격히 넘는다. 따라서 이 dyadic correction 때문에
+\(2\times10^{-17}\)을 낮출 필요는 없다.
+
+후속 H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7을 적용해
+\(x\ge2\exp(36^5)\)에서 더 강한 (1001000/998001<26/25) bound를 증명했다.
+이는 sufficient sublemma cutoff이지 numerical theorem threshold 계산은 아니다.
+
+```text
+dyadic coefficient transfer = CLOSED
+SIV-03 explicit sigma-y cutoff = EXPLICIT at x >= 2*exp(36^5)
+SIV-07/08 = HARD_BLOCKER
+X_cert = OPEN
+threshold calculator = NOT READY
+```
+
+상세는
+[`H1c-1b.1a 정본`](../method/theory/34_Sono_FMT_H1c1b1a_dyadic_dimension_coefficient_transfer.md)과
+[`타당성 검토`](40_20260909_H1c1b1a_dyadic_coefficient_transfer_타당성검토.md)를 따른다.

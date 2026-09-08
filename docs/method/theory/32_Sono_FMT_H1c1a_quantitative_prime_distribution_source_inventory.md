@@ -47,7 +47,7 @@ Maynard의 [*Dense Clusters of Primes in Subsets*](https://arxiv.org/abs/1405.25
 를 정의하고 Hypothesis 1(2)에서
 
 \[
-\sum_{\substack{q\le x^\theta\\(q,B)=1}}
+\sum_{\substack{q\le x^\theta\\ (q,B)=1}}
 \max_{(L(a),q)=1}
 \left|
 \#\mathcal P_{L,\mathcal A}(x;q,a)
@@ -289,3 +289,17 @@ feasibility다. 여기서 불가능 판정이 나오면 original FGKMT route 또
 또한 이 inventory의 `MAYNARD2016` local pointer가 다른 Maynard PDF를 가리킨 provenance
 오류를 발견해 실제 *Dense Clusters of Primes in Subsets* 출판 PDF와 SHA-256으로 교정했다.
 당시 핵심 식은 올바른 author TeX에서 확인했으므로 기존 수학 판정은 바뀌지 않는다.
+
+## 11. 2026-09-09 H1c-1b.1a 후속 결과
+
+후속
+[H1c-1b.1a 정본](34_Sono_FMT_H1c1b1a_dyadic_dimension_coefficient_transfer.md)은
+endpoint-safe \(r_T\)와 actual \(R\) factor를 통해 one-step repair의 최종 coefficient
+전달을 닫았다. combined normalization factor는 \(39/40\)보다 크고,
+\(\sigma y\) upper ratio가 \(26/25\) 이하이면 Sono의 같은 \(c\)로
+\(C>(5/4)\log5\)를 얻는다.
+
+따라서 dimension repair 때문에 \(2\times10^{-17}\)을 낮출 필요는 없다. 후속
+H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7로 \(x\ge2\exp(36^5)\)에서
+\(26/25\)보다 강한 explicit cutoff를 증명했다. 나머지 Bordignon composition 의무는
+열려 있어 `SIV-07/08`과 \(X_{\mathrm{cert}}\)는 그대로다. 다음 gate는 H1c-1b.2다.

@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1c-1b.1a",
+  "scope": "Transfer the endpoint-safe dimension through the actual FGKMT R-scale and Sono hypergraph coefficient slack; do not close the missing Mertens cutoff or prime-distribution package.",
+  "outcome": "DYADIC_DIMENSION_R_SCALE_TRANSFER_CLOSED_SONO_COEFFICIENT_PRESERVED_ASYMPTOTICALLY_EXPLICIT_SIGMA_CUTOFF_OPEN",
+  "source_registry": [
+    {
+      "key": "SONO2025",
+      "title": "An Explicit Lower Bound for Large Gaps Between Some Consecutive Primes",
+      "url": "https://doi.org/10.4418/2025.80.2.2",
+      "local_path": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+      "locator": "Proposition 6.2 and its proof, pp. 539-542; equations (6.5), (6.11); epsilon_0 choice 160 versus admissible 150"
+    },
+    {
+      "key": "FGKMT2018",
+      "title": "Long Gaps Between Primes",
+      "url": "https://arxiv.org/abs/1412.5029",
+      "local_path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "locator": "Theorem 6 and Section 8, pp. 98-102; R=(x/4)^(theta/3), equation (8.3), and the x/2 Proposition 9.2 call"
+    },
+    {
+      "key": "FMT2018",
+      "title": "Chains of Large Gaps Between Primes",
+      "url": "https://arxiv.org/abs/1511.04468",
+      "local_path": "tmp/pdfs/h1c1b1/Ford_Maynard_Tao2018_Chains_of_large_gaps.pdf",
+      "sha256": "4c5709180f4b427eac3525411618534a6d5ab03c1a79d3faeee3318d2ad7ecce",
+      "locator": "Theorem 4 equation (5.4), Theorem 6 equations (6.1), (6.3), and the maximal-r choice (6.8), pp. 9-12"
+    },
+    {
+      "key": "PROJECT_H1A",
+      "title": "Sono/FMT H1a finite-r integral lemma contract",
+      "local_path": "docs/method/theory/data/Sono_FMT_H1a_finite_r_integral_contract_v1.json",
+      "sha256": "b96ff035dcbf9bd01b8bf49eab18c6f31296aea4436052f6d7c4d5bc59c22703",
+      "locator": "Project theorem J_r/I_r > log(r)/(4r) for every integer r>=36"
+    }
+  ],
+  "literature_search": {
+    "queries": [
+      "Chains of large gaps between primes erratum r floor log x x/2",
+      "Long gaps between primes Theorem 6 r=floor(log^(1/5)x) x/2",
+      "Sono explicit lower bound large gaps erratum"
+    ],
+    "result": "NO_DIRECT_PRECEDENT_OR_ERRATUM_FOUND_IN_TARGETED_SEARCH",
+    "caution": "This is not a worldwide nonexistence or novelty claim. Source identities and printed formulae were adopted; only the missing elementary endpoint/coefficient bridge is proved here."
+  },
+  "endpoint_safe_dimension": {
+    "definition": "T=x/2 and r=floor((log T)^(1/5))",
+    "minimum_r": 36,
+    "finite_gate": "log(x/2)>=36^5",
+    "source_r_relation": "r is either floor((log x)^(1/5))-1 or floor((log x)^(1/5))",
+    "maynard_dimension_condition_satisfied": true,
+    "conservative_source_r_minus_one_required": false
+  },
+  "actual_weight_specialization": {
+    "R": "(x/4)^(theta/3)",
+    "log_R_over_log_x": "(theta/3)*(1-log(4)/log(x))",
+    "phi_B_over_B_lower": "1/2 for B=1 or prime",
+    "integral_ratio_lower": "J_r/I_r>log(r)/(4r) for r>=36",
+    "u_lower": "u>(theta/48)*(1-log(4)/log(x))*log(r)"
+  },
+  "exact_transfer_lemma": {
+    "dimension_factor": "5*log(r)/log_2(x)>63/64",
+    "dimension_endpoint_certificate": "36^64>38^63",
+    "r_scale_factor": "1-log(4)/log(x)>104/105",
+    "r_scale_endpoint_certificate": "log(4)<2 and 210<36^5",
+    "combined_factor": "(63/64)*(104/105)=39/40",
+    "proof_domain": "every real x with r=floor((log(x/2))^(1/5))>=36",
+    "monotonicity": "log(r)/log(r+2) and 1-2/r^5 increase for integer r>=36"
+  },
+  "slack_accounting": {
+    "sono_limiting_C_lower": "(4/3)*log(5)",
+    "hypergraph_required_C_lower": "(5/4)*log(5)",
+    "original_ratio_slack": "16/15",
+    "sigma_y_finite_target": "sigma*y<=(26/25)*80*c*x*log_2(x)",
+    "normalization_after_sigma_target": "(39/40)/(26/25)=15/16",
+    "final_C_lower": "C>(4/3)*(15/16)*log(5)=(5/4)*log(5)",
+    "dimension_repair_forces_smaller_c": false,
+    "sono_c_definition_preserved": "c=theta*c_IJ/(12800*log(5)), with c_IJ=1/4",
+    "sono_final_2e_minus_17_coefficient_preserved_asymptotically": true,
+    "explicit_sigma_y_cutoff_available": false
+  },
+  "status_after_this_gate": {
+    "h1c_1b_1a": "CLOSED_FOR_ASYMPTOTIC_COEFFICIENT_AND_PARAMETERIZED_FINITE_SIGMA_GATE",
+    "dyadic_dimension_admissibility": "PROJECT_FINITE_LEMMA_CLOSED",
+    "actual_R_scale_transfer": "PROJECT_FINITE_LEMMA_CLOSED",
+    "repaired_dimension_coefficient_transfer": "CLOSED_WITH_EXPLICIT_SIGMA_GATE",
+    "siv_03_sigma_y_cutoff": "RATE_MISSING_TARGET_26_OVER_25_FIXED",
+    "siv_05_u_lower_path": "PARTIAL_EXPLICIT_LOWER_BOUND",
+    "siv_07": "HARD_BLOCKER",
+    "siv_08": "HARD_BLOCKER",
+    "proposition_9_2": "OPEN_RATE_MISSING",
+    "numerical_x_cert": "OPEN"
+  },
+  "limits": {
+    "explicit_sigma_y_26_over_25_cutoff_proved": false,
+    "upper_u_or_full_C_asymptotic_package_proved": false,
+    "full_bordignon_error_term_bounded": false,
+    "one_common_exceptional_modulus_proved": false,
+    "psi_to_pi_and_half_open_transfer_proved": false,
+    "exact_total_recentered": false,
+    "represented_prime_density_lower_bound_proved": false,
+    "proposition92_closed": false,
+    "hypothesis1_clause2_closed": false,
+    "siv_07_closed": false,
+    "siv_08_closed": false,
+    "threshold_calculator_created": false,
+    "actual_prime_experiment_performed": false,
+    "new_python_dependency_required": false,
+    "lean_required_for_this_gate": false
+  },
+  "corrections": [
+    {
+      "id": "H1C1B1A-C01",
+      "issue": "The finite FGKMT choice is R=(x/4)^(theta/3), not exactly x^(theta/3).",
+      "resolution": "Retain the exact factor 1-log(4)/log(x); it is bounded below by 104/105 in the certified domain."
+    },
+    {
+      "id": "H1C1B1A-C02",
+      "issue": "The T1 SIV-03 machine ledger wrote the main term for sigma*y with an extra /log(x).",
+      "resolution": "Use sigma*y=(1+O(log_2(x)^-10))*80*c*x*log_2(x). The /log(x) belongs to the survivor count sigma*y/log(x)."
+    }
+  ],
+  "successor_sigma_y_cutoff": {
+    "id": "H1c-1b.1a.1 / SIV-03",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
+    "outcome": "EXPLICIT_SIGMA_Y_UPPER_CUTOFF_CLOSED_SONO_COEFFICIENT_PRESERVED_DISTRIBUTION_PACKAGE_OPEN",
+    "cutoff": "x>=2*exp(36^5)",
+    "proved_multiplier": "1001000/998001",
+    "target_multiplier": "26/25",
+    "explicit_sigma_cutoff_closed": true,
+    "full_distribution_package_ready": false,
+    "numerical_x_cert_ready": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.2",
+    "description": "Compose the full identity-form quantitative distribution package: one common exceptional B, Bordignon remainder, exact count transfer, represented-prime density, and a common cutoff.",
+    "ready_for_threshold_calculator": false,
+    "requires_user_computation_now": false
+  }
+}

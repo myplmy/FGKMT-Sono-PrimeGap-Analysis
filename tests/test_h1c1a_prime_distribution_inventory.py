@@ -135,7 +135,25 @@ class H1c1aPrimeDistributionInventoryTests(unittest.TestCase):
 
     def test_predecessor_and_t1_are_synchronized_fail_closed(self) -> None:
         predecessor = json.loads(PREDECESSOR.read_text(encoding="utf-8"))
-        self.assertEqual(predecessor["next_gate"]["id"], "H1c-1b.1a")
+        self.assertEqual(
+            predecessor["next_gate"]["id"],
+            "H1c-1b.2",
+        )
+        self.assertTrue(
+            predecessor["successor_dimension_coefficient_transfer"][
+                "asymptotic_sono_coefficient_preserved"
+            ]
+        )
+        self.assertFalse(
+            predecessor["successor_dimension_coefficient_transfer"][
+                "explicit_sigma_cutoff_closed"
+            ]
+        )
+        self.assertTrue(
+            predecessor["successor_sigma_y_cutoff"][
+                "explicit_sigma_cutoff_closed"
+            ]
+        )
         self.assertEqual(
             predecessor["successor_inventory"]["outcome"],
             self.document["outcome"],

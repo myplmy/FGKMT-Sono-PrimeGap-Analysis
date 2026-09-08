@@ -144,3 +144,15 @@ dimension을 actual \(x/2\) 호출에 그대로 넣을 때 짧고 반복되는 t
 
 따라서 이 문서 6절의 과거 2순위보다 새 H1c-1b.1a를 먼저 수행한다. 상세 판정은
 [`H1c-1b.1 검토`](39_20260909_H1c1b1_parameter_modulus_envelope_타당성검토.md)를 따른다.
+
+## 10. 2026-09-09 H1c-1b.1a 후속 보정
+
+H1c-1b.1a는 \(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\)를 사용해 transition strip을
+제거하고, 실제 \(R=(x/4)^{\theta/3}\)까지 포함한 normalization factor가
+\(39/40\)보다 큼을 증명했다. \(\sigma y\) upper ratio \(26/25\)만 확보되면 Sono의
+원래 coefficient를 보존한다.
+
+따라서 이 문서가 열어 둔 coefficient-transfer 문제는 asymptotic 수준에서 해소됐다.
+후속 H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7로 (x\ge2\exp(36^5))의 explicit
+Mertens cutoff까지 닫았다. 현재 직접 gate는 H1c-1b.2이고, 상세 판정은
+[H1c-1b.1a.1 검토](41_20260909_H1c1b1a1_sigma_y_explicit_cutoff_타당성검토.md)를 따른다.

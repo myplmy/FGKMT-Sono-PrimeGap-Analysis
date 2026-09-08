@@ -405,11 +405,31 @@
     "full_distribution_package_ready": false,
     "numerical_x_cert_ready": false
   },
-  "next_gate": {
+  "successor_dimension_coefficient_transfer": {
     "id": "H1c-1b.1a",
-    "description": "First propagate the endpoint-safe one-step dimension repair through the actual FMT/Sono normalization and coefficient inequalities; then reconcile FGKMT's one exceptional conductor/prime B with Bordignon's q0.",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b1a_dimension_coefficient_transfer_v1.json",
+    "outcome": "DYADIC_DIMENSION_R_SCALE_TRANSFER_CLOSED_SONO_COEFFICIENT_PRESERVED_ASYMPTOTICALLY_EXPLICIT_SIGMA_CUTOFF_OPEN",
+    "endpoint_safe_dimension_admissibility_closed": true,
+    "actual_R_scale_transfer_closed": true,
+    "asymptotic_sono_coefficient_preserved": true,
+    "finite_sigma_y_upper_gate": "26/25",
+    "explicit_sigma_cutoff_closed": false,
+    "full_distribution_package_ready": false,
+    "numerical_x_cert_ready": false
+  },
+  "successor_sigma_y_cutoff": {
+    "id": "H1c-1b.1a.1 / SIV-03",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
+    "outcome": "EXPLICIT_SIGMA_Y_UPPER_CUTOFF_CLOSED_SONO_COEFFICIENT_PRESERVED_DISTRIBUTION_PACKAGE_OPEN",
+    "cutoff": "x>=2*exp(36^5)",
+    "explicit_sigma_cutoff_closed": true,
+    "full_distribution_package_ready": false,
+    "numerical_x_cert_ready": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.2",
+    "description": "Reconcile FGKMT's one exceptional conductor/prime B with Bordignon's q0 and compose the remaining exact distribution transfer.",
     "recommended_subgates": [
-      "H1c-1b.1a dyadic endpoint-safe dimension and coefficient transfer",
       "H1c-1b.2 one-common-exceptional-modulus and B uniformization",
       "H1c-1b.3 affine, endpoint, psi-to-pi, and recentering transfer",
       "H1c-1b.4 represented-prime-density lower bound and common cutoff"

@@ -542,3 +542,25 @@ Bordignon \(A(r)=100r^2+10\)의 endpoint-safe modulus capacity는 모든 정수 
 `H1B-P92=RATE_MISSING`, `H1B-COMP-01=HARD_BLOCKER`,
 `SIV-07/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`이다. 다음 직접 gate는
 H1c-1b.1a다.
+
+## 25. 2026-09-09 H1c-1b.1a actual normalization 반영
+
+24절의 coefficient-transfer open 상태는 후속
+[H1c-1b.1a 정본](34_Sono_FMT_H1c1b1a_dyadic_dimension_coefficient_transfer.md)에서
+세분화됐다. actual endpoint-safe
+\(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\), H1a의
+\(J_r/I_r>\log r/(4r)\), FGKMT의 \(R=(x/4)^{\theta/3}\)를 합치면
+\(r_T\ge36\)에서 one-sided \(u\) lower path가 finite하게 닫힌다.
+
+dimension·\(R\) factor는 \(39/40\)보다 크므로
+\(\sigma y\le(26/25)80cx\log_2x\)이면 Sono가 필요한
+\(C>(5/4)\log5\)를 같은 \(c\)로 유지한다. 따라서 dyadic repair는
+Sono의 asymptotic coefficient를 줄이지 않는다.
+
+후속 H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7로 (x\ge2\exp(36^5))에서
+\(\sigma y<(1001000/998001)80cx\log_2x<(26/25)80cx\log_2x\)를 증명했다.
+따라서 `SIV-03`은 `EXPLICIT`이지만 full two-sided moment package는 열려 있다.
+그러므로 `H1B-P92=RATE_MISSING`, `H1B-COMP-01=HARD_BLOCKER`,
+`SIV-07/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`이다.
+다음 직접 gate는 H1c-1b.2 common exceptional \(B\)와 Proposition 9.2 full
+distribution package다.

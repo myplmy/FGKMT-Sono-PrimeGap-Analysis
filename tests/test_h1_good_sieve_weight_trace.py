@@ -26,7 +26,7 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_and_unique_expected_rows(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.5.0")
+        self.assertEqual(self.document["schema_version"], "1.6.0")
         self.assertEqual(len(self.rows), 9)
         self.assertEqual(len(self.by_id), len(self.rows))
         self.assertEqual(
@@ -153,6 +153,11 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             self.document["h1c1b1_ledger"],
             "docs/method/theory/data/"
             "Sono_FMT_H1c1b1_parameter_modulus_envelope_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1c1b1a1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
         )
         self.assertEqual(
             self.by_id["H1-SIV-08"]["recoverability"],

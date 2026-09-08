@@ -28,7 +28,7 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_and_required_fields(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.5.0")
+        self.assertEqual(self.document["schema_version"], "1.6.0")
         self.assertEqual(len(self.rows), 66)
         self.assertEqual(len(self.by_id), len(self.rows), "obligation ids must be unique")
 
@@ -95,7 +95,15 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             for source in self.document["source_registry"]
             if source["sha256"] is not None
         }
-        self.assertEqual(set(sources), {"SONO2025", "FMT2018", "FGKMT2016"})
+        self.assertEqual(
+            set(sources),
+            {
+                "SONO2025",
+                "FMT2018",
+                "FGKMT2016",
+                "ROSSER_SCHOENFELD1962",
+            },
+        )
         for key, source in sources.items():
             locator = source.get("audit_copy", source["locator"])
             path = ROOT / locator
@@ -113,13 +121,13 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         for row in root_blockers:
             self.assertNotEqual(row["status"], "EXPLICIT", row["id"])
 
-    def test_status_counts_include_only_the_h1a_promotion(self) -> None:
+    def test_status_counts_include_h1a_and_sigma_y_promotions(self) -> None:
         self.assertEqual(
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "EXPLICIT": 6,
-                    "PARTIAL": 10,
+                    "EXPLICIT": 7,
+                    "PARTIAL": 9,
                     "RATE_MISSING": 30,
                     "SOURCE_REVIEW_REQUIRED": 4,
                     "HARD_BLOCKER": 16,
@@ -134,6 +142,16 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         self.assertEqual(self.by_id["PAP-04"]["source_key"], "JUTILA1977")
         self.assertEqual(self.by_id["SIV-08"]["depends_on"], [])
         self.assertEqual(self.by_id["SIV-08"]["status"], "HARD_BLOCKER")
+        self.assertEqual(self.by_id["SIV-03"]["status"], "EXPLICIT")
+        self.assertEqual(self.by_id["SIV-03"]["depends_on"], [])
+        self.assertIn("2*exp(36^5)", self.by_id["SIV-03"]["valid_range"])
+        self.assertEqual(self.by_id["AN-02"]["status"], "RATE_MISSING")
+        self.assertEqual(self.by_id["UB-05"]["status"], "RATE_MISSING")
+        self.assertEqual(
+            self.document["h1c1b1a1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
+        )
         self.assertEqual(
             self.document["h1c_ledger"],
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",

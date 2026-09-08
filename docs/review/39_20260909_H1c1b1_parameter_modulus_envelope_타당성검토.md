@@ -176,3 +176,17 @@ Sono numerical X_cert                    = OPEN
 
 현재 병목은 CPU가 아니라 증명 의존성이다. actual prime sweep, threshold calculator,
 Lean 또는 새 Python package는 아직 필요하지 않다.
+
+## 11. 2026-09-09 H1c-1b.1a 후속 판정
+
+이 문서에서 열어 둔 coefficient transfer는 후속
+[H1c-1b.1a 검토](40_20260909_H1c1b1a_dyadic_coefficient_transfer_타당성검토.md)에서
+해결됐다. endpoint-safe \(r_T\)와 실제 \(R=(x/4)^{\theta/3}\)를 함께 넣어도
+normalization factor가 \(39/40\)보다 크며, \(\sigma y\) upper multiplier가
+\(26/25\) 이하이면 Sono의 원래 hypergraph gate를 통과한다.
+
+따라서 “한 칸 보정 때문에 최종 계수를 낮춰야 한다”는 우려는 asymptotic 정리 수준에서
+해소됐다. 후속 H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7로
+\(x\ge2\exp(36^5)\)에서 \(26/25\)보다 강한 explicit Mertens cutoff를 증명했다.
+그래도 full distribution package가 열려 있으므로 \(X_{\mathrm{cert}}\)가 계산 가능해진 것은
+아니다. 다음 gate는 H1c-1b.2다.

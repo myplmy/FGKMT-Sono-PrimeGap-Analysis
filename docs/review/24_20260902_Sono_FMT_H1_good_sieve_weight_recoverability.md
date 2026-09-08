@@ -431,7 +431,7 @@ smooth cutoff로 흡수하고, distribution 오류를 additive하게 더해 모�
 이것은 good sieve weight 전체가 복원됐다는 뜻이 아니다. 일반 \(\mathcal A\) P94,
 P91/P92/L93/P95, 공통 error budget과 H1c-1이 남아 있으므로 H1 전체 판정
 `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`,
-`SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=)`OPEN`은 유지한다.
+`SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}\)=`OPEN`은 유지한다.
 
 ## 18. 2026-09-09 H1c-1a 후속 판정
 
@@ -442,3 +442,22 @@ exceptional \(B\), endpoint·\(\psi\to\pi\)·recentring·density·common cutoff 
 
 그러므로 H1의 overall outcome은 변하지 않는다. source 후보 선택은 진전이지만 numerical good
 weight나 \(X_{\mathrm{cert}}\)를 계산할 입력은 아직 완성되지 않았다. 다음 gate는 H1c-1b다.
+
+## 19. 2026-09-09 H1c-1b.1/1a 후속 판정
+
+H1c-1b.1은 Bordignon 2021 Theorem 1.4의 pointwise growing-\(A\) 대입이 actual
+identity form의 modulus 범위 안에 들어감을 닫았다. 이어 H1c-1b.1a는 endpoint-safe
+\(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\), 실제
+\(R=(x/4)^{\theta/3}\), H1a의 \(J_r/I_r>\log r/(4r)\)를 합성했다.
+그 결과 dimension·\(R\)-scale의 전체 normalization factor는 \(39/40\)보다 크다.
+
+따라서 \(\sigma y\)의 finite upper multiplier가 \(26/25\) 이하라면 Sono의
+\(2\times10^{-17}\) 계수를 낮추지 않고 hypergraph \(C\)-조건을 보존한다.
+이것으로 one-sided weight normalization의 dyadic coefficient transfer는 닫혔다.
+
+후속 H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7로 \(x\ge2\exp(36^5)\)에서
+\(26/25\)보다 강한 sigma-y upper cutoff를 증명했다. 하나의 exceptional \(B\), centered
+prime-distribution error, \(\psi\to\pi\), density와 공통 cutoff는 여전히 열려 있다.
+그러므로 H1 overall outcome과 `SIV-07/08/09=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}\)=`OPEN`은 바뀌지 않는다. 다음 직접 gate는 H1c-1b.2 full
+quantitative distribution composition이다.

@@ -29,6 +29,8 @@
   [`22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`](22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md)
 - H1c Hypothesis 1·PAP source trace:
   [`16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`](16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md)
+- H1c-1b.1a.1 sigma-y explicit cutoff:
+  [`35_Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff.md`](35_Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff.md)
 
 ## 1. 결론
 
@@ -37,8 +39,8 @@ Sono의 (k=1) 정리를 numerical threshold로 바꾸는 직접 proof edge를 7�
 
 | 상태 | 행 수 | 뜻 |
 |---|---:|---|
-| `EXPLICIT` | 6 | 해당 행의 식·정의는 숫자 또는 exact algebra로 닫힘 |
-| `PARTIAL` | 10 | 일부 상수·방향은 명시됐지만 유효범위 또는 다른 수치 입력이 빠짐 |
+| `EXPLICIT` | 7 | 해당 행의 식·정의는 숫자 또는 exact algebra로 닫힘 |
+| `PARTIAL` | 9 | 일부 상수·방향은 명시됐지만 유효범위 또는 다른 수치 입력이 빠짐 |
 | `RATE_MISSING` | 30 | (o(1)), (O), (ll), `sufficiently large`의 숫자 rate가 없음 |
 | `SOURCE_REVIEW_REQUIRED` | 4 | 인용된 하위 원문 정리를 더 깊게 감사해야 함 |
 | `HARD_BLOCKER` | 16 | 현재 공개 서술만으로는 숫자 certificate가 닫히지 않음 |
@@ -94,6 +96,7 @@ abstraction에서의 direct-edge inventory이지 완성된 numerical proof certi
 | `GALLAGHER1970` | large-sieve density estimate | Sono (5.2) | DOI 10.1007/BF01403187 |
 | `JUTILA1977` | *On Linnik's Constant*, Vol. 41 (1977), 45–62 | Sono Section 5 | DOI 10.7146/math.scand.a-11701 |
 | `HR1974` | *Sieve Methods*, Theorem 5.7 | Sono Theorem 4.1 | 원문 theorem constant 추가 감사 필요 |
+| `ROSSER_SCHOENFELD1962` | *Approximate Formulas for Some Functions of Prime Numbers* | Theorem 7, p.70 | DOI 10.1215/ijm/1255631807; `8e37b06f...ac556` |
 
 로컬 PDF의 본문 추출과 대표 페이지 렌더링을 함께 대조했다. 특히 Sono p. 541의 조건은 OCR
 오독이 아니라 실제로 (1\ll80c/A\le1)이다. 여기서 (ll)은 숨은 양의 절대상수를 갖는
@@ -242,7 +245,7 @@ Sono의 parameter를 대입한 명목 계수는
 |---|---|---|
 | `SIV-01` | finite (r_0), admissible (c_0) | `HARD_BLOCKER` |
 | `SIV-02` | nonnegative good weight의 존재 | `HARD_BLOCKER` |
-| `SIV-03` | \(\sigma y\) Mertens error | `PARTIAL` |
+| `SIV-03` | \(\sigma y\) Mertens upper gate | `EXPLICIT` (`x>=2*exp(36^5)`) |
 | `SIV-04` | \(\tau\ge x^{-o(1)}\) | `RATE_MISSING` |
 | `SIV-05` | \(u\asymp\log r\) | `RATE_MISSING` |
 | `SIV-06` | Maynard (J_r/I_r) finite-r bound | `EXPLICIT` (`r>=36`, project H1a) |
@@ -551,7 +554,7 @@ FGKMT/FMT Proposition 9.4의 닫힌 하위 package를 하나의 finite cutoff와
 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다.
 
 T1의 `SIV-07`은 Proposition 6.1 전체를 나타내므로 상태는 `HARD_BLOCKER` 그대로다.
-따라서 66개 root 행의 상태 수, `SIV-08/09`, \(X_{\mathrm{cert}}=)`OPEN`도 변하지
+따라서 66개 root 행의 상태 수, `SIV-08/09`, \(X_{\mathrm{cert}}\)=`OPEN`도 변하지
 않는다. 다음 root-critical 작업은 Proposition 9.2에 필요한 H1c-1 quantitative
 character/prime-distribution package이며, 이후 P91/P92/L93/P95와 공통 moment budget을
 합성해야 한다.
@@ -583,5 +586,62 @@ Proposition 9.2 identity-form modulus capacity는 project finite lemma로 닫혔
 열려 있다.
 
 따라서 66개 root row의 상태 수는 바뀌지 않는다.
-`SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`이며 다음 gate는
+`SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}\)=`OPEN`이며 다음 gate는
 H1c-1b.1a의 dyadic dimension-to-coefficient transfer다.
+
+## 24. 2026-09-09 H1c-1b.1a dyadic coefficient transfer 반영
+
+23절은 H1c-1b.1 직후의 역사적 상태다. 후속
+[H1c-1b.1a 정본](34_Sono_FMT_H1c1b1a_dyadic_dimension_coefficient_transfer.md)은
+actual endpoint에 맞춰
+
+\[
+r_T=\left\lfloor(\log(x/2))^{1/5}\right\rfloor
+\]
+
+를 사용한다. 기존 H1a의 \(J_r/I_r>\log r/(4r)\), FGKMT의 정확한
+\(R=(x/4)^{\theta/3}\), Sono의 \(160\) 대 \(150\) slack을 합성해 모든
+\(r_T\ge36\)에서 dimension·\(R\) normalization factor가 \(39/40\)보다 큼을
+exact하게 증명했다. 따라서
+
+\[
+\sigma y\le\frac{26}{25}\,80cx\log_2x
+\]
+
+이면 \(C>(5/4)\log5\)이고, dimension repair는 Sono의 asymptotic
+\(2\times10^{-17}\) 계수를 낮추지 않는다.
+
+기계 원장의 `SIV-03`에는 \(\sigma y\) main term 뒤에 잘못 붙어 있던
+`/log x`도 제거했다. 그 factor는 \(\sigma y\)가 아니라 survivor count
+\(\sigma y/\log x\)에 속한다.
+
+다만 \(26/25\) upper gate의 explicit cutoff는 아직 없으므로 `SIV-03` 상태는
+`PARTIAL`, `SIV-05`의 전체 two-sided 상태는 `RATE_MISSING`으로 유지한다.
+66개 root row의 상태 수, `SIV-07/08/09=HARD_BLOCKER`과
+\(X_{\mathrm{cert}}\)=`OPEN`도 변하지 않는다. 다음 직접 gate는
+H1c-1b.1a.1의 explicit Mertens \(\sigma y\) cutoff이고, 이후 H1c-1b.2의
+한 common exceptional \(B\)로 진행한다.
+
+## 25. 2026-09-09 H1c-1b.1a.1 sigma-y cutoff 반영
+
+24절은 H1c-1b.1a 직후의 역사적 상태다. 후속
+[H1c-1b.1a.1 정본](35_Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff.md)은 FMT의 exact
+prime interval을 \(P(z)/P((\log x)^{20})\)로 다시 쓰고, 구간 안에서 제외되는 prime
+\(B_0\)의 최악 factor도 포함했다. Rosser--Schoenfeld 1962 Theorem 7을 적용하면
+
+\[
+x\ge2\exp(36^5)
+\quad\Longrightarrow\quad
+\sigma y<\frac{1001000}{998001}\,80cx\log_2x
+<\frac{26}{25}\,80cx\log_2x.
+\]
+
+따라서 `SIV-03`은 `PARTIAL`에서 `EXPLICIT`로 승격됐다. 66개 root row의 현재 상태 수는
+`EXPLICIT 7`, `PARTIAL 9`, `RATE_MISSING 30`, `SOURCE_REVIEW_REQUIRED 4`,
+`HARD_BLOCKER 16`이다.
+
+이 승격은 one-sided sigma-y application만 닫는다. general \(\varphi(P)/P\)의 `AN-02`와
+reciprocal-square product의 `UB-05`는 실제 방향·합성 감사를 기다리므로 각각
+`RATE_MISSING`으로 유지한다. 분포정리 전체의 common exceptional \(B\), Bordignon remainder,
+count transfer와 density도 열려 있어 `SIV-07/08=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}\)=`OPEN`은 변하지 않는다. 다음 gate는 H1c-1b.2다.

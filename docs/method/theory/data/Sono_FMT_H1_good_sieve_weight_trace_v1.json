@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.5.0",
+  "schema_version": "1.6.0",
   "created_kst": "2026-09-02 20:24",
   "updated_kst": "2026-09-09",
   "gate": "H1 good-sieve-weight recoverability source tracing",
@@ -27,6 +27,8 @@
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
   "h1c1a_ledger": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
   "h1c1b1_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1_parameter_modulus_envelope_v1.json",
+  "h1c1b1a_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1a_dimension_coefficient_transfer_v1.json",
+  "h1c1b1a1_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
   "h1c1a_inventory": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
@@ -105,15 +107,15 @@
       "question": "Can the comparison u asymp log r be assigned explicit two-sided constants?",
       "source_keys": ["SONO2025", "FMT2018", "FGKMT2016", "MAYNARD2016"],
       "source_locator": "Sono p. 542 u bounds; FMT Theorem 6 (6.3); FGKMT Theorem 5 (6.3); Maynard integral ratio (8.27)",
-      "printed_information": "The sources state u is comparable to log r. Project H1a now supplies the finite leading integral-ratio inequality J_r/I_r > log(r)/(4r) for every integer r>=36.",
+      "printed_information": "The sources state u is comparable to log r. Project H1a supplies J_r/I_r > log(r)/(4r) for every integer r>=36. H1c-1b.1a now uses endpoint-safe r_T=floor((log(x/2))^(1/5)) and the actual R=(x/4)^(theta/3) to prove the one-sided finite lower path u>(theta/48)*(1-log(4)/log(x))*log(r_T).",
       "missing_numeric_inputs": [
-        "finite bounds for the non-integral moment and error factors entering FMT's u",
-        "the exact algebra carrying the certified J_r/I_r bound into FMT's u",
+        "an explicit cutoff for sigma*y<=(26/25)*80*c*x*log_2(x) in the downstream C normalization",
+        "finite upper bounds needed for the full two-sided u/C package",
         "a common finite starting r and x for all remaining factors"
       ],
       "recoverability": "CONSTRUCTIVE_PATH_IDENTIFIED",
       "reproof_scale": "MODERATE_TO_LARGE",
-      "next_action": "Propagate the H1a certified ratio through the FGKMT/FMT definition of u after the required moment constants are exposed.",
+      "next_action": "Use the now-explicit SIV-03 sigma*y upper cutoff together with the closed one-sided u transfer; keep the full two-sided weight package fail-closed while H1c-1b.2 is open.",
       "threshold_ready": false
     },
     {
@@ -152,16 +154,15 @@
       "question": "Are FGKMT Hypothesis 1 constants numerically available for the required linear forms?",
       "source_keys": ["FGKMT2016"],
       "source_locator": "FGKMT Lemma 7.2 and equations (7.2)-(7.3)",
-      "printed_information": "Lemma 7.2 states uniform absolute implied constants and uses an effective character-sum bound followed by a standard Bombieri-Vinogradov proof. H1c gives exact sufficient reductions for the elementary A=Z clauses (1) and (3), but not for the prime-distribution clause (2). H1c-1b.1 confirms the growing sieve dimension, prunes the actual Proposition 9.2 call to L(n)=n, and closes Bordignon modulus capacity. It also detects a recurring dyadic transition strip where source_r=floor((log x)^(1/5)) is not covered verbatim by the printed k-range at endpoint x/2; source_r-1 is an exact safe repair candidate.",
+      "printed_information": "Lemma 7.2 states uniform absolute implied constants and uses an effective character-sum bound followed by a standard Bombieri-Vinogradov proof. H1c gives exact sufficient reductions for the elementary A=Z clauses (1) and (3), but not for the prime-distribution clause (2). H1c-1b.1 confirms the growing sieve dimension, prunes the actual Proposition 9.2 call to L(n)=n, and closes Bordignon modulus capacity. H1c-1b.1a repairs the recurring dyadic transition strip with r_T=floor((log(x/2))^(1/5)) and preserves Sono's coefficient. H1c-1b.1a.1 applies Rosser-Schoenfeld Theorem 7, including the local B0 correction, to close the required sigma*y upper cutoff at x>=2*exp(36^5).",
       "missing_numeric_inputs": [
-        "a proof that the endpoint-safe one-step dimension repair preserves the FMT/Sono normalization and final coefficient",
         "a numerical sufficiently-small exceptional-zero parameter",
         "constants and starting ranges in the Landau-Page and zero-free estimates",
         "constants in the Bombieri-Vinogradov deduction and the psi-to-pi conversion"
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "First close H1c-1b.1a by propagating the dyadic endpoint-safe dimension repair through the actual weight and coefficient inequalities. Then reconcile a common exceptional B and quantitatively reconstruct the remaining distribution, count-transfer, density, and cutoff package before assigning any Hypothesis 1 number.",
+      "next_action": "Proceed to H1c-1b.2: reconcile a common exceptional B and quantitatively reconstruct the remaining distribution, count-transfer, density, and common-cutoff package before assigning any Hypothesis 1 number.",
       "threshold_ready": false
     },
     {

@@ -306,3 +306,28 @@ SIV-07 / SIV-08                         = HARD_BLOCKER
 threshold calculator                    = NOT READY
 X_cert                                  = OPEN
 ```
+
+## 11. 2026-09-09 H1c-1b.1a 후속 결과
+
+위의 `repair-to-final-coefficient transfer = OPEN`은 이 문서 작성 시점의
+역사적 판정이다. 후속
+[H1c-1b.1a 정본](34_Sono_FMT_H1c1b1a_dyadic_dimension_coefficient_transfer.md)은
+actual endpoint-safe
+\(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\), 기존 H1a 적분비와
+FGKMT의 정확한 \(R=(x/4)^{\theta/3}\)를 합성했다.
+
+모든 \(r_T\ge36\)에서 dimension·\(R\) factor는 \(39/40\)보다 크다. Sono의
+\(16/15\) slack과 결합하면
+
+\[
+\sigma y\le(26/25)\,80cx\log_2x
+\]
+
+하에서 같은 \(c=\theta c_{I,J}/(12800\log5)\)로
+\(C>(5/4)\log5\)를 얻는다. 따라서 dimension repair가 Sono의 asymptotic
+\(2\times10^{-17}\) 계수를 낮추지는 않는다.
+
+후속 H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7로 위 \(\sigma y\) gate를
+\(x\ge2\exp(36^5)\)에서 닫았다. full Bordignon error, common exceptional \(B\), count
+transfer와 density는 계속 열려 있다. 따라서 Hypothesis 1(2), Proposition 9.2, `SIV-07/08`,
+\(X_{\mathrm{cert}}\)는 승격하지 않는다.

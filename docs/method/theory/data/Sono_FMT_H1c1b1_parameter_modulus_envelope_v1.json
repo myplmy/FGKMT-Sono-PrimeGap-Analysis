@@ -236,9 +236,30 @@
     "new_python_dependency_required": false,
     "lean_required_for_this_gate": false
   },
-  "next_gate": {
+  "successor_dimension_coefficient_transfer": {
     "id": "H1c-1b.1a",
-    "description": "Propagate the endpoint-safe dimension r_T=floor((log(x/2))^(1/5)), or the conservative source_r-1 choice, through the actual FMT/Sono weight normalization and final coefficient inequalities. Only after this repair is numerically harmless should H1c-1b.2 uniformize one exceptional B.",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b1a_dimension_coefficient_transfer_v1.json",
+    "outcome": "DYADIC_DIMENSION_R_SCALE_TRANSFER_CLOSED_SONO_COEFFICIENT_PRESERVED_ASYMPTOTICALLY_EXPLICIT_SIGMA_CUTOFF_OPEN",
+    "endpoint_safe_dimension": "r_T=floor((log(x/2))^(1/5))",
+    "minimum_endpoint_dimension": 36,
+    "combined_dimension_and_R_scale_lower_factor": "39/40",
+    "finite_sigma_y_upper_gate": "26/25",
+    "asymptotic_sono_coefficient_preserved": true,
+    "explicit_sigma_cutoff_closed": false,
+    "numerical_x_cert_ready": false
+  },
+  "successor_sigma_y_cutoff": {
+    "id": "H1c-1b.1a.1 / SIV-03",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
+    "outcome": "EXPLICIT_SIGMA_Y_UPPER_CUTOFF_CLOSED_SONO_COEFFICIENT_PRESERVED_DISTRIBUTION_PACKAGE_OPEN",
+    "cutoff": "x>=2*exp(36^5)",
+    "explicit_sigma_cutoff_closed": true,
+    "full_distribution_package_ready": false,
+    "numerical_x_cert_ready": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.2",
+    "description": "Uniformize one exceptional B across the actual distribution family and compose the remaining Bordignon/count-transfer errors.",
     "ready_for_threshold_calculator": false,
     "requires_user_computation_now": false
   }

@@ -19,6 +19,14 @@ class ProjectVocabularyTests(unittest.TestCase):
                 violations.append(f"filename: {relative}")
             if path.is_file() and path.suffix.casefold() in extensions:
                 text = path.read_text(encoding="utf-8", errors="strict")
+                if (
+                    relative.parts[0] == "handoff"
+                    or path.name.endswith("WORK_LEDGER-done.md")
+                ):
+                    historical_scan_label = (
+                        f"`{forbidden}` 오탈자 scan"
+                    )
+                    text = text.replace(historical_scan_label, "")
                 if forbidden.casefold() in text.casefold():
                     violations.append(f"content: {relative}")
 
