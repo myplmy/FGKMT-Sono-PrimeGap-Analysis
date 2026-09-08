@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.3.0")
+        self.assertEqual(self.document["schema_version"], "1.4.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -70,11 +70,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 9,
+                    "RATE_MISSING": 8,
                     "INPUT_PACKAGE_MISSING": 3,
                     "PARTIAL_EXPLICIT": 1,
                     "PROJECT_FINITE_COMPONENT_CLOSED": 2,
-                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 1,
+                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 2,
                     "HARD_BLOCKER": 1,
                 }
             ),
@@ -99,7 +99,10 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             self.assertTrue(row["explicit_parts"], row["id"])
             self.assertFalse(row["threshold_ready"], row["id"])
             self.assertTrue(set(row["upstream"]).issubset(self.by_id), row["id"])
-            if row["status"] == "PROJECT_FINITE_COMPONENT_CLOSED":
+            if row["status"] in {
+                "PROJECT_FINITE_COMPONENT_CLOSED",
+                "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+            }:
                 self.assertEqual(row["missing_numeric_inputs"], [], row["id"])
             else:
                 self.assertTrue(row["missing_numeric_inputs"], row["id"])
@@ -174,6 +177,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
         )
         self.assertEqual(
+            self.document["h1b1b2d1b_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1B-L82"]["status"],
             "PROJECT_FINITE_COMPONENT_CLOSED",
         )
@@ -181,13 +189,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             self.by_id["H1B-L83"]["status"],
             "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
-        self.assertEqual(
-            self.by_id["H1B-L83"]["missing_numeric_inputs"],
-            [
-                "downstream full Lemma 8.4 closure still needs the sharp "
-                "xi*log(x) finite scale and common moment-level error budget"
-            ],
-        )
+        self.assertEqual(self.by_id["H1B-L83"]["missing_numeric_inputs"], [])
         self.assertIn(
             "C_L83(a,A2)",
             " ".join(self.by_id["H1B-L83"]["explicit_parts"]),
@@ -204,9 +206,12 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         self.assertFalse(self.document["full_good_sieve_weight_closed"])
         self.assertFalse(self.document["siv_07_closed"])
         self.assertFalse(self.document["siv_09_closed"])
-        self.assertEqual(self.by_id["H1B-L84"]["status"], "RATE_MISSING")
+        self.assertEqual(
+            self.by_id["H1B-L84"]["status"],
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+        )
         self.assertIn(
-            "eight of nine Lemma 8.4 subapplications",
+            "all nine source-traced Lemma 8.4 subapplications",
             " ".join(self.by_id["H1B-L84"]["explicit_parts"]),
         )
         self.assertIn(

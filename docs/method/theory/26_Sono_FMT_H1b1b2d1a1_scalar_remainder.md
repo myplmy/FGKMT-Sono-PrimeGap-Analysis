@@ -380,3 +380,11 @@ C_{8.3}(1/2,8)=2\left(40960\frac{14801}{69}e^{264}+2\right).
 호출에서 분모가 되는 \(\xi\log x\)에 finite lower bound를 넣어야 한다. 그 뒤에도
 Lemmas 8.5--8.6, 공통 moment error budget, H1c/PAP가 남는다. 모든 root가 닫히기 전에는
 threshold calculator나 장시간 prime sweep을 만들지 않는다.
+
+## 13. 2026-09-08 successor 상태
+
+theory 27은 위 `12에서 남긴 두 sharp factor를 실제 FGKMT/FMT parameter로
+finite하게 닫았다. 따라서 Lemma 8.4 관련 actual 하위호출은 9/9
+parameterized explicit이고 `H1B-L84`는
+`ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다. Lemmas 8.5--8.6, 잔여
+moment error와 H1c-1이 남으므로 `SIV-07`과 \(X_{\rm cert}\)는 계속 열려 있다.

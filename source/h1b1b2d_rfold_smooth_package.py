@@ -40,7 +40,7 @@ from source.h1b1b2_local_factor_lower_bound import (
     maynard_uniform_application_log_q_upper,
 )
 from source.h1b1b2b_corrected_wirsing import (
-    summatory_multiplier,
+    strict_summatory_multiplier,
     weighted_lemma83_multiplier,
 )
 from source.h1b1b2c_actual_parameter_package import (
@@ -566,7 +566,7 @@ def sharp_cutoff_relative_error(
     scale = _positive_mpf(scale_log, "scale_log")
     lambda_log = _positive_mpf(log_lambda_star, "log_lambda_star")
     l_plus_one = 6 + lambda_log
-    base = summatory_multiplier(
+    base = strict_summatory_multiplier(
         H1B1B2C_MAYNARD_A1_GAP,
         H1B1B2C_UPPER_DISCREPANCY_A2,
     )

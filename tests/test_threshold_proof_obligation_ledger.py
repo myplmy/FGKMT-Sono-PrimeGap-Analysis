@@ -28,7 +28,7 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_and_required_fields(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.1.0")
+        self.assertEqual(self.document["schema_version"], "1.2.0")
         self.assertEqual(len(self.rows), 66)
         self.assertEqual(len(self.by_id), len(self.rows), "obligation ids must be unique")
 
@@ -163,6 +163,11 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
         )
+        self.assertEqual(
+            self.document["h1b1b2d1b_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
+        )
         self.assertIn(
             "all 11 application excluded-modulus bounds",
             self.by_id["SIV-07"]["notes"],
@@ -171,7 +176,14 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             "closes its scalar pointwise multiplier",
             self.by_id["SIV-07"]["notes"],
         )
-        self.assertIn("sharp xi*log(x)", self.by_id["SIV-07"]["notes"])
+        self.assertIn(
+            "closes the two sharp xi*log(x) factors",
+            self.by_id["SIV-07"]["notes"],
+        )
+        self.assertIn(
+            "H1B-L84 is now actual-input parameterized explicit",
+            self.by_id["SIV-07"]["notes"],
+        )
         self.assertEqual(self.by_id["SIV-07"]["status"], "HARD_BLOCKER")
 
 

@@ -35,7 +35,7 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_rows(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.3.0")
+        self.assertEqual(self.document["schema_version"], "1.4.0")
         self.assertEqual(len(self.rows), 13)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -59,9 +59,9 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
                 {
                     "RATE_MISSING": 0,
                     "PROJECT_FINITE_COMPONENT_CLOSED": 4,
-                    "PARTIAL_EXPLICIT": 3,
+                    "PARTIAL_EXPLICIT": 1,
                     "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1": 1,
-                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 3,
+                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 5,
                     "PRINTED_STRUCTURAL_FACT": 1,
                     "HARD_BLOCKER": 1,
                 }
@@ -113,7 +113,8 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
     def test_corrected_kappa1_rate_and_actual_inputs_are_parameterized_explicit(self) -> None:
         self.assertEqual(
             self.document["outcome"],
-            "SMOOTH_RFOLD_AND_LINE905_SCALAR_EXPLICIT_SHARP_OPEN",
+            "LEMMA84_RELATED_ACTUAL_SUBAPPLICATIONS_PARAMETERIZED_"
+            "EXPLICIT_PARENT_OPEN",
         )
         self.assertTrue(self.document["lemma_8_3_citation_identified"])
         self.assertTrue(self.document["lemma_8_3_numeric_multiplier_recovered"])
@@ -135,21 +136,13 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             self.by_id["H1B1-L84-L"]["status"],
             "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
-        self.assertNotIn(
-            "scalar pointwise multiplier",
-            " ".join(
-                self.by_id["H1B1-L84-ITERATION"]["missing_numeric_inputs"]
-            ),
+        self.assertEqual(
+            self.by_id["H1B1-L84-ITERATION"]["status"],
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
-        self.assertIn(
-            "sharp-cutoff",
-            " ".join(
-                self.by_id["H1B1-L84-ITERATION"]["missing_numeric_inputs"]
-            ),
-        )
-        self.assertNotIn(
-            "scalar pointwise multiplier",
-            " ".join(self.by_id["H1B1-L84-SMOOTH"]["missing_numeric_inputs"]),
+        self.assertEqual(
+            self.by_id["H1B1-L84-SMOOTH"]["status"],
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
         self.assertIn(
             "kappa=1",
@@ -209,6 +202,15 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             self.document["h1b1b2d1a1_ledger"],
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
+        )
+        self.assertEqual(
+            self.document["sharp_scale_contract"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
+        )
+        self.assertEqual(
+            parent_rows["H1B-L84"]["status"],
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
 
 

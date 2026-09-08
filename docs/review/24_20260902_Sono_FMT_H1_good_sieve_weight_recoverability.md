@@ -355,3 +355,22 @@ finite 시작점을 주지 않는다. 두 명제는 일부 source를 공유하�
 
 최종 판정은 `SOURCE CHAINS TRACED / NUMERICAL PACKAGES OPEN`이며 \(X_{\mathrm{cert}}\)는
 계속 `OPEN`이다.
+
+## 13. 2026-09-08 H1b sharp-scale 후속 갱신
+
+H1b-1b-2d.1b는 Maynard 최종 출판본의 숨은
+\(k(\log\log x)^2/\log x\ll\xi\) 상수를 임의로 1로 두지 않았다.
+대신 FGKMT/FMT 실제 선택 \(\xi=\theta/10\)과
+\(R\le x^{\theta/3}\)에서 \(\xi\log x\ge(3/10)\log R\)를 직접 얻었다.
+교정된 strict summatory multiplier \(C_\Sigma+2\)를 결합하면 두 sharp
+factor 모두 finite component로 닫힌다.
+
+이에 따라 추적한 Lemma 8.4 관련 actual 하위호출은 9/9 parameterized explicit이고
+`H1B-L84`도 같은 수준으로 이동한다. 이 갱신은 전체 good weight를 완성한 것이 아니다.
+Lemmas 8.5--8.6, Propositions 9.1--9.5의 잔여 오류항, 공통 moment
+error budget, H1c-1 입력이 남으므로 `SIV-07/09`와
+\(X_{\mathrm{cert}}\)는 계속 열려 있다.
+
+상세 근거는
+[`27_Sono_FMT_H1b1b2d1b_sharp_xi_logx_scale.md`](../method/theory/27_Sono_FMT_H1b1b2d1b_sharp_xi_logx_scale.md)와
+[`33_20260908_H1b1b2d1b_sharp_scale_타당성검토.md`](33_20260908_H1b1b2d1b_sharp_scale_타당성검토.md)에 있다.

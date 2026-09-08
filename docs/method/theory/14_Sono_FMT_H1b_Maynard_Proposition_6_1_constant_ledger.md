@@ -94,10 +94,10 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 |---|---:|
 | `PARTIAL_EXPLICIT` | 1 |
 | `PROJECT_FINITE_COMPONENT_CLOSED` | 2 |
-| `RATE_MISSING` | 9 |
+| `RATE_MISSING` | 8 |
 | `SOURCE_REVIEW_REQUIRED` | 0 |
 | `INPUT_PACKAGE_MISSING` | 3 |
-| `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 1 |
+| `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 2 |
 | `HARD_BLOCKER` | 1 |
 | **합계** | **17** |
 
@@ -110,7 +110,7 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-L81` | Lemma 8.1 | singular series 하한 | `RATE_MISSING` | \(\exp(-Ck)\)의 \(C\) |
 | `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `PROJECT_FINITE_COMPONENT_CLOSED` | H1b-1b에서 multiplier 89, \(k\ge2\) |
 | `H1B-L83` | Lemma 8.3 | multiplicative sum | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | \(C_{8.3}\), \(z\ge2\), 공통 \(a=1/2,A_2=8,L=5+\log\Lambda_*\) 닫힘 |
-| `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | smooth 8/9와 905행 scalar package explicit; sharp \(\xi\log x\) finite scale |
+| `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | actual 관련 하위호출 9/9 explicit; 상위 moment 합성은 별도 |
 | `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `RATE_MISSING` | \(R^{2+o(1)}\)의 finite 대체 |
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
 | `H1B-L86-SIZE` | Lemma 8.6 | 절대 적분 크기 | `RATE_MISSING` | lower-bound multiplier |
@@ -376,3 +376,35 @@ line-905 scalar/smooth 하위 package가 닫혀 Lemma 8.4 smooth 호출은 8/9 e
 두 sharp call의 \(\xi\log x\) finite lower bound는 여전히 없다. 그러므로
 `H1B-L84=RATE_MISSING`, `H1B-COMP-01=HARD_BLOCKER`,
 `SIV-07/SIV-09`과 \(X_{\mathrm{cert}}\)는 승격하지 않는다.
+
+## 18. 2026-09-08 H1b-1b-2d.1b sharp scale 반영
+
+앞 절의 마지막 문장은 2d.1a.1 직후의 당시 상태다. theory 27은 최종 FGKMT/FMT
+실제 호출의
+
+\[
+\xi=\frac{\theta}{10},\qquad R\le x^{\theta/3}
+\]
+
+에서
+
+\[
+\xi\log x\ge\frac3{10}\log R
+\]
+
+를 exact하게 얻었다. 또한 \(d<z\)인 strict cutoff에는 기존 \(C_\Sigma\)가 아니라
+끝점 여유를 포함한 \(C_\Sigma+2\)를 사용해 두 sharp summatory factor의
+closed-form finite \(\log R\) gate를 증명했다.
+
+선행 theory 24--26과 합치면 추적한 Lemma 8.4 관련 actual 하위호출 9/9가
+parameterized explicit이다. 이에 따라 `H1B-L84`만
+`ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 이동한다. 다음은 그대로다.
+
+~~~text
+H1B-COMP-01  HARD_BLOCKER
+SIV-07/09    HARD_BLOCKER
+X_cert       OPEN
+~~~
+
+그 이유는 Lemmas 8.5--8.6, Propositions 9.1--9.5의 남은 오차, 전체
+moment-level main/error budget과 H1c-1 입력이 아직 열려 있기 때문이다.

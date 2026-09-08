@@ -359,3 +359,11 @@ Lemmas 8.5--8.6, Propositions 9.1--9.5, H1c/PAP와 arbitrary-X 전달이 남는�
 제거했지만 scalar pointwise multiplier와 sharp \(\xi\log x\) finite scale이 남아
 이 문서의 `r_fold_composition_closed=false`는 “전체 actual package” 기준으로
 계속 정확하다. 다음 gate는 H1b-1b-2d.1a.1과 H1b-1b-2d.1b다.
+
+## 16. 2026-09-08 successor 상태
+
+위 `15는 2d.1a 직후의 역사적 상태다. theory 26이 scalar multiplier를,
+theory 27이 두 sharp factor의 finite scale을 닫았다. 선행 package를 합치면
+`H1B-L84`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다. 이 문서 자체의
+`r_fold_composition_closed=false`는 단독 계약이 successor를 포함하지 않는다는
+뜻으로만 읽으며, 상위 `SIV-07`과 \(X_{\rm cert}\)는 여전히 열려 있다.

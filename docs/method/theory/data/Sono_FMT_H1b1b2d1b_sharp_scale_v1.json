@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-08",
+  "gate": "H1b-1b-2d.1b finite xi log x scale for the two sharp Maynard calls",
+  "outcome": "TWO_SHARP_CALLS_PARAMETERIZED_EXPLICIT_H1B_L84_COMPONENT_CLOSED_PARENT_PACKAGE_OPEN",
+  "scope": "This contract replaces the hidden lower-scale use at Maynard equations (9.58) and (9.66) by direct strict-cutoff summatory bounds under the actual FGKMT/FMT choice xi=theta/10. It does not certify the other errors in Proposition 9.4, Proposition 6.1, Hypothesis 1, SIV-07, SIV-09, or X_cert.",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_PUBLISHED",
+      "title": "Dense Clusters of Primes in Subsets",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "reviewed_locations": "printed pages 1547-1550, Proposition 9.4 and equations (9.49)-(9.70)",
+      "status": "PRIMARY_FINAL_PUBLISHED_SOURCE_REVIEWED"
+    },
+    {
+      "key": "MAYNARD2014_ARXIV_SOURCE",
+      "title": "Dense Clusters of Primes in Subsets, arXiv v2 author TeX",
+      "arxiv": "1405.2593v2",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "reviewed_locations": "lines 1044-1141",
+      "status": "PRIMARY_PREPUBLICATION_SOURCE_REVIEWED_VERSION_DIFFERENCE_NOTED"
+    },
+    {
+      "key": "FGKMT2018_PUBLISHED",
+      "title": "Long Gaps Between Primes",
+      "doi": "10.1090/jams/876",
+      "arxiv": "1412.5029",
+      "local_path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "reviewed_locations": "printed pages 98-99, Theorem 6, equation (7.8), proof and Section 8 parameter choice",
+      "status": "PRIMARY_FINAL_PUBLISHED_SOURCE_REVIEWED"
+    }
+  ],
+  "source_version_caution": {
+    "published_statement": "k(log log x)^2/log x << xi <= theta/10",
+    "arxiv_v2_tex_and_html_statement": "k(log log x)^2/log x <= xi <= theta/10",
+    "authoritative_choice": "Use the final published statement and do not assign the hidden Vinogradov multiplier the value 1.",
+    "formal_erratum_found_in_targeted_official_search": false,
+    "global_absence_of_errata_claimed": false
+  },
+  "actual_fmt_specialization": {
+    "xi": "theta/10",
+    "D": 1,
+    "alpha": 2,
+    "theta": "1/3",
+    "R": "(x/4)^(theta/3) in the Section 8 application",
+    "generic_maynard_range_used": "R <= x^(theta/3)",
+    "derived_sharp_scale": "xi log x >= (3/10) log R"
+  },
+  "strict_endpoint_correction": {
+    "cutoff": "d < z with z=x^xi",
+    "non_strict_multiplier": "C_Sigma=40960*D(1/2,8)*exp(264)",
+    "strict_multiplier": "C_strict=C_Sigma+2",
+    "reason": "The project corrected Wirsing theorem's strict cumulative endpoint allowance must be retained; the previous diagnostic formula used C_Sigma alone.",
+    "weighted_multiplier_not_used_for_sharp_indicator": "The factor 2 from smooth Stieltjes partial summation is not charged to the unsmoothed cumulative sharp sum."
+  },
+  "project_finite_lemma": {
+    "lambda_star": "A+B*y, where y=log R, A=2k^2 log(2k^2)+k(k-1)log2 and B=10alpha(2k^2-k+1)/theta+k",
+    "l_plus_one": "6+log Lambda_star",
+    "relative_error": "delta_sharp <= (10/3)*C_strict*(6+log Lambda_star)/y",
+    "target": "delta_sharp <= 1/2",
+    "closed_form_gate": "Let E=(20/3)C_strict. It suffices that y>=max(1,(10/3)log2,4E log(4E),2E[6+log(A+B)]).",
+    "line_958_consequence": "tilde_lambda_1 >= (1-delta_sharp) xi log x >= xi log x/2 > 0",
+    "line_966_consequence": "the sharp r0 factor is at most (1+delta_sharp) times its main term, hence at most 3/2 times the main term"
+  },
+  "applications": [
+    {
+      "id": "L1096_W0",
+      "published_locator": "equation (9.58), printed page 1548",
+      "source_locator": "author TeX lines 1092-1098",
+      "mode": "STRICT_SHARP_SUMMATORY_PARAMETERIZED_EXPLICIT",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    },
+    {
+      "id": "L1135_W0_factor",
+      "published_locator": "equations (9.65)-(9.66), printed page 1550",
+      "source_locator": "author TeX lines 1112-1141",
+      "mode": "STRICT_SHARP_SUMMATORY_PARAMETERIZED_EXPLICIT",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    }
+  ],
+  "illustrative_actual_minimum_k_diagnostic": {
+    "input": {
+      "k": 36,
+      "alpha": 2,
+      "theta": "1/3"
+    },
+    "strict_multiplier_formula": "40960*(14801/69)*exp(264)+2",
+    "log_r_sufficient": "2.9903201460632474112818853849325230231491749147616756023549051e125",
+    "log10_log_r_sufficient": "125.47571768672766170415880200124027072328038892165002117821",
+    "relative_error_upper_at_gate": "0.13540853315243437398215348264563045520538945760723187512",
+    "directed_rounding_certificate": false,
+    "actual_x_or_X_cert_interpretation_allowed": false
+  },
+  "predecessor_contracts": [
+    "docs/method/theory/data/Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+    "docs/method/theory/data/Sono_FMT_H1b1b2c_actual_parameter_specialization_v1.json",
+    "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
+    "docs/method/theory/data/Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json"
+  ],
+  "status_after_predecessor_composition": {
+    "sharp_calls_closed": true,
+    "actual_lemma84_subapplications_parameterized_explicit": "9/9",
+    "H1B-L83": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+    "H1B-L84": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+    "H1B-COMP-01": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "SIV-09": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "remaining_blockers": [
+    "Maynard Lemma 8.5 and Lemma 8.6 size constants and finite ranges",
+    "Propositions 9.1, 9.2, 9.4 and 9.5 errors outside the two sharp summatory factors",
+    "a common moment-level main-term domination and error budget",
+    "H1c-1 quantitative Hypothesis 1 prime-distribution package",
+    "the later FMT probability and arbitrary-X composition"
+  ],
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "actual_prime_experiment_performed": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false,
+  "next_recommended_gates": [
+    "H1b-2 common moment/error-budget audit beginning with Lemmas 8.5-8.6 and Proposition 9.4 residual errors",
+    "H1c-1 quantitative character and Bombieri-Vinogradov package"
+  ]
+}

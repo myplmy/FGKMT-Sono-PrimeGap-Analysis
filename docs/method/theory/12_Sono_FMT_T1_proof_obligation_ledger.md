@@ -325,16 +325,17 @@ character/Bombieri–Vinogradov package는 열려 있다. PAP도 \(C_{PAP}=1-e^{
 `SIV-08`의 잘못된 `depends_on: [PAP-11]` edge를 제거했다. 이 graph 정정은 `SIV-08`, `PAP-11`,
 hard-blocker 수 또는 \(X_{\mathrm{cert}}\)의 상태를 올리지 않는다.
 
-현재 권장 순서는 다음과 같다.
+아래 목록은 theory 26 직후의 역사적 권장 순서이며, 이 중 2번은 section 17에서 완료됐다.
 
 1. **완료:** H1b-1b-2b/c가 corrected one-step multiplier와 실제
    \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 인증했다. H1b-1b-2d는
    7개 direct smooth call을, 2d.1a/1a.1은 line-905 square-sum과 scalar
    multiplier를 닫아 smooth Lemma 8.4 하위호출 8/9를 explicit으로 만들었다.
-2. `H1b-1b-2d.1b`: 두 sharp call의 \(\xi\log x\) finite lower bound를 복원한다.
+2. **완료:** `H1b-1b-2d.1b`가 두 sharp call의 \(\xi\log x\) finite lower bound를 복원했다.
 3. 병렬 이론축 `H1c-1`에서 FGKMT (7.2)–(7.3)의 quantitative
    character/Bombieri–Vinogradov package를 복원한다.
-4. `H1b-2`: 위 입력 뒤 Propositions 9.1–9.5의 finite moment와 공통 cutoff를 합성한다.
+4. **현재 직접 축:** `H1b-2`에서 Lemmas 8.5--8.6과 Propositions 9.1–9.5의
+   잔여 finite moment error를 감사하고 공통 cutoff를 합성한다.
 5. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
 6. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
 7. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
@@ -467,3 +468,16 @@ line-905 scalar/smooth 하위 package는 닫히며 smooth Lemma 8.4 하위호출
 남은 Lemma 8.4 blocker는 두 sharp call의 \(\xi\log x\) finite lower bound다.
 따라서 parent `H1B-L84=RATE_MISSING`, `SIV-07=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}\)=`OPEN`과 T1의 66행 root 상태 수는 유지한다.
+
+## 17. 2026-09-08 sharp scale 후속 반영
+
+위 마지막 문장은 theory 26 직후의 당시 상태다. theory 27은 FGKMT/FMT 실제
+\(\xi=\theta/10\), \(R\le x^{\theta/3}\)을 이용해
+\(\xi\log x\ge(3/10)\log R\)를 얻고, strict endpoint를 포함한
+\(C_\Sigma+2\) multiplier로 두 sharp factor를 finite하게 닫았다.
+
+따라서 `H1B-L84`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 이동한다.
+그러나 T1의 `SIV-07` 행은 Maynard Proposition 6.1 **전체**를 가리키므로
+`HARD_BLOCKER` 그대로다. 66행의 top-level 상태 수도 바뀌지 않으며
+\(X_{\mathrm{cert}}\)도 계속 `OPEN`이다. 다음 직접 축은 H1b-2의 잔여
+moment/error 감사와 H1c-1의 quantitative character/Bombieri--Vinogradov package다.

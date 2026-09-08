@@ -153,6 +153,26 @@ def summatory_multiplier(
     return mp.exp(summatory_log_multiplier(a1_gap, a2))
 
 
+def strict_summatory_multiplier(
+    a1_gap: int | str | Fraction,
+    a2: int | str | Fraction,
+) -> mp.mpf:
+    """Evaluate the multiplier for the strict cumulative cutoff ``d < z``.
+
+    The corrected summatory estimate is first proved for ``d <= x``.  Passing
+    to every strict real cutoff, including ``1 < z <= 2``, costs the explicit
+    endpoint allowance from equation (22.25) of the project proof.  This
+    helper keeps that allowance from being silently omitted by sharp-cutoff
+    callers.
+    """
+
+    return mp.fadd(
+        summatory_multiplier(a1_gap, a2),
+        H1B1B2B_STRICT_CUMULATIVE_ENDPOINT_ALLOWANCE,
+        exact=True,
+    )
+
+
 def weighted_lemma83_multiplier(
     a1_gap: int | str | Fraction,
     a2: int | str | Fraction,
@@ -164,9 +184,10 @@ def weighted_lemma83_multiplier(
     handles the strict cumulative endpoint near 2.
     """
 
-    base = summatory_multiplier(a1_gap, a2)
-    return H1B1B2B_WEIGHTED_PARTIAL_SUMMATION_FACTOR * (
-        base + H1B1B2B_STRICT_CUMULATIVE_ENDPOINT_ALLOWANCE
+    return mp.fmul(
+        H1B1B2B_WEIGHTED_PARTIAL_SUMMATION_FACTOR,
+        strict_summatory_multiplier(a1_gap, a2),
+        exact=True,
     )
 
 
@@ -187,5 +208,6 @@ __all__ = [
     "corrected_kappa1_wirsing_certificate",
     "summatory_log_multiplier",
     "summatory_multiplier",
+    "strict_summatory_multiplier",
     "weighted_lemma83_multiplier",
 ]

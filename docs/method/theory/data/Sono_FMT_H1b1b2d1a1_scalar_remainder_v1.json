@@ -48,7 +48,7 @@
     {
       "id": "PROJECT_CORRECTED_LEMMA83",
       "local_path": "source/h1b1b2b_corrected_wirsing.py",
-      "sha256": "569cb9c19eafb7ed1f168ad1def5e728925e55ffcfb999fd06af12b2554c4596",
+      "sha256": "5fb20ef9872a343a1c33b9139605436ef3592e844b55ab0256f48402d3b00046",
       "role": "corrected weighted one-step multiplier C_8.3"
     },
     {
@@ -60,7 +60,7 @@
     {
       "id": "PROJECT_SMOOTH_RFOLD",
       "local_path": "source/h1b1b2d_rfold_smooth_package.py",
-      "sha256": "723caae2195945b6c5ff8cdfb83b10b09401d04919f8f89a9c80de7a78f419c1",
+      "sha256": "76227aa44b2293ece37aeac107da9c8122d204decfaba138b20afa13d0d2cb94",
       "role": "support-scaled profile bounds and common smooth finite gate"
     },
     {

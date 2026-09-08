@@ -422,3 +422,10 @@ actual parameter 정본은
   DOI 10.1090/S0002-9939-2015-12554-3, arXiv:1403.5808.
 - Vivian Kuperberg, *Sums of Singular Series with Large Sets and the Tail of the
   Distribution of Primes*, DOI 10.1093/qmath/haad030, arXiv:2210.09775.
+
+## 13. 2026-09-08 successor 상태
+
+theory 27이 actual sharp scale을 닫았으므로 위 `11의 “다음”은 완료된 역사적
+순서다. strict cutoff에서는 이 문서의 non-strict \(C_\Sigma\)에 endpoint allowance
+\(+2\)를 더한 \(C_\Sigma+2\)를 쓴다. Lemma 8.4 관련 actual 하위호출은
+9/9 parameterized explicit이지만 `SIV-07`과 \(X_{\rm cert}\)는 계속 열려 있다.

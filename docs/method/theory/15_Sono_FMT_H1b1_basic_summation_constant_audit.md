@@ -2,7 +2,7 @@
 
 - 작성: 2026-09-04 KST
 - 증거 수준: `SOURCE-LEVEL QUANTITATIVE DEPENDENCY AUDIT`
-- 판정: `CORRECTED_KAPPA1_ACTUAL_INPUTS_SCALAR_EXPLICIT_SHARP_PACKAGE_OPEN`
+- 판정: `LEMMA84_RELATED_ACTUAL_SUBAPPLICATIONS_PARAMETERIZED_EXPLICIT_PARENT_OPEN`
 - `SIV-07`: `HARD_BLOCKER` 유지
 - numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
 - 기계 판독 정본:
@@ -272,7 +272,8 @@ X_cert                     = OPEN
 
 위의 `BASE OPEN` 판정과 \(C_{3,\mathrm{abs}}\) 우선순위는 당시 사용하던
 절대오차 repair 경로의 기록이다. 최신 정본 H1b-1b-2b는 Ford Theorem 4.4의
-추가항을 보존한 \(\kappa=1\) 상대오차를 직접 명시화했다. 현재 상태는 다음과 같다.
+추가항을 보존한 \(\kappa=1\) 상대오차를 직접 명시화했다. 아래는 theory 26 직후의
+역사적 상태이며 section 12가 최신 상태다.
 
 ```text
 Lemma 8.3 corrected one-step rate = C_L83(a,A2), every z>=2
@@ -329,6 +330,27 @@ theory 25와 합치면 line-905 scalar/square subpackage가 닫힌다. 구 autho
 \(i=m\) determinant는 최종 출판본 (9.43)에서 이미 \(i\ne m\)으로 고쳐졌음을 함께
 정정했다.
 
-따라서 현재 Lemma 8.4 smooth 하위호출은 8/9 explicit이다. 남은 직접 blocker는
+따라서 당시 Lemma 8.4 smooth 하위호출은 8/9 explicit이었다. 남은 직접 blocker는
 sharp \(\xi\log x\) finite scale이다. 이 진전만으로 `H1B-L84`,
 `SIV-07` 또는 \(X_{\mathrm{cert}}\)를 승격하지 않는다.
+
+## 12. 2026-09-08 H1b-1b-2d.1b 반영
+
+앞 절은 scalar package 직후의 역사적 상태다. theory 27은 최종 FGKMT/FMT 호출의
+\(\xi=\theta/10\)과 \(R\le x^{\theta/3}\)을 사용해
+\(\xi\log x\ge(3/10)\log R\)를 얻었다. strict cutoff의 endpoint allowance
+\(+2\)까지 보존한 finite gate가 source line 1096과 1135의 두 sharp factor를
+닫는다.
+
+현재 상태는 다음과 같다.
+
+~~~text
+Lemma 8.3 corrected one-step      = ACTUAL INPUTS PARAMETERIZED EXPLICIT
+Lemma 8.4 related actual calls    = 9/9 PARAMETERIZED EXPLICIT
+H1B-L84                           = ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT
+H1B-COMP-01 / SIV-07 / X_cert    = HARD_BLOCKER / HARD_BLOCKER / OPEN
+~~~
+
+다음 직접 gate는 H1b-2의 Lemmas 8.5--8.6과 Propositions 9.1--9.5 잔여
+오차 및 공통 moment budget이다. H1c-1 quantitative character package는 병렬
+root dependency다.

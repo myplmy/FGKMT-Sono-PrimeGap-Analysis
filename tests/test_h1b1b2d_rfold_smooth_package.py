@@ -196,18 +196,24 @@ class RfoldSmoothPackageTests(unittest.TestCase):
 
     def test_contract_provenance_and_parent_nonpromotion(self) -> None:
         contract = self.contract
-        self.assertEqual(contract["schema_version"], "1.0.0")
+        self.assertEqual(contract["schema_version"], "1.1.0")
         self.assertEqual(
             contract["outcome"],
-            "SMOOTH_RFOLD_SUBPACKAGE_PARAMETERIZED_EXPLICIT_ACTUAL_PACKAGE_OPEN",
+            "ALL_ACTUAL_LEMMA84_SUBAPPLICATIONS_PARAMETERIZED_EXPLICIT_"
+            "PARENT_PACKAGE_OPEN",
         )
         self.assertEqual(contract["application_counts"]["source_traced_total"], 11)
         self.assertEqual(contract["application_counts"]["smooth_profile_closed"], 8)
         self.assertEqual(contract["application_counts"]["lemma84_smooth_closed"], 8)
+        self.assertEqual(
+            contract["application_counts"]["lemma84_parameterized_explicit"], 9
+        )
         self.assertEqual(contract["application_counts"]["sharp_parameterized"], 2)
+        self.assertEqual(contract["application_counts"]["sharp_closed"], 2)
         self.assertEqual(contract["application_counts"]["h_square_bypass_scalar_closed"], 1)
         self.assertTrue(contract["generic_distinct_profile_composition_closed"])
-        self.assertFalse(contract["all_actual_lemma84_calls_closed"])
+        self.assertTrue(contract["all_actual_lemma84_calls_closed"])
+        self.assertTrue(contract["sharp_scale_closed"])
         self.assertFalse(contract["siv_07_closed"])
         self.assertFalse(contract["numerical_x_cert_ready"])
         self.assertFalse(contract["actual_prime_experiment_performed"])
@@ -223,7 +229,9 @@ class RfoldSmoothPackageTests(unittest.TestCase):
 
         parent = contract["parent_status"]
         self.assertEqual(parent["H1B-L83"], "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT")
-        self.assertEqual(parent["H1B-L84"], "RATE_MISSING")
+        self.assertEqual(
+            parent["H1B-L84"], "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+        )
         self.assertEqual(parent["H1B1-PACKAGE"], "HARD_BLOCKER")
         self.assertEqual(parent["SIV-07"], "HARD_BLOCKER")
         self.assertEqual(parent["X_cert"], "OPEN")

@@ -23,6 +23,7 @@ from source.h1b1b2b_corrected_wirsing import (
     corrected_kappa1_wirsing_certificate,
     summatory_log_multiplier,
     summatory_multiplier,
+    strict_summatory_multiplier,
     weighted_lemma83_multiplier,
 )
 
@@ -80,11 +81,14 @@ class CorrectedKappa1WirsingTests(unittest.TestCase):
             mp.mp.dps = 80
             baseline_log = summatory_log_multiplier(Fraction(1, 2), 2)
             baseline = summatory_multiplier(Fraction(1, 2), 2)
+            strict = strict_summatory_multiplier(Fraction(1, 2), 2)
             weighted = weighted_lemma83_multiplier(Fraction(1, 2), 2)
             self.assertTrue(mp.isfinite(baseline_log))
             self.assertTrue(mp.isfinite(baseline))
             self.assertGreater(baseline, 0)
-            self.assertEqual(weighted, 2 * (baseline + 2))
+            self.assertEqual(strict, mp.fadd(baseline, 2, exact=True))
+            self.assertGreater(strict, baseline)
+            self.assertEqual(weighted, mp.fmul(2, strict, exact=True))
             self.assertGreater(
                 summatory_log_multiplier(Fraction(1, 4), 2), baseline_log
             )

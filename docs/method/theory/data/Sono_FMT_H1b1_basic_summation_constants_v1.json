@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
   "created_kst": "2026-09-04",
   "updated_kst": "2026-09-08",
   "gate": "H1b-1 Maynard Lemmas 8.1-8.4 basic summation constant audit",
@@ -8,8 +8,9 @@
   "smooth_composition_contract": "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
   "h_remainder_bypass_contract": "docs/method/theory/data/Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
   "scalar_remainder_contract": "docs/method/theory/data/Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
-  "scope": "Source-level decomposition of the singular-series, Lipschitz, one-dimensional multiplicative summation, and iterated summation constants used in Maynard Lemmas 8.1-8.4. H1b-1b-2b makes the corrected kappa=1 one-dimensional multiplier explicit for every x>=2, H1b-1b-2c supplies actual a=1/2, A2=8 and L=5+log(Lambda_star), H1b-1b-2d closes the support-scaled finite-product subpackage for eight smooth Lemma 8.4 calls after its successor, H1b-1b-2d.1a bypasses the line-905 functional C1 requirement, and H1b-1b-2d.1a.1 supplies its scalar pointwise multiplier. The sharp finite scale remains open; this supplies no numerical theorem threshold.",
-  "outcome": "SMOOTH_RFOLD_AND_LINE905_SCALAR_EXPLICIT_SHARP_OPEN",
+  "sharp_scale_contract": "docs/method/theory/data/Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
+  "scope": "Source-level decomposition of the singular-series, Lipschitz, one-dimensional multiplicative summation, and iterated summation constants used in Maynard Lemmas 8.1-8.4. H1b-1b-2b makes the corrected kappa=1 one-dimensional multiplier explicit for every x>=2, H1b-1b-2c supplies actual a=1/2, A2=8 and L=5+log(Lambda_star), H1b-1b-2d closes the support-scaled finite-product subpackage for eight smooth Lemma 8.4 calls after its successors, H1b-1b-2d.1a/.1a.1 close the line-905 square-sum/scalar path, and H1b-1b-2d.1b closes the two sharp factors. This does not close the remaining Lemma 8.1 components, later moment package, SIV-07, or the numerical theorem threshold.",
+  "outcome": "LEMMA84_RELATED_ACTUAL_SUBAPPLICATIONS_PARAMETERIZED_EXPLICIT_PARENT_OPEN",
   "lemma_8_3_citation_identified": true,
   "lemma_8_3_numeric_multiplier_recovered": true,
   "lemma_8_3_parameterized_multiplier_recovered": true,
@@ -224,25 +225,20 @@
       "id": "H1B1-L84-SMOOTH",
       "locator": "Maynard Lemma 8.4 and equation (8.15)",
       "role": "smooth-test-function derivative norm Omega_G",
-      "printed_information": "The error is controlled by r Omega_G log log R/log R times the main scale. H1b-1b-2d closes the ordinary smooth calls and H1b-1b-2d.1a/.1a.1 close the line-905 square-sum and scalar subpackage with an explicit finite gate.",
-      "missing_numeric_inputs": [
-        "the moment-level lower bound needed to convert the product-profile absolute envelope into each required relative error"
-      ],
+      "printed_information": "The error is controlled by r Omega_G log log R/log R times the Lemma 8.4 product-integral scale. H1b-1b-2d closes the ordinary smooth calls and H1b-1b-2d.1a/.1a.1 close the line-905 square-sum and scalar subpackage with an explicit finite gate. Comparison with a later coupled moment main term belongs to the parent moment composition, not this row.",
+      "missing_numeric_inputs": [],
       "upstream": [
         "H1B1-L82-CUTOFF"
       ],
-      "status": "PARTIAL_EXPLICIT",
+      "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
       "threshold_ready": false
     },
     {
       "id": "H1B1-L84-ITERATION",
       "locator": "Maynard Lemma 8.4, r-fold application of Lemma 8.3",
       "role": "accumulation and absorption of one-dimensional summation errors",
-      "printed_information": "The proof applies Lemma 8.3 repeatedly and replaces products of 1+O(epsilon) by a total O(r epsilon) error.",
-      "missing_numeric_inputs": [
-        "a finite lower bound for xi*log(x) in both sharp-cutoff calls",
-        "a common moment-level error budget after the remaining calls are closed"
-      ],
+      "printed_information": "The proof applies Lemma 8.3 repeatedly and replaces products of 1+O(epsilon) by a total O(r epsilon) error. Project H1b-1b-2d uses the exact finite product, its scalar successors close line 905, and H1b-1b-2d.1b closes both sharp-cutoff calls under the actual FGKMT/FMT specialization.",
+      "missing_numeric_inputs": [],
       "upstream": [
         "H1B1-L82-LIPSCHITZ",
         "H1B1-L83-GGPY4",
@@ -250,7 +246,7 @@
         "H1B1-L84-L",
         "H1B1-L84-SMOOTH"
       ],
-      "status": "PARTIAL_EXPLICIT",
+      "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
       "threshold_ready": false
     },
     {
@@ -279,12 +275,18 @@
     "parent_row": "H1B-L83",
     "old_status": "RATE_MISSING",
     "new_status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
-    "reason": "Ford Theorem 4.4 supplies the corrected structural result, H1b-1b-2b makes the kappa=1 multiplier explicit for every x>=2, H1b-1b-2c supplies actual a=1/2, A2=8 and L=5+log(Lambda_star), H1b-1b-2d closes the ordinary smooth finite-product subpackage, H1b-1b-2d.1a removes the need for a global line-905 H C1 norm, and H1b-1b-2d.1a.1 closes its scalar remainder. The remaining sharp-scale and common moment-budget obligations keep the full Lemma 8.4 package open.",
+    "reason": "Ford Theorem 4.4 supplies the corrected structural result, H1b-1b-2b makes the kappa=1 multiplier explicit for every x>=2, H1b-1b-2c supplies actual a=1/2, A2=8 and L=5+log(Lambda_star), H1b-1b-2d closes the ordinary smooth finite-product subpackage, H1b-1b-2d.1a removes the need for a global line-905 H C1 norm, H1b-1b-2d.1a.1 closes its scalar remainder, and H1b-1b-2d.1b closes both sharp factors. The common moment-budget obligations remain outside this row.",
     "does_not_close_parent": true
   },
+  "h1b_l84_parent_update": {
+    "parent_row": "H1B-L84",
+    "old_status": "RATE_MISSING",
+    "new_status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+    "does_not_close_h1b_composition": true
+  },
   "next_gate": {
-    "id": "H1b-1b-2d.1b-sharp-scale",
-    "description": "Use the closed source-lines-986-999 scalar remainder package and recover a finite lower bound for xi*log(x) in the two sharp calls.",
+    "id": "H1b-2-and-H1c-1",
+    "description": "Audit the remaining Lemma 8.1 and Lemmas 8.5-8.6 plus Propositions 9.1-9.5 moment errors, in parallel with the quantitative character-distribution package.",
     "ready_for_threshold_calculator": false
   }
 }

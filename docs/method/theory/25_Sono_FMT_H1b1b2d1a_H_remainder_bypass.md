@@ -277,3 +277,10 @@ X_{\rm cert}=\texttt{OPEN}
 을 유지한다. 다음 직접 하위 gate는 H1b-1b-2d.1a.1의 scalar \(C_Y\) 재증명이고,
 권장 순서의 다음 독립 공통 gate는 H1b-1b-2d.1b의 sharp \(\xi\log x\) finite scale이다.
 모든 root가 닫히기 전에는 threshold calculator나 새 prime sweep을 만들지 않는다.
+
+## 11. 2026-09-08 successor 상태
+
+위 `10은 이 우회만 끝난 당시 판정이다. theory 26이 scalar \(C_Y\)를 닫고
+theory 27이 actual \(\xi\log x\) sharp scale을 닫았으므로, 현재 Lemma 8.4
+관련 actual 하위호출은 9/9 parameterized explicit이고 `H1B-L84`도 같은
+수준으로 승격됐다. `H1B-COMP-01`, `SIV-07`, \(X_{\rm cert}\)는 변하지 않는다.

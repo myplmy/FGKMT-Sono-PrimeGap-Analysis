@@ -26,7 +26,7 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_and_unique_expected_rows(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.1.0")
+        self.assertEqual(self.document["schema_version"], "1.2.0")
         self.assertEqual(len(self.rows), 9)
         self.assertEqual(len(self.by_id), len(self.rows))
         self.assertEqual(
@@ -121,6 +121,11 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
         )
         self.assertEqual(
+            self.document["h1b1b2d1b_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
+        )
+        self.assertEqual(
             self.document["h1c_ledger"],
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
         )
@@ -135,9 +140,13 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "scalar pointwise multiplier",
             " ".join(siv_07["missing_numeric_inputs"]),
         )
-        self.assertIn(
+        self.assertNotIn(
             "sharp xi*log(x)",
             " ".join(siv_07["missing_numeric_inputs"]),
+        )
+        self.assertIn(
+            "All nine traced Lemma 8.4 subapplications",
+            siv_07["printed_information"],
         )
         self.assertFalse(self.document["numerical_x_cert_ready"])
 
