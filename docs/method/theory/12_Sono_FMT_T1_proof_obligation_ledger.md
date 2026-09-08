@@ -17,6 +17,9 @@
   [`14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md`](14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md)
 - H1b-2a Lemma 8.5·8.6 및 Proposition 9.4 잔여 package:
   [`28_Sono_FMT_H1b2a_residual_moment_error_package.md`](28_Sono_FMT_H1b2a_residual_moment_error_package.md)
+- H1b-2a.2 actual distribution child와 H1b-2a.3 end-to-end 합성:
+  [`30_Sono_FMT_H1b2a2_Proposition94_distribution_error.md`](30_Sono_FMT_H1b2a2_Proposition94_distribution_error.md),
+  [`31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md`](31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)
 - H1b-1 basic summation 감사:
   [`15_Sono_FMT_H1b1_basic_summation_constant_audit.md`](15_Sono_FMT_H1b1_basic_summation_constant_audit.md)
 - H1b-1b-2a actual-call local-factor·제외모듈 하한:
@@ -537,3 +540,18 @@ distribution child를 `ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`으로 닫았�
 \(X_{\mathrm{cert}}\)도 변하지 않는다. 다음 직접 gate는 H1b-2a.3의 P94 단일
 multiplier·공통 cutoff 합성이다. H1c-1은 actual 식 (9.52)의 선결조건이 아니라
 Proposition 9.2와 전체 good-weight theorem에 필요한 병렬 축이다.
+
+## 21. 2026-09-08 H1b-2a.3 actual P94 부모 반영
+
+20절은 H1b-2a.2 직후의 역사적 상태다. 후속
+[`H1b-2a.3 정본`](31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)은 actual
+FGKMT/FMT Proposition 9.4의 닫힌 하위 package를 하나의 finite cutoff와 multiplier로
+합성했다. \(2^k\) product-envelope 손실을 강화 smooth gate로 흡수한 뒤 모든 정수
+\(k\ge36\)에서 multiplier 13 미만을 얻었으므로 H1b 하위행 `H1B-P94`는
+`ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다.
+
+T1의 `SIV-07`은 Proposition 6.1 전체를 나타내므로 상태는 `HARD_BLOCKER` 그대로다.
+따라서 66개 root 행의 상태 수, `SIV-08/09`, \(X_{\mathrm{cert}}=)`OPEN`도 변하지
+않는다. 다음 root-critical 작업은 Proposition 9.2에 필요한 H1c-1 quantitative
+character/prime-distribution package이며, 이후 P91/P92/L93/P95와 공통 moment budget을
+합성해야 한다.

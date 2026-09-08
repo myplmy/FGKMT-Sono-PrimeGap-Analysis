@@ -221,3 +221,17 @@ H1a를 실제 정식화하여 `SIV-06`을 모든 정수 (r\ge36)에서 `EXPLICIT
 오차가 남아 있으므로 전체 H1과 (X_{\mathrm{cert}})는 열려 있다. 다음 최소 gate는 H1b이며,
 threshold calculator·새 prime sweep의 fail-closed 상태도 유지한다. 상세 증명은
 [`13_Sono_FMT_H1a_finite_r_integral_lemma.md`](../method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md)다.
+
+## 11. 2026-09-08 H1b-2a.3까지의 후속 갱신
+
+H1b를 하위 의무로 분해해 Lemmas 8.2--8.6의 actual-input package와 Proposition 9.4의
+실제 FGKMT/FMT 호출을 단계적으로 수치화했다. 최신
+[`H1b-2a.3 정본`](../method/theory/31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)은
+P94의 모든 닫힌 child를 합성해 모든 정수 \(k\ge36\)에서 actual-call multiplier가
+13 미만임을 보였다. 따라서 H1b 하위행 `H1B-P94`는
+`ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다.
+
+하지만 Gate H1의 질문 3은 Proposition 6.1 전체에 관한 것이므로 답은 아직 “부분적으로만
+예”다. Proposition 9.2의 수치 소수분포 입력과 P91/P92/L93/P95 공통 budget이 남아
+`SIV-07=HARD_BLOCKER`, \(X_{\mathrm{cert}}=)`OPEN`이다. 따라서 장시간 threshold 계산을
+시작하지 않는 기존 권고는 유지한다.

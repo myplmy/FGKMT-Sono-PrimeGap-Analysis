@@ -446,3 +446,15 @@ Proposition 9.4 전체를 컴퓨터가 증명하는 것은 아니다.
 `ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`으로 닫았다. 일반 \(\mathcal A\) 명제와
 P94 부모는 닫히지 않았으며, 다음 단계는 H1b-2a.3의 end-to-end P94 합성이다.
 `SIV-07/09`와 \(X_{\rm cert}\)는 그대로 열린다.
+
+## 13. 2026-09-08 H1b-2a.3 후속 상태
+
+12절은 H1b-2a.2 직후의 역사적 상태다. 후속
+[`H1b-2a.3`](31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)은 실제
+FGKMT/FMT 치환에서 이 문서의 \(2^k\) comparison 손실까지 보존해 smooth cutoff를
+강화하고, sharp·Euler·distribution package를 한 식으로 합성했다. 그 결과
+`H1B-P94`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격됐고 모든 정수
+\(k\ge36\)에서 표준 P94 우변에 대한 actual-call multiplier는 13 미만이다.
+
+일반 \(\mathcal A\) Proposition 9.4, `H1B-COMP-01`, `SIV-07/09`와
+\(X_{\rm cert}\)는 계속 열린다.

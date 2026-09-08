@@ -505,6 +505,38 @@
   `rg` glob은 경로 인수에 넣지 않고 `-g`로만 전달한다. 5개 이상 파일을 건드리는 patch는
   대상별 현재 문맥을 먼저 고정하고 두세 묶음으로 나눈다.
 
+### E033 — H1b-2a.3 첫 합성에서 \(2^k\) 손실을 약한 cutoff로 남김
+
+- 분류: `PROOF_GATE_TOO_WEAK / CAUGHT_BEFORE_CANONICAL_PROMOTION / TOOL_PATCH_ERROR`
+- 문제: Proposition 9.4의 product-profile 절대오차를 coupled main에 대한 상대오차로 바꿀 때
+  필요한 \(I_k(F_1)\le2^kI_k(F)\)를 식에는 넣었지만, 첫 초안은 기존
+  \(\Delta_c\le1\) smooth gate만 사용했다. 그러면 \(2^k\varepsilon_c\)가 유한하기는 해도
+  \(k\)에 따라 커져 Maynard의 uniform implied constant를 복원하지 못한다. 또한 predecessor
+  JSON 세 개를 한 번에 갱신하려던 `apply_patch` 입력의 파일 구분 형식이 잘못돼 patch가
+  사전 거부됐다.
+- 영향: 약한 gate 초안은 신규 정본·상위 상태 원장에 확정하기 전에 자체 검산에서 발견됐다.
+  actual 데이터나 prime 계산은 수행하지 않았고, `SIV-07`, `X_cert`를 승격하지 않았다.
+  거부된 patch는 파일을 바꾸지 않았다.
+- 교정: P94 전용으로 \(\Delta_c\le2^{-k-1}\)을 요구해
+  \(\varepsilon_c\le2\Delta_c\), \(2^k\varepsilon_c\le1\)을 보장했다. 이 강화 cutoff에서
+  모든 정수 \(k\ge36\)에 대해 actual-call multiplier가 13 미만임을 다시 증명하고
+  독립 재합성 회귀시험을 추가했다. predecessor patch는 파일별로 나눠 적용했다.
+- 재발 방지: 절대오차를 다른 norm의 상대오차로 옮길 때 norm-comparison multiplier를
+  먼저 표에 등록하고, 단순 유한성뿐 아니라 source가 요구하는 parameter-uniformity를
+  별도 gate로 검사한다. 다중파일 patch는 현재 문맥을 읽은 뒤 작은 단위로 적용한다.
+
+### E034 — H1b-2a.3 source 검색 범위를 `tmp/` 전체로 과도하게 확장
+
+- 분류: `SEARCH_SCOPE_ERROR / READ_ONLY / NO_RESEARCH_IMPACT`
+- 문제: Maynard TeX와 FGKMT 치환을 재확인하는 `rg` 명령에 필요한 하위 디렉터리 대신
+  `tmp` 전체를 넣어, 이전 sandbox 시험이 남긴 접근 불가 임시 폴더에서 다수의
+  `Access is denied` 진단이 발생했다.
+- 영향: 명령은 읽기 전용이었고 필요한 Maynard TeX 행은 정상 출력됐다. 접근 실패 경로의
+  내용을 증거로 사용하지 않았고 파일·수학 결과·실험 artifact에는 영향이 없다.
+- 교정: 채택 근거는 이미 hash가 고정된 개별 TeX/PDF 파일과 해당 행·페이지로 제한했다.
+- 재발 방지: source 재조회는 파일 또는 정확한 source 하위폴더만 대상으로 하고, provenance와
+  무관한 `tmp` 루트 전체를 재귀 검색하지 않는다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

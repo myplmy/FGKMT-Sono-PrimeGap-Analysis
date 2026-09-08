@@ -100,10 +100,11 @@
     "X_cert": "OPEN"
   },
   "h1b2a2_successor_contract": "docs/method/theory/data/Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json",
+  "h1b2a3_successor_contract": "docs/method/theory/data/Sono_FMT_H1b2a3_Proposition94_end_to_end_v1.json",
   "successor_status_update": {
     "historical_status_preserved": "status_after_this_gate records the state immediately after H1b-2a.1.",
     "H1B2A-P94-DISTRIBUTION": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT",
-    "H1B-P94": "RATE_MISSING",
+    "H1B-P94": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
     "SIV-07": "HARD_BLOCKER",
     "X_cert": "OPEN"
   },

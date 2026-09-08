@@ -418,3 +418,17 @@ error budget은 남아 있다. 그러므로 H1 전체 판정, `SIV-07/09=HARD_BL
 전체 good-weight theorem에 남는다. P94 자체도 모든 하위 package의 단일 multiplier·공통
 cutoff 합성이 필요하다. 따라서 H1 전체 판정과 `SIV-07/08/09`,
 \(X_{\mathrm{cert}}\)는 여전히 열려 있다.
+
+## 17. 2026-09-08 H1b-2a.3 후속 판정
+
+16절의 P94 내부 합성 의무는 후속
+[`H1b-2a.3 정본`](../method/theory/31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)에서
+완료됐다. 실제 FGKMT/FMT 호출에서는 product-profile의 \(2^k\) 변환 손실을 더 강한
+smooth cutoff로 흡수하고, distribution 오류를 additive하게 더해 모든 정수
+\(k\ge36\)에서 표준 P94 크기의 13배 미만이라는 상계를 얻었다. 이에 따라
+`H1B-P94`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다.
+
+이것은 good sieve weight 전체가 복원됐다는 뜻이 아니다. 일반 \(\mathcal A\) P94,
+P91/P92/L93/P95, 공통 error budget과 H1c-1이 남아 있으므로 H1 전체 판정
+`CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`,
+`SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=)`OPEN`은 유지한다.

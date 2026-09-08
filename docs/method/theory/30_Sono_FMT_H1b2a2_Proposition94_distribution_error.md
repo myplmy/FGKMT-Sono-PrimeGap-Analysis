@@ -544,3 +544,15 @@ distribution package를 한 번만 세어 **단일 total multiplier와 공통 cu
 
 병렬 이론축인 `H1c-1`은 여전히 중요하다. 다만 그 prime-distribution package는 이제 P94
 식 (9.52) 때문이 아니라 Proposition 9.2와 전체 good-weight theorem 때문에 필요하다.
+
+## 14. 2026-09-08 H1b-2a.3 후속 상태
+
+13절은 이 distribution child만 닫힌 시점의 이력이다. 후속
+[`H1b-2a.3`](31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)은
+\(\rho_{94}\)를 main multiplier에 곱하지 않고 additive error로 더했으며, P94 전용 강화
+smooth gate와 다른 모든 child cutoff를 공통 최댓값으로 합성했다. 이에 따라 actual
+FGKMT/FMT `H1B-P94`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격됐고,
+균일한 actual-call multiplier 13을 얻었다.
+
+일반 \(\mathcal A\) P94와 Proposition 9.2의 Hypothesis 1(2)는 이 결과로 닫히지 않는다.
+따라서 `H1B-COMP-01`, `SIV-07/09`, \(X_{\rm cert}\)는 그대로 열린다.

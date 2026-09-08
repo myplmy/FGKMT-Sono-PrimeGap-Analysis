@@ -139,3 +139,12 @@ Propositions 9.1--9.5 공통 budget은 H1c-1과 다른 moment가 닫힌 뒤 수�
 
 이 단계는 대형 소수 탐색이 아니라 수학적 상수 감사다. 추가 RAM, 장시간 CPU, Lean,
 새 Python 라이브러리는 필요하지 않았다. 사용자 수행절차는 별도 필요없다.
+
+## 10. H1b-2a.3 완료 뒤의 후속 판정
+
+8절의 P94 합성 계획은 후속
+[theory 31](../method/theory/31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)과
+[review 37](37_20260908_H1b2a3_Proposition94_end_to_end_타당성검토.md)에서 완료됐다.
+이 문서에서 경고한 \(2^k\) 손실은 버리지 않고 더 강한 smooth cutoff로 흡수했으며,
+actual FGKMT/FMT `H1B-P94`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격됐다.
+일반 P94, Proposition 6.1 전체, `SIV-07/09`, \(X_{\rm cert}\)는 계속 열린다.

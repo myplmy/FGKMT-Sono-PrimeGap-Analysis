@@ -411,3 +411,14 @@ tests/test_h1b2a1_proposition94_euler.py는 \(k=36,50,100\)의 여러 정수
 
 별도 수행절차 필요없음. 실제 소수 탐색, maximal-gap 데이터, 장시간 CPU, Lean,
 추가 Python package 또는 threshold calculator를 사용하지 않았다.
+
+## 13. 2026-09-08 H1b-2a.3 후속 상태
+
+10절과 그 인용문은 각각 H1b-2a.1 및 H1b-2a.2 직후의 이력을 보존한다. 후속
+[`H1b-2a.3`](31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)은 이 문서의
+전체 Euler multiplier \(e^{2+6/k}\mathfrak S_{WB}^{-1}\)를 중복 없이 한 번 사용하고,
+actual P94의 모든 닫힌 child를 합성했다. 이에 따라 actual FGKMT/FMT
+`H1B-P94`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격됐다.
+
+이는 일반 Proposition 9.4나 Proposition 6.1 전체의 closure가 아니다.
+`H1B-COMP-01`, `SIV-07/09`, \(X_{\rm cert}\)는 계속 열린다.

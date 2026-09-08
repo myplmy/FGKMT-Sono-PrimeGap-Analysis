@@ -28,7 +28,7 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_and_required_fields(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.4.0")
+        self.assertEqual(self.document["schema_version"], "1.5.0")
         self.assertEqual(len(self.rows), 66)
         self.assertEqual(len(self.by_id), len(self.rows), "obligation ids must be unique")
 
@@ -183,6 +183,11 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             "docs/method/theory/data/"
             "Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json",
         )
+        self.assertEqual(
+            self.document["h1b2a3_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b2a3_Proposition94_end_to_end_v1.json",
+        )
         self.assertIn(
             "all 11 application excluded-modulus bounds",
             self.by_id["SIV-07"]["notes"],
@@ -205,6 +210,10 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         )
         self.assertIn(
             "closes the actual A=Z equation-(9.52) distribution child",
+            self.by_id["SIV-07"]["notes"],
+        )
+        self.assertIn(
+            "uniform multiplier below 13",
             self.by_id["SIV-07"]["notes"],
         )
         self.assertEqual(self.by_id["SIV-07"]["status"], "HARD_BLOCKER")

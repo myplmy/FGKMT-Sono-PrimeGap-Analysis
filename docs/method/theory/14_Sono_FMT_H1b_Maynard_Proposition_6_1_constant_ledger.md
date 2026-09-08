@@ -25,6 +25,9 @@
   [`28_Sono_FMT_H1b2a_residual_moment_error_package.md`](28_Sono_FMT_H1b2a_residual_moment_error_package.md)
 - H1b-2a.1 Proposition 9.4 exact Euler normalization:
   [`29_Sono_FMT_H1b2a1_Proposition94_exact_Euler_normalization.md`](29_Sono_FMT_H1b2a1_Proposition94_exact_Euler_normalization.md)
+- H1b-2a.2 actual distribution child와 H1b-2a.3 end-to-end 합성:
+  [`30_Sono_FMT_H1b2a2_Proposition94_distribution_error.md`](30_Sono_FMT_H1b2a2_Proposition94_distribution_error.md),
+  [`31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md`](31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)
 
 ## 1. 결론부터
 
@@ -98,10 +101,10 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 |---|---:|
 | `PARTIAL_EXPLICIT` | 1 |
 | `PROJECT_FINITE_COMPONENT_CLOSED` | 3 |
-| `RATE_MISSING` | 6 |
+| `RATE_MISSING` | 5 |
 | `SOURCE_REVIEW_REQUIRED` | 0 |
 | `INPUT_PACKAGE_MISSING` | 3 |
-| `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 3 |
+| `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 4 |
 | `HARD_BLOCKER` | 1 |
 | **합계** | **17** |
 
@@ -121,7 +124,7 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-P91` | Proposition 9.1 | zeroth moment | `RATE_MISSING` | 상대오차 multiplier·divisor sum |
 | `H1B-P92` | Proposition 9.2 | prime moment | `RATE_MISSING` | 상대·additive error 상수 |
 | `H1B-L93` | Lemma 9.3 | diagonal approximation | `RATE_MISSING` | \(F_2/F\)·오차 상수 |
-| `H1B-P94` | Proposition 9.4 | extra-form/rough upper bound | `RATE_MISSING` | 식 (9.52) distribution multiplier·공통 finite cutoff |
+| `H1B-P94` | Proposition 9.4 | extra-form/rough upper bound | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | actual FGKMT/FMT 호출은 multiplier 13 미만; 일반 \(\mathcal A\)는 별도 |
 | `H1B-P95` | Proposition 9.5 | 작은 소인수 penalty | `RATE_MISSING` | \(\ll\) multiplier·허용 margin |
 | `H1B-COMP-01` | Sections 8–9 합성 | 하나의 finite package | `HARD_BLOCKER` | 모든 입력과 최대 cutoff |
 
@@ -140,10 +143,11 @@ H1a는 simplex-supported test function에 대해
 
 H1a만 완료됐을 당시에는 Lemma 8.6의 **절대 크기** 하한과 \(\lambda_{\max}\)가 별개로
 열려 있었다. 후속 H1b-2a가 plateau cube와 finite support count로 이 두 행을 닫았고,
-H1b-2a.1은 Proposition 9.4의 마지막 singular-series Euler normalization도 닫았다.
-그럼에도 arithmetic-progression discrepancy와 off-diagonal moment error는 별개다. 적분비,
-절대 크기와 Euler factor를 안다는 사실만으로 실제 finite weight moment의 주항이 모든
-오차보다 크다는 결론은 나오지 않는다.
+H1b-2a.1은 Proposition 9.4의 마지막 singular-series Euler normalization도 닫았고,
+H1b-2a.2/2a.3은 actual distribution child와 P94 end-to-end multiplier를 닫았다.
+그럼에도 Proposition 9.2의 arithmetic-progression discrepancy와 다른 moment의
+off-diagonal error는 별개다. P94 하나를 안다는 사실만으로 전체 finite weight moment의
+주항이 모든 오차보다 크다는 결론은 나오지 않는다.
 
 따라서 다음 추론은 금지한다.
 
@@ -489,4 +493,25 @@ error이고, H1c-1 quantitative character/Bombieri--Vinogradov package가 병렬
 그러나 H1B-P94에 등록된 여러 주항·오차 package를 하나의 multiplier와 공통 cutoff로 아직
 합치지 않았으므로 부모의 `RATE_MISSING`은 유지한다. H1c-1은 Proposition 9.2의 소수분포와
 전체 good-weight 합성에 여전히 필요하다. 다음 직접 gate는 H1b-2a.3 P94 합성이며,
+`H1B-COMP-01`, `SIV-07/09`, \(X_{\mathrm{cert}}\)는 계속 열린다.
+
+## 22. 2026-09-08 H1b-2a.3 actual P94 end-to-end 합성 반영
+
+21절은 distribution child만 닫힌 직후의 역사적 상태다. 후속
+[`H1b-2a.3 정본`](31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)은
+actual FGKMT/FMT 파라미터
+\(\mathcal A=\mathbb Z,D=1,\alpha=2,\theta=1/3,\xi=1/30,
+R=(x/4)^{1/9}\)에서 P94의 sharp·smooth·Euler·distribution child를 원문 순서로
+합성했다. Product-profile 절대오차에 붙는 \(2^k\) 손실은 누락하지 않고
+\(\Delta_c\le2^{-k-1}\)인 강화 smooth cutoff로 흡수했다.
+
+그 결과 모든 정수 \(k\ge36\)에서 actual-call P94 multiplier는
+
+\[
+C_{94}\le12e^{2+6/k}\frac{\theta}{3}+1<13
+\]
+
+이며 `H1B-P94`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 이동한다. 이는 일반
+\(\mathcal A\)의 Proposition 9.4를 닫은 결과가 아니다. P91/P92/L93/P95와 공통
+moment budget, 특히 Proposition 9.2의 H1c-1 입력이 남으므로
 `H1B-COMP-01`, `SIV-07/09`, \(X_{\mathrm{cert}}\)는 계속 열린다.

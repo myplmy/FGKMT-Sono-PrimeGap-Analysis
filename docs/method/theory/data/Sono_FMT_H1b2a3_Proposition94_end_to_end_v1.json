@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0.0",
+  "generated_date": "2026-09-08",
+  "outcome": "ACTUAL_FGKMT_FMT_PROPOSITION94_PARAMETERIZED_EXPLICIT",
+  "scope": "The single FGKMT/FMT application A=Z, D=1, alpha=2, theta=1/3, xi=theta/10, R=(x/4)^(theta/3)",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_PUBLISHED",
+      "title": "Dense Clusters of Primes in Subsets",
+      "author": "James Maynard",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "url": "https://doi.org/10.1112/S0010437X16007296",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "reviewed_locations": "Proposition 9.4, equations (9.49)-(9.70), printed pp.1547-1550",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "MAYNARD2016_AUTHOR_TEX",
+      "title": "Dense Clusters of Primes in Subsets author source",
+      "author": "James Maynard",
+      "arxiv": "1405.2593v2",
+      "url": "https://arxiv.org/abs/1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "reviewed_locations": "source lines 1044-1169",
+      "status": "SOURCE_VERSION_CROSS_CHECKED"
+    },
+    {
+      "key": "FGKMT2018",
+      "title": "Long Gaps Between Primes",
+      "author": "Kevin Ford, Ben Green, Sergei Konyagin, James Maynard, Terence Tao",
+      "doi": "10.1090/jams/876",
+      "arxiv": "1412.5029",
+      "url": "https://doi.org/10.1090/jams/876",
+      "local_path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "reviewed_locations": "Theorem 6 and equations (7.6)-(7.9), printed pp.96-99",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "FMT2018",
+      "title": "Chains of Large Gaps Between Primes",
+      "author": "Kevin Ford, James Maynard, Terence Tao",
+      "doi": "10.1112/S0010437X17007391",
+      "arxiv": "1511.04468",
+      "url": "https://doi.org/10.1112/S0010437X17007391",
+      "local_path": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "reviewed_locations": "Theorem 6 and its use of the FGKMT good-weight theorem",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    }
+  ],
+  "source_version_correction": {
+    "author_tex_location": "Subsets.tex line 1090, equation corresponding to published (9.56)",
+    "author_tex_printed_condition": "r_0 divides d_0",
+    "published_condition": "d_0 divides r_0",
+    "adopted_source": "MAYNARD2016_PUBLISHED",
+    "reason": "The published direction is the standard Mobius inversion direction and is consistent with the following lambda_tilde_1 sum."
+  },
+  "actual_specialization": {
+    "A": "Z",
+    "D": 1,
+    "alpha": 2,
+    "theta": "1/3",
+    "xi": "1/30",
+    "R": "(x/4)^(1/9)",
+    "k_minimum": 36,
+    "dimension_gate": "log(x) >= k^5",
+    "support_gate": "log(x) >= (10/7) log(4)",
+    "strong_smooth_gate": "delta_sum<=2^(-k-1), hence 2^k*epsilon_can<=1"
+  },
+  "dependency_contracts": [
+    "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
+    "docs/method/theory/data/Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
+    "docs/method/theory/data/Sono_FMT_H1b2a_residual_moment_error_v1.json",
+    "docs/method/theory/data/Sono_FMT_H1b2a1_Proposition94_Euler_normalization_v1.json",
+    "docs/method/theory/data/Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json"
+  ],
+  "equation_composition": [
+    {
+      "source_equations": "(9.49)-(9.61)",
+      "role": "Selberg majorant, exact square expansion, distribution split, and square-symmetry reduction",
+      "finite_input": "symmetry multiplier 1; actual A=Z distribution error at most rho_94*T_94"
+    },
+    {
+      "source_equations": "(9.62)-(9.65)",
+      "role": "y_(r,r0) comparison and the pre-y Euler factor",
+      "finite_input": "the squared use is absorbed into exp(4/k) inside the full Euler multiplier"
+    },
+    {
+      "source_equations": "(9.58), (9.66)",
+      "role": "two sharp r0 sums",
+      "finite_input": "delta_sharp<=1/2 gives lambda_tilde_1>=(1-delta_sharp)*xi*log(x) and S_r0<=(1+delta_sharp)*S_r0_main"
+    },
+    {
+      "source_equations": "(9.66)",
+      "role": "canonical r-vector sum",
+      "finite_input": "smooth absolute product-profile error epsilon_can and I_k(F_1)<=2^k I_k(F) give relative addition 2^k*epsilon_can"
+    },
+    {
+      "source_equations": "(9.64), (9.66)",
+      "role": "all Euler normalization",
+      "finite_input": "exp(2+6/k)*S_WB(L)^(-1)"
+    },
+    {
+      "source_equations": "(9.68)-(9.70)",
+      "role": "residue-class count and final arithmetic normalization",
+      "finite_input": "exact identities followed by two local factors at most 1; extra multiplier 1"
+    }
+  ],
+  "finite_bound": {
+    "standard_scale": "T_94=xi^(-1)*(Delta_L/phi(Delta_L))*(D/phi(D))*(B/phi(B))^k*S_B(L)*#A(x)*(log R)^(k-1)*I_k(F)",
+    "main_multiplier": "((1+delta_sharp)/(1-delta_sharp)^2)*exp(2+6/k)*(1+2^k*epsilon_can)*(log R/log x)",
+    "distribution_multiplier": "rho_94",
+    "total_multiplier": "main_multiplier+rho_94",
+    "coarse_total_multiplier_at_gate": "12*exp(2+6/k)*(theta/3)+1",
+    "uniform_actual_application_multiplier_for_k_at_least_36": 13,
+    "exact_final_comparison_certificate": "e<49/18<11/4 and (11/4)^13<9^6 imply exp(13/6)<9 and (4/3)exp(13/6)+1<13"
+  },
+  "status_after_this_gate": {
+    "H1B-P94-ACTUAL-FGKMT-FMT": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT",
+    "H1B-P94-GENERAL-A": "RATE_MISSING",
+    "H1B-P94": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+    "H1B-COMP-01": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "SIV-09": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "limits": {
+    "general_maynard_proposition_94_proved": false,
+    "proposition_61_closed": false,
+    "full_good_sieve_weight_closed": false,
+    "threshold_calculator_created": false,
+    "actual_prime_experiment_performed": false,
+    "directed_rounding_certificate_created": false,
+    "new_python_dependency_required": false,
+    "lean_required_for_this_gate": false
+  },
+  "literature_search": {
+    "method": "Targeted primary-source and follow-up search before direct finite composition",
+    "sources_checked": [
+      "Maynard, Dense Clusters of Primes in Subsets, arXiv:1405.2593 and final publication",
+      "FGKMT, Long Gaps Between Primes, arXiv:1412.5029 and final publication",
+      "FMT, Chains of Large Gaps Between Primes, arXiv:1511.04468 and final publication",
+      "Mastrostefano, An almost-all result for the prime k-tuples conjecture, arXiv:1804.06290"
+    ],
+    "result": "NO_DROP_IN_FINITE_REPLACEMENT_FOR_THE_EXACT_ACTUAL_P94_CALL_FOUND_IN_TARGETED_SEARCH",
+    "limitation": "This is not a global nonexistence or novelty claim. Each source was checked for assumptions, normalization, parameter range, and whether it supplies the missing finite multiplier and cutoff."
+  },
+  "next_gate": "H1c-1 quantitative character and prime-distribution package for Proposition 9.2, followed by the remaining Proposition 9.1, 9.2, 9.3, and 9.5 moment constants and a common error budget."
+}

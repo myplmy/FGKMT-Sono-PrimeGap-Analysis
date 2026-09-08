@@ -181,6 +181,15 @@ class H1b2a2Proposition94DistributionTests(unittest.TestCase):
         self.assertEqual(transitions["H1B-P94"], "RATE_MISSING")
         self.assertEqual(transitions["SIV-07"], "HARD_BLOCKER")
         self.assertEqual(transitions["X_cert"], "OPEN")
+        self.assertEqual(
+            contract["h1b2a3_successor_contract"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b2a3_Proposition94_end_to_end_v1.json",
+        )
+        self.assertEqual(
+            contract["successor_status_update"]["H1B-P94"],
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+        )
         self.assertFalse(contract["hypothesis1_package_closed"])
         self.assertFalse(contract["actual_prime_experiment_performed"])
         self.assertFalse(contract["threshold_calculator_created"])

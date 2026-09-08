@@ -128,10 +128,11 @@
   },
   "h1b2a1_successor_contract": "docs/method/theory/data/Sono_FMT_H1b2a1_Proposition94_Euler_normalization_v1.json",
   "h1b2a2_successor_contract": "docs/method/theory/data/Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json",
+  "h1b2a3_successor_contract": "docs/method/theory/data/Sono_FMT_H1b2a3_Proposition94_end_to_end_v1.json",
   "successor_status_update": {
     "historical_row_preserved": "The INPUT_PACKAGE_MISSING row above records the state when this v1 predecessor contract was created.",
     "H1B2A-P94-DISTRIBUTION": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT",
-    "H1B-P94": "RATE_MISSING",
+    "H1B-P94": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
     "SIV-07": "HARD_BLOCKER",
     "X_cert": "OPEN"
   },

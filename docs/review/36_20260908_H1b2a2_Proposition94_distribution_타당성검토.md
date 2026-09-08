@@ -177,6 +177,16 @@ H1b-1b-2d, H1b-2a, H1b-2a.1, 이번 H1b-2a.2가 서로 다른 normalization으�
 - 예상: 6--12시간의 source 재계수·수식 감사와 2--4시간의 계약/시험.
 - 사용자 수행절차: 별도 수행절차 필요없음.
 
+## 9. H1b-2a.3 완료 뒤의 후속 판정
+
+8절 1순위 작업은 후속
+[theory 31](../method/theory/31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)과
+[review 37](37_20260908_H1b2a3_Proposition94_end_to_end_타당성검토.md)에서 완료됐다.
+이 문서의 \(\rho_{94}\)는 주항 multiplier에 곱하지 않고 별도 additive error로 합성됐다.
+actual FGKMT/FMT `H1B-P94`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로
+승격됐지만, 일반 \(\mathcal A\), P91/P92/L93/P95의 공통 budget,
+`SIV-07/09`, \(X_{\rm cert}\)는 계속 열린다.
+
 ### 2순위: H1c-1 quantitative prime-distribution source trace
 
 - 내용: Proposition 9.2에 필요한 Hypothesis 1(2)의 character/Bombieri--Vinogradov 경로를

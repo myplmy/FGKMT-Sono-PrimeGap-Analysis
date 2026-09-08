@@ -150,3 +150,11 @@ H1c-1과 다른 moment 입력이 마련되면 Propositions 9.1--9.5 전체를 �
 
 별도 수행절차 필요없음. 다음 단계도 우선은 문헌·수학 감사이므로 추가 CPU, RAM,
 Lean 또는 Python package 설치를 요청하지 않는다.
+
+## 11. H1b-2a.3 완료 뒤의 후속 판정
+
+9절의 P94 내부 합성은 후속
+[theory 31](../method/theory/31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md)에서
+완료됐다. 이 문서의 Euler normalization은 정확히 한 번만 사용됐고, actual FGKMT/FMT
+`H1B-P94`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격됐다. 일반 P94와
+`H1B-COMP-01`, `SIV-07/09`, \(X_{\rm cert}\)의 판정은 변하지 않는다.
