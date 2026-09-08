@@ -132,7 +132,7 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
         self.assertIn(
-            "opaque H remainder",
+            "scalar pointwise multiplier",
             " ".join(
                 self.by_id["H1B1-L84-ITERATION"]["missing_numeric_inputs"]
             ),
@@ -185,6 +185,11 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             self.document["h1b1b2d_ledger"],
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b1b2d1a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
         )
 
 

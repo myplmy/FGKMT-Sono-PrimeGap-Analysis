@@ -339,6 +339,12 @@
 - 재발 기록(2026-09-08, H1b-1b-2d): 내용 변경 없이 `Move to`만 둔 완료 원장
   patch가 빈 hunk로 거부됐다. 파일은 바뀌지 않았고, 제목의 완료 표기를 함께 바꾸는 유효한
   hunk로 다시 실행해 `-done.md` 이관을 완료했다.
+- 재발 기록(2026-09-08, H1b-1b-2d.1a): 긴 Markdown patch를 JavaScript 일반 문자열에
+  넣으면서 TeX `\xi`가 `\x` escape로 해석돼 wrapper가 쓰기 전에
+  `Invalid hexadecimal escape`로 멈췄다. 이어서 raw template에 Markdown
+  backtick을 그대로 넣은 두 호출과, 서로 다른 문맥을 묶은 두 다중파일 patch가 각각
+  parser 또는 context 검증에서 원자적으로 거부됐다. 실제 부분 변경은 없었다. 이후
+  backtick placeholder와 작은 파일별 patch로 전환해 적용 결과를 재확인했다.
 
 ### E025 — H1b-1b-2b 초안의 tail 상수를 과소 계상
 
@@ -399,6 +405,13 @@
 - 재발 기록(2026-09-08, H1b-1b-2d): JSON parent 상태를 찾는 보조 명령에서 다시
   `docs/method/theory/data/*.json`을 `rg`에 직접 넘겨 Windows 경로 구문 오류가 났다.
   실패 호출은 증거에서 제외했고 이후 디렉터리 인수와 `-g '*.json'`만 사용한다.
+- 재발 기록(2026-09-08, H1b-1b-2d.1a): 존재 여부를 먼저 검색하지 않고
+  `source/h1b1b_lemma82_package.py`라는 잘못 추정한 파일명을 조회했고, Windows
+  `tests/test_h1b*` wildcard를 다시 직접 넘겼으며, 괄호가 닫히지 않은 복합
+  `rg` 정규식도 한 번 사용했다. 모두 실패 출력은 증거에서 제외했다. 실제 파일은
+  `rg --files`로 찾고, 디렉터리+glob 및 여러 `-F -e` 고정 문자열로
+  재조회했다. 시스템 `pdftotext`도 MiKTeX 로그 쓰기 권한 때문에 비정상 종료해
+  그 출력은 채택하지 않고, 원 TeX·로컬 PDF hash·출판사/arXiv 원문을 교차 확인했다.
 
 ### E028 — H1b-1b-2c 상위 정본 동기화 중 patch·회귀 기대값 불일치
 
@@ -429,6 +442,19 @@
 - 교정: 저장소의 정상 line-ending 설정을 유지한 기본 `git diff --check`로 다시 검사한다.
 - 재발 방지: 줄바꿈 경고를 감추기 위해 Git 변환 설정을 바꾸지 않는다. 필요하면 stderr만
   별도로 보존하되, 프로젝트 기본 설정에서 얻은 종료코드를 판정에 사용한다.
+
+### E030 — H1b-1b-2d.1a mpmath 시험의 전역 정밀도 순서 의존
+
+- 분류: `TEST_PRECISION_STATE_LEAK / NO_RESEARCH_IMPACT`
+- 문제: 신규 표적 시험은 단독으로 통과했지만 전체 suite에서는 앞선 시험이 변경한
+  `mp.mp.dps`의 영향으로 `epsilon**2`와 별도 10진 literal을 `assertEqual`로 비교한 한
+  항목이 마지막 자리에서 달라졌다.
+- 영향: 제품 코드, exact 유리수 증명과 정리 상태에는 영향이 없다. 전체 suite의 신규
+  수치 시험 1건만 거짓 실패했다.
+- 교정: 수치 필드는 `mp.almosteq`로 비교하고, 핵심 exact square identity는 별도의
+  `Fraction` 시험으로 계속 엄밀하게 검사한다.
+- 재발 방지: `mpmath` 수치 시험은 suite 순서와 외부 정밀도 상태에 독립적인 비교를 사용하고,
+  완전일치가 필요한 대수 불변식은 정수 또는 `Fraction`으로 검증한다.
 
 ## 4. 아직 남은 오류 위험
 

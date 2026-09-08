@@ -6,8 +6,9 @@
   "target_obligation": "SIV-07",
   "actual_parameter_contract": "docs/method/theory/data/Sono_FMT_H1b1b2c_actual_parameter_specialization_v1.json",
   "smooth_composition_contract": "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
-  "scope": "Source-level decomposition of the singular-series, Lipschitz, one-dimensional multiplicative summation, and iterated summation constants used in Maynard Lemmas 8.1-8.4. H1b-1b-2b makes the corrected kappa=1 one-dimensional multiplier explicit for every x>=2, H1b-1b-2c supplies actual a=1/2, A2=8 and L=5+log(Lambda_star), and H1b-1b-2d closes the support-scaled finite-product subpackage for seven smooth Lemma 8.4 calls. The opaque H and sharp finite scale remain open; this supplies no numerical theorem threshold.",
-  "outcome": "SMOOTH_RFOLD_SUBPACKAGE_PARAMETERIZED_EXPLICIT_OPAQUE_SHARP_OPEN",
+  "h_remainder_bypass_contract": "docs/method/theory/data/Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
+  "scope": "Source-level decomposition of the singular-series, Lipschitz, one-dimensional multiplicative summation, and iterated summation constants used in Maynard Lemmas 8.1-8.4. H1b-1b-2b makes the corrected kappa=1 one-dimensional multiplier explicit for every x>=2, H1b-1b-2c supplies actual a=1/2, A2=8 and L=5+log(Lambda_star), and H1b-1b-2d closes the support-scaled finite-product subpackage for seven direct smooth Lemma 8.4 calls. H1b-1b-2d.1a bypasses the line-905 functional C1 requirement, but its scalar pointwise multiplier and the sharp finite scale remain open; this supplies no numerical theorem threshold.",
+  "outcome": "SMOOTH_RFOLD_AND_H_C1_BYPASS_EXPLICIT_SCALAR_SHARP_OPEN",
   "lemma_8_3_citation_identified": true,
   "lemma_8_3_numeric_multiplier_recovered": true,
   "lemma_8_3_parameterized_multiplier_recovered": true,
@@ -21,6 +22,7 @@
   "h1b1b2a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
   "h1b1b2b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
   "h1b1b2d_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
+  "h1b1b2d1a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016_PUBLISHED",
@@ -222,7 +224,7 @@
       "role": "smooth-test-function derivative norm Omega_G",
       "printed_information": "The error is controlled by r Omega_G log log R/log R times the main scale.",
       "missing_numeric_inputs": [
-        "a numerical function and C1 multiplier for the opaque H remainder at source line 905",
+        "a numerical scalar pointwise multiplier and finite range for the line-905 square-sum bypass",
         "the moment-level lower bound needed to convert the product-profile absolute envelope into each required relative error"
       ],
       "upstream": [
@@ -237,7 +239,7 @@
       "role": "accumulation and absorption of one-dimensional summation errors",
       "printed_information": "The proof applies Lemma 8.3 repeatedly and replaces products of 1+O(epsilon) by a total O(r epsilon) error.",
       "missing_numeric_inputs": [
-        "a numerical function and C1 multiplier for the opaque H remainder at source line 905",
+        "a numerical scalar pointwise multiplier and finite range for the line-905 square-sum bypass",
         "a finite lower bound for xi*log(x) in both sharp-cutoff calls",
         "a common moment-level error budget after the remaining calls are closed"
       ],
@@ -277,12 +279,12 @@
     "parent_row": "H1B-L83",
     "old_status": "RATE_MISSING",
     "new_status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
-    "reason": "Ford Theorem 4.4 supplies the corrected structural result, H1b-1b-2b makes the kappa=1 multiplier explicit for every x>=2, H1b-1b-2c supplies actual a=1/2, A2=8 and L=5+log(Lambda_star), and H1b-1b-2d closes the seven-call smooth finite-product subpackage. The opaque-H and sharp-scale remainder keeps the full Lemma 8.4 package open.",
+    "reason": "Ford Theorem 4.4 supplies the corrected structural result, H1b-1b-2b makes the kappa=1 multiplier explicit for every x>=2, H1b-1b-2c supplies actual a=1/2, A2=8 and L=5+log(Lambda_star), H1b-1b-2d closes the seven-call direct smooth finite-product subpackage, and H1b-1b-2d.1a removes the need for a global line-905 H C1 norm. The remaining scalar pointwise multiplier and sharp-scale obligations keep the full Lemma 8.4 package open.",
     "does_not_close_parent": true
   },
   "next_gate": {
-    "id": "H1b-1b-2d.1-opaque-H-and-sharp-scale",
-    "description": "Recover a numerical function/C1 envelope for the source-line-905 H remainder and a finite lower bound for xi*log(x) in the two sharp calls.",
+    "id": "H1b-1b-2d.1a.1-scalar-and-1b-sharp-scale",
+    "description": "Recover a numerical scalar pointwise remainder multiplier for source lines 986-999 and a finite lower bound for xi*log(x) in the two sharp calls.",
     "ready_for_threshold_calculator": false
   }
 }

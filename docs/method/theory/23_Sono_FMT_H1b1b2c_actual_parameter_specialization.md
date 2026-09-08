@@ -355,6 +355,7 @@ Lemmas 8.5--8.6, Propositions 9.1--9.5, H1c/PAP와 arbitrary-X 전달이 남는�
 
 2026-09-08 후속 작업은 support-scaled actual profile norm과
 \(\prod_i(1+\delta_i)-1\) finite-product 합성을 정식화해 smooth Lemma 8.4 호출
-7개를 하위 package로 닫았다. 그러나 905행 opaque \(H\)와 sharp
-\(\xi\log x\) finite scale이 남아 이 문서의 `r_fold_composition_closed=false`는
-“전체 actual package” 기준으로 계속 정확하다. 다음 gate는 H1b-1b-2d.1이다.
+7개를 하위 package로 닫았다. H1b-1b-2d.1a는 905행의 functional \(C^1\) 의무를
+제거했지만 scalar pointwise multiplier와 sharp \(\xi\log x\) finite scale이 남아
+이 문서의 `r_fold_composition_closed=false`는 “전체 actual package” 기준으로
+계속 정확하다. 다음 gate는 H1b-1b-2d.1a.1과 H1b-1b-2d.1b다.

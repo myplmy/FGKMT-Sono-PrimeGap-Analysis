@@ -59,7 +59,9 @@ PROFILE_NW = "NW"
 
 APPLICATION_MODE_SMOOTH_COMPOSED = "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT"
 APPLICATION_MODE_SHARP_SUMMATORY = "SHARP_CUTOFF_SUMMATORY_PARAMETERIZED_EXPLICIT"
-APPLICATION_MODE_OPAQUE_H_BLOCKED = "OPAQUE_H_FUNCTION_NORM_OPEN"
+APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_OPEN = (
+    "H_SQUARE_BYPASS_EXPLICIT_SCALAR_MULTIPLIER_OPEN"
+)
 
 H1B1B2D_MINIMUM_TARGET_K = 36
 H1B1B2D_PLATEAU_NUMERATOR = 9
@@ -182,10 +184,10 @@ MAYNARD_APPLICATION_SMOOTH_SPECS = (
     ApplicationSmoothSpec(
         APPLICATION_L905_W_PRIME,
         "Maynard source lines 903-916",
-        APPLICATION_MODE_OPAQUE_H_BLOCKED,
-        "square of integral of H, where H=F+O(error*F2)",
+        APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_OPEN,
+        "square sum bypassed through A^2, A*B and B^2 tensor families",
         "k-1",
-        "The source does not define the O(error*F2) remainder as a smooth function or bound its C1 norm.",
+        "The functional C1 requirement is bypassed, but source lines 986-999 do not give a numerical scalar pointwise remainder multiplier.",
     ),
     ApplicationSmoothSpec(
         APPLICATION_L995_A_M_W_B_R,
@@ -446,7 +448,10 @@ def application_kappa_term_families(
         APPLICATION_L1232_CANONICAL: f2_squared_terms,
     }
     if application_id == APPLICATION_L905_W_PRIME:
-        raise ValueError("L905 has no certified smooth C1 norm for the H remainder")
+        raise ValueError(
+            "L905 cannot use a direct H smooth path; use the conditional "
+            "square-sum bypass while its scalar source multiplier remains open"
+        )
     if application_id in {APPLICATION_L1096_W0, APPLICATION_L1135_W0_FACTOR}:
         raise ValueError("sharp-cutoff applications require the summatory formula")
     try:
@@ -589,8 +594,8 @@ def common_smooth_gate_certificate(
     and the linearization condition ``sum(delta_i)<=1`` is verified for every
     smooth application whose profile has been closed (seven Lemma 8.4 calls
     and the direct one-dimensional call at source line 1015).  This
-    deliberately coarse cutoff does not repair the opaque-H or sharp-cutoff
-    scale blockers.
+    deliberately coarse cutoff does not certify the line-905 scalar
+    pointwise remainder or repair the sharp-cutoff scale blocker.
     """
 
     _validate_k(k, target_range=True)
@@ -661,7 +666,7 @@ assert {row.application_id for row in MAYNARD_APPLICATION_SMOOTH_SPECS} == (
 
 
 __all__ = [
-    "APPLICATION_MODE_OPAQUE_H_BLOCKED",
+    "APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_OPEN",
     "APPLICATION_MODE_SHARP_SUMMATORY",
     "APPLICATION_MODE_SMOOTH_COMPOSED",
     "ApplicationSmoothSpec",

@@ -16,6 +16,7 @@
   "h1b1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
   "h1b1b2a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
   "h1b1b2b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+  "h1b1b2d1a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
@@ -124,16 +125,17 @@
       "question": "Can Maynard Proposition 6.1 constants be written as explicit functions of Hypothesis 1 constants?",
       "source_keys": ["MAYNARD2016", "FGKMT2016"],
       "source_locator": "Maynard Proposition 6.1 and Sections 8-9; FGKMT Theorem 6 (7.5)-(7.9)",
-      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89. H1b-1b-2b follows Ford's corrected theorem and supplies a project-explicit kappa=1 one-step multiplier C_L83(a,A2) for every z>=2. H1b-1b-2a.1 separately closes the traced actual nonexcluded local factors and all 11 application excluded-modulus bounds with a common Lambda_star.",
+      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89. H1b-1b-2b follows Ford's corrected theorem and supplies a project-explicit kappa=1 one-step multiplier C_L83(a,A2) for every z>=2. H1b-1b-2a.1 separately closes the traced actual nonexcluded local factors and all 11 application excluded-modulus bounds with a common Lambda_star. H1b-1b-2d.1a removes the need for a global C1 version of the source-line-905 H remainder by an exact square-sum bypass.",
       "missing_numeric_inputs": [
         "the constants multiplying all moment errors",
         "finite cutoffs in repeated negligible-error arguments",
         "explicit singular-series and coefficient bounds uniform in r and the linear forms",
-        "the corrected r-fold composition using C_L83(a,A2) and explicit smooth norms"
+        "the numerical scalar pointwise multiplier in source lines 986-999 and the sharp xi*log(x) finite scale",
+        "the remaining common moment-level error budget"
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "Use the certified H1b-1b-2c actual parameter package and C_L83(1/2,8) to redo the Lemma 8.4 r-fold composition with explicit smooth norms. Do not treat any remaining O-constant as one.",
+      "next_action": "Use the H1b-1b-2d.1a square-sum bypass and numerically reprove the scalar remainder chain at source lines 986-999, then recover the sharp xi*log(x) finite scale. Do not treat any remaining O-constant as one.",
       "threshold_ready": false
     },
     {

@@ -330,14 +330,15 @@ hard-blocker 수 또는 \(X_{\mathrm{cert}}\)의 상태를 올리지 않는다.
 1. **완료:** H1b-1b-2b가 corrected one-step multiplier를, H1b-1b-2c가
    실제 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 인증했다. H1b-1b-2d는
    7개 smooth Lemma 8.4 call의 support norm·finite-product 합성을 닫았다.
-2. `H1b-1b-2d.1`: 905행 opaque \(H\) remainder의 함수형·\(C^1\) multiplier와
-   두 sharp call의 \(\xi\log x\) finite lower bound를 복원한다.
-3. 병렬 이론축 `H1c-1`에서 FGKMT (7.2)–(7.3)의 quantitative
+2. `H1b-1b-2d.1a.1`: theory 25의 square-sum 우회에 필요한 source
+   986--999행 scalar remainder multiplier와 finite range를 복원한다.
+3. `H1b-1b-2d.1b`: 두 sharp call의 \(\xi\log x\) finite lower bound를 복원한다.
+4. 병렬 이론축 `H1c-1`에서 FGKMT (7.2)–(7.3)의 quantitative
    character/Bombieri–Vinogradov package를 복원한다.
-4. `H1b-2`: 위 입력 뒤 Propositions 9.1–9.5의 finite moment와 공통 cutoff를 합성한다.
-5. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
-6. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
-7. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
+5. `H1b-2`: 위 입력 뒤 Propositions 9.1–9.5의 finite moment와 공통 cutoff를 합성한다.
+6. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
+7. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
+8. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
 
 현재 사용자 PC에 계산을 요청할 단계는 아니다. 병목은 연산시간이 아니라 논문 속 숨은 상수와
 유효범위를 수학적으로 복원하는 일이다.
@@ -422,7 +423,28 @@ H1b-1b-2d는 actual \(N,W,N^2,W^2,NW\) profile을 support 길이에 맞게 resca
 project-parameterized explicit 하위 package로 닫혔다. \(F_2^2\)의 support-\([0,2]\)
 \(W^2\) 좌표를 먼저 합한다는 순서 조건도 고정해 기존 \(\Lambda_*\)를 보존했다.
 
-그러나 905행 \(H=F+O(\eta F_2)\)의 remainder 함수·도함수 multiplier와 두 sharp
-call의 \(\xi\log x\) finite lower bound는 열려 있다. 따라서 parent `H1B-L84`는
+후속 H1b-1b-2d.1a는 905행의 전역 \(H\) remainder 함수·도함수가 필요 없음을
+square-sum 부등식과 일곱 smooth tensor class로 닫았다. 그러나 source 986--999행의
+격자점별 scalar remainder multiplier와 두 sharp call의 \(\xi\log x\) finite lower
+bound는 열려 있다. 따라서 parent `H1B-L84`는
 `RATE_MISSING`, `SIV-07`은 `HARD_BLOCKER`, \(X_{\mathrm{cert}}\)는 `OPEN`을 유지한다.
 T1의 66행 root 상태 수도 바뀌지 않는다.
+
+## 15. 2026-09-08 line-905 \(H\) square-sum 우회 반영
+
+H1b-1b-2d.1a는 \(A=\int Fdt_m\), \(B=\int F_2dt_m\)와
+\(|Z-A|\le\varepsilon B\)에서
+
+\[
+|Z^2-A^2|\le2\varepsilon AB+\varepsilon^2B^2
+\]
+
+를 사용한다. \(A^2,AB,B^2\)는 N2, NW, W2의 일곱 비음수 smooth tensor
+symmetry class로 정확히 전개되므로, 원문이 구성하지 않은 전역 \(H\)의 \(C^1\)
+norm은 더 이상 905행 제곱합의 필수 의무가 아니다.
+
+다만 원문 986--999행의 s-Euler product, t-divisor sum과 prefactor에는 수치화되지 않은
+\(\ll\) multiplier가 남는다. conditional 계산기에 임의의 \(\varepsilon\)을 넣는 것은
+source certificate가 아니다. 따라서 `H1B-L84=RATE_MISSING`,
+`SIV-07=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`과 T1의 66행 상태
+수는 그대로다.

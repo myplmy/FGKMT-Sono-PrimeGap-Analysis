@@ -111,6 +111,11 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
         )
         self.assertEqual(
+            self.document["h1b1b2d1a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
+        )
+        self.assertEqual(
             self.document["h1c_ledger"],
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
         )

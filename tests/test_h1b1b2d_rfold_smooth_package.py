@@ -18,7 +18,7 @@ from source.h1b1b2_local_factor_lower_bound import (
     MAYNARD_APPLICATION_EXCLUSION_IDS,
 )
 from source.h1b1b2d_rfold_smooth_package import (
-    APPLICATION_MODE_OPAQUE_H_BLOCKED,
+    APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_OPEN,
     APPLICATION_MODE_SHARP_SUMMATORY,
     APPLICATION_MODE_SMOOTH_COMPOSED,
     MAYNARD_APPLICATION_SMOOTH_SPECS,
@@ -84,12 +84,12 @@ class RfoldSmoothPackageTests(unittest.TestCase):
             for mode in {
                 APPLICATION_MODE_SMOOTH_COMPOSED,
                 APPLICATION_MODE_SHARP_SUMMATORY,
-                APPLICATION_MODE_OPAQUE_H_BLOCKED,
+                APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_OPEN,
             }
         }
         self.assertEqual(counts[APPLICATION_MODE_SMOOTH_COMPOSED], 8)
         self.assertEqual(counts[APPLICATION_MODE_SHARP_SUMMATORY], 2)
-        self.assertEqual(counts[APPLICATION_MODE_OPAQUE_H_BLOCKED], 1)
+        self.assertEqual(counts[APPLICATION_MODE_H_SQUARE_BYPASS_SCALAR_OPEN], 1)
 
     def test_actual_profile_integral_and_scaled_c1_bounds(self) -> None:
         old_dps = mp.mp.dps
@@ -145,7 +145,7 @@ class RfoldSmoothPackageTests(unittest.TestCase):
         self.assertEqual(value, mp.mpf("0.56"))
 
     def test_open_and_sharp_calls_cannot_use_smooth_path(self) -> None:
-        with self.assertRaisesRegex(ValueError, "no certified smooth"):
+        with self.assertRaisesRegex(ValueError, "direct H smooth path"):
             application_kappa_sum(36, APPLICATION_L905_W_PRIME)
         with self.assertRaisesRegex(ValueError, "sharp-cutoff"):
             application_kappa_sum(36, APPLICATION_L1096_W0)
@@ -205,7 +205,7 @@ class RfoldSmoothPackageTests(unittest.TestCase):
         self.assertEqual(contract["application_counts"]["smooth_profile_closed"], 8)
         self.assertEqual(contract["application_counts"]["lemma84_smooth_closed"], 7)
         self.assertEqual(contract["application_counts"]["sharp_parameterized"], 2)
-        self.assertEqual(contract["application_counts"]["opaque_h_open"], 1)
+        self.assertEqual(contract["application_counts"]["h_square_bypass_scalar_open"], 1)
         self.assertTrue(contract["generic_distinct_profile_composition_closed"])
         self.assertFalse(contract["all_actual_lemma84_calls_closed"])
         self.assertFalse(contract["siv_07_closed"])

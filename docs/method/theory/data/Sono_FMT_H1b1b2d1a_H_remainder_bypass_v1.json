@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-08",
+  "gate": "H1b-1b-2d.1a Maynard source-line-905 H square-sum remainder",
+  "outcome": "FUNCTIONAL_C1_BYPASSED_SCALAR_POINTWISE_MULTIPLIER_OPEN",
+  "scope": "Replace the unavailable global C1 representation of H by an exact square-sum reduction. The numerical multiplier in the source pointwise scalar remainder is not recovered here.",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_PUBLISHED",
+      "title": "Dense Clusters of Primes in Subsets",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "reviewed_locations": "Lemma 9.3 and its proof; equations (9.35)-(9.36), printed pages 1541-1543",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "MAYNARD2016_SOURCE",
+      "title": "Dense Clusters of Primes in Subsets, author TeX source",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "reviewed_locations": "lines 411-426, 488-514, 838-846, 903-916 and 935-1038",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "AXIOM_PRIMEGAPSLIB_2026",
+      "title": "PrimeGapsLib iterated partial-summation formalization",
+      "url": "https://github.com/AxiomMath/PrimeGapsLib",
+      "reviewed_locations": "S2m and ApplyPartialSum source structure",
+      "status": "UNVERIFIED_STRUCTURAL_CORROBORATION_ONLY_NOT_THEOREM_INPUT"
+    }
+  ],
+  "literature_first_assessment": {
+    "targeted_search_completed": true,
+    "complete_peer_reviewed_functional_remainder_lemma_found": false,
+    "global_novelty_claimed": false,
+    "axiom_result_adopted_as_theorem_input": false,
+    "reason": "The available formalization uses a different sieve package and existential large-parameter thresholds; it does not provide the numerical scalar remainder required by this actual Maynard call."
+  },
+  "source_trace": {
+    "F_and_F2": "Maynard source lines 411-426",
+    "Y_difference": "lines 488-514",
+    "Ym_statement": "lines 838-846",
+    "outer_square_sum_call": "lines 903-916",
+    "Ym_proof": "lines 935-1038",
+    "finding": "The proof controls an integral value at each outer lattice point and abbreviates it with H. It does not construct one globally smooth remainder in the remaining variables or bound such a remainder's derivatives."
+  },
+  "source_text_cautions": [
+    {
+      "id": "H-SRC-01",
+      "locations": "lines 844 and 1026 versus line 915",
+      "finding": "The statement and proof use (log log R)^2, while line 915 displays only one log log R.",
+      "project_rule": "Preserve the square in every finite reconstruction.",
+      "formal_erratum_claimed": false
+    },
+    {
+      "id": "H-SRC-02",
+      "location": "line 986",
+      "finding": "The printed determinant product includes i=m and is then identically zero.",
+      "project_rule": "Use the product over i not equal to m, matching the actual t_j variables, and retain this as a source ambiguity until independently certified.",
+      "formal_erratum_claimed": false
+    },
+    {
+      "id": "H-SRC-03",
+      "locations": "lines 998-999 and the normalization in lines 840-845",
+      "finding": "The displayed log R accounting is not sufficiently explicit to extract a numerical normalized multiplier without redoing the intervening summation.",
+      "project_rule": "Do not infer a missing constant or power of log R from the asymptotic display."
+    }
+  ],
+  "project_lemma": {
+    "definitions": "A(u)=integral F(u,t_m)dt_m, B(u)=integral F2(u,t_m)dt_m, and |Z_r-A(u_r)|<=epsilon*B(u_r)",
+    "pointwise_square_bound": "|Z_r^2-A(u_r)^2|<=2*epsilon*A(u_r)*B(u_r)+epsilon^2*B(u_r)^2",
+    "pointwise_square_reduction_closed": true,
+    "functional_H_C1_required": false,
+    "proof_scope": "Exact algebra plus a finite nonnegative smooth tensor expansion of A^2, AB and B^2",
+    "source_scalar_epsilon_assumed": true,
+    "source_scalar_epsilon_proved": false
+  },
+  "integrated_profiles": {
+    "I_N": "integral_0^infinity N(t)dt",
+    "I_W": "integral_0^infinity W(t)dt",
+    "P": "I_N^(-1)*integral_0^infinity psi(S+t)N(t)dt",
+    "P_bounds": "0<=P<=1, support in S<=1, |P'|<=50",
+    "A": "I_N*P(sum u_i)*product_i N(u_i)",
+    "B": "I_W*product_i N(u_i)+I_N*sum_j W(u_j)*product_(i!=j)N(u_i)"
+  },
+  "tensor_inventory": [
+    {"name": "A2_cutoff", "category": "A_squared", "multiplicity": "1", "coefficient": "I_N^2", "profiles": "N2^(k-1)", "cutoff": "P^2", "cutoff_derivative_bound": 100},
+    {"name": "AB_base", "category": "A_times_B", "multiplicity": "1", "coefficient": "I_N*I_W", "profiles": "N2^(k-1)", "cutoff": "P", "cutoff_derivative_bound": 50},
+    {"name": "AB_one_NW", "category": "A_times_B", "multiplicity": "k-1", "coefficient": "I_N^2", "profiles": "NW*N2^(k-2)", "cutoff": "P", "cutoff_derivative_bound": 50},
+    {"name": "B2_base", "category": "B_squared", "multiplicity": "1", "coefficient": "I_W^2", "profiles": "N2^(k-1)"},
+    {"name": "B2_one_NW", "category": "B_squared", "multiplicity": "k-1", "integer_coefficient": 2, "coefficient": "I_N*I_W", "profiles": "NW*N2^(k-2)"},
+    {"name": "B2_one_W2", "category": "B_squared", "multiplicity": "k-1", "coefficient": "I_N^2", "profiles": "W2*N2^(k-2)", "wide_coordinate_first_required": true},
+    {"name": "B2_two_NW", "category": "B_squared", "multiplicity": "binomial(k-1,2)", "integer_coefficient": 2, "coefficient": "I_N^2", "profiles": "NW^2*N2^(k-3)"}
+  ],
+  "source_scalar_remainder": {
+    "target_form": "epsilon_Y=C_Y*T_k*(log log R)^2/log R with an explicit finite C_Y and range",
+    "numerical_multiplier_closed": false,
+    "closed_inputs": [
+      "Lemma 8.2 one-coordinate multiplier 89",
+      "corrected one-dimensional Lemma 8.3 multiplier and actual a=1/2,A2=8,L=5+log(Lambda_star)",
+      "support-scaled r-fold composition for every tensor family in the bypass"
+    ],
+    "open_inputs": [
+      "numerical constant and finite range for the s Euler product at source line 986",
+      "numerical constant and finite range for the t divisor sum at lines 988-993",
+      "normalization and prefactor reconciliation through lines 995-999",
+      "a single uniform C_Y after combining the direct e_m partial-summation and YmError branches"
+    ],
+    "forbidden_shortcut": "The O or Vinogradov multiplier must not be set to 1."
+  },
+  "line_905_closed": false,
+  "h_functional_obstruction_removed": true,
+  "scalar_remainder_obstruction_open": true,
+  "siv_07_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "actual_prime_experiment_performed": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false,
+  "parent_status": {
+    "H1B-L83": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+    "H1B-L84": "RATE_MISSING",
+    "H1B1-PACKAGE": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "next_gate": {
+    "id": "H1b-1b-2d.1a.1",
+    "description": "Numerically reprove the source lines 986-999 scalar YmError chain and obtain one uniform C_Y and finite range; in parallel retain H1b-1b-2d.1b for the sharp xi*log(x) scale.",
+    "ready_for_threshold_calculator": false,
+    "ready_for_actual_prime_experiment": false
+  }
+}

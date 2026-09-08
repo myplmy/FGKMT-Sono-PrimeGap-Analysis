@@ -113,10 +113,11 @@
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "id": "H1b-1b-2d.1",
-    "description": "The H1b-1b-2d successor closed the seven-call smooth subpackage. Recover the source-line-905 opaque H norm and sharp xi*log(x) finite scale.",
+    "id": "H1b-1b-2d.1a.1-and-1b",
+    "description": "The H1b-1b-2d successor closed the seven-call direct-smooth subpackage and H1b-1b-2d.1a bypassed the line-905 functional C1 requirement. Recover the source-lines-986-999 scalar pointwise multiplier and sharp xi*log(x) finite scale.",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false
   },
-  "completed_successor_contract": "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json"
+  "completed_successor_contract": "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
+  "completed_h_remainder_bypass_contract": "docs/method/theory/data/Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json"
 }

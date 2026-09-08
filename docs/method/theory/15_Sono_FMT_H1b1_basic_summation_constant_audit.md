@@ -44,8 +44,8 @@ H1b-1b-2a.1은 11개 analytic subapplication의 확대 제외모듈을 전수 �
 H1b-1b-2c는 실제 네 family에 공통인
 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)도 인증했다. Lemma 8.1(ii)의 입력 정규화와
 공통 cutoff는 열려 있다. H1b-1b-2d는 7개 smooth Lemma 8.4 call의 support norm과
-보정 finite-product 반복오차를 닫았으나, 905행 opaque \(H\)와 sharp \(\xi\) scale은
-열려 있다. 절대
+보정 finite-product 반복오차를 닫았다. 후속 2d.1a는 905행 전역 \(H\)의 \(C^1\)
+요구를 우회했으나, source scalar multiplier와 sharp \(\xi\) scale은 열려 있다. 절대
 \(C_{3,\mathrm{abs}}(A_1,A_2)\) 경로는 보조 교차검사로 남는다.
 따라서 numerical basic-summation package 전체는 아직 완료가 아니다.
 
@@ -277,13 +277,16 @@ Lemma 8.3 corrected one-step rate = C_L83(a,A2), every z>=2
 actual common a,A2,L             = 1/2, 8, 5+log(Lambda_star) CLOSED PARAMETERIZED
 legacy C3_abs + c_gamma route    = OPTIONAL CROSS-CHECK
 Lemma 8.4 smooth subpackage      = 7/9 PROJECT PARAMETERIZED EXPLICIT
-Lemma 8.4 opaque/sharp remainder = OPEN
+Lemma 8.4 line-905 C1 bypass     = PROJECT EXPLICIT
+Lemma 8.4 scalar/sharp remainder = OPEN
 SIV-07 / X_cert                  = HARD_BLOCKER / OPEN
 ```
 
 H1b-1b-2c가 실제 호출 전체에 공통인 \(a,A_2,L\)을 인증했고, H1b-1b-2d가
-smooth 하위 package를 닫았다. 다음 직접 gate는 905행 \(H\) remainder의 수치
-\(C^1\) majorant와 sharp \(\xi\log x\) finite scale을 복원하는 H1b-1b-2d.1이다.
+smooth 하위 package를 닫았다. H1b-1b-2d.1a는 905행의 전역 \(H\) \(C^1\)
+majorant 요구를 square-sum으로 우회했다. 다음 직접 gate는 source 986--999행의
+scalar multiplier를 복원하는 H1b-1b-2d.1a.1과 sharp \(\xi\log x\) finite scale의
+H1b-1b-2d.1b다.
 
 ## 9. 2026-09-08 H1b-1b-2d 반영
 
@@ -293,5 +296,17 @@ smallness 충분조건도 명시했다. \(F_2^2\)에서는 support-\([0,2]\) 좌
 합해야 theory 23의 \(\Lambda_*\)를 그대로 쓸 수 있다는 순서 조건을 추가했다.
 
 이 결과는 product-profile integral 기준의 절대오차 envelope다. actual coupled main
-integral 자체에 대한 상대오차라고 확장하지 않는다. 또한 905행 \(H\)와 sharp scale이
+integral 자체에 대한 상대오차라고 확장하지 않는다. 또한 line-905 scalar multiplier와 sharp scale이
 남아 있으므로 H1b-1 basic summation package 전체 및 `SIV-07`은 닫히지 않았다.
+
+## 10. 2026-09-08 H1b-1b-2d.1a 반영
+
+격자점별 \(|Z-A|\le\varepsilon B\)를
+\(|Z^2-A^2|\le2\varepsilon AB+\varepsilon^2B^2\)로 옮기면 \(A^2,AB,B^2\)가
+일곱 비음수 smooth tensor class로 전개된다. 따라서 line 905에서 전역 \(H\)의
+\(C^1\) norm은 필요하지 않다.
+
+반면 \(\varepsilon\)의 수치값을 주는 source 986--999행의 숨은 \(\ll\) multiplier와
+finite range는 OPEN이다. 조건부 evaluator가 임의의 \(\varepsilon\)을 받을 수 있다는
+사실은 source certification이 아니다. 따라서 H1b-1 package, `SIV-07`과
+\(X_{\mathrm{cert}}\)는 승격하지 않는다.

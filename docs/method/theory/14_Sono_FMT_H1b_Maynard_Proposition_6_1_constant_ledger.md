@@ -108,7 +108,7 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-L81` | Lemma 8.1 | singular series 하한 | `RATE_MISSING` | \(\exp(-Ck)\)의 \(C\) |
 | `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `PROJECT_FINITE_COMPONENT_CLOSED` | H1b-1b에서 multiplier 89, \(k\ge2\) |
 | `H1B-L83` | Lemma 8.3 | multiplicative sum | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | \(C_{8.3}\), \(z\ge2\), 공통 \(a=1/2,A_2=8,L=5+\log\Lambda_*\) 닫힘 |
-| `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | smooth 7/9 하위호출은 explicit; 905행 \(H\) norm·sharp \(\xi\log x\) finite scale |
+| `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `RATE_MISSING` | smooth 7/9·905행 C1 우회는 explicit; scalar multiplier·sharp \(\xi\log x\) finite scale |
 | `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `RATE_MISSING` | \(R^{2+o(1)}\)의 finite 대체 |
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
 | `H1B-L86-SIZE` | Lemma 8.6 | 절대 적분 크기 | `RATE_MISSING` | lower-bound multiplier |
@@ -207,8 +207,9 @@ CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN
    \(dW_i,W'_i,a_mWBr,rW_m,W_0\)의 호출별 overhead를 전수 인증해 공통
    \(\Lambda_*\)를 얻었다. 이제 Kuperberg/HR recurrence의
    H1b-1b-2c가 실제 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 복원했다.
-   H1b-1b-2d는 7개 smooth 호출의 교정 \(r\)-회 합성을 닫았다. 이제 905행
-   opaque \(H\)와 sharp \(\xi\log x\) finite scale을 복원한다.
+   H1b-1b-2d는 7개 smooth 호출의 교정 \(r\)-회 합성을 닫았고, 2d.1a는 905행
+   전역 \(H\)의 \(C^1\) 요구를 square-sum으로 우회했다. 이제 source 986--999행의
+   scalar multiplier와 sharp \(\xi\log x\) finite scale을 복원한다.
 4. **H1b-2:** 위 입력을 받은 뒤 Propositions 9.1–9.5를 지정 error budget으로 재증명한다.
 5. **H1d:** FMT/FGKMT의 \(u\), good-event, covering 단계와 공통 \((r,x)\) slack을 합성한다.
 
@@ -326,7 +327,27 @@ project-parameterized explicit 하위 package로 바꿨다. 설명용
 \(k=36,\alpha=0.01,\theta=0.25\) 대입에서 얻은 매우 큰 cutoff는 최종 theorem
 parameter도 directed certificate도 아니므로 \(X_{\mathrm{cert}}\)로 사용하지 않는다.
 
-line 905의 \(H=F+O(\eta F_2)\)가 수치 \(C^1\) function으로 닫히지 않았고,
+H1b-1b-2d.1a는 line 905에서 전역 \(H\)를 수치 \(C^1\) function으로 만들 필요를
+제거했지만, source 986--999행의 격자점별 scalar remainder multiplier는 열려 있다.
 line 1096·1135의 sharp factor도 \(\xi\log x\) finite 하한이 없다. 그러므로
 `H1B-L84=RATE_MISSING`, `H1B-COMP-01`, `SIV-07`, `SIV-09`와
 \(X_{\mathrm{cert}}\)는 승격하지 않는다.
+
+## 16. 2026-09-08 H1b-1b-2d.1a 반영
+
+line 905의 실제 목표는 \(y_{\mathbf r}^{(m)}\) 제곱합이다. theory 25는
+\(A=\int Fdt_m\), \(B=\int F_2dt_m\)와 격자점별
+\(|Z-A|\le\varepsilon B\)로부터
+
+\[
+|Z^2-A^2|\le2\varepsilon AB+\varepsilon^2B^2
+\]
+
+를 얻고, 오른쪽을 일곱 비음수 smooth tensor class로 전개했다. 따라서 원문이
+제공하지 않은 전역 \(H\)의 도함수는 더 이상 필요하지 않다.
+
+그러나 source 986--999행의 숨은 \(\ll\) multiplier와 finite range가 아직
+\(\varepsilon\)의 수치값을 주지 않는다. 이것은 functional blocker의 제거이지
+`H1B-L84` 전체 closure가 아니다. `H1B-L84=RATE_MISSING`,
+`H1B-COMP-01=HARD_BLOCKER`, `SIV-07/SIV-09`과
+\(X_{\mathrm{cert}}\)는 그대로 유지한다.

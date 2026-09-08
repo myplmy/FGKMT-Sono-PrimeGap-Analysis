@@ -22,8 +22,9 @@
 3. \(F_2^2\)의 넓은 \(W^2\) 좌표를 먼저 합하면 기존 \(\Lambda_*\) 제외모듈 상계를
    안전하게 유지할 수 있다.
 
-그러나 source 905행의 \(H=F+O(\eta F_2)\)는 \(O\) 안의 실제 함수와 \(C^1\)
-multiplier를 주지 않는다. 두 sharp cutoff 호출도 \(\xi\log x\)의 finite lower bound를
+후속 H1b-1b-2d.1a는 source 905행의 전역 \(H\)와 \(C^1\) multiplier를 요구하지 않는
+square-sum 우회를 닫았다. 그러나 source 986--999행의 격자점별 scalar remainder
+multiplier는 여전히 수치화되지 않았다. 두 sharp cutoff 호출도 \(\xi\log x\)의 finite lower bound를
 필요로 한다. 따라서 `H1B-L84=RATE_MISSING`, `SIV-07=HARD_BLOCKER`,
 \(X_{\rm cert}=\texttt{OPEN}\)을 유지하는 것이 타당하다.
 
@@ -99,7 +100,7 @@ Maynard source 620행·printed p.1536의
 - \(F_2^2\)의 finite tensor family 분류와 wide-first 순서
 - 닫힌 smooth 하위문제에 대한 보수적 finite smallness cutoff
 
-Maynard Proposition 6.1 전체, Lemma 8.4의 opaque \(H\), sharp \(\xi\), Lemmas 8.5–8.6,
+Maynard Proposition 6.1 전체, Lemma 8.4 line-905의 scalar multiplier, sharp \(\xi\), Lemmas 8.5–8.6,
 Propositions 9.1–9.5는 증명하지 않았다.
 
 ## 5. 수치 예시를 threshold로 사용하면 안 되는 이유
@@ -111,7 +112,7 @@ log10(log R) >= 132.07
 ~~~
 
 이 된다. 이는 매우 보수적인 상수의 결과이고, \(\alpha,\theta\)가 최종 Sono/FMT
-application에 맞게 인증된 것도 아니다. 더구나 opaque·sharp·PAP·hypergraph·arbitrary-X
+application에 맞게 인증된 것도 아니다. 더구나 line-905 scalar·sharp·PAP·hypergraph·arbitrary-X
 의무가 남아 있다. 따라서 이 숫자는 “FGKMT/Sono 부등식이 이 \(x\)부터 성립한다”는
 threshold가 아니며, \(X_{\rm cert}\)로 보고하면 오류다.
 
@@ -126,9 +127,9 @@ profile bound, product identity와 parent non-promotion을 검사한다.
 
 ## 7. 다음 작업의 우선순위
 
-1. **H1b-1b-2d.1 / 905행 \(H\) source tracing**  
-   \(H\)를 만든 Y-difference error를 역추적해 명시적 nonnegative majorant와
-   \(C^1\) multiplier를 얻을 수 있는지 확인한다.
+1. **H1b-1b-2d.1a.1 / 905행 scalar remainder 수치 재증명**
+   theory 25의 \(A^2,AB,B^2\) 우회에 필요한 986--999행의 scalar multiplier와
+   finite range를 복원한다.
 2. **sharp \(\xi\) finite scale 복원**  
    \(\xi\)의 선택과 \(\gg\) 상수를 추적해 \(\xi\log x\)의 수치 하한을 만든다.
 3. **H1c-1 quantitative character/PAP**  
