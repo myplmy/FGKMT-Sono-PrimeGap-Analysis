@@ -135,12 +135,21 @@ class H1c1aPrimeDistributionInventoryTests(unittest.TestCase):
 
     def test_predecessor_and_t1_are_synchronized_fail_closed(self) -> None:
         predecessor = json.loads(PREDECESSOR.read_text(encoding="utf-8"))
-        self.assertEqual(predecessor["next_gate"]["id"], "H1c-1b")
+        self.assertEqual(predecessor["next_gate"]["id"], "H1c-1b.1a")
         self.assertEqual(
             predecessor["successor_inventory"]["outcome"],
             self.document["outcome"],
         )
         self.assertFalse(predecessor["numerical_hypothesis1_package_ready"])
+        self.assertEqual(
+            predecessor["successor_parameter_envelope"]["outcome"],
+            self.document["successor_parameter_envelope"]["outcome"],
+        )
+        self.assertFalse(
+            self.document["successor_parameter_envelope"][
+                "printed_source_r_dyadic_admissibility_closed"
+            ]
+        )
         t1 = json.loads(T1_LEDGER.read_text(encoding="utf-8"))
         rows = {row["id"]: row for row in t1["obligations"]}
         self.assertEqual(rows["SIV-08"]["status"], "HARD_BLOCKER")

@@ -25,6 +25,8 @@
   "h1b2a2_ledger": "docs/method/theory/data/Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json",
   "h1b2a3_ledger": "docs/method/theory/data/Sono_FMT_H1b2a3_Proposition94_end_to_end_v1.json",
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
+  "h1c1a_ledger": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
+  "h1c1b1_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1_parameter_modulus_envelope_v1.json",
   "h1c1a_inventory": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
@@ -150,15 +152,16 @@
       "question": "Are FGKMT Hypothesis 1 constants numerically available for the required linear forms?",
       "source_keys": ["FGKMT2016"],
       "source_locator": "FGKMT Lemma 7.2 and equations (7.2)-(7.3)",
-      "printed_information": "Lemma 7.2 states uniform absolute implied constants and uses an effective character-sum bound followed by a standard Bombieri-Vinogradov proof. H1c gives exact sufficient reductions for the elementary A=Z clauses (1) and (3), but not for the prime-distribution clause (2).",
+      "printed_information": "Lemma 7.2 states uniform absolute implied constants and uses an effective character-sum bound followed by a standard Bombieri-Vinogradov proof. H1c gives exact sufficient reductions for the elementary A=Z clauses (1) and (3), but not for the prime-distribution clause (2). H1c-1b.1 confirms the growing sieve dimension, prunes the actual Proposition 9.2 call to L(n)=n, and closes Bordignon modulus capacity. It also detects a recurring dyadic transition strip where source_r=floor((log x)^(1/5)) is not covered verbatim by the printed k-range at endpoint x/2; source_r-1 is an exact safe repair candidate.",
       "missing_numeric_inputs": [
+        "a proof that the endpoint-safe one-step dimension repair preserves the FMT/Sono normalization and final coefficient",
         "a numerical sufficiently-small exceptional-zero parameter",
         "constants and starting ranges in the Landau-Page and zero-free estimates",
         "constants in the Bombieri-Vinogradov deduction and the psi-to-pi conversion"
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "H1c established that Hypothesis 1 and PAP are sibling obligations rather than implications. Quantitatively reconstruct FGKMT (7.2)-(7.3), the affine-form map, and the represented-prime lower bound before assigning any Hypothesis 1 number.",
+      "next_action": "First close H1c-1b.1a by propagating the dyadic endpoint-safe dimension repair through the actual weight and coefficient inequalities. Then reconcile a common exceptional B and quantitatively reconstruct the remaining distribution, count-transfer, density, and cutoff package before assigning any Hypothesis 1 number.",
       "threshold_ready": false
     },
     {

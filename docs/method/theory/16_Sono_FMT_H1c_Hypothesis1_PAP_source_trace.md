@@ -312,7 +312,7 @@ Liu와 Johnston 2026을 modulus·log-saving·exceptional character·affine trans
 대조했다.
 
 선언한 source 안에서 drop-in 정리는 0개다. 임의 \(A>3\)에 explicit non-exceptional average를
-주는 Bordignon 2021 Theorem 4가 가장 가까운 `PRIMARY_COMPOSITION_CANDIDATE`다. 하지만
+주는 Bordignon 2021 Theorem 1.4가 가장 가까운 `PRIMARY_COMPOSITION_CANDIDATE`다. 하지만
 \(|a|q\) coverage, fixed-\(k\) 또는 growing-\(A\) branch, 하나의 공통 exceptional \(B\),
 반열린 endpoint, \(\psi\to\pi\), exact total-count recentering, represented-prime lower bound와
 common cutoff는 아직 증명되지 않았다.
@@ -321,3 +321,16 @@ common cutoff는 아직 증명되지 않았다.
 `numerical_hypothesis1_package_ready=false`, `SIV-08=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}\)=`OPEN`은 변하지 않는다. 다음 gate는 H1c-1b이며 threshold calculator와
 장시간 prime sweep은 계속 금지한다.
+
+## 12. 2026-09-09 H1c-1b.1 후속 판정
+
+후속 [`H1c-1b.1 정본`](33_Sono_FMT_H1c1b1_parameter_modulus_envelope.md)은
+fixed-\(k\) branch를 배제하고 실제 지수를 \(100r^2\)로 고정했다. actual P9.2 호출은
+identity form이므로 affine lift를 가지치기할 수 있고, Bordignon의 pointwise
+\(A(r)\) 대입과 modulus capacity는 endpoint-safe \(r\ge36\)에서 닫힌다.
+
+다만 source-selected \(r_s\)는 원래 \(x\)에서 고르고 actual call은 \(x/2\)에서 하므로
+transition strip에서 Maynard의 인쇄된 dimension range를 그대로 만족하지 않는다.
+\(r_s-1\) 보정은 가능하지만 coefficient transfer가 남는다. 그러므로
+`numerical_hypothesis1_package_ready=false`, `SIV-08=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}=\)`OPEN`은 유지한다. 다음 gate는 H1c-1b.1a다.

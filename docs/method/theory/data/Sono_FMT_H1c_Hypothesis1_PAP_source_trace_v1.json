@@ -462,9 +462,19 @@
     "primary_composition_candidate": "BORDIGNON2021",
     "numerical_package_ready": false
   },
+  "successor_parameter_envelope": {
+    "id": "H1c-1b.1",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b1_parameter_modulus_envelope_v1.json",
+    "outcome": "GROWING_R_CONFIRMED_POINTWISE_DIAGONAL_AND_MODULUS_CAPACITY_CLOSED_DYADIC_ONE_STEP_REPAIR_COEFFICIENT_TRANSFER_OPEN",
+    "actual_p92_identity_form_pruned": true,
+    "bordignon_modulus_capacity_closed": true,
+    "printed_source_r_dyadic_admissibility_closed": false,
+    "one_step_dimension_repair_available": true,
+    "full_distribution_package_ready": false
+  },
   "next_gate": {
-    "id": "H1c-1b",
-    "description": "Test the Bordignon 2021 composition route in four fail-closed parts: fixed-k or growing-A parameter choice and, affine modulus coverage, one common exceptional conductor and prime B, and exact endpoint, psi-to-pi, recentering, density, and common-cutoff transfers.",
+    "id": "H1c-1b.1a",
+    "description": "Propagate the dyadic endpoint-safe one-step dimension repair through the FMT/Sono normalization and coefficient inequalities, then continue with one common exceptional B and the exact count-transfer/error composition.",
     "ready_for_threshold_calculator": false
   }
 }

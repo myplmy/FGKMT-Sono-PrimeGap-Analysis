@@ -144,6 +144,15 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertEqual(rows["SIV-08"]["depends_on"], [])
         self.assertEqual(rows["SIV-08"]["status"], "HARD_BLOCKER")
 
+    def test_successor_parameter_envelope_remains_fail_closed(self) -> None:
+        successor = self.document["successor_parameter_envelope"]
+        self.assertEqual(successor["id"], "H1c-1b.1")
+        self.assertTrue(successor["bordignon_modulus_capacity_closed"])
+        self.assertFalse(successor["printed_source_r_dyadic_admissibility_closed"])
+        self.assertTrue(successor["one_step_dimension_repair_available"])
+        self.assertFalse(successor["full_distribution_package_ready"])
+        self.assertEqual(self.document["next_gate"]["id"], "H1c-1b.1a")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -599,6 +599,91 @@
 - 재발 방지: arXiv PDF를 읽었더라도 source registry를 확정하기 전 DOI·저자 publication list·
   journal landing page 중 하나에서 후속 출판 여부를 별도로 확인한다.
 
+### E039 — H1c-1b.1 조사·작성 과정의 경로 추정과 문자열 escape 오류
+
+- 분류: `TOOLING_AND_PATCH_CONSTRUCTION_ERROR / CAUGHT_BEFORE_VALIDATION / NO_RESEARCH_IMPACT`
+- 문제:
+  1. source 파일을 찾는 초기에 다시 `tmp/` 전역 검색을 사용해 접근 제한 경고를 냈고,
+     일부 PDF·text 파일명을 실제 목록 확인 전에 추정해 `FILE_NOT_FOUND`를 냈다.
+  2. 설치 여부를 먼저 확인하지 않고 한 PDF 추출 executable 경로를 추정했으며, PowerShell
+     `python -c`에 실제 newline을 부정확하게 전달해 한 차례 구문 오류를 냈다.
+  3. Markdown을 JavaScript 비-raw 문자열로 만들면서 `\to`의 `\t`가 탭으로 바뀌고 일부
+     수식 escape가 깨졌다. 또한 여러 파일 patch를 한 번에 만들다가 한 hunk 문법 오류로
+     해당 patch 호출이 거부됐다.
+  4. 최종 FGKMT 오탈자 검색에서 PowerShell `-Path`에 배열과 추가 문자열을 잘못 조합해
+     non-terminating parameter conversion error가 났는데, 뒤 명령이 계속되어 처음에는
+     잘못된 PASS 문구도 함께 출력됐다.
+- 영향: 모두 정본 검증 전의 읽기·작성 도구 단계 오류다. 잘못 생성된 새 Markdown은 전체
+  재작성했고, 거부된 patch의 대상 파일은 적용 전후를 다시 대조했다. actual 실험 artifact,
+  원본 논문, 최종 수학 판정에는 영향이 없다. 오탈자 검색은 올바른 단일 경로 배열로
+  재실행해 16개 파일 issue 0을 확인했다.
+- 교정: 정확한 파일 목록과 executable 존재 여부를 먼저 확인했고, Markdown은 raw 문자열 또는
+  명시적 line array로 다시 만들었다. 탭·깨진 수식 검색과 `git diff --check`를 최종 gate에
+  추가했다.
+- 재발 방지: `tmp` 전역 검색 금지를 실제 명령 선택 단계에서 지킨다. 경로를 추측하지 않고
+  `Get-ChildItem -LiteralPath`로 먼저 고정하며, 수식이 있는 patch는 raw 문자열과 작은
+  파일별 hunk를 사용한다.
+
+### E040 — H1c-1a JSON의 Maynard PDF provenance가 다른 논문을 가리킴
+
+- 분류: `PROVENANCE_MISMATCH / CORRECTED / NO_MATH_CONCLUSION_CHANGE`
+- 문제: `Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json`의 Maynard
+  source 경로와 SHA-256이 실제로 인용한 `Dense Clusters of Primes in Subsets`가 아니라
+  다른 Maynard PDF를 가리켰다. 수식 감사 자체는 올바른 author TeX를 읽어 수행했지만,
+  기계 판독 provenance가 그 증거와 일치하지 않았다.
+- 영향: Hypothesis 1(2), Proposition 9.2의 식과 `RATE_MISSING` 판정은 바뀌지 않는다.
+  그러나 이전 JSON의 PDF hash만으로는 그 인용을 재현할 수 없었으므로 provenance 결함이다.
+- 교정: 실제 출판본 경로
+  `tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf`와 SHA-256
+  `8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098`로 교체하고
+  단위시험에서 경로·hash를 고정했다.
+- 재발 방지: source JSON을 쓸 때 제목, 첫 페이지, 인용 식이 있는 페이지, 파일 hash를 한 묶음으로
+  대조한다. TeX와 PDF를 함께 썼으면 둘의 논문 identity가 같은지도 검사한다.
+
+### E041 — H1c-1b.1 초안이 `x`와 실제 `x/2` 사이의 반복 dimension 경계를 놓침
+
+- 분류: `MATHEMATICAL_SCOPE_ERROR / CAUGHT_BEFORE_HANDOFF / CANONICAL_STATUS_DOWNGRADED`
+- 문제: 초기 초안은 `r=floor((log T)^(1/5))`인 endpoint-safe 모형에서 modulus capacity를
+  닫은 뒤 이를 source의 선택과 동일시했다. 그러나 Sono/FMT는 원래 `x`에서
+  `r_s=floor((log x)^(1/5))`를 고르고, actual Proposition 9.2는 `T=x/2`에서 호출한다.
+  `r_s^5 <= log x < r_s^5+log 2`인 구간에서는 `r_s>(log T)^(1/5)`라 인쇄된 Maynard
+  가정이 깨진다. 이 구간은 모든 큰 정수 `r_s`에서 반복된다.
+- 영향: modulus가 충분하다는 부등식 자체는 유효하지만, 이를 곧바로 actual source parameter
+  전체에 적용할 수 있다는 초안의 범위가 과대했다. 이 상태로는 Hypothesis 1(2)나 최종
+  Sono 계수를 닫을 수 없다.
+- 교정: 판정을 `PARTIAL`로 낮추고
+  `r_T=floor((log(x/2))^(1/5)) in {r_s-1,r_s}` 및 `r_s-1` admissibility를 exact
+  lemma로 추가했다. final coefficient transfer를 새 gate `H1c-1b.1a`로 분리하고
+  transition-strip negative regression을 추가했다.
+- 재발 방지: 정리의 endpoint를 `x`, `x/2`, `y`처럼 바꿀 때 성장률만 비교하지 말고,
+  floor/ceiling이 있는 integer parameter의 모든 jump strip을 따로 검사한다.
+
+### E042 — 전체 회귀시험의 live tee 검사가 비결정적 stream 순서를 가정
+
+- 분류: `PREEXISTING_FLAKY_TEST / FIXED_DURING_VALIDATION / NO_PRODUCTION_CHANGE`
+- 문제: H1c-1b.1 전체 회귀시험에서
+  `test_stdout_stderr_blank_lines_and_exit_zero_are_preserved`가 352개 중 유일하게 실패했다.
+  반복 5회에서 4회 PASS·1회 FAIL이었다. production helper는 stdout과 stderr를 별도 thread로
+  즉시 배수하므로, stdout의 빈 줄 전에 stderr event가 합법적으로 끼어들 수 있다. 기존 시험은
+  raw combined log 안에 `out-1\n\n`이 연속할 것을 가정했다.
+- 영향: 실패 로그에도 두 번째 stdout marker 다음 빈 줄이 보존돼 있었다. 실시간 로깅 구현이나
+  연구 계산 결과의 손실이 아니라 시험 oracle의 stream-order 가정 오류였다.
+- 교정: production 코드는 바꾸지 않고, 시험이 marker를 따라 stdout만 재구성한 뒤
+  `out-1\n\n`을 확인하도록 수정했다. 해당 시험 10회 반복 PASS, 이후 전체 352개 PASS다.
+- 재발 방지: 병렬 stdout/stderr capture 시험은 전역 도착 순서를 고정하지 않는다. 각 stream의
+  내부 순서·내용 보존과 종료코드를 검사하고, 서로 다른 stream의 interleaving은 허용한다.
+
+### E043 — Bordignon 출판본 정리 번호를 `Theorem 4`로 축약 표기
+
+- 분류: `BIBLIOGRAPHIC_LOCATOR_IMPRECISION / CORRECTED / NO_MATH_IMPACT`
+- 문제: H1c-1a에서 Bordignon의 정리를 여러 정본에 `Theorem 4`라고 적었다. 확인한 NYJM
+  출판본의 정확한 번호는 `Theorem 1.4`이고, exceptional-term 입력은 `Theorem 1.2`다.
+- 영향: 사용한 식·\(A>3\) 조건·적용성 판정은 같은 정리를 가리켜 수학 결론은 변하지 않지만,
+  독자가 출판본에서 바로 찾기에는 locator가 부정확했다.
+- 교정: 활성 정본·JSON·상위 threshold review를 `Theorem 1.4`와 `Theorem 1.2`로 고쳤다.
+- 재발 방지: 논문 제목이나 내부 절 번호가 다른 버전 사이에서 바뀔 수 있으므로, 최종 locator는
+  hash가 고정된 실제 채택 출판본의 목차와 theorem heading에서 복사한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

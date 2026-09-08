@@ -18,7 +18,7 @@
 찾지 못했다. 이것은 전 세계 문헌에 그런 정리가 없다는 novelty 주장이 아니라, 아래에 명시한
 표적 원문과 explicit 후속연구를 실제 호출 조건별로 대조한 결과다.
 
-가장 가까운 후보는 Bordignon의 2021년 출판논문 Theorem 4다. 이 정리는 임의의 실수
+가장 가까운 후보는 Bordignon의 2021년 출판논문 Theorem 1.4다. 이 정리는 임의의 실수
 \(A>3\)에 대해 예외모듈을 제외한 명시적 Bombieri--Vinogradov형 상계를 준다. 따라서
 \((\log x)^{-100k^2}\) 수준을 만들 가능성이 있는 **주 합성 후보**다. 그러나 다음 연결은 그
 논문이 대신 증명해 주지 않는다.
@@ -126,7 +126,7 @@ FGKMT에 가깝다. 그러나 Hypothesis 1(2)의 지수는 \(100k^2\)이고 실�
 
 ### 4.3 Bordignon 2021: 주 합성 후보
 
-Bordignon Theorem 4는 \(A>3\),
+Bordignon Theorem 1.4는 \(A>3\),
 
 \[
 Q=\frac{\sqrt{x}}{(\log x)^A},\qquad 1\le Q_1\le(\log x)^A
@@ -210,7 +210,7 @@ represented-prime lower bound를 H1c-1b에서 증명해야 한다.
 - actual construction이 finite \(k\)를 고정하는지 먼저 확정한다.
 - 고정 \(k\)라면 필요한 \(A\)와 모든 Bordignon validity condition을 식으로 만든다.
 - growing \(k\)가 필요하면 \(C(A,A-3,X_0)\)까지 uniform하게 상계한다.
-- \(|a|q\)가 Theorem 4의 \(Q\) 이하임을 explicit inequality로 증명한다.
+- \(|a|q\)가 Theorem 1.4의 \(Q\) 이하임을 explicit inequality로 증명한다.
 
 ### H1c-1b.2 — 하나의 exceptional \(B\)
 
@@ -277,3 +277,15 @@ X_cert                           = OPEN
 다음 작업은 더 넓은 막연한 검색이 아니라 H1c-1b.1의 Bordignon parameter·modulus-envelope
 feasibility다. 여기서 불가능 판정이 나오면 original FGKMT route 또는 Johnston식 proof redesign을
 별도 branch로 검토한다.
+
+## 10. 2026-09-09 H1c-1b.1 후속 결과와 provenance 교정
+
+후속 [`H1c-1b.1 정본`](33_Sono_FMT_H1c1b1_parameter_modulus_envelope.md)은 growing
+\(100r^2\) exponent, actual P9.2 identity form과 Bordignon modulus capacity를 확인했다.
+그러나 FGKMT의 \(x/2\) 호출에서 source-selected \(r_s\)가 반복되는 transition strip마다
+인쇄된 dimension range를 한 칸 넘을 수 있음도 확인했다. \(r_s-1\) 보정은 exact하지만
+최종 coefficient 전달은 열려 있으므로 다음 gate를 H1c-1b.1a로 세분한다.
+
+또한 이 inventory의 `MAYNARD2016` local pointer가 다른 Maynard PDF를 가리킨 provenance
+오류를 발견해 실제 *Dense Clusters of Primes in Subsets* 출판 PDF와 SHA-256으로 교정했다.
+당시 핵심 식은 올바른 author TeX에서 확인했으므로 기존 수학 판정은 바뀌지 않는다.

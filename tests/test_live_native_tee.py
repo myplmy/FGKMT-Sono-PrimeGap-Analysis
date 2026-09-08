@@ -51,6 +51,23 @@ class LiveNativeTeeTests(unittest.TestCase):
         )
         return completed, log_path.read_text(encoding="utf-8")
 
+    @staticmethod
+    def _reconstruct_logged_stream(log: str, stream_name: str) -> str:
+        """Rejoin one stream while allowing legitimate cross-stream interleaving."""
+
+        selected: list[str] = []
+        active_stream: str | None = None
+        marker_prefix = "[CAPTURE] stream="
+        for line in log.splitlines(keepends=True):
+            if line.startswith(marker_prefix) and line.rstrip().endswith(" live"):
+                active_stream = line[len(marker_prefix) :].split(" ", 1)[0]
+                continue
+            if line.startswith("[CAPTURE] live_native_tee end"):
+                active_stream = None
+            elif active_stream == stream_name:
+                selected.append(line)
+        return "".join(selected)
+
     def test_stdout_stderr_blank_lines_and_exit_zero_are_preserved(self) -> None:
         completed, log = self._run_broker(
             "print('out-1', flush=True); print('', flush=True); "
@@ -62,7 +79,10 @@ class LiveNativeTeeTests(unittest.TestCase):
         self.assertEqual(completed.stderr, b"")
         self.assertIn("[CAPTURE] stream=stdout live", log)
         self.assertIn("[CAPTURE] stream=stderr live", log)
-        self.assertIn("out-1\n\n", log)
+        self.assertIn(
+            "out-1\n\n",
+            self._reconstruct_logged_stream(log, "stdout"),
+        )
         self.assertIn("err-1", log)
         self.assertIn("child_exit_code=0", log)
 

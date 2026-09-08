@@ -500,7 +500,7 @@ threshold calculator = NOT READY
 
 H1c-1a는 Hypothesis 1(2)와 Maynard Proposition 9.2를 수치화할 explicit 선행정리 후보를
 실제 modulus·중심항·exceptional character·log-saving·cutoff 조건별로 대조했다. 선언한
-source 범위에서 drop-in 정리는 없었다. Bordignon 2021 Theorem 4가 가장 가까운 출판
+source 범위에서 drop-in 정리는 없었다. Bordignon 2021 Theorem 1.4가 가장 가까운 출판
 합성 후보지만 affine modulus coverage, 한 공통 exceptional \(B\), \(\psi\to\pi\), exact
 recentring, represented-prime lower bound와 common cutoff를 새로 연결해야 한다.
 

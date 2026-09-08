@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1a source inventory 완료·drop-in 0·Bordignon 2021 합성후보 / SIV-07·08 HARD_BLOCKER / X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1b.1 actual identity modulus capacity·dyadic one-step repair 닫힘, coefficient transfer OPEN / SIV-07·08 HARD_BLOCKER / X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
@@ -94,10 +94,16 @@ product-profile의 \(2^k\) 손실을 강화 smooth cutoff로 흡수하고 모든
 `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다. 일반 \(\mathcal A\) P94,
 P91/P92/L93/P95, `SIV-07/09`와 `X_cert`는 열려 있다. H1c-1a는 Hypothesis 1(2)와
 Maynard Proposition 9.2의 source inventory를 완료했다. 선언 source 중 drop-in 정리는 없고
-Bordignon 2021 Theorem 4가 `PRIMARY_COMPOSITION_CANDIDATE`다. affine modulus, 한 공통
+Bordignon 2021 Theorem 1.4가 `PRIMARY_COMPOSITION_CANDIDATE`다. affine modulus, 한 공통
 exceptional \(B\), \(\psi\to\pi\), recentering, density와 common cutoff가 남아
-`SIV-08`도 계속 `HARD_BLOCKER`다. 다음 gate는 H1c-1b parameter·modulus-envelope
-feasibility다. 모든 root
+`SIV-08`도 계속 `HARD_BLOCKER`다. H1c-1b.1은 outer \(k_{\mathrm{chain}}=1\)과
+growing sieve/form dimension \(r\)를 분리하고, actual Proposition 9.2의 identity form에서
+\(A(r)=100r^2+10\)을 Bordignon 2021에 점별 대입할 수 있음과 modulus capacity를 닫았다.
+그러나 source \(r_s=\lfloor(\log x)^{1/5}\rfloor\)는 \(T=x/2\)의 반복 transition strip에서
+Maynard dimension 조건을 어긴다. exact repair
+\(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\in\{r_s-1,r_s\}\)는 닫혔지만, \(r\)을 한 단계 줄인 뒤
+FMT/Sono 최종 정규화와 \(2\times10^{-17}\) 계수를 보존하는 증명은 열려 있다. 다음 gate는
+H1c-1b.1a dyadic dimension-to-coefficient transfer다. 모든 root
 dependency가 닫히기 전에는 새 prime sweep·threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus에 합산하지 않는다.
@@ -478,9 +484,10 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018-B를 자동 실행하지 않고, H1c-1b에서 Bordignon 2021의 fixed-\(k\) 또는
-growing-\(A\) 선택과 affine modulus coverage를 먼저 감사하는 것이다. 통과하면 한 공통
-exceptional \(B\), endpoint·\(\psi\to\pi\)·recentring·density·common cutoff 순으로
+다음 권장 행동은 P018-B를 자동 실행하지 않고, H1c-1b.1a에서 actual \(x/2\) scale에 맞춘
+\(r_T\) 또는 \(r_s-1\) 선택이 FMT/Sono의 \(\log_4x/\log_3x\) 정규화와 최종 명시 계수를
+보존하는지 먼저 증명하는 것이다. 통과하면 H1c-1b.2의 한 공통 exceptional \(B\),
+H1c-1b.3의 endpoint·\(\psi\to\pi\)·recentring, H1c-1b.4의 density·common cutoff 순으로
 Proposition 9.2 package를 합성한다. actual P94 식 (9.52)의 직접 선결조건으로 다시 연결하지 않는다.
 그 뒤 P91/P92/L93/P95와 공통 moment error budget을 합성한다.
 H1과 병행할 수 있는 보조축은 explicit

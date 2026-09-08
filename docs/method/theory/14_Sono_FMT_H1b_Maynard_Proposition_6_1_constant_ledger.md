@@ -520,10 +520,25 @@ moment budget, 특히 Proposition 9.2의 H1c-1 입력이 남으므로
 
 Proposition 9.2가 실제로 요구하는 Bdd3의 정량 source 후보를 H1c-1a에서 감사했다. 조사한
 선언 source 중 Maynard의 centered discrepancy를 그대로 숫자화하는 drop-in 정리는 없었다.
-Bordignon 2021 Theorem 4가 가장 가까운 합성 후보지만 affine modulus, exceptional \(B\),
+Bordignon 2021 Theorem 1.4가 가장 가까운 합성 후보지만 affine modulus, exceptional \(B\),
 \(\psi\to\pi\), exact recentering, prime density, parameter growth와 common cutoff를 추가로
 증명해야 한다.
 
 이 결과는 P94의 닫힌 actual child를 되돌리지 않지만 P9.2를 닫지도 않는다. 따라서
 `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`은 유지하고, `H1B-P92`, `H1B-COMP-01`,
 `SIV-07/09`, \(X_{\mathrm{cert}}\)는 계속 열린다. 다음 직접 gate는 H1c-1b다.
+
+## 24. 2026-09-09 H1c-1b.1 actual P9.2 parameter·modulus 반영
+
+H1c-1b.1은 FGKMT 식 (6.5)의 actual Proposition 9.2 대상이
+\(\widetilde L_{q,i,i}(n)=n\) 하나임을 source에서 확인했다. 따라서 이 호출에는 일반
+\(|a|q\) affine lift가 필요 없고, growing dimension의 요구 지수는 \(100r^2\)이다.
+Bordignon \(A(r)=100r^2+10\)의 endpoint-safe modulus capacity는 모든 정수 \(r\ge36\)에서
+닫혔다.
+
+하지만 source의 \(r_s=\lfloor(\log x)^{1/5}\rfloor\)와 actual call endpoint \(x/2\) 사이에는
+반복되는 한 칸 transition mismatch가 있다. \(r_s-1\) 보정의 admissibility는 exact하지만,
+이를 P9.2 moment와 FMT/Sono 최종 coefficient에 전파하는 증명은 남아 있다. 그러므로
+`H1B-P92=RATE_MISSING`, `H1B-COMP-01=HARD_BLOCKER`,
+`SIV-07/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`이다. 다음 직접 gate는
+H1c-1b.1a다.

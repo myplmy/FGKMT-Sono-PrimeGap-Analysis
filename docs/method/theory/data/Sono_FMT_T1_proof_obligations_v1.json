@@ -1041,7 +1041,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "uniform AP-distribution certificate",
-      "notes": "H1c shows that clauses (1) and (3) have elementary finite sufficient reductions. H1c-1a found no drop-in numerical source for clause (2); Bordignon 2021 is the primary composition candidate but affine-modulus coverage, one common exceptional B, exact recentering, psi-to-pi, prime density, parameter growth, multipliers, and a common finite cutoff remain open. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
+      "notes": "H1c shows that clauses (1) and (3) have elementary finite sufficient reductions. H1c-1a found no drop-in numerical source for clause (2), with Bordignon 2021 as the primary composition candidate. H1c-1b.1 distinguishes outer chain k=1 from the growing sieve dimension, prunes the actual Proposition 9.2 call to the identity form, and closes Bordignon modulus capacity. It also finds that Sono/FMT source_r=floor((log x)^(1/5)) is not covered verbatim by the printed Maynard k-range at the recurring x/2 transition strips. A one-step source_r-1 repair is elementary, but its downstream normalization and final-coefficient transfer remain open. One common exceptional B, exact recentering, psi-to-pi, prime density, full multipliers, and a common finite cutoff also remain open. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
     },
     {
       "id": "SIV-09",

@@ -150,8 +150,17 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
         )
         self.assertEqual(
+            self.document["h1c1b1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b1_parameter_modulus_envelope_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1-SIV-08"]["recoverability"],
             "QUANTITATIVE_REPROOF_REQUIRED",
+        )
+        self.assertIn(
+            "recurring dyadic transition strip",
+            self.by_id["H1-SIV-08"]["printed_information"],
         )
         siv_07 = next(
             row for row in self.rows if row["target_obligation"] == "SIV-07"

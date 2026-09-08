@@ -242,9 +242,9 @@ Sono의 parameter를 대입한 명목 계수는
 |---|---|---|
 | `SIV-01` | finite (r_0), admissible (c_0) | `HARD_BLOCKER` |
 | `SIV-02` | nonnegative good weight의 존재 | `HARD_BLOCKER` |
-| `SIV-03` | (sigma y) Mertens error | `PARTIAL` |
-| `SIV-04` | (	au\ge x^{-o(1)}) | `RATE_MISSING` |
-| `SIV-05` | (u\asymp\log r) | `RATE_MISSING` |
+| `SIV-03` | \(\sigma y\) Mertens error | `PARTIAL` |
+| `SIV-04` | \(\tau\ge x^{-o(1)}\) | `RATE_MISSING` |
+| `SIV-05` | \(u\asymp\log r\) | `RATE_MISSING` |
 | `SIV-06` | Maynard (J_r/I_r) finite-r bound | `EXPLICIT` (`r>=36`, project H1a) |
 | `SIV-07` | Maynard Proposition 6.1 constants | `HARD_BLOCKER` |
 | `SIV-08` | FGKMT Hypothesis 1 constants | `HARD_BLOCKER` |
@@ -566,3 +566,22 @@ successor pointer를 동기화했으며 66개 root row의 상태 수는 바꾸�
 따라서 `SIV-08=HARD_BLOCKER`, `SIV-07/09=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}\)=`OPEN`이다. 다음 root-critical gate는 H1c-1b의 parameter/modulus
 envelope와 한 exceptional \(B\), exact transfer와 common cutoff 합성이다.
+
+## 23. 2026-09-09 H1c-1b.1 parameter·modulus 감사 반영
+
+H1c-1b.1은 outer chain parameter \(k_{\mathrm{chain}}=1\), Sono/FMT의 growing sieve
+dimension \(r_s\), Maynard linear-form count \(k=r\)을 분리했다. 따라서 Hypothesis 1(2)의
+필요 지수는 고정 100이 아니라 \(100r^2\)이다. Bordignon Theorem 1.4에
+\(A(r)=100r^2+10\)을 점별 대입할 수 있고, endpoint-safe \(r\ge36\)에서 actual
+Proposition 9.2 identity-form modulus capacity는 project finite lemma로 닫혔다.
+
+동시에 FGKMT 식 (6.5)가 Theorem 6을 \(x/2\)에서 호출한다는 사실 때문에,
+\(r_s=\lfloor(\log x)^{1/5}\rfloor\)를 그대로 쓰면 반복되는 transition strip에서
+인쇄된 \(k\le(\log(x/2))^{1/5}\) 조건을 만족하지 않는다는 경계 문제를 발견했다.
+\(r_s-1\) 또는 \(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\)가 항상 안전하다는 초등 보정은
+닫혔지만, 이 보정이 actual weight normalization과 Sono의 최종 coefficient를 보존하는지는
+열려 있다.
+
+따라서 66개 root row의 상태 수는 바뀌지 않는다.
+`SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`이며 다음 gate는
+H1c-1b.1a의 dyadic dimension-to-coefficient transfer다.

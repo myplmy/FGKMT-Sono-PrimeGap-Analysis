@@ -136,6 +136,14 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         ):
             self.assertIn(row_id, self.by_id)
 
+        p92 = self.by_id["H1B-P92"]
+        self.assertEqual(p92["status"], "RATE_MISSING")
+        self.assertIn("identity form", " ".join(p92["explicit_parts"]))
+        self.assertIn(
+            "one-step dimension repair",
+            " ".join(p92["missing_numeric_inputs"]),
+        )
+
     def test_h1b1_trace_resolves_source_identity_not_numeric_rate(self) -> None:
         self.assertEqual(
             self.document["h1b1_ledger"],

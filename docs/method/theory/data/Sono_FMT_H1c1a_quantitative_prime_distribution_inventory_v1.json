@@ -122,9 +122,9 @@
       "doi": "10.1112/S0010437X16007296",
       "arxiv": "1405.2593",
       "url": "https://arxiv.org/abs/1405.2593",
-      "local_locator": "tmp/pdfs/h1b2a/Maynard2015_Small_Gaps_published.pdf",
-      "sha256": "3c24d010f00d1212418351b6f6baed9c94251a3ce958c36f56ebbc450ade9349",
-      "reviewed_locations": "Hypothesis 1(2); Proposition 9.2; equation Bdd3; author TeX lines 60-76 and 774-809",
+      "local_locator": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "reviewed_locations": "Hypothesis 1(2), page 1518; Proposition 9.2, pages 1539-1540; author TeX lines 60-76 and 774-809",
       "publication_status": "PEER_REVIEWED",
       "role": "TARGET_CONTRACT"
     },
@@ -325,7 +325,7 @@
       "source_keys": ["BORDIGNON2021"],
       "classification": "PRIMARY_COMPOSITION_CANDIDATE",
       "direct_substitute": false,
-      "usable_output": "Published Theorem 4 allows any real A>3, gives an explicit non-exceptional-modulus average bound, and Theorem 2 isolates an exceptional-zero contribution pointwise.",
+      "usable_output": "Published Theorem 1.4 allows any real A>3, gives an explicit non-exceptional-modulus average bound, and Theorem 1.2 isolates an exceptional-zero contribution pointwise.",
       "blocking_requirements": ["H1C1A-R01", "H1C1A-R02", "H1C1A-R03", "H1C1A-R04", "H1C1A-R05", "H1C1A-R06", "H1C1A-R07", "H1C1A-R08", "H1C1A-R09", "H1C1A-R10", "H1C1A-R11", "H1C1A-R12"],
       "reason": "It is the closest source, but the project must still prove the actual parameter composition and all bridges rather than quote it as H1(2)."
     },
@@ -393,11 +393,23 @@
     "status": "IDENTITY_ROUTE_IDENTIFIED_PROOF_AND_SUM_BOUND_OPEN",
     "requirements": ["H1C1A-R01", "H1C1A-R06", "H1C1A-R09"]
   },
+  "successor_parameter_envelope": {
+    "id": "H1c-1b.1",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b1_parameter_modulus_envelope_v1.json",
+    "outcome": "GROWING_R_CONFIRMED_POINTWISE_DIAGONAL_AND_MODULUS_CAPACITY_CLOSED_DYADIC_ONE_STEP_REPAIR_COEFFICIENT_TRANSFER_OPEN",
+    "actual_p92_modulus_envelope_closed": true,
+    "general_affine_scale_envelope_closed": true,
+    "printed_source_r_dyadic_admissibility_closed": false,
+    "one_step_dimension_repair_available": true,
+    "downstream_repaired_dimension_coefficient_transfer_closed": false,
+    "full_distribution_package_ready": false,
+    "numerical_x_cert_ready": false
+  },
   "next_gate": {
-    "id": "H1c-1b",
-    "description": "Prove or reject the Bordignon-2021 composition for the actual FGKMT/Maynard call: first settle fixed-k versus growing-k parameterization and modulus coverage; then common exceptional B; then exact affine, endpoint, psi-to-pi, recentering, and represented-prime-density transfers; finally assemble one numerical multiplier and cutoff.",
+    "id": "H1c-1b.1a",
+    "description": "First propagate the endpoint-safe one-step dimension repair through the actual FMT/Sono normalization and coefficient inequalities; then reconcile FGKMT's one exceptional conductor/prime B with Bordignon's q0.",
     "recommended_subgates": [
-      "H1c-1b.1 Bordignon parameter and modulus-envelope feasibility",
+      "H1c-1b.1a dyadic endpoint-safe dimension and coefficient transfer",
       "H1c-1b.2 one-common-exceptional-modulus and B uniformization",
       "H1c-1b.3 affine, endpoint, psi-to-pi, and recentering transfer",
       "H1c-1b.4 represented-prime-density lower bound and common cutoff"

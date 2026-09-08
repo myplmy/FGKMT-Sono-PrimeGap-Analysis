@@ -62,7 +62,7 @@ explicit distribution theorem을 찾아 적용하는 것이 직접 재증명보�
 ### 타당한 부분
 
 - peer-reviewed 출판본이다.
-- Theorem 4가 임의의 실수 \(A>3\)를 허용한다.
+- Theorem 1.4가 임의의 실수 \(A>3\)를 허용한다.
 - 예외모듈을 분리한 explicit 평균상계와 Theorem 2의 pointwise component가 함께 있다.
 - \(q\le x^{1/3}\)은 고전적인 \(x^{1/2}\) 범위보다 작으므로, log 손실을 감안한 modulus
   coverage가 충분히 큰 \(x\)에서 가능할 개연성이 있다.
@@ -134,3 +134,13 @@ effective theorem exists
 지금 numerical threshold 계산 가능 = NO
 X_cert                              = OPEN
 ```
+
+## 9. 2026-09-09 H1c-1b.1 후속 보정
+
+후속 감사에서 Bordignon modulus 폭은 충분하다고 확인했지만, 원래 \(x\)에서 고른 sieve
+dimension을 actual \(x/2\) 호출에 그대로 넣을 때 짧고 반복되는 transition strip에서 한 칸
+초과할 수 있음을 발견했다. \(r-1\)로 줄이면 정확히 안전하지만 Sono의 최종 coefficient에
+미치는 영향을 다시 대입해야 한다.
+
+따라서 이 문서 6절의 과거 2순위보다 새 H1c-1b.1a를 먼저 수행한다. 상세 판정은
+[`H1c-1b.1 검토`](39_20260909_H1c1b1_parameter_modulus_envelope_타당성검토.md)를 따른다.

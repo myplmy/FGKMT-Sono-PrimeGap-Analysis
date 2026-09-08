@@ -9,7 +9,7 @@
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
 - 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a와 H1b-1 계열은 finite-r 적분비, Lemma 8.2 multiplier 89, 교정된 \(\kappa=1\) one-step multiplier, 실제 제외모듈과 Lemma 8.4 관련 하위호출 9/9를 parameterized explicit 수준으로 닫았다.
   2026-09-08 H1b-2a는 Lemma 8.5의 coefficient·weight envelope와 Lemma 8.6의 절대 \(I_k,J_k\) 크기 및 보수적 \(F_1/F_2\) 비교를 유한식으로 닫았다. H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱도 exact local factor와 finite singular-series 비교로 닫았다.
-  H1b-2a.2는 실제 \(\mathcal A=\mathbb Z,D=1\) 호출의 정확한 \(E_q^{(1)}\le1\)을 이용해 식 (9.52) distribution child를 parameterized explicit으로 닫았다. H1b-2a.3은 actual FGKMT/FMT P94의 모든 닫힌 child를 공통 cutoff로 합성해 모든 정수 \(k\ge36\)에서 multiplier 13 미만을 얻었고, `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격했다. 2026-09-09 H1c-1a는 quantitative character/Bombieri–Vinogradov source inventory를 완료했다. 바로 대입 가능한 정리는 없고 Bordignon 2021을 주 합성 후보로 선정했으나 12개 bridge/composition 의무가 남는다. 다음 root-critical gate는 H1c-1b parameter·modulus-envelope feasibility다. `SIV-07/08=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+  H1b-2a.2는 실제 \(\mathcal A=\mathbb Z,D=1\) 호출의 정확한 \(E_q^{(1)}\le1\)을 이용해 식 (9.52) distribution child를 parameterized explicit으로 닫았다. H1b-2a.3은 actual FGKMT/FMT P94의 모든 닫힌 child를 공통 cutoff로 합성해 모든 정수 \(k\ge36\)에서 multiplier 13 미만을 얻었고, `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격했다. 2026-09-09 H1c-1a는 quantitative character/Bombieri–Vinogradov source inventory를 완료했고, H1c-1b.1은 actual Proposition 9.2의 identity form에 대해 Bordignon 2021의 pointwise growing-\(A\) 대입과 modulus capacity를 닫았다. 다만 FGKMT의 \(r=\lfloor(\log x)^{1/5}\rfloor\)와 실제 \(x/2\) 호출 사이에는 반복되는 transition strip이 있어, \(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\in\{r-1,r\}\)라는 exact one-step repair 뒤 최종 계수가 유지되는지 아직 증명해야 한다. 다음 root-critical gate는 H1c-1b.1a dyadic dimension-to-coefficient transfer다. `SIV-07/08=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -781,15 +781,45 @@ Proposition 9.2와 전체 good-weight theorem 때문에 남는다.
 
 2026-09-09 H1c-1a source inventory는 Maynard의 exact centered discrepancy와 FGKMT actual
 parameter를 계약으로 고정하고 explicit 후보들을 적용 조건별로 대조했다. 선언한 source 안에서
-drop-in 정리는 0개다. Bordignon 2021 Theorem 4가 임의 \(A>3\)와 explicit
+drop-in 정리는 0개다. Bordignon 2021 Theorem 1.4가 임의 \(A>3\)와 explicit
 non-exceptional-modulus average를 제공해 `PRIMARY_COMPOSITION_CANDIDATE`로 선정됐다. 그러나
 fixed-\(k\) 또는 growing-\(A\) 선택, \(|a|q\) coverage, 한 공통 exceptional \(B\), 반열린
 endpoint, \(\psi\to\pi\), exact total-count recentering, represented-prime density와 common
 cutoff가 열려 있다. Sedunova 2019 Corollary 1.4는 Johnston 2026의 \(B-3\) 교정을 적용하지
 않고 사용하지 않는다. 정본은
 `docs/method/theory/32_Sono_FMT_H1c1a_quantitative_prime_distribution_source_inventory.md`와
-`docs/review/38_20260909_H1c1a_quantitative_prime_distribution_타당성검토.md`다. 다음 gate는
-H1c-1b이고 source inventory만으로 `SIV-07/08` 또는 `X_cert`를 승격하지 않는다.
+`docs/review/38_20260909_H1c1a_quantitative_prime_distribution_타당성검토.md`다.
+
+H1c-1b.1은 먼저 서로 다른 세 매개변수를 분리했다. outer chain parameter는
+\(k_{\mathrm{chain}}=1\)로 고정되지만, FGKMT Section 8의 sieve dimension과 Maynard의 form
+count는 둘 다 \(r\)이며 \(x\)와 함께 증가한다. 따라서 Hypothesis 1(2)의 saving exponent는
+\(100\)이 아니라 \(100r^2\)이다. Bordignon 2021 Theorem 1.4는 모든 실수 \(A>3\)에 대한
+명제이므로 같은 \(x\)에서 \(A(r)=100r^2+10\)을 점별로 대입할 수 있다. actual Proposition
+9.2 호출은 \(\mathcal L'=\{n\}\)인 identity form이고, 그 modulus 조건
+\[
+\frac{\log T}{6}\ge A(r)\log\log T
+\]
+은 \(r\ge36\)에서 exact rational/calculus certificate로 닫힌다. 일반 affine family를 위한
+\(\log T/6\ge(A(r)+5/3)\log\log T\)도 capacity envelope로만 닫혔으며 endpoint/count transfer는
+아직 포함하지 않는다.
+
+그러나 source가 택한 \(r_s=\lfloor(\log x)^{1/5}\rfloor\)를 actual scale \(T=x/2\)에 그대로
+넣으면
+\[
+r_s^5\le\log x<r_s^5+\log2
+\]
+인 반복 transition strip에서 \(r_s>(\log T)^{1/5}\)가 되어 Maynard의 인쇄된 dimension
+가정을 만족하지 않는다. 이는 큰 \(x\) 하나를 택해 없앨 수 없는 반복 경계다. exact repair는
+\[
+r_T=\lfloor(\log(x/2))^{1/5}\rfloor\in\{r_s-1,r_s\}
+\]
+이며 \(r_s-1\)은 항상 admissible하다. 하지만 이 한 단계 감소가 FMT/Sono의 최종
+\(\log_4x/\log_3x\) 정규화와 명시 계수 \(2\times10^{-17}\)을 보존하는 연결 증명은 열려 있다.
+따라서 H1c-1b.1의 판정은 modulus capacity에 대해서만 닫힘이고, 다음 gate는
+H1c-1b.1a dyadic dimension-to-coefficient transfer다. 정본은
+`docs/method/theory/33_Sono_FMT_H1c1b1_parameter_modulus_envelope.md`와
+`docs/review/39_20260909_H1c1b1_parameter_modulus_envelope_타당성검토.md`다.
+이 결과만으로 `SIV-07/08` 또는 `X_cert`를 승격하지 않는다.
 모든 root dependency가 닫히기
 전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
 
