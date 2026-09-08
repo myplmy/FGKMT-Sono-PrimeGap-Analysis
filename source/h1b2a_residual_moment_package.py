@@ -15,6 +15,7 @@ import mpmath as mp
 from source.h1a_finite_r_integral import H1A_Q_DENOMINATOR, H1A_Q_NUMERATOR
 from source.h1b1b2_local_factor_lower_bound import APPLICATION_L620_D_W
 from source.h1b1b2d_rfold_smooth_package import rfold_error_certificate
+from source.h1b2a1_proposition94_euler import euler_tail_certificate
 
 
 H1B2A_MINIMUM_K = 36
@@ -72,6 +73,8 @@ class Proposition94LocalCertificate:
     first_euler_log_upper: mp.mpf
     first_euler_multiplier_upper: mp.mpf
     squared_y_multiplier_upper: mp.mpf
+    final_two_euler_multiplier_upper: mp.mpf
+    full_line_966_normalization_multiplier_upper: mp.mpf
     symmetry_multiplier: int
     distribution_error_closed: bool
     final_euler_products_closed: bool
@@ -225,8 +228,9 @@ def proposition94_local_certificate(k: int) -> Proposition94LocalCertificate:
 
     For ``p>2k^2`` and ``m=omega*(p)<=k+1``, the line-(9.57) factor
     ``(p+m-2)/(p-m)^2`` is at most ``2/p``.  The first Euler product in
-    (9.63) is at most ``exp(2/k)``.  These facts do not close the
-    distribution error in (9.52) or the two products in (9.67).
+    (9.64) is at most ``exp(2/k)``.  H1b-2a.1 additionally closes the two
+    products displayed in (9.66).  The distribution error in (9.52), and
+    therefore Proposition 9.4 as a whole, remain open.
     """
 
     _validate_k(k)
@@ -235,6 +239,7 @@ def proposition94_local_certificate(k: int) -> Proposition94LocalCertificate:
     denominator_ratio = (1 + maximum_u) / (1 - maximum_u) ** 2
     first_log = 2 / k_mpf
     first_multiplier = mp.exp(first_log)
+    final_euler = euler_tail_certificate(k)
     return Proposition94LocalCertificate(
         k=k,
         maximum_u=maximum_u,
@@ -243,9 +248,15 @@ def proposition94_local_certificate(k: int) -> Proposition94LocalCertificate:
         first_euler_log_upper=first_log,
         first_euler_multiplier_upper=first_multiplier,
         squared_y_multiplier_upper=first_multiplier**2,
+        final_two_euler_multiplier_upper=(
+            final_euler.final_two_products_multiplier_upper
+        ),
+        full_line_966_normalization_multiplier_upper=(
+            final_euler.full_line_966_multiplier_upper
+        ),
         symmetry_multiplier=1,
         distribution_error_closed=False,
-        final_euler_products_closed=False,
+        final_euler_products_closed=final_euler.final_euler_products_closed,
         proposition_94_closed=False,
         siv_07_closed=False,
         x_cert_ready=False,

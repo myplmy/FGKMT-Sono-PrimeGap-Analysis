@@ -116,8 +116,20 @@ class H1b2aResidualMomentPackageTests(unittest.TestCase):
                         mp.exp(mp.mpf(2) / k),
                     )
                 )
+                self.assertTrue(
+                    mp.almosteq(
+                        cert.final_two_euler_multiplier_upper,
+                        mp.exp(mp.mpf(2) + mp.mpf(2) / k),
+                    )
+                )
+                self.assertTrue(
+                    mp.almosteq(
+                        cert.full_line_966_normalization_multiplier_upper,
+                        mp.exp(mp.mpf(2) + mp.mpf(6) / k),
+                    )
+                )
                 self.assertFalse(cert.distribution_error_closed)
-                self.assertFalse(cert.final_euler_products_closed)
+                self.assertTrue(cert.final_euler_products_closed)
                 self.assertFalse(cert.proposition_94_closed)
                 self.assertFalse(cert.siv_07_closed)
                 self.assertFalse(cert.x_cert_ready)
@@ -142,7 +154,7 @@ class H1b2aResidualMomentPackageTests(unittest.TestCase):
         self.assertEqual(contract["schema_version"], "1.0.0")
         self.assertEqual(
             contract["outcome"],
-            "LEMMA85_AND_LEMMA86_FINITE_COMPONENTS_CLOSED_P94_PARTIAL_PARENT_OPEN",
+            "LEMMA85_LEMMA86_AND_P94_EULER_FINITE_COMPONENTS_CLOSED_P94_PARENT_OPEN",
         )
         self.assertEqual(len(contract["source_registry"]), 3)
         for source in contract["source_registry"]:
@@ -171,7 +183,7 @@ class H1b2aResidualMomentPackageTests(unittest.TestCase):
         )
         self.assertEqual(
             children["H1B2A-P94-FINAL-EULER"]["status"],
-            "RATE_MISSING",
+            "PROJECT_FINITE_COMPONENT_CLOSED",
         )
         parent = contract["parent_status"]
         self.assertEqual(

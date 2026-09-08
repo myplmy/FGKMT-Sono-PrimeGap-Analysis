@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2.0",
+  "schema_version": "1.3.0",
   "created_kst": "2026-09-02 17:22",
   "updated_kst": "2026-09-08",
   "h1b1_ledger": "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
@@ -11,6 +11,8 @@
   "h1b1b2d1a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
   "h1b1b2d1a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
   "h1b1b2d1b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
+  "h1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b2a_residual_moment_error_v1.json",
+  "h1b2a1_ledger": "docs/method/theory/data/Sono_FMT_H1b2a1_Proposition94_Euler_normalization_v1.json",
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
   "target": "For every X >= X_cert, G_1(X) >= 2e-17 * log(X) * log_2(X) * log_4(X) / log_3(X)",
   "scope": "Direct proof edges from Sono Theorem 3.6 through the cited FMT, FGKMT, and Maynard layers. This is an obligation inventory, not a numerical threshold certificate.",
@@ -1019,7 +1021,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "quantitative reproof",
-      "notes": "H1b registered 17 Maynard Section 8-9 obligations. H1b-1b-2b supplies a corrected kappa=1 one-step multiplier, H1b-1b-2a.1 closes all 11 application excluded-modulus bounds, and H1b-1b-2c certifies actual a=1/2, A2=8 and L=5+log(Lambda_star). H1b-1b-2d closes support-scaled finite-product composition for eight smooth Lemma 8.4 calls, H1b-1b-2d.1a removes the need for a global C1 version of the source-line-905 H remainder, H1b-1b-2d.1a.1 closes its scalar pointwise multiplier, and H1b-1b-2d.1b closes the two sharp xi*log(x) factors using the actual FGKMT/FMT specialization. H1b-2a closes finite Lemma 8.5 coefficient/weight envelopes and Lemma 8.6 absolute I/J size plus safe coarse F1/F2 comparisons. It also closes three local Proposition 9.4 factors, but the distribution error, final Euler normalization, other moment constants, common error budget and Hypothesis 1 inputs remain open. The paper states effectivity conditional on effective Hypothesis 1 constants, not numerical instantiation; SIV-07 therefore remains a hard blocker."
+      "notes": "H1b registered 17 Maynard Section 8-9 obligations. H1b-1b-2b supplies a corrected kappa=1 one-step multiplier, H1b-1b-2a.1 closes all 11 application excluded-modulus bounds, and H1b-1b-2c certifies actual a=1/2, A2=8 and L=5+log(Lambda_star). H1b-1b-2d closes support-scaled finite-product composition for eight smooth Lemma 8.4 calls, H1b-1b-2d.1a removes the need for a global C1 version of the source-line-905 H remainder, H1b-1b-2d.1a.1 closes its scalar pointwise multiplier, and H1b-1b-2d.1b closes the two sharp xi*log(x) factors using the actual FGKMT/FMT specialization. H1b-2a closes finite Lemma 8.5 coefficient/weight envelopes and Lemma 8.6 absolute I/J size plus safe coarse F1/F2 comparisons. H1b-2a.1 additionally closes the Proposition 9.4 equation-(9.66) final Euler normalization, including the squared equation-(9.64) factor, but the equation-(9.52) distribution error, other moment constants, common error budget and Hypothesis 1 inputs remain open. The paper states effectivity conditional on effective Hypothesis 1 constants, not numerical instantiation; SIV-07 therefore remains a hard blocker."
     },
     {
       "id": "SIV-08",

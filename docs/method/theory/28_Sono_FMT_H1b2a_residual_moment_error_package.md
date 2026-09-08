@@ -38,10 +38,11 @@ J_k(F)>
 도 유한하게 닫힌다. (F_1,F_2) 비교도 균일한 `O(1)` 대신 다소 큰
 (2^k,C_J(k))를 허용하면 계산 가능한 식으로 바뀐다.
 
-Proposition 9.4에서는 식 (9.56)--(9.63)의 대수 계수, exact denominator와 첫 Euler 곱을
-명시했다. 그러나 식 (9.52)의 distribution error와 식 (9.67)의 마지막 두 Euler 곱은
-아직 숫자 상수와 공통 cutoff가 없다. 따라서 Proposition 9.4와 전체 good sieve weight는
-닫히지 않았다.
+Proposition 9.4에서는 식 (9.56)--(9.64)의 대수 계수, exact denominator와 앞쪽 Euler 곱을
+명시했다. 후속 H1b-2a.1은 식 (9.66)의 마지막 두 Euler 곱도 exact local factor와 finite
+singular-series 비교로 닫았다. 현재 Proposition 9.4에 남은 직접 blocker는 식 (9.52)의
+distribution error와 다른 moment들과의 공통 cutoff다. 따라서 Proposition 9.4와 전체
+good sieve weight는 아직 닫히지 않았다.
 
 쉽게 말하면, 이번에는 저울에 올릴 **주항의 최소 무게**와 일부 포장재의 최대 무게를
 숫자식으로 만들었다. 하지만 운송 중 생기는 분포 오차와 마지막 포장 두 겹의 무게표가
@@ -352,7 +353,7 @@ p\frac{p+m-2}{(p-m)^2}
 \tag{28.16}
 \]
 
-### 7.3 식 (9.63)의 첫 Euler 곱
+### 7.3 식 (9.64)의 앞쪽 Euler 곱
 
 (p>2k^2), (omega(p)\le k)이므로
 
@@ -375,15 +376,17 @@ p\frac{p+m-2}{(p-m)^2}
 따라서 식 (9.65)의 (y_{\mathbf r,r_0}) 상계에는 (e^{2/k}), 제곱합에는
 (e^{4/k})를 안전하게 쓸 수 있다.
 
-## 8. Proposition 9.4에 남은 두 blocker
+## 8. Proposition 9.4에 남은 blocker
 
 1. **식 (9.52)의 distribution error.** 원문은 Proposition 9.1과 동일한 논증으로
    negligible하다고 한다. Lemma 8.5의 finite coefficient bound는 이제 쓸 수 있지만,
    Hypothesis 1(1),(3)의 multiplier와 유효 시작점이 없으므로 최종 흡수 부등식은 열려 있다.
-2. **식 (9.67)의 두 Euler 곱.** 원문은
-   (prod(1+O(k)/p^2)=O(1))과 singular-series 역수 비교를 사용한다. 이 식은 exact
-   pre-(O(k)) local factor를 다시 복원한 뒤에야 수치화할 수 있다. 현재 단계에서
-   `O(k)`를 (k) 또는 1로 임의 치환하지 않는다.
+2. **후속 완료: 식 (9.66)의 두 Euler 곱.** H1b-2a.1은 `O(k)` 이전의 exact local
+   factor를 복원해 두 곱을
+   \(e^{2+2/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이하로 닫았다. 위 식 (9.64)의
+   multiplier가 제곱합에서 두 번 들어가는 것까지 포함한 전체 normalization은
+   \(e^{2+6/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이하이다. 정확한 정본은
+   [`29_Sono_FMT_H1b2a1_Proposition94_exact_Euler_normalization.md`](29_Sono_FMT_H1b2a1_Proposition94_exact_Euler_normalization.md)다.
 
 식 (9.70)의 residue-class factor는 exact 항등식 뒤 각 extra factor가 1 이하이므로 새
 blocker가 아니다. 기존 theory 27이 식 (9.58), (9.66)의 sharp cutoff도 이미 닫았다.
@@ -425,3 +428,12 @@ Proposition 9.4 전체를 컴퓨터가 증명하는 것은 아니다.
 
 사용자 수행절차: 별도 수행절차 필요없음. 실제 소수 데이터 실험, threshold 계산,
 추가 Python 패키지 또는 Lean은 이번 gate에 필요하지 않다.
+
+## 11. 2026-09-08 H1b-2a.1 후속 상태
+
+식 번호 재감사 결과 앞쪽 곱의 정확한 displayed 위치는 (9.64), 마지막 두 곱의 위치는
+(9.66)이며 (9.67)은 이를 Vinogradov 기호로 흡수한 결과다. H1b-2a.1은 마지막 두 곱과
+제곱 보정을 finite하게 닫았으므로 `H1B2A-P94-FINAL-EULER`는
+`PROJECT_FINITE_COMPONENT_CLOSED`다. 다만 식 (9.52)의 distribution child는
+`INPUT_PACKAGE_MISSING`이고, 따라서 `H1B-P94=RATE_MISSING`,
+`SIV-07/09=HARD_BLOCKER`, \(X_{\rm cert}=\)`OPEN`은 변하지 않는다.

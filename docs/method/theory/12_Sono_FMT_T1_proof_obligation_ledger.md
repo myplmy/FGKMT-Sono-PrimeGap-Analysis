@@ -337,8 +337,8 @@ hard-blocker 수 또는 \(X_{\mathrm{cert}}\)의 상태를 올리지 않는다.
 3. 병렬 이론축 `H1c-1`에서 FGKMT (7.2)–(7.3)의 quantitative
    character/Bombieri–Vinogradov package를 복원한다.
 4. **부분 완료:** `H1b-2a`가 Lemma 8.5 finite weight envelope와 Lemma 8.6 absolute
-   size·coarse comparison을 닫았다. 현재 직접 축은 Proposition 9.4 식 (9.67)의 exact
-   Euler normalization과 식 (9.52)의 distribution error다.
+   size·coarse comparison을 닫았고, `H1b-2a.1`이 Proposition 9.4 식 (9.66)의 exact
+   Euler normalization을 닫았다. 현재 직접 축은 식 (9.52)의 distribution error다.
 5. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
 6. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
 7. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
@@ -500,10 +500,24 @@ comparison multiplier를 주었다. actual `L620_dW` 오차와 elementary suppor
 
 따라서 H1b 하위행 `H1B-L85`와 `H1B-L86-SIZE`는 각각
 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`, `PROJECT_FINITE_COMPONENT_CLOSED`로 이동한다.
-Proposition 9.4에서는 square algebra, denominator (\le2/p), 첫 Euler 곱
-(\le e^{2/k})만 닫혔다. 식 (9.52)의 distribution error와 식 (9.67)의 마지막 두
-Euler normalization은 열려 있다.
+Proposition 9.4에서는 square algebra, denominator (\le2/p), 식 (9.64)의 앞쪽 Euler 곱
+(\le e^{2/k})을 닫았다. 이 단락 작성 당시 식 (9.52)의 distribution error와 식 (9.66)의
+마지막 두 Euler normalization이 열려 있었으나, 아래 Section 19에서 Euler 항은 닫힌다.
 
 T1의 `SIV-07`은 Proposition 6.1 전체 행이므로 계속 `HARD_BLOCKER`이고, 66행 상태 수와
-(X_{\mathrm{cert}})=`OPEN`도 변하지 않는다. 다음 직접 축은 H1b-2a.1 exact Euler
-normalization, 이어 H1b-2a.2 distribution error와 H1c-1의 quantitative character package다.
+(X_{\mathrm{cert}})=`OPEN`도 변하지 않는다. 다음 직접 축은 H1b-2a.2 distribution
+error와 H1c-1의 quantitative character package다.
+
+## 19. 2026-09-08 H1b-2a.1 exact Euler normalization 반영
+
+H1b-2a.1은 Maynard Proposition 9.4 식 (9.61)의 exact denominator에서 식 (9.66)의
+두 Euler 곱을 복원했다. \(p>2k^2\)에서 local excess를 각각
+\(4k/p^2\), \(4k^2/p^2\)로 지배해 마지막 두 곱을
+\(e^{2+2/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이하로 닫았다. 식 (9.64)의
+앞쪽 multiplier가 제곱합에 두 번 들어가는 것까지 포함하면 전체는
+\(e^{2+6/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이하이다.
+
+이로써 `H1B2A-P94-FINAL-EULER`만 `PROJECT_FINITE_COMPONENT_CLOSED`로 이동한다.
+식 (9.52)의 distribution error, 다른 moment와의 공통 cutoff·error budget은 남아
+`SIV-07=HARD_BLOCKER`, T1의 66행 상태 수와 \(X_{\mathrm{cert}}=\)`OPEN`은
+변하지 않는다. 다음 직접 gate는 H1b-2a.2이며 H1c-1이 병렬 선결축이다.

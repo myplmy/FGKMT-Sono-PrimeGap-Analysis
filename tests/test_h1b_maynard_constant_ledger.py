@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.5.0")
+        self.assertEqual(self.document["schema_version"], "1.6.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -187,6 +187,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "Sono_FMT_H1b2a_residual_moment_error_v1.json",
         )
         self.assertEqual(
+            self.document["h1b2a1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b2a1_Proposition94_Euler_normalization_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1B-L82"]["status"],
             "PROJECT_FINITE_COMPONENT_CLOSED",
         )
@@ -246,7 +251,15 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             " ".join(p94["explicit_parts"]),
         )
         self.assertIn(
+            "exp(2+6/k)",
+            " ".join(p94["explicit_parts"]),
+        )
+        self.assertIn(
             "equation-(9.52) distribution error",
+            " ".join(p94["missing_numeric_inputs"]),
+        )
+        self.assertNotIn(
+            "Euler products",
             " ".join(p94["missing_numeric_inputs"]),
         )
 

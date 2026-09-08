@@ -28,7 +28,7 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_and_required_fields(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.2.0")
+        self.assertEqual(self.document["schema_version"], "1.3.0")
         self.assertEqual(len(self.rows), 66)
         self.assertEqual(len(self.by_id), len(self.rows), "obligation ids must be unique")
 
@@ -168,6 +168,16 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
         )
+        self.assertEqual(
+            self.document["h1b2a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b2a_residual_moment_error_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b2a1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b2a1_Proposition94_Euler_normalization_v1.json",
+        )
         self.assertIn(
             "all 11 application excluded-modulus bounds",
             self.by_id["SIV-07"]["notes"],
@@ -185,7 +195,7 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             self.by_id["SIV-07"]["notes"],
         )
         self.assertIn(
-            "final Euler normalization",
+            "closes the Proposition 9.4 equation-(9.66) final Euler normalization",
             self.by_id["SIV-07"]["notes"],
         )
         self.assertEqual(self.by_id["SIV-07"]["status"], "HARD_BLOCKER")

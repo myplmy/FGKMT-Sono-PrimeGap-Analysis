@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-08",
+  "gate": "H1b-2a.1 exact Euler normalization in Maynard Proposition 9.4",
+  "scope": "Recover the exact rational local factors hidden by p+O(k) and 1+O(k)/p^2 in equations (9.61)-(9.67), and give a finite uniform comparison with the inverse singular series. This does not close the equation-(9.52) distribution error or Proposition 9.4 as a whole.",
+  "outcome": "FINAL_EULER_NORMALIZATION_FINITE_COMPONENT_CLOSED_P94_PARENT_OPEN",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_PUBLISHED",
+      "title": "Dense Clusters of Primes in Subsets",
+      "author": "James Maynard",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "url": "https://doi.org/10.1112/S0010437X16007296",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "reviewed_locations": "printed pages 1547-1550, Proposition 9.4 and equations (9.49)-(9.70)",
+      "status": "PRIMARY_FINAL_PUBLISHED_SOURCE_REVIEWED"
+    },
+    {
+      "key": "MAYNARD2014_ARXIV_SOURCE",
+      "title": "Dense Clusters of Primes in Subsets, arXiv v2 author TeX",
+      "author": "James Maynard",
+      "arxiv": "1405.2593v2",
+      "url": "https://arxiv.org/abs/1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "reviewed_locations": "lines 376-407, 542-604 and 1044-1168",
+      "status": "PRIMARY_PREPUBLICATION_SOURCE_CROSS_CHECKED"
+    }
+  ],
+  "locator_correction": {
+    "previous_project_shorthand": "the first product in equation (9.63) and the two Euler products in equation (9.67)",
+    "exact_displayed_location": "the first product is displayed in equation (9.64); the final two products are displayed in equation (9.66), while equations (9.65) and (9.67) are the respective consequences after bounding them",
+    "mathematical_effect": "none; this is a locator precision correction"
+  },
+  "parameter_domain": {
+    "minimum_k": 36,
+    "nonexcluded_primes": "p>2k^2",
+    "omega_range": "0<=omega(p)<=k",
+    "omega_star_rule": "omega*(p)=omega(p) when p divides Delta_L and p does not divide B; omega*(p)=omega(p)+1 otherwise, except omega*(p)=1 and omega(p)=0 when p divides B",
+    "exact_denominator": "g_*(p,m)=(p-m)^2/(p+m-2)",
+    "singular_series_inverse_local_numerator": "1+omega/(p-omega)=p/(p-omega)"
+  },
+  "exact_local_identities": {
+    "pre_y_product": {
+      "factor": "C_pre(p)=1+omega/((p-1)(p-omega))",
+      "bound": "0<=C_pre(p)-1<=4k/p^2"
+    },
+    "sharp_r0_product": {
+      "factor": "A_0(p)=(1+1/g_*(p,omega+1))(1-1/p)",
+      "identity": "A_0(p)=1+omega(3p-omega-3)/[p(p-omega-1)^2] when p does not divide B; A_0(p)=1 when p divides B",
+      "bound": "0<=A_0(p)-1<=4k/p^2"
+    },
+    "canonical_product_singular_ratio_collision": {
+      "condition": "p divides Delta_L, hence omega*=omega",
+      "identity": "[1+omega/g_*(p,omega)]/[1+omega/(p-omega)]=1+2omega(omega-1)/[p(p-omega)]",
+      "bound": "ratio-1<=4k^2/p^2"
+    },
+    "canonical_product_singular_ratio_new_root": {
+      "condition": "p does not divide Delta_L, hence omega*=omega+1",
+      "identity": "[1+omega/g_*(p,omega+1)]/[1+omega/(p-omega)]=1+omega[((2omega+1)(p-omega)-1)]/[p(p-omega-1)^2]",
+      "bound": "ratio-1<=4k^2/p^2"
+    }
+  },
+  "finite_tail_lemma": {
+    "cutoff_variable": "integer Y>=2k^2",
+    "tail_input": "sum_{p>Y}1/p^2 <= sum_{n>Y}1/n^2 <= 1/Y and log(1+t)<=t",
+    "pre_y_product_tail": "<=exp(4k/Y)",
+    "sharp_r0_product_tail": "<=exp(4k/Y)",
+    "canonical_ratio_tail": "<=exp(4k^2/Y)",
+    "natural_cutoff_final_two_products": "at Y=2k^2, product_(9.66)<=exp(2+2/k)*S_WB(L)^(-1)",
+    "natural_cutoff_full_normalization": "including C_pre^2 displayed in (9.64) and used in (9.65), multiplier<=exp(2+6/k)*S_WB(L)^(-1)",
+    "uniform_k36_diagnostic": "exp(2+6/k)<=exp(13/6), approximately 8.729 at k=36",
+    "directed_rounding_certificate": false
+  },
+  "proof_boundary": {
+    "included": [
+      "exact recovery of g_* from equation (9.61)",
+      "exact recovery of the equation-(9.64) product instead of its O(1) abbreviation",
+      "exact recovery of both equation-(9.66) local factors",
+      "uniform integer-majorized prime tails",
+      "primewise comparison of the canonical factor with S_WB(L)^(-1)"
+    ],
+    "excluded": [
+      "the equation-(9.52) distribution error",
+      "a common error budget for Propositions 9.1-9.5",
+      "the H1c-1 quantitative character and Bombieri-Vinogradov input",
+      "the final numerical X_cert"
+    ]
+  },
+  "status_after_this_gate": {
+    "H1B2A-P94-FIRST-EULER": "PROJECT_FINITE_COMPONENT_CLOSED",
+    "H1B2A-P94-FINAL-EULER": "PROJECT_FINITE_COMPONENT_CLOSED",
+    "H1B2A-P94-DISTRIBUTION": "INPUT_PACKAGE_MISSING",
+    "H1B-P94": "RATE_MISSING",
+    "H1B-COMP-01": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "SIV-09": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "predecessor_contracts": [
+    "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
+    "docs/method/theory/data/Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
+    "docs/method/theory/data/Sono_FMT_H1b2a_residual_moment_error_v1.json"
+  ],
+  "literature_search": {
+    "checked": [
+      "Maynard final Cambridge publication and arXiv:1405.2593v2 source/version history",
+      "Mastrostefano arXiv:1804.06290, which uses the same Maynard weights for a different upper moment"
+    ],
+    "result": "NO_NUMERIC_REPLACEMENT_FOR_THESE_TWO_LOCAL_PRODUCTS_FOUND_IN_TARGETED_PRIMARY_SOURCE_SEARCH",
+    "limitation": "This is not a global nonexistence or novelty claim. The project finite lemma proves only the listed connector."
+  },
+  "actual_prime_experiment_performed": false,
+  "threshold_calculator_created": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false
+}

@@ -23,6 +23,8 @@
   [`26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md`](26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md)
 - H1b-2a Lemma 8.5·8.6 및 Proposition 9.4 잔여 package:
   [`28_Sono_FMT_H1b2a_residual_moment_error_package.md`](28_Sono_FMT_H1b2a_residual_moment_error_package.md)
+- H1b-2a.1 Proposition 9.4 exact Euler normalization:
+  [`29_Sono_FMT_H1b2a1_Proposition94_exact_Euler_normalization.md`](29_Sono_FMT_H1b2a1_Proposition94_exact_Euler_normalization.md)
 
 ## 1. 결론부터
 
@@ -119,7 +121,7 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-P91` | Proposition 9.1 | zeroth moment | `RATE_MISSING` | 상대오차 multiplier·divisor sum |
 | `H1B-P92` | Proposition 9.2 | prime moment | `RATE_MISSING` | 상대·additive error 상수 |
 | `H1B-L93` | Lemma 9.3 | diagonal approximation | `RATE_MISSING` | \(F_2/F\)·오차 상수 |
-| `H1B-P94` | Proposition 9.4 | extra-form/rough upper bound | `RATE_MISSING` | 식 (9.52) distribution multiplier·식 (9.67) Euler factors |
+| `H1B-P94` | Proposition 9.4 | extra-form/rough upper bound | `RATE_MISSING` | 식 (9.52) distribution multiplier·공통 finite cutoff |
 | `H1B-P95` | Proposition 9.5 | 작은 소인수 penalty | `RATE_MISSING` | \(\ll\) multiplier·허용 margin |
 | `H1B-COMP-01` | Sections 8–9 합성 | 하나의 finite package | `HARD_BLOCKER` | 모든 입력과 최대 cutoff |
 
@@ -137,10 +139,11 @@ H1a는 simplex-supported test function에 대해
 을 닫았다. 그래서 `H1B-L86-RATIO`에는 더 이상 모르는 \(O(1/\log k)\) 상수를 둘 필요가 없다.
 
 H1a만 완료됐을 당시에는 Lemma 8.6의 **절대 크기** 하한과 \(\lambda_{\max}\)가 별개로
-열려 있었다. 후속 H1b-2a가 plateau cube와 finite support count로 이 두 행을 닫았다.
-그럼에도 singular series의 나머지 항, arithmetic-progression discrepancy와 off-diagonal
-moment error는 별개다. 적분비와 절대 크기를 안다는 사실만으로 실제 finite weight moment의
-주항이 모든 오차보다 크다는 결론은 나오지 않는다.
+열려 있었다. 후속 H1b-2a가 plateau cube와 finite support count로 이 두 행을 닫았고,
+H1b-2a.1은 Proposition 9.4의 마지막 singular-series Euler normalization도 닫았다.
+그럼에도 arithmetic-progression discrepancy와 off-diagonal moment error는 별개다. 적분비,
+절대 크기와 Euler factor를 안다는 사실만으로 실제 finite weight moment의 주항이 모든
+오차보다 크다는 결론은 나오지 않는다.
 
 따라서 다음 추론은 금지한다.
 
@@ -443,9 +446,34 @@ w_n\le R^{2+\eta_{85}(k,R)}
 를 얻었다. 따라서 `H1B-L85`는
 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 이동한다.
 
-Proposition 9.4의 식 (9.56)--(9.63)에서는 square-symmetry multiplier 1,
-exact denominator (\le2/p), 첫 Euler 곱 (\le e^{2/k})를 닫았다. 그러나 식 (9.52)의
-Hypothesis 1 distribution error와 식 (9.67)의 두 exact Euler normalization이 남으므로
+Proposition 9.4의 식 (9.56)--(9.64)에서는 square-symmetry multiplier 1,
+exact denominator (\le2/p), 앞쪽 Euler 곱 (\le e^{2/k})를 닫았다. 이 단락 작성 당시에는
+식 (9.66)의 두 exact Euler normalization이 남아 있었으나, 아래 H1b-2a.1 후속에서
+finite하게 닫혔다. 식 (9.52)의 Hypothesis 1 distribution error는 계속 열려 있으므로
 `H1B-P94=RATE_MISSING`이다. 따라서 `H1B-COMP-01`, `SIV-07/09`와
-(X_{\mathrm{cert}})는 계속 열린다. 정본은
+(X_{\mathrm{cert}})는 계속 열린다. H1b-2a 정본은
 [`28_Sono_FMT_H1b2a_residual_moment_error_package.md`](28_Sono_FMT_H1b2a_residual_moment_error_package.md)다.
+
+## 20. 2026-09-08 H1b-2a.1 exact Euler normalization 반영
+
+최종 출판본에서 앞쪽 곱은 식 (9.64), 마지막 두 곱은 식 (9.66)에 표시되고
+(9.67)은 이들을 흡수한 결과임을 확인했다. 식 (9.61)의
+
+\[
+g_*(p,m)=\frac{(p-m)^2}{p+m-2}
+\]
+
+에서 exact local factor를 복원해 모든 정수 \(k\ge36\)에서 마지막 두 곱을
+
+\[
+e^{2+2/k}\mathfrak S_{WB}(\mathcal L)^{-1}
+\]
+
+이하로 닫았다. 식 (9.64)의 곱이 제곱합에서 두 번 들어가는 것까지 포함하면 전체
+normalization multiplier는 \(e^{2+6/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이하이다.
+따라서 child `H1B2A-P94-FINAL-EULER`는 `PROJECT_FINITE_COMPONENT_CLOSED`다.
+
+다만 `H1B-P94` 자체에는 식 (9.52)의 distribution error와 Propositions 9.1·9.2와의
+공통 finite range가 남아 있다. 부모와 `H1B-COMP-01`, `SIV-07/09`,
+\(X_{\mathrm{cert}}\)는 승격하지 않는다. 다음 직접 gate는 H1b-2a.2 distribution
+error이고, H1c-1 quantitative character/Bombieri--Vinogradov package가 병렬 입력축이다.

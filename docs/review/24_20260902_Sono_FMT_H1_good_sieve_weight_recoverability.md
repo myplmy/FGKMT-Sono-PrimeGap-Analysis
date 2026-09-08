@@ -384,8 +384,23 @@ actual cutoff의 plateau cube를 직접 적분해 (k\ge36)에서
 `L620_dW` 오차로 Lemma 8.5의 coefficient·weight·finite (R)-exponent를 닫았다.
 따라서 `H1B-L85`와 `H1B-L86-SIZE`는 더 이상 rate-missing 행이 아니다.
 
-다만 Proposition 9.4는 식 (9.52)의 Hypothesis 1 distribution error와 식 (9.67)의
-마지막 두 Euler 곱이 열려 있고, Propositions 9.1, 9.2, 9.5 및 Lemma 9.3도 아직 공통
+이 단락 작성 당시 Proposition 9.4는 식 (9.52)의 Hypothesis 1 distribution error와
+식 (9.66)의 마지막 두 Euler 곱이 열려 있었다. 아래 Section 15의 H1b-2a.1이 Euler
+곱은 닫았지만, Propositions 9.1, 9.2, 9.5 및 Lemma 9.3도 아직 공통
 moment budget에 합성되지 않았다. 따라서 H1 전체 판정
 `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`,
 `SIV-07/09=HARD_BLOCKER`, (X_{\mathrm{cert}}=)`OPEN`은 유지한다.
+
+## 15. 2026-09-08 H1b-2a.1 후속 판정
+
+[`H1b-2a.1 정본`](../method/theory/29_Sono_FMT_H1b2a1_Proposition94_exact_Euler_normalization.md)은
+Maynard Proposition 9.4 식 (9.61)의 exact denominator에서 식 (9.66)의 두 local
+factor를 복원했다. 모든 정수 \(k\ge36\)에서 마지막 두 곱은
+\(e^{2+2/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이하이고, 앞쪽 식 (9.64)의
+제곱 보정까지 포함하면 \(e^{2+6/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이하이다.
+
+따라서 final Euler normalization은 더 이상 H1-SIV-07의 누락 입력이 아니다. 그러나
+식 (9.52)의 distribution multiplier·finite cutoff, 다른 moment 오차와 하나의 공통
+error budget은 남아 있다. 그러므로 H1 전체 판정, `SIV-07/09=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}=\)`OPEN`은 그대로다. 다음 직접 순서는 H1b-2a.2이고 H1c-1은
+그 분포 입력을 공급하는 병렬 축이다.

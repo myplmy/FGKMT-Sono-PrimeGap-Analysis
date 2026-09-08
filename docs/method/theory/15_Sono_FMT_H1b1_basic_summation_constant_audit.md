@@ -359,6 +359,7 @@ root dependency다.
 
 앞 절의 다음 gate 문장은 H1b-1b-2d.1b 직후의 역사적 상태다. 후속 theory 28은
 Lemma 8.5의 finite coefficient·weight envelope와 Lemma 8.6의 absolute integral size를
-닫았다. 현재 직접 gate는 Proposition 9.4 식 (9.67)의 exact Euler normalization과 식
-(9.52)의 distribution error다. 다른 Propositions 9.1--9.5 및 H1c-1 입력이 남으므로
+닫았다. 후속 H1b-2a.1은 Proposition 9.4 식 (9.66)의 exact Euler normalization도
+finite하게 닫았다. 현재 직접 gate는 식 (9.52)의 distribution error다. 다른
+Propositions 9.1--9.5 및 H1c-1 입력이 남으므로
 `H1B-COMP-01`, `SIV-07/09`, `X_cert`는 계속 열린다.

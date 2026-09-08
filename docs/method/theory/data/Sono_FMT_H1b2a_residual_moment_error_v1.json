@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "created_kst": "2026-09-08",
   "scope": "H1b-2a finite audit of Maynard Lemmas 8.5-8.6 and residual Proposition 9.4 factors",
-  "outcome": "LEMMA85_AND_LEMMA86_FINITE_COMPONENTS_CLOSED_P94_PARTIAL_PARENT_OPEN",
+  "outcome": "LEMMA85_LEMMA86_AND_P94_EULER_FINITE_COMPONENTS_CLOSED_P94_PARENT_OPEN",
   "source_registry": [
     {
       "key": "MAYNARD2016",
@@ -99,7 +99,7 @@
     },
     {
       "id": "H1B2A-P94-FIRST-EULER",
-      "locator": "Maynard 2016 (9.63)",
+      "locator": "Maynard 2016 (9.64)",
       "result": "product[1+omega(p)/((p-1)(p-omega(p)))] <= exp(2/k)",
       "status": "PROJECT_FINITE_COMPONENT_CLOSED"
     },
@@ -111,9 +111,9 @@
     },
     {
       "id": "H1B2A-P94-FINAL-EULER",
-      "locator": "Maynard 2016 (9.67)",
-      "missing": "exact pre-O(k) local factors and a finite comparison with the singular series",
-      "status": "RATE_MISSING"
+      "locator": "Maynard 2016 (9.66), with consequence (9.67)",
+      "result": "H1b-2a.1 recovers both exact local factors and proves the two products are at most exp(2+2/k)*S_WB(L)^(-1); including the squared (9.64) factor gives exp(2+6/k)*S_WB(L)^(-1)",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
     }
   ],
   "parent_status": {
@@ -126,6 +126,7 @@
     "SIV-09": "HARD_BLOCKER",
     "X_cert": "OPEN"
   },
+  "h1b2a1_successor_contract": "docs/method/theory/data/Sono_FMT_H1b2a1_Proposition94_Euler_normalization_v1.json",
   "literature_search": {
     "result": "NO_DROP_IN_EXPLICIT_REPLACEMENT_FOUND_IN_TARGETED_PRIMARY_SOURCE_SEARCH",
     "limitation": "This is not a global nonexistence or novelty claim. The project lemmas close only the listed connectors."

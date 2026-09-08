@@ -82,9 +82,9 @@ explicit 대체 정리를 찾지 못했다. 따라서 “문헌에 없다”라�
 |---|---|---|
 | (9.56)--(9.57) (ab) 제곱 대수 | 닫힘 | (2|ab|\le a^2+b^2), 대칭 후 multiplier 1 |
 | (9.57) exact denominator | 닫힘 | (p>2k^2,\omega^*\le k+1)에서 (\le2/p) |
-| (9.63) 첫 Euler 곱 | 닫힘 | (\sum_{p>2k^2}4k/p^2\le2/k), 따라서 (\le e^{2/k}) |
+| (9.64) 앞쪽 Euler 곱 | 닫힘 | (\sum_{p>2k^2}4k/p^2\le2/k), 따라서 (\le e^{2/k}) |
 | (9.52) distribution error | 열림 | Hypothesis 1(1),(3)의 숫자 multiplier·cutoff 없음 |
-| (9.67) 마지막 두 Euler 곱 | 열림 | `O(k)` 이전의 exact local factor를 복원해야 함 |
+| (9.66) 마지막 두 Euler 곱 | 후속 H1b-2a.1에서 닫힘 | exact local factor와 singular-series 비교로 \(\le e^{2+2/k}\mathfrak S^{-1}\) |
 | (9.70) residue factor | 새 blocker 아님 | exact factor들이 1 이하 |
 
 첫 Euler 곱 (e^{2/k})는 이후 (y^2)에서 (e^{4/k})로 제곱돼야 한다. 이 제곱을
@@ -106,17 +106,23 @@ explicit 대체 정리를 찾지 못했다. 따라서 “문헌에 없다”라�
 
 ## 8. 다음 작업의 타당한 분기
 
-### 1순위: H1b-2a.1 Proposition 9.4 exact Euler normalization
+### 완료: H1b-2a.1 Proposition 9.4 exact Euler normalization
 
-식 (9.57)의 exact local denominator에서 출발해 식 (9.67)의 두 `O(k)`를 쓰기 전 인자를
-복원한다. 복원된 인자를 singular series와 소수별로 나눠 비교하고 finite tail product를
-만든다. 예상 6--12시간의 수학·source 감사다.
+후속 [H1b-2a.1 정본](../method/theory/29_Sono_FMT_H1b2a1_Proposition94_exact_Euler_normalization.md)이
+식 (9.61)의 exact denominator에서 식 (9.66)의 두 `O(k)` 이전 인자를 복원하고 finite
+tail을 닫았다. 앞쪽 식 (9.64)의 제곱 보정까지 포함한 multiplier는
+\(e^{2+6/k}\mathfrak S^{-1}\) 이하이다.
 
-### 2순위: H1b-2a.2 Proposition 9.4 distribution error
+### 1순위: H1b-2a.2 Proposition 9.4 distribution error
 
 Proposition 9.1과 “동일한 논증”이라고 생략된 식 (9.52)를 실제 tuple count와
 (M_{620})로 다시 쓴다. 다만 Hypothesis 1(1),(3)의 multiplier를 입력 변수로 남길
 수밖에 없으므로 H1c-1과 연결된다. 예상 6--15시간이다.
+
+### 2순위: H1c-1 quantitative character/Bombieri--Vinogradov package
+
+식 (9.52)에 들어가는 Hypothesis 1의 수치 multiplier와 finite cutoff를 공급하는 병렬
+선결축이다. 예상 1--3일 이상의 문헌·증명 감사다.
 
 ### 3순위: H1b-2b Propositions 9.1--9.5 공통 budget
 

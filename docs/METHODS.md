@@ -8,8 +8,8 @@
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
 - 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a와 H1b-1 계열은 finite-r 적분비, Lemma 8.2 multiplier 89, 교정된 \(\kappa=1\) one-step multiplier, 실제 제외모듈과 Lemma 8.4 관련 하위호출 9/9를 parameterized explicit 수준으로 닫았다.
-  2026-09-08 H1b-2a는 Lemma 8.5의 coefficient·weight envelope와 Lemma 8.6의 절대 \(I_k,J_k\) 크기 및 보수적 \(F_1/F_2\) 비교를 유한식으로 닫았다. Proposition 9.4에서는 square algebra, exact denominator와 첫 Euler 곱만 닫혔다.
-  다음 직접 gate는 H1b-2a.1의 식 (9.67) exact Euler normalization, 이어 H1b-2a.2의 식 (9.52) distribution error이며, H1c-1 quantitative character/Bombieri–Vinogradov package가 병렬 선결축이다. `SIV-07`과 `X_cert`는 계속 `HARD_BLOCKER`/`OPEN`이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+  2026-09-08 H1b-2a는 Lemma 8.5의 coefficient·weight envelope와 Lemma 8.6의 절대 \(I_k,J_k\) 크기 및 보수적 \(F_1/F_2\) 비교를 유한식으로 닫았다. H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱도 exact local factor와 finite singular-series 비교로 닫았다.
+  다음 직접 gate는 H1b-2a.2의 식 (9.52) distribution error이며, H1c-1 quantitative character/Bombieri–Vinogradov package가 병렬 선결축이다. `H1B-P94=RATE_MISSING`, `SIV-07=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -749,10 +749,14 @@ H1b-2a는 실제 cutoff의 plateau cube를 직접 적분해 모든 정수 \(k\ge
 actual `L620_dW` 오차를 이용해 Lemma 8.5의 coefficient·local/global weight를
 \(M_{620}\)과 \(\eta_{85}(k,R)\)의 유한식으로 바꿨다. 따라서 `H1B-L85`와
 `H1B-L86-SIZE`는 각각 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`,
-`PROJECT_FINITE_COMPONENT_CLOSED`다. 다만 Proposition 9.4 식 (9.52)의 distribution
-error와 식 (9.67)의 마지막 두 Euler normalization은 열려 있으므로 `H1B-P94`,
-`SIV-07/09`, `X_cert`는 승격하지 않는다. 정본은
-`docs/method/theory/28_Sono_FMT_H1b2a_residual_moment_error_package.md`다.
+`PROJECT_FINITE_COMPONENT_CLOSED`다. 후속 H1b-2a.1은 Proposition 9.4 식 (9.61)의
+exact denominator에서 식 (9.66)의 마지막 두 Euler local factor를 복원해, 앞쪽 식
+(9.64)의 제곱 보정까지 포함한 normalization을
+\(e^{2+6/k}\mathfrak S_{WB}(\mathcal L)^{-1}\) 이하로 닫았다. 다만 식 (9.52)의
+distribution error와 공통 finite cutoff는 열려 있으므로 `H1B-P94`, `SIV-07/09`,
+`X_cert`는 승격하지 않는다. 정본은
+`docs/method/theory/28_Sono_FMT_H1b2a_residual_moment_error_package.md`와
+`docs/method/theory/29_Sono_FMT_H1b2a1_Proposition94_exact_Euler_normalization.md`다.
 
 같은 날 H1c는 FGKMT Hypothesis 1과 Sono PAP를 20개 node로 분리했다. \(\mathcal A=\mathbb Z\)인
 Hypothesis 1(1)은 `floor(y^(1/3))*(log y)^(100 k^2) <= N`, (3)은 `N>=q`일 때 implied
@@ -763,8 +767,8 @@ rate는 열려 있다. PAP와 Hypothesis 1은 shared source를 가진 sibling ob
 1977로 정정했다. 정본은
 `docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`다. 이 graph·서지 교정은
 `SIV-07/08/09`, `PAP-11` 또는 `X_cert`를 닫지 않는다. 다음 gate는
-H1b-2a.1의 Proposition 9.4 exact Euler normalization, H1b-2a.2의 distribution error와
-H1c-1 quantitative character package다. 모든 root dependency가 닫히기
+H1b-2a.2의 Proposition 9.4 distribution error와 H1c-1 quantitative character
+package다. 모든 root dependency가 닫히기
 전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus와 분리한다. 두 원고가
