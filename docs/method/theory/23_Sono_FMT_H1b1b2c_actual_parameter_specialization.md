@@ -350,3 +350,11 @@ Lemmas 8.5--8.6, Propositions 9.1--9.5, H1c/PAP와 arbitrary-X 전달이 남는�
 ## 14. 사용자 수행사항
 
 별도 수행절차 필요없음. Lean이나 새 Python 라이브러리도 필요하지 않다.
+
+## 15. 후속 H1b-1b-2d 상태
+
+2026-09-08 후속 작업은 support-scaled actual profile norm과
+\(\prod_i(1+\delta_i)-1\) finite-product 합성을 정식화해 smooth Lemma 8.4 호출
+7개를 하위 package로 닫았다. 그러나 905행 opaque \(H\)와 sharp
+\(\xi\log x\) finite scale이 남아 이 문서의 `r_fold_composition_closed=false`는
+“전체 actual package” 기준으로 계속 정확하다. 다음 gate는 H1b-1b-2d.1이다.

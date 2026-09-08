@@ -7,7 +7,7 @@
 - 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A와 설계 사후감사, P020 recurrence artifact 종합 완료; A는 정보량 HOLD
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 \(J_r/I_r>\log r/(4r)\)를 모든 정수 \(r\ge36\)에서 project theorem으로 닫았다. H1b-1a는 세 finite component를 닫았고, H1b-1b는 Maynard Lemma 8.2 multiplier를 89로 닫았다. Castillo et al.의 peer-reviewed 교정을 반영한 H1b-1b-2b는 Ford 정리에서 \(\kappa=1\) one-step multiplier를 명시했다. H1b-1b-2a.1은 실제 Section 8의 11개 analytic subapplication에서 local factor와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\) 제외모듈을 전수 인증해 공통 \(\log Q_j\le\Lambda_*\)와 \(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 얻었다. H1b-1b-2c는 모든 실제 호출에 공통인 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)를 인증해 `H1B-L83`을 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 진전시켰다. 다음은 smooth norm과 수정된 Lemma 8.4 \(r\)-회 합성이다. Kuperberg arXiv:2210.09775의 size gate와 절대 \(C_3\)+\(c_\gamma\) 경로는 보조 비교 경로다. 병렬 gate는 H1c-1 quantitative character/Bombieri–Vinogradov package다. `SIV-07`과 `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 \(J_r/I_r>\log r/(4r)\)를 모든 정수 \(r\ge36\)에서 project theorem으로 닫았다. H1b-1a는 세 finite component를 닫았고, H1b-1b는 Maynard Lemma 8.2 multiplier를 89로 닫았다. Castillo et al.의 peer-reviewed 교정을 반영한 H1b-1b-2b는 Ford 정리에서 \(\kappa=1\) one-step multiplier를 명시했다. H1b-1b-2a.1은 실제 Section 8의 11개 analytic subapplication에서 local factor와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\) 제외모듈을 전수 인증해 공통 \(\log Q_j\le\Lambda_*\)와 \(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 얻었다. H1b-1b-2c는 모든 실제 호출에 공통인 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)를 인증해 `H1B-L83`을 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 진전시켰다. H1b-1b-2d는 실제 smooth Lemma 8.4 호출 7개의 support norm과 exact finite-product 합성을 닫았지만 905행 opaque \(H\)와 sharp \(\xi\log x\) finite scale은 열려 있다. 다음 직접 gate는 H1b-1b-2d.1이고, 병렬 gate는 H1c-1 quantitative character/Bombieri–Vinogradov package다. Kuperberg arXiv:2210.09775의 size gate와 절대 \(C_3\)+\(c_\gamma\) 경로는 보조 비교 경로다. `SIV-07`과 `X_cert`는 계속 OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -704,8 +704,11 @@ canonical \(W_i\)와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\)를 모두 포함해
  Rosser--Schoenfeld의 양 끝 포함 구간 보정을 결합해 공통
  \(a=1/2,A_2=8,L=5+\log\Lambda_*\)를 인증했다. 따라서 `H1B-L83`은
  `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다. 기존 절대 \(C_3\)+\(c_\gamma\) 하한 및
- Kuperberg size gate는 독립·sharpness 비교용 보조 경로로 보존한다. smooth norm과 수정된
- \(r\)-회 합성은 계속 `OPEN/HARD_BLOCKER`다.
+ Kuperberg size gate는 독립·sharpness 비교용 보조 경로로 보존한다. H1b-1b-2d는
+ support-scaled \(N,W,N^2,W^2,NW\) norm과 exact finite-product 합성을 사용해 smooth
+ Lemma 8.4 호출 7개를 project-parameterized explicit 하위 package로 닫았다.
+ 단, 905행의 opaque \(H\) remainder와 sharp \(\xi\log x\) finite scale 때문에
+ parent `H1B-L84`와 `SIV-07`은 계속 `RATE_MISSING/HARD_BLOCKER`다.
 정본은 `docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md`와
 `docs/method/theory/17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md`,
 `docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md`다.
@@ -718,7 +721,9 @@ fail-closed로 등록했고, actual local-factor와 application 제외모듈 하
  `docs/method/theory/22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`다.
  actual 입력 특수화 정본은
  `docs/method/theory/23_Sono_FMT_H1b1b2c_actual_parameter_specialization.md`다.
- actual one-step 입력이 명시됐어도 \(r\)-회 합성과 numerical threshold package는 아직 아니다.
+ actual one-step 입력과 smooth \(r\)-회 하위 package가 명시됐어도 전체 Lemma 8.4와
+ numerical threshold package는 아직 아니다. H1b-1b-2d 정본은
+ `docs/method/theory/24_Sono_FMT_H1b1b2d_rfold_smooth_composition.md`다.
 
 같은 날 H1c는 FGKMT Hypothesis 1과 Sono PAP를 20개 node로 분리했다. \(\mathcal A=\mathbb Z\)인
 Hypothesis 1(1)은 `floor(y^(1/3))*(log y)^(100 k^2) <= N`, (3)은 `N>=q`일 때 implied
@@ -728,8 +733,8 @@ rate는 열려 있다. PAP와 Hypothesis 1은 shared source를 가진 sibling ob
 함의하지 않으므로 T1의 잘못된 `SIV-08 -> PAP-11` 직접 의존선을 제거했다. Jutila source 연도는
 1977로 정정했다. 정본은
 `docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`다. 이 graph·서지 교정은
-`SIV-07/08/09`, `PAP-11` 또는 `X_cert`를 닫지 않는다. 다음 gate는 H1b-1b-2c의
-actual-call \(a,A_2,L\) 수치화·수정된 Lemma 8.4 composition과 H1c-1 quantitative character package다. 모든 root dependency가 닫히기
+`SIV-07/08/09`, `PAP-11` 또는 `X_cert`를 닫지 않는다. 다음 gate는 H1b-1b-2d.1의
+905행 \(H\) remainder·sharp finite scale과 H1c-1 quantitative character package다. 모든 root dependency가 닫히기
 전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus와 분리한다. 두 원고가

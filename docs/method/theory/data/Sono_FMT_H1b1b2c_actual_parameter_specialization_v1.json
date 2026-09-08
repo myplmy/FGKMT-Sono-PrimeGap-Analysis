@@ -113,9 +113,10 @@
     "X_cert": "OPEN"
   },
   "next_gate": {
-    "id": "H1b-1b-2d",
-    "description": "Recompose the corrected Lemma 8.4 r-fold binomial error using the actual common inputs and explicit smooth-function norm bounds.",
+    "id": "H1b-1b-2d.1",
+    "description": "The H1b-1b-2d successor closed the seven-call smooth subpackage. Recover the source-line-905 opaque H norm and sharp xi*log(x) finite scale.",
     "ready_for_threshold_calculator": false,
     "ready_for_actual_prime_experiment": false
-  }
+  },
+  "completed_successor_contract": "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json"
 }

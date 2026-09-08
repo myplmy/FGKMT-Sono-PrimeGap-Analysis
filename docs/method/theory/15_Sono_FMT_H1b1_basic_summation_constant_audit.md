@@ -43,7 +43,9 @@ H1b-1b-2a.1은 11개 analytic subapplication의 확대 제외모듈을 전수 �
 따라서 추적 호출 전체에서 uniform parameterized \(c_{\gamma,j}\) 하한 경로가 닫혔다.
 H1b-1b-2c는 실제 네 family에 공통인
 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)도 인증했다. Lemma 8.1(ii)의 입력 정규화와
-공통 cutoff, 보정된 Lemma 8.4 반복오차는 열려 있다. 절대
+공통 cutoff는 열려 있다. H1b-1b-2d는 7개 smooth Lemma 8.4 call의 support norm과
+보정 finite-product 반복오차를 닫았으나, 905행 opaque \(H\)와 sharp \(\xi\) scale은
+열려 있다. 절대
 \(C_{3,\mathrm{abs}}(A_1,A_2)\) 경로는 보조 교차검사로 남는다.
 따라서 numerical basic-summation package 전체는 아직 완료가 아니다.
 
@@ -274,9 +276,22 @@ X_cert                     = OPEN
 Lemma 8.3 corrected one-step rate = C_L83(a,A2), every z>=2
 actual common a,A2,L             = 1/2, 8, 5+log(Lambda_star) CLOSED PARAMETERIZED
 legacy C3_abs + c_gamma route    = OPTIONAL CROSS-CHECK
-Lemma 8.4 r-fold composition     = OPEN
+Lemma 8.4 smooth subpackage      = 7/9 PROJECT PARAMETERIZED EXPLICIT
+Lemma 8.4 opaque/sharp remainder = OPEN
 SIV-07 / X_cert                  = HARD_BLOCKER / OPEN
 ```
 
-H1b-1b-2c가 실제 호출 전체에 공통인 \(a,A_2,L\)을 인증했다. 따라서 다음 직접 gate는
-절대 \(C_3\) 탐색이 아니라 actual smooth norm과 corrected \(r\)-회 합성을 닫는 H1b-1b-2d다.
+H1b-1b-2c가 실제 호출 전체에 공통인 \(a,A_2,L\)을 인증했고, H1b-1b-2d가
+smooth 하위 package를 닫았다. 다음 직접 gate는 905행 \(H\) remainder의 수치
+\(C^1\) majorant와 sharp \(\xi\log x\) finite scale을 복원하는 H1b-1b-2d.1이다.
+
+## 9. 2026-09-08 H1b-1b-2d 반영
+
+교정된 Lemma 8.3 one-step bound를 서로 다른 support의 비음수 profile에 적용해
+\(\prod_i(1+\delta_i)-1\)로 합성했다. actual \(N,W,N^2,W^2,NW\) norm과
+smallness 충분조건도 명시했다. \(F_2^2\)에서는 support-\([0,2]\) 좌표를 먼저
+합해야 theory 23의 \(\Lambda_*\)를 그대로 쓸 수 있다는 순서 조건을 추가했다.
+
+이 결과는 product-profile integral 기준의 절대오차 envelope다. actual coupled main
+integral 자체에 대한 상대오차라고 확장하지 않는다. 또한 905행 \(H\)와 sharp scale이
+남아 있으므로 H1b-1 basic summation package 전체 및 `SIV-07`은 닫히지 않았다.

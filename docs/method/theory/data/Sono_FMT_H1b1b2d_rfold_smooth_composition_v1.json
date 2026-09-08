@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-08",
+  "gate": "H1b-1b-2d support-scaled smooth norms and corrected r-fold composition",
+  "outcome": "SMOOTH_RFOLD_SUBPACKAGE_PARAMETERIZED_EXPLICIT_ACTUAL_PACKAGE_OPEN",
+  "scope": "The seven smooth Lemma 8.4 subapplications and the direct smooth Lemma 8.3 call at source line 1015. The sharp-cutoff scale and the opaque H remainder at line 905 remain open.",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016_PUBLISHED",
+      "title": "Dense Clusters of Primes in Subsets",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "reviewed_locations": "printed pages 1533-1536, especially Lemmas 8.3-8.4 and equations (8.19)-(8.20)",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "MAYNARD2016_SOURCE",
+      "title": "Dense Clusters of Primes in Subsets, author TeX source",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "reviewed_locations": "lines 415-428, 531-604, 620-625, 737, 752, 885, 905, 995, 1015, 1096, 1135, 1232",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "AXIOM_PRIMEGAPSLIB_2026",
+      "title": "PrimeGapsLib blueprint and Lean source",
+      "url": "https://github.com/AxiomMath/PrimeGapsLib",
+      "reviewed_locations": "blueprint Lemma 9.11 and iterated-partial-summation source",
+      "status": "UNVERIFIED_STRUCTURAL_CORROBORATION_ONLY_NOT_THEOREM_INPUT"
+    }
+  ],
+  "literature_first_assessment": {
+    "workflow_accepted": true,
+    "targeted_search_completed": true,
+    "complete_peer_reviewed_actual_finite_package_found": false,
+    "global_novelty_claimed": false,
+    "axiom_result_adopted_as_theorem_input": false,
+    "direct_project_proof_scope": "Support-rescaled one-coordinate estimate, distinct-profile finite-product composition, and conservative N/W profile norm bounds only"
+  },
+  "source_text_caution": {
+    "location": "Maynard source line 620 and printed page 1536",
+    "printed_expression": "k^2 T_k=o(log log R/log R)",
+    "consistent_required_expression": "k^2 T_k log log R/log R=o(1), equivalently k^2 T_k=o(log R/log log R)",
+    "reason": "Lemma 8.4 hypothesis and equation (8.20) use the latter direction",
+    "formal_erratum_claimed": false
+  },
+  "project_lemma": {
+    "profile_norm": "omega_s(G)=sup(|G|+s|G'|)/integral(G)",
+    "one_coordinate_product_envelope_coefficient": "delta_i=C_8_3*(L_i+1)*kappa_i/logR",
+    "exact_finite_product": "product_i(1+delta_i)-1",
+    "exponential_upper": "product_i(1+delta_i)-1 <= exp(sum_i delta_i)-1",
+    "linearized_upper": "exp(sum_i delta_i)-1 <= 2 sum_i delta_i when sum_i delta_i<=1",
+    "nonnegative_tensor_requirement": true,
+    "signed_generalization_claimed": false,
+    "relative_to_coupled_main_integral_claimed": false
+  },
+  "profile_certificates": {
+    "generic_profile": "P_a_m_q(t)=psi(t/a)^m/(1+T_k t)^q",
+    "integral_lower_q1": "log(1+0.9*a*T_k)/T_k",
+    "integral_lower_q2": "0.9*a/(1+0.9*a*T_k)",
+    "scaled_c1_numerator_upper": "1+50*m+a*q*T_k",
+    "N": {"a": "U_k", "m": 1, "q": 1},
+    "N2": {"a": "U_k", "m": 2, "q": 2},
+    "W": {"a": 2, "m": 1, "q": 1},
+    "W2": {"a": 2, "m": 2, "q": 2},
+    "NW": {"a": "U_k", "m": 1, "q": 2, "note": "psi(t/2)=1 on N support"}
+  },
+  "application_counts": {
+    "source_traced_total": 11,
+    "lemma84_total": 9,
+    "lemma84_smooth_closed": 7,
+    "smooth_profile_closed": 8,
+    "sharp_parameterized": 2,
+    "opaque_h_open": 1
+  },
+  "applications": [
+    {"id": "L620_dW", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "F"},
+    {"id": "L737_canonical", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "F2^2", "wide_coordinate_first_required": true},
+    {"id": "L752_canonical", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "F^2"},
+    {"id": "L885_W_prime", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "F2(t_m=0)^2", "wide_coordinate_first_required": true},
+    {"id": "L905_W_prime", "source_lemma": "8.4", "mode": "OPAQUE_H_FUNCTION_NORM_OPEN", "blocker": "H=F+O(error*F2) does not expose the remainder as a function with a numerical C1 norm"},
+    {"id": "L995_a_m_W_B_r", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "one-variable F2"},
+    {"id": "L1015_r_W_m", "source_lemma": "8.3", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "one-variable F"},
+    {"id": "L1096_W0", "source_lemma": "8.3", "mode": "SHARP_CUTOFF_SUMMATORY_PARAMETERIZED_EXPLICIT", "blocker": "finite lower bound for xi*log(x) remains hidden"},
+    {"id": "L1135_W0_factor", "source_lemma": "8.4 one-variable factor", "mode": "SHARP_CUTOFF_SUMMATORY_PARAMETERIZED_EXPLICIT", "blocker": "finite lower bound for xi*log(x) remains hidden"},
+    {"id": "L1135_canonical_factor", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "F^2"},
+    {"id": "L1232_canonical", "source_lemma": "8.4", "mode": "SMOOTH_COMPOSITION_PARAMETERIZED_EXPLICIT", "tensor": "F2^2", "wide_coordinate_first_required": true}
+  ],
+  "ordering_and_support": {
+    "wide_support_profile": "W2 supported on [0,2]",
+    "required_order": "In every F2^2 tensor term containing W2, sum the W2 coordinate first",
+    "why_lambda_star_survives": "The current coordinate is absent from Q_j; all later coordinates then have support exponent at most one",
+    "maximum_total_tensor_support_exponent": "max(k/sqrt(k), 2+(k-1)/sqrt(k)) <= k for k>=36",
+    "minimum_one_dimensional_endpoint_gate": "logR >= sqrt(k)*log(2)"
+  },
+  "common_smooth_gate": {
+    "parameterized_formula": "Let E=C_8_3*K_max, A=2k^2log(2k^2)+k(k-1)log2, B=10alpha(2k^2-k+1)/theta+k. It suffices that logR>=max(1,sqrt(k)log2,4Elog(4E),2E(6+log(A+B))).",
+    "scope": "Seven smooth Lemma 8.4 calls plus direct line-1015 Lemma 8.3 call only",
+    "illustrative_input": {"k": 36, "alpha": "0.01", "theta": "0.25"},
+    "illustrative_log10_logR": "132.069759781147881425180331625233535309",
+    "illustrative_kappa_max": "12425700.13103828508994205259684746550495",
+    "illustrative_only_not_directed_rounding_certificate": true,
+    "actual_parameter_choice_certified": false
+  },
+  "generic_distinct_profile_composition_closed": true,
+  "all_actual_lemma84_calls_closed": false,
+  "sharp_scale_closed": false,
+  "opaque_h_norm_closed": false,
+  "siv_07_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "actual_prime_experiment_performed": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false,
+  "parent_status": {
+    "H1B-L83": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+    "H1B-L84": "RATE_MISSING",
+    "H1B1-PACKAGE": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "next_gate": {
+    "id": "H1b-1b-2d.1",
+    "description": "Recover a numerical functional/C1 envelope for the line-905 H remainder and the finite xi*log(x) scale for the two sharp calls before composing the whole Lemma 8.4 package.",
+    "ready_for_threshold_calculator": false,
+    "ready_for_actual_prime_experiment": false
+  }
+}

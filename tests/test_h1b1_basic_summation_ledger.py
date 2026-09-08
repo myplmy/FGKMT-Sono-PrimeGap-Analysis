@@ -57,9 +57,9 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 2,
+                    "RATE_MISSING": 0,
                     "PROJECT_FINITE_COMPONENT_CLOSED": 4,
-                    "PARTIAL_EXPLICIT": 1,
+                    "PARTIAL_EXPLICIT": 3,
                     "PROJECT_PARAMETERIZED_EXPLICIT_CORRECTED_KAPPA1": 1,
                     "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 3,
                     "PRINTED_STRUCTURAL_FACT": 1,
@@ -132,7 +132,7 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
         )
         self.assertIn(
-            "C_L83(a,A2)",
+            "opaque H remainder",
             " ".join(
                 self.by_id["H1B1-L84-ITERATION"]["missing_numeric_inputs"]
             ),
@@ -180,6 +180,11 @@ class H1b1BasicSummationLedgerTests(unittest.TestCase):
             self.document["h1b1b2b_ledger"],
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1b1b2d_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
         )
 
 

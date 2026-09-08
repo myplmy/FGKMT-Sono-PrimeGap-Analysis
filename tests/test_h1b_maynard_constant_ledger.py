@@ -159,6 +159,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
         )
         self.assertEqual(
+            self.document["h1b1b2d_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1B-L82"]["status"],
             "PROJECT_FINITE_COMPONENT_CLOSED",
         )
@@ -168,7 +173,10 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         )
         self.assertEqual(
             self.by_id["H1B-L83"]["missing_numeric_inputs"],
-            ["the corrected r-fold Lemma 8.4 composition and its smooth-function norms"],
+            [
+                "downstream full Lemma 8.4 closure still needs the opaque-H C1 "
+                "multiplier and sharp xi*log(x) finite scale"
+            ],
         )
         self.assertIn(
             "C_L83(a,A2)",
@@ -186,6 +194,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         self.assertFalse(self.document["full_good_sieve_weight_closed"])
         self.assertFalse(self.document["siv_07_closed"])
         self.assertFalse(self.document["siv_09_closed"])
+        self.assertEqual(self.by_id["H1B-L84"]["status"], "RATE_MISSING")
+        self.assertIn(
+            "seven of nine actual Lemma 8.4 subapplications",
+            " ".join(self.by_id["H1B-L84"]["explicit_parts"]),
+        )
 
     def test_fail_closed_common_cutoff_and_threshold(self) -> None:
         composition = self.by_id["H1B-COMP-01"]

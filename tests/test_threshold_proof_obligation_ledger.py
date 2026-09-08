@@ -148,6 +148,11 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             "docs/method/theory/data/"
             "Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier_v1.json",
         )
+        self.assertEqual(
+            self.document["h1b1b2d_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
+        )
         self.assertIn(
             "all 11 application excluded-modulus bounds",
             self.by_id["SIV-07"]["notes"],

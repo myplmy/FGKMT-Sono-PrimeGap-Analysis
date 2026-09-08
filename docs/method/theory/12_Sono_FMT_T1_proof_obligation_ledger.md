@@ -328,9 +328,10 @@ hard-blocker 수 또는 \(X_{\mathrm{cert}}\)의 상태를 올리지 않는다.
 현재 권장 순서는 다음과 같다.
 
 1. **완료:** H1b-1b-2b가 corrected one-step multiplier를, H1b-1b-2c가
-   실제 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 인증했다.
-2. `H1b-1b-2d`: actual smooth norm과 corrected \(r\)-회 손실을 넣어
-   Lemma 8.4를 재합성한다.
+   실제 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)을 인증했다. H1b-1b-2d는
+   7개 smooth Lemma 8.4 call의 support norm·finite-product 합성을 닫았다.
+2. `H1b-1b-2d.1`: 905행 opaque \(H\) remainder의 함수형·\(C^1\) multiplier와
+   두 sharp call의 \(\xi\log x\) finite lower bound를 복원한다.
 3. 병렬 이론축 `H1c-1`에서 FGKMT (7.2)–(7.3)의 quantitative
    character/Bombieri–Vinogradov package를 복원한다.
 4. `H1b-2`: 위 입력 뒤 Propositions 9.1–9.5의 finite moment와 공통 cutoff를 합성한다.
@@ -405,3 +406,23 @@ a=\frac12,\qquad A_2=8,\qquad L=5+\log\Lambda_*
 smooth norm·\(r\)-회 합성, 다른 moment 상수, H1c/PAP와 arbitrary-X 전달은 남아 있다.
 그러므로 T1의 66행 root 상태 수, `SIV-07`, `SIV-09`,
 \(X_{\mathrm{cert}}\)는 바뀌지 않는다.
+
+## 14. 2026-09-08 support-scaled smooth \(r\)-fold 합성 반영
+
+H1b-1b-2d는 actual \(N,W,N^2,W^2,NW\) profile을 support 길이에 맞게 rescale하고,
+교정된 one-step 오차를
+
+\[
+\prod_i(1+\delta_i)-1,\qquad
+\delta_i=
+\frac{C_{8.3}(1/2,8)(L_i+1)\kappa_i}{\log R}
+\]
+
+로 정확히 합성했다. 9개 Lemma 8.4 subapplication 중 7개 smooth call은
+project-parameterized explicit 하위 package로 닫혔다. \(F_2^2\)의 support-\([0,2]\)
+\(W^2\) 좌표를 먼저 합한다는 순서 조건도 고정해 기존 \(\Lambda_*\)를 보존했다.
+
+그러나 905행 \(H=F+O(\eta F_2)\)의 remainder 함수·도함수 multiplier와 두 sharp
+call의 \(\xi\log x\) finite lower bound는 열려 있다. 따라서 parent `H1B-L84`는
+`RATE_MISSING`, `SIV-07`은 `HARD_BLOCKER`, \(X_{\mathrm{cert}}\)는 `OPEN`을 유지한다.
+T1의 66행 root 상태 수도 바뀌지 않는다.
