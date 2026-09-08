@@ -126,6 +126,11 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
         )
         self.assertEqual(
+            self.document["h1b2a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b2a_residual_moment_error_v1.json",
+        )
+        self.assertEqual(
             self.document["h1c_ledger"],
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
         )
@@ -147,6 +152,11 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
         self.assertIn(
             "All nine traced Lemma 8.4 subapplications",
             siv_07["printed_information"],
+        )
+        self.assertIn("H1b-2a further closes", siv_07["printed_information"])
+        self.assertIn(
+            "Proposition 9.4 Euler normalizations",
+            " ".join(siv_07["missing_numeric_inputs"]),
         )
         self.assertFalse(self.document["numerical_x_cert_ready"])
 

@@ -21,6 +21,8 @@
   [`22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md`](22_Sono_FMT_H1b1b2b_corrected_kappa1_Wirsing_multiplier.md)
 - H1b-1b-2d.1a.1 scalar remainder:
   [`26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md`](26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md)
+- H1b-2a Lemma 8.5·8.6 및 Proposition 9.4 잔여 package:
+  [`28_Sono_FMT_H1b2a_residual_moment_error_package.md`](28_Sono_FMT_H1b2a_residual_moment_error_package.md)
 
 ## 1. 결론부터
 
@@ -93,11 +95,11 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | 상태 | 행 수 |
 |---|---:|
 | `PARTIAL_EXPLICIT` | 1 |
-| `PROJECT_FINITE_COMPONENT_CLOSED` | 2 |
-| `RATE_MISSING` | 8 |
+| `PROJECT_FINITE_COMPONENT_CLOSED` | 3 |
+| `RATE_MISSING` | 6 |
 | `SOURCE_REVIEW_REQUIRED` | 0 |
 | `INPUT_PACKAGE_MISSING` | 3 |
-| `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 2 |
+| `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 3 |
 | `HARD_BLOCKER` | 1 |
 | **합계** | **17** |
 
@@ -111,13 +113,13 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-L82` | Lemma 8.2 | Lipschitz 오차 | `PROJECT_FINITE_COMPONENT_CLOSED` | H1b-1b에서 multiplier 89, \(k\ge2\) |
 | `H1B-L83` | Lemma 8.3 | multiplicative sum | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | \(C_{8.3}\), \(z\ge2\), 공통 \(a=1/2,A_2=8,L=5+\log\Lambda_*\) 닫힘 |
 | `H1B-L84` | Lemma 8.4 | 다차원 반복 합 | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | actual 관련 하위호출 9/9 explicit; 상위 moment 합성은 별도 |
-| `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `RATE_MISSING` | \(R^{2+o(1)}\)의 finite 대체 |
+| `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | \(M_{620}\)과 finite \(\eta_{85}(k,R)\)로 닫힘 |
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
-| `H1B-L86-SIZE` | Lemma 8.6 | 절대 적분 크기 | `RATE_MISSING` | lower-bound multiplier |
+| `H1B-L86-SIZE` | Lemma 8.6 | 절대 적분 크기 | `PROJECT_FINITE_COMPONENT_CLOSED` | plateau cube로 \(I_k\ge(2k\log k)^{-k}\) |
 | `H1B-P91` | Proposition 9.1 | zeroth moment | `RATE_MISSING` | 상대오차 multiplier·divisor sum |
 | `H1B-P92` | Proposition 9.2 | prime moment | `RATE_MISSING` | 상대·additive error 상수 |
 | `H1B-L93` | Lemma 9.3 | diagonal approximation | `RATE_MISSING` | \(F_2/F\)·오차 상수 |
-| `H1B-P94` | Proposition 9.4 | extra-form/rough upper bound | `RATE_MISSING` | leading multiplier·singular factors |
+| `H1B-P94` | Proposition 9.4 | extra-form/rough upper bound | `RATE_MISSING` | 식 (9.52) distribution multiplier·식 (9.67) Euler factors |
 | `H1B-P95` | Proposition 9.5 | 작은 소인수 penalty | `RATE_MISSING` | \(\ll\) multiplier·허용 margin |
 | `H1B-COMP-01` | Sections 8–9 합성 | 하나의 finite package | `HARD_BLOCKER` | 모든 입력과 최대 cutoff |
 
@@ -134,9 +136,11 @@ H1a는 simplex-supported test function에 대해
 
 을 닫았다. 그래서 `H1B-L86-RATIO`에는 더 이상 모르는 \(O(1/\log k)\) 상수를 둘 필요가 없다.
 
-그럼에도 Lemma 8.6에서 moment 주항의 **절대 크기**를 하한하는 상수, \(\lambda_{\max}\),
-singular series, arithmetic-progression discrepancy, off-diagonal error는 별개다. 적분비가 좋다는
-사실만으로 실제 finite weight moment의 주항이 모든 오차보다 크다는 결론은 나오지 않는다.
+H1a만 완료됐을 당시에는 Lemma 8.6의 **절대 크기** 하한과 \(\lambda_{\max}\)가 별개로
+열려 있었다. 후속 H1b-2a가 plateau cube와 finite support count로 이 두 행을 닫았다.
+그럼에도 singular series의 나머지 항, arithmetic-progression discrepancy와 off-diagonal
+moment error는 별개다. 적분비와 절대 크기를 안다는 사실만으로 실제 finite weight moment의
+주항이 모든 오차보다 크다는 결론은 나오지 않는다.
 
 따라서 다음 추론은 금지한다.
 
@@ -147,8 +151,8 @@ H1a PASS -> Proposition 6.1 numerical PASS -> FMT good weight PASS -> X_cert 계
 정확한 현재 연결은 다음이다.
 
 ```text
-H1a ratio component PASS
-  + Lemmas 8.1-8.5 constants (OPEN)
+H1a ratio + H1b-2a Lemma 8.5/8.6 finite components PASS
+  + Lemma 8.1 residual constants (OPEN)
   + Hypothesis 1 numeric package (OPEN)
   + Propositions 9.1-9.5 finite error composition (OPEN)
   = Proposition 6.1 numerical package (OPEN)
@@ -408,3 +412,40 @@ X_cert       OPEN
 
 그 이유는 Lemmas 8.5--8.6, Propositions 9.1--9.5의 남은 오차, 전체
 moment-level main/error budget과 H1c-1 입력이 아직 열려 있기 때문이다.
+
+## 19. 2026-09-08 H1b-2a 잔여 moment/error 반영
+
+H1b-2a는 실제 cutoff의 plateau cube
+([0,9/(10k)]^k)를 직접 적분해 모든 정수 (k\ge36)에서
+
+\[
+I_k(F)\ge(2k\log k)^{-k},\qquad
+J_k(F)>\frac{\log k}{4k}(2k\log k)^{-k}
+\]
+
+를 얻었다. 또한 안전하지만 보수적인 (F_1/F_2) comparison multiplier
+(2^k,C_J(k))를 명시했다. 이에 따라 `H1B-L86-SIZE`는
+`PROJECT_FINITE_COMPONENT_CLOSED`로 이동한다. 이전 원장의 `(-k-1)` 표기는 최종 출판본의
+정확한 `(-k)`로 교정했다.
+
+실제 `L620_dW` finite-product 오차를 (M_{620}=1+\varepsilon_{620})로 받아
+
+\[
+|\lambda_{\mathbf d}|\le M_{620}(\log R/k)^k
+\]
+
+와 local weight bound, finite
+
+\[
+w_n\le R^{2+\eta_{85}(k,R)}
+\]
+
+를 얻었다. 따라서 `H1B-L85`는
+`ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 이동한다.
+
+Proposition 9.4의 식 (9.56)--(9.63)에서는 square-symmetry multiplier 1,
+exact denominator (\le2/p), 첫 Euler 곱 (\le e^{2/k})를 닫았다. 그러나 식 (9.52)의
+Hypothesis 1 distribution error와 식 (9.67)의 두 exact Euler normalization이 남으므로
+`H1B-P94=RATE_MISSING`이다. 따라서 `H1B-COMP-01`, `SIV-07/09`와
+(X_{\mathrm{cert}})는 계속 열린다. 정본은
+[`28_Sono_FMT_H1b2a_residual_moment_error_package.md`](28_Sono_FMT_H1b2a_residual_moment_error_package.md)다.

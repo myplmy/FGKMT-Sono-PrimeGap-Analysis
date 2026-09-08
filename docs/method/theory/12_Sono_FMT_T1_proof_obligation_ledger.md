@@ -15,6 +15,8 @@
   [`data/Sono_FMT_H1_good_sieve_weight_trace_v1.json`](data/Sono_FMT_H1_good_sieve_weight_trace_v1.json)
 - H1b Maynard constant ledger:
   [`14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md`](14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md)
+- H1b-2a Lemma 8.5·8.6 및 Proposition 9.4 잔여 package:
+  [`28_Sono_FMT_H1b2a_residual_moment_error_package.md`](28_Sono_FMT_H1b2a_residual_moment_error_package.md)
 - H1b-1 basic summation 감사:
   [`15_Sono_FMT_H1b1_basic_summation_constant_audit.md`](15_Sono_FMT_H1b1_basic_summation_constant_audit.md)
 - H1b-1b-2a actual-call local-factor·제외모듈 하한:
@@ -334,8 +336,9 @@ hard-blocker 수 또는 \(X_{\mathrm{cert}}\)의 상태를 올리지 않는다.
 2. **완료:** `H1b-1b-2d.1b`가 두 sharp call의 \(\xi\log x\) finite lower bound를 복원했다.
 3. 병렬 이론축 `H1c-1`에서 FGKMT (7.2)–(7.3)의 quantitative
    character/Bombieri–Vinogradov package를 복원한다.
-4. **현재 직접 축:** `H1b-2`에서 Lemmas 8.5--8.6과 Propositions 9.1–9.5의
-   잔여 finite moment error를 감사하고 공통 cutoff를 합성한다.
+4. **부분 완료:** `H1b-2a`가 Lemma 8.5 finite weight envelope와 Lemma 8.6 absolute
+   size·coarse comparison을 닫았다. 현재 직접 축은 Proposition 9.4 식 (9.67)의 exact
+   Euler normalization과 식 (9.52)의 distribution error다.
 5. H1b-2 뒤 `SIV-05`, `SIV-09`, `SIV-10`, `SIV-11`의 합성 slack을 닫는다.
 6. H1 계열이 numeric하게 닫힌 뒤 `COV-06`–`COV-11`의 finite failure-probability ledger로 간다.
 7. PAP·UB·covering·transfer hard node가 모두 닫힌 뒤에만 T2와 threshold calculator를 구현한다.
@@ -481,3 +484,26 @@ line-905 scalar/smooth 하위 package는 닫히며 smooth Lemma 8.4 하위호출
 `HARD_BLOCKER` 그대로다. 66행의 top-level 상태 수도 바뀌지 않으며
 \(X_{\mathrm{cert}}\)도 계속 `OPEN`이다. 다음 직접 축은 H1b-2의 잔여
 moment/error 감사와 H1c-1의 quantitative character/Bombieri--Vinogradov package다.
+
+## 18. 2026-09-08 H1b-2a 잔여 moment/error 반영
+
+theory 28은 actual cutoff의 plateau cube를 사용해 모든 정수 (k\ge36)에서
+
+\[
+I_k(F)\ge(2k\log k)^{-k},\qquad
+J_k(F)>\frac{\log k}{4k}(2k\log k)^{-k}
+\]
+
+를 finite하게 닫고, (F_1/F_2)에는 (2^k,C_J(k))라는 안전한 explicit
+comparison multiplier를 주었다. actual `L620_dW` 오차와 elementary support count를
+결합해 Lemma 8.5의 coefficient, local weight, (R^{2+\eta_{85}(k,R)}) 상계도 닫았다.
+
+따라서 H1b 하위행 `H1B-L85`와 `H1B-L86-SIZE`는 각각
+`ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`, `PROJECT_FINITE_COMPONENT_CLOSED`로 이동한다.
+Proposition 9.4에서는 square algebra, denominator (\le2/p), 첫 Euler 곱
+(\le e^{2/k})만 닫혔다. 식 (9.52)의 distribution error와 식 (9.67)의 마지막 두
+Euler normalization은 열려 있다.
+
+T1의 `SIV-07`은 Proposition 6.1 전체 행이므로 계속 `HARD_BLOCKER`이고, 66행 상태 수와
+(X_{\mathrm{cert}})=`OPEN`도 변하지 않는다. 다음 직접 축은 H1b-2a.1 exact Euler
+normalization, 이어 H1b-2a.2 distribution error와 H1c-1의 quantitative character package다.

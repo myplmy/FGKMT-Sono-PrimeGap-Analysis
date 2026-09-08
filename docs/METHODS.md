@@ -7,7 +7,9 @@
 - 현재 단계: P003/P004 본체, P005–P014-R3 실제 실행, P017 병렬 보정, P018 exact prime-count·P0·A와 설계 사후감사, P020 recurrence artifact 종합 완료; A는 정보량 HOLD
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
-- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a는 \(J_r/I_r>\log r/(4r)\)를 모든 정수 \(r\ge36\)에서 project theorem으로 닫았다. H1b-1a는 세 finite component를 닫았고, H1b-1b는 Maynard Lemma 8.2 multiplier를 89로 닫았다. Castillo et al.의 peer-reviewed 교정을 반영한 H1b-1b-2b는 Ford 정리에서 \(\kappa=1\) one-step multiplier를 명시했다. H1b-1b-2a.1은 실제 Section 8의 11개 analytic subapplication에서 local factor와 \(dW_i,W'_i,a_mWBr,rW_m,W_0\) 제외모듈을 전수 인증해 공통 \(\log Q_j\le\Lambda_*\)와 \(c_{\gamma,j}>1/[3(1+\log\Lambda_*)]\)를 얻었다. H1b-1b-2c는 모든 실제 호출에 공통인 \(a=1/2,A_2=8,L=5+\log\Lambda_*\)를 인증해 `H1B-L83`을 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 진전시켰다. H1b-1b-2d는 actual direct-smooth Lemma 8.4 호출 7개를 닫았고, H1b-1b-2d.1a/1a.1은 905행의 전역 \(H\) C1 요구를 square-sum으로 우회한 뒤 scalar multiplier \(C_Y=327680(14801/69)e^{264}+10,143,697<3.17\times10^{122}\)와 finite gate를 닫았다. H1b-1b-2d.1b는 실제 \(\xi=\theta/10\), \(R\le x^{\theta/3}\)에서 \(\xi\log x\ge(3/10)\log R\)를 얻고 strict multiplier \(C_\Sigma+2\)로 두 sharp 호출도 닫았다. 따라서 Lemma 8.4 관련 actual 하위호출은 9/9 parameterized explicit이고 `H1B-L84`는 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다. 다음 직접 gate는 H1b-2의 잔여 moment/error 감사이고, 병렬 gate는 H1c-1 quantitative character/Bombieri–Vinogradov package다. Kuperberg arXiv:2210.09775의 size gate와 절대 \(C_3\)+\(c_\gamma\) 경로는 보조 비교 경로다. `SIV-07`과 `X_cert`는 계속 HARD_BLOCKER/OPEN이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+- 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a와 H1b-1 계열은 finite-r 적분비, Lemma 8.2 multiplier 89, 교정된 \(\kappa=1\) one-step multiplier, 실제 제외모듈과 Lemma 8.4 관련 하위호출 9/9를 parameterized explicit 수준으로 닫았다.
+  2026-09-08 H1b-2a는 Lemma 8.5의 coefficient·weight envelope와 Lemma 8.6의 절대 \(I_k,J_k\) 크기 및 보수적 \(F_1/F_2\) 비교를 유한식으로 닫았다. Proposition 9.4에서는 square algebra, exact denominator와 첫 Euler 곱만 닫혔다.
+  다음 직접 gate는 H1b-2a.1의 식 (9.67) exact Euler normalization, 이어 H1b-2a.2의 식 (9.52) distribution error이며, H1c-1 quantitative character/Bombieri–Vinogradov package가 병렬 선결축이다. `SIV-07`과 `X_cert`는 계속 `HARD_BLOCKER`/`OPEN`이고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -742,6 +744,16 @@ fail-closed로 등록했고, actual local-factor와 application 제외모듈 하
  `docs/method/theory/26_Sono_FMT_H1b1b2d1a1_scalar_remainder.md`,
  `docs/method/theory/27_Sono_FMT_H1b1b2d1b_sharp_xi_logx_scale.md`다.
 
+H1b-2a는 실제 cutoff의 plateau cube를 직접 적분해 모든 정수 \(k\ge36\)에서
+\(I_k(F)\ge(2k\log k)^{-k}\)와 이에 대응하는 절대 \(J_k(F)\) 하한을 닫고,
+actual `L620_dW` 오차를 이용해 Lemma 8.5의 coefficient·local/global weight를
+\(M_{620}\)과 \(\eta_{85}(k,R)\)의 유한식으로 바꿨다. 따라서 `H1B-L85`와
+`H1B-L86-SIZE`는 각각 `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`,
+`PROJECT_FINITE_COMPONENT_CLOSED`다. 다만 Proposition 9.4 식 (9.52)의 distribution
+error와 식 (9.67)의 마지막 두 Euler normalization은 열려 있으므로 `H1B-P94`,
+`SIV-07/09`, `X_cert`는 승격하지 않는다. 정본은
+`docs/method/theory/28_Sono_FMT_H1b2a_residual_moment_error_package.md`다.
+
 같은 날 H1c는 FGKMT Hypothesis 1과 Sono PAP를 20개 node로 분리했다. \(\mathcal A=\mathbb Z\)인
 Hypothesis 1(1)은 `floor(y^(1/3))*(log y)^(100 k^2) <= N`, (3)은 `N>=q`일 때 implied
 constant 2라는 exact sufficient reduction이 있다. 그러나 condition (2)의 character/Bombieri–
@@ -751,7 +763,8 @@ rate는 열려 있다. PAP와 Hypothesis 1은 shared source를 가진 sibling ob
 1977로 정정했다. 정본은
 `docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`다. 이 graph·서지 교정은
 `SIV-07/08/09`, `PAP-11` 또는 `X_cert`를 닫지 않는다. 다음 gate는
-H1b-2의 잔여 moment/error package와 H1c-1 quantitative character package다. 모든 root dependency가 닫히기
+H1b-2a.1의 Proposition 9.4 exact Euler normalization, H1b-2a.2의 distribution error와
+H1c-1 quantitative character package다. 모든 root dependency가 닫히기
 전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus와 분리한다. 두 원고가

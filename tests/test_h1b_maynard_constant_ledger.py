@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.4.0")
+        self.assertEqual(self.document["schema_version"], "1.5.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -70,11 +70,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 8,
+                    "RATE_MISSING": 6,
                     "INPUT_PACKAGE_MISSING": 3,
                     "PARTIAL_EXPLICIT": 1,
-                    "PROJECT_FINITE_COMPONENT_CLOSED": 2,
-                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 2,
+                    "PROJECT_FINITE_COMPONENT_CLOSED": 3,
+                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 3,
                     "HARD_BLOCKER": 1,
                 }
             ),
@@ -182,6 +182,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
         )
         self.assertEqual(
+            self.document["h1b2a_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1b2a_residual_moment_error_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1B-L82"]["status"],
             "PROJECT_FINITE_COMPONENT_CLOSED",
         )
@@ -221,6 +226,28 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         self.assertIn(
             "C_Y=",
             " ".join(self.by_id["H1B-L84"]["explicit_parts"]),
+        )
+        self.assertEqual(
+            self.by_id["H1B-L85"]["status"],
+            "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+        )
+        self.assertEqual(
+            self.by_id["H1B-L86-SIZE"]["status"],
+            "PROJECT_FINITE_COMPONENT_CLOSED",
+        )
+        self.assertIn(
+            "(2 k log k)^(-k)",
+            self.by_id["H1B-L86-SIZE"]["printed_bound"],
+        )
+        p94 = self.by_id["H1B-P94"]
+        self.assertEqual(p94["status"], "RATE_MISSING")
+        self.assertIn(
+            "squared-y use by exp(4/k)",
+            " ".join(p94["explicit_parts"]),
+        )
+        self.assertIn(
+            "equation-(9.52) distribution error",
+            " ".join(p94["missing_numeric_inputs"]),
         )
 
     def test_fail_closed_common_cutoff_and_threshold(self) -> None:

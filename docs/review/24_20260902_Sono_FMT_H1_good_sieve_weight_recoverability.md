@@ -374,3 +374,18 @@ error budget, H1c-1 입력이 남으므로 `SIV-07/09`와
 상세 근거는
 [`27_Sono_FMT_H1b1b2d1b_sharp_xi_logx_scale.md`](../method/theory/27_Sono_FMT_H1b1b2d1b_sharp_xi_logx_scale.md)와
 [`33_20260908_H1b1b2d1b_sharp_scale_타당성검토.md`](33_20260908_H1b1b2d1b_sharp_scale_타당성검토.md)에 있다.
+
+## 14. 2026-09-08 H1b-2a 후속 판정
+
+위 Section 13의 Lemmas 8.5--8.6 OPEN 문장은 sharp-scale 직후의 상태다. 후속
+[`H1b-2a 정본`](../method/theory/28_Sono_FMT_H1b2a_residual_moment_error_package.md)은
+actual cutoff의 plateau cube를 직접 적분해 (k\ge36)에서
+(I_k(F)\ge(2k\log k)^{-k})와 absolute (J_k) 하한을 닫았다. 또한 실제
+`L620_dW` 오차로 Lemma 8.5의 coefficient·weight·finite (R)-exponent를 닫았다.
+따라서 `H1B-L85`와 `H1B-L86-SIZE`는 더 이상 rate-missing 행이 아니다.
+
+다만 Proposition 9.4는 식 (9.52)의 Hypothesis 1 distribution error와 식 (9.67)의
+마지막 두 Euler 곱이 열려 있고, Propositions 9.1, 9.2, 9.5 및 Lemma 9.3도 아직 공통
+moment budget에 합성되지 않았다. 따라서 H1 전체 판정
+`CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`,
+`SIV-07/09=HARD_BLOCKER`, (X_{\mathrm{cert}}=)`OPEN`은 유지한다.

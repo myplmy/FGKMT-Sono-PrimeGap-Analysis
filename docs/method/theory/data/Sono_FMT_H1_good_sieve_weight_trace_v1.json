@@ -20,6 +20,7 @@
   "h1b1b2d1a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d1a_H_remainder_bypass_v1.json",
   "h1b1b2d1a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
   "h1b1b2d1b_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2d1b_sharp_scale_v1.json",
+  "h1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b2a_residual_moment_error_v1.json",
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
@@ -128,16 +129,16 @@
       "question": "Can Maynard Proposition 6.1 constants be written as explicit functions of Hypothesis 1 constants?",
       "source_keys": ["MAYNARD2016", "FGKMT2016"],
       "source_locator": "Maynard Proposition 6.1 and Sections 8-9; FGKMT Theorem 6 (7.5)-(7.9)",
-      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89. H1b-1b-2b follows Ford's corrected theorem and supplies a project-explicit kappa=1 one-step multiplier C_L83(a,A2) for every z>=2. H1b-1b-2a.1 separately closes the traced actual nonexcluded local factors and all 11 application excluded-modulus bounds with a common Lambda_star. H1b-1b-2d.1a removes the need for a global C1 version of the source-line-905 H remainder, H1b-1b-2d.1a.1 closes its scalar pointwise multiplier, and H1b-1b-2d.1b uses the actual xi=theta/10 and R<=x^(theta/3) to close both sharp summatory factors. All nine traced Lemma 8.4 subapplications are now parameterized explicit, but the Proposition 6.1 moment package is not.",
+      "printed_information": "The dependence is stated to be only on theta, alpha and the implied constants in Hypothesis 1. Several moment errors have displayed rates such as O((log x)^(-1/10)). H1b-1a closed three finite components; H1b-1b closed Lemma 8.2 with multiplier 89. H1b-1b-2b follows Ford's corrected theorem and supplies a project-explicit kappa=1 one-step multiplier C_L83(a,A2) for every z>=2. H1b-1b-2a.1 separately closes the traced actual nonexcluded local factors and all 11 application excluded-modulus bounds with a common Lambda_star. H1b-1b-2d.1a removes the need for a global C1 version of the source-line-905 H remainder, H1b-1b-2d.1a.1 closes its scalar pointwise multiplier, and H1b-1b-2d.1b uses the actual xi=theta/10 and R<=x^(theta/3) to close both sharp summatory factors. All nine traced Lemma 8.4 subapplications are now parameterized explicit. H1b-2a further closes finite Lemma 8.5 coefficient/weight envelopes and the Lemma 8.6 absolute I/J size and coarse F1/F2 comparisons; Proposition 9.4 distribution and final Euler factors remain open.",
       "missing_numeric_inputs": [
         "the constants multiplying all moment errors",
         "finite cutoffs in repeated negligible-error arguments",
-        "remaining singular-series and coefficient bounds uniform in r and the linear forms",
+        "remaining singular-series and Proposition 9.4 Euler normalizations uniform in r and the linear forms",
         "the remaining common moment-level error budget"
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "Audit Lemmas 8.5-8.6 and the residual errors in Propositions 9.1-9.5, then build one common moment-level error budget. Do not treat any remaining O-constant as one.",
+      "next_action": "Recover the exact pre-O(k) factors in Proposition 9.4 equation (9.67), quantify its equation (9.52) distribution error with H1c-1 inputs, then continue Propositions 9.1-9.5. Do not treat any remaining O-constant as one.",
       "threshold_ready": false
     },
     {
@@ -204,7 +205,7 @@
       ],
       "recoverability": "DEPENDENCY_BLOCKED",
       "reproof_scale": "RESEARCH_PROGRAM",
-      "next_action": "Do not build a threshold calculator. H1a and the traced Lemma 8.4 subapplications are parameterized explicit, but the remaining H1b moments and H1c-1 are open. Continue H1b-2 and H1c-1 before attempting the full composition.",
+      "next_action": "Do not build a threshold calculator. H1a, Lemma 8.4, Lemma 8.5 and the Lemma 8.6 finite components are explicit, but Proposition 9.1-9.5 and H1c-1 are open. Continue H1b-2a.1/2 and H1c-1 before attempting the full composition.",
       "threshold_ready": false
     }
   ]

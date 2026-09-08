@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-08",
+  "scope": "H1b-2a finite audit of Maynard Lemmas 8.5-8.6 and residual Proposition 9.4 factors",
+  "outcome": "LEMMA85_AND_LEMMA86_FINITE_COMPONENTS_CLOSED_P94_PARTIAL_PARENT_OPEN",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016",
+      "title": "Dense Clusters of Primes in Subsets",
+      "author": "James Maynard",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "url": "https://doi.org/10.1112/S0010437X16007296",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "reviewed_locations": "printed pp.1536-1537 Lemmas 8.5-8.6 and pp.1547-1550 Proposition 9.4",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "MAYNARD2015",
+      "title": "Small Gaps Between Primes",
+      "author": "James Maynard",
+      "doi": "10.4007/annals.2015.181.1.7",
+      "arxiv": "1311.4600",
+      "url": "https://doi.org/10.4007/annals.2015.181.1.7",
+      "local_path": "tmp/pdfs/h1b2a/Maynard2015_Small_Gaps_published.pdf",
+      "sha256": "3c24d010f00d1212418351b6f6baed9c94251a3ce958c36f56ebbc450ade9349",
+      "reviewed_locations": "printed pp.405-408, Section 7 concentration argument cited by Maynard 2016 Lemma 8.6",
+      "status": "PRIMARY_SOURCE_REVIEWED"
+    },
+    {
+      "key": "MAYNARD2016_AUTHOR_TEX",
+      "title": "Dense Clusters of Primes in Subsets author TeX",
+      "author": "James Maynard",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "reviewed_locations": "lines 606-668 and 1044-1168",
+      "status": "SOURCE_VERSION_CROSS_CHECKED"
+    }
+  ],
+  "parameter_domain": {
+    "minimum_k": 36,
+    "q": "9/10",
+    "T_k": "k log k",
+    "U_k": "k^(-1/2)",
+    "support_gate": "log R >= sqrt(k) log 2",
+    "actual_cutoff": "0<=psi<=1, psi=1 on [0,9/10], support in [0,1]"
+  },
+  "finite_lemmas": {
+    "L86_absolute_I": {
+      "formula": "I_k(F) >= [q/(k(1+q log k))]^k >= (2k log k)^(-k)",
+      "range": "every integer k>=36; second inequality already holds when q log k>=1",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    },
+    "L86_absolute_J": {
+      "formula": "J_k(F) > [log k/(4k)] (2k log k)^(-k)",
+      "range": "every integer k>=36, using project H1a",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    },
+    "L86_I_comparison": {
+      "formula": "I(F)<=I(F1)<=I(F2)/k^2<=2^k I(F)",
+      "range": "every integer k>=36",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    },
+    "L86_J_comparison": {
+      "formula": "J(F)<=J(F1)<=J(F2)/k^2<=C_J(k)J(F), C_J(k)=4*2^k*[log(1+2T)+(k-1)log(1+TU)]^2/[k^2(log k)^2]",
+      "range": "every integer k>=36",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    },
+    "L85_coefficient": {
+      "formula": "|lambda_d|<=M_620(log R/k)^k, M_620=1+epsilon_620",
+      "range": "actual L620 finite-product certificate and support gate; M_620<=e when sum delta_i<=1",
+      "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+    },
+    "L85_local_weight": {
+      "formula": "w_n<=M_620^2 k^(-2k)(log x)^(2k) product_{i,p|L_i(n),p not|B}4",
+      "range": "same as L85_coefficient and log R<=log x",
+      "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+    },
+    "L85_global_weight": {
+      "formula": "w_n<=R^(2+eta_85), eta_85=max(0,[2log M_620+2k log((log R/k)(1+log R))]/log R)",
+      "range": "same as L85_coefficient; finite replacement for R^(2+o(1))",
+      "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+    }
+  },
+  "proposition_94_children": [
+    {
+      "id": "H1B2A-P94-SQUARE-ALGEBRA",
+      "locator": "Maynard 2016 (9.56)-(9.57), author TeX lines 1112-1114",
+      "result": "2|ab|<=a^2+b^2 and symmetry give multiplier 1",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    },
+    {
+      "id": "H1B2A-P94-DENOMINATOR",
+      "locator": "Maynard 2016 (9.57)",
+      "result": "(p+omega*(p)-2)/(p-omega*(p))^2 <= 2/p for p>2k^2, omega*(p)<=k+1, k>=36",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    },
+    {
+      "id": "H1B2A-P94-FIRST-EULER",
+      "locator": "Maynard 2016 (9.63)",
+      "result": "product[1+omega(p)/((p-1)(p-omega(p)))] <= exp(2/k)",
+      "status": "PROJECT_FINITE_COMPONENT_CLOSED"
+    },
+    {
+      "id": "H1B2A-P94-DISTRIBUTION",
+      "locator": "Maynard 2016 (9.52)",
+      "missing": "numerical Hypothesis 1(1),(3) multipliers and common finite cutoff",
+      "status": "INPUT_PACKAGE_MISSING"
+    },
+    {
+      "id": "H1B2A-P94-FINAL-EULER",
+      "locator": "Maynard 2016 (9.67)",
+      "missing": "exact pre-O(k) local factors and a finite comparison with the singular series",
+      "status": "RATE_MISSING"
+    }
+  ],
+  "parent_status": {
+    "H1B-L85": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
+    "H1B-L86-RATIO": "PROJECT_FINITE_COMPONENT_CLOSED",
+    "H1B-L86-SIZE": "PROJECT_FINITE_COMPONENT_CLOSED",
+    "H1B-P94": "RATE_MISSING",
+    "H1B-COMP-01": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "SIV-09": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "literature_search": {
+    "result": "NO_DROP_IN_EXPLICIT_REPLACEMENT_FOUND_IN_TARGETED_PRIMARY_SOURCE_SEARCH",
+    "limitation": "This is not a global nonexistence or novelty claim. The project lemmas close only the listed connectors."
+  },
+  "actual_prime_experiment_performed": false,
+  "threshold_calculator_created": false,
+  "new_python_dependency_required": false,
+  "lean_required_for_this_gate": false
+}

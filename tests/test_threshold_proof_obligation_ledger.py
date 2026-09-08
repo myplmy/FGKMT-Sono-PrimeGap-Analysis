@@ -181,7 +181,11 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             self.by_id["SIV-07"]["notes"],
         )
         self.assertIn(
-            "H1B-L84 is now actual-input parameterized explicit",
+            "H1b-2a closes finite Lemma 8.5",
+            self.by_id["SIV-07"]["notes"],
+        )
+        self.assertIn(
+            "final Euler normalization",
             self.by_id["SIV-07"]["notes"],
         )
         self.assertEqual(self.by_id["SIV-07"]["status"], "HARD_BLOCKER")

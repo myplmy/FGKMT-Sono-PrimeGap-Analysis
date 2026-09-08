@@ -342,7 +342,7 @@ sharp \(\xi\log x\) finite scale이다. 이 진전만으로 `H1B-L84`,
 \(+2\)까지 보존한 finite gate가 source line 1096과 1135의 두 sharp factor를
 닫는다.
 
-현재 상태는 다음과 같다.
+당시 상태는 다음과 같다.
 
 ~~~text
 Lemma 8.3 corrected one-step      = ACTUAL INPUTS PARAMETERIZED EXPLICIT
@@ -354,3 +354,11 @@ H1B-COMP-01 / SIV-07 / X_cert    = HARD_BLOCKER / HARD_BLOCKER / OPEN
 다음 직접 gate는 H1b-2의 Lemmas 8.5--8.6과 Propositions 9.1--9.5 잔여
 오차 및 공통 moment budget이다. H1c-1 quantitative character package는 병렬
 root dependency다.
+
+## 13. 2026-09-08 H1b-2a 후속 상태
+
+앞 절의 다음 gate 문장은 H1b-1b-2d.1b 직후의 역사적 상태다. 후속 theory 28은
+Lemma 8.5의 finite coefficient·weight envelope와 Lemma 8.6의 absolute integral size를
+닫았다. 현재 직접 gate는 Proposition 9.4 식 (9.67)의 exact Euler normalization과 식
+(9.52)의 distribution error다. 다른 Propositions 9.1--9.5 및 H1c-1 입력이 남으므로
+`H1B-COMP-01`, `SIV-07/09`, `X_cert`는 계속 열린다.
