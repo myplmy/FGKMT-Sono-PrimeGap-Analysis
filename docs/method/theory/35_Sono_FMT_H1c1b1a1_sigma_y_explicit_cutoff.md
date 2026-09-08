@@ -336,3 +336,13 @@ threshold calculator                  NOT READY
 5. Hypothesis 1(2), Proposition 9.2의 완전한 finite inequality
 
 모든 root dependency가 닫히기 전에는 `X_cert` 계산기나 장시간 prime sweep을 만들지 않는다.
+
+## 12. 2026-09-09 H1c-1b.2 후속 결과
+
+위 목록 중 1번과 raw cumulative-\(\psi\) 수준의 2번 일부는 H1c-1b.2에서 닫혔다.
+actual fixed scale의 \(T\), \(2T\)에 하나의 \(Q_1,q_0,B\)를 쓰고, 최종 NYJM판
+RHS 12항을 모두 등록해 \(R_B(T)+R_B(2T)\) composition을 얻었다.
+
+아직 닫히지 않은 항목은 half-open·prime-power·unweighted count·exact recentering
+(H1c-1b.3)과 \(C_*\)·density·12항 common cutoff(H1c-1b.4)다. 따라서
+Hypothesis 1(2), Proposition 9.2, `SIV-07/08`과 \(X_{\mathrm{cert}}\)는 승격하지 않는다.

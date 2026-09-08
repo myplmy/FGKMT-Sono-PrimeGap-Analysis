@@ -331,3 +331,14 @@ FGKMT의 정확한 \(R=(x/4)^{\theta/3}\)를 합성했다.
 \(x\ge2\exp(36^5)\)에서 닫았다. full Bordignon error, common exceptional \(B\), count
 transfer와 density는 계속 열려 있다. 따라서 Hypothesis 1(2), Proposition 9.2, `SIV-07/08`,
 \(X_{\mathrm{cert}}\)는 승격하지 않는다.
+
+## 12. 2026-09-09 H1c-1b.2 후속 결과
+
+H1c-1b.2는 이 문서에서 열어 둔 common exceptional \(B\)를 actual fixed-scale
+identity-form에 한해 닫았다. 같은 \(Q_1=(\log T)^A\)를 \(T\), \(2T\)에 쓰고
+\(q_0\)의 prime divisor를 \(B\)로 고른다. 최종 Bordignon 12항의 raw
+\((T,2T]\) \(\psi\) composition도 닫혔다.
+
+따라서 이 문서의 역사적 `common_exceptional_b_closed=false` 자체는 당시 판정으로
+보존하되 successor JSON을 따른다. count transfer와 full absorption은 계속 열려 있고,
+다음 gate는 H1c-1b.3이다.

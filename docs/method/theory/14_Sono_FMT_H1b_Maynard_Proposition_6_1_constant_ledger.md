@@ -564,3 +564,15 @@ Sono의 asymptotic coefficient를 줄이지 않는다.
 `SIV-07/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`이다.
 다음 직접 gate는 H1c-1b.2 common exceptional \(B\)와 Proposition 9.2 full
 distribution package다.
+
+## 18. 2026-09-09 H1c-1b.2 후속 반영
+
+H1c-1b.2는 fixed \(Q_1\)의 한 exceptional \(q_0\)와 그 prime divisor \(B\)를
+\(T\), \(2T\)에 공통으로 고정하고, 최종 Bordignon RHS 12항으로 raw \((T,2T]\)
+\(\psi\) discrepancy를 합성했다.
+
+이는 `H1B-P92`의 중요한 하위 bridge지만 P92 자체는 아니다. half-open unweighted
+count transfer, exact center, density와 full error absorption이 남으므로
+`H1B-P92=RATE_MISSING`, `H1B-COMP-01=HARD_BLOCKER`,
+`SIV-07/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}\)=`OPEN`을 유지한다.
+다음 직접 gate는 H1c-1b.3이다.

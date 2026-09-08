@@ -353,3 +353,18 @@ Mertens upper gate를 증명해 `SIV-03`을 `EXPLICIT`으로 만들었다. commo
 `numerical_hypothesis1_package_ready=false`, `SIV-08=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}=\)`OPEN`은 유지한다. 다음 gate는 H1c-1b.2 full quantitative
 distribution composition이다.
+
+## 14. 2026-09-09 H1c-1b.2 후속 판정
+
+H1c-1b.2는 Bordignon Theorem 1.4의 exceptional object가 fixed \(Q_1\)에 대해
+선택된다는 quantifier를 실제 identity-form 호출에 적용했다. \(T\), \(2T\)에 같은
+\(Q_1\)을 쓰고 \(q_0\)의 prime divisor \(B\)를 택하면 actual
+\(q\le T^{1/3},(q,B)=1\) family를 두 endpoint에서 동시에 제어한다.
+
+또 최종 출판본 12항을 모두 보존해 raw \((T,2T]\) \(\psi\) composition을 닫았다.
+arXiv v1은 중심항과 log factor가 최종판과 달라 수치식에 채택하지 않는다.
+
+Hypothesis 1(2)의 half-open unweighted count, exact recentering, density와 full
+absorption은 계속 열려 있다. 따라서 `numerical_hypothesis1_package_ready=false`,
+`SIV-08=HARD_BLOCKER`, \(X_{\mathrm{cert}}\)=`OPEN`이고 다음 gate는
+H1c-1b.3이다.

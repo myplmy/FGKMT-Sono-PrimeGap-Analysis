@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1c-1b.2",
+  "scope": "Fix one exceptional object for the two cumulative endpoints of the actual identity-form Proposition 9.2 call and compose all twelve positive terms in the final published Bordignon Theorem 1.4. Do not perform psi-to-prime-count transfer, density normalization, common-cutoff absorption, or threshold calculation.",
+  "outcome": "COMMON_EXCEPTIONAL_B_AND_RAW_PSI_DYADIC_COMPOSITION_CLOSED_COUNT_TRANSFER_AND_ABSORPTION_OPEN",
+  "source_registry": [
+    {
+      "key": "BORDIGNON2021_FINAL",
+      "title": "Medium-sized Values for the Prime Number Theorem for Primes in Arithmetic Progressions",
+      "authors": "Matteo Bordignon",
+      "publication": "New York Journal of Mathematics 27 (2021), 1415-1438",
+      "url": "https://nyjm.albany.edu/j/2021/27-54.html",
+      "local_path": "tmp/pdfs/h1c1b1/Bordignon2021_NYJM_final.pdf",
+      "sha256": "4bd7adf499ba667647b612a61399f0f86c272bc684718630fcde42983c014029",
+      "locator": "Theorems 1.1, 1.2, and 1.4, pp. 1416-1418; proof equations (34)-(37), pp. 1433-1435",
+      "role": "Authoritative exceptional-modulus quantifier and final twelve-term cumulative psi remainder"
+    },
+    {
+      "key": "MAYNARD2016",
+      "title": "Dense Clusters of Primes in Subsets",
+      "authors": "James Maynard",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "locator": "Hypothesis 1(2), p. 1518; Theorem 3.1 B condition, pp. 1518-1519; Proposition 9.2, pp. 1539-1540",
+      "role": "Target non-exceptional modulus family and B size/form conditions"
+    },
+    {
+      "key": "FGKMT2018",
+      "title": "Long Gaps Between Primes",
+      "authors": "Kevin Ford, Ben Green, Sergei Konyagin, James Maynard, Terence Tao",
+      "doi": "10.1090/jams/876",
+      "arxiv": "1412.5029",
+      "local_path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "locator": "Theorem 6 and Section 8, especially pp. 98-102 and the equation (6.5) proof",
+      "role": "Actual T=x/2, identity-form Proposition 9.2 application and B either 1 or prime"
+    },
+    {
+      "key": "PROJECT_H1C1B1",
+      "title": "H1c-1b.1 parameter and modulus envelope",
+      "local_path": "docs/method/theory/data/Sono_FMT_H1c1b1_parameter_modulus_envelope_v1.json",
+      "sha256": "SELF_HASHED_BY_REPOSITORY_TESTS",
+      "locator": "Endpoint-safe r>=36, A(r)=100r^2+10, actual q<=T^(1/3), Q1=(log T)^A",
+      "role": "Predecessor modulus-capacity certificate"
+    }
+  ],
+  "literature_search": {
+    "principle": "Use the final published theorem and its proof before adding a project bridge; compare version, quantifiers, endpoint convention, center, and every positive remainder term.",
+    "searched_sources": [
+      "Bordignon 2021 final NYJM Theorems 1.1-1.4 and proof equations (34)-(37)",
+      "Bordignon arXiv:2101.08610 v1 author source",
+      "Maynard 2016 Hypothesis 1(2), Theorem 3.1, and Proposition 9.2",
+      "FGKMT 2018 Theorem 6 and Section 8 actual identity-form call"
+    ],
+    "result": "FINAL_PUBLISHED_SOURCE_SUPPLIES_EXCEPTIONAL_QUANTIFIER_AND_CUMULATIVE_BOUND_PROJECT_BRIDGE_NEEDED_ONLY_FOR_COMMON_B_AND_DYADIC_SUBTRACTION",
+    "erratum_found_in_targeted_official_search": false,
+    "limitation": "The targeted search is not a worldwide nonexistence or novelty claim. The X0/Y0 notation discrepancy remains unresolved."
+  },
+  "source_version_control": {
+    "authoritative_formula": "NYJM_FINAL_2021",
+    "center": "psi(u)/phi(q)",
+    "arxiv_v1_formula_adopted": false,
+    "arxiv_v1_source_sha256": "0a6f83a4c4aaf0bc2178de92f6a65174de0410d48371f28783a75c70a5f386e4",
+    "observed_version_differences": [
+      "The arXiv v1 theorem centers the discrepancy at u/phi(q), whereas the final NYJM theorem uses psi(u)/phi(q).",
+      "The final NYJM C-term and first E-term have different log factors from the v1 source.",
+      "Only the final NYJM statement and final proof equations (34)-(37) are used in this contract."
+    ],
+    "status": "FINAL_PUBLICATION_ONLY_FOR_NUMERICAL_FORMULA"
+  },
+  "actual_variable_map": {
+    "outer_scale": "X",
+    "analytic_lower_endpoint": "T=X/2",
+    "analytic_upper_endpoint": "2T=X",
+    "endpoint_safe_dimension": "r=floor((log T)^(1/5))",
+    "minimum_dimension": 36,
+    "log_saving_exponent": "K=100r^2",
+    "bordignon_exponent": "A=100r^2+10",
+    "common_small_modulus_cut": "Q1=(log T)^A, fixed while Theorem 1.4 is applied at u=T and u=2T",
+    "required_maynard_moduli": "q<=T^(1/3), (q,B)=1",
+    "selected_prime_weighted_form": "L'(n)=n",
+    "selected_leading_coefficient": 1,
+    "status": "SOURCE_AND_PROJECT_PREDECESSOR_VERIFIED"
+  },
+  "common_exceptional_object": {
+    "bordignon_quantifier": "For a fixed Q1, q0 denotes the exceptional modulus up to Q1 if it exists.",
+    "same_q1_at_both_endpoints": true,
+    "same_q0_at_both_endpoints": true,
+    "selection": "If q0 exists, choose one prime divisor B of q0; otherwise set B=1.",
+    "filter_implication": "(q,B)=1 implies q0 does not divide q.",
+    "one_prime_B_filter_implication_closed": true,
+    "maynard_subset_relation": "The Maynard family q<=T^(1/3),(q,B)=1 is a subset of each Bordignon non-exceptional family q<=Q_B(u,A),q0 not dividing q.",
+    "size": "B<=q0<=Q1<=Q_B(T,A)<sqrt(T)<T for T>1; B is 1 or prime and satisfies both FGKMT Lemma 7.2's B<=T condition and Maynard's actual alpha=2 condition.",
+    "coefficient_coprimality": "The selected identity form has leading coefficient 1, hence it is coprime to B.",
+    "scale_dependence": "This chooses one B for each fixed outer scale X and its dyadic pair, as allowed by Hypothesis 1; it does not construct one global B for every X.",
+    "status": "ACTUAL_IDENTITY_FORM_COMMON_B_BRIDGE_CLOSED"
+  },
+  "published_final_remainder": {
+    "normalization": "Each listed formula is the corresponding positive RHS term R_j(u)/u. Write L=log u, ell=log L, delta=1/(2*A*R1*ell), and lambda=log Q1.",
+    "R1": "5113/2500",
+    "terms": [
+      {"id": 1, "name": "leading_sqrt", "relative_formula": "exp(-L/2)"},
+      {"id": 2, "name": "main_log_tail", "relative_formula": "2*c1*c0*exp(-(A-9/2)*ell)"},
+      {"id": 3, "name": "main_q1_tail", "relative_formula": "2*c1*c0*exp((9/2)*ell-lambda)"},
+      {"id": 4, "name": "theorem12_small_modulus", "relative_formula": "c1^2*C*(1+A*ell)*exp(-(A-4)*ell)/2"},
+      {"id": 5, "name": "induced_character_small_modulus", "relative_formula": "exp(-L/2-(A-1)*ell)/(2*log 2)"},
+      {"id": 6, "name": "exceptional_zero", "relative_formula": "c1^2*(1+A*ell)*L*exp(-delta*L)/(2*(1-delta))"},
+      {"id": 7, "name": "density_exponential", "relative_formula": "17*c1^2*(1+A*ell)*L^(2.52)*exp(-0.81*sqrt(L))"},
+      {"id": 8, "name": "density_constant", "relative_formula": "c1^2*(1+A*ell)*L*(A*ell/log 2)*exp(-L)/2"},
+      {"id": 9, "name": "large_modulus_sqrt", "relative_formula": "2*c0*c1*exp(-L/2+(A+9/2)*ell)"},
+      {"id": 10, "name": "large_modulus_eleven_twelfths", "relative_formula": "9*c0*c1*exp(-L/12+(9/2-A/2)*ell)"},
+      {"id": 11, "name": "large_modulus_five_sixths", "relative_formula": "(5/2)*c0*c1*exp(-L/6+(9/2)*ell)"},
+      {"id": 12, "name": "large_modulus_five_sixths_log", "relative_formula": "(5/4)*c0*c1*exp(-L/6+(11/2)*ell)"}
+    ],
+    "all_positive_terms_registered": true,
+    "term_count": 12,
+    "status": "FORMULA_TRANSCRIBED_AND_MACHINE_REGRESSION_COVERED"
+  },
+  "dyadic_composition": {
+    "endpoint_discrepancy": "D_u(q,a)=psi(u;q,a)-psi(u)/phi(q)",
+    "interval_identity": "[psi(2T;q,a)-psi(T;q,a)]-[psi(2T)-psi(T)]/phi(q)=D_2T(q,a)-D_T(q,a)",
+    "triangle_bound": "sum max_a |D_2T-D_T| <= R_B(2T;A,Q1,C*)+R_B(T;A,Q1,C*)",
+    "normalized_over_T": "[R_B(T)+R_B(2T)]/T = rho(T)+2*rho(2T)",
+    "interval_convention": "(T,2T] for von Mangoldt weights",
+    "same_q1_and_same_B_required": true,
+    "raw_von_mangoldt_open_closed_composition_closed": true,
+    "maynard_half_open_count_transfer_closed": false,
+    "status": "STRUCTURAL_DYADIC_PSI_COMPOSITION_CLOSED"
+  },
+  "bordignon_constant_normalization_caution": {
+    "observation": "Theorem 1.2 defines C(alpha1,alpha2,Y0) with Y0=log log X0, while final Theorem 1.4 and proof equation (35) print C(A,A-3,X0).",
+    "implementation_rule": "The evaluator accepts theorem12_constant_upper as an explicit input and does not invent or silently reinterpret it.",
+    "status": "OPEN_FOR_SOURCE_REDERIVATION_OR_AUTHOR_CLARIFICATION"
+  },
+  "status_after_this_gate": {
+    "H1c-1b.2_common_exceptional_B": "CLOSED_FOR_ACTUAL_IDENTITY_FORM_AT_EACH_FIXED_OUTER_SCALE",
+    "H1c-1b.2_final_remainder_transcription": "CLOSED_PARAMETERIZED_BY_VALID_THEOREM12_CONSTANT_UPPER",
+    "H1c-1b.2_raw_dyadic_psi_composition": "CLOSED_FOR_OPEN_CLOSED_INTERVAL",
+    "H1c-1b.3_endpoint_and_count_transfer": "OPEN",
+    "H1c-1b.4_full_absorption_density_common_cutoff": "OPEN",
+    "H1B-P92": "RATE_MISSING",
+    "Hypothesis_1_clause_2": "OPEN",
+    "SIV-07": "HARD_BLOCKER",
+    "SIV-08": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "limits": {
+    "one_common_exceptional_modulus_proved_for_actual_dyadic_pair": true,
+    "one_global_exceptional_B_for_all_scales_proved": false,
+    "final_published_twelve_terms_transcribed": true,
+    "raw_von_mangoldt_open_closed_composition_closed": true,
+    "bordignon_constant_normalization_resolved": false,
+    "full_remainder_absorption_proved": false,
+    "half_open_endpoint_transfer_closed": false,
+    "prime_power_removal_closed": false,
+    "unweighted_prime_count_transfer_closed": false,
+    "exact_total_recentered": false,
+    "represented_prime_density_lower_bound_proved": false,
+    "hypothesis1_clause2_closed": false,
+    "proposition92_closed": false,
+    "siv_07_closed": false,
+    "siv_08_closed": false,
+    "threshold_calculator_created": false,
+    "numerical_x_cert_ready": false,
+    "actual_prime_experiment_performed": false,
+    "new_python_dependency_required": false,
+    "lean_required_for_this_gate": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.3",
+    "description": "Convert the open-closed cumulative von Mangoldt interval bound to Maynard's exact half-open unweighted identity-prime count, retaining endpoint atoms, prime powers, partial summation, and the exact centered total.",
+    "then": "H1c-1b.4 bounds the full twelve-term remainder and represented-prime density by one common finite cutoff.",
+    "ready_for_threshold_calculator": false,
+    "requires_user_computation_now": false
+  }
+}

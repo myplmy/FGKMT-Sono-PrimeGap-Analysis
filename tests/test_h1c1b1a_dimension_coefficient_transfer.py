@@ -188,7 +188,17 @@ class H1c1b1aDimensionCoefficientTransferTests(unittest.TestCase):
                 "explicit_sigma_cutoff_closed"
             ]
         )
-        self.assertEqual(predecessor["next_gate"]["id"], "H1c-1b.2")
+        self.assertEqual(predecessor["next_gate"]["id"], "H1c-1b.3")
+        self.assertTrue(
+            predecessor["successor_common_exceptional_remainder"][
+                "one_common_exceptional_B_for_actual_dyadic_pair"
+            ]
+        )
+        self.assertFalse(
+            predecessor["successor_common_exceptional_remainder"][
+                "full_distribution_package_ready"
+            ]
+        )
 
         t1 = json.loads(T1_LEDGER.read_text(encoding="utf-8"))
         rows = {row["id"]: row for row in t1["obligations"]}

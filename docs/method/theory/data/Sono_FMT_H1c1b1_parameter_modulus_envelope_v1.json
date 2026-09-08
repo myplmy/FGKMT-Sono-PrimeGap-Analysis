@@ -257,9 +257,20 @@
     "full_distribution_package_ready": false,
     "numerical_x_cert_ready": false
   },
-  "next_gate": {
+  "successor_common_exceptional_remainder": {
     "id": "H1c-1b.2",
-    "description": "Uniformize one exceptional B across the actual distribution family and compose the remaining Bordignon/count-transfer errors.",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
+    "outcome": "COMMON_EXCEPTIONAL_B_AND_RAW_PSI_DYADIC_COMPOSITION_CLOSED_COUNT_TRANSFER_AND_ABSORPTION_OPEN",
+    "one_common_exceptional_B_for_actual_dyadic_pair": true,
+    "final_published_remainder_terms_registered": 12,
+    "raw_open_closed_psi_composition_closed": true,
+    "unweighted_count_transfer_closed": false,
+    "full_distribution_package_ready": false,
+    "numerical_x_cert_ready": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.3",
+    "description": "Convert the raw open-closed von Mangoldt dyadic estimate to Maynard's exact half-open unweighted identity-prime count, including endpoint atoms, prime powers, partial summation, and exact recentering.",
     "ready_for_threshold_calculator": false,
     "requires_user_computation_now": false
   }

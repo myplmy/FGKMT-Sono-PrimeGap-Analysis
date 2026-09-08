@@ -303,3 +303,15 @@ endpoint-safe \(r_T\)와 actual \(R\) factor를 통해 one-step repair의 최종
 H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7로 \(x\ge2\exp(36^5)\)에서
 \(26/25\)보다 강한 explicit cutoff를 증명했다. 나머지 Bordignon composition 의무는
 열려 있어 `SIV-07/08`과 \(X_{\mathrm{cert}}\)는 그대로다. 다음 gate는 H1c-1b.2다.
+
+## 13. 2026-09-09 H1c-1b.2 후속 결과
+
+[H1c-1b.2 정본](36_Sono_FMT_H1c1b2_common_exceptional_B_full_remainder.md)은
+Bordignon의 fixed-\(Q_1\) exceptional modulus를 actual dyadic pair에 공통으로
+사용할 수 있음을 확인했다. \(q_0\)의 prime divisor \(B\)를 택하는 project bridge와
+최종 NYJM판 12항 raw \(\psi\) subtraction도 닫혔다.
+
+따라서 inventory의 common-exceptional-object 의무와 raw cumulative-to-dyadic
+\(\psi\) 구조는 진전했다. half-open·prime-power·unweighted-count·exact-center·density·
+common-cutoff가 남아 `SIV-07/08`과 \(X_{\mathrm{cert}}\)는 그대로다.
+다음 gate는 H1c-1b.3이다.

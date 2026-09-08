@@ -153,7 +153,17 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertFalse(successor["full_distribution_package_ready"])
         self.assertEqual(
             self.document["next_gate"]["id"],
-            "H1c-1b.2",
+            "H1c-1b.3",
+        )
+        self.assertTrue(
+            self.document["successor_common_exceptional_remainder"][
+                "raw_open_closed_psi_composition_closed"
+            ]
+        )
+        self.assertFalse(
+            self.document["successor_common_exceptional_remainder"][
+                "unweighted_count_transfer_closed"
+            ]
         )
         transfer = self.document["successor_dimension_coefficient_transfer"]
         self.assertTrue(transfer["asymptotic_sono_coefficient_preserved"])

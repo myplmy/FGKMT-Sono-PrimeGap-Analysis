@@ -29,6 +29,7 @@
   "h1c1b1_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1_parameter_modulus_envelope_v1.json",
   "h1c1b1a_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1a_dimension_coefficient_transfer_v1.json",
   "h1c1b1a1_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
+  "h1c1b2_ledger": "docs/method/theory/data/Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
   "h1c1a_inventory": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
@@ -109,13 +110,12 @@
       "source_locator": "Sono p. 542 u bounds; FMT Theorem 6 (6.3); FGKMT Theorem 5 (6.3); Maynard integral ratio (8.27)",
       "printed_information": "The sources state u is comparable to log r. Project H1a supplies J_r/I_r > log(r)/(4r) for every integer r>=36. H1c-1b.1a now uses endpoint-safe r_T=floor((log(x/2))^(1/5)) and the actual R=(x/4)^(theta/3) to prove the one-sided finite lower path u>(theta/48)*(1-log(4)/log(x))*log(r_T).",
       "missing_numeric_inputs": [
-        "an explicit cutoff for sigma*y<=(26/25)*80*c*x*log_2(x) in the downstream C normalization",
         "finite upper bounds needed for the full two-sided u/C package",
         "a common finite starting r and x for all remaining factors"
       ],
       "recoverability": "CONSTRUCTIVE_PATH_IDENTIFIED",
       "reproof_scale": "MODERATE_TO_LARGE",
-      "next_action": "Use the now-explicit SIV-03 sigma*y upper cutoff together with the closed one-sided u transfer; keep the full two-sided weight package fail-closed while H1c-1b.2 is open.",
+      "next_action": "Use the explicit SIV-03 sigma*y cutoff and closed one-sided u transfer; keep the full two-sided weight package fail-closed while H1c-1b.3 count transfer and H1c-1b.4 full absorption are open.",
       "threshold_ready": false
     },
     {
@@ -154,15 +154,15 @@
       "question": "Are FGKMT Hypothesis 1 constants numerically available for the required linear forms?",
       "source_keys": ["FGKMT2016"],
       "source_locator": "FGKMT Lemma 7.2 and equations (7.2)-(7.3)",
-      "printed_information": "Lemma 7.2 states uniform absolute implied constants and uses an effective character-sum bound followed by a standard Bombieri-Vinogradov proof. H1c gives exact sufficient reductions for the elementary A=Z clauses (1) and (3), but not for the prime-distribution clause (2). H1c-1b.1 confirms the growing sieve dimension, prunes the actual Proposition 9.2 call to L(n)=n, and closes Bordignon modulus capacity. H1c-1b.1a repairs the recurring dyadic transition strip with r_T=floor((log(x/2))^(1/5)) and preserves Sono's coefficient. H1c-1b.1a.1 applies Rosser-Schoenfeld Theorem 7, including the local B0 correction, to close the required sigma*y upper cutoff at x>=2*exp(36^5).",
+      "printed_information": "Lemma 7.2 states uniform absolute implied constants and uses an effective character-sum bound followed by a standard Bombieri-Vinogradov proof. H1c gives exact sufficient reductions for the elementary A=Z clauses (1) and (3), but not for the prime-distribution clause (2). H1c-1b.1 confirms the growing sieve dimension, prunes the actual Proposition 9.2 call to L(n)=n, and closes Bordignon modulus capacity. H1c-1b.1a repairs the recurring dyadic transition strip with r_T=floor((log(x/2))^(1/5)) and preserves Sono's coefficient. H1c-1b.1a.1 closes the required sigma*y upper cutoff at x>=2*exp(36^5). H1c-1b.2 fixes one Q1 and one exceptional modulus across T and 2T, chooses one prime divisor B, and closes the raw open-closed psi dyadic composition with all 12 final Bordignon terms registered.",
       "missing_numeric_inputs": [
-        "a numerical sufficiently-small exceptional-zero parameter",
-        "constants and starting ranges in the Landau-Page and zero-free estimates",
-        "constants in the Bombieri-Vinogradov deduction and the psi-to-pi conversion"
+        "a resolved valid upper bound for Bordignon's printed C(A,A-3,X0/Y0) normalization",
+        "half-open endpoint, prime-power, partial-summation, and unweighted-count transfer constants",
+        "exact Maynard recentering, represented-prime density, full twelve-term absorption, and a common cutoff"
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "Proceed to H1c-1b.2: reconcile a common exceptional B and quantitatively reconstruct the remaining distribution, count-transfer, density, and common-cutoff package before assigning any Hypothesis 1 number.",
+      "next_action": "H1c-1b.2 now closes one common exceptional B and the raw open-closed psi dyadic composition. Proceed to H1c-1b.3 count transfer and H1c-1b.4 density/full absorption before assigning any Hypothesis 1 number.",
       "threshold_ready": false
     },
     {

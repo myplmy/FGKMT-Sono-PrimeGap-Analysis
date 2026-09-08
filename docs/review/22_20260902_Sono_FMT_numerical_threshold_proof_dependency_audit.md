@@ -544,3 +544,14 @@ threshold calculator = NOT READY
 상세는
 [`H1c-1b.1a 정본`](../method/theory/34_Sono_FMT_H1c1b1a_dyadic_dimension_coefficient_transfer.md)과
 [`타당성 검토`](40_20260909_H1c1b1a_dyadic_coefficient_transfer_타당성검토.md)를 따른다.
+
+## 18. 2026-09-09 H1c-1b.2 후속 감사
+
+H1c-1b.2는 Bordignon fixed-\(Q_1\) exceptional modulus와 그 prime divisor \(B\)를
+actual \(T\), \(2T\) dyadic pair에 공통으로 고정하고, 최종 출판본의 12개 양의 RHS
+항을 raw \((T,2T]\) \(\psi\) discrepancy로 합성했다.
+
+이는 proof dependency 하나의 구조적 진전이다. 그러나 \(\psi\)를 half-open unweighted
+prime count로 옮기는 H1c-1b.3과 모든 항의 수치 흡수·density·common cutoff인
+H1c-1b.4가 남았다. 따라서 \(X_{\mathrm{cert}}\)=`OPEN`,
+threshold calculator=`NOT READY`라는 이 감사의 최종 판정은 바뀌지 않는다.

@@ -139,9 +139,20 @@
     "axler_caution": "The published PDF's displayed Proposition 9 upper formula was not adopted because, as printed, it lacks the asymptotic leading term needed for a valid upper bound. This does not affect the directly cited Rosser-Schoenfeld theorem.",
     "novelty_caution": "The project proves only the missing application bridge and makes no worldwide novelty claim."
   },
-  "next_gate": {
+  "successor_common_exceptional_remainder": {
     "id": "H1c-1b.2",
-    "description": "Build the full quantitative Proposition 9.2 identity-form composition: one common exceptional B, Bordignon remainder, exact half-open recentering, psi-to-pi conversion, represented-prime density, and a common cutoff.",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
+    "outcome": "COMMON_EXCEPTIONAL_B_AND_RAW_PSI_DYADIC_COMPOSITION_CLOSED_COUNT_TRANSFER_AND_ABSORPTION_OPEN",
+    "one_common_exceptional_B_for_actual_dyadic_pair": true,
+    "final_published_remainder_terms_registered": 12,
+    "raw_open_closed_psi_composition_closed": true,
+    "unweighted_count_transfer_closed": false,
+    "full_distribution_package_ready": false,
+    "numerical_x_cert_ready": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.3",
+    "description": "Convert the raw open-closed von Mangoldt dyadic estimate to Maynard's exact half-open unweighted identity-prime count.",
     "ready_for_threshold_calculator": false,
     "requires_user_computation_now": false
   }

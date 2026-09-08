@@ -160,6 +160,11 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
         )
         self.assertEqual(
+            self.document["h1c1b2_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1-SIV-08"]["recoverability"],
             "QUANTITATIVE_REPROOF_REQUIRED",
         )

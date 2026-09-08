@@ -373,3 +373,12 @@ SIV-07 / SIV-08                            = HARD_BLOCKER
 threshold calculator                       = NOT READY
 X_cert                                     = OPEN
 ```
+
+## 12. 2026-09-09 H1c-1b.2 후속 결과
+
+후속 H1c-1b.2는 fixed \(Q_1\)의 common exceptional \(q_0\)와 prime divisor
+\(B\), 최종 NYJM 12항의 raw dyadic \(\psi\) composition을 닫았다. 이 결과는 본 문서의
+dimension·coefficient transfer를 바꾸지 않는다.
+
+half-open unweighted count와 full absorption이 남으므로 `SIV-07/08`과
+\(X_{\mathrm{cert}}\)는 계속 열려 있다. 다음 gate는 H1c-1b.3이다.

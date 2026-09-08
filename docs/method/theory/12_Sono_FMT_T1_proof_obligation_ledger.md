@@ -645,3 +645,20 @@ reciprocal-square product의 `UB-05`는 실제 방향·합성 감사를 기다�
 `RATE_MISSING`으로 유지한다. 분포정리 전체의 common exceptional \(B\), Bordignon remainder,
 count transfer와 density도 열려 있어 `SIV-07/08=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}\)=`OPEN`은 변하지 않는다. 다음 gate는 H1c-1b.2다.
+
+## 26. 2026-09-09 H1c-1b.2 common exceptional B·raw psi 합성 반영
+
+H1c-1b.2는 actual Proposition 9.2 identity-form 호출의 fixed outer scale에서
+\(Q_1=(\log T)^A\)를 \(T\), \(2T\) 양쪽에 공통으로 썼다. 이때 Bordignon의
+exceptional modulus \(q_0\)도 하나이고, 그 prime divisor \(B\)를 택하면
+\((q,B)=1\Rightarrow q_0\nmid q\)다. H1c-1b.1의 capacity와 합쳐 actual modulus
+family가 두 endpoint의 non-exceptional sum에 포함됨을 닫았다.
+
+최종 NYJM판 Theorem 1.4의 양의 RHS 12항도 전수 등록했다. 중심이
+\(\psi(u)/\varphi(q)\)이므로 raw \((T,2T]\) von Mangoldt discrepancy는
+\(D_{2T}-D_T\), 합계 상계는 \(R_B(2T)+R_B(T)\)다.
+
+그러나 half-open endpoint, prime powers, unweighted prime count, exact recentering,
+represented-prime density와 12항의 common cutoff는 열려 있다. 따라서 66개 root row의
+상태 수는 바뀌지 않고 `SIV-07/08=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}\)=`OPEN`이다. 다음 gate는 H1c-1b.3 count transfer다.

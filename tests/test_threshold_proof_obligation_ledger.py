@@ -153,6 +153,11 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             "Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
         )
         self.assertEqual(
+            self.document["h1c1b2_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
+        )
+        self.assertEqual(
             self.document["h1c_ledger"],
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
         )

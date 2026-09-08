@@ -461,3 +461,14 @@ prime-distribution error, \(\psi\to\pi\), density와 공통 cutoff는 여전히 
 그러므로 H1 overall outcome과 `SIV-07/08/09=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}\)=`OPEN`은 바뀌지 않는다. 다음 직접 gate는 H1c-1b.2 full
 quantitative distribution composition이다.
+
+## 20. 2026-09-09 H1c-1b.2 후속 판정
+
+H1c-1b.2에서 actual fixed scale의 common exceptional \(B\)와 최종 12항 raw
+dyadic \(\psi\) composition은 닫혔다. 따라서 good-weight recoverability 경로 중
+“같은 modulus family로 두 endpoint를 뺄 수 있는가”에는 긍정 답을 얻었다.
+
+그러나 아직 log-weighted open-closed interval일 뿐이다. half-open unweighted count,
+exact center, density와 full error absorption이 남아 H1 overall outcome,
+`SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}\)=`OPEN`은 바뀌지 않는다.
+다음 직접 gate는 H1c-1b.3이다.
