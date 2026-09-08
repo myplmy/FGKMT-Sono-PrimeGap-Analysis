@@ -662,3 +662,16 @@ family가 두 endpoint의 non-exceptional sum에 포함됨을 닫았다.
 represented-prime density와 12항의 common cutoff는 열려 있다. 따라서 66개 root row의
 상태 수는 바뀌지 않고 `SIV-07/08=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}\)=`OPEN`이다. 다음 gate는 H1c-1b.3 count transfer다.
+
+## 27. 2026-09-09 H1c-1b.3 endpoint·count transfer 반영
+
+H1c-1b.3은 actual identity form의 목표를 Maynard 정의 그대로
+\([T,2T)\)의 unweighted prime count와 exact total center로 고정했다. H1c-1b.2의
+fixed family가 두 endpoint뿐 아니라 Abel 적분의 모든 \(u\in[T,2T]\)에서도 유효함을
+확인하고, plus-sign partial summation, prime-power 비용
+\(2\sqrt{2T}(M_B+\Phi_B)\)와 half-open endpoint 비용 \(M_B\)를 보존했다.
+
+따라서 exact target-quantity transfer는 닫혔다. 그러나 Bordignon의 source constant
+정규화, represented-prime density와 모든 remainder/count 비용의 common-cutoff 흡수는
+H1c-1b.4에 남는다. 66개 root row 상태 수와 `SIV-07/08/09=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}\)=`OPEN`은 바뀌지 않는다.

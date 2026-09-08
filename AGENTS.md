@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1b.1 actual identity modulus capacity·dyadic repair 닫힘 / H1c-1b.1a coefficient 보존 / H1c-1b.1a.1 `sigma y` cutoff \(x\ge2\exp(36^5)\)로 SIV-03 EXPLICIT / H1c-1b.2 fixed-scale common exceptional B·최종 12항 raw psi dyadic composition 닫힘 / SIV-07·08 HARD_BLOCKER / X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1b.1 actual identity modulus capacity·dyadic repair 닫힘 / H1c-1b.1a coefficient 보존 / H1c-1b.1a.1 `sigma y` cutoff \(x\ge2\exp(36^5)\)로 SIV-03 EXPLICIT / H1c-1b.2 fixed-scale common exceptional B·최종 12항 raw psi dyadic composition 닫힘 / H1c-1b.3 Abel·prime-power·half-open·exact-center count transfer 닫힘 / SIV-07·08 HARD_BLOCKER / X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
@@ -111,8 +111,12 @@ Theorem 7과 제외 prime 보정을 사용해 \(x\ge2\exp(36^5)\)에서 더 강�
 H1c-1b.2는 actual fixed outer scale에서 같은 \(Q_1\)을 \(T\), \(2T\)에 써 하나의
 exceptional modulus와 그 prime divisor \(B\)를 공통으로 고정했다. 최종 NYJM판
 Bordignon RHS 12항을 모두 등록했고 raw \((T,2T]\) \(\psi\) discrepancy를
-\(R_B(T)+R_B(2T)\)로 합성했다. half-open·prime-power·unweighted-count·recentring·density와
-12항의 공통 cutoff는 열려 있다. 다음 gate는 H1c-1b.3 count transfer다. 모든 root
+\(R_B(T)+R_B(2T)\)로 합성했다. H1c-1b.3은 같은 family가 Abel 적분 전체에서 유효함을
+확인하고 올바른 plus 부호의 partial summation, prime-power 비용
+\(2\sqrt{2T}(M_B+\Phi_B)\), half-open endpoint 비용 \(M_B\)와 exact total prime
+population 중심을 보존해 actual unweighted \([T,2T)\) count transfer를 닫았다. density,
+Bordignon source 상수 정규화와 12항·count 비용의 공통 cutoff는 열려 있다. 다음 gate는
+H1c-1b.4 full absorption이다. 모든 root
 dependency가 닫히기 전에는 새 prime sweep·threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus에 합산하지 않는다.
@@ -493,11 +497,11 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018-B를 자동 실행하지 않고 H1c-1b.3으로 진행하는 것이다.
-H1c-1b.2가 fixed-scale common exceptional \(B\)와 raw \(\psi\) dyadic composition을
-닫았으므로, H1c-1b.3의 endpoint·prime-power·\(\psi\to\pi\)·recentring,
-H1c-1b.4의 density·full-remainder absorption·common cutoff 순으로 Proposition 9.2
-package를 합성한다. actual P94 식 (9.52)의 직접 선결조건으로 다시 연결하지 않는다.
+다음 권장 행동은 P018-B를 자동 실행하지 않고 H1c-1b.4로 진행하는 것이다.
+H1c-1b.3이 endpoint·prime-power·\(\psi\to\pi\)·exact recentering을 닫았으므로,
+H1c-1b.4에서 Bordignon source 상수 정규화, exact represented-prime density와
+full-remainder/count-transfer absorption·common cutoff를 합성한다. actual P94 식 (9.52)의
+직접 선결조건으로 다시 연결하지 않는다.
 그 뒤 P91/P92/L93/P95와 공통 moment error budget을 합성한다.
 H1과 병행할 수 있는 보조축은 explicit
 primorial·Mertens·iterated-log transfer theorem 후보 수집이다. numerical threshold calculator는

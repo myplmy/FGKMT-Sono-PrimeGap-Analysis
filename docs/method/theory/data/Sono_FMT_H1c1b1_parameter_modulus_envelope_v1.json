@@ -268,9 +268,19 @@
     "full_distribution_package_ready": false,
     "numerical_x_cert_ready": false
   },
-  "next_gate": {
+  "successor_endpoint_count_transfer": {
     "id": "H1c-1b.3",
-    "description": "Convert the raw open-closed von Mangoldt dyadic estimate to Maynard's exact half-open unweighted identity-prime count, including endpoint atoms, prime powers, partial summation, and exact recentering.",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
+    "outcome": "EXACT_HALF_OPEN_UNWEIGHTED_COUNT_TRANSFER_CLOSED_FULL_RATE_AND_DENSITY_OPEN",
+    "same_family_valid_through_abel_integral": true,
+    "unweighted_count_transfer_closed": true,
+    "exact_total_recentered": true,
+    "full_distribution_package_ready": false,
+    "numerical_x_cert_ready": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.4",
+    "description": "Resolve source constants and absorb the full remainder and exact count-transfer costs against an explicit represented-prime density lower bound.",
     "ready_for_threshold_calculator": false,
     "requires_user_computation_now": false
   }

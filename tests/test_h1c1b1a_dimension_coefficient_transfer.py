@@ -188,7 +188,7 @@ class H1c1b1aDimensionCoefficientTransferTests(unittest.TestCase):
                 "explicit_sigma_cutoff_closed"
             ]
         )
-        self.assertEqual(predecessor["next_gate"]["id"], "H1c-1b.3")
+        self.assertEqual(predecessor["next_gate"]["id"], "H1c-1b.4")
         self.assertTrue(
             predecessor["successor_common_exceptional_remainder"][
                 "one_common_exceptional_B_for_actual_dyadic_pair"
@@ -197,6 +197,11 @@ class H1c1b1aDimensionCoefficientTransferTests(unittest.TestCase):
         self.assertFalse(
             predecessor["successor_common_exceptional_remainder"][
                 "full_distribution_package_ready"
+            ]
+        )
+        self.assertTrue(
+            predecessor["successor_endpoint_count_transfer"][
+                "unweighted_count_transfer_closed"
             ]
         )
 

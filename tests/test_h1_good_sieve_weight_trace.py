@@ -26,7 +26,7 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_and_unique_expected_rows(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.6.0")
+        self.assertEqual(self.document["schema_version"], "1.7.0")
         self.assertEqual(len(self.rows), 9)
         self.assertEqual(len(self.by_id), len(self.rows))
         self.assertEqual(
@@ -165,11 +165,20 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
         )
         self.assertEqual(
+            self.document["h1c1b3_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1-SIV-08"]["recoverability"],
             "QUANTITATIVE_REPROOF_REQUIRED",
         )
         self.assertIn(
             "recurring dyadic transition strip",
+            self.by_id["H1-SIV-08"]["printed_information"],
+        )
+        self.assertIn(
+            "exact total center",
             self.by_id["H1-SIV-08"]["printed_information"],
         )
         siv_07 = next(

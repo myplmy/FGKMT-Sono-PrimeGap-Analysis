@@ -472,3 +472,13 @@ dyadic \(\psi\) composition은 닫혔다. 따라서 good-weight recoverability �
 exact center, density와 full error absorption이 남아 H1 overall outcome,
 `SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}\)=`OPEN`은 바뀌지 않는다.
 다음 직접 gate는 H1c-1b.3이다.
+
+## 21. 2026-09-09 H1c-1b.3 후속 판정
+
+H1c-1b.3은 same-family Abel transfer와 prime-power·endpoint 보정을 거쳐 actual identity
+form의 exact half-open unweighted count를 얻었다. good-weight 복원 경로에서 target quantity와
+center는 이제 일치한다.
+
+하지만 required relative rate와 density는 아직 수치화되지 않았다. 따라서 H1 overall outcome,
+`SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}\)=`OPEN`은 바뀌지 않는다.
+다음 직접 gate는 H1c-1b.4다.

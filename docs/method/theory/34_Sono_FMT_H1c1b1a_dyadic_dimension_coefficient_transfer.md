@@ -382,3 +382,10 @@ dimension·coefficient transfer를 바꾸지 않는다.
 
 half-open unweighted count와 full absorption이 남으므로 `SIV-07/08`과
 \(X_{\mathrm{cert}}\)는 계속 열려 있다. 다음 gate는 H1c-1b.3이다.
+
+## 13. 2026-09-09 H1c-1b.3 후속 결과
+
+후속 H1c-1b.3은 actual \([T,2T)\) unweighted prime count와 exact center로의 변환을
+닫았다. 이 결과는 본 문서의 dimension·coefficient transfer를 바꾸지 않는다.
+source constant·density·full absorption이 남으므로 `SIV-07/08`과
+\(X_{\mathrm{cert}}\)는 계속 열려 있고 다음 gate는 H1c-1b.4다.

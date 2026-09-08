@@ -576,3 +576,14 @@ count transfer, exact center, density와 full error absorption이 남으므로
 `H1B-P92=RATE_MISSING`, `H1B-COMP-01=HARD_BLOCKER`,
 `SIV-07/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}\)=`OPEN`을 유지한다.
 다음 직접 gate는 H1c-1b.3이다.
+
+## 19. 2026-09-09 H1c-1b.3 후속 반영
+
+H1c-1b.3은 H1B-P92의 실제 identity-form target에 대해 partial summation, prime powers,
+half-open endpoint와 exact total-prime recentering을 닫았다. 이에 따라 P92의 “서로 다른
+quantity를 비교할 위험”은 제거됐다.
+
+다만 absolute count upper가 \(\#\mathcal P_{L,\mathcal A}(T)/(\log T)^{100r^2}\)
+안에 든다는 density·absorption 증명은 아직 없다. 따라서 `H1B-P92=RATE_MISSING`,
+`H1B-COMP-01=HARD_BLOCKER`, `SIV-07/09=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}\)=`OPEN`을 유지한다. 다음 직접 gate는 H1c-1b.4다.

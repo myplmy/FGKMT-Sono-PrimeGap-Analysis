@@ -229,3 +229,14 @@ SIV-07 / SIV-08                          = HARD_BLOCKER
 threshold calculator                     = NOT READY
 X_cert                                   = OPEN
 ```
+
+## 11. 2026-09-09 H1c-1b.3 후속 결과
+
+[H1c-1b.3 정본](37_Sono_FMT_H1c1b3_endpoint_count_transfer.md)은 이 문서의 fixed
+q-family와 \(B\)를 Abel 적분 전체에 유지하고, plus-sign partial summation,
+prime-power 제거, half-open endpoint와 exact total center를 합성했다. 따라서 successor의
+unweighted prime-count transfer는 `CLOSED`다.
+
+이 문서의 역사적 `OPEN` flag는 H1c-1b.2 당시 판정으로 보존한다. density,
+\(C(A,A-3,X_0/Y_0)\) 정규화와 full absorption은 H1c-1b.4에 남아
+Hypothesis 1(2), Proposition 9.2, `SIV-07/08`, \(X_{\mathrm{cert}}\)는 계속 열린다.

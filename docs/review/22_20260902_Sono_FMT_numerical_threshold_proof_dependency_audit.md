@@ -555,3 +555,13 @@ actual \(T\), \(2T\) dyadic pair에 공통으로 고정하고, 최종 출판본�
 prime count로 옮기는 H1c-1b.3과 모든 항의 수치 흡수·density·common cutoff인
 H1c-1b.4가 남았다. 따라서 \(X_{\mathrm{cert}}\)=`OPEN`,
 threshold calculator=`NOT READY`라는 이 감사의 최종 판정은 바뀌지 않는다.
+
+## 19. 2026-09-09 H1c-1b.3 후속 감사
+
+H1c-1b.3은 raw \(\psi\) bound를 Maynard의 exact \([T,2T)\) unweighted prime count로
+옮기는 normalization을 닫았다. Abel 적분의 plus 부호, prime-power 비용, endpoint atom과
+exact total center를 모두 보존했다.
+
+따라서 proof dependency의 quantity mismatch 하나는 해소됐다. 그러나 source constant,
+represented-prime density와 full common-cutoff absorption은 H1c-1b.4에 남는다.
+\(X_{\mathrm{cert}}\)=`OPEN`, threshold calculator=`NOT READY`라는 최종 판정은 유지한다.

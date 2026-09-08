@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.9.0")
+        self.assertEqual(self.document["schema_version"], "1.10.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -306,6 +306,12 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         self.assertFalse(self.document["actual_threshold_computed"])
         self.assertFalse(self.document["composition"]["common_cutoff_available"])
         self.assertFalse(self.document["composition"]["ready_for_threshold_calculator"])
+        self.assertEqual(
+            self.document["h1c1b3_endpoint_count_transfer"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
+        )
+        self.assertIn("H1c-1b.3 closes", self.document["composition"]["next_gate"])
 
     def test_canonical_h1_and_t1_ledgers_remain_open(self) -> None:
         trace = json.loads(H1_TRACE.read_text(encoding="utf-8"))

@@ -315,3 +315,14 @@ Bordignon의 fixed-\(Q_1\) exceptional modulus를 actual dyadic pair에 공통�
 \(\psi\) 구조는 진전했다. half-open·prime-power·unweighted-count·exact-center·density·
 common-cutoff가 남아 `SIV-07/08`과 \(X_{\mathrm{cert}}\)는 그대로다.
 다음 gate는 H1c-1b.3이다.
+
+## 14. 2026-09-09 H1c-1b.3 후속 결과
+
+[H1c-1b.3 정본](37_Sono_FMT_H1c1b3_endpoint_count_transfer.md)은
+Akbary--Hambrook의 \(\pi_1\)·prime-power 방법을 actual fixed-\(B\) family에 맞게
+재증명했다. Abel 적분 부호는 직접 유도한 plus이고, \((T,2T]\)에서 \([T,2T)\)로
+옮기는 endpoint 비용과 exact total center를 모두 보존했다.
+
+따라서 inventory의 cumulative-\(\psi\)→unweighted-count와 recentering 의무는 actual
+identity form에서 닫혔다. density·Bordignon source constant·full common-cutoff는 열려 있어
+`SIV-07/08`과 \(X_{\mathrm{cert}}\)는 그대로다. 다음 gate는 H1c-1b.4다.

@@ -153,7 +153,7 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertFalse(successor["full_distribution_package_ready"])
         self.assertEqual(
             self.document["next_gate"]["id"],
-            "H1c-1b.3",
+            "H1c-1b.4",
         )
         self.assertTrue(
             self.document["successor_common_exceptional_remainder"][
@@ -163,6 +163,16 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertFalse(
             self.document["successor_common_exceptional_remainder"][
                 "unweighted_count_transfer_closed"
+            ]
+        )
+        self.assertTrue(
+            self.document["successor_endpoint_count_transfer"][
+                "partial_summation_prime_power_endpoint_closed"
+            ]
+        )
+        self.assertTrue(
+            self.document["successor_endpoint_count_transfer"][
+                "exact_total_recentered"
             ]
         )
         transfer = self.document["successor_dimension_coefficient_transfer"]

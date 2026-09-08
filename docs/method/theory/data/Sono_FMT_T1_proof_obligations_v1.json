@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.6.0",
+  "schema_version": "1.7.0",
   "created_kst": "2026-09-02 17:22",
   "updated_kst": "2026-09-09",
   "h1b1_ledger": "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
@@ -19,6 +19,7 @@
   "h1c1a_inventory": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
   "h1c1b1a1_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
   "h1c1b2_ledger": "docs/method/theory/data/Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
+  "h1c1b3_ledger": "docs/method/theory/data/Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
   "target": "For every X >= X_cert, G_1(X) >= 2e-17 * log(X) * log_2(X) * log_4(X) / log_3(X)",
   "scope": "Direct proof edges from Sono Theorem 3.6 through the cited FMT, FGKMT, and Maynard layers. This is an obligation inventory, not a numerical threshold certificate.",
   "status_vocabulary": {
@@ -1051,7 +1052,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "uniform AP-distribution certificate",
-      "notes": "H1c shows that clauses (1) and (3) have elementary finite sufficient reductions. H1c-1a found no drop-in numerical source for clause (2), with Bordignon 2021 as the primary composition candidate. H1c-1b.1 distinguishes outer chain k=1 from the growing sieve dimension, prunes the actual Proposition 9.2 call to the identity form, and closes Bordignon modulus capacity. H1c-1b.1a repairs the recurring x/2 transition strips with r_T=floor((log(x/2))^(1/5)), includes the exact R=(x/4)^(theta/3) factor, and preserves Sono's coefficient; H1c-1b.1a.1 closes the sigma*y 26/25 cutoff. H1c-1b.2 fixes one Q1 and one exceptional modulus across T and 2T, selects one prime divisor B, registers all 12 final-published Bordignon terms, and closes the raw open-closed psi dyadic composition. Half-open endpoint and unweighted count transfer, exact recentering, represented-prime density, full error absorption, and a common finite cutoff remain open. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
+      "notes": "H1c shows that clauses (1) and (3) have elementary finite sufficient reductions. H1c-1a found no drop-in numerical source for clause (2), with Bordignon 2021 as the primary composition candidate. H1c-1b.1 distinguishes outer chain k=1 from the growing sieve dimension, prunes the actual Proposition 9.2 call to the identity form, and closes Bordignon modulus capacity. H1c-1b.1a repairs the recurring x/2 transition strips with r_T=floor((log(x/2))^(1/5)), includes the exact R=(x/4)^(theta/3) factor, and preserves Sono's coefficient; H1c-1b.1a.1 closes the sigma*y 26/25 cutoff. H1c-1b.2 fixes one Q1 and one exceptional modulus across T and 2T, selects one prime divisor B, registers all 12 final-published Bordignon terms, and closes the raw open-closed psi dyadic composition. H1c-1b.3 keeps that family fixed throughout the Abel integral and closes the plus-sign partial summation, prime-power removal, half-open endpoint atoms, and exact unweighted total-population recentering for the identity form. Represented-prime density, full error absorption, and a common finite cutoff remain open. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
     },
     {
       "id": "SIV-09",

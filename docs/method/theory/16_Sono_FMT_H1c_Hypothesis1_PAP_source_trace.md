@@ -368,3 +368,15 @@ Hypothesis 1(2)의 half-open unweighted count, exact recentering, density와 ful
 absorption은 계속 열려 있다. 따라서 `numerical_hypothesis1_package_ready=false`,
 `SIV-08=HARD_BLOCKER`, \(X_{\mathrm{cert}}\)=`OPEN`이고 다음 gate는
 H1c-1b.3이다.
+
+## 15. 2026-09-09 H1c-1b.3 후속 판정
+
+H1c-1b.3은 Maynard Hypothesis 1(2)의 actual identity-form 목표가
+\([T,2T)\)의 unweighted prime count이며 중심은 같은 구간의 exact total이라는 점을
+source에서 확정했다. fixed-\(B\) family를 Abel 적분 전체에 유지하고
+\(\psi\to\pi_1\to\pi\), prime powers와 endpoint atom을 명시적으로 합성했다.
+
+이는 Hypothesis 1(2)의 exact normalization을 닫은 것이지 required rate를 닫은 것이 아니다.
+`numerical_hypothesis1_package_ready=false`, `SIV-08=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}\)=`OPEN`을 유지한다. 다음 gate는 H1c-1b.4 source normalization,
+represented-prime density와 full absorption이다.

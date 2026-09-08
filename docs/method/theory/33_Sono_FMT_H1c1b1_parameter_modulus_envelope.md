@@ -342,3 +342,10 @@ identity-form에 한해 닫았다. 같은 \(Q_1=(\log T)^A\)를 \(T\), \(2T\)에
 따라서 이 문서의 역사적 `common_exceptional_b_closed=false` 자체는 당시 판정으로
 보존하되 successor JSON을 따른다. count transfer와 full absorption은 계속 열려 있고,
 다음 gate는 H1c-1b.3이다.
+
+## 13. 2026-09-09 H1c-1b.3 후속 결과
+
+H1c-1b.3은 본 문서의 \(\log T>2A\) capacity 단조성을 사용해 fixed q-family가
+Abel 적분의 모든 \(u\in[T,2T]\)에서 허용됨을 닫았다. half-open unweighted count와
+exact total-center transfer도 닫혔다. 역사적 certificate는 당시 판정으로 보존하고
+successor JSON을 따른다. full density·absorption이 남아 다음 gate는 H1c-1b.4다.

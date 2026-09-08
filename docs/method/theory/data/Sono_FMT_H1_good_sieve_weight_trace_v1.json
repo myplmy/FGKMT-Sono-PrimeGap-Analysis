@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.6.0",
+  "schema_version": "1.7.0",
   "created_kst": "2026-09-02 20:24",
   "updated_kst": "2026-09-09",
   "gate": "H1 good-sieve-weight recoverability source tracing",
@@ -30,6 +30,7 @@
   "h1c1b1a_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1a_dimension_coefficient_transfer_v1.json",
   "h1c1b1a1_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
   "h1c1b2_ledger": "docs/method/theory/data/Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
+  "h1c1b3_ledger": "docs/method/theory/data/Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
   "h1c1a_inventory": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
@@ -154,15 +155,15 @@
       "question": "Are FGKMT Hypothesis 1 constants numerically available for the required linear forms?",
       "source_keys": ["FGKMT2016"],
       "source_locator": "FGKMT Lemma 7.2 and equations (7.2)-(7.3)",
-      "printed_information": "Lemma 7.2 states uniform absolute implied constants and uses an effective character-sum bound followed by a standard Bombieri-Vinogradov proof. H1c gives exact sufficient reductions for the elementary A=Z clauses (1) and (3), but not for the prime-distribution clause (2). H1c-1b.1 confirms the growing sieve dimension, prunes the actual Proposition 9.2 call to L(n)=n, and closes Bordignon modulus capacity. H1c-1b.1a repairs the recurring dyadic transition strip with r_T=floor((log(x/2))^(1/5)) and preserves Sono's coefficient. H1c-1b.1a.1 closes the required sigma*y upper cutoff at x>=2*exp(36^5). H1c-1b.2 fixes one Q1 and one exceptional modulus across T and 2T, chooses one prime divisor B, and closes the raw open-closed psi dyadic composition with all 12 final Bordignon terms registered.",
+      "printed_information": "Lemma 7.2 states uniform absolute implied constants and uses an effective character-sum bound followed by a standard Bombieri-Vinogradov proof. H1c gives exact sufficient reductions for the elementary A=Z clauses (1) and (3), but not for the prime-distribution clause (2). H1c-1b.1 confirms the growing sieve dimension, prunes the actual Proposition 9.2 call to L(n)=n, and closes Bordignon modulus capacity. H1c-1b.1a repairs the recurring dyadic transition strip with r_T=floor((log(x/2))^(1/5)) and preserves Sono's coefficient. H1c-1b.1a.1 closes the required sigma*y upper cutoff at x>=2*exp(36^5). H1c-1b.2 fixes one Q1 and one exceptional modulus across T and 2T, chooses one prime divisor B, and closes the raw open-closed psi dyadic composition with all 12 final Bordignon terms registered. H1c-1b.3 closes the actual identity-form conversion to Maynard's half-open unweighted prime count with exact total center.",
       "missing_numeric_inputs": [
         "a resolved valid upper bound for Bordignon's printed C(A,A-3,X0/Y0) normalization",
-        "half-open endpoint, prime-power, partial-summation, and unweighted-count transfer constants",
-        "exact Maynard recentering, represented-prime density, full twelve-term absorption, and a common cutoff"
+        "a represented-prime density lower bound for the exact half-open total",
+        "full twelve-term and count-transfer absorption with a common cutoff"
       ],
       "recoverability": "QUANTITATIVE_REPROOF_REQUIRED",
       "reproof_scale": "VERY_LARGE",
-      "next_action": "H1c-1b.2 now closes one common exceptional B and the raw open-closed psi dyadic composition. Proceed to H1c-1b.3 count transfer and H1c-1b.4 density/full absorption before assigning any Hypothesis 1 number.",
+      "next_action": "H1c-1b.3 now closes the exact target-quantity transfer. Proceed to H1c-1b.4 source normalization, represented-prime density, and full absorption before assigning any Hypothesis 1 number.",
       "threshold_ready": false
     },
     {

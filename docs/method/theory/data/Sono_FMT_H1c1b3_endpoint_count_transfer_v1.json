@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1c-1b.3",
+  "scope": "Convert the H1c-1b.2 fixed-family cumulative psi bound into Maynard Proposition 9.2's exact half-open unweighted prime-count discrepancy for the actual identity form. Preserve the Abel integral sign, prime powers, endpoint atoms, and the exact total population. Do not perform density normalization, full remainder absorption, or threshold calculation.",
+  "outcome": "EXACT_HALF_OPEN_UNWEIGHTED_COUNT_TRANSFER_CLOSED_FULL_RATE_AND_DENSITY_OPEN",
+  "source_registry": [
+    {
+      "key": "MAYNARD2016",
+      "title": "Dense Clusters of Primes in Subsets",
+      "authors": "James Maynard",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "url": "https://doi.org/10.1112/S0010437X16007296",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "locator": "Definition (2.1) and Hypothesis 1(2), pp. 1517-1518; Proposition 9.2, pp. 1539-1540",
+      "role": "Authoritative half-open interval, unweighted prime target, exact total center, and modulus maximum"
+    },
+    {
+      "key": "FGKMT2018",
+      "title": "Long Gaps Between Primes",
+      "authors": "Kevin Ford, Ben Green, Sergei Konyagin, James Maynard, Terence Tao",
+      "doi": "10.1090/jams/876",
+      "arxiv": "1412.5029",
+      "url": "https://doi.org/10.1090/jams/876",
+      "local_path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "locator": "Theorem 6 and Section 8, especially pp. 98-102 and the proof of equation (6.5)",
+      "role": "Actual T=x/2, all-primes set, and identity-form Proposition 9.2 application"
+    },
+    {
+      "key": "AKBARY_HAMBROOK2015",
+      "title": "A Variant of the Bombieri-Vinogradov Theorem with Explicit Constants and Applications",
+      "authors": "Amir Akbary and Kyle Hambrook",
+      "doi": "10.1090/S0025-5718-2014-02919-0",
+      "arxiv": "1309.2730",
+      "url": "https://arxiv.org/abs/1309.2730",
+      "local_path": "tmp/pdfs/h1c1b1/Akbary_Hambrook2015_explicit_BV_v2.pdf",
+      "sha256": "797bac5529cfacba249ffe367ca665304fca53f45b0ee17068b9dd13d58da32a",
+      "locator": "Theorem 1.3 and Corollary 1.4, pp. 1904-1905; proof of Corollary 1.4, p. 1930 (PDF p. 26)",
+      "role": "Prior explicit pi_1 and prime-power-removal method; not a drop-in modulus theorem"
+    },
+    {
+      "key": "BORDIGNON2021_FINAL",
+      "title": "Medium-sized Values for the Prime Number Theorem for Primes in Arithmetic Progressions",
+      "authors": "Matteo Bordignon",
+      "publication": "New York Journal of Mathematics 27 (2021), 1415-1438",
+      "url": "https://nyjm.albany.edu/j/2021/27-54.html",
+      "local_path": "tmp/pdfs/h1c1b1/Bordignon2021_NYJM_final.pdf",
+      "sha256": "4bd7adf499ba667647b612a61399f0f86c272bc684718630fcde42983c014029",
+      "locator": "Theorem 1.4, pp. 1417-1418; proof equations (34)-(37), pp. 1433-1435",
+      "role": "Cumulative psi discrepancy input for every u in the dyadic interval"
+    },
+    {
+      "key": "PROJECT_H1C1B2",
+      "title": "H1c-1b.2 common exceptional B and full remainder contract",
+      "local_path": "docs/method/theory/data/Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
+      "sha256": "SELF_HASHED_BY_REPOSITORY_TESTS",
+      "locator": "Fixed Q1, common B, actual q-family, and twelve-term R_B(u)",
+      "role": "Immediate predecessor distribution bound"
+    }
+  ],
+  "literature_search": {
+    "principle": "Search a published explicit psi-to-pi bridge before proving a project-specific transfer, then compare interval, modulus family, center, endpoint, and error term individually.",
+    "searched_sources": [
+      "Akbary-Hambrook 2015 Theorem 1.3, Corollary 1.4, and its proof",
+      "Maynard 2016 definition (2.1), Hypothesis 1(2), and Proposition 9.2",
+      "FGKMT 2018 Theorem 6 and Section 8 identity-form call",
+      "Bordignon 2021 final Theorem 1.4 and fixed-Q1 exceptional-modulus quantifier"
+    ],
+    "result": "AKBARY_HAMBROOK_SUPPLIES_THE_PI1_AND_PRIME_POWER_METHOD_BUT_NOT_THE_FIXED_B_DYADIC_THEOREM_PROJECT_BRIDGE_REQUIRED",
+    "targeted_official_erratum_found": false,
+    "limitation": "The targeted search is not a worldwide nonexistence or novelty claim. The apparent minus sign in the Akbary-Hambrook displayed partial-summation identity is not copied; the project uses the directly derived plus sign. Their subsequent triangle bound is insensitive to this sign."
+  },
+  "actual_target": {
+    "analytic_scale": "T=x/2 in the FGKMT Section 8 call",
+    "integer_interval": "A(T)={n in Z:T<=n<2T}",
+    "prime_set": "all primes",
+    "linear_form": "L(n)=n",
+    "local_count": "P_T(q,a)=#{p:T<=p<2T and p congruent to a mod q}",
+    "total_count": "P_T=#{p:T<=p<2T}",
+    "centered_discrepancy": "P_T(q,a)-P_T/phi(q)",
+    "modulus_family": "q<=T^(1/3), gcd(q,B)=1",
+    "status": "SOURCE_VERIFIED_EXACT_TARGET"
+  },
+  "uniform_fixed_family": {
+    "fixed_inputs": "A=100r^2+10, Q1=(log T)^A, and the H1c-1b.2 B selected at the fixed outer scale",
+    "reason": "log(T)>2A makes sqrt(u)/(log u)^A increasing on [T,2T]; Q1<=(log u)^A also persists; q<=T^(1/3) is already inside the lower-endpoint capacity",
+    "same_family_valid_for_every_abel_u": true,
+    "minimum_dimension": 36,
+    "status": "PROJECT_FINITE_BRIDGE_CLOSED"
+  },
+  "abel_partial_summation": {
+    "auxiliary_count": "pi_1(y;q,a)=sum_{2<=n<=y,n=a mod q} Lambda(n)/log(n)=sum_{p^k<=y,p^k=a mod q}1/k",
+    "cumulative_discrepancy": "D_psi(u;q,a)=psi(u;q,a)-psi(u)/phi(q)",
+    "open_closed_identity": "D_pi1((T,2T];q,a)=D_psi(2T;q,a)/log(2T)-D_psi(T;q,a)/log(T)+integral_T^(2T) D_psi(u;q,a)/(u log(u)^2) du",
+    "integral_sign": "+",
+    "source_display_caution": "Akbary-Hambrook p. 26 visibly prints a minus sign inside the cumulative absolute-value display; direct Stieltjes/Abel summation gives plus. The source's following triangle inequality is unchanged by this sign.",
+    "family_upper": "S_pi1_open_closed <= R_B(2T)/log(2T)+R_B(T)/log(T)+integral_T^(2T) R_B(u)/(u log(u)^2) du",
+    "status": "EXACT_IDENTITY_AND_UPPER_TRANSFER_CLOSED"
+  },
+  "prime_power_removal": {
+    "prior_bound": "0<=pi_1(y;q,a)-pi(y;q,a)<2 sqrt(y), and 0<=pi_1(y)-pi(y)<2 sqrt(y), for y>=4",
+    "modulus_count": "M_B(T)=#{q<=T^(1/3):gcd(q,B)=1}",
+    "reciprocal_totient_sum": "Phi_B(T)=sum_{q<=T^(1/3),gcd(q,B)=1}1/phi(q)",
+    "dyadic_centered_upper": "2 sqrt(2T)*(M_B(T)+Phi_B(T))",
+    "crude_upper": "4 sqrt(2)*T^(5/6), using Phi_B<=M_B<=T^(1/3)",
+    "status": "EXPLICIT_PROJECT_TRANSFER_CLOSED"
+  },
+  "half_open_endpoint": {
+    "count_identity": "P_[T,2T)=P_(T,2T]+1_P(T)-1_P(2T), with the same identity in each residue class",
+    "one_atom_reason": "For T>2, if T is an integer prime then 2T is composite; if 2T is an odd prime then T is not an integer.",
+    "per_modulus_centered_upper": 1,
+    "summed_upper": "M_B(T)<=T^(1/3)",
+    "status": "EXACT_ENDPOINT_BRIDGE_CLOSED"
+  },
+  "final_parameterized_bound": {
+    "domain": "T>=4",
+    "formula": "S_pi_half_open <= R_B(2T)/log(2T)+R_B(T)/log(T)+integral_T^(2T)R_B(u)/(u log(u)^2)du+2sqrt(2T)(M_B+Phi_B)+M_B",
+    "exact_center": "The center is P_T/phi(q), where P_T=#{p:T<=p<2T}; no T/log(T) approximation is introduced in H1c-1b.3.",
+    "relative_envelope_definition": "rho_*=sup_{u in [T,2T]}R_B(u)/u",
+    "crude_normalized_formula": "S_pi_half_open/T <= rho_*(1/log(T)+2/log(2T)+1/log(T)^2)+4sqrt(2)T^(-1/6)+T^(-2/3)",
+    "status": "EXACT_TARGET_TRANSFER_CLOSED_PARAMETERIZED_BY_R_B"
+  },
+  "status_after_this_gate": {
+    "H1c-1b.3_uniform_abel_family": "CLOSED_FOR_ACTUAL_IDENTITY_FORM",
+    "H1c-1b.3_partial_summation": "CLOSED_WITH_PLUS_SIGN",
+    "H1c-1b.3_prime_power_removal": "CLOSED_WITH_CONSTANT_2",
+    "H1c-1b.3_half_open_endpoint": "CLOSED_WITH_SUMMED_COST_M_B",
+    "H1c-1b.3_exact_recenter": "CLOSED_AT_ACTUAL_TOTAL_PRIME_POPULATION",
+    "H1c-1b.4_full_absorption_density_common_cutoff": "OPEN",
+    "H1B-P92": "RATE_MISSING",
+    "Hypothesis_1_clause_2": "OPEN",
+    "SIV-07": "HARD_BLOCKER",
+    "SIV-08": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "limits": {
+    "same_fixed_family_valid_through_abel_integral": true,
+    "partial_summation_identity_closed": true,
+    "partial_summation_integral_sign_plus": true,
+    "prime_power_removal_closed": true,
+    "half_open_endpoint_transfer_closed": true,
+    "unweighted_prime_count_transfer_closed": true,
+    "exact_total_recentered": true,
+    "represented_prime_density_lower_bound_proved": false,
+    "bordignon_constant_normalization_resolved": false,
+    "full_remainder_absorption_proved": false,
+    "hypothesis1_clause2_closed": false,
+    "proposition92_closed": false,
+    "siv_07_closed": false,
+    "siv_08_closed": false,
+    "threshold_calculator_created": false,
+    "numerical_x_cert_ready": false,
+    "actual_prime_experiment_performed": false,
+    "new_python_dependency_required": false,
+    "lean_required_for_this_gate": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.4",
+    "description": "Resolve the Bordignon C(A,A-3,X0/Y0) normalization, obtain an explicit lower bound for the exact represented-prime population, and absorb the twelve remainder terms plus H1c-1b.3 transfer costs into the required (log T)^(-100r^2) rate with one common cutoff.",
+    "ready_for_threshold_calculator": false,
+    "requires_user_computation_now": false
+  }
+}
