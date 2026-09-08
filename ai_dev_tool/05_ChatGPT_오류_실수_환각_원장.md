@@ -537,6 +537,68 @@
 - 재발 방지: source 재조회는 파일 또는 정확한 source 하위폴더만 대상으로 하고, provenance와
   무관한 `tmp` 루트 전체를 재귀 검색하지 않는다.
 
+### E035 — H1c-1a 착수에서 E034의 `tmp/` 전역 검색을 반복
+
+- 분류: `KNOWN_SEARCH_SCOPE_ERROR_REPEATED / READ_ONLY / NO_RESEARCH_IMPACT`
+- 문제: H1c-1a source inventory 착수 시 이미 E034에 금지한 `rg --files tmp`를 다시 실행해,
+  이전 sandbox 시험이 남긴 접근 불가 임시폴더에서 다수의 `Access is denied` 진단을
+  재발시켰다. 동시에 H1c JSON 이름을 기억으로 추정해 첫 읽기에서 `FILE_NOT_FOUND`가 났다.
+- 영향: 두 명령 모두 읽기 전용이었다. 접근 실패 경로와 잘못 추정한 파일명을 연구 증거로
+  사용하지 않았고, 문서·코드·actual artifact·정리 상태에는 영향이 없다.
+- 교정: `docs/method/theory/data`만 좁게 검색해 정확한 JSON 이름을 확인하고, source 검색은
+  `tmp/pdfs/t1`, `tmp/pdfs/h1b1b/maynard_source`처럼 이미 알려진 개별 경로로 제한했다.
+- 재발 방지: 오류 원장에 같은 검색 실수가 한 번이라도 있으면 새 작업의 첫 source 조회 전에
+  대상 파일 목록을 `Get-ChildItem -LiteralPath <known-directory>`로 고정한다. 예상 파일명은
+  읽기 전에 해당 정본 디렉터리에서 확인한다.
+
+### E036 — H1c-1a PDF 도구·PowerShell wildcard 경로를 먼저 확인하지 않음
+
+- 분류: `TOOLING_ASSUMPTION_ERROR / READ_ONLY / NO_RESEARCH_IMPACT`
+- 문제:
+  1. sandbox 안에서 MiKTeX `pdftotext`를 먼저 호출해 사용자 AppData의 MiKTeX log 쓰기 권한
+     오류를 냈다. 같은 원문을 승인된 정상 로컬 권한으로 다시 읽으면 정상 동작하는 환경 문제였다.
+  2. 번들 Poppler 경로에 `pdftotext.exe`도 있을 것이라고 추정했지만 실제 번들에는 이번 확인
+     범위에서 `pdfinfo.exe`, `pdftoppm.exe`만 있었다.
+  3. `Get-FileHash -LiteralPath '.../*.pdf'`에 wildcard를 넘겨 경로 구문 오류를 한 번 냈다.
+  4. 첫 Markdown relative-link 검사기가 공백 경로용 `<...>` wrapper를 제거하지 않아 기존의
+     유효한 PDF 링크 1개를 missing으로 잘못 보고했다.
+- 영향: 모두 읽기·hash 조회 단계의 도구 오류였다. 실패 출력은 source 증거로 사용하지 않았고,
+  PDF 원본·문서·수학 판정·actual artifact에는 영향이 없다.
+- 교정: PDF text는 동일한 MiKTeX 명령을 정상 로컬 권한에서 실행하고, 수식 페이지는 실제 존재가
+  확인된 `pdftoppm.exe`로 렌더링했다. hash는 `Get-ChildItem -Path ... -Filter '*.pdf'`로 파일을
+  열거한 뒤 각 exact `-LiteralPath`에 계산했다. link 검사는 target의 양끝 angle bracket을
+  제거한 뒤 다시 실행해 모든 local link가 존재함을 확인했다.
+- 재발 방지: PDF 작업 전 `Get-Command`와 번들 디렉터리 목록으로 실제 executable을 고정한다.
+  PowerShell `-LiteralPath`에는 wildcard를 넣지 않고, wildcard가 필요하면 `-Path` 또는 선행
+  `Get-ChildItem`을 쓴다.
+
+### E037 — H1c-1a 정본 동기화 patch의 비고유 문맥으로 절 번호가 잠시 역전
+
+- 분류: `PATCH_CONTEXT_AMBIGUITY / CAUGHT_BEFORE_VALIDATION / NO_RESEARCH_IMPACT`
+- 문제: H1b 문서 끝에 23절을 붙일 때 여러 번 나타나는 동일 종료 문장을 문맥으로 사용해,
+  첫 patch가 23절을 22절 바로 앞에 삽입했다. 또한 너무 많은 파일을 한 patch로 묶은 두 시도는
+  한 파일의 문맥 불일치 때문에 쓰기 전 전체 거부됐다.
+- 영향: 절 순서 오류는 즉시 `Select-String '^## 2[23]'`와 문서 tail 대조에서 발견됐고 최종
+  검증 전 교정했다. 거부된 patch는 원자적으로 아무 파일도 바꾸지 않았다. 수학식·판정·actual
+  artifact에는 영향이 없다.
+- 교정: 잘못 들어간 23절 블록을 제거하고 22절의 고유한 마지막 문단 뒤에 다시 삽입했다.
+  이후 정본 동기화는 파일별 또는 고유 section header가 포함된 작은 patch로 나눴다.
+- 재발 방지: append-like patch는 마지막 한 줄만 매칭하지 말고 직전 section header나 고유 문장
+  2개 이상을 함께 사용한다. 적용 직후 header 순서를 기계적으로 검사한다.
+
+### E038 — Bennett et al. 2018을 처음에 arXiv 상태로만 과소분류
+
+- 분류: `BIBLIOGRAPHIC_STATUS_UNDERCLASSIFICATION / CAUGHT_BEFORE_HANDOFF / NO_MATH_IMPACT`
+- 문제: H1c-1a source JSON 초안에서 로컬 arXiv PDF의 표지만 보고 Bennett--Martin--O'Bryant--
+  Rechnitzer 논문을 `PREPRINT_REVIEW_STATUS_NOT_ADOPTED_AS_THEOREM_INPUT`으로 적었다. 실제로는
+  *Illinois Journal of Mathematics* 62 (2018), 427--532에 출판된 논문이다.
+- 영향: 해당 정리의 식·범위와 `PARTIAL_INPUT`, `direct_substitute=false` 판정은 바뀌지 않는다.
+  출판상태와 bibliography metadata만 부정확했다.
+- 교정: 저자 publication page와 출판 PDF metadata를 대조해 DOI
+  `10.1215/ijm/1552442669`, 권·쪽과 `PEER_REVIEWED` 상태로 고쳤다.
+- 재발 방지: arXiv PDF를 읽었더라도 source registry를 확정하기 전 DOI·저자 publication list·
+  journal landing page 중 하나에서 후속 출판 여부를 별도로 확인한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

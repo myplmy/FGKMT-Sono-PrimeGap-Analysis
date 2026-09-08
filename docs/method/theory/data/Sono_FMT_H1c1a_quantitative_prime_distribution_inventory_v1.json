@@ -1,0 +1,408 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1c-1a quantitative prime-distribution source inventory",
+  "scope": "Inventory and applicability audit for primary, corrected, and follow-up sources that could make FGKMT Hypothesis 1(2) and Maynard Proposition 9.2 numerical. This gate fixes the target contract and successor proof obligations; it does not prove the numerical distribution package.",
+  "outcome": "NO_DROP_IN_SOURCE_BORDIGNON2021_COMPOSITION_ROUTE_FOUND",
+  "inventory_complete_for_declared_sources": true,
+  "worldwide_exhaustiveness_claimed": false,
+  "drop_in_source_found": false,
+  "primary_composition_candidate": "BORDIGNON2021",
+  "numerical_hypothesis1_clause2_ready": false,
+  "maynard_proposition_9_2_numerical_ready": false,
+  "siv_08_closed": false,
+  "siv_07_closed": false,
+  "numerical_x_cert_ready": false,
+  "actual_threshold_computed": false,
+  "classification_vocabulary": [
+    "TARGET_CONTRACT",
+    "ORIGINAL_ASYMPTOTIC_ROUTE",
+    "PRIMARY_COMPOSITION_CANDIDATE",
+    "PARTIAL_INPUT",
+    "EFFECTIVE_BUT_INSUFFICIENT_RATE",
+    "PROOF_REDESIGN_CANDIDATE",
+    "CONCEPTUAL_ONLY"
+  ],
+  "target_contract": {
+    "source": "MAYNARD2016",
+    "locator": "Hypothesis 1(2), Proposition 9.2, equation Bdd3",
+    "centered_discrepancy": "sum_{q <= x^theta, gcd(q,B)=1} max_{gcd(L(a),q)=1} |#P_L,A(x;q,a)-#P_L,A(x)/phi_L(q)|",
+    "required_upper_shape": "C_H1 * #P_L,A(x) / (log x)^(100*k^2)",
+    "actual_fgkmt_parameters": {
+      "A": "Z",
+      "theta": "1/3",
+      "k_range": "k <= (log x)^(1/5)",
+      "linear_form_coefficients": "1 <= |a_i| <= log x and |b_i| <= x*(log x)^2",
+      "working_interval": "n in [y,2y), with x <= y <= x*(log x)^2 and every L_i nonnegative",
+      "exceptional_filter": "one prime B chosen from a possible exceptional conductor; gcd(q,B)=1"
+    },
+    "proposition_9_2_dependency": "The implied constants depend on theta, alpha, and the constants in Bdd1, Bdd2, and Bdd3.",
+    "threshold_ready": false
+  },
+  "requirements": [
+    {
+      "id": "H1C1A-R01",
+      "name": "exact-centered-target",
+      "requirement": "Control the Maynard centered count against #P_L,A(x)/phi_L(q), not only psi(t;q,a)-t/phi(q).",
+      "status": "OPEN_BRIDGE"
+    },
+    {
+      "id": "H1C1A-R02",
+      "name": "modulus-coverage",
+      "requirement": "Cover every q <= x^(1/3) with gcd(q,B)=1 after the affine lift to modulus |a|q.",
+      "status": "OPEN_BRIDGE"
+    },
+    {
+      "id": "H1C1A-R03",
+      "name": "log-saving",
+      "requirement": "Produce the relative saving (log x)^(-100*k^2) required by Hypothesis 1(2).",
+      "status": "OPEN_BRIDGE"
+    },
+    {
+      "id": "H1C1A-R04",
+      "name": "k-uniformity-or-fixed-k-reduction",
+      "requirement": "Either control all k <= (log x)^(1/5), or prove that the downstream application fixes a finite k and record the resulting cutoff.",
+      "status": "OPEN_BRANCH_DECISION"
+    },
+    {
+      "id": "H1C1A-R05",
+      "name": "common-exceptional-modulus",
+      "requirement": "Choose one conductor and one prime B that work simultaneously for all endpoints, forms, and moduli in the application.",
+      "status": "OPEN_BRIDGE"
+    },
+    {
+      "id": "H1C1A-R06",
+      "name": "affine-form-lift",
+      "requirement": "Prove the exact bijection from n congruent to r modulo q to primes L(n) in a residue class modulo |a|q, including a<0, gcd, and admissibility cases.",
+      "status": "OPEN_BRIDGE"
+    },
+    {
+      "id": "H1C1A-R07",
+      "name": "half-open-endpoints",
+      "requirement": "Transfer cumulative estimates to the half-open interval n in [y,2y) without losing endpoint or prime-power terms.",
+      "status": "OPEN_BRIDGE"
+    },
+    {
+      "id": "H1C1A-R08",
+      "name": "psi-to-prime-count",
+      "requirement": "Convert von Mangoldt weighted estimates to unweighted prime counts with an explicit prime-power and partial-summation error.",
+      "status": "OPEN_BRIDGE"
+    },
+    {
+      "id": "H1C1A-R09",
+      "name": "total-population-recentering",
+      "requirement": "Replace the analytic main term by the exact total #P_L,A(x)/phi_L(q) and sum the induced q-dependent correction explicitly.",
+      "status": "OPEN_BRIDGE"
+    },
+    {
+      "id": "H1C1A-R10",
+      "name": "represented-prime-density",
+      "requirement": "Give an explicit positive lower bound for #P_L,A(x) so the absolute discrepancy becomes the required relative discrepancy.",
+      "status": "OPEN_BRIDGE"
+    },
+    {
+      "id": "H1C1A-R11",
+      "name": "printed-multipliers",
+      "requirement": "Make every multiplier in the average theorem and the pointwise exceptional-zero term numerical for the selected parameters.",
+      "status": "OPEN_COMPOSITION"
+    },
+    {
+      "id": "H1C1A-R12",
+      "name": "common-finite-cutoff",
+      "requirement": "Combine all validity ranges and error absorptions into one finite x cutoff that also satisfies Proposition 9.2.",
+      "status": "OPEN_COMPOSITION"
+    }
+  ],
+  "source_registry": [
+    {
+      "key": "MAYNARD2016",
+      "title": "Dense Clusters of Primes in Subsets",
+      "authors": "James Maynard",
+      "publication": "Compositio Mathematica 152 (2016), 1517-1554",
+      "doi": "10.1112/S0010437X16007296",
+      "arxiv": "1405.2593",
+      "url": "https://arxiv.org/abs/1405.2593",
+      "local_locator": "tmp/pdfs/h1b2a/Maynard2015_Small_Gaps_published.pdf",
+      "sha256": "3c24d010f00d1212418351b6f6baed9c94251a3ce958c36f56ebbc450ade9349",
+      "reviewed_locations": "Hypothesis 1(2); Proposition 9.2; equation Bdd3; author TeX lines 60-76 and 774-809",
+      "publication_status": "PEER_REVIEWED",
+      "role": "TARGET_CONTRACT"
+    },
+    {
+      "key": "FGKMT2018",
+      "title": "Long Gaps Between Primes",
+      "authors": "Kevin Ford, Ben Green, Sergei Konyagin, James Maynard, Terence Tao",
+      "publication": "Journal of the American Mathematical Society 31 (2018), 65-105",
+      "doi": null,
+      "arxiv": "1412.5029",
+      "url": "https://arxiv.org/abs/1412.5029",
+      "local_locator": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "reviewed_locations": "Hypothesis 1; Lemma 7.1; Corollary 6; Lemma 7.2 and equations (7.2)-(7.3)",
+      "publication_status": "PEER_REVIEWED",
+      "role": "ORIGINAL_ASYMPTOTIC_ROUTE"
+    },
+    {
+      "key": "AKBARY_HAMBROOK2015",
+      "title": "A Variant of the Bombieri-Vinogradov Theorem with Explicit Constants and Applications",
+      "authors": "Amir Akbary and Kyle Hambrook",
+      "publication": "Mathematics of Computation 84 (2015), 1901-1932",
+      "doi": null,
+      "arxiv": "1309.2730",
+      "url": "https://arxiv.org/abs/1309.2730",
+      "local_locator": null,
+      "sha256": null,
+      "reviewed_locations": "Theorem 1.3 and Corollary 1.4",
+      "publication_status": "PEER_REVIEWED",
+      "role": "PARTIAL_INPUT"
+    },
+    {
+      "key": "SEDUNOVA2018",
+      "title": "A Partial Bombieri-Vinogradov Theorem with Explicit Constants",
+      "authors": "Alisa Sedunova",
+      "publication": "Publications mathematiques de Besancon (2018), 101-110",
+      "doi": "10.5802/pmb.24",
+      "arxiv": "1610.05344",
+      "url": "https://doi.org/10.5802/pmb.24",
+      "local_locator": "tmp/pdfs/h1c1a/Sedunova2018_Explicit_BV.pdf",
+      "sha256": "f10826c3a3375e221724332a7ee767608cd521e9bad2148b8d841052f03129d5",
+      "reviewed_locations": "Theorem 1, especially the least-prime-divisor restriction",
+      "publication_status": "PEER_REVIEWED",
+      "role": "PARTIAL_INPUT"
+    },
+    {
+      "key": "SEDUNOVA2019",
+      "title": "A Logarithmic Improvement in the Bombieri-Vinogradov Theorem",
+      "authors": "Alisa Sedunova",
+      "publication": "Journal de theorie des nombres de Bordeaux 31 (2019), 635-651",
+      "doi": "10.5802/jtnb.1098",
+      "arxiv": "1705.06660",
+      "url": "https://doi.org/10.5802/jtnb.1098",
+      "local_locator": "tmp/pdfs/h1c1a/Sedunova2019_Log_Improvement_BV.pdf",
+      "sha256": "ea329c2e62168e59084bcc3ba6c477b3c52bd02badb2c9996df0e40ea7be2132",
+      "reviewed_locations": "Effective corollaries; Johnston 2026 Lemma 3.4 correction of Corollary 1.4",
+      "publication_status": "PEER_REVIEWED_CORRECTION_REQUIRED_FOR_CITED_COROLLARY",
+      "role": "PARTIAL_INPUT"
+    },
+    {
+      "key": "YAMADA2014_II",
+      "title": "Explicit Formulae for Primes in Arithmetic Progressions, II",
+      "authors": "Tomohiro Yamada",
+      "publication": "arXiv preprint",
+      "doi": null,
+      "arxiv": "1309.5798",
+      "url": "https://arxiv.org/abs/1309.5798",
+      "local_locator": "tmp/pdfs/h1c1a/Yamada2014_Explicit_PAP_II.pdf",
+      "sha256": "0f0ae746b307aaa51115d8e77b03bf7c798acc6e85908ce1833e242d25f4132a",
+      "reviewed_locations": "Theorems 1.1-1.2",
+      "publication_status": "PREPRINT_UNPUBLISHED",
+      "role": "PARTIAL_INPUT"
+    },
+    {
+      "key": "YAMADA2015_I",
+      "title": "Explicit Formulae for Primes in Arithmetic Progressions, I",
+      "authors": "Tomohiro Yamada",
+      "publication": "arXiv preprint",
+      "doi": null,
+      "arxiv": "1306.5322",
+      "url": "https://arxiv.org/abs/1306.5322",
+      "local_locator": null,
+      "sha256": null,
+      "reviewed_locations": "Theorem 1.4 as reported and specialized in the follow-up explicit literature",
+      "publication_status": "PREPRINT_UNPUBLISHED",
+      "role": "PARTIAL_INPUT"
+    },
+    {
+      "key": "BORDIGNON2021",
+      "title": "Medium-sized Values for the Prime Number Theorem for Primes in Arithmetic Progressions",
+      "authors": "Matteo Bordignon",
+      "publication": "New York Journal of Mathematics 27 (2021), 1415-1438",
+      "doi": null,
+      "arxiv": "2101.08610",
+      "url": "https://nyjm.albany.edu/j/2021/27-54.html",
+      "local_locator": "tmp/pdfs/h1c1a/Bordignon2021_Medium_PNTAP.pdf",
+      "sha256": "63051c118ca19e9e723c5fe1769ef53f8c76ea7631ecadc87a08b1a385277805",
+      "reviewed_locations": "Theorems 1, 2, and 4; equations defining C(A,A-3,X0) and E(x,A)",
+      "publication_status": "PEER_REVIEWED",
+      "role": "PRIMARY_COMPOSITION_CANDIDATE"
+    },
+    {
+      "key": "BENNETT_ET_AL2018",
+      "title": "Explicit Bounds for Primes in Arithmetic Progressions",
+      "authors": "Michael A. Bennett, Greg Martin, Kevin O'Bryant, Andrew Rechnitzer",
+      "publication": "Illinois Journal of Mathematics 62 (2018), 427-532",
+      "doi": "10.1215/ijm/1552442669",
+      "arxiv": "1802.00085",
+      "url": "https://arxiv.org/abs/1802.00085",
+      "local_locator": "tmp/pdfs/h1c1a/BennettEtAl2018_Explicit_PAP.pdf",
+      "sha256": "e51f8b8f63486c2259efe076d367504f08dda0fe9e99dc35bf36de544ffc0601",
+      "reviewed_locations": "Theorems 1.1-1.3 and equations (1.9)-(1.13)",
+      "publication_status": "PEER_REVIEWED",
+      "role": "PARTIAL_INPUT"
+    },
+    {
+      "key": "KADIRI2018",
+      "title": "Explicit Zero-Free Regions for Dirichlet L-Functions",
+      "authors": "Habiba Kadiri",
+      "publication": "Mathematika 64 (2018), 445-474",
+      "doi": null,
+      "arxiv": "math/0510570",
+      "url": "https://arxiv.org/abs/math/0510570",
+      "local_locator": "tmp/pdfs/h1c1a/Kadiri2005_Explicit_ZFR.pdf",
+      "sha256": "774e5aa5e5ad96ce263df8ae7b02258cf9bb7ea2e8d6d0300b83b53bde7d8166",
+      "reviewed_locations": "Theorem 1.1, q <= 400000 and R=5.60",
+      "publication_status": "PEER_REVIEWED",
+      "role": "PARTIAL_INPUT"
+    },
+    {
+      "key": "LIU2017",
+      "title": "An Effective Bombieri-Vinogradov Theorem and Its Applications",
+      "authors": "H.-Q. Liu",
+      "publication": "Acta Mathematica Hungarica 153 (2017), 230-235",
+      "doi": "10.1007/s10474-017-0745-z",
+      "arxiv": null,
+      "url": "https://doi.org/10.1007/s10474-017-0745-z",
+      "local_locator": null,
+      "sha256": null,
+      "reviewed_locations": "Theorem 1 as restated in Johnston 2026 Theorem 1.3",
+      "publication_status": "PEER_REVIEWED_SECONDARY_FORMULA_CHECKED",
+      "role": "EFFECTIVE_BUT_INSUFFICIENT_RATE"
+    },
+    {
+      "key": "JOHNSTON2026",
+      "title": "An Effective Bombieri-Vinogradov Error Term for Sifting Problems",
+      "authors": "Daniel R. Johnston",
+      "publication": "arXiv preprint v3 dated 2026-08-25",
+      "doi": null,
+      "arxiv": "2510.10853",
+      "url": "https://arxiv.org/abs/2510.10853",
+      "local_locator": "tmp/pdfs/h1c1a/Johnston2026_Effective_BV_Sifting.pdf",
+      "sha256": "087000e6e0f890f61b030b3fd1bd1ab42b69dc219acc82850b8b7503e9f5f7b6",
+      "reviewed_locations": "Theorems 1.3-1.7; Lemma 3.4 correction; Sections 4-5",
+      "publication_status": "RECENT_PREPRINT_UNVERIFIED_FOR_PROJECT_USE",
+      "role": "PROOF_REDESIGN_CANDIDATE"
+    }
+  ],
+  "candidate_evaluations": [
+    {
+      "id": "H1C1A-C01",
+      "source_keys": ["FGKMT2018"],
+      "classification": "ORIGINAL_ASYMPTOTIC_ROUTE",
+      "direct_substitute": false,
+      "usable_output": "Correct asymptotic proof architecture with a single exceptional prime B and the required affine-form family.",
+      "blocking_requirements": ["H1C1A-R01", "H1C1A-R03", "H1C1A-R05", "H1C1A-R08", "H1C1A-R10", "H1C1A-R11", "H1C1A-R12"],
+      "reason": "The printed proof uses hidden constants and sufficiently-large cutoffs in the character and Bombieri-Vinogradov steps."
+    },
+    {
+      "id": "H1C1A-C02",
+      "source_keys": ["AKBARY_HAMBROOK2015", "SEDUNOVA2018"],
+      "classification": "PARTIAL_INPUT",
+      "direct_substitute": false,
+      "usable_output": "Explicit mean-value bounds for moduli whose least prime divisor exceeds Q1.",
+      "blocking_requirements": ["H1C1A-R02", "H1C1A-R05", "H1C1A-R06", "H1C1A-R09", "H1C1A-R10", "H1C1A-R12"],
+      "reason": "The rough-modulus condition is stronger than gcd(q,B)=1 and leaves the small-prime-factor moduli untreated."
+    },
+    {
+      "id": "H1C1A-C03",
+      "source_keys": ["SEDUNOVA2019", "JOHNSTON2026"],
+      "classification": "PARTIAL_INPUT",
+      "direct_substitute": false,
+      "usable_output": "Effective asymptotic mean-value route after excluding small moduli.",
+      "blocking_requirements": ["H1C1A-R02", "H1C1A-R03", "H1C1A-R05", "H1C1A-R06", "H1C1A-R09", "H1C1A-R10", "H1C1A-R11", "H1C1A-R12"],
+      "reason": "The published 2019 corollary needs Johnston's B-3 correction, and neither source supplies a ready numerical Maynard-centered package."
+    },
+    {
+      "id": "H1C1A-C04",
+      "source_keys": ["YAMADA2014_II", "YAMADA2015_I"],
+      "classification": "PARTIAL_INPUT",
+      "direct_substitute": false,
+      "usable_output": "Explicit average bounds excluding a possible exceptional modulus for bounded logarithmic exponents.",
+      "blocking_requirements": ["H1C1A-R03", "H1C1A-R04", "H1C1A-R06", "H1C1A-R09", "H1C1A-R10", "H1C1A-R12"],
+      "reason": "The parameter ranges A<=7 or the related bounded-A range cannot deliver the exponent 100*k^2 for the H1 target; the papers are preprints."
+    },
+    {
+      "id": "H1C1A-C05",
+      "source_keys": ["BORDIGNON2021"],
+      "classification": "PRIMARY_COMPOSITION_CANDIDATE",
+      "direct_substitute": false,
+      "usable_output": "Published Theorem 4 allows any real A>3, gives an explicit non-exceptional-modulus average bound, and Theorem 2 isolates an exceptional-zero contribution pointwise.",
+      "blocking_requirements": ["H1C1A-R01", "H1C1A-R02", "H1C1A-R03", "H1C1A-R04", "H1C1A-R05", "H1C1A-R06", "H1C1A-R07", "H1C1A-R08", "H1C1A-R09", "H1C1A-R10", "H1C1A-R11", "H1C1A-R12"],
+      "reason": "It is the closest source, but the project must still prove the actual parameter composition and all bridges rather than quote it as H1(2)."
+    },
+    {
+      "id": "H1C1A-C06",
+      "source_keys": ["BENNETT_ET_AL2018"],
+      "classification": "PARTIAL_INPUT",
+      "direct_substitute": false,
+      "usable_output": "Explicit pointwise psi, theta, and pi bounds for each fixed modulus with computable cutoffs.",
+      "blocking_requirements": ["H1C1A-R02", "H1C1A-R03", "H1C1A-R04", "H1C1A-R05", "H1C1A-R09", "H1C1A-R12"],
+      "reason": "Summing the pointwise bounds over all q<=x^(1/3) does not provide the required strong average saving, and large-modulus cutoffs grow too quickly for a direct route."
+    },
+    {
+      "id": "H1C1A-C07",
+      "source_keys": ["KADIRI2018"],
+      "classification": "PARTIAL_INPUT",
+      "direct_substitute": false,
+      "usable_output": "A sharper explicit zero-free constant R=5.60 for primitive characters with conductor q<=400000.",
+      "blocking_requirements": ["H1C1A-R02", "H1C1A-R03", "H1C1A-R05", "H1C1A-R11", "H1C1A-R12"],
+      "reason": "It can improve a finite low-conductor component but is not a global Landau-Page or Bombieri-Vinogradov package."
+    },
+    {
+      "id": "H1C1A-C08",
+      "source_keys": ["LIU2017"],
+      "classification": "EFFECTIVE_BUT_INSUFFICIENT_RATE",
+      "direct_substitute": false,
+      "usable_output": "An effective all-moduli Bombieri-Vinogradov theorem with a computable constant.",
+      "blocking_requirements": ["H1C1A-R03", "H1C1A-R04", "H1C1A-R06", "H1C1A-R09", "H1C1A-R10", "H1C1A-R11", "H1C1A-R12"],
+      "reason": "The available error has only a fixed log^-2 saving up to log-log factors, far weaker than log^(-100*k^2), and the constant is not printed numerically."
+    },
+    {
+      "id": "H1C1A-C09",
+      "source_keys": ["JOHNSTON2026"],
+      "classification": "PROOF_REDESIGN_CANDIDATE",
+      "direct_substitute": false,
+      "usable_output": "A method that alters sieve upper and lower bounds to avoid the exceptional modulus while retaining the asymptotic sieve form with effective error terms.",
+      "blocking_requirements": ["H1C1A-R01", "H1C1A-R03", "H1C1A-R04", "H1C1A-R06", "H1C1A-R09", "H1C1A-R10", "H1C1A-R11", "H1C1A-R12"],
+      "reason": "This recent preprint is not a direct Hypothesis 1 or Proposition 9.2 theorem and compatibility with Maynard's multidimensional weights would require a new proof."
+    }
+  ],
+  "corrections_and_cautions": [
+    {
+      "id": "H1C1A-X01",
+      "target": "Sedunova 2019 Corollary 1.4",
+      "rule": "Do not use the printed log^(B-2) denominator without correction; Johnston 2026 Lemma 3.4 gives log^(B-3)."
+    },
+    {
+      "id": "H1C1A-X02",
+      "target": "rough-modulus explicit BV results",
+      "rule": "least_prime_factor(q)>Q1 does not mean gcd(q,B)=1 and cannot be substituted silently."
+    },
+    {
+      "id": "H1C1A-X03",
+      "target": "Bordignon 2021",
+      "rule": "A theorem with explicit formulas is not yet the exact Maynard-centered inequality; every affine, centering, density, and cutoff bridge remains a proof obligation."
+    },
+    {
+      "id": "H1C1A-X04",
+      "target": "Johnston 2026",
+      "rule": "Treat as a recent unverified redesign candidate and do not promote it to the theorem input without independent source and compatibility review."
+    }
+  ],
+  "affine_recentering_identity": {
+    "statement": "For L(n)=a*n+b and an eligible residue r modulo q, the L-values form one residue class modulo |a|q. If M is the analytic main count at modulus |a|, then |C_q-C_1/phi_L(q)| is at most |C_q-M/phi(|a|q)| plus [phi(|a|)/phi(|a|q)]*|C_1-M/phi(|a|)|.",
+    "status": "IDENTITY_ROUTE_IDENTIFIED_PROOF_AND_SUM_BOUND_OPEN",
+    "requirements": ["H1C1A-R01", "H1C1A-R06", "H1C1A-R09"]
+  },
+  "next_gate": {
+    "id": "H1c-1b",
+    "description": "Prove or reject the Bordignon-2021 composition for the actual FGKMT/Maynard call: first settle fixed-k versus growing-k parameterization and modulus coverage; then common exceptional B; then exact affine, endpoint, psi-to-pi, recentering, and represented-prime-density transfers; finally assemble one numerical multiplier and cutoff.",
+    "recommended_subgates": [
+      "H1c-1b.1 Bordignon parameter and modulus-envelope feasibility",
+      "H1c-1b.2 one-common-exceptional-modulus and B uniformization",
+      "H1c-1b.3 affine, endpoint, psi-to-pi, and recentering transfer",
+      "H1c-1b.4 represented-prime-density lower bound and common cutoff"
+    ],
+    "ready_for_threshold_calculator": false,
+    "requires_user_computation_now": false
+  }
+}

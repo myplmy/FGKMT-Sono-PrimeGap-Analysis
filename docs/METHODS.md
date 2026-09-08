@@ -9,7 +9,7 @@
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
 - 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a와 H1b-1 계열은 finite-r 적분비, Lemma 8.2 multiplier 89, 교정된 \(\kappa=1\) one-step multiplier, 실제 제외모듈과 Lemma 8.4 관련 하위호출 9/9를 parameterized explicit 수준으로 닫았다.
   2026-09-08 H1b-2a는 Lemma 8.5의 coefficient·weight envelope와 Lemma 8.6의 절대 \(I_k,J_k\) 크기 및 보수적 \(F_1/F_2\) 비교를 유한식으로 닫았다. H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱도 exact local factor와 finite singular-series 비교로 닫았다.
-  H1b-2a.2는 실제 \(\mathcal A=\mathbb Z,D=1\) 호출의 정확한 \(E_q^{(1)}\le1\)을 이용해 식 (9.52) distribution child를 parameterized explicit으로 닫았다. H1b-2a.3은 actual FGKMT/FMT P94의 모든 닫힌 child를 공통 cutoff로 합성해 모든 정수 \(k\ge36\)에서 multiplier 13 미만을 얻었고, `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격했다. 다음 root-critical gate는 H1c-1 quantitative character/Bombieri–Vinogradov package다. `SIV-07=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+  H1b-2a.2는 실제 \(\mathcal A=\mathbb Z,D=1\) 호출의 정확한 \(E_q^{(1)}\le1\)을 이용해 식 (9.52) distribution child를 parameterized explicit으로 닫았다. H1b-2a.3은 actual FGKMT/FMT P94의 모든 닫힌 child를 공통 cutoff로 합성해 모든 정수 \(k\ge36\)에서 multiplier 13 미만을 얻었고, `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격했다. 2026-09-09 H1c-1a는 quantitative character/Bombieri–Vinogradov source inventory를 완료했다. 바로 대입 가능한 정리는 없고 Bordignon 2021을 주 합성 후보로 선정했으나 12개 bridge/composition 의무가 남는다. 다음 root-critical gate는 H1c-1b parameter·modulus-envelope feasibility다. `SIV-07/08=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -778,6 +778,18 @@ rate는 열려 있다. PAP와 Hypothesis 1은 shared source를 가진 sibling ob
 `SIV-07/08/09`, `PAP-11` 또는 `X_cert`를 닫지 않는다. H1b-2a.3 뒤 다음 gate는
 H1c-1 quantitative character package다. H1c-1은 actual 식 (9.52)가 아니라
 Proposition 9.2와 전체 good-weight theorem 때문에 남는다.
+
+2026-09-09 H1c-1a source inventory는 Maynard의 exact centered discrepancy와 FGKMT actual
+parameter를 계약으로 고정하고 explicit 후보들을 적용 조건별로 대조했다. 선언한 source 안에서
+drop-in 정리는 0개다. Bordignon 2021 Theorem 4가 임의 \(A>3\)와 explicit
+non-exceptional-modulus average를 제공해 `PRIMARY_COMPOSITION_CANDIDATE`로 선정됐다. 그러나
+fixed-\(k\) 또는 growing-\(A\) 선택, \(|a|q\) coverage, 한 공통 exceptional \(B\), 반열린
+endpoint, \(\psi\to\pi\), exact total-count recentering, represented-prime density와 common
+cutoff가 열려 있다. Sedunova 2019 Corollary 1.4는 Johnston 2026의 \(B-3\) 교정을 적용하지
+않고 사용하지 않는다. 정본은
+`docs/method/theory/32_Sono_FMT_H1c1a_quantitative_prime_distribution_source_inventory.md`와
+`docs/review/38_20260909_H1c1a_quantitative_prime_distribution_타당성검토.md`다. 다음 gate는
+H1c-1b이고 source inventory만으로 `SIV-07/08` 또는 `X_cert`를 승격하지 않는다.
 모든 root dependency가 닫히기
 전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
 

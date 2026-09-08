@@ -495,3 +495,16 @@ threshold calculator = NOT READY
 상세 정본은
 `docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md`와
 `docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md`다.
+
+## 16. 2026-09-09 H1c-1a 후속 감사
+
+H1c-1a는 Hypothesis 1(2)와 Maynard Proposition 9.2를 수치화할 explicit 선행정리 후보를
+실제 modulus·중심항·exceptional character·log-saving·cutoff 조건별로 대조했다. 선언한
+source 범위에서 drop-in 정리는 없었다. Bordignon 2021 Theorem 4가 가장 가까운 출판
+합성 후보지만 affine modulus coverage, 한 공통 exceptional \(B\), \(\psi\to\pi\), exact
+recentring, represented-prime lower bound와 common cutoff를 새로 연결해야 한다.
+
+따라서 이 감사의 결론은 변하지 않는다. \(X_{\mathrm{cert}}\)는 여전히 `OPEN`이고 threshold
+calculator는 `NOT READY`다. 다음 최소 gate는 H1c-1b의 Bordignon parameter·modulus-envelope
+feasibility다. 상세는
+[`H1c-1a 검토`](38_20260909_H1c1a_quantitative_prime_distribution_타당성검토.md)를 따른다.

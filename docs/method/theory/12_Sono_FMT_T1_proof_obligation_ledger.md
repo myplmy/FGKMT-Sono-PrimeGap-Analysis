@@ -555,3 +555,14 @@ T1의 `SIV-07`은 Proposition 6.1 전체를 나타내므로 상태는 `HARD_BLOC
 않는다. 다음 root-critical 작업은 Proposition 9.2에 필요한 H1c-1 quantitative
 character/prime-distribution package이며, 이후 P91/P92/L93/P95와 공통 moment budget을
 합성해야 한다.
+
+## 22. 2026-09-09 H1c-1a source inventory 반영
+
+H1c-1a는 `SIV-08`의 실제 Maynard/FGKMT 호출 계약과 12개 bridge/composition 의무를 고정했다.
+explicit 선행연구 중 즉시 대입 가능한 정리는 없고 Bordignon 2021을 주 합성 후보로 선택했다.
+이는 source 선택 진전이지 theorem closure가 아니다. 기계 원장의 `SIV-08` notes와 H1/H1b
+successor pointer를 동기화했으며 66개 root row의 상태 수는 바꾸지 않았다.
+
+따라서 `SIV-08=HARD_BLOCKER`, `SIV-07/09=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}\)=`OPEN`이다. 다음 root-critical gate는 H1c-1b의 parameter/modulus
+envelope와 한 exceptional \(B\), exact transfer와 common cutoff 합성이다.

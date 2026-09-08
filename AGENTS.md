@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / SIV-07 HARD_BLOCKER / X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1a source inventory 완료·drop-in 0·Bordignon 2021 합성후보 / SIV-07·08 HARD_BLOCKER / X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
@@ -92,8 +92,12 @@ H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱과 식 (9.64)�
 product-profile의 \(2^k\) 손실을 강화 smooth cutoff로 흡수하고 모든 child를 합성해
 모든 정수 \(k\ge36\)에서 actual P94 multiplier 13 미만을 얻었다. 따라서
 `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다. 일반 \(\mathcal A\) P94,
-P91/P92/L93/P95, `SIV-07/09`와 `X_cert`는 열려 있다. 다음 gate는 H1c-1 quantitative
-prime-distribution package다. 모든 root
+P91/P92/L93/P95, `SIV-07/09`와 `X_cert`는 열려 있다. H1c-1a는 Hypothesis 1(2)와
+Maynard Proposition 9.2의 source inventory를 완료했다. 선언 source 중 drop-in 정리는 없고
+Bordignon 2021 Theorem 4가 `PRIMARY_COMPOSITION_CANDIDATE`다. affine modulus, 한 공통
+exceptional \(B\), \(\psi\to\pi\), recentering, density와 common cutoff가 남아
+`SIV-08`도 계속 `HARD_BLOCKER`다. 다음 gate는 H1c-1b parameter·modulus-envelope
+feasibility다. 모든 root
 dependency가 닫히기 전에는 새 prime sweep·threshold calculator를 만들지 않는다.
 
 `article/unverified/`의 2026 bounded-gap 원고 2편은 기존 9편 corpus에 합산하지 않는다.
@@ -474,9 +478,10 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018-B를 자동 실행하지 않고, H1c-1의 FGKMT
-character/Bombieri–Vinogradov 수치 package를 Proposition 9.2와 전체 good-weight theorem에
-맞춰 감사하는 것이다. actual P94 식 (9.52)의 직접 선결조건으로 다시 연결하지 않는다.
+다음 권장 행동은 P018-B를 자동 실행하지 않고, H1c-1b에서 Bordignon 2021의 fixed-\(k\) 또는
+growing-\(A\) 선택과 affine modulus coverage를 먼저 감사하는 것이다. 통과하면 한 공통
+exceptional \(B\), endpoint·\(\psi\to\pi\)·recentring·density·common cutoff 순으로
+Proposition 9.2 package를 합성한다. actual P94 식 (9.52)의 직접 선결조건으로 다시 연결하지 않는다.
 그 뒤 P91/P92/L93/P95와 공통 moment error budget을 합성한다.
 H1과 병행할 수 있는 보조축은 explicit
 primorial·Mertens·iterated-log transfer theorem 후보 수집이다. numerical threshold calculator는

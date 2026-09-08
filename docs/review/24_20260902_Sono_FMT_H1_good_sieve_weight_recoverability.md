@@ -432,3 +432,13 @@ smooth cutoff로 흡수하고, distribution 오류를 additive하게 더해 모�
 P91/P92/L93/P95, 공통 error budget과 H1c-1이 남아 있으므로 H1 전체 판정
 `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`,
 `SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=)`OPEN`은 유지한다.
+
+## 18. 2026-09-09 H1c-1a 후속 판정
+
+H1c-1a에서 P9.2 Bdd3의 source inventory를 수행한 결과, 선언한 선행연구 중 exact centered
+Hypothesis 1(2)를 그대로 수치화하는 정리는 없었다. Bordignon 2021이 임의 \(A>3\)의
+explicit non-exceptional 평균상계를 제공해 가장 가까운 합성 후보지만, affine modulus와
+exceptional \(B\), endpoint·\(\psi\to\pi\)·recentring·density·common cutoff 연결이 남는다.
+
+그러므로 H1의 overall outcome은 변하지 않는다. source 후보 선택은 진전이지만 numerical good
+weight나 \(X_{\mathrm{cert}}\)를 계산할 입력은 아직 완성되지 않았다. 다음 gate는 H1c-1b다.

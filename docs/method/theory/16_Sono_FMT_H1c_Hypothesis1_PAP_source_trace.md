@@ -301,4 +301,23 @@ X_cert                          = OPEN
 ```
 
 이번 감사로 “어느 source를 읽어야 하는가”와 “어떤 두 문제를 혼동하면 안 되는가”는 닫혔다.
-하지만 질수분포 정리의 숨은 multiplier와 시작점을 얻는 정량 재증명은 이제 시작 단계다.
+하지만 소수분포 정리의 숨은 multiplier와 시작점을 얻는 정량 재증명은 이제 시작 단계다.
+
+## 11. 2026-09-09 H1c-1a source inventory 후속 판정
+
+후속 [`H1c-1a 정본`](32_Sono_FMT_H1c1a_quantitative_prime_distribution_source_inventory.md)은
+Hypothesis 1(2)와 Maynard Proposition 9.2의 exact centered target을 고정한 뒤
+Akbary--Hambrook, Sedunova 2018/2019, Yamada I/II, Bordignon 2021, Bennett et al., Kadiri,
+Liu와 Johnston 2026을 modulus·log-saving·exceptional character·affine transfer·finite cutoff별로
+대조했다.
+
+선언한 source 안에서 drop-in 정리는 0개다. 임의 \(A>3\)에 explicit non-exceptional average를
+주는 Bordignon 2021 Theorem 4가 가장 가까운 `PRIMARY_COMPOSITION_CANDIDATE`다. 하지만
+\(|a|q\) coverage, fixed-\(k\) 또는 growing-\(A\) branch, 하나의 공통 exceptional \(B\),
+반열린 endpoint, \(\psi\to\pi\), exact total-count recentering, represented-prime lower bound와
+common cutoff는 아직 증명되지 않았다.
+
+따라서 H1c-1a source inventory는 완료됐지만 이 문서의
+`numerical_hypothesis1_package_ready=false`, `SIV-08=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}\)=`OPEN`은 변하지 않는다. 다음 gate는 H1c-1b이며 threshold calculator와
+장시간 prime sweep은 계속 금지한다.

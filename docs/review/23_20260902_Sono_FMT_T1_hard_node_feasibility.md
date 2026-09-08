@@ -235,3 +235,14 @@ P94의 모든 닫힌 child를 합성해 모든 정수 \(k\ge36\)에서 actual-ca
 예”다. Proposition 9.2의 수치 소수분포 입력과 P91/P92/L93/P95 공통 budget이 남아
 `SIV-07=HARD_BLOCKER`, \(X_{\mathrm{cert}}=)`OPEN`이다. 따라서 장시간 threshold 계산을
 시작하지 않는 기존 권고는 유지한다.
+
+## 12. 2026-09-09 H1c-1a source inventory 후속 갱신
+
+H1c-1a는 Proposition 9.2의 수치 소수분포 입력에 대해 바로 대입 가능한 source가 없음을
+확인하고, Bordignon 2021을 첫 합성 후보로 선정했다. 이는 `POSSIBLE_BUT_DEEP` 판정을 더
+구체화한 것이며 hard node를 닫은 것은 아니다. 12개 bridge/composition 의무 중 먼저
+fixed-\(k\) 여부와 affine modulus envelope를 검토하면, 큰 계산 전에 이 경로의 가능성을
+낮은 비용으로 판정할 수 있다.
+
+사용자 PC의 CPU·RAM은 여전히 현재 병목이 아니다. symbolic parameter와 common exceptional
+modulus가 정해지기 전에는 장시간 runner를 만들지 않는다.

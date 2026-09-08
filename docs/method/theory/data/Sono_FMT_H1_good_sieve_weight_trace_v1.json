@@ -1,7 +1,7 @@
 {
   "schema_version": "1.5.0",
   "created_kst": "2026-09-02 20:24",
-  "updated_kst": "2026-09-08",
+  "updated_kst": "2026-09-09",
   "gate": "H1 good-sieve-weight recoverability source tracing",
   "target": "Determine whether the hidden constants needed for the FMT good sieve weight can be recovered constructively without inventing a numerical threshold.",
   "overall_outcome": "CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED",
@@ -25,6 +25,7 @@
   "h1b2a2_ledger": "docs/method/theory/data/Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json",
   "h1b2a3_ledger": "docs/method/theory/data/Sono_FMT_H1b2a3_Proposition94_end_to_end_v1.json",
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
+  "h1c1a_inventory": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
   "recoverability_vocabulary": {
     "SOURCE_EXPLICIT_NUMERIC": "The reviewed source supplies a usable numerical constant and range.",
     "CONSTRUCTIVE_PATH_IDENTIFIED": "The proof gives enough structure to formulate a finite lemma, but the printed source does not supply its final numeric constant.",

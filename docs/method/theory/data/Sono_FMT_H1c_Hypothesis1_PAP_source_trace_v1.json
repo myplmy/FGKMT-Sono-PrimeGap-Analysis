@@ -454,9 +454,17 @@
       "reason": "The average-discrepancy Hypothesis 1 package and pointwise PAP lower bound are sibling obligations, not logical implications."
     }
   ],
+  "successor_inventory": {
+    "id": "H1c-1a",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
+    "outcome": "NO_DROP_IN_SOURCE_BORDIGNON2021_COMPOSITION_ROUTE_FOUND",
+    "drop_in_source_found": false,
+    "primary_composition_candidate": "BORDIGNON2021",
+    "numerical_package_ready": false
+  },
   "next_gate": {
-    "id": "H1c-1",
-    "description": "Quantitatively audit the character-distribution path behind FGKMT (7.2)-(7.3), including a fixed epsilon, explicit affine-form mapping, and an explicit prime-density lower bound; evaluate the Akbary-Hambrook route only as a separate proof redesign.",
+    "id": "H1c-1b",
+    "description": "Test the Bordignon 2021 composition route in four fail-closed parts: fixed-k or growing-A parameter choice and, affine modulus coverage, one common exceptional conductor and prime B, and exact endpoint, psi-to-pi, recentering, density, and common-cutoff transfers.",
     "ready_for_threshold_calculator": false
   }
 }

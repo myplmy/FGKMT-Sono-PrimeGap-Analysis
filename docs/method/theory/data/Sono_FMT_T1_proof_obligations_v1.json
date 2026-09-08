@@ -1,7 +1,7 @@
 {
   "schema_version": "1.5.0",
   "created_kst": "2026-09-02 17:22",
-  "updated_kst": "2026-09-08",
+  "updated_kst": "2026-09-09",
   "h1b1_ledger": "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
   "h1b1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
   "h1b1b2a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
@@ -16,6 +16,7 @@
   "h1b2a2_ledger": "docs/method/theory/data/Sono_FMT_H1b2a2_Proposition94_distribution_error_v1.json",
   "h1b2a3_ledger": "docs/method/theory/data/Sono_FMT_H1b2a3_Proposition94_end_to_end_v1.json",
   "h1c_ledger": "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",
+  "h1c1a_inventory": "docs/method/theory/data/Sono_FMT_H1c1a_quantitative_prime_distribution_inventory_v1.json",
   "target": "For every X >= X_cert, G_1(X) >= 2e-17 * log(X) * log_2(X) * log_4(X) / log_3(X)",
   "scope": "Direct proof edges from Sono Theorem 3.6 through the cited FMT, FGKMT, and Maynard layers. This is an obligation inventory, not a numerical threshold certificate.",
   "status_vocabulary": {
@@ -1040,7 +1041,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "uniform AP-distribution certificate",
-      "notes": "H1c shows that clauses (1) and (3) have elementary finite sufficient reductions, while clause (2) still needs a quantitative character/Bombieri-Vinogradov and prime-density package. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
+      "notes": "H1c shows that clauses (1) and (3) have elementary finite sufficient reductions. H1c-1a found no drop-in numerical source for clause (2); Bordignon 2021 is the primary composition candidate but affine-modulus coverage, one common exceptional B, exact recentering, psi-to-pi, prime density, parameter growth, multipliers, and a common finite cutoff remain open. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
     },
     {
       "id": "SIV-09",

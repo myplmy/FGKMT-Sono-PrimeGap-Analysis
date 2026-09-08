@@ -515,3 +515,15 @@ C_{94}\le12e^{2+6/k}\frac{\theta}{3}+1<13
 \(\mathcal A\)의 Proposition 9.4를 닫은 결과가 아니다. P91/P92/L93/P95와 공통
 moment budget, 특히 Proposition 9.2의 H1c-1 입력이 남으므로
 `H1B-COMP-01`, `SIV-07/09`, \(X_{\mathrm{cert}}\)는 계속 열린다.
+
+## 23. 2026-09-09 H1c-1a 소수분포 source inventory 반영
+
+Proposition 9.2가 실제로 요구하는 Bdd3의 정량 source 후보를 H1c-1a에서 감사했다. 조사한
+선언 source 중 Maynard의 centered discrepancy를 그대로 숫자화하는 drop-in 정리는 없었다.
+Bordignon 2021 Theorem 4가 가장 가까운 합성 후보지만 affine modulus, exceptional \(B\),
+\(\psi\to\pi\), exact recentering, prime density, parameter growth와 common cutoff를 추가로
+증명해야 한다.
+
+이 결과는 P94의 닫힌 actual child를 되돌리지 않지만 P9.2를 닫지도 않는다. 따라서
+`H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`은 유지하고, `H1B-P92`, `H1B-COMP-01`,
+`SIV-07/09`, \(X_{\mathrm{cert}}\)는 계속 열린다. 다음 직접 gate는 H1c-1b다.
