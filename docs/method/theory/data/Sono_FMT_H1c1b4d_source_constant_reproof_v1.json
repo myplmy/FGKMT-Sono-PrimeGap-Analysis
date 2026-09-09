@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "gate": "H1c-1b.4d",
+  "scope": "Reprove a conservative numerical upper for the growing-A Bordignon Theorem 1.2 constant directly from final Theorem 3.4 and equations (28)--(32). Correct the remainder normalization, preserve the final-published 2q factor that is absent from arXiv v1, maximize over the unknown Liu-Wang alternative, and compare the result with the H1c-1b.4c admissible envelope. Do not yet promote the parent Hypothesis 1(2), Proposition 9.2, SIV-08, or X_cert.",
+  "outcome": "CORRECTED_SOURCE_C_A_REPROOF_CLOSED_ABOVE_R_1E10_PARENT_COMPOSITION_PENDING",
+  "parameters": {
+    "r": "floor((log T)^(1/5))",
+    "n": "100*r^2",
+    "A": "n+10",
+    "L": "log x",
+    "ell": "log L",
+    "B": "A*ell",
+    "q_range": "2 <= q <= L^A; q=1 exact centered count is removed separately",
+    "contour_height_H": "L^(2*A)",
+    "R0": "6397/1000",
+    "sigma0_lambda": "26213/100000",
+    "high_zero_common_lambda": "4/25"
+  },
+  "source_corrections": {
+    "printed_equation_33_used": false,
+    "corrected_remainder_contribution": "R*(x,H,q)*H/(x*L^3)",
+    "arxiv_v1_remainder_contribution_used": false,
+    "low_height_equation_31_character_factor": "final-published 2q preserved; arXiv-v1 display without q rejected",
+    "corollary_unknown_i": "do not select i=6; use J=0 for each i and maximize all six alternatives",
+    "sigma0_common_lambda_reason": "max(xi_(i+1),nu_1)=0.26213 for every i=1,...,6",
+    "high_zero_common_lambda_reason": "min of all eta_i and xi_(i+1) used by J=0 is eta_1=0.16"
+  },
+  "sigma0_source_bound": {
+    "final_S_formula": "S(H,q) from final equation (29), not the larger arXiv-v1 formula",
+    "coarse_upper": "S(H,q) < 8*(A*log log x)^2",
+    "note": "H here is the explicit-formula contour height"
+  },
+  "source_component_accounting": {
+    "total": 13,
+    "explicit_formula_remainder_components": 9,
+    "low_height_zero_components": 1,
+    "sigma0_components": 1,
+    "high_zero_branch_components": 2,
+    "each_component_log_upper": "strictly below -100 on the certified domain",
+    "combined_source_constant_upper": "C_A < 13*exp(-100) < 1"
+  },
+  "proof_cutoff": {
+    "sieve_dimension_r": 10000000000,
+    "log_x_lower": "10000000000^5 = 10^50",
+    "x_lower": "exp(10^50)",
+    "corner_exact_log_log_bounds": "115 < log log x < 120",
+    "fixed_A_domain": "all L=log x >= r^5",
+    "uniformity": "termwise calculus gives decrease in L for fixed A; exact rational derivative-dominance checks hold at r=10^10, and at later dimension corners the critical ratios r/(log r)^2 and sqrt(r)/log r increase"
+  },
+  "numerical_corner_diagnostic": {
+    "precision_decimal_digits": 100,
+    "maximum_component": "02_rstar_R2_R3",
+    "maximum_component_log_upper": "-105.91891427772610146482760691548075354965066847692",
+    "combined_log_C_A_upper": "-105.918914277726101464827606915480753549650668476923556764986",
+    "H1c1b4c_log_C_A_allowance": "631.789081463212488296953704981134790418523003681781035664234",
+    "role": "regression diagnostic only; rational corner inequalities and calculus carry the proof"
+  },
+  "primary_sources": [
+    {
+      "citation": "Matteo Bordignon, Medium-sized values for the prime number theorem for primes in arithmetic progressions, New York J. Math. 27 (2021), 1415-1438",
+      "url": "https://nyjm.albany.edu/j/2021/27-54.html",
+      "local_path": "tmp/pdfs/h1c1b1/Bordignon2021_NYJM_final.pdf",
+      "sha256": "4bd7adf499ba667647b612a61399f0f86c272bc684718630fcde42983c014029",
+      "used_parts": "Theorem 1.2, Theorem 3.4, equations (28)--(33), Corollary 4.3"
+    },
+    {
+      "citation": "M.-C. Liu and T. Wang, Distribution of zeros of Dirichlet L-functions and an explicit formula for psi(t,chi), Acta Arith. 102 (2002), 261-293",
+      "doi": "10.4064/aa102-3-5",
+      "url": "https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/en/publishing-house/journals-and-series/acta-arithmetica/all/102/3/83843/distribution-of-zeros-of-dirichlet-l-functions-and-an-explicit-formula-for-psi-t-chi",
+      "used_parts": "Theorems 1--2 and Tables 1, 3--5 as transmitted through Bordignon Corollary 4.3"
+    }
+  ],
+  "predecessor_artifacts": [
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1c1b4c_conditional_absorption_v1.json",
+      "sha256": "f786ecca6adeed21ef985f42dacaea832a2389fd8764dd04ed727625d4c8d16f"
+    },
+    {
+      "path": "source/h1c1b4c_conditional_absorption.py",
+      "sha256": "78d1eae75bdb4f41f627d5e0e6bcadc8ae388349914aa2c0f931719978fb3917"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
+      "sha256": "1f062d2a2187fa733ebf54d49c32b8fe4953d3f3f5d94e28f767c2aaaba4f693"
+    },
+    {
+      "path": "tmp/pdfs/h1c1b2/source/PNTPAP1.tex",
+      "sha256": "42fe4180861d13f5e02b1c43d6b85ce5956f97c7a75616757f21ff00c1f648a9"
+    }
+  ],
+  "status_after_this_gate": {
+    "corrected_source_C_A_reproof_closed": true,
+    "numerical_source_C_A_upper_closed_above_new_cutoff": true,
+    "H1c1b4c_conditional_requirement_met": true,
+    "unconditional_full_absorption_at_new_cutoff_closed": true,
+    "parent_composition_audited": false,
+    "hypothesis1_clause2_closed": false,
+    "proposition92_closed": false,
+    "siv_08_closed": false,
+    "x_cert_ready": false,
+    "actual_prime_experiment_performed": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.4e",
+    "description": "Audit the complete composition from common exceptional B through exact count transfer and the new source constant, then decide whether the actual identity-form Hypothesis 1(2)/Proposition 9.2 node can be promoted at the enlarged cutoff.",
+    "stop_condition": "Any unmatched quantifier, endpoint, modulus range, exceptional-object dependency, or target exponent keeps the parent node open."
+  }
+}

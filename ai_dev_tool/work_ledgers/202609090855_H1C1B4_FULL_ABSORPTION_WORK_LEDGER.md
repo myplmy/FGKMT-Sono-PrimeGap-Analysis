@@ -176,6 +176,62 @@
   final target에서 직접 재합성하고, source-derived `C_A` 성장률을
   `C_allow ~ r^28/log r`와 비교한다.
 
+### 2026-09-09 12:24 KST — H1c-1b.4d source 재증명 범위·보수화 고정
+
+- NYJM 최종판 Theorem 3.4의 열 개 `R*` summand, 식 (28)--(32), arXiv author
+  source와 Liu--Wang 2002 원출처의 Theorems 1--2·Table 1·Tables 3--5를 다시 대조했다.
+  Liu--Wang의 DOI는 `10.4064/aa102-3-5`이고, Bordignon에 전사된
+  `0.26213`, `0.2067` 및 conditional pair table은 원출처와 일치한다.
+- 첫 판독 때 arXiv v1 식 (31)에 `q`가 없는 것을 최종판에도 없는 것으로 잘못 판단했다.
+  최종 NYJM판 인쇄 p.1431을 확대 재대조하니 식 (31)은 정확히 `2q`를 포함한다.
+  따라서 project 재증명은 최종판의 `2q`를 전부 보존하고, `q`가 빠진 arXiv v1 식을
+  배제한다. 이 즉시 정정으로 low-zero 계수는 초안보다 2배 커졌지만 cutoff 판정에는
+  영향이 없다. 이 판독 실수와 수정은 숨기지 않고 review·오류 기록에 남긴다.
+- Corollary 4.3은 알려지지 않은 “어떤 `i=1,...,6`”을 준다. 따라서 `i=6`을 임의로
+  선택하지 않는다. `J=0`은 각 `min_J`의 합법적 upper 후보로 쓰고, 여섯 `i` 전체에서
+  가장 작은 lambda `0.16=4/25`를 high-zero 공통 감쇠율로 쓴다. `Sigma_0`에는 모든
+  `i`에서 `max(xi_(i+1),nu_1)=0.26213`이므로 `26213/100000`을 쓴다.
+- actual count target의 `q=1` centered discrepancy는 정확히 0이므로 별도로 제거한다.
+  source 재증명은 `q>=2`만 다뤄 `log q` 분모를 잘못 사용하지 않는다.
+- `L=log x`, `ell=log L`, `A=100r^2+10`, `B=A ell`, contour height
+  `H=L^(2A)`로 기호를 분리했다. `q<=L^A`, `log(qH)<=3B`를 사용한다.
+  Theorem 3.4의 각 항을 직접 상계하면 corrected target 상수의 열세 component를 얻는다:
+  explicit-formula remainder 9개, low-zero 1개, `Sigma_0` 1개, high-zero 두 branch다.
+- `r=500,000,000`에서는 high-zero 지수상계가 허용량보다 클 수 있어 H1c-1b.4c의
+  conditional cutoff를 그대로 unconditional cutoff로 승격할 수 없다. 반면
+  `r>=10,000,000,000`에서는 corner에서 `115<ell<120`이고, 모든 13개 component의
+  log upper를 `-100` 아래로 보낼 충분한 여유가 있다. 고정 `A`에서 `L` 증가 및 차원
+  corner 증가에 대한 미분 부호를 별도로 증명해 전 범위를 덮을 예정이다.
+- 다음 재개점: 위 13개 bound와 exact corner/monotonicity witnesses를 helper·tests로
+  구현하고, `C_A<13e^-100<1` 및 H1c-1b.4c의 `C_A<=e^500` 조건을 실제로 닫되
+  parent H1(2) 승격은 별도 H1c-1b.4e composition audit까지 보류한다.
+
+### 2026-09-09 13:37 KST — H1c-1b.4d source constant 재증명 완료
+
+- `source/h1c1b4d_source_constant_reproof.py`에 최종 Theorem 3.4 remainder 9개와
+  식 (29)--(32) zero component 4개, 총 13개 log upper를 구현했다. 최종판 식 (31)의
+  `2q`, unknown Liu--Wang `i`의 전 경우 최대화, `q=1` exact centered 분리를 보존했다.
+- exact rational corner와 calculus certificate는 모든
+  `r>=10,000,000,000`, `L=log x>=r^5`에서 각 component가 `exp(-100)`보다 작음을
+  확인한다. 특히 첫 corner의 dimension-direction derivative dominance와 이후 증가비율
+  `r/(log r)^2`, `sqrt(r)/log r`를 함께 등록했다.
+- 따라서 corrected source constant는 `C_A<13 exp(-100)<1`이고, 같은 corner의
+  H1c-1b.4c 허용량 `log C_allow=631.7890814632...`에 들어간다. 수치 회귀상
+  `log C_A<-105.9189142777...`이며 최대 항은 `R2+R3` component다.
+- `r=500,000,000`에서는 zero component 네 log upper가 모두 큰 양수이므로 4c의 더 작은
+  conditional cutoff를 source closure에 재사용하지 않았다. `10^10`은 proof 편의를 위한
+  보수적 cutoff이며 최소성 주장이 아니다.
+- 정본 문서 41, review 47, JSON machine contract, helper와 8개 test를 작성하고 이론 색인
+  71--72를 연결했다. review에는 arXiv v1을 최종판으로 잘못 읽었던 초기 실수와 최종
+  `2q` 재확인·교정을 명시했다.
+- H1c-1b.1--4d 회귀 65/65, 4d helper/test `py_compile`, `git diff --check`, 금지
+  base-log·잘못된 약칭 정적검사가 PASS했다. 실제 소수 계산은 수행하지 않았다.
+- 이 단계 판정은
+  `CORRECTED_SOURCE_C_A_REPROOF_CLOSED_ABOVE_R_1E10_PARENT_COMPOSITION_PENDING`이다.
+  H1(2), P9.2, `SIV-08`, `X_cert`는 H1c-1b.4e 전까지 OPEN이다.
+- 다음 재개점: 이번 단계 파일만 명시 stage·local commit한 뒤 H1c-1b.4e end-to-end
+  quantifier composition audit를 시작한다.
+
 ## 완료 전 점검
 
 - [ ] 사용자 요청 범위의 산출물 완료
