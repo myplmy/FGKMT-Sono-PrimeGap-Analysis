@@ -647,3 +647,21 @@ P92a의 이전 수치식은 filtered weight에서 보존되며 unfiltered transf
 
 다음은 H1b-P94g의 growing-k 호환성과 H1b-NORM의 공통 정규화다.
 root 66행의 상태, SIV-07/08/09 HARD_BLOCKER와 X_cert OPEN은 바꾸지 않는다.
+
+## 24. 2026-09-09 H1b-P94g growing-k·actual local interval
+
+[theory 46](46_Sono_FMT_H1bP94g_growing_dimension_rough_moment.md)는
+명시적 W-filtered actual P94의 growing-k 호환성을 닫았다.
+실제 local scale \(T_0=\lfloor Y\rfloor-\lfloor X\rfloor\)를 사용하며, q 구간의 이동은
+\((T_0,2T_0]\)다. closed interval 확대와 원래 support 제거는 비음성 상계로 처리했다.
+
+기존 uniform \(I(F_1)\le2I(F)\)에서 상대오차 \(4\delta\)를 얻어 fixed-k의 \(2^{-k}\)
+gate를 사용하지 않는다. sharp·Euler·distribution을 합성한 exact
+\(8249009/8820900<1\)로 multiplier 1을 얻었다.
+\(k\ge10^{200}\), \(\log C_h\le\log(X/2)/4\)라는 강한 새 regime의 결과이며,
+기존 multiplier 13의 모든 parameter 범위를 교체하지 않는다.
+각 p의 local singular series를 보존한 off-tuple 상계도 explicit하다.
+
+다음은 H1b-NORM: 세 moment의 공통 series/lambda/filtered-weight/tau/u 및 실제 dependency
+가지치기다. broad SIV-07/08/09 HARD_BLOCKER, root 66행 상태와 X_cert OPEN은 유지한다.
+기존 §23의 다음 단계는 당시 snapshot이며 이 절이 현재 상태다.

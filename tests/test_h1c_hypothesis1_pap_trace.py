@@ -158,7 +158,7 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertFalse(successor["full_distribution_package_ready"])
         self.assertEqual(
             self.document["next_gate"]["id"],
-            "H1b-P94g",
+            "H1b-NORM",
         )
         self.assertTrue(
             self.document["successor_common_exceptional_remainder"][
@@ -189,7 +189,13 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertEqual(composition["constants"], [1, 1, 2])
         self.assertFalse(composition["weighted_proposition92_closed"])
         self.assertFalse(composition["broad_siv08_closed"])
-        self.assertEqual(self.document["next_gate"]["id"], "H1b-P94g")
+        self.assertEqual(self.document["next_gate"]["id"], "H1b-NORM")
+        growing = self.document["successor_filtered_growing_p94"]
+        self.assertTrue(growing["filtered_actual_growing_p94_closed"])
+        self.assertTrue(growing["w_filter_required"])
+        self.assertEqual(growing["multiplier"], 1)
+        self.assertFalse(growing["common_normalization_closed"])
+        self.assertFalse(growing["numerical_x_cert_ready"])
         weighted = self.document["successor_actual_identity_weighted_moment"]
         self.assertTrue(weighted["actual_identity_weighted_proposition92_closed"])
         self.assertTrue(weighted["weighted_lower_endpoint_closed"])

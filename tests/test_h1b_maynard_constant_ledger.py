@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.13.0")
+        self.assertEqual(self.document["schema_version"], "1.14.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -286,6 +286,9 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             " ".join(p94["explicit_parts"]),
         )
         self.assertEqual(p94["missing_numeric_inputs"], [])
+        self.assertIn("uniform multiplier 1", " ".join(p94["explicit_parts"]))
+        self.assertIn("T0=floor(Y)-floor(X)", " ".join(p94["explicit_parts"]))
+        self.assertTrue((ROOT / self.document["h1bp94g_ledger"]).is_file())
         self.assertIn(
             "uniform multiplier below 13",
             " ".join(p94["explicit_parts"]),
@@ -333,6 +336,8 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         )
         self.assertIn("H1b-P92a", self.document["composition"]["next_gate"])
         self.assertIn("H1b-P91a", self.document["composition"]["next_gate"])
+        self.assertTrue(self.document["composition"]["next_gate"].startswith("H1b-NORM"))
+        self.assertIn("H1b-P94g", self.document["composition"]["next_gate"])
         self.assertIn(
             "constants (1,1,2)",
             self.document["composition"]["project_h1a_input"],

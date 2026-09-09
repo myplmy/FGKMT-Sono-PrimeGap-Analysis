@@ -539,8 +539,8 @@
     "broad_siv08_closed": false
   },
   "next_gate": {
-    "id": "H1b-P94g",
-    "description": "After filtered H1b-P92a and H1b-P91a, close growing-k P94 compatibility and H1b-NORM common normalization. Explicit W-filter required; literal unfiltered transfer is not certified. No automatic root promotion.",
+    "id": "H1b-NORM",
+    "description": "After filtered H1b-P92a, H1b-P91a and H1b-P94g, close common singular-series/lambda/weight/tau/u normalization and actual dependency pruning. The growing-k P94 child is explicit on its actual T0 interval. Literal-unfiltered transfer is not certified; no automatic root promotion.",
     "ready_for_threshold_calculator": false
   },
   "successor_actual_identity_weighted_moment": {
@@ -565,6 +565,18 @@
     "sufficient_child_cutoff": "X>=2*exp(10^1000)",
     "w_filter_required": true,
     "literal_unfiltered_transfer_certified": false,
+    "broad_siv08_closed": false,
+    "numerical_x_cert_ready": false
+  },
+  "successor_filtered_growing_p94": {
+    "id": "H1b-P94g",
+    "locator": "docs/method/theory/data/Sono_FMT_H1bP94g_growing_dimension_v1.json",
+    "filtered_actual_growing_p94_closed": true,
+    "actual_local_scale": "T0=floor(Y)-floor(X)",
+    "multiplier": 1,
+    "sufficient_child_cutoff": "X>=2*exp(max(10^1000,4*log(C_h))), C_h>=1 fixed",
+    "w_filter_required": true,
+    "common_normalization_closed": false,
     "broad_siv08_closed": false,
     "numerical_x_cert_ready": false
   }

@@ -1066,6 +1066,42 @@
 - 이 경로 실수가 반복된 점은 효율상의 실제 실수다. 디렉터리+glob 옵션 원칙을
   실행 전에 확인하고, 발견되지 않은 파일명을 후속 보고에 쓰지 않는다.
 
+### E072 — P94 actual local scale·끝점·support를 등호로 옮길 위험 교정
+
+- 기존 theory 31의 고정-parameter P94 증명과 실제 FGKMT q 구간에 대한 적용을
+  구분해야 했다. 실제 local scale은 외부 X가 아니라 T0=floor(Y)-floor(X)다.
+  외부 R=(X/4)^(1/9)가 local T0의 허용 범위에 드는지 theory 46에서 별도로 증명했다.
+- (X,Y] 정수 구간의 이동은 (T0,2T0]다. [T0,2T0]와 같은 집합으로 쓰지 않고
+  비음성 상계로 연결했다. |q-hp|<=Y의 support 또한 임의 h=O(Y/X)에서 자동이 아니므로
+  제거 전후 등호를 주장하지 않는다.
+- 숨은 h 범위 상수 C_h와 log(C_h)<=L/4를 명시했다. C_h=1만 계산해 일반 범위를
+  인증한 것으로 바꾸지 않는다.
+- 원문에 대한 공식 erratum이나 전체 정리 반증을 주장하지 않는다. 원문/선행 proof hash는
+  보존하며, 새 actual finite application의 누락 조건을 successor에서 닫았다.
+- negative toy는 잘못된 closed equality, 원래 support의 자동 포함 및 h=h_i를 검출한다.
+  실제 데이터 결과는 변경하지 않았고 X_cert로 승격하지 않았다.
+
+### E073 — source 제목 오류·읽기 도구 호출 실패 공개
+
+- theory 31의 arXiv:1804.06290 제목 표기가 잘못돼 있었다. 실제 제목은
+  Weighted Average Number of Prime m-tuples lying on an Admissible k-tuple of Linear Forms다.
+  원문 metadata로 확인해 새 theory 46/review 52에 정정했다. 이 후보를 finite proof
+  입력으로 채택하지 않았고, 잘못된 제목을 근거로 lemma가 입증됐다고 주장하지 않는다.
+- tmp 전체 rg는 오래된 sandbox fixture의 접근 거부를 출력했다. 범위를 tmp/pdfs의
+  알려진 source로 좁혔으며 권한이나 기존 fixture를 변경하지 않았다.
+- 이번에도 docs/method/theory/00*를 rg의 literal path 인자로 넣어 os error 123을
+  한 번 냈다. 이미 알려진 호출 실수의 반복이다. 이후 읽기는 실제 파일명으로만 수행했다.
+- 여러 큰 파일을 한 번에 ConvertTo-Json으로 읽은 출력에 Warning이 섞여 JSON parse가
+  실패했다. 파일별 raw 읽기로 바꾸고 모든 파일을 정상 취득했다. 이 실패를 검증에 포함하지 않았다.
+- apply_patch에서 같은 경로에 두 Update File block을 넣어 사전검증이 거부됐다.
+  경로별 하나의 patch로 합쳐 정상 적용했다. git apply로 우회하지 않았다.
+- 첫 문서 링크 검사에서 theory 46의 plaintext tau 표기가 Markdown 링크로 해석되어
+  존재하지 않는 q 파일을 가리켰다. 수식 구분자를 명시해 교정했다. unit test 실패는
+  아니지만 문서 검증의 실제 실패였으며 수정 전 결과를 PASS라고 기록하지 않는다.
+- 넓은 dense-cluster 검색은 수학 외 결과가 섞였고 일부 DOI/HTML fetch는 실패했다.
+  직접 출판본 PDF·지정 arXiv metadata 및 기존 local proof를 사용했다.
+  조회 실패를 원문의 부재·정리 부재로 해석하지 않는다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1b-P94g",
+  "outcome": "FILTERED_GROWING_DIMENSION_P94_AND_LOCAL_OFF_TUPLE_BOUND_EXPLICIT_ROOTS_OPEN",
+  "evidence_level": "PROJECT_FINITE_ANALYTIC_PROOF_WITH_EXACT_TOY_AND_LOG_SCALAR_DIAGNOSTICS_NOT_LEAN",
+  "minimum_k": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "sufficient_child_cutoff": "X>=2*exp(max(10^1000,4*log(C_h))) for each fixed C_h>=1",
+  "variables": {
+    "L": "log(X/2), outer exact bin",
+    "k": "floor(L^(1/5))",
+    "Y": "X*log(X)*log_3(X)/(153600*log(5)*log_2(X))",
+    "T0": "floor(Y)-floor(X)",
+    "log_R": "(L-log(2))/9",
+    "xi": "1/30",
+    "alpha": 2,
+    "theta": "1/3",
+    "actual_interval": "q in (X,Y] maps exactly to (T0,2*T0]; closed [T0,2*T0] is only an upper bound",
+    "N": "T0+1 for the closed upper bound",
+    "extra_form": "n-floor(Y)+2*floor(X)",
+    "shifted_forms": "n-floor(Y)+2*floor(X)+(h_i-h)*p",
+    "discriminant": "p^k*product_i(abs(h_i-h))"
+  },
+  "structural_hypotheses": [
+    "p is prime in (X/2,X]",
+    "distinct admissible h_i in [1,2*k^2]",
+    "same construction B<= (X/2)^2",
+    "h integer not among h_i",
+    "abs(h)<=C_h*Y/X, C_h>=1, 0<=log(C_h)<=L/4"
+  ],
+  "weight_definition": "maynard_w_filtered",
+  "w_filter_required": true,
+  "literal_unfiltered_transfer_certified": false,
+  "bounds": {
+    "uniform_integer_multiplier": 1,
+    "exact_coarse_multiplier": "8249009/8820900",
+    "scale": "T94=30*(Delta/phi(Delta))*(B/phi(B))^k*S_B(L_p)*N*(log R)^(k-1)*I(F)",
+    "canonical_relative": "4*delta (using I(F1)<=2*I(F)), not 2^k*epsilon",
+    "smooth_delta": "<=10^130*(log k)^3/k^2",
+    "sharp_delta": "<=10^127*log(k)/k^5",
+    "distribution_log_upper": "<=-log(T0)/2<=-L/2",
+    "euler_upper": 8,
+    "delta_phi_upper": "24*log(k)",
+    "off_tuple_per_p_local_series": "sum_q w(p,q-hp)<=M_p*Y/(log_2(X))^10",
+    "log_T0_envelope": "L<=log(T0)<=2*L",
+    "old_fixed_parameter_multiplier": 13,
+    "old_cutoff_replaced": false
+  },
+  "filtered_growing_p94_child_closed": true,
+  "exact_actual_interval_bridge_closed": true,
+  "per_p_local_series_off_tuple_bound_closed": true,
+  "conditional_on_actual_form_construction": true,
+  "general_proposition94_closed": false,
+  "common_normalization_closed": false,
+  "full_good_sieve_weight_closed": false,
+  "x_cert_ready": false,
+  "actual_prime_experiment_performed": false,
+  "lean_verified": false,
+  "immutable_sources": [
+    {
+      "path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "doi": "10.1112/S0010437X16007296",
+      "locators": "pp.1547-1550; P9.4 equations (9.49)-(9.70)"
+    },
+    {
+      "path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "doi": "10.1090/jams/876",
+      "locators": "pp.99-102; actual P94 and Section 8 (6.6) at p.102"
+    }
+  ],
+  "proof_dependency_snapshots": [
+    {
+      "path": "docs/method/theory/27_Sono_FMT_H1b1b2d1b_sharp_xi_logx_scale.md",
+      "sha256": "e138f7792551ce05822064e0a2c59777301f4fa5e53edd286e6abdf0c060ff12"
+    },
+    {
+      "path": "docs/method/theory/29_Sono_FMT_H1b2a1_Proposition94_exact_Euler_normalization.md",
+      "sha256": "bb182a7a4ed3f15381776d1770670c69c7d420cd970bc3a3b581b275a5049849"
+    },
+    {
+      "path": "docs/method/theory/30_Sono_FMT_H1b2a2_Proposition94_distribution_error.md",
+      "sha256": "599391074ef118711717bb4296d6e60721472522182f0389685cb164915c35ca"
+    },
+    {
+      "path": "docs/method/theory/31_Sono_FMT_H1b2a3_Proposition94_end_to_end_composition.md",
+      "sha256": "92012afbfb15beff489ce7236e6af2c326a6188d443c39b4be61747321c9a643"
+    },
+    {
+      "path": "docs/method/theory/44_Sono_FMT_H1bP92a_actual_identity_weighted_moment.md",
+      "sha256": "50fadaaf1fc11eabe7c367e4f1682037f3ed92f417b41016ee010a0965e8f220"
+    },
+    {
+      "path": "docs/method/theory/45_Sono_FMT_H1bP91a_unweighted_moment_W_filter.md",
+      "sha256": "0a6a621ed750c60067b508286753d0e7ad2f8c4c264fcea541c2e9d8ac54cc04"
+    },
+    {
+      "path": "source/h1bp92a_identity_prime_moment.py",
+      "sha256": "628ed5adf41042fe7ae7735443236e91a4c821646f89b4d3f46017d930d9ae0d"
+    },
+    {
+      "path": "source/h1bp91a_unweighted_moment.py",
+      "sha256": "5702cae26b74a994ac230d8e9ade369b8a5a2f9de80afcefce6d199dce8be5f1"
+    }
+  ],
+  "parent_ledger": "docs/method/theory/data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json",
+  "theory": "docs/method/theory/46_Sono_FMT_H1bP94g_growing_dimension_rough_moment.md",
+  "review": "docs/review/52_20260909_H1bP94g_growing_dimension_타당성검토.md",
+  "helper": "source/h1bp94g_growing_dimension.py",
+  "test": "tests/test_h1bp94g_growing_dimension.py",
+  "prior_proof_search": {
+    "primary": "Published Maynard P9.4 and FGKMT actual p.102; existing finite theories 27/29/30/31 plus uniform comparison from theory44",
+    "drop_in_finite_successor_found": false,
+    "novelty_claimed": false,
+    "metadata_correction": "arXiv:1804.06290 is Weighted Average Number of Prime m-tuples lying on an Admissible k-tuple of Linear Forms; the old theory31 title is not correct; it is not a proof input"
+  },
+  "no_materialization": [
+    "X=2*exp(L)",
+    "Y",
+    "T0",
+    "W/V",
+    "actual Delta",
+    "2^k",
+    "k-dimensional form arrays",
+    "actual prime lists"
+  ],
+  "next_gate": "H1b-NORM common singular-series/lambda/weight/tau/u normalization, then actual dependency pruning and remaining root inputs"
+}
