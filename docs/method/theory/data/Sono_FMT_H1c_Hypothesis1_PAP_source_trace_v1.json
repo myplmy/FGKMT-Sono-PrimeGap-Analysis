@@ -539,8 +539,8 @@
     "broad_siv08_closed": false
   },
   "next_gate": {
-    "id": "H1b-COR2",
-    "description": "H1b-COR2 / DEP-R05: finite off-tuple Markov and union budget after H1b-COR1 closes DEP-R01/R02/R04. H1b-P92a, H1b-P91a, H1b-P94g and H1b-NORM actual inputs remain explicit. Nine actual work packages remain; P95 is not an actual-route prerequisite and X_cert is OPEN.",
+    "id": "H1b-COR3",
+    "description": "H1b-COR3 / DEP-R03 then DEP-R06: local-count/finite-partition and main-degree moment audit after H1b-COR2 closes off-tuple DEP-R05. R01/R02/R04 remain explicit. H1b-P92a, H1b-P91a, H1b-P94g and H1b-NORM actual inputs remain explicit. Eight actual work packages remain; P95 is not an actual-route prerequisite. Full hypergraph and X_cert stay OPEN.",
     "ready_for_threshold_calculator": false
   },
   "successor_actual_identity_weighted_moment": {
@@ -596,6 +596,16 @@
     "closed_actual_work": ["DEP-R01", "DEP-R02", "DEP-R04"],
     "remaining_actual_work_packages": 9,
     "small_codegree_actual_closed": true,
+    "full_hypergraph_certified": false,
+    "broad_siv08_closed": false,
+    "x_cert_ready": false
+  },
+  "successor_finite_off_tuple_budget": {
+    "id": "H1b-COR2",
+    "locator": "docs/method/theory/data/Sono_FMT_H1bCOR2_off_tuple_budget_v1.json",
+    "newly_closed_actual_work": ["DEP-R05"],
+    "current_remaining_work_packages": 8,
+    "global_union_budget_closed": false,
     "full_hypergraph_certified": false,
     "broad_siv08_closed": false,
     "x_cert_ready": false

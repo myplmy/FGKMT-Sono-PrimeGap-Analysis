@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "id": "H1b-COR2",
+  "date": "2026-09-09",
+  "evidence_level": ["PROJECT_FINITE_ANALYTIC_PROOF", "BOUNDED_EXACT_TOY_VERIFICATION"],
+  "source_pins": [
+    {
+      "id": "FMT",
+      "path": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "locator": "pp.13-14, Lemma 6.3, equations (6.19)-(6.20)"
+    },
+    {
+      "id": "RS1962",
+      "path": "tmp/pdfs/h1c1b1a1/Rosser_Schoenfeld1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "locator": "p.69 equations (3.6),(3.9), finite bridge re-audit only"
+    },
+    {
+      "id": "SIGMA35",
+      "path": "docs/method/theory/35_Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff.md",
+      "sha256": "ee49ba830ad8ca117d5005778f1fef790295d2c18e0504b161170ff0b00c4b77",
+      "locator": "equation (H1c1b1a1.1), actual one-prime B0 exclusion included"
+    },
+    {
+      "id": "NORM47",
+      "path": "docs/method/theory/47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md",
+      "sha256": "3c5566ca5e84109fbb402e7cb68afdccfcc8838a1cd014c3e11223bb6d3bbd5f",
+      "locator": "equations (47.1),(47.24), actual filtered same-X preliminary law"
+    },
+    {
+      "id": "COR1_49",
+      "path": "docs/method/theory/49_Sono_FMT_H1bCOR1_finite_correlation_conditioning.md",
+      "sha256": "ed4c94fb6cef14bd49b2e1e0331a01060ca54870bf0b25a0a40fd2ee9169d158",
+      "locator": "equations (49.5),(49.11)-(49.13),(49.21)"
+    },
+    {
+      "id": "COR1_CONTRACT",
+      "path": "docs/method/theory/data/Sono_FMT_H1bCOR1_finite_correlation_v1.json",
+      "sha256": "75fb875aaf3afb956924a29d9417e02a74110246bfca3739820a7a3145048dde",
+      "locator": "immutable predecessor contract, recursively source-pinned"
+    }
+  ],
+  "pdf_reading": [
+    {
+      "source": "FMT", "page": 14, "page_type": "NATIVE_TEXT",
+      "text_primary": true, "original_page_crosschecked": true, "new_ocr_performed": false
+    },
+    {
+      "source": "RS1962", "page": 6, "printed_page": 69,
+      "page_type": "SCAN_WITH_TEXT_LAYER",
+      "original_page_crosschecked": true, "new_ocr_performed": false
+    }
+  ],
+  "scope": {
+    "boundary_mode": "end",
+    "logs": "iterated_natural",
+    "weight": "maynard_w_filtered",
+    "u_quantifier": "fixed_X_and_source_B",
+    "child_cutoff": "X>=2*exp(10^1000)",
+    "q_survival_required": true,
+    "distinct_k_plus_one_required": true,
+    "negative_zero_positive_h_included": true,
+    "conditioning_denominator_preserved": true,
+    "global_union_budget_closed": false,
+    "full_hypergraph_certified": false,
+    "x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_experiment_performed": false,
+    "independently_formally_verified": false
+  },
+  "constants": {
+    "c_aux": "1/(153600*ln(5))",
+    "c_sono": "2e-17",
+    "h_count_upper": "9*Y/X",
+    "correlation_epsilon_upper": "1/100",
+    "sigma_y_multiplier": "26/25*80",
+    "expectation_upper": "800*c_aux*X/(a*b^9)",
+    "exception_value": "1/b^3",
+    "exception_count_upper": "floor(X/(2*a*b))",
+    "failure_upper": "min(1,1600*c_aux/b^5)",
+    "conditioned_value_upper": "2/b^3",
+    "two_event_failure_upper": "min(1,1600*c_aux/b^5+7/a^8)"
+  },
+  "newly_closed_actual_work": ["DEP-R05"],
+  "closed_actual_work": ["DEP-R01", "DEP-R02", "DEP-R04", "DEP-R05"],
+  "closure_evidence": [
+    {
+      "id": "DEP-R05", "status": "ACTUAL_INPUTS_PROJECT_EXPLICIT",
+      "equations": ["50.5", "50.7", "50.12", "50.14", "50.16"],
+      "cutoff": "inherited actual child cutoff, not final theorem threshold",
+      "inputs": ["NORM47 (47.24)", "COR1_49 (49.5),(49.11)", "SIGMA35 (1)"]
+    }
+  ],
+  "remaining_open_work": [
+    "DEP-R03", "DEP-R06", "DEP-R07", "DEP-R08", "DEP-R09", "DEP-R10", "DEP-R11", "DEP-R12"
+  ],
+  "broad_root_status": {
+    "SIV-07": "HARD_BLOCKER", "SIV-08": "HARD_BLOCKER",
+    "SIV-09": "HARD_BLOCKER", "X_CERT": "OPEN"
+  },
+  "historical_ledger_preserved": true,
+  "work_counts_are_not_completion_percentages": true,
+  "other_research_directions": "DEFERRED_SEPARATE_RESEARCH_PER_USER_20260909",
+  "next_gate": "H1b-COR3 / DEP-R03 then DEP-R06",
+  "no_user_execution_required": true
+}
