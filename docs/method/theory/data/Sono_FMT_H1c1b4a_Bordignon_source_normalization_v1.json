@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1c-1b.4a",
+  "scope": "Audit and normalize Bordignon 2021 Theorem 1.2's threshold variables and first remainder term. Recover only the algebra forced by Theorem 3.4 and the exact Theorem 1.2 target; do not invent a numerical C_A, perform an actual prime experiment, or promote Hypothesis 1(2), Proposition 9.2, SIV-08, or X_cert.",
+  "outcome": "TYPE_MAPPING_AND_DIRECT_REMAINDER_ALGEBRA_CLOSED_NUMERICAL_C_A_BLOCKED",
+  "source_registry": [
+    {
+      "key": "BORDIGNON2021_FINAL",
+      "title": "Medium-sized Values for the Prime Number Theorem for Primes in Arithmetic Progressions",
+      "authors": "Matteo Bordignon",
+      "publication": "New York Journal of Mathematics 27 (2021), 1415-1438",
+      "url": "https://nyjm.albany.edu/j/2021/27-54.html",
+      "local_path": "tmp/pdfs/h1c1b1/Bordignon2021_NYJM_final.pdf",
+      "sha256": "4bd7adf499ba667647b612a61399f0f86c272bc684718630fcde42983c014029",
+      "locator": "Theorem 1.2 pp. 1416-1417; Lemma 3.1 p. 1420; Theorem 3.4 pp. 1425-1429; equations (28)-(33) pp. 1430-1433; Theorem 1.4 and equation (35) pp. 1417-1418 and 1434",
+      "role": "Authoritative final publication and source of the malformed printed equation (33)"
+    },
+    {
+      "key": "BORDIGNON2021_ARXIV_V1_SOURCE",
+      "title": "Medium-sized values for the Prime Number Theorem for primes in arithmetic progression",
+      "authors": "Matteo Bordignon",
+      "arxiv": "2101.08610v1",
+      "url": "https://arxiv.org/abs/2101.08610",
+      "local_path": "tmp/pdfs/h1c1b2/source/PNTPAP1.tex",
+      "sha256": "42fe4180861d13f5e02b1c43d6b85ce5956f97c7a75616757f21ff00c1f648a9",
+      "archive_sha256": "0a6f83a4c4aaf0bc2178de92f6a65174de0410d48371f28783a75c70a5f386e4",
+      "locator": "Theorem 1 source lines 240-253; equation eq:C source lines 885-896; Theorem 2 source lines 313-335",
+      "role": "Author source comparison; not adopted as the final numerical formula"
+    }
+  ],
+  "source_search": {
+    "searched": [
+      "NYJM official article page and final PDF",
+      "arXiv:2101.08610 record, v1 PDF, and author source",
+      "targeted web searches for an erratum, corrected equation (33), or author calculation code"
+    ],
+    "official_erratum_or_author_code_found": false,
+    "limitation": "This is a targeted-search result, not a worldwide nonexistence claim."
+  },
+  "notation_audit": {
+    "theorem12_definition": "Y0=log(log(X0)); theorem valid for x>=X0",
+    "printed_equation33_outer_condition": "x>=Y0",
+    "printed_theorem14_reference": "C(A,A-3,X0)",
+    "project_type_safe_notation": "C_hat(alpha1,alpha2;X0)=sup over x>=X0; equivalently C(alpha1,alpha2,Y0)=C_hat(alpha1,alpha2;exp(exp(Y0)))",
+    "type_mapping_closed": true,
+    "numerical_upper_obtained": false
+  },
+  "first_term_audit": {
+    "theorem34_R_star_semantics": "absolute error in psi(x,chi), not divided by x",
+    "final_equation33_printed": "R_star(x,T,q)*log(log(x))/log(x)^2",
+    "final_problem": "The factor has no x-normalization. R_star contains absolute terms of order x divided by powers of log(x), so the printed unbounded-x maximization cannot supply a finite constant.",
+    "arxiv_v1_printed": "R_star(x,T,q)*T/(x*log(x)^2)",
+    "arxiv_v1_adopted": false,
+    "reason_v1_not_adopted": "It is dimensionless but does not equal the exact factor forced by the final Theorem 1.2 target and final Lemma 3.1 normalization.",
+    "project_direct_rederivation": "q*(R_star/x)*log(x)^alpha2",
+    "after_q_envelope": "(R_star/x)*log(x)^(alpha1+alpha2)",
+    "using_T_equals_log_power_alpha1_plus_alpha2_plus_3": "R_star*T/(x*log(x)^3)",
+    "direct_algebra_closed": true,
+    "all_R_star_components_bounded_for_growing_A": false
+  },
+  "actual_application": {
+    "alpha1": "A=100*r^2+10",
+    "alpha2": "A-3",
+    "height": "T_height=log(x)^(2A)",
+    "dimension": "r=floor((log analytic_T)^(1/5)), r>=36",
+    "final_table_covers_actual_A": false,
+    "reason": "Published numerical tables cover only small fixed alpha values, while actual A grows quadratically with r."
+  },
+  "status_after_this_gate": {
+    "X0_Y0_type_mapping_closed": true,
+    "direct_theorem34_to_theorem12_remainder_algebra_closed": true,
+    "numerical_C_A_upper_closed": false,
+    "represented_prime_density_lower_bound_closed": false,
+    "full_remainder_absorption_closed": false,
+    "Hypothesis_1_clause_2": "OPEN",
+    "H1B_P92": "RATE_MISSING",
+    "SIV_08": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "limits": {
+    "final_printed_equation33_adopted": false,
+    "arxiv_v1_equation_adopted_as_final": false,
+    "numerical_C_A_invented": false,
+    "all_theorem34_terms_rebounded": false,
+    "density_lower_bound_proved": false,
+    "full_absorption_proved": false,
+    "hypothesis1_clause2_closed": false,
+    "proposition92_closed": false,
+    "siv_08_closed": false,
+    "threshold_calculator_created": false,
+    "numerical_x_cert_ready": false,
+    "actual_prime_experiment_performed": false,
+    "new_python_dependency_required": false,
+    "lean_required_for_this_gate": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.4b",
+    "description": "Close an explicit lower bound for the exact half-open prime population P_T and safe explicit upper bounds for Bordignon c0 and c1 independently of the unresolved C_A.",
+    "then": "H1c-1b.4c derives a rigorous non-C absorption budget and the precise admissible upper envelope required of the rederived C_A.",
+    "ready_for_threshold_calculator": false,
+    "requires_user_computation_now": false
+  }
+}
