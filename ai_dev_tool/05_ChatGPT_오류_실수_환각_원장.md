@@ -1011,6 +1011,25 @@
 - 재발 방지: 신규 파일은 stage 후 cached diff --check까지 통과해야 완료다.
   경로 allowlist 검사와 whitespace 검사 출력을 섞어 실패 유형을 혼동하지 않는다.
 
+### E069 — 마감 검사 뒤의 git stat가 앞선 실패 종료코드를 덮음
+
+- 분류: NATIVE_EXIT_CODE_CLOBBER / COMMITTED_DOCUMENT_WHITESPACE_ONLY
+- 증상: 마감 스테이징에서 git diff --cached --check와 --stat를 같은 PowerShell 명령에
+  연속 실행했다. 첫 검사는 새 handoff의 끝 빈 줄 1개를 보고했지만, 뒤의 --stat가 0으로
+  끝나 전체 tool exit_code가 0이 됐다. 이를 잘못 통과로 취급해 commit 76872d2를 만들었다.
+- 정확한 영향: handoff/202609091347_HANDOFF.md 마지막 빈 줄 1개가 남았다.
+  proof commit 225f136의 source·수치·434개 PASS에는 영향이 없다.
+  handoff 본문도 의미상 올바르며 새 과학적 오류나 actual 결과 변경은 없다.
+- 처리: 기존 timestamp handoff의 불변 보존 규칙을 우선해 내용·이력을 다시 쓰지 않고
+  이 경고를 명시적으로 기록한다. 공백 경고가 없는 마감이라고 주장하지 않는다.
+- 재발 방지: native validation과 요약 명령을 각각 별도 tool 호출로 실행하고, 첫 결과의
+  exit_code==0 및 오류 출력 확인 뒤에만 commit을 dispatch한다. 한 shell에서 여러
+  native command가 꼭 필요하면 각 명령 직후 LASTEXITCODE를 별도 변수로 보존해
+  실패 즉시 exit한다. ErrorActionPreference=Stop만으로 native exit를 처리했다고 믿지 않는다.
+- 뒤따른 오류 기록 commit은 이 원장 한 파일만 변경한다. 과학 단계 재실행·새 actual
+  실험·과거 handoff 변경은 하지 않는다.
+
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.
