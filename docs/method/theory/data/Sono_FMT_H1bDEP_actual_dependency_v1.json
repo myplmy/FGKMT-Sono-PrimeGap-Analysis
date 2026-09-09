@@ -1,0 +1,622 @@
+{
+  "schema_version": "1.0.0",
+  "id": "H1b-DEP",
+  "date": "2026-09-09",
+  "evidence_level": [
+    "SOURCE_AUDIT",
+    "PROJECT_FINITE_INTERFACE_PROOF"
+  ],
+  "predecessor_commit": "5093f9619748251d4a219239872108e941a68e25",
+  "source_pins": [
+    {
+      "id": "FGKMT",
+      "path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "role": "source"
+    },
+    {
+      "id": "FMT",
+      "path": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "role": "source"
+    },
+    {
+      "id": "Maynard",
+      "path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "role": "source"
+    },
+    {
+      "id": "Sono",
+      "path": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+      "role": "source"
+    },
+    {
+      "id": "RS1962",
+      "path": "tmp/pdfs/h1c1b1a1/Rosser_Schoenfeld1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "role": "source"
+    },
+    {
+      "id": "MAYNARD_TEX",
+      "path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e",
+      "role": "older_or_unconfirmed_search_helper"
+    },
+    {
+      "id": "HYP43",
+      "path": "docs/method/theory/43_Sono_FMT_H1c1b4e_actual_Hypothesis1_composition.md",
+      "sha256": "06734bb003d50650a264f027532316bab9127c7903b62150b3ae0c2ebbdc63cb",
+      "role": "prior_project_proof_not_independent_certification"
+    },
+    {
+      "id": "P9244",
+      "path": "docs/method/theory/44_Sono_FMT_H1bP92a_actual_identity_weighted_moment.md",
+      "sha256": "50fadaaf1fc11eabe7c367e4f1682037f3ed92f417b41016ee010a0965e8f220",
+      "role": "prior_project_proof_not_independent_certification"
+    },
+    {
+      "id": "P9145",
+      "path": "docs/method/theory/45_Sono_FMT_H1bP91a_unweighted_moment_W_filter.md",
+      "sha256": "0a6a621ed750c60067b508286753d0e7ad2f8c4c264fcea541c2e9d8ac54cc04",
+      "role": "prior_project_proof_not_independent_certification"
+    },
+    {
+      "id": "P9446",
+      "path": "docs/method/theory/46_Sono_FMT_H1bP94g_growing_dimension_rough_moment.md",
+      "sha256": "35fed1f60ed0e3340e5c7f3c411b0ac3247b29ce1b4dac2683d01aea5826296c",
+      "role": "prior_project_proof_not_independent_certification"
+    },
+    {
+      "id": "NORM47",
+      "path": "docs/method/theory/47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md",
+      "sha256": "3c5566ca5e84109fbb402e7cb68afdccfcc8838a1cd014c3e11223bb6d3bbd5f",
+      "role": "prior_project_proof_not_independent_certification"
+    }
+  ],
+  "pdf_reading": [
+    {
+      "source": "FGKMT",
+      "path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "pages": 41,
+      "inspected_page": 35,
+      "text_chars": 1767,
+      "producer": "Acrobat Distiller Server 8.1.0 (Pentium Linux, Built: 2007-09-07)",
+      "fonts": [
+        "/HAHCOL+CMSY10",
+        "/HAHCOO+MSAM10",
+        "/HAHCPB+CMTI10",
+        "/HAHDAP+CMSY7",
+        "/HAHDBB+CMR5",
+        "/HAHDBO+CMEX10",
+        "/HAHDFG+MSBM10",
+        "/HAHEHI+EUFM10",
+        "/HAHEIG+rsfs7",
+        "/HAHCMH+CMR10",
+        "/HAHCMK+CMCSC10",
+        "/HAHCMP+CMMI10",
+        "/HAHCNB+CMMI7",
+        "/HAHCNI+CMR7",
+        "/HAHCNP+CMMI5"
+      ],
+      "image_xobjects": [],
+      "text_render_modes": [],
+      "page_type": "NATIVE_TEXT",
+      "new_ocr_performed": false,
+      "classification_scope": "inspected_page_only"
+    },
+    {
+      "source": "FMT",
+      "path": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "pages": 16,
+      "inspected_page": 13,
+      "text_chars": 1724,
+      "producer": "GPL Ghostscript 9.10",
+      "fonts": [
+        "/ZRCYTW+CMMI10",
+        "/PFVOGA+CMBX10",
+        "/UUIAIX+MSBM10",
+        "/PHTJDA+NimbusRomNo9L-ReguItal",
+        "/GBVDPS+CMEX10",
+        "/PZBLCR+CMSY8",
+        "/WTMUZN+CMSY10",
+        "/ZHZPDP+MSAM10",
+        "/VZADQV+CMR10",
+        "/XAXNAM+CMMI6",
+        "/UCKPKV+CMR8",
+        "/EPOLMY+CMMI8",
+        "/BZXHAI+NimbusRomNo9L-Regu",
+        "/OLEXMY+NimbusRomNo9L-Medi"
+      ],
+      "image_xobjects": [],
+      "text_render_modes": [],
+      "page_type": "NATIVE_TEXT",
+      "new_ocr_performed": false,
+      "classification_scope": "inspected_page_only"
+    },
+    {
+      "source": "Maynard",
+      "path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "pages": 39,
+      "inspected_page": 31,
+      "text_chars": 2638,
+      "producer": "University of Amsterdam",
+      "fonts": [
+        "/KJTRTA+CMCSC10",
+        "/RHAGXA+CMR10",
+        "/LRYVXM+CMMI10",
+        "/DZXOOP+CMMI8",
+        "/ZPPLOW+CMSY10",
+        "/JCEFUH+CMR8",
+        "/QHOCSL+CMEX10",
+        "/CLVUUS+CMMI6",
+        "/YGYLFV+CMBX8",
+        "/NQLEEW+CMSY6",
+        "/UZWIWI+CMSY8",
+        "/TJQBDV+EUFM10",
+        "/APUZFZ+MSAM10",
+        "/XXJPAV+CMBX10",
+        "/MXVGTH+MSBM10",
+        "/AAALQF+NotoSans"
+      ],
+      "image_xobjects": [],
+      "text_render_modes": [],
+      "page_type": "NATIVE_TEXT",
+      "new_ocr_performed": false,
+      "classification_scope": "inspected_page_only"
+    },
+    {
+      "source": "Sono",
+      "path": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+      "pages": 24,
+      "inspected_page": 22,
+      "text_chars": 1081,
+      "producer": "pdfTeX-1.40.25",
+      "fonts": [
+        "/VGDDPL+NimbusRomNo9L-Regu",
+        "/TTQHLP+NimbusRomNo9L-ReguItal",
+        "/SOSTRQ+CMR10",
+        "/FDRBSG+StandardSymL-Slant_167",
+        "/AFKEXM+CMMI10",
+        "/CLNPUR+CMSY10",
+        "/CDJIAL+StandardSymL",
+        "/VHVIGI+CMEX10",
+        "/TMHVPV+MSAM10",
+        "/TLVRZT+NimbusRomNo9L-Medi"
+      ],
+      "image_xobjects": [],
+      "text_render_modes": [],
+      "page_type": "NATIVE_TEXT",
+      "new_ocr_performed": false,
+      "classification_scope": "inspected_page_only"
+    },
+    {
+      "source": "RS1962",
+      "path": "tmp/pdfs/h1c1b1a1/Rosser_Schoenfeld1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "pages": 31,
+      "inspected_page": 6,
+      "text_chars": 1497,
+      "producer": null,
+      "fonts": [
+        "/Courier"
+      ],
+      "image_xobjects": [
+        {
+          "width": 3600,
+          "height": 5700
+        }
+      ],
+      "text_render_modes": [
+        3,
+        0
+      ],
+      "page_type": "SCAN_WITH_TEXT_LAYER",
+      "new_ocr_performed": false,
+      "classification_scope": "inspected_page_only"
+    }
+  ],
+  "scope": {
+    "weight": "maynard_w_filtered",
+    "u_quantifier": "fixed_X_and_source_B",
+    "boundary_mode": "end",
+    "logs": "iterated_natural",
+    "child_scale": "auxiliary_sieve_X_not_final_gap_Z",
+    "child_cutoff": "X>=2*exp(10^1000)",
+    "actual_h_constant": 4,
+    "actual_prime_experiment_performed": false,
+    "threshold_calculator_ready": false,
+    "x_cert_ready": false,
+    "full_general_P61_certified": false,
+    "independently_formally_verified": false
+  },
+  "nodes": [
+    {
+      "id": "PROFILE",
+      "status": "PROJECT_EXPLICIT",
+      "scope": "actual",
+      "depends_on": [],
+      "claim": "Bounded profile and Section 8 finite components inherited with assumptions",
+      "locator": "theories 13, 22-27, 44"
+    },
+    {
+      "id": "HYP_ID",
+      "status": "PROJECT_EXPLICIT",
+      "scope": "actual",
+      "depends_on": [],
+      "claim": "Selected identity Hypothesis 1 only; PAP not implied",
+      "locator": "theory 43"
+    },
+    {
+      "id": "P91",
+      "status": "PROJECT_EXPLICIT",
+      "scope": "actual",
+      "depends_on": [
+        "PROFILE"
+      ],
+      "claim": "W-filtered actual total mass and endpoints",
+      "locator": "theory 45"
+    },
+    {
+      "id": "P92",
+      "status": "PROJECT_EXPLICIT",
+      "scope": "actual",
+      "depends_on": [
+        "PROFILE",
+        "HYP_ID"
+      ],
+      "claim": "Identity prime moment and L9.3 specialization",
+      "locator": "theory 44"
+    },
+    {
+      "id": "P94",
+      "status": "PROJECT_EXPLICIT",
+      "scope": "actual",
+      "depends_on": [
+        "PROFILE"
+      ],
+      "claim": "Growing-k actual off-tuple moment; required for FMT",
+      "locator": "theory 46"
+    },
+    {
+      "id": "POINT",
+      "status": "PROJECT_EXPLICIT",
+      "scope": "actual",
+      "depends_on": [
+        "PROFILE"
+      ],
+      "claim": "Finite lambda/weight pointwise bound",
+      "locator": "theory 47 section 6"
+    },
+    {
+      "id": "NORM",
+      "status": "PROJECT_EXPLICIT",
+      "scope": "actual",
+      "depends_on": [
+        "P91",
+        "P92",
+        "P94",
+        "POINT"
+      ],
+      "claim": "Common W-filtered, fixed-X probability inputs, B0 deletion",
+      "locator": "theory 47 sections 7-8"
+    },
+    {
+      "id": "INTERFACE",
+      "status": "PROJECT_EXPLICIT",
+      "scope": "actual",
+      "depends_on": [
+        "NORM"
+      ],
+      "claim": "Finite admissible tuple; C_h=4; actual distinct-point size and dimension",
+      "locator": "theory 48 sections 5.1-5.3; RS1962 (3.13)"
+    },
+    {
+      "id": "ACTUAL_INPUTS",
+      "status": "PROJECT_EXPLICIT",
+      "scope": "actual",
+      "depends_on": [
+        "NORM",
+        "INTERFACE"
+      ],
+      "claim": "Only inputs to downstream conditioning; not full FMT theorem",
+      "locator": "theory 48"
+    },
+    {
+      "id": "CODEGREE_BRIDGE",
+      "status": "CONDITIONAL_INTERFACE_PROVED",
+      "scope": "conditional",
+      "depends_on": [
+        "INTERFACE"
+      ],
+      "claim": "Residue geometry transfers a supplied post-conditioned sparsity bound; does not prove that bound",
+      "locator": "FGKMT p.82; theory 48 section 5.4"
+    },
+    {
+      "id": "P95",
+      "status": "GENERAL_OPEN",
+      "scope": "general",
+      "depends_on": [
+        "PROFILE"
+      ],
+      "claim": "Within-tuple small-prime-factor penalty",
+      "locator": "Maynard P9.5"
+    },
+    {
+      "id": "GENERAL_P61",
+      "status": "GENERAL_OPEN",
+      "scope": "general",
+      "depends_on": [
+        "P95"
+      ],
+      "claim": "General Proposition 6.1 has other unmet general hypotheses too; diagram not a full general proof",
+      "locator": "Maynard P6.1"
+    },
+    {
+      "id": "DEP-R01",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [
+        "INTERFACE"
+      ],
+      "claim": "Finite distinct-point correlation multiplier",
+      "locator": "FMT L6.1 / FGKMT L6.1 p.91"
+    },
+    {
+      "id": "DEP-R02",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [
+        "ACTUAL_INPUTS",
+        "DEP-R01"
+      ],
+      "claim": "sigma^(-k), conditioning denominator and point-to-residue sparsity",
+      "locator": "FMT (6.13)-(6.17)"
+    },
+    {
+      "id": "DEP-R03",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [
+        "DEP-R01"
+      ],
+      "claim": "Uniform local prime counts, moments and finite partitions",
+      "locator": "FMT Corollary 2; FGKMT Corollary 5"
+    },
+    {
+      "id": "DEP-R04",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [
+        "ACTUAL_INPUTS",
+        "DEP-R01",
+        "DEP-R02"
+      ],
+      "claim": "Good P(a) failure rate with collisions",
+      "locator": "FMT L6.2 / FGKMT L6.3"
+    },
+    {
+      "id": "DEP-R05",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [
+        "ACTUAL_INPUTS",
+        "DEP-R01",
+        "DEP-R02",
+        "DEP-R04"
+      ],
+      "claim": "Off-tuple Markov and union budget",
+      "locator": "FMT L6.3"
+    },
+    {
+      "id": "DEP-R06",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [
+        "ACTUAL_INPUTS",
+        "DEP-R01",
+        "DEP-R02",
+        "DEP-R04",
+        "DEP-R05"
+      ],
+      "claim": "Main covering degree first/second moments, diagonal and bad-P costs",
+      "locator": "FMT L6.4"
+    },
+    {
+      "id": "DEP-R07",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [
+        "CODEGREE_BRIDGE",
+        "DEP-R02",
+        "DEP-R03",
+        "DEP-R06"
+      ],
+      "claim": "Full hypergraph hypotheses and subset conclusions with finite failure rate",
+      "locator": "FMT Theorem 4; FGKMT Theorem 3/Corollary 4; Sono section 6"
+    },
+    {
+      "id": "DEP-R08",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [
+        "DEP-R03",
+        "DEP-R05",
+        "DEP-R07"
+      ],
+      "claim": "Smooth remainder, partition, rounding, simultaneous covering event",
+      "locator": "Sono Propositions 6.1-6.2 / T1 COV"
+    },
+    {
+      "id": "DEP-R09",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [],
+      "claim": "Numerical uniform PAP with exceptional modulus and B0",
+      "locator": "T1 PAP-01--11; theory 16"
+    },
+    {
+      "id": "DEP-R10",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [],
+      "claim": "Uniform two-prime upper-bound sieve including determinant and B0",
+      "locator": "T1 UB-01--09"
+    },
+    {
+      "id": "DEP-R11",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [
+        "NORM",
+        "DEP-R08",
+        "DEP-R09",
+        "DEP-R10"
+      ],
+      "claim": "All finite probability errors and same 2e-17 coefficient",
+      "locator": "T1 AN/FIN"
+    },
+    {
+      "id": "DEP-R12",
+      "status": "OPEN",
+      "scope": "actual_remaining",
+      "depends_on": [
+        "DEP-R11"
+      ],
+      "claim": "Auxiliary X to every sufficiently large final Z, primorial/log/endpoints",
+      "locator": "T1 TRN-01--06"
+    },
+    {
+      "id": "X_CERT",
+      "status": "OPEN",
+      "scope": "root",
+      "depends_on": [
+        "DEP-R12"
+      ],
+      "claim": "Numerical sufficient global threshold not computed or certified",
+      "locator": "theory 48; T1 FIN-05"
+    }
+  ],
+  "remaining_work": [
+    {
+      "id": "DEP-R01",
+      "group": "probability"
+    },
+    {
+      "id": "DEP-R02",
+      "group": "probability"
+    },
+    {
+      "id": "DEP-R03",
+      "group": "probability"
+    },
+    {
+      "id": "DEP-R04",
+      "group": "probability"
+    },
+    {
+      "id": "DEP-R05",
+      "group": "probability"
+    },
+    {
+      "id": "DEP-R06",
+      "group": "probability"
+    },
+    {
+      "id": "DEP-R07",
+      "group": "cover"
+    },
+    {
+      "id": "DEP-R08",
+      "group": "cover"
+    },
+    {
+      "id": "DEP-R09",
+      "group": "PAP"
+    },
+    {
+      "id": "DEP-R10",
+      "group": "UB"
+    },
+    {
+      "id": "DEP-R11",
+      "group": "final_budget"
+    },
+    {
+      "id": "DEP-R12",
+      "group": "transfer"
+    }
+  ],
+  "direct_calls": [
+    {
+      "output": "FGKMT (7.6)",
+      "input": "Maynard P9.1",
+      "locator": "FGKMT printed p.99 / PDF p.35"
+    },
+    {
+      "output": "FGKMT (7.7)",
+      "input": "Maynard P9.2",
+      "locator": "FGKMT printed p.99 / PDF p.35"
+    },
+    {
+      "output": "FGKMT (7.8)",
+      "input": "Maynard P9.4",
+      "locator": "FGKMT printed p.99 / PDF p.35; explicitly needed by FMT sequel"
+    },
+    {
+      "output": "FGKMT (7.9)",
+      "input": "Maynard L8.5(iii)",
+      "locator": "FGKMT printed p.99 / PDF p.35"
+    },
+    {
+      "output": "I/J estimates",
+      "input": "Maynard L8.6",
+      "locator": "FGKMT printed p.99 / PDF p.35"
+    }
+  ],
+  "transitive_audit": {
+    "p95_required_by_actual_inputs": false,
+    "closure_reviewed": "Maynard Sections 8-9 through end of P9.4 including proof of L9.3; final publication authoritative",
+    "tex_search_scope": "lmm:SingularSeries to before prpstn:S4",
+    "tex_is_final_publication_verified": false,
+    "p92_P61_reference": "Uses its stated distribution assumption, not whole P6.1 conclusion",
+    "s4_label_warning": "eq:S4Bound2 is a P9.4 equation label, not P9.5 invocation"
+  },
+  "source_crosswalk": [
+    {
+      "fmt": "L6.1 cites old FGKMT L5.1",
+      "published": "FGKMT L6.1 p.91",
+      "qualification": "current |n_i|<=X^2; actual interface shown, general polynomial range not adopted"
+    },
+    {
+      "fmt": "local-count Corollary 2 cites old Corollary 4",
+      "published": "FGKMT Corollary 5 pp.91-92",
+      "qualification": "local prime counts/uniform finite partition still OPEN"
+    },
+    {
+      "fmt": "L6.2 cites old L5.3",
+      "published": "FGKMT L6.3 pp.93-94",
+      "qualification": "finite failure multiplier OPEN"
+    },
+    {
+      "fmt": "Theorem 4 cites old Corollary 3",
+      "published": "functionally FGKMT Corollary 4 pp.78-81",
+      "qualification": "not drop-in equivalent; codegree and subset conclusions must be audited"
+    }
+  ],
+  "historical_T1_counts": {
+    "EXPLICIT": 7,
+    "PARTIAL": 9,
+    "RATE_MISSING": 30,
+    "SOURCE_REVIEW_REQUIRED": 4,
+    "HARD_BLOCKER": 16
+  },
+  "historical_counts_are_not_completion_percentage": true,
+  "next_gate": "H1b-COR1 / DEP-R01, followed by DEP-R02",
+  "no_user_execution_required": true
+}

@@ -1125,6 +1125,25 @@
   수학 조건을 완화하거나 실패 검사를 삭제하지 않았다.
 - proof PASS와 root X_cert OPEN을 분리하며, 원문·선행 proof의 10개 hash는 보존한다.
 
+### E076 — H1b-DEP PDF 분류·도구·label 검사의 실제 오류
+
+- 이전 PDF 질의 확인 중 존재하지 않는 Poppler 경로를 추측했다. 이번에는 실제 설치된
+  pypdf/pypdfium2를 확인해 사용했다. PDF metadata가 None인 RS1962에서 producer를 바로
+  읽어 AttributeError가 났고 nullable 처리 후 다섯 source 페이지를 다시 확인했다.
+- RS1962는 native text PDF가 아니라 scan+숨은 텍스트층이었다. 이전 plus/minus·pi 오독은
+  이 층에서 확인된 문제다. “문자 PDF도 모두 OCR이 필요하다”거나 native 추출기 탓으로
+  일반화하지 않는다. 새 OCR은 수행하지 않았고 원본은 수정하지 않았다.
+- 오류 원장 경로와 프로젝트 pdf skill 경로를 추측해 없는 파일을 조회했다. 실제 README와
+  제공된 skill roots가 정본이다. 큰 출력이 잘리면 정확한 source 범위를 재읽었다.
+- 첫 전용 20 tests 중 1개 실패: eq:S4Bound2를 ref 집합에 있을 것으로 잘못 기대했다.
+  실제로는 P94 안의 label 정의이며 ref 호출이 아니다. 정의 존재와 ref 부재를 각각
+  검사하도록 고쳤다. P95 미호출 판정이나 수학 가정을 완화하지 않았다.
+- FMT 초고의 Corollary 3과 출판 FGKMT Corollary 4는 완전히 같은 정리가 아니다.
+  codegree 외에도 부분집합 결론·finite rate가 남으므로 번호만 교체해 증명 완료로
+  간주하지 않는다. p.82의 기존 codegree 논증을 새 발견으로 포장하지 않았다.
+- 한 patch 호출의 JavaScript raw 문자열에 backtick 문자를 넣어 ReferenceError가 났다.
+  파일 변경 전에 실패했으며 문자열 구분을 교정해 apply_patch로 재적용했다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

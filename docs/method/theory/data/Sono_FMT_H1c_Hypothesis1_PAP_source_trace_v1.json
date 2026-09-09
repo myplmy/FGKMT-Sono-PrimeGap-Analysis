@@ -539,8 +539,8 @@
     "broad_siv08_closed": false
   },
   "next_gate": {
-    "id": "H1b-DEP",
-    "description": "After H1b-NORM common filtered moments and fixed-X probability inputs, prune actual dependencies and separate broad general-Hypothesis obligations from the actual construction; then finite FMT correlation/failure and PAP/UB/arbitrary-X rates. No automatic root promotion.",
+    "id": "H1b-COR1",
+    "description": "H1b-COR1 / DEP-R01 after completed H1b-DEP: finite FMT/FGKMT correlation, then sigma and post-conditioning. H1b-P92a, H1b-P91a, H1b-P94g and H1b-NORM actual inputs remain explicit. P95 is not an actual-route prerequisite; no automatic root promotion.",
     "ready_for_threshold_calculator": false
   },
   "successor_actual_identity_weighted_moment": {
@@ -587,6 +587,13 @@
     "fixed_x_probability_inputs_closed": true,
     "b0_single_prime_deletion_closed": true,
     "u_depends_only_on_k_certified": false,
+    "broad_siv08_closed": false,
+    "x_cert_ready": false
+  },
+  "successor_actual_dependency_audit": {
+    "id": "H1b-DEP",
+    "locator": "docs/method/theory/data/Sono_FMT_H1bDEP_actual_dependency_v1.json",
+    "p95_required_by_actual_route": false,
     "broad_siv08_closed": false,
     "x_cert_ready": false
   }

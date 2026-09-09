@@ -1,10 +1,22 @@
 # Sono/FMT H1b Maynard Proposition 6.1 상수 원장
 
+## 2026-09-09 H1b-DEP 현재 상태
+
+[theory 48](48_Sono_FMT_H1bDEP_actual_dependency_map.md)와
+[진행현황 review 54](../../review/54_20260909_H1bDEP_Xcert_진행현황_의존성감사.md)가 현재 actual 경로의 정본이다.
+P91/P92/P94/L85/L86 및 필요한 보조증명은 P95를 호출하지 않는다. P94는 FMT sequel에 필요하며,
+P95는 일반 P6.1의 OPEN 의무로 보존하되 선택한 actual 경로의 선결조건에서 제외한다.
+NORM의 filtered fixed-X 입력과 C_h=4·actual support 연결은 닫혔지만 post-conditioning,
+correlation·hypergraph·PAP/UB·최종 오차·arbitrary-X는 6묶음/12작업으로 남는다.
+T1 66행은 general/복합 행을 포함하므로 상태 개수를 완료율로 쓰지 않는다. broad SIV-07/08/09와
+X_cert는 계속 OPEN/HARD_BLOCKER이고 다음은 H1b-COR1 / DEP-R01이다.
+아래 날짜별 next-gate와 미완료 서술은 당시 이력이며 이 현재 상태가 우선한다.
+
 - 작성: 2026-09-04 KST
 - 증거 수준: `SOURCE-LEVEL CONSTANT DEPENDENCY AUDIT`
 - H1b 판정: `CONSTANT_DEPENDENCY_LEDGER_COMPLETE_NUMERICAL_PACKAGE_OPEN`
 - `SIV-07`: `HARD_BLOCKER` 유지
-- `SIV-09`: `RATE_MISSING` 유지
+- `SIV-09`: `HARD_BLOCKER` 유지 (현재 broad T1 판정)
 - numerical theorem threshold \(X_{\mathrm{cert}}\): `OPEN`
 - 기계 판독 정본:
   [`data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json`](data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json)

@@ -29,6 +29,9 @@
 `scripts/setup`에 둔다. 특정 완료 실험의 BAT/PS1/SH와 전용 helper는 `test_done`에
 hash를 남기고 다시 실행하지 않는다.
 
+원문 판독 절차는 [09_PDF_원문_읽기_대조_규약.md](09_PDF_원문_읽기_대조_규약.md)를 따른다.
+native text·대응 TeX·scan/OCR층을 구분하고 버전과 핵심 수식을 원본에 대조한다.
+
 ## Codex 스킬
 
 현재 프로젝트는 `.agents/skills`만 Codex 스킬 정본으로 사용한다. `.claude` 호환 미러는 복원하거나 사용하지 않는다. 결과 감사는 profile 기반 `log-to-result`, 완료 실행기 이관은 `runner-retirement`, 전체 연구현황 정리는 `research-status-synthesis`를 사용한다.

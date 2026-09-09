@@ -122,7 +122,7 @@ source constant 재증명을 닫았다. H1c-1b.4e는
 H1b-P92a는 그 weighted identity P9.2와 closed-to-open lower weight/count atom을
 \(k\ge10^{200}\)에서 relative/additive multiplier 1/1로 닫았다. 후속 H1b-P91a는 명시적
 W-filtered unweighted moment와 closed shift를 닫았다. H1b-P94g는 actual T0에서 growing-k
-P94와 각 p의 local-series off-tuple 상계를 닫았다. 공통 정규화가 남으므로 broad SIV-07/08/09는 HARD_BLOCKER,
+P94와 각 p의 local-series off-tuple 상계를 닫았다. 공통 정규화는 theory 47에서 닫혔으나 downstream 확률·일반 정리 의무는 남아 broad SIV-07/08/09는 HARD_BLOCKER,
 \(X_{\mathrm{cert}}\)는 OPEN이다. 모든 root dependency가 닫히기 전에는 새 prime
 sweep·threshold calculator를 만들지 않는다.
 
@@ -433,6 +433,7 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - `git add .` 또는 `git add -A`를 사용하지 않는다.
 - push, PR, issue, 외부 게시를 사용자의 별도 요청 없이 하지 않는다.
 - raw PDF와 raw dataset을 수정하지 않는다.
+- PDF는 native text·대응 LaTeX·scan/OCR층을 구분한다. 텍스트/TeX 우선으로 읽고 핵심 식·가정은 원본과 대조한다. 추출 가능 여부만으로 OCR 필요성을 판단하지 않는다. 절차: ai_dev_tool/09_PDF_원문_읽기_대조_규약.md.
 - 결과를 사전에 정한 결론에 맞추지 않는다.
 - 필요한 lemma는 먼저 원 논문·교정본·후속 선행증명에서 찾는다. 채택 전에는 가정,
   변수 정규화, 유효범위, 끝점, 오류항과 알려진 정정을 현재 적용과 개별 대조한다.
@@ -504,7 +505,10 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018-B가 아니라 H1b-DEP actual dependency 분리다. H1b-NORM은
+다음 권장 행동은 P018-B가 아니라 H1b-COR1 finite correlation 감사다. H1b-DEP는 완료했고
+P95가 actual 경로의 직접·간접 필수 입력이 아님을 확인했다. general P95는 별도 OPEN으로 보존한다.
+정본은 docs/method/theory/48_Sono_FMT_H1bDEP_actual_dependency_map.md, 진행현황은
+docs/review/54_20260909_H1bDEP_Xcert_진행현황_의존성감사.md다. 남은 12작업/6묶음은 완료율이 아니다. H1b-NORM은
 공통 filtered moment와 fixed-X 확률 입력을 explicit하게 닫았다. H1b-P91a는 명시적 Maynard W-filter를
 쓰는 actual unweighted moment와 T'=2floor(Y)의 closed shift·끝점 보정을 P92a와 같은
 child cutoff에서 닫았다. 정본은 docs/method/theory/45_Sono_FMT_H1bP91a_unweighted_moment_W_filter.md다.
@@ -525,8 +529,9 @@ P94g의 local scale은 T0=floor(Y)-floor(X)이며 endpoint·support 제거는 �
 u_X는 고정 X/source B의 결정론적 값이며 only-k 의존성을 인증하지 않는다.
 P91 4/k·P92 2/sqrt(k), 확률 상대오차 3/sqrt(k), point probability X^(-3/4)를
 k>=10^200에서 얻었다. 일반 P6.1·뒤쪽 failure rate·root X_cert는 여전히 열린다.
-FGKMT Theorem 6의 실제 proof에는
-P95 직접 호출이 없으므로 그 필수성을 먼저 감사한다. broad SIV-07/08/09는 계속 HARD_BLOCKER다.
+FGKMT Theorem 6에서 P95는 불필요하지만 P94는 FMT sequel에 필요하다.
+C_h=4·actual X^2 support는 닫혔고 codegree는 post-conditioning sparsity에 조건부다.
+broad SIV-07/08/09는 계속 HARD_BLOCKER다.
 H1과 병행할 수 있는 보조축은 explicit
 primorial·Mertens·iterated-log transfer theorem 후보 수집이다. numerical threshold calculator는
 모든 dependency가 explicit해진 뒤에만 만든다. P014 후속은 5,000-constraint
