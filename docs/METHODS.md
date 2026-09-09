@@ -8,7 +8,7 @@
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
 - 2026-09-09 최신 승인: 완료 proof 단계의 로컬 staging/commit은 허가됐다. push/PR·actual 확대는 여전히 별도 승인 대상이다.
-- 최신 proof 상태: H1b-NORM은 common filtered P91/P92/P94 moment와 fixed-X 확률 입력을 child cutoff에서 explicit하게 닫았다. H1b-DEP actual dependency 감사까지 완료했고 P95는 이 actual 경로에 불필요하다. H1b-COR1은 R01/R02/R04와 actual small-codegree를, H1b-COR2는 R05 off-tuple finite 예산을 닫았다. 현재 8개 actual work package가 남고 다음은 H1b-COR3 / R03 then R06이다. P91/P92/P94가 사용하는 Maynard W-filter를 명시하며 literal unfiltered FGKMT 표시식에 대한 동일성은 인증하지 않는다.
+- 최신 proof 상태: H1b-NORM의 common filtered moment·fixed-X 입력 뒤 COR1/2/3이 R01–R06 actual child를 닫았다. COR3은 R03의 사전 고정 유한 구간 count와 R06의 같은-p 충돌·bad-P 질량·조건부 분모를 보존해 FMT (5.8)의 absolute error 1/b²를 얻었다. 현재 R07–R12 6개 work package가 남고 다음은 H1b-COV1 / DEP-R07이다. P95는 actual 경로에 불필요하며 P91/P92/P94의 Maynard W-filter는 명시한다. literal unfiltered FGKMT 식의 동일성, full hypergraph, X_cert는 인증하지 않는다.
 - 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a와 H1b-1 계열은 finite-r 적분비, Lemma 8.2 multiplier 89, 교정된 \(\kappa=1\) one-step multiplier, 실제 제외모듈과 Lemma 8.4 관련 하위호출 9/9를 parameterized explicit 수준으로 닫았다.
   2026-09-08 H1b-2a는 Lemma 8.5의 coefficient·weight envelope와 Lemma 8.6의 절대 \(I_k,J_k\) 크기 및 보수적 \(F_1/F_2\) 비교를 유한식으로 닫았다. H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱도 exact local factor와 finite singular-series 비교로 닫았다.
   H1b-2a.2는 실제 \(\mathcal A=\mathbb Z,D=1\) 호출의 정확한 \(E_q^{(1)}\le1\)을 이용해 식 (9.52) distribution child를 parameterized explicit으로 닫았다. H1b-2a.3은 actual FGKMT/FMT P94의 모든 닫힌 child를 공통 cutoff로 합성해 모든 정수 \(k\ge36\)에서 multiplier 13 미만을 얻었고, `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격했다. 2026-09-09 H1c-1a는 quantitative character/Bombieri–Vinogradov source inventory를 완료했고, H1c-1b.1은 actual Proposition 9.2의 identity form에 대해 Bordignon 2021의 pointwise growing-\(A\) 대입과 modulus capacity를 닫았다. H1c-1b.1a는 endpoint-safe \(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\)와 실제 \(R=(x/4)^{\theta/3}\)를 사용해 두 finite normalization factor의 곱이 \(39/40\)보다 큼을 exact하게 증명했다. H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7과 제외 prime 보정을 합성해 \(x\ge2\exp(36^5)\)에서 \(\sigma y<(1001000/998001)80cx\log_2x<(26/25)80cx\log_2x\)를 증명했다. 따라서 `SIV-03=EXPLICIT`이고 Sono의 같은 \(2\times10^{-17}\) 계수가 이 단계에서 유지된다. H1c-1b.2는 fixed \(Q_1\)에서 두 endpoint에 한 exceptional modulus와 그 prime divisor \(B\)를 공통으로 쓰고, 최종 NYJM판 12항을 이용한 raw \((T,2T]\) \(\psi\) composition을 닫았다. H1c-1b.3r1은 Maynard 원문의 일반 \([T,2T)\)와 FGKMT actual \([T,2T]\)를 구분하고 closed target의 한 lower atom을 안전하게 보정했다. H1c-1b.4a–4e는 source 정규화·density·full absorption을 합성해 \(X\ge2\exp(10^{50})\)에서 actual identity-form Hypothesis 1 input을 constants \((1,1,2)\)로 explicit하게 닫았다. 후속 H1b-P92a는 \(k\ge10^{200}\)에서 actual identity weighted P9.2와 lower weight/count atom을 multiplier 1/1로 닫았다. child cutoff \(X\ge2\exp(10^{1000})\)는 전체 threshold가 아니다. H1b-P91a는 filtered unweighted moment·shift를, H1b-P94g는 actual shifted T0의 growing-dimension P94 multiplier 1을 닫았다. 이 1은 더 강한 새 regime의 값이고 기존 13을 보편적으로 대체하지 않는다. 후속 H1b-NORM은 공통 singular-series/lambda-square/tau/u_X와 B0 삭제·확률 입력까지 닫았다. H1b-DEP가 actual dependency를 분리했고 다음은 뒤쪽 finite correlation/failure rate다. `SIV-07/08=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
@@ -973,3 +973,20 @@ X/(2ab)개보다 많을 확률은 1600 c_aux/b^5 이하다. 조건부 law에서�
 R01/R02/R04/R05 외 R03/R06/R07/R08/R09/R10/R11/R12의 8 work package와
 broad SIV-07/08/09·X_cert는 열린 채다. 다음은 H1b-COR3의 R03→R06이며,
 기존 COR1의 9 OPEN과 DEP의 12 OPEN은 당시의 변경하지 않은 이력이다.
+
+## 2026-09-09 H1b-COR3 유한 local count·main degree
+
+[theory 51](method/theory/51_Sono_FMT_H1bCOR3_finite_local_count_partition.md)은
+사전 고정 J개 구간, delta>=a^(-1/4)에서 local count의 relative error 1/(100b²)와
+failure 3Jb^6/a^17을 준다. disjoint grid와 covering 전 interpolation도 명시했다.
+[theory 52](method/theory/52_Sono_FMT_H1bCOR3_main_degree_finite_moments.md)는
+같은-p 모든 index pair의 충돌과 bad-P 질량을 상계하고, 조건부 denominator를 보존했다.
+그 결과 살아남은 q 중 floor(X/(ab))개를 제외한 FMT (5.8)의 absolute error는
+1/b² 이하, degree failure는 1600c_aux/b^5+800c_aux/b^10+112kb^4/a^11 이하이다.
+같은 C>(5/4)ln5를 유지하며 a=ln X, b=ln a, c_aux=1/(153600ln5)다.
+
+기존 X>=2exp(10^1000)는 **actual child sufficient cutoff**이지 최종 X_cert가 아니다.
+R03의 보조 local 구간과 canonical maximal-gap end-bounded 구간도 혼동하지 않는다.
+sigma의 O(b^-10)를 복원했다고 쓰지 않으며 이번에 충분한 O(b^-2)를 직접 썼다.
+R01–R06 actual child는 explicit, R07–R12는 OPEN이다. 후속 COV1에서 cardinality·subset·
+failure 전체를 확인해야 하며 SIV-07/08/09와 calculator는 여전히 fail-closed다.

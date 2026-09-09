@@ -158,7 +158,7 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertFalse(successor["full_distribution_package_ready"])
         self.assertEqual(
             self.document["next_gate"]["id"],
-            "H1b-COR3",
+            "H1b-COV1",
         )
         self.assertTrue(
             self.document["successor_common_exceptional_remainder"][
@@ -189,7 +189,7 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertEqual(composition["constants"], [1, 1, 2])
         self.assertFalse(composition["weighted_proposition92_closed"])
         self.assertFalse(composition["broad_siv08_closed"])
-        self.assertEqual(self.document["next_gate"]["id"], "H1b-COR3")
+        self.assertEqual(self.document["next_gate"]["id"], "H1b-COV1")
         growing = self.document["successor_filtered_growing_p94"]
         self.assertTrue(growing["filtered_actual_growing_p94_closed"])
         self.assertTrue(growing["w_filter_required"])

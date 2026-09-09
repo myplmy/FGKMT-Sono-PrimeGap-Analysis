@@ -539,8 +539,8 @@
     "broad_siv08_closed": false
   },
   "next_gate": {
-    "id": "H1b-COR3",
-    "description": "H1b-COR3 / DEP-R03 then DEP-R06: local-count/finite-partition and main-degree moment audit after H1b-COR2 closes off-tuple DEP-R05. R01/R02/R04 remain explicit. H1b-P92a, H1b-P91a, H1b-P94g and H1b-NORM actual inputs remain explicit. Eight actual work packages remain; P95 is not an actual-route prerequisite. Full hypergraph and X_cert stay OPEN.",
+    "id": "H1b-COV1",
+    "description": "H1b-COV1 / DEP-R07: full hypergraph source/parameter/subset/failure audit after COR3 closes R03 finite-family local counts and R06 main degree. R01-R06 are actual project explicit. H1b-P92a, H1b-P91a, H1b-P94g and H1b-NORM inputs stay explicit. Six work packages R07-R12 remain; P95 is not an actual-route prerequisite. Full hypergraph, total budget and X_cert stay OPEN.",
     "ready_for_threshold_calculator": false
   },
   "successor_actual_identity_weighted_moment": {
@@ -607,6 +607,17 @@
     "current_remaining_work_packages": 8,
     "global_union_budget_closed": false,
     "full_hypergraph_certified": false,
+    "broad_siv08_closed": false,
+    "x_cert_ready": false
+  },
+  "successor_finite_local_main_moments": {
+    "id": "H1b-COR3",
+    "locator": "docs/method/theory/data/Sono_FMT_H1bCOR3_local_main_moments_v1.json",
+    "newly_closed_actual_work": ["DEP-R03", "DEP-R06"],
+    "current_remaining_work_packages": 6,
+    "finite_predeclared_family_required": true,
+    "full_hypergraph_certified": false,
+    "global_union_budget_closed": false,
     "broad_siv08_closed": false,
     "x_cert_ready": false
   },
