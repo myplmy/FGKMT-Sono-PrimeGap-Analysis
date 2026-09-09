@@ -1,5 +1,9 @@
 # H1c-1b.3 endpoint·prime-count transfer 타당성 검토
 
+> **후속 교정:** 이 검토는 Maynard의 원래 \([T,2T)\) 정의를 FGKMT actual target으로
+> 잘못 분류했다. FGKMT는 수정 Definition 2에서 \([T,2T]\)를 사용한다. 정정 판정은
+> [review 48](48_20260909_H1c1b3r1_FGKMT_endpoint_교정_타당성검토.md)이 우선한다.
+
 - 검토일: 2026-09-09 KST
 - 대상: H1c-1b.2의 cumulative \(\psi\) 상계를 actual Maynard Proposition 9.2
   identity-prime target으로 옮기는 bridge

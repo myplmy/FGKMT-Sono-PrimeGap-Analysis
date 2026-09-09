@@ -232,6 +232,26 @@
 - 다음 재개점: 이번 단계 파일만 명시 stage·local commit한 뒤 H1c-1b.4e end-to-end
   quantifier composition audit를 시작한다.
 
+### 2026-09-09 14:28 KST — H1c-1b.3r1 actual FGKMT endpoint 교정 작성
+
+- H1c-1b.4e 합성 전에 FGKMT 원문 Definition 2와 Section 8을 다시 대조했다. Maynard 원문
+  Definition (2.1)은 \([T,2T)\)이지만 FGKMT printed p.95는
+  \(\mathcal A(T)=\{T\le n\le2T\}\)로 재정의하고, printed p.101의 외부 소수집합은
+  \((T,2T]\)이다. 기존 H1c-1b.3의 “actual target=[T,2T)” 판정은 잘못이었다.
+- Bordignon/Abel source \((T,2T]\)에서 FGKMT closed target으로 갈 때는 (T) 소수 atom만
+  더한다. centered correction은 modulus당 절댓값 1 이하라 기존 (M_B(T)) endpoint upper와
+  H1c-1b.4c 수치 envelope는 보존된다. closed density는 source interval을 포함하므로
+  H1c-1b.4b의 (T/(2\log T)) 하한도 보존된다.
+- `source/h1c1b3r1_fgkmt_endpoint_correction.py`, 새 JSON contract, theory 42, review 48과
+  독립 toy test를 작성했다. 기존 theory/review에는 actual-label 철회 notice를 붙이고 오류
+  원장 E060에 원인·영향·재발방지를 기록했다.
+- Section 8의 외부 \((T,2T]\) weighted sum으로 돌아갈 때 closed Theorem 6 합에서 lower
+  endpoint weight를 제거하는 의무는 unweighted count correction과 다르므로 OPEN으로 유지했다.
+- FGKMT Python으로 두 helper/test `py_compile`, 과거 H1c-1b.3과 새 r1 회귀 14/14,
+  source PDF·predecessor hash 검증과 `git diff --check`를 모두 PASS했다.
+- 다음 재개점: 이 교정 단계만 명시 stage·local commit한다. 그 뒤
+  H1c-1b.4e에서 corrected closed target의 full absorption과 easy clauses를 합성한다.
+
 ## 완료 전 점검
 
 - [ ] 사용자 요청 범위의 산출물 완료

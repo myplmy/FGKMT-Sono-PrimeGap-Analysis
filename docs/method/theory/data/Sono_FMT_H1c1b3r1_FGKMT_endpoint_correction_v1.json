@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1c-1b.3r1",
+  "scope": "Correct the actual FGKMT endpoint convention after comparing Maynard Definition (2.1), FGKMT modified Definition 2, and the Section 8 prime set. Preserve the valid numerical endpoint envelope, but do not close the downstream weighted endpoint, SIV-08, or X_cert.",
+  "outcome": "FGKMT_CLOSED_INTERVAL_ENDPOINT_SEMANTICS_CORRECTED_NUMERIC_ENVELOPE_PRESERVED",
+  "source_registry": [
+    {
+      "key": "FGKMT2018",
+      "title": "Long gaps between primes",
+      "authors": "Kevin Ford, Ben Green, Sergei Konyagin, James Maynard, Terence Tao",
+      "doi": "10.1090/jams/876",
+      "local_path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "locator": "printed p. 95, Definition 2; printed p. 101, Section 8 proof of (6.5)",
+      "role": "Actual modified interval convention and application"
+    },
+    {
+      "key": "MAYNARD2016",
+      "title": "Dense clusters of primes in subsets",
+      "authors": "James Maynard",
+      "doi": "10.1112/S0010437X16007296",
+      "local_path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "locator": "Definition (2.1), printed p. 1517",
+      "role": "Historical half-open convention contrasted with FGKMT modification"
+    },
+    {
+      "key": "PROJECT_H1C1B3",
+      "title": "Historical H1c-1b.3 endpoint-count transfer",
+      "local_path": "docs/method/theory/data/Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
+      "sha256": "8f44a5bbf6b80f773136c00fe1104b530cee181f096e16e5cdfb2e36aff80c96",
+      "locator": "Maynard-generic half-open bridge",
+      "role": "Predecessor whose actual-application label is corrected"
+    }
+  ],
+  "interval_audit": {
+    "bordignon_abel_source": "(T,2T]",
+    "maynard_original_definition": "[T,2T)",
+    "fgkmt_modified_hypothesis_definition": "[T,2T]",
+    "fgkmt_section8_outer_prime_set": "(T,2T]",
+    "actual_hypothesis_transfer_identity": "P_[T,2T]=P_(T,2T]+1_P(T)",
+    "actual_outer_prime_set_matches_source_interval": true,
+    "upper_endpoint_removed_for_fgkmt_hypothesis": false
+  },
+  "endpoint_bound": {
+    "per_modulus_centered_correction": "1_{T prime and T=a mod q}-1_{T prime}/phi(q)",
+    "absolute_upper": 1,
+    "summed_upper": "M_B(T)<=T^(1/3)",
+    "historical_numeric_envelope_same_size": true,
+    "historical_semantics_same": false
+  },
+  "limits": {
+    "fgkmt_hypothesis_endpoint_bridge_closed": true,
+    "historical_actual_target_label_correct": false,
+    "historical_numeric_absorption_envelope_remains_safe": true,
+    "downstream_weighted_endpoint_closed": false,
+    "hypothesis1_clause2_full_absorption_closed": false,
+    "siv_08_closed": false,
+    "x_cert_ready": false,
+    "actual_prime_experiment_performed": false,
+    "new_python_dependency_required": false,
+    "lean_required": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.4e",
+    "description": "Compose the corrected closed-interval Hypothesis 1 input with the full absorption package, and separately account for the weighted lower-endpoint term when returning to the Section 8 outer prime set.",
+    "requires_user_computation_now": false
+  }
+}

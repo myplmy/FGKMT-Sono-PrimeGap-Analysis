@@ -2,6 +2,8 @@
   "schema_version": "1.0",
   "created_kst": "2026-09-09",
   "gate": "H1c-1b.3",
+  "superseded_for_fgkmt_actual_application_by": "Sono_FMT_H1c1b3r1_FGKMT_endpoint_correction_v1.json",
+  "correction_note": "The half-open bridge remains exact for Maynard Definition (2.1), but FGKMT modified Definition 2 uses [T,2T]. The actual-application label in this historical contract is withdrawn.",
   "scope": "Convert the H1c-1b.2 fixed-family cumulative psi bound into Maynard Proposition 9.2's exact half-open unweighted prime-count discrepancy for the actual identity form. Preserve the Abel integral sign, prime powers, endpoint atoms, and the exact total population. Do not perform density normalization, full remainder absorption, or threshold calculation.",
   "outcome": "EXACT_HALF_OPEN_UNWEIGHTED_COUNT_TRANSFER_CLOSED_FULL_RATE_AND_DENSITY_OPEN",
   "source_registry": [

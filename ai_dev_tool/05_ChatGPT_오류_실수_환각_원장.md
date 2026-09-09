@@ -878,6 +878,24 @@
 - 재발 방지: rename 감사에서는 raw 경로 개수를 고정하지 않고 status code와 old/new pair를
   검증한다.
 
+### E060 — Maynard 원정의만 확인하고 FGKMT의 수정 interval 정의를 놓침
+
+- 분류: `PRIMARY_APPLICATION_SEMANTICS_ERROR / CORRECTED_BEFORE_PARENT_PROMOTION`
+- 문제: H1c-1b.3에서 Maynard 2016 Definition (2.1)의 \([T,2T)\)를 확인했지만,
+  FGKMT printed p.95가 \(\mathcal A(T)=\{T\le n\le2T\}\)로 재정의한다는 사실을
+  actual target 판정에 반영하지 않았다. 그 결과 정확한 Maynard-generic bridge를
+  “actual FGKMT target”이라고 잘못 이름 붙였다.
+- 영향: 과거 half-open endpoint correction과 실제 closed correction은 모두 한 modulus당
+  절댓값 1 이하라서 H1c-1b.4c의 수치 envelope는 안전하다. H1(2), `SIV-08`,
+  \(X_{\rm cert}\)를 아직 승격하지 않았으므로 잘못된 theorem threshold나 actual 실험 결과는
+  생성되지 않았다. 다만 FGKMT Section 8 외부 \((T,2T]\) 합과 closed Theorem 6 합 사이의
+  weighted lower-endpoint 의무가 새로 명시적으로 드러났다.
+- 교정: H1c-1b.3r1에서 source \((T,2T]\), FGKMT Hypothesis target \([T,2T]\),
+  외부 prime set \((T,2T]\), Maynard 원정의 \([T,2T)\)를 네 칸으로 분리하고 exact toy
+  회귀를 추가했다. 기존 문서는 역사적 유도로 보존하되 actual label 철회 notice를 붙였다.
+- 재발 방지: 선행정리를 인용하는 논문이 “modified form”을 사용하면 원정리뿐 아니라
+  인용 논문의 지역 정의, theorem 문장, 실제 호출점과 최종 외부합의 endpoint를 모두 대조한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

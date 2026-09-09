@@ -1,4 +1,4 @@
-"""Fail-closed H1c-1b.3 endpoint and prime-count transfer helpers.
+"""Fail-closed Maynard-generic H1c-1b.3 count-transfer helpers.
 
 This module records the narrow bridge from a cumulative von Mangoldt
 discrepancy bound to Maynard's exact, half-open, unweighted prime-count
@@ -9,6 +9,10 @@ lose in an informal conversion:
 * prime powers in ``pi_1 - pi``;
 * the endpoint atoms that change ``(T, 2T]`` into ``[T, 2T)``; and
 * recentering at the exact total prime population, not at ``T/log(T)``.
+
+This historical bridge exactly matches Maynard's original Definition (2.1),
+but not FGKMT's modified closed interval.  The actual FGKMT correction is
+recorded in :mod:`source.h1c1b3r1_fgkmt_endpoint_correction`.
 
 It does not bound Bordignon's unresolved constant, prove the required
 relative log-saving, produce a finite prime-density lower bound, close

@@ -1,5 +1,12 @@
 # Sono/FMT H1c-1b.3 endpoint·unweighted prime-count transfer
 
+> **2026-09-09 적용구간 교정:** 아래 half-open 계산은 Maynard 원논문의 Definition
+> (2.1)에 대해서는 정확하지만, FGKMT가 실제로 사용하는 수정 Definition 2는
+> \([T,2T]\)이다. 따라서 아래 문서의 “actual FGKMT target” 표기는 철회한다. 실제
+> 적용용 교정과 보존되는 수치상계는
+> [H1c-1b.3r1](42_Sono_FMT_H1c1b3r1_FGKMT_endpoint_correction.md)을 따른다.
+> 과거 유도 자체를 숨기지 않기 위해 본문은 역사적 기록으로 보존한다.
+
 - 작성: 2026-09-09 KST
 - 증거 수준: `SOURCE-LEVEL TARGET AUDIT / PROJECT FINITE BRIDGE`
 - 판정:
