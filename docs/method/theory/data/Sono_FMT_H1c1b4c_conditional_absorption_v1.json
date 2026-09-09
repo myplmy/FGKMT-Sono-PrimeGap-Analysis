@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "gate": "H1c-1b.4c",
+  "scope": "Combine the complete non-C_A Bordignon remainder, Abel/count-transfer costs, and the explicit exact-population density on one normalized scale. Derive a precise admissible C_A formula and one conservative sufficient condition. Do not invent or assert a source upper for C_A, close Hypothesis 1(2), Proposition 9.2, SIV-08, or compute X_cert.",
+  "outcome": "NON_C_ABSORPTION_AND_CONDITIONAL_C_A_BUDGET_CLOSED_SOURCE_C_A_OPEN",
+  "parameters": {
+    "r": "floor((log T)^(1/5))",
+    "n": "100*r^2",
+    "A": "n+10",
+    "L": "log T",
+    "ell": "log L",
+    "Q1": "L^A",
+    "c0_upper": 49,
+    "c1_upper": 3,
+    "R1": "5113/2500"
+  },
+  "target": {
+    "exact_count_target": "S_pi <= P_T/L^n",
+    "density_input": "P_T/T > 1/(2L)",
+    "sufficient_normalized_target": "S_pi/T <= 1/(2*L^(n+1))",
+    "exact_center_preserved": true
+  },
+  "dyadic_supremum": {
+    "abel_factor": "K(L)=1/L+2/(L+log 2)+1/L^2 <= 4/L",
+    "source_term_count": 12,
+    "C_A_term_index": 4,
+    "non_C_A_source_terms": 11,
+    "additional_count_transfer_terms": [
+      "prime-power removal",
+      "half-open endpoint"
+    ],
+    "normalized_non_C_A_component_count": 13,
+    "term_3_endpoint": "L+log 2 because it increases with u",
+    "other_source_term_endpoints": "L because their relative terms decrease with u on the certified domain"
+  },
+  "conditional_budget": {
+    "form": "normalized_error <= B0(r,L)+kappa(r,L)*C_A",
+    "B0": "sum of the 13 normalized non-C_A component uppers",
+    "kappa": "36*(1+A*ell)*L^(-6)",
+    "admissible_C_A": "C_A < (1-B0)/kappa whenever B0<1",
+    "reason_for_power_minus_6": "transport margin A-n=10 minus the printed +4 power in term 4"
+  },
+  "proof_cutoff": {
+    "sieve_dimension_r": 500000000,
+    "log_T_lower": "500000000^5",
+    "T_lower": "exp(500000000^5)",
+    "corner_exact_log_log_bounds": "100 < log log T < 105",
+    "each_non_C_A_normalized_component_log_upper": "strictly below -500",
+    "C_A_coefficient_log_upper": "strictly below -536",
+    "non_C_A_total_upper": "13*exp(-500)<1/4",
+    "uniformity": "termwise calculus shows the normalized bounds decrease with L inside each r-bin and with integer r from the stated corner"
+  },
+  "conditional_source_requirement": {
+    "log_C_A_upper": 500,
+    "equivalent": "C_A <= exp(500)",
+    "C_A_contribution_upper": "exp(-36)<1/4",
+    "combined_normalized_error_upper": "strictly below 1/2",
+    "source_requirement_proved": false,
+    "warning": "This is a condition to be tested by H1c-1b.4d, not a value supplied by Bordignon 2021."
+  },
+  "numerical_corner_diagnostic": {
+    "precision_decimal_digits": 100,
+    "log_B0": "-542.3720945610493479367868903631805177549",
+    "log_kappa": "-548.0479582683491383456043302733018106445",
+    "log_admissible_C_A": "548.0479582683491383456043302733018106445",
+    "log10_admissible_C_A": "238.0142040942876677109574213136619387357",
+    "role": "regression diagnostic only; exact rational inequalities and calculus carry the proof"
+  },
+  "predecessor_artifacts": [
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1c1b4a_Bordignon_source_normalization_v1.json",
+      "sha256": "107ce6d3b38f8bada0ec699621da62be76ae7f549c7734307dd32f801cd6c072"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1c1b4b_density_constants_v1.json",
+      "sha256": "3ffb9080be9b925e3a694967b57422d0d12571ff8244c19fc839535dc9431004"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
+      "sha256": "1f062d2a2187fa733ebf54d49c32b8fe4953d3f3f5d94e28f767c2aaaba4f693"
+    },
+    {
+      "path": "source/h1c1b2_common_exceptional_remainder.py",
+      "sha256": "5b126b1ab2e1f95ec03c9e86d05a0a27ee3db7a91bbe5c0e06cc9962a670ecf1"
+    },
+    {
+      "path": "source/h1c1b3_endpoint_count_transfer.py",
+      "sha256": "bd74a805872105d62a6b7f81e6dac876e7910ce79e62bd7c2a9bfe42c178fc0e"
+    }
+  ],
+  "status_after_this_gate": {
+    "non_C_A_absorption_closed": true,
+    "admissible_C_A_formula_derived": true,
+    "conditional_full_absorption_closed": true,
+    "numerical_source_C_A_upper_closed": false,
+    "unconditional_full_absorption_closed": false,
+    "hypothesis1_clause2_closed": false,
+    "proposition92_closed": false,
+    "siv_08_closed": false,
+    "x_cert_ready": false,
+    "actual_prime_experiment_performed": false
+  },
+  "next_gate": {
+    "id": "H1c-1b.4d",
+    "description": "Rederive the growing-A Theorem 3.4 and zero-density constant package and compare the resulting C_A growth with the exact admissible envelope from H1c-1b.4c.",
+    "stop_condition": "If the source-derived C_A grows faster than the admissible envelope, do not promote P9.2; quantify the mismatch and reconsider the transport margin or analytic source."
+  }
+}

@@ -142,8 +142,39 @@
   rational witness와 source hash를 재검산하고, `X_cert` 또는 H1(2)를 과승격하지 않는
   fail-closed flag를 확인한다.
 - 다음 재개점: 12항·count-transfer에서 허용되는 `C_A` budget을 유도하되,
-  고정 (r) 점검을 growing-(r) 전 구간 증명으로 과장하지 않도록 차원 bin의 양끝을
+  고정 \(r\) 점검을 growing-\(r\) 전 구간 증명으로 과장하지 않도록 차원 bin의 양끝을
   모두 포함한다.
+
+### 2026-09-09 11:42 KST — H1c-1b.4c conditional absorption budget 완료
+
+- `L=log T`, `ell=log L`, `n=100r^2`, `A=n+10`으로 두고 exact density target을
+  `S_pi/T <= 1/(2 L^(n+1))`로 정규화했다. Abel factor의 안전한 상계
+  `K(L)<=4/L`를 써 12개 Bordignon term과 prime-power·endpoint를 하나의 scale로
+  옮겼다.
+- 미해결 4번 term을 분리해
+  `normalized_error <= B0(r,L) + kappa(r,L) C_A`,
+  `kappa=36(1+A log L)L^(-6)`,
+  `C_allow=(1-B0)/kappa`를 유도했다. `B0`는 non-`C_A` source term 11개와
+  count-transfer 2개를 합친 정확히 13개다.
+- exact rational corner check와 항별 단조성으로 모든
+  `r>=500,000,000`, `r^5<=L<(r+1)^5`에서 13개 normalized non-`C_A` term이
+  각각 `exp(-500)`보다 작고, `log(kappa)<-536`임을 증명했다.
+  따라서 `C_A<=exp(500)`이면 총 normalized error는 `1/2`보다 작다.
+- corner 100-dps 회귀값은
+  `log(B0)=-542.3720945610...`, `log(kappa)=-548.0479582683...`,
+  `log(C_allow)=548.0479582683...`(약 `10^238.0142`)다. 이는 proof 최소 cutoff가
+  아닌 회귀진단이다.
+- 첫 test에서 44자리 `r^5`와 `(r+1)^5`를 default 15-digit `mpmath`로
+  먼저 변환해 bin boundary가 같은 값처럼 떨어지는 구현 오류를 검출했다.
+  integer는 변환 전 exact 비교, 비정수·로그 계산은 내부 80-dps로 고정했고
+  4c 표적 test 6/6과 4a--4c 통합 36/36이 PASS했다.
+- 판정은
+  `NON_C_ABSORPTION_AND_CONDITIONAL_C_A_BUDGET_CLOSED_SOURCE_C_A_OPEN`이다.
+  source가 `C_A<=exp(500)` 또는 exact `C_allow` envelope를 만족함을 증명하지
+  않았으므로 H1(2), P9.2, `SIV-08`, `X_cert`는 모두 OPEN이다.
+- 다음 재개점: H1c-1b.4d에서 Theorem 3.4·zero-density 식 (28)--(32)를
+  final target에서 직접 재합성하고, source-derived `C_A` 성장률을
+  `C_allow ~ r^28/log r`와 비교한다.
 
 ## 완료 전 점검
 
