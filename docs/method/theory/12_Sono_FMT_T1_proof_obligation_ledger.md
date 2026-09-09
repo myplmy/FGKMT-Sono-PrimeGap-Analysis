@@ -707,3 +707,17 @@ Proposition 9.2의 main/error 합성, lower-endpoint weight, Theorem 6 전체 �
 열려 있다. 따라서 66개 root row의 상태 수와
 `SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`은 유지한다.
 다음 gate는 H1b-P92a다.
+
+## 30. 2026-09-09 H1b-P92a actual weighted child
+
+앞 §29의 OPEN은 당시 snapshot이다.
+[theory 44](44_Sono_FMT_H1bP92a_actual_identity_weighted_moment.md)는 actual identity
+weighted P9.2의 모든 prefactor·error와 lower weight/count atom을
+\(k\ge10^{200}\), \(X=2T\ge2\exp(10^{1000})\)에서 multiplier 1/1로 닫는다.
+이 수는 child 하나의 sufficient cutoff다. 소수를 그 수까지 센 결과도, Sono의
+\(X_{\rm cert}\)도 아니다.
+
+root 66행의 상태는 바꾸지 않는다. SIV-07/08/09는 general형/실제 다른 moment/공통
+정규화를 포함하기 때문이다. 다음은 H1b-P91a, growing-k P94 호환성과 실제 dependency
+가지치기다. FGKMT Theorem 6 proof에 P95 직접 인용이 없다는 source 사실은 확인했지만,
+그것만으로 모든 후속 FMT/Sono 사용처에서 P95가 불필요하다고 단정하지 않는다.

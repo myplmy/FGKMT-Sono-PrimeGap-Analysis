@@ -122,8 +122,8 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
 | `H1B-L86-SIZE` | Lemma 8.6 | 절대 적분 크기 | `PROJECT_FINITE_COMPONENT_CLOSED` | plateau cube로 \(I_k\ge(2k\log k)^{-k}\) |
 | `H1B-P91` | Proposition 9.1 | zeroth moment | `RATE_MISSING` | 상대오차 multiplier·divisor sum |
-| `H1B-P92` | Proposition 9.2 | prime moment | `RATE_MISSING` | 상대·additive error 상수 |
-| `H1B-L93` | Lemma 9.3 | diagonal approximation | `RATE_MISSING` | \(F_2/F\)·오차 상수 |
+| `H1B-P92` | Proposition 9.2 | prime moment | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | actual identity 상대/가법 multiplier 1/1; general형·공통 합성 별도 |
+| `H1B-L93` | Lemma 9.3 | diagonal approximation | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | scalar \(C_Y\)와 actual growing-k gate; general형 별도 |
 | `H1B-P94` | Proposition 9.4 | extra-form/rough upper bound | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | actual FGKMT/FMT 호출은 multiplier 13 미만; 일반 \(\mathcal A\)는 별도 |
 | `H1B-P95` | Proposition 9.5 | 작은 소인수 penalty | `RATE_MISSING` | \(\ll\) multiplier·허용 margin |
 | `H1B-COMP-01` | Sections 8–9 합성 | 하나의 finite package | `HARD_BLOCKER` | 모든 입력과 최대 cutoff |
@@ -609,3 +609,24 @@ FGKMT lower-endpoint weight는 아직 미합성이다. 그러므로
 `H1B-P92=RATE_MISSING`, `H1B-COMP-01=HARD_BLOCKER`,
 `SIV-07/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`을 유지한다.
 다음 직접 gate는 H1b-P92a다.
+
+## 22. 2026-09-09 H1b-P92a weighted identity moment
+
+앞 §21의 OPEN은 당시 snapshot이다. 후속
+[theory 44](44_Sono_FMT_H1bP92a_actual_identity_weighted_moment.md)는
+actual identity-form weighted Proposition 9.2의 distribution·diagonal·off-diagonal·
+Euler prefactor와 closed-to-open lower weight/count atom을 모두 합성했다.
+충분조건 \(k=\lfloor(\log T)^{1/5}\rfloor\ge10^{200}\),
+\(X=2T\ge2\exp(10^{1000})\)에서 상대/가법 multiplier는 1/1이다.
+
+따라서 H1B-P92와 H1B-L93은 actual 입력 범위의 parameterized explicit으로 진전한다.
+일반 P92나 전체 P61을 닫은 것은 아니다. SIV-07/08/09와 \(X_{\rm cert}\)는 OPEN이다.
+
+\(I(F_1)/I(F)\le2^k\)는 fixed-k에서는 유효하지만 maximal growing-k에서는
+너무 큰 손실이다. H1a 방식의 Cantelli 논증으로 \(k\ge10^{50}\)에서
+\(I(F_1)\le2I(F),J(F_1)\le2J(F)\)를 얻어 이 child를 닫았다.
+기존 P94 fixed-k certificate는 보존하며 growing-k 적용은 별도 successor로 교정한다.
+
+다음은 H1b-P91a와 P94 growing-dimension 호환성이다. FGKMT Theorem 6의 실제 proof는
+P91/P92/P94/L85를 직접 인용하므로 P95는 general P61 의무와 실제 root-critical 의무를
+분리해 다시 조사한다. 불필요한 일반 정리 재증명을 actual 임계값의 선결조건으로 만들지 않는다.

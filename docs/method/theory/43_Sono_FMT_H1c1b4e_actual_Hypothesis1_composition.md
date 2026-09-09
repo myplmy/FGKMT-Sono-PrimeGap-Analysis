@@ -14,6 +14,11 @@
 - 비판적 검토:
   [`docs/review/49_20260909_H1c1b4e_actual_Hypothesis1_합성_타당성검토.md`](../../review/49_20260909_H1c1b4e_actual_Hypothesis1_합성_타당성검토.md)
 
+> 후속 상태(2026-09-09): 아래 OPEN은 H1c-1b.4e 당시 snapshot이다.
+> [H1b-P92a](44_Sono_FMT_H1bP92a_actual_identity_weighted_moment.md)가 actual identity weighted
+> P9.2와 lower atom을 \(k\ge10^{200}\)에서 닫았다. 본 문서의 input cutoff와 별개의
+> 더 큰 child cutoff이며, general P92 및 \(X_{\rm cert}\)는 계속 OPEN이다.
+
 ## 1. 결론
 
 FGKMT Section 8에서 Theorem 6의 두 번째 결론을 호출할 때, Hypothesis 1(2)를 확인해야 하는

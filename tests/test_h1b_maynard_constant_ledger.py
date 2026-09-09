@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.11.0")
+        self.assertEqual(self.document["schema_version"], "1.12.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -70,11 +70,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 5,
+                    "RATE_MISSING": 3,
                     "INPUT_PACKAGE_MISSING": 3,
                     "PARTIAL_EXPLICIT": 1,
                     "PROJECT_FINITE_COMPONENT_CLOSED": 3,
-                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 4,
+                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 6,
                     "HARD_BLOCKER": 1,
                 }
             ),
@@ -137,11 +137,21 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             self.assertIn(row_id, self.by_id)
 
         p92 = self.by_id["H1B-P92"]
-        self.assertEqual(p92["status"], "RATE_MISSING")
+        self.assertEqual(p92["status"], "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT")
         self.assertIn("identity form", " ".join(p92["explicit_parts"]))
         self.assertIn(
             "one-step dimension repair",
-            " ".join(p92["missing_numeric_inputs"]),
+            " ".join(p92["explicit_parts"]),
+        )
+        self.assertEqual(p92["missing_numeric_inputs"], [])
+        self.assertIn(
+            "general",
+            " ".join(self.document["actual_application_scope_notes"][
+                "H1B-P92_remaining_outside_actual_child"
+            ]),
+        )
+        self.assertEqual(
+            self.by_id["H1B-L93"]["status"], "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
         )
 
     def test_h1b1_trace_resolves_source_identity_not_numeric_rate(self) -> None:
@@ -322,6 +332,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "Sono_FMT_H1c1b4e_end_to_end_composition_v1.json",
         )
         self.assertIn("H1b-P92a", self.document["composition"]["next_gate"])
+        self.assertIn("H1b-P91a", self.document["composition"]["next_gate"])
         self.assertIn(
             "constants (1,1,2)",
             self.document["composition"]["project_h1a_input"],

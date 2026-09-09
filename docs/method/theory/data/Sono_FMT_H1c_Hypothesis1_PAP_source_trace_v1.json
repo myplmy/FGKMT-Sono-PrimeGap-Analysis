@@ -529,14 +529,30 @@
     "locator": "docs/method/theory/data/Sono_FMT_H1c1b4e_end_to_end_composition_v1.json",
     "outcome": "ACTUAL_IDENTITY_HYPOTHESIS1_INPUT_EXPLICIT_WEIGHTED_P92_AND_ROOT_SIV08_OPEN",
     "actual_identity_input_ready": true,
-    "constants": [1, 1, 2],
+    "constants": [
+      1,
+      1,
+      2
+    ],
     "sufficient_cutoff": "X>=2*exp(10^50)",
     "weighted_proposition92_closed": false,
     "broad_siv08_closed": false
   },
   "next_gate": {
-    "id": "H1b-P92a",
-    "description": "Insert the explicit actual Hypothesis input into the weighted Proposition 9.2 proof and close the FGKMT lower-endpoint weight separately.",
+    "id": "H1b-P91a",
+    "description": "H1b-P92a closes the identity weighted child. Next close the unweighted actual P91, growing-dimension P94 compatibility, and the remaining normalization; no automatic root promotion.",
     "ready_for_threshold_calculator": false
+  },
+  "successor_actual_identity_weighted_moment": {
+    "id": "H1b-P92a",
+    "locator": "docs/method/theory/data/Sono_FMT_H1bP92a_identity_prime_moment_v1.json",
+    "actual_identity_weighted_proposition92_closed": true,
+    "weighted_lower_endpoint_closed": true,
+    "relative_multiplier": 1,
+    "additive_multiplier": 1,
+    "sufficient_child_cutoff": "X>=2*exp(10^1000)",
+    "general_proposition92_closed": false,
+    "broad_siv08_closed": false,
+    "numerical_x_cert_ready": false
   }
 }

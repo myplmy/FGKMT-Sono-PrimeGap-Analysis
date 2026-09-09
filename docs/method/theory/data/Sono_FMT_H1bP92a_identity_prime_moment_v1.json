@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1b-P92a",
+  "outcome": "ACTUAL_IDENTITY_WEIGHTED_MOMENT_AND_LOWER_ENDPOINT_EXPLICIT_ROOTS_OPEN",
+  "evidence_level": "PROJECT_FINITE_ANALYTIC_PROOF_WITH_RATIONAL_TOY_AND_SCALAR_DIAGNOSTICS_NOT_LEAN",
+  "minimum_k": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "comparison_minimum_k": "100000000000000000000000000000000000000000000000000",
+  "variables": {
+    "outer_X": "2*T",
+    "L": "log(T)",
+    "k": "floor(L^(1/5))",
+    "R": "(T/2)^(1/9)",
+    "y": "(L-log(2))/9",
+    "alpha": "2",
+    "theta": "1/3",
+    "selected_form": "identity n",
+    "hypothesis_boundary": "closed [T,2T]",
+    "external_prime_boundary": "open-closed (T,2T]"
+  },
+  "sufficient_child_cutoff": "X>=2*exp(10^1000)",
+  "theorem_scope": "Actual admissible primitive forms with coefficients <=T^2 and the same B/W/lambda/profile construction. Uniform in the exact bin k^5<=L<(k+1)^5.",
+  "structural_assumptions": [
+    "actual identity-selected Hypothesis 1 from theory 43",
+    "admissibility and distinct primitive forms",
+    "same exceptional B and corrected support/excluded-modulus family",
+    "wide support-[0,2] coordinate summed first",
+    "no unproved smoothness of the remainder H"
+  ],
+  "bounds": {
+    "relative_multiplier": 1,
+    "additive_multiplier": 1,
+    "distribution_relative_to_additive_scale": "k^(-190*k^2)",
+    "weight_atom_relative_to_additive_scale": "exp(-L/2)",
+    "count_main_atom_relative_to_additive_scale": "exp(-L/2)",
+    "external_additive_expression": "k^(-190*k^2)+3*exp(-L/2)",
+    "smooth_profile_kappa": "3000*k^3*(log(k))^2",
+    "coarse_relative_majorant": "10^135*(log(k))^4/k^2",
+    "I_F1_over_I_F": 2,
+    "J_F1_over_J_F": 2,
+    "I_F2_over_I_F": "4*k^2",
+    "J_F2_over_J_F": "8*k^2",
+    "slice_over_J_F": "16*k^4"
+  },
+  "actual_identity_proposition92_closed": true,
+  "lower_endpoint_weight_closed": true,
+  "general_proposition92_closed": false,
+  "proposition61_closed": false,
+  "siv_07_closed": false,
+  "siv_08_closed": false,
+  "siv_09_closed": false,
+  "x_cert_ready": false,
+  "actual_prime_experiment_performed": false,
+  "lean_verified": false,
+  "no_materialization": [
+    "T=exp(L)",
+    "k-dimensional arrays",
+    "prime lists",
+    "k^(190*k^2) integer denominator"
+  ],
+  "immutable_sources": [
+    {
+      "path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "doi": "10.1112/S0010437X16007296",
+      "locators": "pp.1540-1544, Proposition 9.2, Lemma 9.3, equations (9.16)-(9.38)",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098"
+    },
+    {
+      "path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "doi": "10.1090/jams/876",
+      "locators": "pp.95,98-102, Definition 2, Theorem 6, Section 8",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8"
+    },
+    {
+      "path": "tmp/pdfs/h1b1b/maynard_source/Subsets.tex",
+      "role": "secondary author source; final published PDF takes precedence",
+      "sha256": "e55592f0d674e32ad6ef7d6fe25bce2a0aa3cfc712981ccf996a5df0a4d5b18e"
+    }
+  ],
+  "proof_dependency_snapshots": [
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1a_finite_r_integral_contract_v1.json",
+      "sha256": "b96ff035dcbf9bd01b8bf49eab18c6f31296aea4436052f6d7c4d5bc59c22703"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1b1a_explicit_cutoff_summation_v1.json",
+      "sha256": "33ea7c54851a1d3e3382df773faa167f99b9cc36aada78712cf15e6f4c0f198b"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
+      "sha256": "b0520d048aeda0022ce44b80cdce00538a16a0a429ad03985ddc34142f5dd276"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1b1b2d1a1_scalar_remainder_v1.json",
+      "sha256": "637e44f1e6e2b841f58f059114eb21c975ccb3902ca38d2d7f6e8313fa1f4448"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1b2a_residual_moment_error_v1.json",
+      "sha256": "d1368a0d047662e7d98d2e0d6c9a6f9f79e230df79d935d17e9897988b5389c2"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1c1b4e_end_to_end_composition_v1.json",
+      "sha256": "6140ea5913a22b8abf1631a2903ff078b9e644f30da526dffa7a14d16628a03f"
+    },
+    {
+      "path": "source/h1b1b2d1a1_scalar_remainder.py",
+      "sha256": "0e9887cd612bd5676daf964c5b632255b52c608bf2a3b4ba8cb2b39832a4f858"
+    }
+  ],
+  "parent_ledger": "docs/method/theory/data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json",
+  "theory": "docs/method/theory/44_Sono_FMT_H1bP92a_actual_identity_weighted_moment.md",
+  "review": "docs/review/50_20260909_H1bP92a_weighted_moment_타당성검토.md",
+  "helper": "source/h1bp92a_identity_prime_moment.py",
+  "test": "tests/test_h1bp92a_identity_prime_moment.py",
+  "prior_proof_search": {
+    "primary": "Maynard 2016 pp.1540-1544; existing corrected project children",
+    "secondary_inspected": "https://github.com/AxiomMath/PrimeGapsLib/blob/main/PrimeGapsTheory/Sieve/S2m/Error/Main.lean",
+    "not_adopted_reason": "Fixed-k existential constants and separate level-of-distribution assumption, not a numerical uniform growing-k input.",
+    "novelty_claimed": false
+  },
+  "open_successors": [
+    "actual unweighted P91",
+    "fixed-k P94 to growing-dimension compatibility",
+    "common singular-series/weight/tau/u normalization",
+    "actual dependency pruning of P95",
+    "PAP/UB/hypergraph and final theorem threshold"
+  ]
+}

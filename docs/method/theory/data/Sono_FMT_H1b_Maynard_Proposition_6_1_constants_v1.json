@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.11.0",
+  "schema_version": "1.12.0",
   "created_kst": "2026-09-04",
   "updated_kst": "2026-09-09",
   "gate": "H1b Maynard Proposition 6.1 constant ledger",
@@ -328,15 +328,11 @@
         "the decay exponent -1/10",
         "the algebraic shape of the additive error",
         "H1c-1b.1 identifies the actual FGKMT Proposition 9.2 identity form as L(n)=n and closes the Bordignon modulus-capacity inequality for an endpoint-safe growing dimension",
-        "H1c-1b.1 gives an exact source_r-1 repair for the recurring x/2 dimension-transition strips"
+        "H1c-1b.1 gives an exact source_r-1 repair for the recurring x/2 dimension-transition strips",
+        "H1c-1b.4e closes actual identity Hypothesis constants (1,1,2); H1c-1b.1a closes the one-step dimension repair coefficient bridge",
+        "H1b-P92a proves actual identity weighted P9.2 and closed-to-open lower-endpoint weight with relative/additive multipliers (1,1) for k=floor((log T)^(1/5))>=10^200, X=2T"
       ],
-      "missing_numeric_inputs": [
-        "the multiplier in the relative error",
-        "the multiplier in the additive error",
-        "a numerical lower bound for the prime-density main term",
-        "a proof that the endpoint-safe one-step dimension repair preserves every actual FMT/Sono normalization and final coefficient inequality",
-        "a finite x at which both errors fit the chosen slack"
-      ],
+      "missing_numeric_inputs": [],
       "upstream": [
         "H1B-HYP-02",
         "H1B-L81",
@@ -345,7 +341,7 @@
         "H1B-L86-SIZE",
         "H1B-L93"
       ],
-      "status": "RATE_MISSING",
+      "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
       "threshold_ready": false
     },
     {
@@ -354,18 +350,16 @@
       "role": "diagonal array approximation in the prime moment",
       "printed_bound": "H equals F plus O(T_k (log log R)^2 / log R times F_2).",
       "explicit_parts": [
-        "the displayed decay shape in R"
+        "the displayed decay shape in R",
+        "theory 26 supplies CY<3.17e122 and the A^2/AB/B^2 bypass; H1b-P92a closes actual growing-dimension gates",
+        "for k>=10^50, I(F1)<=2I(F), J(F1)<=2J(F), J(F2)<=8k^2 J(F), and slice integral<=16k^4 J(F)"
       ],
-      "missing_numeric_inputs": [
-        "the O-multiplier",
-        "an explicit F_2/F comparison for the selected test function",
-        "a numerical R for the allocated error margin"
-      ],
+      "missing_numeric_inputs": [],
       "upstream": [
         "H1B-L82",
         "H1B-L84"
       ],
-      "status": "RATE_MISSING",
+      "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT",
       "threshold_ready": false
     },
     {
@@ -424,10 +418,10 @@
         "the allowed dependency only on alpha, theta, and Hypothesis 1 constants"
       ],
       "missing_numeric_inputs": [
-        "numeric Hypothesis 1 constants and cutoffs",
-        "remaining explicit constants for Lemma 8.1 and Lemma 9.3",
-        "explicit constants for Propositions 9.1, 9.2, Lemma 9.3, and Proposition 9.5",
-        "one error-budget allocation and maximum cutoff satisfying every row simultaneously"
+        "general-A/affine Hypothesis and moment inputs outside the actual branch",
+        "actual unweighted Proposition 9.1 and growing-dimension P94 gate compatibility",
+        "dependency pruning of Proposition 9.5: FGKMT Theorem 6's displayed proof uses P91/P92/P94/L85, not P95 directly",
+        "common moment normalization, singular-series/tau/u transfer, one complete error budget"
       ],
       "upstream": [
         "H1B-P61-01",
@@ -452,10 +446,22 @@
     }
   ],
   "composition": {
-    "project_h1a_input": "H1B-L86-RATIO and H1B-L86-SIZE are closed for every integer k >= 36. H1b-2a supplies finite Lemma 8.5 envelopes, H1b-2a.1 closes the P94 Euler normalization, H1b-2a.2 closes the actual A=Z equation-(9.52) distribution child, and H1b-2a.3 closes the actual FGKMT/FMT P94 call end to end with multiplier below 13 at an explicit cutoff. H1c-1b.3r1 corrects the actual FGKMT interval to [T,2T], and H1c-1b.4e closes the selected identity-form Hypothesis 1 input with constants (1,1,2) for X>=2*exp(10^50). This still does not provide the weighted Proposition 9.2 proof or the remaining moments.",
+    "project_h1a_input": "H1B-L86-RATIO and H1B-L86-SIZE are closed for every integer k >= 36. H1b-2a supplies finite Lemma 8.5 envelopes, H1b-2a.1 closes the P94 Euler normalization, H1b-2a.2 closes the actual A=Z equation-(9.52) distribution child, and H1b-2a.3 closes the actual FGKMT/FMT P94 call end to end with multiplier below 13 at an explicit cutoff. H1c-1b.3r1 corrects the actual FGKMT interval to [T,2T], and H1c-1b.4e closes the selected identity-form Hypothesis 1 input with constants (1,1,2) for X>=2*exp(10^50). H1c-1b.4e by itself did not provide the weighted proof. The successor H1b-P92a closes that actual identity weighted P9.2 child and its lower endpoint at X>=2*exp(10^1000), without closing the root. The previous P94 gate is fixed-k; growing-k compatibility needs a successor.",
     "printed_decay_exponents_are_not_unit_constants": true,
     "common_cutoff_available": false,
     "ready_for_threshold_calculator": false,
-    "next_gate": "Run H1b-P92a: insert the explicit actual identity-form Hypothesis 1 input into the weighted Proposition 9.2 proof, recover its error multiplier and common cutoff, and separately absorb the FGKMT lower-endpoint weight w(T). Then close Proposition 9.1, Lemma 9.3, Proposition 9.5, and the common moment composition."
+    "next_gate": "H1b-P91a after H1b-P92a: close the actual unweighted moment with uniform integral comparisons, then repair growing-dimension P94 gate compatibility and audit the minimal actual dependency set before common moment normalization."
+  },
+  "h1bp92a_ledger": "docs/method/theory/data/Sono_FMT_H1bP92a_identity_prime_moment_v1.json",
+  "actual_application_scope_notes": {
+    "H1B-P92": "Only the actual identity-selected application is closed; not a general P9.2 or Sono numerical threshold.",
+    "H1B-P94": "Existing fixed-k certificate remains valid. Its exponentially strong smooth gate is not yet certified on the maximal growing-k path; use H1b-P92a's uniform integral comparison in a separate successor.",
+    "H1B-P92_remaining_outside_actual_child": [
+      "general affine-selected or general-A Proposition 9.2 remains outside this actual child",
+      "common moment normalization and downstream singular-series/tau/u transfer"
+    ],
+    "H1B-L93_remaining_outside_actual_child": [
+      "general source-parameter composition outside the actual identity application"
+    ]
   }
 }

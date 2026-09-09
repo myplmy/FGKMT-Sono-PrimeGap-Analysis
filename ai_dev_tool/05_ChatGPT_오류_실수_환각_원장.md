@@ -955,6 +955,62 @@
   --exclude-standard`의 합집합에 한정한다. 보존된 `tmp`·과거 artifact까지 전수 검사하려면
   별도 목적·접근권한·기존 결함 baseline을 먼저 정의한다.
 
+### E065 — H1b-P92a 패치 문자열·PDF 도구 가용성 처리 실패
+
+- 분류: TOOL_INPUT_ERROR / FAILED_BEFORE_WRITE / NO_RESEARCH_RESULT_IMPACT
+- 증상: JavaScript raw template에 Markdown backtick을 넣어 SyntaxError가 두 번 발생했고,
+  문서 add-file patch의 display 종료 두 줄에 + prefix를 빠뜨려 apply_patch 검증이 실패했다.
+- 교정: 문서 본문 모든 줄에 patch prefix를 자동 부착하고, backtick이 필요한 patch는 일반
+  문자열 배열로 조립했다. git apply 우회는 쓰지 않았다.
+- PDF 처리에서도 fitz 및 pdftotext.exe가 없는 경로를 시도했고, 기본 출력 encoding에서
+  문자 인코딩 오류가 있었다. 설치된 pypdf의 UTF-8 extraction과 Poppler rendering으로
+  대체했다. 새 package를 임의로 설치하지 않았다.
+- 영향: 실패한 패치는 파일을 바꾸지 않았다. raw PDF·actual dataset·실험 결과는 미변경이다.
+- 재발 방지: patch와 실행 문자열을 별도 단계로 구성하고, PDF 도구 가용성과 encoding을
+  먼저 확인한다. Markdown을 JS raw template에 넣을 때 backtick을 직접 섞지 않는다.
+
+### E066 — fixed-k certificate를 growing-k 경로의 완료로 오해할 위험
+
+- 분류: QUANTIFIER_COMPATIBILITY_GAP_FOUND / NO_INVALIDATION_OF_FIXED_PARAMETER_PROOF
+- 발견: 기존 P94의 2^k 비교를 흡수하는 충분조건은 각 고정 k에서는 유효하지만,
+  k=floor((log T)^(1/5))의 maximal growing 경로에 동시에 적용됨을 증명한 것이 아니다.
+- 영향: “actual P94 parameterized explicit”라는 말을 growing-k 공통 cutoff까지 닫혔다고
+  읽으면 과장이다. 실제 experiment 결과나 기존 fixed-parameter 부등식은 무효가 아니다.
+- 조치: theory 44의 Cantelli 비교로 큰 k에서 I(F1)<=2I(F), J(F1)<=2J(F)를 증명해
+  P92에는 적용했다. P94는 기존 certificate를 보존하고 growing-k 교정을 다음 gate로 남겼다.
+- 재발 방지: “각 고정 parameter마다 충분조건 존재”와 “actual growing parameter 경로에서
+  하나의 유한 cutoff 존재”를 별도 obligation으로 등록한다.
+
+### E067 — H1b-P92a parent schema·시험 모듈 지정과 실행 순서 오류
+
+- 분류: INTEGRATION_SCHEMA_MISMATCH / INVALID_TEST_COMMAND / VALIDATION_ORDER_ERROR
+- 첫 통합 검사는 없는 시험 모듈 이름을 지정했고, 고정 obligation schema 안에 새 메모 field를
+  넣어 43개 중 1 FAIL·1 import ERROR였다. 새 수학·수치 16개는 PASS했다.
+- 메모 field를 schema 밖으로 옮긴 뒤 49개 재검사에서, actual closure 행의
+  missing_numeric_inputs가 비어야 한다는 계약을 놓쳐 1 FAIL이었다.
+- 이 두 번째 결과를 모델이 확인하기 전에 같은 도구 orchestration에서 전체 suite도
+  시작했다. 이는 1차 실패를 고친 뒤 다음 검증으로 가야 하는 순서를 어긴 것이다.
+  해당 전체 실행은 최종 성공 근거로 사용하지 않고 실패 baseline으로 보존한다.
+- 교정 방향: actual child 안의 미결은 빈 목록으로 두고, 일반형·부모 합성의 미결을 별도
+  actual_application_scope_notes에 보존한다. 검사 계약을 약화하지 않는다.
+- 재발 방지: 시험 모듈은 rg --files로 먼저 찾는다. 의존 검증의 후속 실행은 반드시
+  직전 exit_code==0일 때만 dispatch한다. JSON의 extra field/빈 목록 의미도 같이 확인한다.
+- 최종 교정: schema 안의 actual-child 미결 목록은 비우고 general/parent 미결을 별도
+  scope notes로 옮겼다. 검사 계약은 유지했다. 실패 baseline은 전체 434개 중 1 FAIL,
+  67.993초였다. 이후 표적 49/49 PASS(0.044초)를 확인한 경우에만 전체를 dispatch했고,
+  최종 전체 434/434 PASS(62.520초)였다.
+
+
+### E068 — untracked 신규 Python 파일의 EOF 공백이 staged 검사에서 발견됨
+
+- 분류: WHITESPACE_CHECK_SCOPE_GAP / CAUGHT_BEFORE_COMMIT
+- 증상: stage 전 git diff --check에는 untracked 파일이 포함되지 않았다.
+  stage 후 검사에서 신규 helper/test 두 파일의 마지막 빈 줄을 발견해 커밋을 중단했다.
+- 교정: 마지막 빈 줄만 제거하고 코드 내용이 같음을 확인한 뒤 재검사한다.
+  스테이징 경로 목록 20개는 정확했고 다른 파일이 섞인 문제는 아니었다.
+- 재발 방지: 신규 파일은 stage 후 cached diff --check까지 통과해야 완료다.
+  경로 allowlist 검사와 whitespace 검사 출력을 섞어 실패 유형을 혼동하지 않는다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

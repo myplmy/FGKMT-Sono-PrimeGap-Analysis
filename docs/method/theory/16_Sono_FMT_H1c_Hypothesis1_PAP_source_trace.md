@@ -402,3 +402,13 @@ H1c-1b.4a–4e를 actual identity subset에 합성하면
 \(\mathcal A\)·affine form을 포함하는 일반 package에 대한 fail-closed flag이므로 유지한다.
 weighted Proposition 9.2, FGKMT lower-endpoint weight, broad `SIV-08`,
 PAP sibling과 \(X_{\mathrm{cert}}\)도 닫히지 않았다. 다음 gate는 H1b-P92a다.
+
+## 18. 2026-09-09 H1b-P92a actual weighted-child 후속 상태
+
+[theory 44](44_Sono_FMT_H1bP92a_actual_identity_weighted_moment.md)가
+\(k\ge10^{200}\)에서 actual identity weighted Proposition 9.2와 closed-to-open lower
+weight/count atom을 닫았다. 상대/가법 multiplier는 1/1이다. 앞 §17 및 기존 successor
+snapshot의 false flag는 당시 기록으로 보존하며, 새 machine successor에 closure를 기록한다.
+
+일반 Hypothesis package, 다른 actual moment와 singular-series/weight/tau/u 공통 합성,
+PAP sibling과 \(X_{\rm cert}\)는 여전히 OPEN이다. 다음 gate는 H1b-P91a다.
