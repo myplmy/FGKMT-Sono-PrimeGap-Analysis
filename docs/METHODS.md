@@ -8,7 +8,7 @@
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
 - 2026-09-09 최신 승인: 완료 proof 단계의 로컬 staging/commit은 허가됐다. push/PR·actual 확대는 여전히 별도 승인 대상이다.
-- 최신 proof 상태: COR1/2/3이 R01–R06 actual child를 닫았고 COV1은 full-residue cap·예외 복원·partition·D=2/kappa 입력을 explicit하게 연결했다. 1·2점 moment와 covering은 numerical C0 gate에 조건부이며 R07–R12 6개 work package는 OPEN이다. 다음은 H1b-COV1a / FGKMT §5 normalization→conditional moment→Taylor/induction C0 복원이다. 같은 Sono 계수와 Maynard W-filter를 유지한다. full hypergraph, 최종 오차 budget, X_cert는 인증하지 않는다.
+- 최신 proof 상태: COR1–COR3/COV1–COV1a가 R01–R07 actual child를 닫았다. COV1a는 같은 Theorem3의 충분한 C0=100을 정량 재증명했고 theory53 actual log gate가 기존 child X>=2exp(10^1000)에서 성립한다. 고정 유한 subset rate는 explicit이지만 동시 구간·예외복원·smooth remainder·PAP/UB·최종 계수·변수(R08–R12)는 OPEN이다. 다음은 H1b-COV2 / DEP-R08이며 같은 Sono 계수·Maynard W-filter를 유지한다. X_cert·계산기·독립 형식인증으로 승격하지 않는다.
 - 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a와 H1b-1 계열은 finite-r 적분비, Lemma 8.2 multiplier 89, 교정된 \(\kappa=1\) one-step multiplier, 실제 제외모듈과 Lemma 8.4 관련 하위호출 9/9를 parameterized explicit 수준으로 닫았다.
   2026-09-08 H1b-2a는 Lemma 8.5의 coefficient·weight envelope와 Lemma 8.6의 절대 \(I_k,J_k\) 크기 및 보수적 \(F_1/F_2\) 비교를 유한식으로 닫았다. H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱도 exact local factor와 finite singular-series 비교로 닫았다.
   H1b-2a.2는 실제 \(\mathcal A=\mathbb Z,D=1\) 호출의 정확한 \(E_q^{(1)}\le1\)을 이용해 식 (9.52) distribution child를 parameterized explicit으로 닫았다. H1b-2a.3은 actual FGKMT/FMT P94의 모든 닫힌 child를 공통 cutoff로 합성해 모든 정수 \(k\ge36\)에서 multiplier 13 미만을 얻었고, `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격했다. 2026-09-09 H1c-1a는 quantitative character/Bombieri–Vinogradov source inventory를 완료했고, H1c-1b.1은 actual Proposition 9.2의 identity form에 대해 Bordignon 2021의 pointwise growing-\(A\) 대입과 modulus capacity를 닫았다. H1c-1b.1a는 endpoint-safe \(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\)와 실제 \(R=(x/4)^{\theta/3}\)를 사용해 두 finite normalization factor의 곱이 \(39/40\)보다 큼을 exact하게 증명했다. H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7과 제외 prime 보정을 합성해 \(x\ge2\exp(36^5)\)에서 \(\sigma y<(1001000/998001)80cx\log_2x<(26/25)80cx\log_2x\)를 증명했다. 따라서 `SIV-03=EXPLICIT`이고 Sono의 같은 \(2\times10^{-17}\) 계수가 이 단계에서 유지된다. H1c-1b.2는 fixed \(Q_1\)에서 두 endpoint에 한 exceptional modulus와 그 prime divisor \(B\)를 공통으로 쓰고, 최종 NYJM판 12항을 이용한 raw \((T,2T]\) \(\psi\) composition을 닫았다. H1c-1b.3r1은 Maynard 원문의 일반 \([T,2T)\)와 FGKMT actual \([T,2T]\)를 구분하고 closed target의 한 lower atom을 안전하게 보정했다. H1c-1b.4a–4e는 source 정규화·density·full absorption을 합성해 \(X\ge2\exp(10^{50})\)에서 actual identity-form Hypothesis 1 input을 constants \((1,1,2)\)로 explicit하게 닫았다. 후속 H1b-P92a는 \(k\ge10^{200}\)에서 actual identity weighted P9.2와 lower weight/count atom을 multiplier 1/1로 닫았다. child cutoff \(X\ge2\exp(10^{1000})\)는 전체 threshold가 아니다. H1b-P91a는 filtered unweighted moment·shift를, H1b-P94g는 actual shifted T0의 growing-dimension P94 multiplier 1을 닫았다. 이 1은 더 강한 새 regime의 값이고 기존 13을 보편적으로 대체하지 않는다. 후속 H1b-NORM은 공통 singular-series/lambda-square/tau/u_X와 B0 삭제·확률 입력까지 닫았다. H1b-DEP가 actual dependency를 분리했고 다음은 뒤쪽 finite correlation/failure rate다. `SIV-07/08=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
@@ -991,7 +991,7 @@ sigma의 O(b^-10)를 복원했다고 쓰지 않으며 이번에 충분한 O(b^-2
 R01–R06 actual child는 explicit, R07–R12는 OPEN이다. 후속 COV1에서 cardinality·subset·
 failure 전체를 확인해야 하며 SIV-07/08/09와 calculator는 여전히 fail-closed다.
 
-## 2026-09-09 H1b-COV1 full-residue hypergraph 연결
+## 2026-09-09 H1b-COV1 full-residue hypergraph 연결 (당시 이력; 아래 COV1a가 후속)
 
 [theory 53](method/theory/53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md)은
 전체 residue edge를 2k로 cap하고 제거 degree mass의 기대를 3200cX/(ab^9)로 상계한다.
@@ -1006,3 +1006,14 @@ tuple만 덮은 것을 full residue survivor의 하한으로 대체하지 않는
 현재 child에서 그 비용이 최종 목적에 충분히 작다는 판정은 R08로 남긴다.
 theory52 (52.17)의 마지막 '+' 누락은 theory53 §1.1이 정정 정본이며,
 기존 JSON/helper의 세 항의 합과 일치한다. pinned 원본을 소급 수정하지 않는다.
+
+## 2026-09-09 H1b-COV1a numerical C0=100
+
+[theory54](method/theory/54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md)의
+project quantitative proof는 FGKMT Theorem3를 같은 가정·결론으로 복원한다.
+정규화 good-event 허용오차를 t^30으로 바꾸고 모든 숨은 상수를 상계하여
+충분한 C0=100을 얻었다. 원문에 인쇄된 값이나 최적 상수라는 뜻이 아니다.
+이는 theory53의 C0-조건부 입력을 해소한다. COV-06은 EXPLICIT이고,
+T1 현재 합계는 EXPLICIT8/PARTIAL9/RATE_MISSING30/SOURCE_REVIEW_REQUIRED4/HARD_BLOCKER15다.
+theory53의 예외복원비와 유한 family 실패율을 실제 Sono 구간에 합성하는 R08,
+PAP/UB·계수·최종변수 R09–R12는 남아 있다. 실제 prime 실험·calculator는 만들지 않는다.

@@ -221,9 +221,9 @@ class ContractTests(unittest.TestCase):
         h1b = json.loads((base / "Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json").read_text(encoding="utf-8"))
         h1c = json.loads((base / "Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json").read_text(encoding="utf-8"))
         t1 = json.loads((base / "Sono_FMT_T1_proof_obligations_v1.json").read_text(encoding="utf-8"))
-        self.assertEqual(h1b["composition"]["remaining_actual_work_packages"], 6)
+        self.assertEqual(h1b["composition"]["remaining_actual_work_packages"], 5)
         self.assertTrue(h1b["composition"]["actual_main_degree_finite_moments_closed"])
-        self.assertEqual(h1c["next_gate"]["id"], "H1b-COV1a")
+        self.assertEqual(h1c["next_gate"]["id"], "H1b-COV2")
         self.assertEqual(h1c["successor_finite_local_main_moments"]["newly_closed_actual_work"],
                          ["DEP-R03", "DEP-R06"])
         rows = {row["id"]: row for row in t1["obligations"]}
@@ -240,7 +240,7 @@ class ContractTests(unittest.TestCase):
                      "14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md",
                      "16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md"):
             header = (base / name).read_text(encoding="utf-8").split("\n\n", 2)[1]
-            self.assertEqual(header, "## 2026-09-09 H1b-COV1 현재 상태")
+            self.assertEqual(header, "## 2026-09-09 H1b-COV1a 현재 상태")
 
     def test_live_contract_and_source_hashes(self):
         self.assertEqual(m.validate_contract(m.load_contract()), [])

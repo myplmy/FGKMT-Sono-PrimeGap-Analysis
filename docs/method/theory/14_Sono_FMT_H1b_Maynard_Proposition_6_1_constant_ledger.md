@@ -1,18 +1,19 @@
 # Sono/FMT H1b Maynard Proposition 6.1 상수 원장
 
-## 2026-09-09 H1b-COV1 현재 상태
+## 2026-09-09 H1b-COV1a 현재 상태
 
-[theory 53](53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md)과
-[review 60](../../review/60_20260909_H1bCOV1_hypergraph_유한연결_타당성검토.md)가 최신 정본이다.
-COR1–COR3의 R01–R06 actual child는 보존한다. COV1은 full residue edge를 2k로 cap하고
-제거 질량·예외 q 복원·서로소 partition과 D=2, kappa=(9/10)5^-m 입력을 explicit하게 닫았다.
-1·2점 moment transfer는 FGKMT Theorem3의 numerical C0 smallness gate에 조건부다.
-C0가 아직 수치화되지 않았으므로 R07 전체와 R08–R12는 OPEN이고,
-broad SIV-07/08/09·COV-06/08은 HARD_BLOCKER, X_cert는 OPEN이다.
-다음은 H1b-COV1a: FGKMT Section5의 normalization → conditional moment → Taylor/induction 상수 복원.
-예외점 복원비가 현재 child에서 충분히 작다고 선언하지 않으며 R08에서 따로 판정한다.
-theory52 (52.17)의 '+' 표시 누락은 theory53 §1.1에 정정했다. 원래 contract/code는 합이었다.
-과거 원장과 hash-pinned proof는 보존하며, 작업 수 6은 완료율이 아니다.
+[theory 54](54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md)와
+[review 61](../../review/61_20260909_H1bCOV1a_covering_C0_명시화_타당성검토.md)가 최신 정본이다.
+FGKMT Theorem3의 같은 smallness 형태에서 C0=100 sufficient를 project analytic proof로 닫았다.
+normalization·조건부 moment·Taylor·모든 m 귀납을 명시했고, theory53 actual 입력의
+log gate는 기존 child X>=2exp(10^1000)에서 성립한다. 최소 C0·독립 형식인증 주장은 아니다.
+R01–R07 actual child와 고정 유한 subset rate는 explicit이고 R08–R12는 OPEN이다.
+COV-06은 EXPLICIT; broad SIV-07/08/09와 COV-08/11, X_cert는 HARD_BLOCKER/OPEN 유지다.
+다음은 H1b-COV2 / DEP-R08: 실제 구간 family·복원비·smooth remainder·동시 성공 예산.
+예외복원 8000/√b가 현재 child에서 작다는 주장은 하지 않는다.
+fixed-subset moment를 모든 subset의 동시 성공이나 사후 선택 보장으로 확대하지 않는다.
+theory52 (52.17)의 '+' 표시 누락은 theory53 §1.1의 정정을 따른다.
+과거 원장·hash-pinned proof는 보존하며, 남은 5작업은 완료율이 아니다.
 아래 날짜별 next-gate와 미완료 서술은 당시 이력이며 이 현재 상태가 우선한다.
 
 - 작성: 2026-09-04 KST

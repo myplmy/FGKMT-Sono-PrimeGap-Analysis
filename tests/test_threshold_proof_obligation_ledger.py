@@ -121,16 +121,16 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         for row in root_blockers:
             self.assertNotEqual(row["status"], "EXPLICIT", row["id"])
 
-    def test_status_counts_include_h1a_and_sigma_y_promotions(self) -> None:
+    def test_status_counts_include_h1a_sigma_y_and_covering_core(self) -> None:
         self.assertEqual(
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "EXPLICIT": 7,
+                    "EXPLICIT": 8,
                     "PARTIAL": 9,
                     "RATE_MISSING": 30,
                     "SOURCE_REVIEW_REQUIRED": 4,
-                    "HARD_BLOCKER": 16,
+                    "HARD_BLOCKER": 15,
                 }
             ),
         )

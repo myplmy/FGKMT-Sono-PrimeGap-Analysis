@@ -809,13 +809,13 @@
       "equation": "Theorem 3 and Section 5 proof",
       "quantity": "covering failure and uncovered proportion",
       "direction": "upper bound",
-      "explicit_bound": "powers of delta are displayed, but C_0,D,A,kappa and setup constants are not instantiated",
+      "explicit_bound": "C0=100 sufficient in delta<=(kappa^A/(100*exp(A*D)))^(10^(m+2)); same Theorem3 conclusion",
       "valid_range": "delta below Theorem 3 smallness bound and all theorem hypotheses",
       "depends_on": [],
-      "status": "HARD_BLOCKER",
+      "status": "EXPLICIT",
       "criticality": "hard",
-      "checker": "quantitative hypergraph reproof",
-      "notes": "H1b-COV1 theory53 instantiates D=2, r_hg=2*k, A_hg=4*k*m+2, kappa=(9/10)*5^(-m) and all setup inputs. Source C0 in (4.1) remains OPEN; Section5 normalization/conditional moments/Taylor/induction must be quantified in H1b-COV1a. This row remains HARD_BLOCKER."
+      "checker": "theory54 all-parameter quantitative reproof plus bounded exact algebra checks; not independent formal certification",
+      "notes": "H1b-COV1a theory54 closes normalization, conditional moments with independent marginal copies including equal indices, Taylor and induction for every m. C0=100 is sufficient, not an optimal or literally published value. Theory53 actual setup and smallness gate hold at the inherited child cutoff. Global simultaneous final-family budget is separate R08."
     },
     {
       "id": "COV-07",
@@ -832,7 +832,7 @@
       "status": "PARTIAL",
       "criticality": "hard",
       "checker": "source-to-source parameter map",
-      "notes": "H1b-COV1 distinguishes the old citation number from published Corollary4. Actual C<(400), whole-residue cap and support restoration are explicit; finite subset rate is conditional on the source C0 smallness gate. Not a numerical full covering certificate."
+      "notes": "Theory53 full-residue cap, partition and support restoration plus theory54 sufficient C0=100 give an explicit actual fixed-finite-subset rate. Original general FMT wrapper and its eventual simultaneous-use budget are not promoted. Historical old Corollary3 refers to published Corollary4."
     },
     {
       "id": "COV-08",
@@ -849,7 +849,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "finite failure-probability budget",
-      "notes": "H1b-COV1 theory53 provides an explicit C0-conditional 1/2-point moment and fixed finite-family failure envelope, including exception restoration. C0 and a useful simultaneous total budget are not closed, so this row stays HARD_BLOCKER. Uniform fixed-subset bounds do not mean simultaneous all-subset bounds."
+      "notes": "Theories53/54 now provide explicit 1/2-point moments and fixed-finite-family failure bounds without unknown C0. Exception restoration and a useful simultaneous final-family total budget remain R08; this row stays HARD_BLOCKER. Uniform fixed-subset bounds do not imply simultaneous all-subset events."
     },
     {
       "id": "COV-09",
@@ -1037,7 +1037,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "quantitative reproof",
-      "notes": "Current H1b-COV1 theory53: R01-R06 remain actual project explicit. Full-residue cap=2*k with positive removed-mass budget, finite exception restoration, D=2, kappa=(9/10)*5^(-m), A_hg=4*k*m+2 and the partition input are explicit. Theorem3 C0 remains nonnumerical, hence full R07 and R08-R12 remain OPEN. Next H1b-COV1a; broad SIV-07/08/09 and X_cert are not promoted. COR3 equation52.17 has a missing display plus, corrected in theory53 section1.1; its original contract/code already use the three-term sum. Earlier context (historical remaining-obligation statements are superseded by this current prefix): H1b registered 17 Maynard Section 8-9 obligations. H1b-1b-2b supplies a corrected kappa=1 one-step multiplier, H1b-1b-2a.1 closes all 11 application excluded-modulus bounds, and H1b-1b-2c certifies actual a=1/2, A2=8 and L=5+log(Lambda_star). H1b-1b-2d closes support-scaled finite-product composition for eight smooth Lemma 8.4 calls, H1b-1b-2d.1a removes the need for a global C1 version of the source-line-905 H remainder, H1b-1b-2d.1a.1 closes its scalar pointwise multiplier, and H1b-1b-2d.1b closes the two sharp xi*log(x) factors using the actual FGKMT/FMT specialization. H1b-2a closes finite Lemma 8.5 coefficient/weight envelopes and Lemma 8.6 absolute I/J size plus safe coarse F1/F2 comparisons. H1b-2a.1 closes the Proposition 9.4 equation-(9.66) final Euler normalization, including the squared equation-(9.64) factor. H1b-2a.2 closes the actual A=Z equation-(9.52) distribution child by exact interval discrepancy. H1b-2a.3 composes the actual FGKMT/FMT Proposition 9.4 call end to end, strengthens the smooth gate to absorb the 2^k envelope loss, and gives a uniform multiplier below 13. H1c-1b.4e supplies the actual identity Hypothesis constants (1,1,2), and H1b-P92a supplies its weighted P9.2 and lower-endpoint weight with multipliers (1,1) at k>=10^200. The fixed-k P94 certificate remains valid but maximal growing-k compatibility, actual P91, common normalization, and general-A inputs are separate remaining obligations. The paper states effectivity conditional on effective Hypothesis 1 constants, not numerical instantiation; SIV-07 therefore remains a hard blocker."
+      "notes": "Current H1b-COV1a theory54: sufficient C0=100 is proved for the full finite Theorem3 core; the theory53 actual smallness gate holds at X>=2*exp(10^1000). R01-R07 actual children and fixed-finite-subset rates are project explicit. R08-R12 remain OPEN: final interval family/restoration/smooth remainder, PAP, two-prime UB, coefficient and final-variable transfer. Next H1b-COV2. Broad SIV-07/08/09 and X_cert remain unpromoted. Earlier context (historical remaining-obligation statements are superseded by this current prefix): H1b registered 17 Maynard Section 8-9 obligations. H1b-1b-2b supplies a corrected kappa=1 one-step multiplier, H1b-1b-2a.1 closes all 11 application excluded-modulus bounds, and H1b-1b-2c certifies actual a=1/2, A2=8 and L=5+log(Lambda_star). H1b-1b-2d closes support-scaled finite-product composition for eight smooth Lemma 8.4 calls, H1b-1b-2d.1a removes the need for a global C1 version of the source-line-905 H remainder, H1b-1b-2d.1a.1 closes its scalar pointwise multiplier, and H1b-1b-2d.1b closes the two sharp xi*log(x) factors using the actual FGKMT/FMT specialization. H1b-2a closes finite Lemma 8.5 coefficient/weight envelopes and Lemma 8.6 absolute I/J size plus safe coarse F1/F2 comparisons. H1b-2a.1 closes the Proposition 9.4 equation-(9.66) final Euler normalization, including the squared equation-(9.64) factor. H1b-2a.2 closes the actual A=Z equation-(9.52) distribution child by exact interval discrepancy. H1b-2a.3 composes the actual FGKMT/FMT Proposition 9.4 call end to end, strengthens the smooth gate to absorb the 2^k envelope loss, and gives a uniform multiplier below 13. H1c-1b.4e supplies the actual identity Hypothesis constants (1,1,2), and H1b-P92a supplies its weighted P9.2 and lower-endpoint weight with multipliers (1,1) at k>=10^200. The fixed-k P94 certificate remains valid but maximal growing-k compatibility, actual P91, common normalization, and general-A inputs are separate remaining obligations. The paper states effectivity conditional on effective Hypothesis 1 constants, not numerical instantiation; SIV-07 therefore remains a hard blocker."
     },
     {
       "id": "SIV-08",
@@ -1054,7 +1054,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "uniform AP-distribution certificate",
-      "notes": "Current H1b-COV1 theory53: R01-R06 remain actual project explicit. Full-residue cap=2*k with positive removed-mass budget, finite exception restoration, D=2, kappa=(9/10)*5^(-m), A_hg=4*k*m+2 and the partition input are explicit. Theorem3 C0 remains nonnumerical, hence full R07 and R08-R12 remain OPEN. Next H1b-COV1a; broad SIV-07/08/09 and X_cert are not promoted. COR3 equation52.17 has a missing display plus, corrected in theory53 section1.1; its original contract/code already use the three-term sum. Earlier context (historical remaining-obligation statements are superseded by this current prefix): H1c-1b.1 prunes the actual Proposition 9.2 application to the identity form and closes modulus capacity; H1c-1b.2 fixes one exceptional B and the complete raw psi remainder. H1c-1b.3r1 corrects the actual FGKMT interval to closed [T,2T], while preserving the one-atom numerical envelope. H1c-1b.4a-4d normalize and reprove the Bordignon 2021 source constant, density, and complete absorption. H1c-1b.4e composes clauses (1),(2),(3) with explicit constants (1,1,2) for the actual A=Z selected identity subset at X>=2*exp(10^50). That predecessor closed the input only. H1b-P92a subsequently closes the actual identity weighted P9.2 and both lower atoms with relative/additive multipliers (1,1) for X>=2*exp(10^1000). General input packages, unweighted actual calls and singular-series/weight/tau/u integration remain separate. The broad SIV-08 row remains HARD_BLOCKER until that integration is split and composed. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
+      "notes": "Current H1b-COV1a theory54: sufficient C0=100 is proved for the full finite Theorem3 core; the theory53 actual smallness gate holds at X>=2*exp(10^1000). R01-R07 actual children and fixed-finite-subset rates are project explicit. R08-R12 remain OPEN: final interval family/restoration/smooth remainder, PAP, two-prime UB, coefficient and final-variable transfer. Next H1b-COV2. Broad SIV-07/08/09 and X_cert remain unpromoted. Earlier context (historical remaining-obligation statements are superseded by this current prefix): H1c-1b.1 prunes the actual Proposition 9.2 application to the identity form and closes modulus capacity; H1c-1b.2 fixes one exceptional B and the complete raw psi remainder. H1c-1b.3r1 corrects the actual FGKMT interval to closed [T,2T], while preserving the one-atom numerical envelope. H1c-1b.4a-4d normalize and reprove the Bordignon 2021 source constant, density, and complete absorption. H1c-1b.4e composes clauses (1),(2),(3) with explicit constants (1,1,2) for the actual A=Z selected identity subset at X>=2*exp(10^50). That predecessor closed the input only. H1b-P92a subsequently closes the actual identity weighted P9.2 and both lower atoms with relative/additive multipliers (1,1) for X>=2*exp(10^1000). General input packages, unweighted actual calls and singular-series/weight/tau/u integration remain separate. The broad SIV-08 row remains HARD_BLOCKER until that integration is split and composed. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
     },
     {
       "id": "SIV-09",
@@ -1071,7 +1071,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "finite moment certificate",
-      "notes": "Current H1b-COV1 theory53: R01-R06 remain actual project explicit. Full-residue cap=2*k with positive removed-mass budget, finite exception restoration, D=2, kappa=(9/10)*5^(-m), A_hg=4*k*m+2 and the partition input are explicit. Theorem3 C0 remains nonnumerical, hence full R07 and R08-R12 remain OPEN. Next H1b-COV1a; broad SIV-07/08/09 and X_cert are not promoted. COR3 equation52.17 has a missing display plus, corrected in theory53 section1.1; its original contract/code already use the three-term sum. Earlier context (historical remaining-obligation statements are superseded by this current prefix): H1a, H1b Section-8 children, fixed-k actual P94, H1c-1b.4e identity Hypothesis input and H1b-P92a actual weighted P92 are explicit project components. Actual P91, growing-dimension P94 compatibility, common singular-series/weight/tau/u transfer and the FMT moment composition remain open. The FGKMT Theorem 6 proof directly cites P91/P92/P94/L85, so P95 must be separately dependency-audited before being treated as critical."
+      "notes": "Current H1b-COV1a theory54: sufficient C0=100 is proved for the full finite Theorem3 core; the theory53 actual smallness gate holds at X>=2*exp(10^1000). R01-R07 actual children and fixed-finite-subset rates are project explicit. R08-R12 remain OPEN: final interval family/restoration/smooth remainder, PAP, two-prime UB, coefficient and final-variable transfer. Next H1b-COV2. Broad SIV-07/08/09 and X_cert remain unpromoted. Earlier context (historical remaining-obligation statements are superseded by this current prefix): H1a, H1b Section-8 children, fixed-k actual P94, H1c-1b.4e identity Hypothesis input and H1b-P92a actual weighted P92 are explicit project components. Actual P91, growing-dimension P94 compatibility, common singular-series/weight/tau/u transfer and the FMT moment composition remain open. The FGKMT Theorem 6 proof directly cites P91/P92/P94/L85, so P95 must be separately dependency-audited before being treated as critical."
     },
     {
       "id": "SIV-10",
@@ -1236,5 +1236,6 @@
   "h1bcor1_actual_probability_ledger": "docs/method/theory/data/Sono_FMT_H1bCOR1_finite_correlation_v1.json",
   "h1bcor2_actual_off_tuple_ledger": "docs/method/theory/data/Sono_FMT_H1bCOR2_off_tuple_budget_v1.json",
   "h1bcor3_actual_local_main_ledger": "docs/method/theory/data/Sono_FMT_H1bCOR3_local_main_moments_v1.json",
-  "h1bcov1_hypergraph_interface_ledger": "docs/method/theory/data/Sono_FMT_H1bCOV1_hypergraph_interface_v1.json"
+  "h1bcov1_hypergraph_interface_ledger": "docs/method/theory/data/Sono_FMT_H1bCOV1_hypergraph_interface_v1.json",
+  "h1bcov1a_covering_constant_ledger": "docs/method/theory/data/Sono_FMT_H1bCOV1a_covering_constant_v1.json"
 }

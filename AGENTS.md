@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1b.1 actual identity modulus capacity·dyadic repair 닫힘 / H1c-1b.1a coefficient 보존 / H1c-1b.1a.1 `sigma y` cutoff \(x\ge2\exp(36^5)\)로 SIV-03 EXPLICIT / H1c-1b.2 raw \((T,2T]\) psi composition 닫힘 / H1c-1b.3r1 FGKMT actual interval \([T,2T]\)로 교정 / H1c-1b.4a–4e actual identity Hypothesis 1 input constants 1·1·2, \(X\ge2\exp(10^{50})\)에서 explicit / H1b-P92a actual identity weighted P9.2·lower atom explicit (child cutoff X>=2exp(10^1000)); H1b-P91a W-filtered unweighted·shift explicit; H1b-P94g actual T0·growing-k multiplier 1 explicit; H1b-NORM 공통 filtered moment·fixed-X 확률 입력 explicit / H1b-COR1/2/3 R01–R06 actual probability explicit·finite-family count·unit main-degree error / H1b-COV1 full-residue cap·partition·D=2·kappa explicit, core C0 OPEN / SIV-07·08·09 HARD_BLOCKER / X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1b.1 actual identity modulus capacity·dyadic repair 닫힘 / H1c-1b.1a coefficient 보존 / H1c-1b.1a.1 `sigma y` cutoff \(x\ge2\exp(36^5)\)로 SIV-03 EXPLICIT / H1c-1b.2 raw \((T,2T]\) psi composition 닫힘 / H1c-1b.3r1 FGKMT actual interval \([T,2T]\)로 교정 / H1c-1b.4a–4e actual identity Hypothesis 1 input constants 1·1·2, \(X\ge2\exp(10^{50})\)에서 explicit / H1b-P92a actual identity weighted P9.2·lower atom explicit (child cutoff X>=2exp(10^1000)); H1b-P91a W-filtered unweighted·shift explicit; H1b-P94g actual T0·growing-k multiplier 1 explicit; H1b-NORM 공통 filtered moment·fixed-X 확률 입력 explicit / H1b-COR1/2/3 R01–R06 actual probability explicit·finite-family count·unit main-degree error / H1b-COV1a Theorem3 C0=100 충분·actual gate explicit, R01–R07 child 닫힘·R08–R12 OPEN / SIV-07·08·09 HARD_BLOCKER / X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
@@ -507,22 +507,22 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 
 2026-09-09 사용자 결정: review 57의 기존 고정계수 X_cert 연구를 먼저 진행한다.
 계수 개선·새 관측범위·독립 bridge 강화는 별도 후속 연구이며 자동 착수하지 않는다.
-다음 권장 행동은 P018-B가 아니라 H1b-COV1a / DEP-R07 FGKMT §5의
-normalization → conditional moment → Taylor/induction numerical C0 복원이다. H1b-DEP는 완료했고
-P95가 actual 경로의 직접·간접 필수 입력이 아님을 확인했다. general P95는 별도 OPEN으로 보존한다.
-actual 의존지도 theory 48은 당시 이력을 보존한다. 최신 정본은
-docs/method/theory/53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md와
-docs/review/60_20260909_H1bCOV1_hypergraph_유한연결_타당성검토.md다.
-full residue cap=2k와 제거 질량·예외 복원·partition, D=2·kappa 입력은 explicit이나
-core C0는 미수치화다. tuple-only covering을 실제 residue의 양측 survivor로 승격하지 않는다.
-고정 subset의 uniform failure를 모든 subset의 동시 성공 또는 postselection으로 확대하지 않는다.
-theory52 (52.17)의 '+' 누락은 theory53 §1.1에 정정했으며 pinned 원본·계약은 보존한다.
-R01 correlation, R02 conditioning/희소성, R04 good-P failure와 actual small-codegree가 닫혀
-후속 R05 signed h·q 생존·분모, R03 finite family·폭 조건, R06 같은-p 충돌·bad-P 질량도 닫았다.
-R01–R06은 actual project explicit이며 R07–R12 6작업이 남는다.
-FMT (5.8)의 absolute error 1/b²와 같은 C>(5/4)ln5를 보존했지만 full hypergraph는 별개다.
-R03의 delta>=a^(-1/4)·사전 고정 J구간을 사후 선택이나 임의 미세 구간으로 넓히지 않는다.
-이 개수는 완료율이 아니며 full hypergraph·X_cert는 OPEN이다. H1b-NORM은
+다음 권장 행동은 P018-B가 아니라 H1b-COV2 / DEP-R08의 실제 구간 family·예외 복원·
+smooth remainder·동시 성공 총 예산 합성이다. H1b-DEP는 완료했고
+P95는 actual 경로의 직접·간접 필수 입력이 아니다. general P95는 별도 OPEN이다.
+theory48 actual 의존지도와 theory53 COV1은 당시 이력을 보존한다. 최신 정본은
+docs/method/theory/54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md와
+docs/review/61_20260909_H1bCOV1a_covering_C0_명시화_타당성검토.md다.
+COV1의 full residue cap=2k·제거 질량·예외복원·partition에 이어
+COV1a가 Theorem3의 충분한 C0=100을 모든 m에 대해 정량 재증명했다.
+actual log gate는 기존 child에서 닫혔으나 최종 X_cert는 아니다.
+tuple-only survivor와 full-residue survivor를 혼동하지 않으며,
+fixed-subset failure를 모든 subset의 동시 성공이나 postselection으로 확대하지 않는다.
+theory52 (52.17)의 '+' 누락은 theory53 §1.1에 정정했고 pinned 원본·계약은 보존한다.
+R01–R07 actual child는 explicit이며 R08–R12 5작업이 남는다.
+남은 것은 동시 구간/복원/smooth remainder, PAP, two-prime UB, 같은 계수의 총 예산,
+최종변수 전달이다. 이 개수는 완료율이 아니다. broad SIV-07/08/09와 X_cert는 OPEN이다.
+H1b-NORM은
 공통 filtered moment와 fixed-X 확률 입력을 explicit하게 닫았다. H1b-P91a는 명시적 Maynard W-filter를
 쓰는 actual unweighted moment와 T'=2floor(Y)의 closed shift·끝점 보정을 P92a와 같은
 child cutoff에서 닫았다. 정본은 docs/method/theory/45_Sono_FMT_H1bP91a_unweighted_moment_W_filter.md다.

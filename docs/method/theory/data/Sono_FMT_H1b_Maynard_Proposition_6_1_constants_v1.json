@@ -450,7 +450,7 @@
     "printed_decay_exponents_are_not_unit_constants": true,
     "common_cutoff_available": false,
     "ready_for_threshold_calculator": false,
-    "next_gate": "H1b-COV1a / DEP-R07: recover FGKMT Section 5 numerical C0, starting with Lemma5.1 normalization then conditional moments and induction. COV1 theory53 closes the full-residue cap, finite exception cost, partition, D=2/kappa input and support restoration; moment transfer is conditional on the C0 gate. H1b-P92a, H1b-P91a, H1b-P94g and H1b-NORM remain explicit. R01-R06 are actual project explicit; R07-R12 remain OPEN. No full hypergraph, global coefficient budget or X_cert promotion.",
+    "next_gate": "H1b-COV2 / DEP-R08: compose actual interval family, post-covering failure, exception restoration, smooth remainder and rounding. Theory54 proves sufficient C0=100 and closes the theory53 actual log gate. H1b-P92a, H1b-P91a, H1b-P94g and H1b-NORM remain explicit. R01-R07 actual core/fixed-finite-subset children are project explicit; R08-R12 remain OPEN. No global coefficient budget or X_cert promotion.",
     "actual_filtered_common_cutoff_available": true,
     "actual_fixed_x_probability_inputs_closed": true,
     "actual_dependency_audit_complete": true,
@@ -461,9 +461,11 @@
     "actual_off_tuple_budget_closed": true,
     "actual_finite_family_local_count_closed": true,
     "actual_main_degree_finite_moments_closed": true,
-    "remaining_actual_work_packages": 6,
+    "remaining_actual_work_packages": 5,
     "actual_full_residue_interface_closed": true,
-    "hypergraph_core_C0_numerically_known": false
+    "hypergraph_core_C0_numerically_known": true,
+    "hypergraph_core_C0_sufficient": 100,
+    "actual_hypergraph_fixed_subset_rate_closed": true
   },
   "h1bp92a_ledger": "docs/method/theory/data/Sono_FMT_H1bP92a_identity_prime_moment_v1.json",
   "actual_application_scope_notes": {
@@ -491,5 +493,6 @@
   "h1bcor1_ledger": "docs/method/theory/data/Sono_FMT_H1bCOR1_finite_correlation_v1.json",
   "h1bcor2_ledger": "docs/method/theory/data/Sono_FMT_H1bCOR2_off_tuple_budget_v1.json",
   "h1bcor3_ledger": "docs/method/theory/data/Sono_FMT_H1bCOR3_local_main_moments_v1.json",
-  "h1bcov1_ledger": "docs/method/theory/data/Sono_FMT_H1bCOV1_hypergraph_interface_v1.json"
+  "h1bcov1_ledger": "docs/method/theory/data/Sono_FMT_H1bCOV1_hypergraph_interface_v1.json",
+  "h1bcov1a_ledger": "docs/method/theory/data/Sono_FMT_H1bCOV1a_covering_constant_v1.json"
 }

@@ -1,18 +1,19 @@
 # Sono/FMT T1 numerical-threshold proof-obligation 원장
 
-## 2026-09-09 H1b-COV1 현재 상태
+## 2026-09-09 H1b-COV1a 현재 상태
 
-[theory 53](53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md)과
-[review 60](../../review/60_20260909_H1bCOV1_hypergraph_유한연결_타당성검토.md)가 최신 정본이다.
-COR1–COR3의 R01–R06 actual child는 보존한다. COV1은 full residue edge를 2k로 cap하고
-제거 질량·예외 q 복원·서로소 partition과 D=2, kappa=(9/10)5^-m 입력을 explicit하게 닫았다.
-1·2점 moment transfer는 FGKMT Theorem3의 numerical C0 smallness gate에 조건부다.
-C0가 아직 수치화되지 않았으므로 R07 전체와 R08–R12는 OPEN이고,
-broad SIV-07/08/09·COV-06/08은 HARD_BLOCKER, X_cert는 OPEN이다.
-다음은 H1b-COV1a: FGKMT Section5의 normalization → conditional moment → Taylor/induction 상수 복원.
-예외점 복원비가 현재 child에서 충분히 작다고 선언하지 않으며 R08에서 따로 판정한다.
-theory52 (52.17)의 '+' 표시 누락은 theory53 §1.1에 정정했다. 원래 contract/code는 합이었다.
-과거 원장과 hash-pinned proof는 보존하며, 작업 수 6은 완료율이 아니다.
+[theory 54](54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md)와
+[review 61](../../review/61_20260909_H1bCOV1a_covering_C0_명시화_타당성검토.md)가 최신 정본이다.
+FGKMT Theorem3의 같은 smallness 형태에서 C0=100 sufficient를 project analytic proof로 닫았다.
+normalization·조건부 moment·Taylor·모든 m 귀납을 명시했고, theory53 actual 입력의
+log gate는 기존 child X>=2exp(10^1000)에서 성립한다. 최소 C0·독립 형식인증 주장은 아니다.
+R01–R07 actual child와 고정 유한 subset rate는 explicit이고 R08–R12는 OPEN이다.
+COV-06은 EXPLICIT; broad SIV-07/08/09와 COV-08/11, X_cert는 HARD_BLOCKER/OPEN 유지다.
+다음은 H1b-COV2 / DEP-R08: 실제 구간 family·복원비·smooth remainder·동시 성공 예산.
+예외복원 8000/√b가 현재 child에서 작다는 주장은 하지 않는다.
+fixed-subset moment를 모든 subset의 동시 성공이나 사후 선택 보장으로 확대하지 않는다.
+theory52 (52.17)의 '+' 표시 누락은 theory53 §1.1의 정정을 따른다.
+과거 원장·hash-pinned proof는 보존하며, 남은 5작업은 완료율이 아니다.
 아래 날짜별 next-gate와 미완료 서술은 당시 이력이며 이 현재 상태가 우선한다.
 
 - 작성: 2026-09-02 KST
@@ -54,11 +55,11 @@ Sono의 (k=1) 정리를 numerical threshold로 바꾸는 직접 proof edge를 7�
 
 | 상태 | 행 수 | 뜻 |
 |---|---:|---|
-| `EXPLICIT` | 7 | 해당 행의 식·정의는 숫자 또는 exact algebra로 닫힘 |
+| `EXPLICIT` | 8 | 해당 행의 식·정의는 숫자 또는 exact algebra로 닫힘; COV-06 포함 |
 | `PARTIAL` | 9 | 일부 상수·방향은 명시됐지만 유효범위 또는 다른 수치 입력이 빠짐 |
 | `RATE_MISSING` | 30 | (o(1)), (O), (ll), `sufficiently large`의 숫자 rate가 없음 |
 | `SOURCE_REVIEW_REQUIRED` | 4 | 인용된 하위 원문 정리를 더 깊게 감사해야 함 |
-| `HARD_BLOCKER` | 16 | 현재 공개 서술만으로는 숫자 certificate가 닫히지 않음 |
+| `HARD_BLOCKER` | 15 | 현재 공개 서술만으로는 숫자 certificate가 닫히지 않음 |
 | **합계** | **66** | |
 
 따라서 이번 T1의 성과는 임계값 숫자를 얻은 것이 아니라, 그 숫자를 주장하려면 무엇을 먼저
@@ -246,7 +247,7 @@ Sono의 parameter를 대입한 명목 계수는
 | `COV-03` | smooth-number remainder | `RATE_MISSING` |
 | `COV-04` | Proposition 6.2 cardinality/probability | `RATE_MISSING` |
 | `COV-05` | covering density (C) | `RATE_MISSING` |
-| `COV-06` | quantitative hypergraph theorem | `HARD_BLOCKER` |
+| `COV-06` | quantitative hypergraph theorem, C0=100 (theory54) | `EXPLICIT` |
 | `COV-07` | FGKMT Corollary 3→FMT Theorem 4 | `PARTIAL` |
 | `COV-08` | finite success probability | `HARD_BLOCKER` |
 | `COV-09` | (m,A') floor relation | `PARTIAL` |
@@ -651,9 +652,9 @@ x\ge2\exp(36^5)
 <\frac{26}{25}\,80cx\log_2x.
 \]
 
-따라서 `SIV-03`은 `PARTIAL`에서 `EXPLICIT`로 승격됐다. 66개 root row의 현재 상태 수는
+따라서 `SIV-03`은 `PARTIAL`에서 `EXPLICIT`로 승격됐다. 66개 root row의 당시 상태 수는
 `EXPLICIT 7`, `PARTIAL 9`, `RATE_MISSING 30`, `SOURCE_REVIEW_REQUIRED 4`,
-`HARD_BLOCKER 16`이다.
+`HARD_BLOCKER 16`이었다. 이후 COV1a의 COV-06 승격은 맨 위 현재 상태와 §1 집계를 따른다.
 
 이 승격은 one-sided sigma-y application만 닫는다. general \(\varphi(P)/P\)의 `AN-02`와
 reciprocal-square product의 `UB-05`는 실제 방향·합성 감사를 기다리므로 각각

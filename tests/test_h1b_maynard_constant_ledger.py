@@ -336,7 +336,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         )
         self.assertIn("H1b-P92a", self.document["composition"]["next_gate"])
         self.assertIn("H1b-P91a", self.document["composition"]["next_gate"])
-        self.assertTrue(self.document["composition"]["next_gate"].startswith("H1b-COV1"))
+        self.assertTrue(self.document["composition"]["next_gate"].startswith("H1b-COV2"))
         self.assertIn("H1b-P94g", self.document["composition"]["next_gate"])
         self.assertTrue(self.document["composition"]["actual_filtered_common_cutoff_available"])
         self.assertTrue(self.document["composition"]["actual_fixed_x_probability_inputs_closed"])

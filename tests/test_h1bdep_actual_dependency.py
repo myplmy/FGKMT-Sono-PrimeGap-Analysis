@@ -104,12 +104,22 @@ class ActualDependencyTests(unittest.TestCase):
         next(r for r in doc["pdf_reading"] if r["source"] == "RS1962")["page_type"] = "NATIVE_TEXT"
         self.assertTrue(validate_contract(doc, check_hashes=False))
 
-    def test_historical_t1_counts_are_current_not_percent(self):
+    def test_historical_t1_counts_are_preserved_with_explicit_successor_delta(self):
         from collections import Counter
         path = ROOT / "docs/method/theory/data/Sono_FMT_T1_proof_obligations_v1.json"
         t1 = json.loads(path.read_text(encoding="utf-8"))
         counts = dict(Counter(r["status"] for r in t1["obligations"]))
-        self.assertEqual(counts, self.document["historical_T1_counts"])
+        # DEP is immutable history. COV1a subsequently closed exactly COV-06.
+        historical = dict(self.document["historical_T1_counts"])
+        self.assertEqual(historical["EXPLICIT"], 7)
+        self.assertEqual(historical["HARD_BLOCKER"], 16)
+        expected = dict(historical)
+        expected["EXPLICIT"] += 1
+        expected["HARD_BLOCKER"] -= 1
+        self.assertEqual(counts, expected)
+        core = next(row for row in t1["obligations"] if row["id"] == "COV-06")
+        self.assertEqual(core["status"], "EXPLICIT")
+        self.assertIn("C0=100", core["explicit_bound"])
         self.assertTrue(self.document["historical_counts_are_not_completion_percentage"])
 
 
