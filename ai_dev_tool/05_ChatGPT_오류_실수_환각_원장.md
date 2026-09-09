@@ -1144,6 +1144,21 @@
 - 한 patch 호출의 JavaScript raw 문자열에 backtick 문자를 넣어 ReferenceError가 났다.
   파일 변경 전에 실패했으며 문자열 구분을 교정해 apply_patch로 재적용했다.
 
+### E077 — H1b-COR1 원문 읽기·경로·출력 처리 실수
+
+- 옛 dependency locator는 deprecated로 실패해 현재 mcp locator를 사용했다.
+- native PDF text를 cp949 stdout으로 출력하다 UnicodeEncodeError가 났다.
+  bundled Python -X utf8로 다시 추출해 성공했다. OCR 실패·원문 손상이 아니다.
+- theory 47·오류 원장·H1c JSON의 경로를 추정해 없는 파일을 조회했고, Windows rg에
+  literal wildcard path를 전달해 os error 123을 냈다. rg --files와 실제 handoff 경로로 재조회했다.
+  반복된 실수이므로 새 파일 작업 전 검색한 정확한 경로를 변수/allowlist로 재사용한다.
+- 여러 큰 문서를 한 JSON stdout에 실으려다 반환 문자열의 warning 때문에 JSON parse가 실패했다.
+  내용을 읽지 않은 채 patch하지 않았고 파일별 bounded read로 전환했다.
+- PDF 진행 안내 한 회를 일본어로 잘못 보냈다. 곧바로 한국어로 다시 설명했다.
+- 수학 검산은 sigma 하계의 분자/분모 방향, conditioning 분모, 중복점과 mean!=1 비용을
+  필수 검사로 삼았다. toy PASS를 전 범위 증명이나 root X_cert 인증으로 확대하지 않는다.
+- 위 도구·언어 오류는 새 source proof 작성 전/문서 조회에서 발생했고 실제 데이터 변경은 없다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

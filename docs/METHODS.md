@@ -8,7 +8,7 @@
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
 - 2026-09-09 최신 승인: 완료 proof 단계의 로컬 staging/commit은 허가됐다. push/PR·actual 확대는 여전히 별도 승인 대상이다.
-- 최신 proof 상태: H1b-NORM은 common filtered P91/P92/P94 moment와 fixed-X 확률 입력을 child cutoff에서 explicit하게 닫았다. H1b-DEP actual dependency 감사까지 완료했고 P95는 이 actual 경로에 불필요하다. 다음은 H1b-COR1 finite correlation이다. P91/P92/P94가 사용하는 Maynard W-filter를 명시하며 literal unfiltered FGKMT 표시식에 대한 동일성은 인증하지 않는다.
+- 최신 proof 상태: H1b-NORM은 common filtered P91/P92/P94 moment와 fixed-X 확률 입력을 child cutoff에서 explicit하게 닫았다. H1b-DEP actual dependency 감사까지 완료했고 P95는 이 actual 경로에 불필요하다. H1b-COR1은 R01/R02/R04와 actual small-codegree를 닫았고 다음은 H1b-COR2 / R05이다. P91/P92/P94가 사용하는 Maynard W-filter를 명시하며 literal unfiltered FGKMT 표시식에 대한 동일성은 인증하지 않는다.
 - 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a와 H1b-1 계열은 finite-r 적분비, Lemma 8.2 multiplier 89, 교정된 \(\kappa=1\) one-step multiplier, 실제 제외모듈과 Lemma 8.4 관련 하위호출 9/9를 parameterized explicit 수준으로 닫았다.
   2026-09-08 H1b-2a는 Lemma 8.5의 coefficient·weight envelope와 Lemma 8.6의 절대 \(I_k,J_k\) 크기 및 보수적 \(F_1/F_2\) 비교를 유한식으로 닫았다. H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱도 exact local factor와 finite singular-series 비교로 닫았다.
   H1b-2a.2는 실제 \(\mathcal A=\mathbb Z,D=1\) 호출의 정확한 \(E_q^{(1)}\le1\)을 이용해 식 (9.52) distribution child를 parameterized explicit으로 닫았다. H1b-2a.3은 actual FGKMT/FMT P94의 모든 닫힌 child를 공통 cutoff로 합성해 모든 정수 \(k\ge36\)에서 multiplier 13 미만을 얻었고, `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격했다. 2026-09-09 H1c-1a는 quantitative character/Bombieri–Vinogradov source inventory를 완료했고, H1c-1b.1은 actual Proposition 9.2의 identity form에 대해 Bordignon 2021의 pointwise growing-\(A\) 대입과 modulus capacity를 닫았다. H1c-1b.1a는 endpoint-safe \(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\)와 실제 \(R=(x/4)^{\theta/3}\)를 사용해 두 finite normalization factor의 곱이 \(39/40\)보다 큼을 exact하게 증명했다. H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7과 제외 prime 보정을 합성해 \(x\ge2\exp(36^5)\)에서 \(\sigma y<(1001000/998001)80cx\log_2x<(26/25)80cx\log_2x\)를 증명했다. 따라서 `SIV-03=EXPLICIT`이고 Sono의 같은 \(2\times10^{-17}\) 계수가 이 단계에서 유지된다. H1c-1b.2는 fixed \(Q_1\)에서 두 endpoint에 한 exceptional modulus와 그 prime divisor \(B\)를 공통으로 쓰고, 최종 NYJM판 12항을 이용한 raw \((T,2T]\) \(\psi\) composition을 닫았다. H1c-1b.3r1은 Maynard 원문의 일반 \([T,2T)\)와 FGKMT actual \([T,2T]\)를 구분하고 closed target의 한 lower atom을 안전하게 보정했다. H1c-1b.4a–4e는 source 정규화·density·full absorption을 합성해 \(X\ge2\exp(10^{50})\)에서 actual identity-form Hypothesis 1 input을 constants \((1,1,2)\)로 explicit하게 닫았다. 후속 H1b-P92a는 \(k\ge10^{200}\)에서 actual identity weighted P9.2와 lower weight/count atom을 multiplier 1/1로 닫았다. child cutoff \(X\ge2\exp(10^{1000})\)는 전체 threshold가 아니다. H1b-P91a는 filtered unweighted moment·shift를, H1b-P94g는 actual shifted T0의 growing-dimension P94 multiplier 1을 닫았다. 이 1은 더 강한 새 regime의 값이고 기존 13을 보편적으로 대체하지 않는다. 후속 H1b-NORM은 공통 singular-series/lambda-square/tau/u_X와 B0 삭제·확률 입력까지 닫았다. H1b-DEP가 actual dependency를 분리했고 다음은 뒤쪽 finite correlation/failure rate다. `SIV-07/08=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
@@ -945,3 +945,13 @@ conditioned sparsity와 hypergraph 전체 결론은 닫지 않았다. 남은 6�
 독립 정리 개수나 완료율이 아니며, child sieve X>=2exp(10^1000)는 최종 gap 변수의
 X_cert가 아니다. 다음은 H1b-COR1 / DEP-R01이다. 과거 날짜별 next-gate는 당시 기록이다.
 PDF 판독은 [규약 09](../ai_dev_tool/09_PDF_원문_읽기_대조_규약.md)를 따른다.
+
+## 2026-09-09 H1b-COR1 finite 확률 입력
+
+[theory 49](method/theory/49_Sono_FMT_H1bCOR1_finite_correlation_conditioning.md)는
+distinct-point correlation 상대오차 2/(ln X)^17, sigma>1/ln X,
+조건부 residue 희소성 X^(-3/5), good-P failure 7/(ln X)^8을 actual construction에서 닫았다.
+두 copy의 충돌과 조건부 분모, 평균!=1의 오차를 보존한다. small-codegree도 실제 입력으로
+연결했지만 full hypergraph 전체는 OPEN이다. 기존 child cutoff를 늘리지 않았고 최종
+X_cert로 해석하지 않는다. DEP의 12 OPEN은 당시 이력, successor의 현재 미완료는 9개다.
+다음 H1b-COR2는 R05 off-tuple Markov/union budget이다. 새 actual 계산은 하지 않는다.

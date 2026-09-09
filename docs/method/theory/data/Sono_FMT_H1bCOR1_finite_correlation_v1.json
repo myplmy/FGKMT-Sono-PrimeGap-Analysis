@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0.0",
+  "id": "H1b-COR1",
+  "date": "2026-09-09",
+  "predecessor_commit": "8c5d972cf83df1ecedf43b6de760e9c3033da367",
+  "evidence_level": [
+    "PROJECT_FINITE_ANALYTIC_PROOF",
+    "BOUNDED_EXACT_TOY_VERIFICATION"
+  ],
+  "source_pins": [
+    {
+      "id": "FGKMT",
+      "path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "role": "source"
+    },
+    {
+      "id": "FMT",
+      "path": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "role": "source"
+    },
+    {
+      "id": "RS1962",
+      "path": "tmp/pdfs/h1c1b1a1/Rosser_Schoenfeld1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "role": "source"
+    },
+    {
+      "id": "NORM47",
+      "path": "docs/method/theory/47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md",
+      "sha256": "3c5566ca5e84109fbb402e7cb68afdccfcc8838a1cd014c3e11223bb6d3bbd5f",
+      "role": "prior_project_proof_not_independent_certification"
+    },
+    {
+      "id": "SIGMA35",
+      "path": "docs/method/theory/35_Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff.md",
+      "sha256": "ee49ba830ad8ca117d5005778f1fef790295d2c18e0504b161170ff0b00c4b77",
+      "role": "prior_project_proof"
+    },
+    {
+      "id": "DEP48",
+      "path": "docs/method/theory/48_Sono_FMT_H1bDEP_actual_dependency_map.md",
+      "sha256": "bcb1851e4085995f374e0651ffceadeb6fea06a33ed8e9c5ef9f60e09e97ca05",
+      "role": "immutable_predecessor"
+    },
+    {
+      "id": "DEP_CONTRACT",
+      "path": "docs/method/theory/data/Sono_FMT_H1bDEP_actual_dependency_v1.json",
+      "sha256": "144f24d90fe0900aeda72ba4549d3e2554cc330f0f400ded2f02c55450e18bed",
+      "role": "immutable_predecessor"
+    }
+  ],
+  "pdf_reading": [
+    {
+      "source": "FGKMT",
+      "page_type": "NATIVE_TEXT",
+      "inspected_pdf_pages": [
+        27,
+        29
+      ],
+      "printed_pages": [
+        91,
+        93
+      ],
+      "text_primary": true,
+      "new_ocr_performed": false,
+      "classification_scope": "inspected_pages"
+    },
+    {
+      "source": "FMT",
+      "page_type": "NATIVE_TEXT",
+      "inspected_pdf_pages": [
+        13,
+        14
+      ],
+      "text_primary": true,
+      "new_ocr_performed": false,
+      "classification_scope": "inspected_pages"
+    },
+    {
+      "source": "RS1962",
+      "page_type": "SCAN_WITH_TEXT_LAYER",
+      "inspected_pdf_pages": [
+        7
+      ],
+      "printed_pages": [
+        70
+      ],
+      "text_render_modes": [
+        3,
+        0
+      ],
+      "image_dimensions": [
+        3600,
+        5700
+      ],
+      "image_crosscheck": "Theorem 7 (3.25)-(3.26): signs, denominator, applicability",
+      "new_ocr_performed": false,
+      "classification_scope": "inspected_page_only"
+    }
+  ],
+  "scope": {
+    "boundary_mode": "end",
+    "logs": "iterated_natural",
+    "weight": "maynard_w_filtered",
+    "u_quantifier": "fixed_X_and_source_B",
+    "child_cutoff": "X>=2*exp(10^1000)",
+    "distinct_correlation_only": true,
+    "collision_cost_preserved": true,
+    "sigma_lower_direction": "P(z)_lower/P(v)_upper",
+    "small_codegree_actual_closed": true,
+    "full_hypergraph_certified": false,
+    "x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_experiment_performed": false,
+    "independently_formally_verified": false
+  },
+  "constants": {
+    "correlation_relative": "2/a^17<=1/a^16",
+    "sigma_inverse_power": "1/100",
+    "conditional_atom": "2*X^(-37/50)",
+    "residue_sparsity": "X^(-3/5)",
+    "second_moment_error": "7/a^17",
+    "single_bad_p": "7/a^11",
+    "global_bad_p": "7/a^8"
+  },
+  "closed_actual_work": [
+    "DEP-R01",
+    "DEP-R02",
+    "DEP-R04"
+  ],
+  "closure_evidence": [
+    {
+      "id": "DEP-R01",
+      "status": "PROJECT_EXPLICIT",
+      "equations": [
+        "49.5",
+        "49.6",
+        "49.7",
+        "49.8"
+      ],
+      "cutoff": "a=ln(X)>=2",
+      "assumptions": "distinct integers |n_i|<=X^2, t<=a, independent uniform residues, all sieve primes>a^20"
+    },
+    {
+      "id": "DEP-R02",
+      "status": "ACTUAL_INPUTS_PROJECT_EXPLICIT",
+      "equations": [
+        "49.9",
+        "49.10",
+        "49.11",
+        "49.12",
+        "49.13",
+        "49.14"
+      ],
+      "cutoff": "inherited actual child cutoff"
+    },
+    {
+      "id": "DEP-R04",
+      "status": "ACTUAL_INPUTS_PROJECT_EXPLICIT",
+      "equations": [
+        "49.15",
+        "49.16",
+        "49.17",
+        "49.18",
+        "49.19",
+        "49.20",
+        "49.21"
+      ],
+      "cutoff": "inherited actual child cutoff"
+    }
+  ],
+  "remaining_open_work": [
+    "DEP-R03",
+    "DEP-R05",
+    "DEP-R06",
+    "DEP-R07",
+    "DEP-R08",
+    "DEP-R09",
+    "DEP-R10",
+    "DEP-R11",
+    "DEP-R12"
+  ],
+  "broad_root_status": {
+    "SIV-07": "HARD_BLOCKER",
+    "SIV-08": "HARD_BLOCKER",
+    "SIV-09": "HARD_BLOCKER",
+    "X_CERT": "OPEN"
+  },
+  "historical_ledger_preserved": true,
+  "work_counts_are_not_completion_percentages": true,
+  "next_gate": "H1b-COR2 / DEP-R05",
+  "no_user_execution_required": true
+}
