@@ -1,7 +1,7 @@
 # H1b-P92a weighted Proposition 9.2·endpoint 감사 작업원장
 
 - 시작: 2026-09-09 12:54 KST
-- 현재 상태: IN_PROGRESS
+- 현재 상태: COMPLETE_PENDING_RENAME
 - 직전 goal turn: PROGRESS — H1c-1b.4e와 endpoint r1이 정본·검산·418개 회귀 및
   local commit 3c4cb6e3b6f439ccb3d329f42e7530c06f7dd3d7으로 보존됨을 확인했다.
 - 사용자 승인: 최종 \(X_{\mathrm{cert}}\) 계산기 이전의 정규화·증명을 권장 순서대로
@@ -37,7 +37,7 @@ discrepancy로 어떻게 전달되는지 정식화하고, FGKMT closed \([T,2T]\
 2. **DONE — weighted discrepancy·끝점 finite bridge 증명**
 3. **DONE — coupled main/error actual child 합성**
 4. **DONE — 검산·회귀·정본 동기화**
-5. **IN_PROGRESS — proof 로컬 커밋 후 handoff·완료 원장·문서 마감 커밋**
+5. **DONE — proof 로컬 커밋·handoff·완료 원장 작성; 이 완료 스냅샷을 문서 마감 커밋으로 보존**
 
 ## 단계별 기록
 
@@ -52,8 +52,10 @@ discrepancy로 어떻게 전달되는지 정식화하고, FGKMT closed \([T,2T]\
 
 ## 현재 재개점
 
-단계 5. proof 변경 20개를 명시 경로로 local commit한 뒤 그 hash를 handoff에 기입한다.
-원장을 완료 이름으로 바꾸고 handoff·완료 기록을 별도 local commit한다.
+과학 작업의 미완료 단계 없음. proof commit은 225f13685f172575ddb000fd5ea4b28a4e3dc739다.
+handoff/202609091347_HANDOFF.md에 결과·한계·사용자 절차·다음 순서를 기록했다.
+이 파일을 안전하게 -done으로 이름 변경한 뒤 두 문서만 마감 커밋한다.
+다음 과학 작업은 새 원장에서 H1b-P91a부터 시작한다.
 
 ### 2026-09-09 13:14 KST — source·연결부 연구
 
@@ -108,12 +110,23 @@ discrepancy로 어떻게 전달되는지 정식화하고, FGKMT closed \([T,2T]\
 - 실제 dataset 취득·prime sweep·actual 결과 생성·threshold calculator·패키지 설치 없음.
   새로운 empirical figure도 없으므로 사용자 visual QA 요청 없음.
 
+### 2026-09-09 13:47 KST — proof commit·handoff
+
+- staged 경로 20/20 확인 뒤 EOF 빈 줄 두 곳을 cached diff에서 발견해 커밋을 중단했다.
+  마지막 빈 줄만 삭제했음을 비교 확인했고, 재검사 PASS 후 커밋했다. E068에 기록.
+- proof commit: 225f13685f172575ddb000fd5ea4b28a4e3dc739,
+  제목 H1b-P92a 실제 소수 가중합과 끝점 보정을 명시화.
+- commit 직후 working tree clean. handoff/202609091347_HANDOFF.md 새 파일 작성.
+- 사용자에게 지금 필요한 설치·원문·actual 연산 요청 없음. 별도 수행절차 필요없음.
+- 다음은 P91 actual unweighted 호출, growing-k P94와 actual dependency pruning이다.
+  proof의 child cutoff와 X_cert를 분리하고 historical fixed-k certificate를 보존한다.
+
 ## 완료 전 점검
 
-- [ ] source와 actual parameter/끝점 대조
-- [ ] 유한 증명·미결 의무 구분
-- [ ] 검산·적정 회귀 검증
-- [ ] 이론·METHODS·AGENTS·machine ledger 정합성
-- [ ] 최신 handoff·사용자 절차·예상시간
-- [ ] 명시 경로 로컬 커밋
-- [ ] 작업원장 -done 처리
+- [x] source와 actual parameter/끝점 대조
+- [x] 유한 증명·미결 의무 구분
+- [x] 검산·적정 회귀 검증
+- [x] 이론·METHODS·AGENTS·machine ledger 정합성
+- [x] 최신 handoff·사용자 절차·예상시간
+- [x] 명시 경로 proof 로컬 커밋
+- [x] 작업원장 -done 목적지와 안전 rename 절차 확인; 다음 파일 작업으로 이름 변경
