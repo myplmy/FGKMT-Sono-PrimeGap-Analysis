@@ -1,7 +1,7 @@
 # 기존 연구방향 확정·H1b-COR2 재개 작업원장
 
 - 시작: 2026-09-09 21:19 KST.
-- 상태: IN_PROGRESS.
+- 상태: DONE. 본체·검증·정본 동기화·handoff 완료; 새 작업은 새 원장으로 시작한다.
 - 사용자 승인: review 57을 참고해 기존 X_cert 연구를 우선 진행하고 다른 방향은 별도 후속 연구로 기록. 다음 권장 순서에 따라 문헌·수학·짧은 toy 검증 착수.
 - 유지: 같은 c=2e-17, end-bounded G, 반복자연로그, 기존 W-filtered actual proof 사슬.
 - 보류: coefficient 개선, 별도 관측범위 확대, 독립 bridge 강화 연구, actual prime 계산·장시간 runner·calculator·임의 설치.
@@ -35,8 +35,8 @@ main / HEAD 7475150. 시작 때 다음 선행 변경이 있었다.
 2. DONE — review 56 §§2.1–2.4의 finite bridge source/endpoint/quantifier 재감사. RS p.69 원이미지 (3.6),(3.9) 대조; 평균 gap의 end-bounded 정의·실수 범위 일치.
 3. DONE — FMT pp.13–16 텍스트와 p.14 원페이지 (6.19),(6.20), NORM47 (47.24), COR1 (49.5),(49.11), SIGMA35 (1) 대조. native FMT p.14 fonts 16종·image 0, 신규 OCR 없음.
 4. DONE — theory50·review58·COR2 contract·helper·전용 tests 구현. R05 closure, 8 remaining, root OPEN.
-5. IN_PROGRESS — 검증·정본 동기화 완료, 명시 path 로컬 commit 직전.
-6. PENDING — 새 handoff·원장 done·마감 commit.
+5. DONE — 검증·정본 동기화 및 명시 15개 path 본체 commit 05fc40f70e4ce404e341e4ff386019be62cb99aa.
+6. DONE — handoff/202609092143_HANDOFF.md 작성·원장 -done 이관. 이 두 문서만 별도 마감 commit으로 보존하며 hash는 git log에서 확인한다.
 
 ## 현재 근거
 
@@ -67,9 +67,12 @@ main / HEAD 7475150. 시작 때 다음 선행 변경이 있었다.
 - py_compile 5파일 PASS; strict UTF-8 15파일/JSON4/local links32 issue0; git diff --check PASS.
 - source pin6 및 prior hash 사슬 PASS. historical theory35/47/49·COR1 contract 변경 없음.
 - 현재 AGENTS/METHODS 및 T1/H1b/H1c parent에 COR2→COR3, 8 remaining, root OPEN 동기화.
+- 마감 재검사: 전용17/17 0.114초; closing 문서4개/local links16/원장 done 이관 issue0.
 - 이전 dirty 오류 원장·이론 색인, review56·과거 handoff/원장은 변경하지 않았고 stage에서 제외한다.
 
 ## 정확한 재개점
 
-검토한 명시 15개 path만 stage/로컬 commit한다. 새 timestamp handoff를 작성하고 source·문서 검증을 확인한 뒤 이 원장을 -done으로 마감한다.
+이번 요청 범위는 완료했다. 새 단계는 새 원장으로 시작한다.
 다음 proof는 H1b-COR3 / R03 local-count·finite partition → R06 main-degree moments.
+새 actual 실행·사용자 설치·figure QA는 요청하지 않는다. 별도 수행절차 필요없음.
+본체 commit 이후 선행 dirty 2개·untracked 5개는 그대로 보존했다. .git의 staging allowlist에 포함하지 않았다.
