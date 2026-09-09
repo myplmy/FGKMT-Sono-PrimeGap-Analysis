@@ -8,6 +8,15 @@
 - 계약: data/Sono_FMT_H1bP92a_identity_prime_moment_v1.json
 - 검토: ../../review/50_20260909_H1bP92a_weighted_moment_타당성검토.md
 
+## 0. H1b-P91a에서 명시한 weight 적용 범위 교정
+
+이 증명의 W-good residue 제한은 Maynard 출판 (7.5)의 명시적 W-coprimality
+indicator가 있는 weight를 전제로 한다. FGKMT (7.4)의 literal 표시에는 이 indicator가
+없으며, divisor support만으로 그 조건이 자동 생기지 않는다. 따라서 아래의 w는
+theory 45 (45.4)의 filtered w*로 읽어야 한다. 기존 수치·적분·오차식은 그대로지만
+literal unfiltered weight에 대한 transfer는 인증하지 않는다. theory 45 §2는 이 적용 범위
+문제와 shift/prime-slice filter 보존을 증명한다. 전체 Sono 정리의 반례라는 뜻은 아니다.
+
 ## 1. 결론과 해석 범위
 
 외부 크기를 \(X=2T\)라 하고
@@ -19,7 +28,7 @@
 로 둔다. 로그는 자연로그다. 아래 \(F\)는 Maynard의 다변수 sieve profile이며,
 경험적 분석의 한 변수 FGKMT scale \(F(x)\)와 다른 함수다.
 
-actual admissible primitive linear forms, \(\alpha=2,\theta=1/3\),
+Maynard W-filter를 명시한 actual admissible primitive linear forms, \(\alpha=2,\theta=1/3\),
 \(|a_i|,|b_i|\le T^2\), identity \(L_m(n)=n\), 기존 construction의 \(B,W,\lambda,w\)를 쓴다.
 음수 기울기는 form 전체의 부호를 바꾸어 divisibility·root count를 보존한다.
 H1c-1b.4e의 같은 exceptional \(B\)와 closed Hypothesis input을 사용한다.

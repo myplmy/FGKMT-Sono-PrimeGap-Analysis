@@ -101,10 +101,10 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 |---|---:|
 | `PARTIAL_EXPLICIT` | 1 |
 | `PROJECT_FINITE_COMPONENT_CLOSED` | 3 |
-| `RATE_MISSING` | 5 |
+| `RATE_MISSING` | 2 |
 | `SOURCE_REVIEW_REQUIRED` | 0 |
 | `INPUT_PACKAGE_MISSING` | 3 |
-| `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 4 |
+| `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | 7 |
 | `HARD_BLOCKER` | 1 |
 | **합계** | **17** |
 
@@ -121,7 +121,7 @@ Maynard의 표기를 따라 정리하면 다음 범위가 명시돼 있다.
 | `H1B-L85` | Lemma 8.5 | coefficient/weight 크기 | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | \(M_{620}\)과 finite \(\eta_{85}(k,R)\)로 닫힘 |
 | `H1B-L86-RATIO` | Lemma 8.6, (8.25)–(8.27) | 적분비 | `PROJECT_FINITE_COMPONENT_CLOSED` | 없음; H1a에서 \(k\ge36\) 닫음 |
 | `H1B-L86-SIZE` | Lemma 8.6 | 절대 적분 크기 | `PROJECT_FINITE_COMPONENT_CLOSED` | plateau cube로 \(I_k\ge(2k\log k)^{-k}\) |
-| `H1B-P91` | Proposition 9.1 | zeroth moment | `RATE_MISSING` | 상대오차 multiplier·divisor sum |
+| `H1B-P91` | Proposition 9.1 | zeroth moment | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | W-filtered actual A=Z multiplier 1·exact shift; 일반형·공통 합성 별도 |
 | `H1B-P92` | Proposition 9.2 | prime moment | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | actual identity 상대/가법 multiplier 1/1; general형·공통 합성 별도 |
 | `H1B-L93` | Lemma 9.3 | diagonal approximation | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | scalar \(C_Y\)와 actual growing-k gate; general형 별도 |
 | `H1B-P94` | Proposition 9.4 | extra-form/rough upper bound | `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT` | actual FGKMT/FMT 호출은 multiplier 13 미만; 일반 \(\mathcal A\)는 별도 |
@@ -630,3 +630,20 @@ Euler prefactor와 closed-to-open lower weight/count atom을 모두 합성했다
 다음은 H1b-P91a와 P94 growing-dimension 호환성이다. FGKMT Theorem 6의 실제 proof는
 P91/P92/P94/L85를 직접 인용하므로 P95는 general P61 의무와 실제 root-critical 의무를
 분리해 다시 조사한다. 불필요한 일반 정리 재증명을 actual 임계값의 선결조건으로 만들지 않는다.
+
+
+## 23. 2026-09-09 H1b-P91a unweighted·W-filter scope correction
+
+[theory 45](45_Sono_FMT_H1bP91a_unweighted_moment_W_filter.md)는 actual
+\(\mathcal A=\mathbb Z,\ T'=2\lfloor Y\rfloor,\mathcal L'=\varnothing\)에서
+unweighted moment와 exact closed shift를 \(k\ge10^{200}\)에서 닫았다.
+따라서 H1B-P91은 ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT이다.
+exact \(E_q^{(1)}\le1\)을 직접 사용하므로 actual child는 미지 Hypothesis multiplier를 기다리지 않는다.
+
+중요한 적용 범위: P91/P92/P94의 Maynard proof는 명시적 W-coprimality filter를 쓴다.
+FGKMT (7.4)의 literal 표시에는 이 indicator가 없어 두 함수를 동일시하지 않는다.
+theory 45 §2가 filtered construction의 shift·prime-slice 호환성을 증명한다.
+P92a의 이전 수치식은 filtered weight에서 보존되며 unfiltered transfer는 미인증이다.
+
+다음은 H1b-P94g의 growing-k 호환성과 H1b-NORM의 공통 정규화다.
+root 66행의 상태, SIV-07/08/09 HARD_BLOCKER와 X_cert OPEN은 바꾸지 않는다.

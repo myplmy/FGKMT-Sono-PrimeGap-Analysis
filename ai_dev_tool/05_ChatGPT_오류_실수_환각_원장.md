@@ -1030,6 +1030,42 @@
   실험·과거 handoff 변경은 하지 않는다.
 
 
+
+### E070 — P92a에서 W-filter 정의의 source 간 차이를 명시하지 못함
+
+- 분류: SOURCE_DEFINITION_SCOPE_OMISSION / FILTERED_PROOF_SCOPE_CORRECTED
+- 발견: Maynard 출판 p.1530 (7.5)는 W-coprimality indicator를 명시하지만,
+  FGKMT p.98 (7.4)의 literal 표시에는 없다. P91/P92 출판 proof는 W-good residue만 합한다.
+- 이전 누락: P92a는 proof 안에서 W-good restriction을 사용하면서도 “actual FGKMT weight”
+  표현에 이 조건을 명시하지 않았다. literal unfiltered weight로 읽으면 적용 범위가 과장된다.
+- 영향: 기존 P92a 해석·수치 상계는 명시적 filtered weight에 대한 결과로 한정한다.
+  실제 empirical prime-gap 산출물, recurrence 결과나 과거 데이터는 영향을 받지 않는다.
+  전체 X_cert는 원래 OPEN이었고, 잘못된 최종 threshold를 배포한 것은 아니다.
+- 조치: theory 45 §2에서 두 함수가 같지 않음을 toy·CRT 논증으로 설명하고, filtered
+  construction의 shift·prime-slice indicator equality를 증명했다. theory 44/계약/helper/정본에
+  명시적 W-filter와 literal-unfiltered-transfer 미인증 flag를 넣었다.
+  unfiltered certificate 요청은 거부하는 negative regression을 추가했다.
+- 한계: 공식 erratum이나 Sono theorem의 반례를 확인했다고 주장하지 않는다.
+  공통 coefficient·weight·tau/u와 FMT 전체 합성은 여전히 후속 의무다.
+- 재발 방지: theorem 번호뿐 아니라 호출되는 weight의 indicator, support, residue restriction을
+  source 정의와 각 proof 첫 줄에서 직접 대조한다. 코드상 사용한 가정을 문서에서 생략하지 않는다.
+
+### E071 — 이번 source inventory의 경미한 도구·경로 오류
+
+- 폐기된 dependency alias는 “no longer available” 응답 뒤 mcp 버전으로 정상 조회했다.
+- PowerShell rg에서 wildcard를 path 인자로 직접 넣어 os error 123이 반복됐다.
+  사용자 지시나 파일 문제는 아니며 호출 형식 실수다. 최종 조회는 실제 경로 또는
+  rg <pattern> <directory> -g <filename-pattern>으로 교정했다.
+- theory 28의 경로를 추측해 FileNotFound를 냈고 rg --files로
+  residual_moment_error_package 이름을 확인해 전체를 읽었다.
+- PDF page index는 추측 오프셋에 기대지 않고 렌더된 printed page로 확인했다.
+  P91은 PDF page 23--25, printed 1538--1540이다.
+- raw GitHub web endpoint의 fetch 오류는 HTML primary source 조회로 보완했다.
+- 실패한 읽기·일부가 성공한 혼합 출력은 검증 PASS로 계산하지 않았다.
+  실제 연구 데이터·사용자 파일에는 영향이 없고 패키지를 설치하지 않았다.
+- 이 경로 실수가 반복된 점은 효율상의 실제 실수다. 디렉터리+glob 옵션 원칙을
+  실행 전에 확인하고, 발견되지 않은 파일명을 후속 보고에 쓰지 않는다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

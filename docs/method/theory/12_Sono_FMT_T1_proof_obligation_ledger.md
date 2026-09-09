@@ -721,3 +721,20 @@ root 66행의 상태는 바꾸지 않는다. SIV-07/08/09는 general형/실제 �
 정규화를 포함하기 때문이다. 다음은 H1b-P91a, growing-k P94 호환성과 실제 dependency
 가지치기다. FGKMT Theorem 6 proof에 P95 직접 인용이 없다는 source 사실은 확인했지만,
 그것만으로 모든 후속 FMT/Sono 사용처에서 P95가 불필요하다고 단정하지 않는다.
+
+
+## 31. 2026-09-09 H1b-P91a unweighted·W-filter scope correction
+
+[theory 45](45_Sono_FMT_H1bP91a_unweighted_moment_W_filter.md)는 actual
+\(\mathcal A=\mathbb Z,\ T'=2\lfloor Y\rfloor,\mathcal L'=\varnothing\)에서
+unweighted moment와 exact closed shift를 \(k\ge10^{200}\)에서 닫았다.
+따라서 H1B-P91은 ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT이다.
+exact \(E_q^{(1)}\le1\)을 직접 사용하므로 actual child는 미지 Hypothesis multiplier를 기다리지 않는다.
+
+중요한 적용 범위: P91/P92/P94의 Maynard proof는 명시적 W-coprimality filter를 쓴다.
+FGKMT (7.4)의 literal 표시에는 이 indicator가 없어 두 함수를 동일시하지 않는다.
+theory 45 §2가 filtered construction의 shift·prime-slice 호환성을 증명한다.
+P92a의 이전 수치식은 filtered weight에서 보존되며 unfiltered transfer는 미인증이다.
+
+다음은 H1b-P94g의 growing-k 호환성과 H1b-NORM의 공통 정규화다.
+root 66행의 상태, SIV-07/08/09 HARD_BLOCKER와 X_cert OPEN은 바꾸지 않는다.

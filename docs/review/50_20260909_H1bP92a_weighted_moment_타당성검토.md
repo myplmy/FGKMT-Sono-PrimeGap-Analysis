@@ -2,6 +2,7 @@
 
 - 검토일: 2026-09-09 KST
 - 정본 증명: [theory 44](../method/theory/44_Sono_FMT_H1bP92a_actual_identity_weighted_moment.md)
+- 후속 적용 범위 정정: H1b-P91a가 Maynard (7.5)의 W-filter와 FGKMT (7.4) 표시 차이를 확인했다. 아래 P92 수치식은 명시적 filtered construction에 대한 것으로 한정한다. literal unfiltered transfer는 미인증이며, [review 51](51_20260909_H1bP91a_unweighted_moment_W_filter_타당성검토.md) §3에 사유·영향을 설명했다.
 - 판정: ACTUAL IDENTITY CHILD EXPLICIT / GENERAL PACKAGE AND X_cert OPEN
 - 성격: 기존 원문 연결부의 project finite proof 및 단기 toy 검산; 실제 소수 실험 아님
 

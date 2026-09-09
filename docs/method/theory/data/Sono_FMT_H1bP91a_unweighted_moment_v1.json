@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1b-P91a",
+  "outcome": "FILTERED_UNWEIGHTED_ACTUAL_MOMENT_AND_SHIFT_EXPLICIT_ROOTS_OPEN",
+  "evidence_level": "PROJECT_FINITE_ANALYTIC_PROOF_WITH_EXACT_TOY_AND_LOG_SCALAR_DIAGNOSTICS_NOT_LEAN",
+  "minimum_k": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "sufficient_child_cutoff": "X>=2*exp(10^1000)",
+  "variables": {
+    "L": "log(X/2), NOT log(Tprime)",
+    "k": "floor(L^(1/5))",
+    "Y": "X*log(X)*log_3(X)/(153600*log(5)*log_2(X))",
+    "Tprime": "2*floor(Y)",
+    "N": "Tprime+1",
+    "log_R": "(L-log(2))/9",
+    "actual_interval": "closed [Tprime,2*Tprime]",
+    "selected_subset": "empty",
+    "actual_set": "Z"
+  },
+  "weight_definition": "maynard_w_filtered",
+  "w_filter_required": true,
+  "literal_unfiltered_transfer_certified": false,
+  "scope_correction": "The explicit Maynard (7.5) W indicator is required; FGKMT (7.4) literal equality is not assumed. Exact shift and prime-slice filter transport are proved, while full FMT/Sono composition remains open.",
+  "bounds": {
+    "relative_multiplier": 1,
+    "unweighted_relative_majorant": "10^134*(log(k))^4/k^2",
+    "symmetric_interval_relative_majorant": "2*10^134*(log(k))^4/k^2",
+    "distribution_relative_upper": "exp(-L/2)",
+    "floor_count_absolute_error": "<=1",
+    "off_diagonal_integer_factor": 1384128,
+    "off_diagonal_relative_upper": "1384128*k^2*(log(k))^2/log(R)",
+    "log_Tprime_envelope": "L<=log(Tprime)<=2*L"
+  },
+  "filtered_actual_p91_closed": true,
+  "shift_endpoint_closed": true,
+  "conditional_on_actual_form_construction": true,
+  "general_proposition91_closed": false,
+  "growing_k_proposition94_closed": false,
+  "common_normalization_closed": false,
+  "full_good_sieve_weight_closed": false,
+  "x_cert_ready": false,
+  "actual_prime_experiment_performed": false,
+  "lean_verified": false,
+  "immutable_sources": [
+    {
+      "path": "tmp/pdfs/h1b1a/Maynard2016_Dense_Clusters_published.pdf",
+      "sha256": "8eb9d780353908ae22e910f4e039ebab579ae9bf2e5dd8a83b6e38cf33268098",
+      "doi": "10.1112/S0010437X16007296",
+      "locators": "p.1530 (7.5), pp.1538-1540 (9.1)-(9.15)"
+    },
+    {
+      "path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "doi": "10.1090/jams/876",
+      "locators": "pp.95,97-101 Definition 2, (7.4), Theorem 6, Section 8"
+    }
+  ],
+  "proof_dependency_snapshots": [
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_v1.json",
+      "sha256": "093e0ea64ec8366020e0155d386d4fee3e260094c5fefa03e3b44d91712f25b7"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1b1b2c_actual_parameter_specialization_v1.json",
+      "sha256": "072a799d6f02b99b2d9cbb16a5dfdbc123495a7db7386bfc709ec6c3aeeec28f"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1b1b2d_rfold_smooth_composition_v1.json",
+      "sha256": "b0520d048aeda0022ce44b80cdce00538a16a0a429ad03985ddc34142f5dd276"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1b2a_residual_moment_error_v1.json",
+      "sha256": "d1368a0d047662e7d98d2e0d6c9a6f9f79e230df79d935d17e9897988b5389c2"
+    },
+    {
+      "path": "docs/method/theory/data/Sono_FMT_H1bP92a_identity_prime_moment_v1.json",
+      "sha256": "f2d241877f43e0074775f60cafce683f869ee022169924183bb5de5ca12ec492"
+    },
+    {
+      "path": "source/h1bp92a_identity_prime_moment.py",
+      "sha256": "628ed5adf41042fe7ae7735443236e91a4c821646f89b4d3f46017d930d9ae0d"
+    },
+    {
+      "path": "docs/method/theory/44_Sono_FMT_H1bP92a_actual_identity_weighted_moment.md",
+      "sha256": "50fadaaf1fc11eabe7c367e4f1682037f3ed92f417b41016ee010a0965e8f220"
+    },
+    {
+      "path": "docs/method/theory/34_Sono_FMT_H1c1b1a_dyadic_dimension_coefficient_transfer.md",
+      "sha256": "b8994bed2ef971ffd5f74c84e6f003707d882940b46d7e859a944ebb9da02480"
+    }
+  ],
+  "parent_ledger": "docs/method/theory/data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json",
+  "theory": "docs/method/theory/45_Sono_FMT_H1bP91a_unweighted_moment_W_filter.md",
+  "review": "docs/review/51_20260909_H1bP91a_unweighted_moment_W_filter_타당성검토.md",
+  "helper": "source/h1bp91a_unweighted_moment.py",
+  "test": "tests/test_h1bp91a_unweighted_moment.py",
+  "no_materialization": [
+    "X=2*exp(L)",
+    "Y",
+    "Tprime",
+    "W",
+    "k-dimensional arrays",
+    "actual prime lists"
+  ],
+  "prior_proof_search": {
+    "primary": "Maynard published Proposition 9.1; existing corrected local project lemmas",
+    "secondary_inspected": "https://github.com/AxiomMath/PrimeGapsLib/blob/main/PrimeGapsTheory/Sieve/S1/ApplyPartialSum.lean",
+    "not_adopted_reason": "fixed-k existential C,N0 and different W/profile envelope; not an explicit growing-k drop-in",
+    "official_weight_erratum_found": false,
+    "novelty_claimed": false
+  },
+  "next_gate": "H1b-P94g, then H1b-NORM common normalization and actual dependency pruning"
+}

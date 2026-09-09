@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.12.0")
+        self.assertEqual(self.document["schema_version"], "1.13.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -70,11 +70,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "RATE_MISSING": 3,
+                    "RATE_MISSING": 2,
                     "INPUT_PACKAGE_MISSING": 3,
                     "PARTIAL_EXPLICIT": 1,
                     "PROJECT_FINITE_COMPONENT_CLOSED": 3,
-                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 6,
+                    "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT": 7,
                     "HARD_BLOCKER": 1,
                 }
             ),

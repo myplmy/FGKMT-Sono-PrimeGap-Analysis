@@ -137,7 +137,7 @@ class H1c1aPrimeDistributionInventoryTests(unittest.TestCase):
         predecessor = json.loads(PREDECESSOR.read_text(encoding="utf-8"))
         self.assertEqual(
             predecessor["next_gate"]["id"],
-            "H1b-P91a",
+            "H1b-P94g",
         )
         self.assertTrue(
             predecessor["successor_common_exceptional_remainder"][

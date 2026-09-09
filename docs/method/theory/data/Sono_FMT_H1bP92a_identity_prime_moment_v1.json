@@ -1,5 +1,9 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "weight_definition": "maynard_w_filtered",
+  "w_filter_required": true,
+  "literal_unfiltered_transfer_certified": false,
+  "scope_correction": "H1b-P91a: the proof already restricts to W-good residues and therefore requires Maynard (7.5)'s indicator. The literal FGKMT (7.4) omits that displayed filter; equality of the two functions is not asserted. Theory 45 proves shift and prime-slice filter preservation for the repaired construction.",
   "created_kst": "2026-09-09",
   "gate": "H1b-P92a",
   "outcome": "ACTUAL_IDENTITY_WEIGHTED_MOMENT_AND_LOWER_ENDPOINT_EXPLICIT_ROOTS_OPEN",

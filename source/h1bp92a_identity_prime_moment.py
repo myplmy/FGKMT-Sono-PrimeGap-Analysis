@@ -58,6 +58,9 @@ class IdentityPrimeMomentCertificate:
     additive_multiplier: int
     actual_identity_application_closed: bool
     lower_endpoint_weight_closed: bool
+    weight_definition: str = "maynard_w_filtered"
+    w_filter_required: bool = True
+    literal_unfiltered_transfer_certified: bool = False
     conditional_on_actual_form_construction: bool = True
     general_proposition92_closed: bool = False
     proposition61_closed: bool = False
@@ -196,6 +199,7 @@ def integral_comparison_certificate(k: int) -> IntegralComparisonCertificate:
 
 def identity_prime_moment_certificate(
     *, k: int, log_t: int | str | Fraction | None = None,
+    weight_definition: str = "maynard_w_filtered",
 ) -> IdentityPrimeMomentCertificate:
     """Check scalar envelopes for theory 44's one actual application.
 
@@ -205,6 +209,8 @@ def identity_prime_moment_certificate(
     This is not a numerical Sono/FMT threshold calculator.
     """
     _validate_k(k, ACTUAL_IDENTITY_MOMENT_MIN_K)
+    if weight_definition != "maynard_w_filtered":
+        raise ValueError("the finite proof requires the explicit Maynard W filter")
     L_exact = exact_dimension_bin(k, k**5 if log_t is None else log_t)
     dps = max(100, len(str(L_exact.numerator)) + len(str(L_exact.denominator)) + 60)
     with mp.workdps(dps):

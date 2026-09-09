@@ -158,7 +158,7 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertFalse(successor["full_distribution_package_ready"])
         self.assertEqual(
             self.document["next_gate"]["id"],
-            "H1b-P91a",
+            "H1b-P94g",
         )
         self.assertTrue(
             self.document["successor_common_exceptional_remainder"][
@@ -189,7 +189,7 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertEqual(composition["constants"], [1, 1, 2])
         self.assertFalse(composition["weighted_proposition92_closed"])
         self.assertFalse(composition["broad_siv08_closed"])
-        self.assertEqual(self.document["next_gate"]["id"], "H1b-P91a")
+        self.assertEqual(self.document["next_gate"]["id"], "H1b-P94g")
         weighted = self.document["successor_actual_identity_weighted_moment"]
         self.assertTrue(weighted["actual_identity_weighted_proposition92_closed"])
         self.assertTrue(weighted["weighted_lower_endpoint_closed"])
