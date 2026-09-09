@@ -27,7 +27,7 @@ FGKMT Theorem3의 C0를 기존 §5 proof에서 먼저 복원한다. normalizatio
 2. **COMPLETE — §5 원문·선행결과와 numerical proof 복원**
 3. **COMPLETE — actual COV1 합성·수학적 상태 판정**
 4. **COMPLETE — helper·bounded tests·전체 회귀·정본 동기화**
-5. **COMPLETE — 검토 보고서·handoff·본체 local commit; 인계 commit 직전**
+5. **COMPLETE — 검토 보고서·handoff·본체·인계 local commit 완료**
 
 ## 기록
 
@@ -81,6 +81,8 @@ FGKMT Theorem3의 C0를 기존 §5 proof에서 먼저 복원한다. normalizatio
 - 안전한 Move-Item 이관 완료. 이후 인계 포함23파일, JSON4, Python10, local link80,
   source/proof4 pins가 issue0으로 통과했다. 날짜가 2026-09-10으로 넘어갔으며
   23:59에 작성한 handoff의 timestamp는 실제 생성 시각 그대로 보존한다.
+- 인계 commit 8f3cf197fd7be142c84828dcb4a3238e403a93f4 완료.
+  이 마지막 상태 갱신만 별도 마감 기록 commit에 포함한다.
 
 ## 완료 점검
 
@@ -90,4 +92,4 @@ FGKMT Theorem3의 C0를 기존 §5 proof에서 먼저 복원한다. normalizatio
 - [x] canonical 상태·참조 동기화
 - [x] timestamp handoff·명시 allowlist 본체 local commit
 - [x] 완료 후 -done 안전 이관 (23:59 handoff 참조와 일치)
-- [ ] 최종 인계 commit
+- [x] 최종 인계 commit 8f3cf19
