@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.14.0")
+        self.assertEqual(self.document["schema_version"], "1.15.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -336,8 +336,11 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         )
         self.assertIn("H1b-P92a", self.document["composition"]["next_gate"])
         self.assertIn("H1b-P91a", self.document["composition"]["next_gate"])
-        self.assertTrue(self.document["composition"]["next_gate"].startswith("H1b-NORM"))
+        self.assertTrue(self.document["composition"]["next_gate"].startswith("H1b-DEP"))
         self.assertIn("H1b-P94g", self.document["composition"]["next_gate"])
+        self.assertTrue(self.document["composition"]["actual_filtered_common_cutoff_available"])
+        self.assertTrue(self.document["composition"]["actual_fixed_x_probability_inputs_closed"])
+        self.assertTrue((ROOT / self.document["h1bnorm_ledger"]).is_file())
         self.assertIn(
             "constants (1,1,2)",
             self.document["composition"]["project_h1a_input"],

@@ -539,8 +539,8 @@
     "broad_siv08_closed": false
   },
   "next_gate": {
-    "id": "H1b-NORM",
-    "description": "After filtered H1b-P92a, H1b-P91a and H1b-P94g, close common singular-series/lambda/weight/tau/u normalization and actual dependency pruning. The growing-k P94 child is explicit on its actual T0 interval. Literal-unfiltered transfer is not certified; no automatic root promotion.",
+    "id": "H1b-DEP",
+    "description": "After H1b-NORM common filtered moments and fixed-X probability inputs, prune actual dependencies and separate broad general-Hypothesis obligations from the actual construction; then finite FMT correlation/failure and PAP/UB/arbitrary-X rates. No automatic root promotion.",
     "ready_for_threshold_calculator": false
   },
   "successor_actual_identity_weighted_moment": {
@@ -579,5 +579,15 @@
     "common_normalization_closed": false,
     "broad_siv08_closed": false,
     "numerical_x_cert_ready": false
+  },
+  "successor_common_filtered_normalization": {
+    "id": "H1b-NORM",
+    "locator": "docs/method/theory/data/Sono_FMT_H1bNORM_common_normalization_v1.json",
+    "common_filtered_moments_closed": true,
+    "fixed_x_probability_inputs_closed": true,
+    "b0_single_prime_deletion_closed": true,
+    "u_depends_only_on_k_certified": false,
+    "broad_siv08_closed": false,
+    "x_cert_ready": false
   }
 }

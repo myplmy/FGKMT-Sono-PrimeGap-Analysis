@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1b-NORM",
+  "outcome": "FILTERED_COMMON_MOMENTS_AND_FIXED_X_PROBABILITY_INPUTS_EXPLICIT_ROOT_OPEN",
+  "evidence_level": "PROJECT_FINITE_ANALYTIC_PROOF_WITH_EXACT_TOY_NOT_LEAN",
+  "minimum_k": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "sufficient_child_cutoff": "X>=2*exp(max(10^1000,4*log(C_h)))",
+  "variables": {
+    "a": "log X",
+    "L": "log(X/2)",
+    "k": "floor(L^(1/5))",
+    "log_R": "(a-log 4)/9",
+    "Y": "X*a*log(log a)/(153600*log 5*log a)",
+    "B": "same source-selected B, 1 or prime",
+    "B0": "separate optional deletion parameter",
+    "b": "phi(B)/B in [1/2,1]",
+    "M0": "b^(-k)*S*(log R)^k*I",
+    "tau": "2*M0*a^k",
+    "u_X": "b*(log R/a)*k*J/(2*I)"
+  },
+  "structural_hypotheses": [
+    "distinct admissible h_i in [1,2*k^2]",
+    "same profile/support and Maynard W filter",
+    "source-selected B meeting the predecessor identity input",
+    "P=(X/2,X] primes, Q=(X,Y] primes; remove at most the one prime B0",
+    "h integer outside tuple, abs(h)<=C_h*Y/X, 0<=log(C_h)<=L/4"
+  ],
+  "exact_identities": {
+    "alpha": "1 if p|B else (p-1)/(p-k)",
+    "beta": "1 if q|B else (q-1)/(q-k)",
+    "lambda": "alpha*lambda0 or beta*lambda0",
+    "prime_slice_weight": "w(p,q-h_i*p)=(alpha_p/beta_q)^2*w_tilde(p)"
+  },
+  "bounds": {
+    "P91_relative": "4/k",
+    "P92_relative_including_B0": "2/sqrt(k)",
+    "dyadic_pi_relative": "3/log X for log X>=10",
+    "fixed_X_probability_relative": "3/sqrt(k)<(log_2 X)^(-10)",
+    "off_tuple_probability": "X/(log X*(log_2 X)^10)",
+    "pointwise_weight": "X^(1/4)",
+    "point_probability": "X^(-3/4)",
+    "tau_lower": 2,
+    "u_lower": "log(k)*(1-log(4)/log(X))/144",
+    "u_convenient_lower": "log(k)/160",
+    "u_upper": "2*log(k)/9"
+  },
+  "weight_definition": "maynard_w_filtered",
+  "common_filtered_moments_closed": true,
+  "fixed_x_probability_inputs_closed": true,
+  "b0_single_prime_deletion_closed": true,
+  "structural_inputs_assumed_not_computed": true,
+  "u_depends_only_on_k_certified": false,
+  "literal_unfiltered_transfer_certified": false,
+  "general_proposition61_closed": false,
+  "downstream_failure_probability_closed": false,
+  "full_good_sieve_weight_closed": false,
+  "x_cert_ready": false,
+  "actual_prime_experiment_performed": false,
+  "lean_verified": false,
+  "immutable_sources": [
+    {
+      "path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8"
+    },
+    {
+      "path": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828"
+    },
+    {
+      "path": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302"
+    },
+    {
+      "path": "tmp/pdfs/h1c1b1a1/Rosser_Schoenfeld1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556"
+    }
+  ],
+  "proof_dependency_snapshots": [
+    {
+      "path": "docs/method/theory/17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md",
+      "sha256": "6a0a242bfbf44d51267d7ea2dc91b9f3abf0a2fd75d4cbbef8020a0db3d538c8"
+    },
+    {
+      "path": "docs/method/theory/28_Sono_FMT_H1b2a_residual_moment_error_package.md",
+      "sha256": "52626c3b5ae0f32ab42c5163c37a85ff1d8b963ca1ab018e65ab6cd3e6006693"
+    },
+    {
+      "path": "docs/method/theory/44_Sono_FMT_H1bP92a_actual_identity_weighted_moment.md",
+      "sha256": "50fadaaf1fc11eabe7c367e4f1682037f3ed92f417b41016ee010a0965e8f220"
+    },
+    {
+      "path": "docs/method/theory/45_Sono_FMT_H1bP91a_unweighted_moment_W_filter.md",
+      "sha256": "0a6a621ed750c60067b508286753d0e7ad2f8c4c264fcea541c2e9d8ac54cc04"
+    },
+    {
+      "path": "docs/method/theory/46_Sono_FMT_H1bP94g_growing_dimension_rough_moment.md",
+      "sha256": "35fed1f60ed0e3340e5c7f3c411b0ac3247b29ce1b4dac2683d01aea5826296c"
+    },
+    {
+      "path": "source/h1bp92a_identity_prime_moment.py",
+      "sha256": "628ed5adf41042fe7ae7735443236e91a4c821646f89b4d3f46017d930d9ae0d"
+    }
+  ],
+  "theory": "docs/method/theory/47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md",
+  "review": "docs/review/53_20260909_H1bNORM_common_normalization_타당성검토.md",
+  "helper": "source/h1bnorm_common_normalization.py",
+  "test": "tests/test_h1bnorm_common_normalization.py",
+  "parent_ledger": "docs/method/theory/data/Sono_FMT_H1b_Maynard_Proposition_6_1_constants_v1.json",
+  "prior_proof_search": {
+    "primary": "FGKMT Section 8; FMT Theorem 6 and Section 6; RS1962 Theorem 1; Sono p.542",
+    "drop_in_finite_package_found": false,
+    "novelty_claimed": false,
+    "new_source_downloaded": false
+  },
+  "next_gate": "H1b-DEP actual proof dependency pruning, followed by finite FMT correlation/failure and remaining PAP/UB/arbitrary-X rates"
+}

@@ -665,3 +665,19 @@ gate를 사용하지 않는다. sharp·Euler·distribution을 합성한 exact
 다음은 H1b-NORM: 세 moment의 공통 series/lambda/filtered-weight/tau/u 및 실제 dependency
 가지치기다. broad SIV-07/08/09 HARD_BLOCKER, root 66행 상태와 X_cert OPEN은 유지한다.
 기존 §23의 다음 단계는 당시 snapshot이며 이 절이 현재 상태다.
+
+## 25. 2026-09-09 H1b-NORM 후속 상태
+
+
+공통 정규화 successor [theory 47](47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md)는
+같은 W-filter construction의 P91/P92/P94를 exact series/lambda-square/tau/u_X로 연결했다.
+k>=10^200에서 P91 상대오차 4/k, P92 상대오차 2/sqrt(k), fixed-X 확률 입력
+상대오차 3/sqrt(k)와 point probability X^(-3/4)를 얻었다.
+FMT B0 삭제도 한 weighted atom 비용으로 닫았다.
+
+u_X는 X와 source B에 의존할 수 있다. 고정-X에서 p,q,i 및 무작위 선택에 무관한
+scalar라는 양화로 직접 확률식을 증명했으며 literal only-k 의존성은 인증하지 않았다.
+actual filtered common child가 explicit하다는 사실과 broad 일반 P6.1/Hypothesis,
+뒤쪽 FMT correlation/failure 및 전체 X_cert가 열려 있다는 사실을 함께 기록한다.
+다음 H1b-DEP는 actual call graph에서 P95 필수 여부와 root node 분리를 감사한다.
+앞 절들의 다음 단계는 당시 snapshot이며 이 절이 현재 상태다.

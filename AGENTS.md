@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1b.1 actual identity modulus capacity·dyadic repair 닫힘 / H1c-1b.1a coefficient 보존 / H1c-1b.1a.1 `sigma y` cutoff \(x\ge2\exp(36^5)\)로 SIV-03 EXPLICIT / H1c-1b.2 raw \((T,2T]\) psi composition 닫힘 / H1c-1b.3r1 FGKMT actual interval \([T,2T]\)로 교정 / H1c-1b.4a–4e actual identity Hypothesis 1 input constants 1·1·2, \(X\ge2\exp(10^{50})\)에서 explicit / H1b-P92a actual identity weighted P9.2·lower atom explicit (child cutoff X>=2exp(10^1000)); H1b-P91a W-filtered unweighted·shift explicit; H1b-P94g actual T0·growing-k multiplier 1 explicit; 공통 정규화 OPEN / SIV-07·08 HARD_BLOCKER / X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1b.1 actual identity modulus capacity·dyadic repair 닫힘 / H1c-1b.1a coefficient 보존 / H1c-1b.1a.1 `sigma y` cutoff \(x\ge2\exp(36^5)\)로 SIV-03 EXPLICIT / H1c-1b.2 raw \((T,2T]\) psi composition 닫힘 / H1c-1b.3r1 FGKMT actual interval \([T,2T]\)로 교정 / H1c-1b.4a–4e actual identity Hypothesis 1 input constants 1·1·2, \(X\ge2\exp(10^{50})\)에서 explicit / H1b-P92a actual identity weighted P9.2·lower atom explicit (child cutoff X>=2exp(10^1000)); H1b-P91a W-filtered unweighted·shift explicit; H1b-P94g actual T0·growing-k multiplier 1 explicit; H1b-NORM 공통 filtered moment·fixed-X 확률 입력 explicit / SIV-07·08 HARD_BLOCKER / X_cert OPEN
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
@@ -504,7 +504,8 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - P014-R3와 P018-P0/A 완료 BAT/PS1/SH는 SHA-256을 보존해 `test_done/*-20260901T*-done`으로 이관; P015 queue는 완료된 P013 child를 중복하므로 `DO_NOT_START`
 - 결과·실패·교정 보고서 연결 정본: `test_result/00_실험결과_분석보고서_색인.md`
 
-다음 권장 행동은 P018-B가 아니라 H1b-NORM 공통 정규화다. H1b-P91a는 명시적 Maynard W-filter를
+다음 권장 행동은 P018-B가 아니라 H1b-DEP actual dependency 분리다. H1b-NORM은
+공통 filtered moment와 fixed-X 확률 입력을 explicit하게 닫았다. H1b-P91a는 명시적 Maynard W-filter를
 쓰는 actual unweighted moment와 T'=2floor(Y)의 closed shift·끝점 보정을 P92a와 같은
 child cutoff에서 닫았다. 정본은 docs/method/theory/45_Sono_FMT_H1bP91a_unweighted_moment_W_filter.md다.
 Maynard (7.5)의 W-coprimality indicator는 FGKMT (7.4) literal 표시에 없으므로
@@ -519,7 +520,12 @@ P9.2와 lower weight/count atom을 \(k\ge10^{200}\)에서 multiplier 1/1로 닫�
 P94g의 local scale은 T0=floor(Y)-floor(X)이며 endpoint·support 제거는 등호가 아닌 상계다.
 정본은 docs/method/theory/46_Sono_FMT_H1bP94g_growing_dimension_rough_moment.md다.
 명시적 h 범위와 k>=10^200에서 multiplier 1을 얻었지만 이전 13의 모든 범위를 대체하지 않는다.
-다음은 singular-series/lambda/weight/tau/u 공통 budget이다. FGKMT Theorem 6의 실제 proof에는
+공통 singular-series/lambda-square/tau/u_X 및 B0 한 항 삭제는 theory 47에서 닫혔다.
+정본은 docs/method/theory/47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md다.
+u_X는 고정 X/source B의 결정론적 값이며 only-k 의존성을 인증하지 않는다.
+P91 4/k·P92 2/sqrt(k), 확률 상대오차 3/sqrt(k), point probability X^(-3/4)를
+k>=10^200에서 얻었다. 일반 P6.1·뒤쪽 failure rate·root X_cert는 여전히 열린다.
+FGKMT Theorem 6의 실제 proof에는
 P95 직접 호출이 없으므로 그 필수성을 먼저 감사한다. broad SIV-07/08/09는 계속 HARD_BLOCKER다.
 H1과 병행할 수 있는 보조축은 explicit
 primorial·Mertens·iterated-log transfer theorem 후보 수집이다. numerical threshold calculator는

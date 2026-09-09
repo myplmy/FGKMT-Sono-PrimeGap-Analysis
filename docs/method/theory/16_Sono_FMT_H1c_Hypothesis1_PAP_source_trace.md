@@ -412,3 +412,19 @@ snapshot의 false flag는 당시 기록으로 보존하며, 새 machine successo
 
 일반 Hypothesis package, 다른 actual moment와 singular-series/weight/tau/u 공통 합성,
 PAP sibling과 \(X_{\rm cert}\)는 여전히 OPEN이다. 다음 gate는 H1b-P91a다.
+
+## 19. 2026-09-09 H1b-NORM 후속 상태
+
+
+공통 정규화 successor [theory 47](47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md)는
+같은 W-filter construction의 P91/P92/P94를 exact series/lambda-square/tau/u_X로 연결했다.
+k>=10^200에서 P91 상대오차 4/k, P92 상대오차 2/sqrt(k), fixed-X 확률 입력
+상대오차 3/sqrt(k)와 point probability X^(-3/4)를 얻었다.
+FMT B0 삭제도 한 weighted atom 비용으로 닫았다.
+
+u_X는 X와 source B에 의존할 수 있다. 고정-X에서 p,q,i 및 무작위 선택에 무관한
+scalar라는 양화로 직접 확률식을 증명했으며 literal only-k 의존성은 인증하지 않았다.
+actual filtered common child가 explicit하다는 사실과 broad 일반 P6.1/Hypothesis,
+뒤쪽 FMT correlation/failure 및 전체 X_cert가 열려 있다는 사실을 함께 기록한다.
+다음 H1b-DEP는 actual call graph에서 P95 필수 여부와 root node 분리를 감사한다.
+앞 절들의 다음 단계는 당시 snapshot이며 이 절이 현재 상태다.

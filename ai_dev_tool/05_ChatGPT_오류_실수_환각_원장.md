@@ -1102,6 +1102,29 @@
   직접 출판본 PDF·지정 arXiv metadata 및 기존 local proof를 사용했다.
   조회 실패를 원문의 부재·정리 부재로 해석하지 않는다.
 
+### E074 — 공통 정규화에서 숨기면 안 되는 양화·제곱비
+
+- FGKMT/FMT의 u=u(r) 선언과 actual 식 (8.3)은 같은 것으로 자동 읽을 수 없다.
+  actual u에는 X,B가 들어 있다. 임의로 phi(B)/B=1로 바꾸지 않고 u_X를 사용했다.
+- theory 47은 fixed-X 확률 입력을 직접 증명하며 only-k 의존성은 미인증으로 남긴다.
+  “원문 전체가 잘못됐다” 또는 “Sono 정리 반례”라는 주장은 하지 않는다.
+- lambda의 common scalar를 weight에 옮기면 제곱해야 한다. exact nonzero toy는
+  제곱을 빠뜨린 식을 반증하며 p마다 다른 alpha를 합 밖으로 꺼내지 않게 검산한다.
+- B와 FMT B0는 서로 다른 parameter다. 삭제하는 소수 한 개의 weighted 비용을
+  count atom 1과 동일시하지 않고 새 bound로 흡수했다. 실제 데이터는 변경하지 않았다.
+
+### E075 — H1b-NORM 도구·문서·회귀 동기화 실수
+
+- parent JSON과 theory 34 이름을 추측해 FileNotFound를 냈다. rg --files의 실제 이름으로
+  재조회했다. 앞 inventory에서도 wildcard path 오류가 반복됐다. 사용자 파일 문제가 아니다.
+- PDF 질의 확인용 -First forty는 정수가 아니라 실패했다. -First 40으로 교정했다.
+  큰 출력 일부가 잘려 정확한 source 범위만 재읽었다. 실패한 읽기는 검증 PASS가 아니다.
+- 최초 한국어 proof 초안에 일본어 두 문장이 섞였고, 마감 전 한국어로 교정했다.
+- 표적 93개 첫 회귀는 1개 실패: parent schema 1.15.0으로 올린 뒤 시험 기대값이
+  1.14.0에 남아 있었다. 실제 버전 변경을 반영하고 다시 93/93 PASS (0.292초, exit 0).
+  수학 조건을 완화하거나 실패 검사를 삭제하지 않았다.
+- proof PASS와 root X_cert OPEN을 분리하며, 원문·선행 proof의 10개 hash는 보존한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.
