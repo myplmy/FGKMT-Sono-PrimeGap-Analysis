@@ -539,8 +539,8 @@
     "broad_siv08_closed": false
   },
   "next_gate": {
-    "id": "H1b-COV1",
-    "description": "H1b-COV1 / DEP-R07: full hypergraph source/parameter/subset/failure audit after COR3 closes R03 finite-family local counts and R06 main degree. R01-R06 are actual project explicit. H1b-P92a, H1b-P91a, H1b-P94g and H1b-NORM inputs stay explicit. Six work packages R07-R12 remain; P95 is not an actual-route prerequisite. Full hypergraph, total budget and X_cert stay OPEN.",
+    "id": "H1b-COV1a",
+    "description": "H1b-COV1a / DEP-R07: recover FGKMT Section 5 numerical C0, starting with Lemma5.1 normalization then conditional moments and induction. COV1 theory53 closes the full-residue cap, finite exception cost, partition, D=2/kappa input and support restoration; moment transfer is conditional on the C0 gate. H1b-P92a, H1b-P91a, H1b-P94g and H1b-NORM remain explicit. R01-R06 are actual project explicit; R07-R12 remain OPEN. No full hypergraph, global coefficient budget or X_cert promotion.",
     "ready_for_threshold_calculator": false
   },
   "successor_actual_identity_weighted_moment": {
@@ -627,5 +627,15 @@
     "p95_required_by_actual_route": false,
     "broad_siv08_closed": false,
     "x_cert_ready": false
+  },
+  "successor_full_residue_hypergraph_interface": {
+    "id": "H1b-COV1",
+    "locator": "docs/method/theory/data/Sono_FMT_H1bCOV1_hypergraph_interface_v1.json",
+    "input_cap_partition_realization_explicit": true,
+    "core_C0_numerically_known": false,
+    "moment_transfer": "CONDITIONAL_ON_SOURCE_C0_GATE",
+    "full_hypergraph_closed": false,
+    "numerical_x_cert_ready": false,
+    "current_remaining_actual_work_packages": 6
   }
 }

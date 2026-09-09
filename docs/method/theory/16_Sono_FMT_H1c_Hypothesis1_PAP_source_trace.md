@@ -1,18 +1,18 @@
 # Sono/FMT H1c Hypothesis 1·PAP source tracing
 
-## 2026-09-09 H1b-COR3 현재 상태
+## 2026-09-09 H1b-COV1 현재 상태
 
-[theory 51](51_Sono_FMT_H1bCOR3_finite_local_count_partition.md)과
-[theory 52](52_Sono_FMT_H1bCOR3_main_degree_finite_moments.md),
-[review 59](../../review/59_20260909_H1bCOR3_local_main_moments_타당성검토.md)가 최신 정본이다.
-COR1의 R01/R02/R04, COR2의 R05에 이어 R03 finite-family local count와 R06
-main-degree를 같은 actual child cutoff에서 닫았다. R03은 사전 고정 J구간과
-delta>=a^(-1/4) 조건이며, R06은 같은-p 충돌·bad-P 질량·조건부 분모를 보존한다.
-FMT (5.8)의 absolute error 1/b²와 같은 C>(5/4)ln5를 얻었다.
-과거 DEP/COR1/COR2의 12/9/8 OPEN은 역사 snapshot이고, 현재는 R07–R12 6작업이 남는다.
-이 개수는 완료율·난이도 비율이 아니다. 다음은 H1b-COV1 / DEP-R07이다.
-full hypergraph·동시 covering·PAP/UB·최종 공동 오차·arbitrary-X는 열려 있고,
-broad SIV-07/08/09는 HARD_BLOCKER, X_cert는 OPEN이다.
+[theory 53](53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md)과
+[review 60](../../review/60_20260909_H1bCOV1_hypergraph_유한연결_타당성검토.md)가 최신 정본이다.
+COR1–COR3의 R01–R06 actual child는 보존한다. COV1은 full residue edge를 2k로 cap하고
+제거 질량·예외 q 복원·서로소 partition과 D=2, kappa=(9/10)5^-m 입력을 explicit하게 닫았다.
+1·2점 moment transfer는 FGKMT Theorem3의 numerical C0 smallness gate에 조건부다.
+C0가 아직 수치화되지 않았으므로 R07 전체와 R08–R12는 OPEN이고,
+broad SIV-07/08/09·COV-06/08은 HARD_BLOCKER, X_cert는 OPEN이다.
+다음은 H1b-COV1a: FGKMT Section5의 normalization → conditional moment → Taylor/induction 상수 복원.
+예외점 복원비가 현재 child에서 충분히 작다고 선언하지 않으며 R08에서 따로 판정한다.
+theory52 (52.17)의 '+' 표시 누락은 theory53 §1.1에 정정했다. 원래 contract/code는 합이었다.
+과거 원장과 hash-pinned proof는 보존하며, 작업 수 6은 완료율이 아니다.
 아래 날짜별 next-gate와 미완료 서술은 당시 이력이며 이 현재 상태가 우선한다.
 
 - 작성: 2026-09-04 KST

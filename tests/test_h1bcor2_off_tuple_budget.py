@@ -145,7 +145,7 @@ class ContractTests(unittest.TestCase):
         t1 = json.loads((base / "Sono_FMT_T1_proof_obligations_v1.json").read_text(encoding="utf-8"))
         self.assertTrue((ROOT / h1b["h1bcor2_ledger"]).is_file())
         self.assertEqual(h1b["composition"]["remaining_actual_work_packages"], 6)
-        self.assertEqual(h1c["next_gate"]["id"], "H1b-COV1")
+        self.assertEqual(h1c["next_gate"]["id"], "H1b-COV1a")
         self.assertEqual(h1c["successor_finite_off_tuple_budget"]["newly_closed_actual_work"], ["DEP-R05"])
         self.assertTrue((ROOT / t1["h1bcor2_actual_off_tuple_ledger"]).is_file())
         self.assertFalse(h1b["composition"]["ready_for_threshold_calculator"])

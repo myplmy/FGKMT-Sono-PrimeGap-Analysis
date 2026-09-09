@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.0.0",
+  "id": "H1b-COV1",
+  "date": "2026-09-09",
+  "evidence_level": [
+    "SOURCE_APPLICABILITY_AUDIT",
+    "PROJECT_FINITE_ANALYTIC_PROOF",
+    "BOUNDED_EXACT_TOY_VERIFICATION"
+  ],
+  "scope": {
+    "boundary_mode": "end",
+    "logs": "iterated_natural",
+    "weight": "maynard_w_filtered",
+    "u_quantifier": "fixed_X_and_source_B",
+    "full_residue_edges": true,
+    "cap_drops_whole_edge": true,
+    "exception_cost_restored": true,
+    "fixed_subset_not_all_subsets": true,
+    "source_C0_numerically_known": false,
+    "full_hypergraph_certified": false,
+    "global_union_budget_closed": false,
+    "x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_experiment_performed": false,
+    "independently_formally_verified": false
+  },
+  "constants": {
+    "cap": "2*k",
+    "cap_degree_loss_expectation": "3200*c_aux*X/(a*b^9)",
+    "cap_failure_upper": "min(1,3200*c_aux/b^5)",
+    "preparation_failure_upper": "min(1,4800*c_aux/b^5+800*c_aux/b^10+112*k*b^4/a^11)",
+    "exception_count": "floor(2*X/(a*b))",
+    "exception_fraction_upper": "8000/b^2",
+    "post_cap_degree_error": "1203/b^3<=1/b^2",
+    "r_hg": "2*k",
+    "A_hg": "4*k*m+2",
+    "D": 2,
+    "kappa": "(9/10)*5^(-m)",
+    "Delta": "X^(-1/20)",
+    "log_recursion_error": "(3^j-1)/b",
+    "xi": "3^m/b<1/10",
+    "core_log_gate": "a/(20*10^(m+2))>=ln(C0)+A_hg*(2+ln(1/kappa))",
+    "single_error": "(1+epsilon)*exp(xi)-1",
+    "pair_error": "(1+epsilon)*exp(2*xi)-1",
+    "subset_failure_upper": "min(1,(beta+2*alpha+(1+alpha)/(rho*M))/t^2)",
+    "restoration_error": "#(U0 intersect E)/(rho*#U0)",
+    "source_C0_value": null,
+    "c_sono": "2e-17"
+  },
+  "children": {
+    "COV1-SOURCE": "SOURCE_VERIFIED",
+    "COV1-CAP": "ACTUAL_INPUTS_PROJECT_EXPLICIT",
+    "COV1-EXCEPTIONS": "ACTUAL_INPUTS_PROJECT_EXPLICIT",
+    "COV1-PARTITION": "ACTUAL_INPUTS_PROJECT_EXPLICIT",
+    "COV1-RECURRENCE": "ACTUAL_INPUTS_PROJECT_EXPLICIT",
+    "COV1-MOMENT-TRANSFER": "CONDITIONAL_ON_SOURCE_C0_GATE",
+    "COV1-REALIZATION": "PROJECT_EXPLICIT_SUPPORT_LEMMA",
+    "COV1-CORE-C0": "OPEN"
+  },
+  "source_pins": [
+    {
+      "id": "FMT",
+      "path": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "locator": "pp.9-11, Theorems 4-5 and application"
+    },
+    {
+      "id": "FGKMT",
+      "path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "locator": "printed pp.72,76-89; Lemma2.2, Theorem3, Corollary4, Section5"
+    },
+    {
+      "id": "COR1_49",
+      "path": "docs/method/theory/49_Sono_FMT_H1bCOR1_finite_correlation_conditioning.md",
+      "sha256": "ed4c94fb6cef14bd49b2e1e0331a01060ca54870bf0b25a0a40fd2ee9169d158",
+      "locator": "conditioning law, full residue sparsity and geometric codegree"
+    },
+    {
+      "id": "COR2_50",
+      "path": "docs/method/theory/50_Sono_FMT_H1bCOR2_off_tuple_finite_budget.md",
+      "sha256": "ead1666a0b9ea3ee9ee455e9fe92b27b83287a2b2139c89da25c4db322e400f9",
+      "locator": "(50.6),(50.7),(50.14): total off mass and denominator transfer"
+    },
+    {
+      "id": "PROOF51",
+      "path": "docs/method/theory/51_Sono_FMT_H1bCOR3_finite_local_count_partition.md",
+      "sha256": "4dd99739c4d0abefddfae4e444389c0ef88d5ebe0fbe208d6edcbe801971a1dc",
+      "locator": "all-parameter analytic proof and finite-family scope"
+    },
+    {
+      "id": "PROOF52",
+      "path": "docs/method/theory/52_Sono_FMT_H1bCOR3_main_degree_finite_moments.md",
+      "sha256": "2534d59182a1ab94949ea0e559f3aafb31c3a11fd9c44a7e25b222203c87283b",
+      "locator": "all-parameter analytic proof, C normalization and degree budget"
+    },
+    {
+      "id": "COR3_CONTRACT",
+      "path": "docs/method/theory/data/Sono_FMT_H1bCOR3_local_main_moments_v1.json",
+      "sha256": "b140154a3ec341019dfb8d1d3723fefe11646769829a73ecfdf143e25dd4859b",
+      "locator": "immutable predecessor, three additive degree failure terms"
+    },
+    {
+      "id": "PROOF53",
+      "path": "docs/method/theory/53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md",
+      "sha256": "615c1501a49f422fe22d5838fb5829c255a48a1d4af9da25c3f7aa2158085672",
+      "locator": "all finite interface statements, source C0 gate conditional"
+    }
+  ],
+  "pdf_reading": [
+    {
+      "source": "FMT",
+      "pages": [
+        9,
+        10,
+        11
+      ],
+      "page_type": "NATIVE_TEXT",
+      "text_primary": true,
+      "original_page_crosschecked": true,
+      "new_ocr_performed": false
+    },
+    {
+      "source": "FGKMT",
+      "pages": [
+        8,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        23,
+        24,
+        25
+      ],
+      "page_type": "NATIVE_TEXT",
+      "text_primary": true,
+      "original_page_crosschecked": true,
+      "new_ocr_performed": false
+    }
+  ],
+  "errata": [
+    {
+      "target": "theory52 equation52.17",
+      "kind": "missing_plus_in_display",
+      "corrected_formula": "min(1,1600*c_aux/b^5+800*c_aux/b^10+112*k*b^4/a^11)",
+      "pinned_original_preserved": true,
+      "contract_and_code_already_correct": true
+    }
+  ],
+  "closed_actual_work": [
+    "DEP-R01",
+    "DEP-R02",
+    "DEP-R03",
+    "DEP-R04",
+    "DEP-R05",
+    "DEP-R06"
+  ],
+  "remaining_open_work": [
+    "DEP-R07",
+    "DEP-R08",
+    "DEP-R09",
+    "DEP-R10",
+    "DEP-R11",
+    "DEP-R12"
+  ],
+  "core_c0_obligations": [
+    {
+      "id": "C0-NORM",
+      "locator": "FGKMT (5.7)-(5.11), Lemma5.1",
+      "status": "OPEN"
+    },
+    {
+      "id": "C0-CONDITIONAL",
+      "locator": "FGKMT (5.18)-(5.22), independent-copy interpretation including identical indices",
+      "status": "OPEN"
+    },
+    {
+      "id": "C0-TAYLOR",
+      "locator": "FGKMT (5.14)-(5.17), denominator/Taylor/union error absorption",
+      "status": "OPEN"
+    },
+    {
+      "id": "C0-INDUCTION",
+      "locator": "FGKMT (4.1),(4.10), every m and common multiplier",
+      "status": "OPEN"
+    }
+  ],
+  "historical_ledger_preserved": true,
+  "other_research_directions": "DEFERRED_SEPARATE_RESEARCH_PER_USER_20260909",
+  "next_gate": "H1b-COV1a / FGKMT Section 5 numerical C0",
+  "no_user_execution_required": true
+}
