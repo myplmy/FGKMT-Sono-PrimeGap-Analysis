@@ -55,9 +55,9 @@
 ## 단계 현황
 
 1. **COMPLETE — 현재 정본·Bordignon 상수 표기와 actual target 재구성**
-2. **IN_PROGRESS — explicit prime-density·source-normalization 선행연구 조사**
-3. **PENDING — 12항·count-transfer full absorption 수학 판정 및 하위 gate 분해**
-4. **PENDING — machine contract·helper·negative-control·회귀시험 작성**
+2. **COMPLETE — explicit prime-density·source-normalization 선행연구 조사**
+3. **IN_PROGRESS — 12항·count-transfer full absorption 수학 판정 및 하위 gate 분해**
+4. **IN_PROGRESS — machine contract·helper·negative-control·회귀시험 작성**
 5. **PENDING — H1/H1b/H1c/T1·METHODS·AGENTS·색인 동기화**
 6. **PENDING — 전체 검증·handoff·명시 stage·local commit**
 
@@ -120,6 +120,30 @@
   인쇄식이나 v1 식에서 수치 `C_A`를 요청하면 helper가 의도적으로 예외를 발생시킨다.
 - 다음 재개점: Rosser--Schoenfeld direct interval lower bound와 Bordignon `c0,c1`의
   elementary upper를 H1c-1b.4b로 정식화한다.
+
+### 2026-09-09 10:28 KST — H1c-1b.4b density·c0·c1 증명 작성
+
+- Rosser--Schoenfeld 1962 Corollary 3 식 (3.8), p. 69의
+  `pi(2T)-pi(T)>3T/(5log T)` (`T>=20.5`)를 채택했다. source의 `(T,2T]`와 actual
+  `[T,2T)` 차이로 prime atom 1을 빼고, `log T>=36^5`에서
+  `1/T<1/(10log T)`를 elementary exponential series로 흡수해
+  `P_T>T/(2log T)`를 얻었다.
+- Rosser--Schoenfeld Theorem 12의 `psi(113)/113<1.03883`과 exact rational
+  log/atan series enclosure로 Bordignon `c0<49`를 증명했다. 산출 rational upper는
+  `1622314618240/33191449137 = 48.8774868353...`이다.
+- `log(1+u)<u`와 `sum_(n>=2)1/[n(n-1)]=1`로 `c1<e<3`을 증명했다.
+- Dusart 2010 Theorem 6.9 식 (6.6)은 independent pointwise cross-check로만 등록하고,
+  더 직접적인 Rosser--Schoenfeld interval theorem을 canonical path로 선택했다.
+- 첫 source-hash 회귀에서 PowerShell 표의 잘린 경로를 보고 Rosser와 Dusart PDF hash를
+  서로 바꿔 적어 1건 FAIL했다. 각 contract path를 직접 hash하는 test가 이를 검출했고,
+  Rosser=`8e37...ab556`, Dusart=`3f11...f3923`으로 즉시 교정했다.
+- 새 helper·JSON·문서·tests를 실행했다. H1c-1b.4b 7/7, 4a+4b 통합
+  13/13 unittest, `py_compile`, `git diff --check` 모두 PASS했다. 이값은 exact
+  rational witness와 source hash를 재검산하고, `X_cert` 또는 H1(2)를 과승격하지 않는
+  fail-closed flag를 확인한다.
+- 다음 재개점: 12항·count-transfer에서 허용되는 `C_A` budget을 유도하되,
+  고정 (r) 점검을 growing-(r) 전 구간 증명으로 과장하지 않도록 차원 bin의 양끝을
+  모두 포함한다.
 
 ## 완료 전 점검
 
