@@ -349,7 +349,8 @@ Hypothesis 1(2), Proposition 9.2, `SIV-07/08`과 \(X_{\mathrm{cert}}\)는 승격
 
 ## 13. 2026-09-09 H1c-1b.3 후속 결과
 
-위 목록의 3번과 4번 중 exact recentering은 H1c-1b.3에서 닫혔다. prime-power와 endpoint
-비용까지 포함한 actual half-open unweighted count upper가 준비됐다. 남은 것은
-\(C_*\) 정규화, exact prime-density lower bound와 모든 항의 common-cutoff 흡수다.
-따라서 다음 gate는 H1c-1b.4이고 상위 상태는 계속 fail-closed다.
+위 목록의 3번과 4번 중 exact recentering은 H1c-1b.3에서 닫혔다. 이 half-open 식은
+Maynard 일반형에 해당하며, H1c-1b.3r1은 actual FGKMT target을 \([T,2T]\)로 교정했다.
+H1c-1b.4a–4e는 source normalization, density와 full absorption을 합성해 actual identity
+Hypothesis input을 닫았다. weighted P92와 lower-endpoint weight가 남으므로 다음 gate는
+H1b-P92a이고 상위 상태는 계속 fail-closed다.

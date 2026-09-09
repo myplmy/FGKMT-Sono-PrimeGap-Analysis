@@ -1,7 +1,8 @@
 # H1c-1b.4b density·elementary constants 타당성 검토
 
 - 검토일: 2026-09-09 KST
-- 대상: actual exact half-open prime population의 명시적 density와 Bordignon \(c_0,c_1\)
+- 대상: Maynard half-open bridge와 FGKMT closed actual population의 명시적 density,
+  Bordignon \(c_0,c_1\)
 - 최종 판정:
   `VALID AND FINITE FOR ACTUAL IDENTITY APPLICATION / FULL RATE STILL OPEN`
 - 정식화:
@@ -95,3 +96,7 @@ growing-A C_A                     = OPEN
 full relative-rate absorption     = OPEN
 H1(2) / P9.2 / SIV-08 / X_cert   = OPEN
 ```
+
+> 후속 교정(2026-09-09): “actual exact half-open”이라는 표현은 철회한다. FGKMT의
+> actual interval은 \([T,2T]\)이다. half-open 계산은 Maynard 일반형 bridge로서 정확하고,
+> closed population은 더 크므로 이 문서의 density lower는 안전하게 보존된다.

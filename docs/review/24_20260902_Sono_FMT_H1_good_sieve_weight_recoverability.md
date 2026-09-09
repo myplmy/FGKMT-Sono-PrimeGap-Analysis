@@ -482,3 +482,21 @@ center는 이제 일치한다.
 하지만 required relative rate와 density는 아직 수치화되지 않았다. 따라서 H1 overall outcome,
 `SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}\)=`OPEN`은 바뀌지 않는다.
 다음 직접 gate는 H1c-1b.4다.
+
+## 22. 2026-09-09 H1c-1b.3r1 교정
+
+앞 절의 “actual half-open” 설명은 Maynard 원문에는 맞지만 FGKMT 수정 정의에는 맞지 않아
+철회한다. FGKMT Hypothesis target은 \([T,2T]\)이고 외부 Section 8 prime set은
+\((T,2T]\)이다. unweighted lower atom 비용은 기존 bound로 덮이지만 weighted
+lower-endpoint \(w(T)\)는 별도 의무다.
+
+## 23. 2026-09-09 H1c-1b.4e 후속 판정
+
+source normalization, density, full absorption과 source-constant 재증명을 한 input에 합성한
+결과, actual identity-form Hypothesis 1 input은
+\(X\ge2\exp(10^{50})\)에서 constants \(1,1,2\)로 explicit해졌다.
+
+이는 good-weight proof 전체가 아니라 P92에 들어가는 연료 규격 하나를 닫은 결과다.
+weighted P92, closed-to-\((T,2T]\) endpoint weight, P91/L93/P95와 common moment budget이
+남는다. 따라서 H1 overall outcome, `SIV-07/08/09=HARD_BLOCKER`,
+\(X_{\mathrm{cert}}=\)`OPEN`은 유지한다. 다음 직접 gate는 H1b-P92a다.

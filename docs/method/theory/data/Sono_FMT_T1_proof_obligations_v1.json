@@ -20,6 +20,8 @@
   "h1c1b1a1_ledger": "docs/method/theory/data/Sono_FMT_H1c1b1a1_sigma_y_explicit_cutoff_v1.json",
   "h1c1b2_ledger": "docs/method/theory/data/Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
   "h1c1b3_ledger": "docs/method/theory/data/Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
+  "h1c1b3r1_ledger": "docs/method/theory/data/Sono_FMT_H1c1b3r1_FGKMT_endpoint_correction_v1.json",
+  "h1c1b4e_ledger": "docs/method/theory/data/Sono_FMT_H1c1b4e_end_to_end_composition_v1.json",
   "target": "For every X >= X_cert, G_1(X) >= 2e-17 * log(X) * log_2(X) * log_4(X) / log_3(X)",
   "scope": "Direct proof edges from Sono Theorem 3.6 through the cited FMT, FGKMT, and Maynard layers. This is an obligation inventory, not a numerical threshold certificate.",
   "status_vocabulary": {
@@ -1046,13 +1048,13 @@
       "equation": "Hypothesis 1, Theorem 6, (7.6)-(7.9)",
       "quantity": "linear-form distribution errors and theorem constant C",
       "direction": "upper errors and lower main terms",
-      "explicit_bound": "decay powers such as log^-100k^2 x and log^-1/10 x are printed; implied constants and x threshold are not",
+      "explicit_bound": "The actual selected identity-form Hypothesis 1 input is explicit with constants (1,1,2) for X>=2*exp(10^50); the broad node still includes the weighted Proposition 9.2/Theorem 6 integration and its unprinted constants",
       "valid_range": "k<=log^(1/5)x and all Hypothesis 1 conditions",
       "depends_on": [],
       "status": "HARD_BLOCKER",
       "criticality": "hard",
       "checker": "uniform AP-distribution certificate",
-      "notes": "H1c shows that clauses (1) and (3) have elementary finite sufficient reductions. H1c-1a found no drop-in numerical source for clause (2), with Bordignon 2021 as the primary composition candidate. H1c-1b.1 distinguishes outer chain k=1 from the growing sieve dimension, prunes the actual Proposition 9.2 call to the identity form, and closes Bordignon modulus capacity. H1c-1b.1a repairs the recurring x/2 transition strips with r_T=floor((log(x/2))^(1/5)), includes the exact R=(x/4)^(theta/3) factor, and preserves Sono's coefficient; H1c-1b.1a.1 closes the sigma*y 26/25 cutoff. H1c-1b.2 fixes one Q1 and one exceptional modulus across T and 2T, selects one prime divisor B, registers all 12 final-published Bordignon terms, and closes the raw open-closed psi dyadic composition. H1c-1b.3 keeps that family fixed throughout the Abel integral and closes the plus-sign partial summation, prime-power removal, half-open endpoint atoms, and exact unweighted total-population recentering for the identity form. Represented-prime density, full error absorption, and a common finite cutoff remain open. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
+      "notes": "H1c-1b.1 prunes the actual Proposition 9.2 application to the identity form and closes modulus capacity; H1c-1b.2 fixes one exceptional B and the complete raw psi remainder. H1c-1b.3r1 corrects the actual FGKMT interval to closed [T,2T], while preserving the one-atom numerical envelope. H1c-1b.4a-4d normalize and reprove the Bordignon 2021 source constant, density, and complete absorption. H1c-1b.4e composes clauses (1),(2),(3) with explicit constants (1,1,2) for the actual A=Z selected identity subset at X>=2*exp(10^50). This closes the Hypothesis input to the actual P9.2 child, not the weighted Proposition 9.2 proof or the lower-endpoint weight needed to return from the closed Theorem 6 sum to the external (T,2T] prime set. The broad SIV-08 row remains HARD_BLOCKER until that integration is split and composed. PAP-11 is a sibling analytic obligation, not a logical prerequisite for SIV-08."
     },
     {
       "id": "SIV-09",

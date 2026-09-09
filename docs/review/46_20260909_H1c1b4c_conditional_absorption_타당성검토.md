@@ -124,3 +124,8 @@ source proof of that C_A bound = OPEN
 unconditional H1(2) / P9.2    = OPEN
 SIV-08 / X_cert               = HARD_BLOCKER / OPEN
 ```
+
+> 후속 판정(2026-09-09): H1c-1b.3r1의 closed-endpoint 교정은 기존 endpoint upper를
+> 키우지 않으며, H1c-1b.4d/4e가 source constant와 actual identity Hypothesis input을
+> 각각 닫았다. 이 문서의 conditional lemma는 predecessor로 계속 유효하지만,
+> weighted Proposition 9.2와 \(X_{\mathrm{cert}}\)는 여전히 열려 있다.

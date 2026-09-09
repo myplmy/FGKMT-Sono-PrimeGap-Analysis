@@ -12,6 +12,8 @@
   "pap_implies_hypothesis1": false,
   "shared_analytic_inputs_do_not_create_logical_dependency": true,
   "numerical_hypothesis1_package_ready": false,
+  "actual_identity_hypothesis1_input_ready": true,
+  "actual_identity_hypothesis1_sufficient_cutoff": "X>=2*exp(10^50)",
   "numerical_pap_package_ready": false,
   "siv_08_closed": false,
   "pap_11_closed": false,
@@ -514,9 +516,27 @@
     "full_distribution_package_ready": false,
     "numerical_x_cert_ready": false
   },
+  "successor_fgkmt_endpoint_correction": {
+    "id": "H1c-1b.3r1",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b3r1_FGKMT_endpoint_correction_v1.json",
+    "outcome": "FGKMT_CLOSED_INTERVAL_ENDPOINT_SEMANTICS_CORRECTED_NUMERIC_ENVELOPE_PRESERVED",
+    "actual_fgkmt_interval": "[T,2T]",
+    "historical_half_open_actual_label_withdrawn": true,
+    "weighted_lower_endpoint_closed": false
+  },
+  "successor_actual_hypothesis1_composition": {
+    "id": "H1c-1b.4e",
+    "locator": "docs/method/theory/data/Sono_FMT_H1c1b4e_end_to_end_composition_v1.json",
+    "outcome": "ACTUAL_IDENTITY_HYPOTHESIS1_INPUT_EXPLICIT_WEIGHTED_P92_AND_ROOT_SIV08_OPEN",
+    "actual_identity_input_ready": true,
+    "constants": [1, 1, 2],
+    "sufficient_cutoff": "X>=2*exp(10^50)",
+    "weighted_proposition92_closed": false,
+    "broad_siv08_closed": false
+  },
   "next_gate": {
-    "id": "H1c-1b.4",
-    "description": "Resolve source constant normalization, prove represented-prime density, and absorb every remainder and count-transfer cost with one finite cutoff.",
+    "id": "H1b-P92a",
+    "description": "Insert the explicit actual Hypothesis input into the weighted Proposition 9.2 proof and close the FGKMT lower-endpoint weight separately.",
     "ready_for_threshold_calculator": false
   }
 }

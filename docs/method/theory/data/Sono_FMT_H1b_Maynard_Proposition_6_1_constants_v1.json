@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.10.0",
+  "schema_version": "1.11.0",
   "created_kst": "2026-09-04",
   "updated_kst": "2026-09-09",
   "gate": "H1b Maynard Proposition 6.1 constant ledger",
@@ -34,6 +34,8 @@
   "h1c1b1_parameter_envelope": "docs/method/theory/data/Sono_FMT_H1c1b1_parameter_modulus_envelope_v1.json",
   "h1c1b1a_dimension_coefficient_transfer": "docs/method/theory/data/Sono_FMT_H1c1b1a_dimension_coefficient_transfer_v1.json",
   "h1c1b3_endpoint_count_transfer": "docs/method/theory/data/Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
+  "h1c1b3r1_endpoint_correction": "docs/method/theory/data/Sono_FMT_H1c1b3r1_FGKMT_endpoint_correction_v1.json",
+  "h1c1b4e_actual_hypothesis1_composition": "docs/method/theory/data/Sono_FMT_H1c1b4e_end_to_end_composition_v1.json",
   "source_registry": [
     {
       "key": "MAYNARD2016",
@@ -450,10 +452,10 @@
     }
   ],
   "composition": {
-    "project_h1a_input": "H1B-L86-RATIO and H1B-L86-SIZE are closed for every integer k >= 36. H1b-2a supplies finite Lemma 8.5 envelopes, H1b-2a.1 closes the P94 Euler normalization, H1b-2a.2 closes the actual A=Z equation-(9.52) distribution child, and H1b-2a.3 closes the actual FGKMT/FMT P94 call end to end with multiplier below 13 at an explicit cutoff. This still does not provide the remaining moments or Hypothesis 1(2) constants.",
+    "project_h1a_input": "H1B-L86-RATIO and H1B-L86-SIZE are closed for every integer k >= 36. H1b-2a supplies finite Lemma 8.5 envelopes, H1b-2a.1 closes the P94 Euler normalization, H1b-2a.2 closes the actual A=Z equation-(9.52) distribution child, and H1b-2a.3 closes the actual FGKMT/FMT P94 call end to end with multiplier below 13 at an explicit cutoff. H1c-1b.3r1 corrects the actual FGKMT interval to [T,2T], and H1c-1b.4e closes the selected identity-form Hypothesis 1 input with constants (1,1,2) for X>=2*exp(10^50). This still does not provide the weighted Proposition 9.2 proof or the remaining moments.",
     "printed_decay_exponents_are_not_unit_constants": true,
     "common_cutoff_available": false,
     "ready_for_threshold_calculator": false,
-    "next_gate": "H1c-1b.3 closes the exact half-open unweighted count and total-center transfer, but not Proposition 9.2. Next run H1c-1b.4 source normalization, density, and full absorption before closing Proposition 9.1, Proposition 9.2, Lemma 9.3, Proposition 9.5, and the common moment composition."
+    "next_gate": "Run H1b-P92a: insert the explicit actual identity-form Hypothesis 1 input into the weighted Proposition 9.2 proof, recover its error multiplier and common cutoff, and separately absorb the FGKMT lower-endpoint weight w(T). Then close Proposition 9.1, Lemma 9.3, Proposition 9.5, and the common moment composition."
   }
 }

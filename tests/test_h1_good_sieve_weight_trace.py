@@ -170,6 +170,16 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
             "Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
         )
         self.assertEqual(
+            self.document["h1c1b3r1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b3r1_FGKMT_endpoint_correction_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1c1b4e_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b4e_end_to_end_composition_v1.json",
+        )
+        self.assertEqual(
             self.by_id["H1-SIV-08"]["recoverability"],
             "QUANTITATIVE_REPROOF_REQUIRED",
         )
@@ -180,6 +190,14 @@ class GoodSieveWeightTraceTests(unittest.TestCase):
         self.assertIn(
             "exact total center",
             self.by_id["H1-SIV-08"]["printed_information"],
+        )
+        self.assertIn(
+            "explicit constants (1,1,2)",
+            self.by_id["H1-SIV-08"]["printed_information"],
+        )
+        self.assertIn(
+            "weighted Proposition 9.2",
+            " ".join(self.by_id["H1-SIV-08"]["missing_numeric_inputs"]),
         )
         siv_07 = next(
             row for row in self.rows if row["target_obligation"] == "SIV-07"

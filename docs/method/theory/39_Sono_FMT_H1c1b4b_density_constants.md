@@ -189,3 +189,9 @@ full absorption            = OPEN
 H1(2) / P9.2 / SIV-08      = OPEN
 X_cert                     = OPEN
 ```
+
+> 후속 endpoint 교정(2026-09-09): 위 \(P_T=\#\{p:T\le p<2T\}\)는 Maynard
+> 원문 half-open bridge에 대한 역사적 표기다. FGKMT actual target은 H1c-1b.3r1에 따라
+> \([T,2T]\)이다. closed population은 source \((T,2T]\)를 포함하므로
+> \(P_T^{\rm cl}>T/(2\log T)\)는 같은 cutoff에서 그대로 성립한다. 이 density 결과는
+> H1c-1b.4e에 합성됐다.

@@ -9,7 +9,7 @@
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
 - 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a와 H1b-1 계열은 finite-r 적분비, Lemma 8.2 multiplier 89, 교정된 \(\kappa=1\) one-step multiplier, 실제 제외모듈과 Lemma 8.4 관련 하위호출 9/9를 parameterized explicit 수준으로 닫았다.
   2026-09-08 H1b-2a는 Lemma 8.5의 coefficient·weight envelope와 Lemma 8.6의 절대 \(I_k,J_k\) 크기 및 보수적 \(F_1/F_2\) 비교를 유한식으로 닫았다. H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱도 exact local factor와 finite singular-series 비교로 닫았다.
-  H1b-2a.2는 실제 \(\mathcal A=\mathbb Z,D=1\) 호출의 정확한 \(E_q^{(1)}\le1\)을 이용해 식 (9.52) distribution child를 parameterized explicit으로 닫았다. H1b-2a.3은 actual FGKMT/FMT P94의 모든 닫힌 child를 공통 cutoff로 합성해 모든 정수 \(k\ge36\)에서 multiplier 13 미만을 얻었고, `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격했다. 2026-09-09 H1c-1a는 quantitative character/Bombieri–Vinogradov source inventory를 완료했고, H1c-1b.1은 actual Proposition 9.2의 identity form에 대해 Bordignon 2021의 pointwise growing-\(A\) 대입과 modulus capacity를 닫았다. H1c-1b.1a는 endpoint-safe \(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\)와 실제 \(R=(x/4)^{\theta/3}\)를 사용해 두 finite normalization factor의 곱이 \(39/40\)보다 큼을 exact하게 증명했다. H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7과 제외 prime 보정을 합성해 \(x\ge2\exp(36^5)\)에서 \(\sigma y<(1001000/998001)80cx\log_2x<(26/25)80cx\log_2x\)를 증명했다. 따라서 `SIV-03=EXPLICIT`이고 Sono의 같은 \(2\times10^{-17}\) 계수가 이 단계에서 유지된다. H1c-1b.2는 fixed \(Q_1\)에서 두 endpoint에 한 exceptional modulus와 그 prime divisor \(B\)를 공통으로 쓰고, 최종 NYJM판 12항을 이용한 raw \((T,2T]\) \(\psi\) composition을 닫았다. H1c-1b.3은 같은 family를 Abel 적분 전체에 유지하고 plus-sign partial summation, prime-power 제거, half-open endpoint와 exact total-prime center를 보존해 actual identity form의 unweighted \([T,2T)\) count transfer를 닫았다. 다음 root-critical gate는 H1c-1b.4 source normalization·density·full absorption이다. `SIV-07/08=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
+  H1b-2a.2는 실제 \(\mathcal A=\mathbb Z,D=1\) 호출의 정확한 \(E_q^{(1)}\le1\)을 이용해 식 (9.52) distribution child를 parameterized explicit으로 닫았다. H1b-2a.3은 actual FGKMT/FMT P94의 모든 닫힌 child를 공통 cutoff로 합성해 모든 정수 \(k\ge36\)에서 multiplier 13 미만을 얻었고, `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격했다. 2026-09-09 H1c-1a는 quantitative character/Bombieri–Vinogradov source inventory를 완료했고, H1c-1b.1은 actual Proposition 9.2의 identity form에 대해 Bordignon 2021의 pointwise growing-\(A\) 대입과 modulus capacity를 닫았다. H1c-1b.1a는 endpoint-safe \(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\)와 실제 \(R=(x/4)^{\theta/3}\)를 사용해 두 finite normalization factor의 곱이 \(39/40\)보다 큼을 exact하게 증명했다. H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7과 제외 prime 보정을 합성해 \(x\ge2\exp(36^5)\)에서 \(\sigma y<(1001000/998001)80cx\log_2x<(26/25)80cx\log_2x\)를 증명했다. 따라서 `SIV-03=EXPLICIT`이고 Sono의 같은 \(2\times10^{-17}\) 계수가 이 단계에서 유지된다. H1c-1b.2는 fixed \(Q_1\)에서 두 endpoint에 한 exceptional modulus와 그 prime divisor \(B\)를 공통으로 쓰고, 최종 NYJM판 12항을 이용한 raw \((T,2T]\) \(\psi\) composition을 닫았다. H1c-1b.3r1은 Maynard 원문의 일반 \([T,2T)\)와 FGKMT actual \([T,2T]\)를 구분하고 closed target의 한 lower atom을 안전하게 보정했다. H1c-1b.4a–4e는 source 정규화·density·full absorption을 합성해 \(X\ge2\exp(10^{50})\)에서 actual identity-form Hypothesis 1 input을 constants \((1,1,2)\)로 explicit하게 닫았다. 다음 root-critical gate는 H1b-P92a weighted Proposition 9.2와 FGKMT lower-endpoint weight 감사다. `SIV-07/08=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
 
 모든 실패·성공 로그는 독립 run id로 보존하며 기존 산출물을 덮어쓰지 않는다.
 
@@ -855,13 +855,31 @@ H1c-1b.3은 모든 \(u\in[T,2T]\)에서 같은 q-family와 \(B\)를 유지한 �
 +2\sqrt{2T}(M_B+\Phi_B)+M_B
 \]
 
-로 Maynard의 exact half-open unweighted count discrepancy를 상계했다. 중심은 실제
-\(P_T=\#\{p:T\le p<2T\}\)이고 PNT 근사로 바꾸지 않는다. 이 결과만으로
-`SIV-07/08` 또는 `X_cert`를 승격하지 않는다. H1c-1b.4에서 출판본의
-\(C(A,A-3,X_0/Y_0)\) 표기 문제, represented-prime density, 12항과 count-transfer
-비용의 목표 log-saving 흡수와 공통 cutoff를 처리해야 한다. 정본은
+로 Maynard 원문 Definition (2.1)의 exact half-open unweighted count discrepancy를
+상계했다. 그러나 FGKMT는 Definition 2에서 actual set을
+\(\mathcal A(T)=\{n:T\le n\le2T\}\)로 수정한다. H1c-1b.3r1은 source
+\((T,2T]\) count에 lower atom \(1_{\mathbb P}(T)\)만 더하면 되고 centered correction은
+modulus마다 1 이하임을 증명해 기존 endpoint envelope와 density를 보존했다.
+
+H1c-1b.4a는 Bordignon의 \(C(A,A-3,X_0/Y_0)\) 표기와 최종 remainder 정규화를
+fail-closed로 교정했다. 4b–4d는 represented-prime density, 12항·count 비용의 공통
+log-saving 흡수와 corrected source constant \(C_A<1\)을
+\(r\ge10^{10}\)에서 닫았다. 4e는 같은 \(T,r,A,Q_1,B\)를 한 quantifier chain으로
+합성해
+
+\[
+X\ge2\exp(10^{50})
+\]
+
+에서 actual \(\mathcal A=\mathbb Z\), identity subset의 Hypothesis 1(1)--(3)을
+constants \(1,1,2\)로 explicit하게 닫는다. 이는 P9.2의 입력 closure일 뿐 weighted
+Proposition 9.2 proof는 아니다. FGKMT closed Theorem 6 합에서 외부 \((T,2T]\)
+prime set으로 돌아갈 때의 \(w(T)\), P92 weighted error multiplier와 common cutoff는
+H1b-P92a에 남는다. 따라서 `SIV-07/08` 또는 `X_cert`를 승격하지 않는다. 정본은
 `docs/method/theory/36_Sono_FMT_H1c1b2_common_exceptional_B_full_remainder.md`와
-`docs/method/theory/37_Sono_FMT_H1c1b3_endpoint_count_transfer.md`다.
+`docs/method/theory/37_Sono_FMT_H1c1b3_endpoint_count_transfer.md`,
+`docs/method/theory/42_Sono_FMT_H1c1b3r1_FGKMT_endpoint_correction.md`,
+`docs/method/theory/43_Sono_FMT_H1c1b4e_actual_Hypothesis1_composition.md`다.
 모든 root dependency가 닫히기
 전에는 장시간 prime sweep이나 threshold calculator를 만들지 않는다.
 

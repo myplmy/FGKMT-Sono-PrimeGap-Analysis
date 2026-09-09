@@ -189,7 +189,7 @@ q(r)=\frac{r^5}{2R_1(100r^2+10)(5\log r)}
 라 하자. \(r\ge5\times10^8\)에서
 
 \[
-\frac{q'(r)}{q(r)}>rac{2.9}{r}.
+\frac{q'(r)}{q(r)}>\frac{2.9}{r}.
 \]
 
 반면 양의 부분 미분은
@@ -312,3 +312,8 @@ margin-10 경로를 `BLOCKED_BY_CONSTANT_GROWTH`로 판정한다.
 
 새 package, Lean, actual prime sweep 또는 사용자 장시간 계산은 이번 단계에 필요하지 않다.
 사용자 수행절차는 **별도 수행절차 필요없음**이다.
+
+> 후속 endpoint·source 판정(2026-09-09): H1c-1b.3r1은 actual target을 FGKMT closed
+> \([T,2T]\)로 교정했다. lower atom의 centered 비용은 여기서 사용한 endpoint upper와
+> 같은 크기이므로 이 conditional budget을 바꾸지 않는다. H1c-1b.4d는
+> \(r\ge10^{10}\)에서 source \(C_A<1\)을 닫았고, 4e가 actual input에 최종 합성했다.

@@ -43,7 +43,7 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_sources_and_unique_ids(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.10.0")
+        self.assertEqual(self.document["schema_version"], "1.11.0")
         self.assertEqual(len(self.rows), 17)
         self.assertEqual(len(self.by_id), len(self.rows))
         sources = {row["key"] for row in self.document["source_registry"]}
@@ -311,7 +311,21 @@ class H1bMaynardConstantLedgerTests(unittest.TestCase):
             "docs/method/theory/data/"
             "Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
         )
-        self.assertIn("H1c-1b.3 closes", self.document["composition"]["next_gate"])
+        self.assertEqual(
+            self.document["h1c1b3r1_endpoint_correction"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b3r1_FGKMT_endpoint_correction_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1c1b4e_actual_hypothesis1_composition"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b4e_end_to_end_composition_v1.json",
+        )
+        self.assertIn("H1b-P92a", self.document["composition"]["next_gate"])
+        self.assertIn(
+            "constants (1,1,2)",
+            self.document["composition"]["project_h1a_input"],
+        )
 
     def test_canonical_h1_and_t1_ledgers_remain_open(self) -> None:
         trace = json.loads(H1_TRACE.read_text(encoding="utf-8"))

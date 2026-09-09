@@ -130,6 +130,11 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
             "ALTERNATIVE_NOT_DIRECT_SUBSTITUTE",
         )
         self.assertFalse(self.document["numerical_hypothesis1_package_ready"])
+        self.assertTrue(self.document["actual_identity_hypothesis1_input_ready"])
+        self.assertEqual(
+            self.document["actual_identity_hypothesis1_sufficient_cutoff"],
+            "X>=2*exp(10^50)",
+        )
         self.assertFalse(self.document["numerical_pap_package_ready"])
         self.assertFalse(self.document["numerical_x_cert_ready"])
         self.assertFalse(self.document["actual_threshold_computed"])
@@ -153,7 +158,7 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
         self.assertFalse(successor["full_distribution_package_ready"])
         self.assertEqual(
             self.document["next_gate"]["id"],
-            "H1c-1b.4",
+            "H1b-P92a",
         )
         self.assertTrue(
             self.document["successor_common_exceptional_remainder"][
@@ -175,6 +180,16 @@ class H1cHypothesis1PapTraceTests(unittest.TestCase):
                 "exact_total_recentered"
             ]
         )
+        correction = self.document["successor_fgkmt_endpoint_correction"]
+        self.assertEqual(correction["actual_fgkmt_interval"], "[T,2T]")
+        self.assertTrue(correction["historical_half_open_actual_label_withdrawn"])
+        self.assertFalse(correction["weighted_lower_endpoint_closed"])
+        composition = self.document["successor_actual_hypothesis1_composition"]
+        self.assertTrue(composition["actual_identity_input_ready"])
+        self.assertEqual(composition["constants"], [1, 1, 2])
+        self.assertFalse(composition["weighted_proposition92_closed"])
+        self.assertFalse(composition["broad_siv08_closed"])
+        self.assertEqual(self.document["next_gate"]["id"], "H1b-P92a")
         transfer = self.document["successor_dimension_coefficient_transfer"]
         self.assertTrue(transfer["asymptotic_sono_coefficient_preserved"])
         self.assertFalse(transfer["explicit_sigma_cutoff_closed"])

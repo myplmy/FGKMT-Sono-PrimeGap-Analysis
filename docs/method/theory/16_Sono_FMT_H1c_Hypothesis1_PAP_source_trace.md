@@ -380,3 +380,25 @@ source에서 확정했다. fixed-\(B\) family를 Abel 적분 전체에 유지하
 `numerical_hypothesis1_package_ready=false`, `SIV-08=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}\)=`OPEN`을 유지한다. 다음 gate는 H1c-1b.4 source normalization,
 represented-prime density와 full absorption이다.
+
+## 16. 2026-09-09 H1c-1b.3r1 endpoint source 교정
+
+앞 절의 actual-target 판정은 철회한다. Maynard 원문의 일반 정의는 \([T,2T)\)이지만
+FGKMT modified Definition 2는 \([T,2T]\)을 사용한다. source \((T,2T]\)에서 actual
+closed target으로의 lower atom correction은 centered count에서 modulus마다 1 이하이고,
+기존 수치 envelope를 보존한다.
+
+이 교정은 unweighted input에만 해당한다. FGKMT가 Theorem 6의 closed weighted sum을
+Section 8의 외부 \((T,2T]\) prime set으로 되돌릴 때 \(w(T)\)를 제거하는 의무는 열려 있다.
+
+## 17. 2026-09-09 H1c-1b.4e actual-input 판정
+
+H1c-1b.4a–4e를 actual identity subset에 합성하면
+\(X\ge2\exp(10^{50})\)에서 Hypothesis 1(1)--(3)을 constants \(1,1,2\)로 만족한다.
+따라서 machine trace의
+`actual_identity_hypothesis1_input_ready=true`는 타당하다.
+
+반면 이 문서의 `numerical_hypothesis1_package_ready=false`는 arbitrary
+\(\mathcal A\)·affine form을 포함하는 일반 package에 대한 fail-closed flag이므로 유지한다.
+weighted Proposition 9.2, FGKMT lower-endpoint weight, broad `SIV-08`,
+PAP sibling과 \(X_{\mathrm{cert}}\)도 닫히지 않았다. 다음 gate는 H1b-P92a다.

@@ -896,6 +896,65 @@
 - 재발 방지: 선행정리를 인용하는 논문이 “modified form”을 사용하면 원정리뿐 아니라
   인용 논문의 지역 정의, theorem 문장, 실제 호출점과 최종 외부합의 endpoint를 모두 대조한다.
 
+### E061 — Markdown 수식의 `\\f`가 U+000C로 변환됐고 첫 검사가 untracked 파일을 누락
+
+- 분류:
+  `MARKDOWN_CONTROL_CHARACTER / INCOMPLETE_STATIC_SCAN / CAUGHT_BEFORE_COMMIT / NO_MATH_IMPACT`
+- 문제: JavaScript 문자열을 거쳐 작성된 수식의 `\\frac` 두 곳에서 `\\f`가
+  form-feed U+000C로 바뀌었다. 한 곳은 새 H1c-1b.4e 문서, 다른 한 곳은 기존 H1b-2a.3
+  문서였다. 첫 검사는 `git diff --name-only`만 사용해 untracked인 새 4e 문서를
+  검사 대상에서 누락했다.
+- 영향: Markdown 렌더링·검색 결함이며 Python/JSON 수식과 증명 판정에는 영향이 없다.
+  전체 검증과 commit 전에 repository-wide scan으로 발견했다.
+- 교정: 두 U+000C를 literal `\\frac`로 복구하고 새 문서의 누락된 인라인 수식
+  여는 구분자도 함께 고쳤다.
+- 재발 방지: 변경 파일 검사는 tracked diff뿐 아니라 `git status --porcelain`의
+  untracked 경로도 포함한다. 최종 단계에서는 `docs/source/tests/ai_dev_tool`의
+  Markdown·Python·JSON 전체를 control-character scan한다.
+
+### E062 — H1c-1b.4e 정본 동기화 뒤 과거 회귀 oracle 네 곳을 남김
+
+- 분류: `STALE_TEST_AND_PROVENANCE_ORACLE / CAUGHT_BY_TARGETED_TEST / NO_MATH_IMPACT`
+- 문제: H1c parent next gate와 H1b schema를 갱신한 뒤 두 테스트는 옛
+  `H1c-1b.4`·`1.10.0`을 계속 기대했다. 또 T1 `SIV-08.notes`를
+  간결화하면서 선행 단계 `H1c-1b.1`과 `H1c-1b.2` 이름을 빼 기존
+  provenance 회귀 두 건이 실패했다.
+- 영향: 108개 표적시험 중 4개가 실패했지만 새 helper의 수치·수학 시험은 모두 통과했다.
+  실패 실행은 무효로 두었고 commit 전이라 정본 오염은 없다.
+- 교정: T1 notes에 선행 단계 이력을 복원하고 두 oracle을 현재 next gate와 schema에 맞췄다.
+- 재실행에서 source-name provenance oracle 한 곳이 `Bordignon 2021`이라는 exact
+  식별자를 요구했으나 요약문이 `Bordignon source`로만 적혀 1건이 더 실패했다.
+  연도 식별자를 복원하고 다시 검증한다.
+- 재발 방지: parent JSON의 `schema_version`, `next_gate`, provenance
+  narrative를 바꿀 때 해당 key와 선행 gate 이름을 읽는 모든 테스트를 먼저 열거한다.
+
+### E063 — case-insensitive JSON parser와 단순 delimiter count로 유효 파일을 오탐
+
+- 분류: `STATIC_VALIDATION_FALSE_POSITIVE / INVALID_CHECK_DISCARDED / NO_CONTENT_IMPACT`
+- 문제: PowerShell `ConvertFrom-Json` 기본 모드는 기존 JSON의 서로 다른
+  `f`/`F` key를 대소문자 충돌로 오인했다. 또 단순 `\\(` 개수
+  검사는 display 식의 LaTeX `\\\\(q,B)`를 inline delimiter로 잘못 세었다.
+- 영향: 두 1차 정적검사는 무효였고 파일 문법·수식에는 문제가 없었다.
+- 교정: JSON은 `-AsHashtable`로 33/33 parse했고, delimiter는 앞에 추가
+  backslash가 없는 token만 세는 escape-aware 검사로 20/20 문서를 통과시켰다.
+- 재발 방지: case-sensitive JSON key를 허용하는 parser와 escape-aware Markdown
+  delimiter 검사를 첫 실행부터 사용한다.
+
+### E064 — 최종 제어문자 검사가 보존된 `tmp` 전체를 불필요하게 순회
+
+- 분류: `STATIC_VALIDATION_SCOPE_ERROR / ACCESS_DENIED_NOISE / INVALID_CHECK_DISCARDED / NO_CONTENT_IMPACT`
+- 문제: H1c-1b.4e 최종 확인에서 저장소 루트 아래 모든 텍스트 확장자를 재귀 순회했다.
+  그 결과 접근이 제한된 과거 임시 시험 디렉터리에서 다수의 `Access denied`가 발생했고,
+  PDF 추출 텍스트와 과거 handoff에 이미 존재하던 제어문자까지 현재 변경의 문제처럼 섞였다.
+- 영향: 해당 검사는 완료 판정에 사용하지 않고 폐기했다. 새 변경 35개를 Git의
+  tracked diff와 untracked 목록으로 다시 고정해 검사한 결과 제어문자 0건이었다.
+- 교정: Unicode 경로가 Git의 quoted path로 바뀌지 않도록
+  `git -c core.quotepath=false`를 사용했다. 커밋 대상 35개 전체와 Markdown 21개를
+  다시 읽어 제어문자 0건, local link 163/163, escape-aware 수식 구분자 0건을 확인했다.
+- 재발 방지: 변경 검사는 `git diff --name-only`와 `git ls-files --others
+  --exclude-standard`의 합집합에 한정한다. 보존된 `tmp`·과거 artifact까지 전수 검사하려면
+  별도 목적·접근권한·기존 결함 baseline을 먼저 정의한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

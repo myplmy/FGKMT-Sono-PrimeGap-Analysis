@@ -385,7 +385,9 @@ half-open unweighted count와 full absorption이 남으므로 `SIV-07/08`과
 
 ## 13. 2026-09-09 H1c-1b.3 후속 결과
 
-후속 H1c-1b.3은 actual \([T,2T)\) unweighted prime count와 exact center로의 변환을
-닫았다. 이 결과는 본 문서의 dimension·coefficient transfer를 바꾸지 않는다.
-source constant·density·full absorption이 남으므로 `SIV-07/08`과
-\(X_{\mathrm{cert}}\)는 계속 열려 있고 다음 gate는 H1c-1b.4다.
+후속 H1c-1b.3은 Maynard 원문 \([T,2T)\) unweighted prime count와 exact center로의
+변환을 닫았다. H1c-1b.3r1은 actual FGKMT target을 \([T,2T]\)로 교정했고,
+H1c-1b.4e는 actual identity Hypothesis input을 닫았다. 이 결과들은 본 문서의
+dimension·coefficient transfer를 바꾸지 않는다. weighted P92와 lower-endpoint weight가
+남으므로 `SIV-07/08`과 \(X_{\mathrm{cert}}\)는 계속 열려 있고 다음 gate는
+H1b-P92a다.

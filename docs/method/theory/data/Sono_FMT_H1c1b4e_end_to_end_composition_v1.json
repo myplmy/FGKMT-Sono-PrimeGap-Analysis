@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "created_kst": "2026-09-09",
+  "gate": "H1c-1b.4e",
+  "scope": "Compose the corrected FGKMT closed endpoint, the full Bordignon/count-transfer absorption, the source-constant reproof, and the elementary A=Z clauses at one conservative cutoff. Close only the actual identity-form Hypothesis 1 input; keep the weighted Proposition 9.2 proof, downstream endpoint, broad SIV-08 root, and X_cert open.",
+  "outcome": "ACTUAL_IDENTITY_HYPOTHESIS1_INPUT_EXPLICIT_WEIGHTED_P92_AND_ROOT_SIV08_OPEN",
+  "source_registry": [
+    {
+      "key": "FGKMT2018",
+      "local_path": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "locator": "printed pp. 95-101, Definition 2, Lemma 7.2, Theorem 6, Section 8",
+      "role": "Actual modified Hypothesis 1 and identity-form application"
+    },
+    {
+      "key": "H1C1B3R1",
+      "local_path": "docs/method/theory/data/Sono_FMT_H1c1b3r1_FGKMT_endpoint_correction_v1.json",
+      "sha256": "39d0df193934df5391840661869652a1200e163be39773ee0997ae534f0fa38e",
+      "role": "Corrected closed-interval count transfer"
+    },
+    {
+      "key": "H1C1B4C",
+      "local_path": "docs/method/theory/data/Sono_FMT_H1c1b4c_conditional_absorption_v1.json",
+      "sha256": "822f9d10378ab6335031b6fea6ec49f9d67d21c61c8ce40b947e22479409465d",
+      "role": "Complete normalized error budget and admissible source-constant envelope"
+    },
+    {
+      "key": "H1C1B4D",
+      "local_path": "docs/method/theory/data/Sono_FMT_H1c1b4d_source_constant_reproof_v1.json",
+      "sha256": "41d7edd5b028be4acc47bce68dcaeb90a6b94a9f7ad8ef2fec115f8a6bf11d9c",
+      "role": "Corrected source constant C_A below one"
+    },
+    {
+      "key": "H1C1B2",
+      "local_path": "docs/method/theory/data/Sono_FMT_H1c1b2_common_exceptional_remainder_v1.json",
+      "sha256": "25231e927783b9d6eb36343127bfa105183d4f226ab589c3ea27bfb79ced4084",
+      "role": "One fixed exceptional prime B and complete dyadic source remainder"
+    }
+  ],
+  "parameter_domain": {
+    "T": "X/2",
+    "r": "floor((log T)^(1/5))",
+    "minimum_r": 10000000000,
+    "minimum_log_T": "10^50",
+    "sufficient_outer_X": "2*exp(10^50)",
+    "A": "100*r^2+10",
+    "theta": "1/3",
+    "selected_prime_form": "identity L(n)=n",
+    "fgkmt_interval": "[T,2T]",
+    "modulus_family": "q<=T^(1/3), gcd(q,B)=1"
+  },
+  "hypothesis1_constants": {
+    "clause_1": 1,
+    "clause_2": 1,
+    "clause_3": 2,
+    "interpretation": "Explicit valid multipliers for the actual A=Z tuple at the selected identity subset above the stated cutoff. They are not constants for arbitrary A or arbitrary selected linear forms."
+  },
+  "clause_1_proof": {
+    "integer_interval_discrepancy_per_modulus": 1,
+    "population_lower": "N>=T-1>=T/2",
+    "sufficient_log_inequality": "log(2)+100*r^2*log(log T)<=2*log(T)/3",
+    "exact_witness": "3*(500*r^3+1)<=2*r^5 using log(log T)<5r in the r-bin"
+  },
+  "clause_2_proof": {
+    "normalized_error": "B0+kappa*C_A<1",
+    "density": "P_closed>T/(2*log T)",
+    "conclusion": "sum_q max_a |P_closed(q,a)-P_closed/phi(q)| < P_closed/(log T)^(100*r^2)",
+    "corner_log_B0": "-624.754732083784100256255538707100389086",
+    "corner_log_kappa": "-631.7890814632124882969537049811347904185",
+    "corner_log_C_A_upper": "-105.9189142777261014648276069154807535497",
+    "corner_log_total_normalized_upper": "-624.7547320837841198226669803261756896973"
+  },
+  "clause_3_proof": {
+    "local_count": "#A(T;q,a)<=N/q+1",
+    "population_vs_modulus": "N>=T/2>=T^(1/3)>q",
+    "conclusion": "#A(T;q,a)<=2N/q"
+  },
+  "exceptional_B": {
+    "type": "1 or a prime divisor of the one fixed Bordignon exceptional modulus",
+    "upper_chain": "B<=Q1=(log T)^A<=T^2",
+    "exact_witness": "5*r*(100*r^2+10)<=2*r^5"
+  },
+  "status_after_gate": {
+    "actual_identity_Hypothesis_1_at_selected_subset": "EXPLICIT_WITH_CONSTANTS_1_1_2_FOR_X_AT_LEAST_2_EXP_1E50",
+    "H1B-P92_Hypothesis_input": "EXPLICIT",
+    "H1B-P92_weighted_moment": "RATE_MISSING",
+    "FGKMT_Section8_weighted_lower_endpoint": "OPEN",
+    "SIV-08_broad_root": "HARD_BLOCKER",
+    "SIV-07": "HARD_BLOCKER",
+    "X_cert": "OPEN"
+  },
+  "limits": {
+    "generic_affine_Hypothesis1_closed": false,
+    "arbitrary_A_Hypothesis1_closed": false,
+    "weighted_Proposition92_closed": false,
+    "downstream_weighted_endpoint_closed": false,
+    "full_Theorem6_constant_closed": false,
+    "siv_08_root_closed": false,
+    "x_cert_ready": false,
+    "threshold_calculator_created": false,
+    "actual_prime_experiment_performed": false,
+    "new_python_dependency_required": false,
+    "lean_required": false
+  },
+  "next_gate": {
+    "id": "H1b-P92a",
+    "description": "Audit and make explicit the actual weighted Proposition 9.2 proof and separately absorb the FGKMT Section 8 lower-endpoint weight. Do not conflate this with the now-explicit Hypothesis 1 input.",
+    "requires_user_computation_now": false
+  }
+}

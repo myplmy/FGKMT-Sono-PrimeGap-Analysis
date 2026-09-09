@@ -77,7 +77,7 @@
     },
     {
       "path": "docs/method/theory/data/Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
-      "sha256": "1f062d2a2187fa733ebf54d49c32b8fe4953d3f3f5d94e28f767c2aaaba4f693"
+      "sha256": "8f44a5bbf6b80f773136c00fe1104b530cee181f096e16e5cdfb2e36aff80c96"
     },
     {
       "path": "source/h1c1b2_common_exceptional_remainder.py",
@@ -85,7 +85,7 @@
     },
     {
       "path": "source/h1c1b3_endpoint_count_transfer.py",
-      "sha256": "bd74a805872105d62a6b7f81e6dac876e7910ce79e62bd7c2a9bfe42c178fc0e"
+      "sha256": "7982cd6f253f6389ceee0868bcd462c812f0ae708b36fc717717813dc82c177d"
     }
   ],
   "status_after_this_gate": {

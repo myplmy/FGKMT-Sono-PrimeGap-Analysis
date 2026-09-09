@@ -587,3 +587,25 @@ quantity를 비교할 위험”은 제거됐다.
 안에 든다는 density·absorption 증명은 아직 없다. 따라서 `H1B-P92=RATE_MISSING`,
 `H1B-COMP-01=HARD_BLOCKER`, `SIV-07/09=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}\)=`OPEN`을 유지한다. 다음 직접 gate는 H1c-1b.4다.
+
+## 20. 2026-09-09 H1c-1b.3r1 endpoint 교정
+
+앞 절의 “실제 half-open target” 설명은 철회한다. 그 설명은 Maynard 원문 Definition
+(2.1)에는 맞지만 FGKMT modified Definition 2에는 맞지 않는다. actual Hypothesis target은
+\([T,2T]\)이고 Section 8의 외부 prime set은 \((T,2T]\)이다.
+
+unweighted count 단계의 lower endpoint atom은 기존 \(M_B\)형 bound 안에 들어가므로
+과거 수치 envelope는 안전하다. 그러나 weighted P92/Theorem 6 합에서 \(w(T)\)를 제거하는
+문제는 이 count correction으로 자동 해결되지 않는다.
+
+## 21. 2026-09-09 H1c-1b.4e 후속 반영
+
+H1c-1b.4a–4e는 actual identity subset에 필요한 Hypothesis 1 input을
+\(X\ge2\exp(10^{50})\)에서 constants \(1,1,2\)로 explicit하게 닫았다. 따라서
+`H1B-P92`의 “Hypothesis input missing” 하위사유는 제거된다.
+
+하지만 Proposition 9.2의 weighted main term과 additive error multiplier, common cutoff,
+FGKMT lower-endpoint weight는 아직 미합성이다. 그러므로
+`H1B-P92=RATE_MISSING`, `H1B-COMP-01=HARD_BLOCKER`,
+`SIV-07/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`을 유지한다.
+다음 직접 gate는 H1b-P92a다.

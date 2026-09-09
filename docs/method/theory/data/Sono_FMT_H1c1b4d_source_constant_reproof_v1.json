@@ -73,7 +73,7 @@
   "predecessor_artifacts": [
     {
       "path": "docs/method/theory/data/Sono_FMT_H1c1b4c_conditional_absorption_v1.json",
-      "sha256": "f786ecca6adeed21ef985f42dacaea832a2389fd8764dd04ed727625d4c8d16f"
+      "sha256": "822f9d10378ab6335031b6fea6ec49f9d67d21c61c8ce40b947e22479409465d"
     },
     {
       "path": "source/h1c1b4c_conditional_absorption.py",
@@ -81,7 +81,7 @@
     },
     {
       "path": "docs/method/theory/data/Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
-      "sha256": "1f062d2a2187fa733ebf54d49c32b8fe4953d3f3f5d94e28f767c2aaaba4f693"
+      "sha256": "8f44a5bbf6b80f773136c00fe1104b530cee181f096e16e5cdfb2e36aff80c96"
     },
     {
       "path": "tmp/pdfs/h1c1b2/source/PNTPAP1.tex",

@@ -565,3 +565,16 @@ exact total center를 모두 보존했다.
 따라서 proof dependency의 quantity mismatch 하나는 해소됐다. 그러나 source constant,
 represented-prime density와 full common-cutoff absorption은 H1c-1b.4에 남는다.
 \(X_{\mathrm{cert}}\)=`OPEN`, threshold calculator=`NOT READY`라는 최종 판정은 유지한다.
+
+## 20. 2026-09-09 H1c endpoint 교정과 actual input closure
+
+H1c-1b.3r1은 실제 FGKMT Hypothesis interval이 Maynard 원문의 \([T,2T)\)가 아니라
+\([T,2T]\)임을 교정했다. 이어 H1c-1b.4a–4e는 Bordignon source normalization,
+density, 12항과 count-transfer absorption 및 source constant를 합성해
+\(X\ge2\exp(10^{50})\)에서 actual identity-form Hypothesis 1 input을 constants
+\((1,1,2)\)로 닫았다.
+
+이 숫자는 theorem threshold가 아니라 한 하위 입력의 보수적 sufficient cutoff다.
+weighted Proposition 9.2, FGKMT lower-endpoint \(w(T)\), P91/L93/P95, common moment,
+hypergraph와 arbitrary-\(X\) 전달이 남아 있으므로
+\(X_{\mathrm{cert}}=\)`OPEN`, threshold calculator=`NOT READY`를 유지한다.

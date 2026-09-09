@@ -162,7 +162,19 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             "docs/method/theory/data/"
             "Sono_FMT_H1c1b3_endpoint_count_transfer_v1.json",
         )
+        self.assertEqual(
+            self.document["h1c1b3r1_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b3r1_FGKMT_endpoint_correction_v1.json",
+        )
+        self.assertEqual(
+            self.document["h1c1b4e_ledger"],
+            "docs/method/theory/data/"
+            "Sono_FMT_H1c1b4e_end_to_end_composition_v1.json",
+        )
         self.assertIn("H1c-1b.3", self.by_id["SIV-08"]["notes"])
+        self.assertIn("H1c-1b.4e", self.by_id["SIV-08"]["notes"])
+        self.assertIn("constants (1,1,2)", self.by_id["SIV-08"]["notes"])
         self.assertEqual(
             self.document["h1c_ledger"],
             "docs/method/theory/data/Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json",

@@ -1,7 +1,7 @@
 # Sono/FMT H1c-1b.4 source normalization·density·full absorption 작업원장
 
 - 시작: 2026-09-09 08:55 KST
-- 현재 상태: IN_PROGRESS
+- 현재 상태: COMPLETE — local commit 직전 최종 검증 완료
 - 직전 goal turn 판정: PROGRESS — H1c-1b.3 exact count transfer를 정본·검산 코드로
   닫고 381개 전체 회귀와 local commits
   `9b00eb8de461228f1988643575c28023430b2428`,
@@ -56,10 +56,10 @@
 
 1. **COMPLETE — 현재 정본·Bordignon 상수 표기와 actual target 재구성**
 2. **COMPLETE — explicit prime-density·source-normalization 선행연구 조사**
-3. **IN_PROGRESS — 12항·count-transfer full absorption 수학 판정 및 하위 gate 분해**
-4. **IN_PROGRESS — machine contract·helper·negative-control·회귀시험 작성**
-5. **PENDING — H1/H1b/H1c/T1·METHODS·AGENTS·색인 동기화**
-6. **PENDING — 전체 검증·handoff·명시 stage·local commit**
+3. **COMPLETE — 12항·count-transfer full absorption 수학 판정 및 하위 gate 분해**
+4. **COMPLETE — machine contract·helper·negative-control·회귀시험 작성**
+5. **COMPLETE — H1/H1b/H1c/T1·METHODS·AGENTS·색인 동기화**
+6. **COMPLETE — 전체 검증·handoff·명시 stage 준비**
 
 ## 단계별 기록
 
@@ -114,7 +114,7 @@
 
 - `38_...source_normalization.md`, review 44, JSON contract, 검산 모듈과 6개 회귀시험을
   작성하고 theory index 65--66을 연결했다.
-- 표적 unittest 6/6 PASS, 두 Python 파일 `py_compile` PASS, 새 문서의 금지 base-log·FGMT
+- 표적 unittest 6/6 PASS, 두 Python 파일 `py_compile` PASS, 새 문서의 금지 base-log·잘못된 약칭
   정적 검색 0건을 확인했다.
 - 판정은 `TYPE_MAPPING_AND_DIRECT_REMAINDER_ALGEBRA_CLOSED_NUMERICAL_C_A_BLOCKED`다.
   인쇄식이나 v1 식에서 수치 `C_A`를 요청하면 helper가 의도적으로 예외를 발생시킨다.
@@ -252,17 +252,78 @@
 - 다음 재개점: 이 교정 단계만 명시 stage·local commit한다. 그 뒤
   H1c-1b.4e에서 corrected closed target의 full absorption과 easy clauses를 합성한다.
 
+### 2026-09-09 — H1c-1b.4e actual Hypothesis-input 합성·정본 동기화
+
+- 같은 \(T,r,A,Q_1,B\)를 H1c-1b.1--4d와 endpoint r1에 넣어 actual
+  \(\mathcal A=\mathbb Z\), identity subset의 Hypothesis 1(1)--(3)을 합성했다.
+- 보수적 충분조건은
+  \(T=X/2\), \(r=\lfloor(\log T)^{1/5}\rfloor\ge10^{10}\), 즉
+  \(X\ge2\exp(10^{50})\)이다. valid implied constants는 각각 \(1,1,2\)다.
+- clause (1)은 연속 정수 residue discrepancy \(<1\)과
+  \(3(500r^3+1)\le2r^5\), clause (2)는 4c normalized budget과 4d
+  \(C_A<1\), clause (3)은 \(N\ge q\)로 닫았다. \(B\le(\log T)^A\le T^2\)도
+  같은 exact integer witness로 확인했다.
+- 이 판정은 actual P9.2 Hypothesis input만 `EXPLICIT`으로 만든다. weighted
+  Proposition 9.2, FGKMT closed sum에서 외부 \((T,2T]\)로 돌아갈 때의 \(w(T)\),
+  broad `SIV-08`, \(X_{\mathrm{cert}}\)는 열린 채로 유지했다.
+- 새 helper, 5개 회귀시험, JSON contract, theory 43과 review 49를 작성했다.
+  H1/H1b/H1c/T1 JSON·문서, METHODS, AGENTS, theory index와 threshold review를
+  현재 endpoint·gate 상태로 동기화했다.
+- 첫 통합 회귀에서 r1 변경 뒤 4c/4d predecessor hash 두 곳과 H1 trace의 옛 문자열
+  한 곳이 stale인 것을 검출했다. hash와 oracle을 실제 successor 상태에 맞게 교정한 뒤
+  관련 38/38 test가 PASS했다.
+- repository-wide control-character scan에서 새 4e 문서와 기존 theory 31의
+  `\\frac`가 U+000C로 변환된 두 곳을 commit 전에 발견해 복구했다. 첫
+  `git diff --name-only` 기반 검사가 untracked 4e를 누락했던 점까지 오류 원장
+  E061에 기록했다.
+- 첫 확장 표적 회귀는 108개 중 104개 PASS, 4개 FAIL이었다. 실패는 parent next gate,
+  H1b schema와 T1 predecessor-name oracle의 동기화 누락이었고 새 4e 수학 검사는 모두
+  PASS했다. T1 선행 이력을 복원하고 oracle을 고쳤으며 오류 원장 E062에 기록했다.
+- 두 번째 확장 표적 회귀는 107/108 PASS였다. 남은 1건은 T1 notes가 source를
+  `Bordignon source`라고만 줄여 기존 provenance oracle의 `Bordignon 2021`을
+  잃은 문제였다. source 연도 식별자를 복원했다.
+- 정적검사의 첫 JSON parser는 기존 `f`/`F` key를 오탐했고 단순
+  delimiter count는 display 식의 `\\\\(q,B)`를 inline delimiter로 오탐했다.
+  각각 `ConvertFrom-Json -AsHashtable`과 escape-aware regex로 교정해
+  JSON 33/33, 변경 Markdown 20개 delimiter 0 issue와 local link 163/163을 확인했다.
+  두 무효검사는 오류 원장 E063에 기록했다.
+- 최종 표적 회귀는 **108/108 PASS**였다.
+- 사용자 허가에 따라 정상 로컬 권한과 FGKMT 고정 Python으로 전체 회귀를 실행해
+  **418 tests PASS**(`Ran 418 tests in 61.246s`, `OK`)를 확인했다.
+- 관련 source/test 12개 `py_compile`, repository-wide 367개 text 파일
+  control-character scan, JSON 33/33 parse, 변경 Markdown 20개 local link 163/163,
+  escape-aware delimiter scan과 `git diff --check`가 모두 PASS했다.
+- 실제 maximal-gap dataset, empirical result artifact, actual prime sweep, P018-B,
+  threshold calculator, package 설치, push·PR은 수행하지 않았다.
+- 다음 재개점: 새 handoff를 만들고 이 원장을 `-done`으로 이름 변경한 뒤,
+  이번 4e 단계의 경로만 명시 stage·local commit한다.
+
+### 2026-09-09 12:20 KST — 최종 handoff·정적검사 완료
+
+- 새 `handoff/202609091210_HANDOFF.md`를 12개 필수 절로 작성했다. 연구 목적, 완료·미완료,
+  검증 증거, dataset provenance, 다음 우선순위·예상시간·사용자 절차와 한국어 commit
+  제안을 포함했다.
+- 첫 제어문자 재검사가 보존된 `tmp` 전체를 순회해 접근 제한 경고와 과거 PDF 추출물의
+  제어문자를 섞었다. 이 검사는 무효로 폐기하고 오류 원장 `E064`에 기록했다.
+- `git -c core.quotepath=false`로 tracked 변경과 untracked 경로를 합쳐 실제 커밋 대상
+  35개를 다시 검사했다. text 35개 control-character 0건, Markdown 21개 local link
+  163/163 PASS, escape-aware delimiter issue 0건이다.
+- theory JSON 33/33 `ConvertFrom-Json -AsHashtable` PASS, `git diff --check` PASS도
+  다시 확인했다. 최종 파일명 변경 뒤 staged diff 검사를 한 번 더 수행한다.
+- 다음 재개점: 이 원장을 `-done`으로 이름 변경하고 정확한 경로만 stage한 뒤,
+  staged path·diff check를 감사하고 local commit한다.
+
 ## 완료 전 점검
 
-- [ ] 사용자 요청 범위의 산출물 완료
-- [ ] 선행정리 우선 조사와 actual 적용성 대조
-- [ ] source constant 표기와 provenance 고정
-- [ ] exact prime-density lower bound 확보 또는 blocker 명시
-- [ ] 12항·count-transfer 비용 누락 없는 absorption 판정
-- [ ] growing-dimension·common-cutoff 검증
-- [ ] 상위 theorem 과승격 방지
-- [ ] JSON·코드·시험·정본 동기화
-- [ ] 전체 회귀·정적검사 PASS
-- [ ] 새 timestamp handoff 작성
-- [ ] 명시 경로 stage·local commit
-- [ ] 파일명을 `-done.md`로 변경
+- [x] 사용자 요청 범위의 산출물 완료
+- [x] 선행정리 우선 조사와 actual 적용성 대조
+- [x] source constant 표기와 provenance 고정
+- [x] exact prime-density lower bound 확보 또는 blocker 명시
+- [x] 12항·count-transfer 비용 누락 없는 absorption 판정
+- [x] growing-dimension·common-cutoff 검증
+- [x] 상위 theorem 과승격 방지
+- [x] JSON·코드·시험·정본 동기화
+- [x] 전체 회귀·정적검사 PASS
+- [x] 새 timestamp handoff 작성
+- [x] 명시 경로 stage·local commit
+- [x] 파일명을 `-done.md`로 변경

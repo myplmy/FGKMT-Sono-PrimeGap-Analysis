@@ -284,7 +284,7 @@ cutoff에서 흡수를 증명하지 못한다는 뜻이다. 따라서 source clo
 | unknown Liu--Wang \(i\)의 안전한 최대화 | `CLOSED` |
 | zero component 4개 | `CLOSED` |
 | \(C_A<1\), H1c-1b.4c allowance 흡수 | `CLOSED FOR r>=10^10` |
-| H1c-1b.1--4의 한 호출 composition | `PENDING H1c-1b.4e` |
+| H1c-1b.1--4의 actual Hypothesis-input composition | `CLOSED BY H1c-1b.4e` |
 | H1(2), P9.2, `SIV-08` | `OPEN` |
 | 전체 Sono/FMT \(X_{\mathrm{cert}}\) | `OPEN` |
 
@@ -292,7 +292,7 @@ cutoff에서 흡수를 증명하지 못한다는 뜻이다. 따라서 source clo
 
 H1c-1b.4e는 다음을 한 줄의 quantifier chain으로 다시 검사한다.
 
-1. actual identity form과 \([T,2T)\) endpoint,
+1. actual identity form과 FGKMT closed \([T,2T]\) endpoint,
 2. \(r=\lfloor(\log T)^{1/5}\rfloor\), \(A=100r^2+10\),
 3. 한 공통 exceptional prime \(B\),
 4. 모든 필요한 modulus와 두 dyadic endpoint,
@@ -302,3 +302,7 @@ H1c-1b.4e는 다음을 한 줄의 quantifier chain으로 다시 검사한다.
 하나라도 범위가 맞지 않으면 상위 node는 열린 채로 둔다. 새 package, Lean, actual prime
 sweep 또는 사용자 장시간 계산은 이번 단계에 필요하지 않다. 사용자 수행절차는
 **별도 수행절차 필요없음**이다.
+
+> 후속 판정(2026-09-09): H1c-1b.3r1이 actual endpoint를 \([T,2T]\)로 교정했고,
+> H1c-1b.4e가 이 source constant를 포함한 actual Hypothesis-input composition을 닫았다.
+> weighted Proposition 9.2와 lower-endpoint \(w(T)\)는 계속 열린다.

@@ -675,3 +675,35 @@ fixed family가 두 endpoint뿐 아니라 Abel 적분의 모든 \(u\in[T,2T]\)�
 정규화, represented-prime density와 모든 remainder/count 비용의 common-cutoff 흡수는
 H1c-1b.4에 남는다. 66개 root row 상태 수와 `SIV-07/08/09=HARD_BLOCKER`,
 \(X_{\mathrm{cert}}\)=`OPEN`은 바뀌지 않는다.
+
+## 28. 2026-09-09 H1c-1b.3r1 FGKMT endpoint 교정
+
+앞 절의 “actual \([T,2T)\)” 표기는 철회한다. Maynard 원문 Definition (2.1)은
+\([T,2T)\)이지만, FGKMT Definition 2는
+\(\mathcal A(T)=\{n:T\le n\le2T\}\)로 수정했다. FGKMT Section 8의 외부 prime set은
+\((T,2T]\)이다.
+
+H1c-1b.3r1은 source \((T,2T]\)에서 actual closed target으로 옮길 때 lower atom
+\(1_{\mathbb P}(T)\) 하나만 더하면 되며, centered residue discrepancy의 추가 절댓값이
+modulus마다 1 이하임을 확인했다. 따라서 기존 endpoint 수치 envelope와 density lower는
+보존된다. 다만 Theorem 6의 weighted closed sum을 외부 \((T,2T]\) sum으로 되돌릴 때의
+\(w(T)\)는 별도 의무다.
+
+## 29. 2026-09-09 H1c-1b.4a–4e actual input 합성
+
+4a–4d는 Bordignon source normalization, exact density, 모든 remainder/count-transfer
+비용의 absorption과 corrected source constant를 닫았다. 4e는 이를 actual closed
+identity-form input에 합성해
+
+\[
+T=X/2,\qquad r=\lfloor(\log T)^{1/5}\rfloor\ge10^{10}
+\]
+
+즉 \(X\ge2\exp(10^{50})\)에서 Hypothesis 1(1)--(3)의 valid constants
+\((1,1,2)\)를 얻었다.
+
+이는 `SIV-08` 안의 **actual P9.2 Hypothesis-input child**만 닫는다. weighted
+Proposition 9.2의 main/error 합성, lower-endpoint weight, Theorem 6 전체 상수는
+열려 있다. 따라서 66개 root row의 상태 수와
+`SIV-07/08/09=HARD_BLOCKER`, \(X_{\mathrm{cert}}=\)`OPEN`은 유지한다.
+다음 gate는 H1b-P92a다.
