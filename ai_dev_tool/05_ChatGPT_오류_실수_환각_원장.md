@@ -1342,6 +1342,38 @@
 - 이 시행착오는 actual prime 계산·dataset·`test_result`를 변경하지 않았고,
   (55.27)의 source theorem을 가정 없이 증명했다고 선언하지 않았다. `X_cert`는 OPEN이다.
 
+### E086 — DEP-R09 상태 원장 패치의 multi-file hunk 구문 오류
+
+- 분류: `CORRECTED_BEFORE_COMMIT / PARTIAL_WRITE_NONE`.
+- Theory 56의 자동 생성 무번호식 두 개를 상태 원장과 생성기 메모에 동시에 추가하려던
+  첫 `apply_patch`에서 두 번째 파일 hunk의 문맥 표기를 잘못 작성했다. 패치 도구가
+  적용 전에 `invalid hunk`로 전체 요청을 거부했으므로 부분 쓰기나 정본 오염은 없었다.
+- 우회 도구나 `git apply`를 사용하지 않고, 두 파일을 각각 정상 `apply_patch`로 나눠
+  교정했다. 이어 generator·validator를 다시 실행해 formula 1,015, 상태 누락 0,
+  `NOT_YET_FORMALIZED` 960, banned proof escape 0을 확인했다.
+- 예방: 여러 파일을 한 요청에서 고칠 때 각 `*** Update File` 뒤에 독립된 정상 hunk를
+  두고, 구문 실패 시 파일별 patch로 축소한다. 실패한 패치 출력을 변경 증거로 세지 않는다.
+- 후속 참고문헌 patch에서 JavaScript `String.raw` template 안의 Markdown backtick을
+  escape하지 않아 도구 호출 전 `SyntaxError`가 한 번 발생했다. 파일 변경은 없었고,
+  일반 문자열의 정상 `apply_patch`로 즉시 재실행했다. template literal을 쓸 때는 내부
+  backtick 유무를 먼저 검사한다.
+
+### E087 — hash-pinned Theory 48에 최신 상태를 덧붙인 정본 불변성 위반
+
+- 분류: `DETECTED_BY_FULL_REGRESSION / REVERTED_BEFORE_COMMIT / RESULT_IMPACT_NONE`.
+- DEP-R09 최신 상태를 동기화하면서 역사적 predecessor인 theory 48 끝에 새 문단을
+  덧붙였다. 전체 unittest의 두 contract test가 `hash mismatch: DEP48`로 이를 정확히
+  거부했다. downstream 고정 hash를 새 값으로 바꾸면 과거 증거를 소급 변경하게 되므로
+  그렇게 하지 않았다.
+- 추가 문단만 제거해 theory 48을 시작 blob과 동일하게 복원했고, 실패했던 표적 test
+  2/2가 다시 PASS했다. 최신 상태는 successor theory 56, METHODS, AGENTS, 색인에만 둔다.
+- 첫 제거 patch는 새 문단의 LaTeX backslash가 앞선 JavaScript 문자열 처리에서 빠진 것을
+  예상하지 못해 문맥 불일치로 거부됐다. 실제 파일을 다시 읽은 뒤 현재 byte와 일치하는
+  정상 `apply_patch`로 제거했고, 나머지 새 문서의 빠진 inline-math delimiter도 교정했다.
+- 예방: predecessor hash가 있는 theory는 편집 전에 `rg`로 consumer contract를 찾고,
+  새 상태는 successor 문서에만 기록한다. 전체 suite의 hash failure를 문서상 사소한
+  불일치로 낮춰 보지 않는다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

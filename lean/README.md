@@ -51,6 +51,14 @@ Rosser--Schoenfeld `θ(t)<1.01624t`와 그 상계를 쓰는 Stieltjes/Abel 비�
 독립 Lean 증명은 없어 식 전체는 `PARTIAL_FORMALIZATION`이다. 따라서 이 batch도
 smooth-number source theorem 전체나 `X_cert`를 인증하지 않는다.
 
+2026-09-11 Theory 56 batch는 DEP-R09 numerical PAP에서 인쇄된 상수의 exact 대수,
+epsilon 지수 재매개화와 낮은-alpha 지수 bridge를 검증했다. finite principal/error
+합성은 analytic premise를 노출한 `CONDITIONAL_KERNEL_PASS`다. Jutila의 epsilon-의존
+zero-density theorem과 finite PAP 목표는 `SOURCE_THEOREM_UNFORMALIZED`이며,
+Gallagher·Maier·McCurley multiplier와 공통 cutoff는 아직 없다. Theory 56 추가 뒤
+inventory는 1,015식이고 `NOT_YET_FORMALIZED`는 960식이다. 이 batch는 PAP 전체나
+수치 `X_cert`를 인증하지 않는다.
+
 원문 theory를 수정한 뒤에는 생성기와 검증기를 차례로 실행한다. 생성기는 display 수식의
 원문 경로·행·SHA-256을 다시 고정하며, 검증기는 전수 coverage, 선언 연결, 금지된 proof
 escape, toolchain pin을 검사한다. `.lake/`는 로컬 build cache이므로 Git에 포함하지 않는다.

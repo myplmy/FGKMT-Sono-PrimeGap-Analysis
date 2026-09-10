@@ -442,3 +442,18 @@ actual filtered common child가 explicit하다는 사실과 broad 일반 P6.1/Hy
 뒤쪽 FMT correlation/failure 및 전체 X_cert가 열려 있다는 사실을 함께 기록한다.
 다음 H1b-DEP는 actual call graph에서 P95 필수 여부와 root node 분리를 감사한다.
 앞 절들의 다음 단계는 당시 snapshot이며 이 절이 현재 상태다.
+
+## 20. 2026-09-11 DEP-R09 phase-1 successor
+
+[theory 56](56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md)은 PAP sibling의
+수치 상수와 finite-rate 부채를 직접 감사했다. Sono가 선택한
+\(c_{\rm ZFR}=1/24\), \(a=1/80\), \(c_{\rm ZD}=16\),
+\(D_{\rm PAP}=160\), \(C_{\rm PAP}=1-e^{-2}\)의 exact 대수는 Lean 커널에서
+검증됐다. 그러나 Jutila의 zero-density 정리는 epsilon에 의존하는 숨은 multiplier를
+가지며, Gallagher·Maier·McCurley 경로의 공통 finite cutoff도 아직 복원되지 않았다.
+
+따라서 \(D_{\rm PAP}=160\)은 성장 지수이지 numerical starting threshold가 아니다.
+부호 미정 \(o(1)\)을 유한 명제로 바꿀 때는 양의 \(\eta_{\rm PAP}\)를 두고
+\(C_{\rm PAP}-\eta_{\rm PAP}\)를 DEP-R11의 전체 coefficient budget에 넘겨야 한다.
+`PAP-11`, `SIV-07/08/09`, \(X_{\rm cert}\)는 계속 OPEN이다. 앞 절의 “현재 상태”라는
+표현은 그 날짜의 snapshot이고, 이 절이 최신 PAP 상태다.

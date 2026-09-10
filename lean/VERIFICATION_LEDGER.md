@@ -1,10 +1,10 @@
 # FGKMT-Sono Lean 전수 수식·정리 검증 원장
 
-- 생성 기준: 2026-09-10 KST
+- 생성 기준: 2026-09-11 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 56개
-- 전수 단위: Markdown fenced code 밖 display math 1,005개
-- 원래 식번호: 512개, 합성 ID 무번호식: 493개
+- 원문 범위: `docs/method/theory/*.md` 57개
+- 전수 단위: Markdown fenced code 밖 display math 1,015개
+- 원래 식번호: 520개, 합성 ID 무번호식: 495개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,11 +62,11 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 15 |
-| `CONDITIONAL_KERNEL_PASS` | 14 |
+| `KERNEL_PASS` | 21 |
+| `CONDITIONAL_KERNEL_PASS` | 16 |
 | `DEFINITION_ONLY` | 4 |
 | `PARTIAL_FORMALIZATION` | 7 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 0 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 2 |
 | `NOT_YET_FORMALIZED` | 960 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `0d2d9632e744ba0b…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `8801cafa227b60da…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -93,7 +93,7 @@
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
-| 16 | [16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md](../docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md) | `c3ab74623e97163d…` | 6 | 0 | 6 | 0 |
+| 16 | [16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md](../docs/method/theory/16_Sono_FMT_H1c_Hypothesis1_PAP_source_trace.md) | `e7b47e81f4e7f71d…` | 6 | 0 | 6 | 0 |
 | 17 | [17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md](../docs/method/theory/17_Sono_FMT_H1b1a_explicit_cutoff_summation_package.md) | `6a0a242bfbf44d51…` | 32 | 0 | 32 | 0 |
 | 18 | [18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md](../docs/method/theory/18_Sono_FMT_H1b1b_Lemma82_GGPY_HR_multiplier_recovery.md) | `c28afa193c0350e9…` | 24 | 10 | 14 | 0 |
 | 19 | [19_Sono_FMT_H1b1b2_cgamma_error_normalization_ledger.md](../docs/method/theory/19_Sono_FMT_H1b1b2_cgamma_error_normalization_ledger.md) | `2dc5a30d333a9c34…` | 12 | 0 | 12 | 0 |
@@ -133,6 +133,7 @@
 | 53 | [53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md](../docs/method/theory/53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md) | `615c1501a49f422f…` | 28 | 24 | 4 | 0 |
 | 54 | [54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md](../docs/method/theory/54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md) | `4e9d3608f91e7eec…` | 37 | 29 | 8 | 0 |
 | 55 | [55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md](../docs/method/theory/55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md) | `cb49fc3d37fd42fa…` | 42 | 39 | 3 | 24 |
+| 56 | [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | `268567081765d139…` | 10 | 8 | 2 | 10 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1149,6 +1150,16 @@
 | 1003 | `55.37` | T55 [55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md](../docs/method/theory/55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md) | 364–367 | <code>\frac q{17b}\le A\eta\varepsilon \tag{55.37}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
 | 1004 | `55.38` | T55 [55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md](../docs/method/theory/55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md) | 369–372 | <code>A(1-\eta)\frac Xa\le\#T\le5A(1+2\eta)\frac Xa, \tag{55.38}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
 | 1005 | `55.39` | T55 [55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md](../docs/method/theory/55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md) | 374–379 | <code>\boxed{ \#\bigl(T\cap(\alpha Y,\beta Y]\bigr) \le5A(1+2\eta)\bigl(2(\beta-\alpha)+\varepsilon\bigr)\frac Xa.} \tag{55.39}</code> | `final_interval_upper_composition` | `CONDITIONAL_KERNEL_PASS` | analytic/count premise 이후 최종 상계 대수 |
+| 1006 | `56.1` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 19–23 | <code>c_{\rm ZFR}=\frac1{24},\qquad a=\frac3{10}c_{\rm ZFR}=\frac1{80} \tag{56.1}</code> | `papCZFR; papShortIntervalExponent; pap_short_interval_exponent_value` | `KERNEL_PASS` | Sono c_ZFR=1/24에서 a=1/80 exact 대입 |
+| 1007 | `56.2` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 27–30 | <code>c_{\rm ZD}=16,\qquad D_{\rm PAP}=10c_{\rm ZD}=160 \tag{56.2}</code> | `papCZD; papDPAP; pap_dpap_value` | `KERNEL_PASS` | c_ZD=16에서 D_PAP=160 exact 대입 |
+| 1008 | `56.3` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 34–38 | <code>aD_{\rm PAP}=2,\qquad C_{\rm PAP}=1-e^{-2} \tag{56.3}</code> | `papCoefficient; pap_exponent_product; pap_coefficient_identity` | `KERNEL_PASS` | a*D_PAP=2와 C_PAP=1-exp(-2) exact 정의 |
+| 1009 | `56.4` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 42–45 | <code>0&lt;C_{\rm PAP}&lt;1 \tag{56.4}</code> | `pap_coefficient_pos_lt_one` | `KERNEL_PASS` | 0<C_PAP<1 exact 실수 부등식 |
+| 1010 | `T56-U001` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 87–90 | <code>N^*(\alpha,T,Q)\ll_\varepsilon (Q^2T)^{(2+\varepsilon)(1-\alpha)}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Jutila Theorem 1의 source 진술; epsilon multiplier와 proof는 Lean 미형식화 |
+| 1011 | `56.6` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 95–98 | <code>3\left(2+\frac{\varepsilon}{3}\right)=6+\varepsilon \tag{56.6}</code> | `jutila_epsilon_reparameterization` | `KERNEL_PASS` | Jutila source epsilon/3 재매개화의 exact 지수 대수 |
+| 1012 | `56.7` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 105–108 | <code>3\le15(1-\alpha) \tag{56.7}</code> | `jutila_low_alpha_exponent_bridge` | `KERNEL_PASS` | alpha<=4/5의 low-alpha exponent bridge |
+| 1013 | `56.8` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 120–129 | <code>\pi(u;q,r)\ge \bigl(C_{\rm PAP}-\eta_{\rm PAP}\bigr) \frac{u}{\varphi(q)\log u} \quad \left( u\ge\max\{u_{\rm PAP}(\eta_{\rm PAP}),q^{160}\} \right) \tag{56.8}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | DEP-R09 finite PAP 목표; Gallagher/Jutila/Maier rate와 cutoff 미형식화 |
+| 1014 | `T56-U002` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 136–138 | <code>P\ge(1-\eta)M,\qquad &#124;E&#124;\le e^{-2}M</code> | `pap_finite_error_composition` | `CONDITIONAL_KERNEL_PASS` | finite error 합성의 명시적 analytic premise 쌍 |
+| 1015 | `56.5` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 142–145 | <code>P+E\ge(1-e^{-2}-\eta)M \tag{56.5}</code> | `pap_finite_error_composition` | `CONDITIONAL_KERNEL_PASS` | principal/error premise 이후 finite slack 합성; analytic premise는 미인증 |
 
 ## 9. 발견된 원문·작업 오류
 
@@ -1163,12 +1174,14 @@
 ## 10. 순차 형식화 우선순위
 
 1. 초기 batch의 declaration–원장 연결과 no-sorry 검증을 고정한다.
-2. Theory 01의 scale positivity·strict monotonicity·end-bounded integer minimum은 커널 검증을 유지한다.
-3. Theory 55의 dependency-critical smooth remainder 후속 식을 역의존 순서로 형식화한다.
-4. Theories 10–11의 finite set/residue pullback 전체 구조를 닫는다.
-5. `X_cert` dependency critical path인 theories 47–55의 나머지 식을 역의존 순서로 형식화한다.
-6. source analytic theorem은 먼저 Mathlib/선행 형식화를 찾고, 없으면
+2. 현재 root DEP-R09의 exact source 진술과 finite-rate 의무를 먼저 고정한다.
+3. DEP-R09에서 실제 사용할 상수·부등식·endpoint 합성을 사용 전에 형식화한다.
+4. 이후 DEP-R10, R11, R12를 같은 source-first·역의존 순서로 처리한다.
+5. Theory 55의 잔여 source theorem과 Theories 10–11의 별도 finite-set 구조는
+   해당 DAG에서 다시 필요해질 때 독립 batch로 처리한다.
+6. 960개라는 총개수를 선행 gate로 쓰지 않는다. empirical·역사적·대체 식은 root-critical 식 뒤로 미룬다.
+7. source analytic theorem은 먼저 Mathlib/선행 형식화를 찾고, 없으면
    `SOURCE_THEOREM_UNFORMALIZED`로 차단한 뒤 별도 장기 증명 단위로 분해한다.
-7. 이후 theories 13–46과 초기 empirical/certificate theory를 순차 처리한다.
+8. DEP-R09–R12와 end-to-end composition이 닫힌 뒤 비임계 잔여 coverage를 순차 처리한다.
 
 새 theory가 추가되면 inventory와 원장을 재생성하고 기존 source SHA가 움직였는지 먼저 검사한다.

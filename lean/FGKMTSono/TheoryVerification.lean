@@ -1171,4 +1171,70 @@ theorem final_interval_upper_composition
       add_le_add (hStar.trans hStar') (hRemainder.trans hRem')
     _ = 5 * A * (1 + 2 * η) * (2 * width + ε) * scale := by ring
 
+/-! ## Theory 56 — DEP-R09 numerical PAP source and constant audit -/
+
+/- Theory 56, formula 56.1: Sono's explicit zero-free constant and the
+   short-interval exponent selected from it. -/
+noncomputable def papCZFR : ℝ := 1 / 24
+
+noncomputable def papShortIntervalExponent : ℝ := (3 / 10) * papCZFR
+
+theorem pap_short_interval_exponent_value :
+    papShortIntervalExponent = 1 / 80 := by
+  norm_num [papShortIntervalExponent, papCZFR]
+
+/- Theory 56, formula 56.2: the zero-density exponent and PAP power. -/
+noncomputable def papCZD : ℝ := 16
+
+noncomputable def papDPAP : ℝ := 10 * papCZD
+
+theorem pap_dpap_value : papDPAP = 160 := by
+  norm_num [papDPAP, papCZD]
+
+/- Theory 56, formula 56.3: exact exponent product and coefficient. -/
+noncomputable def papCoefficient : ℝ := 1 - Real.exp (-2)
+
+theorem pap_exponent_product :
+    papShortIntervalExponent * papDPAP = 2 := by
+  rw [pap_short_interval_exponent_value, pap_dpap_value]
+  norm_num
+
+theorem pap_coefficient_identity :
+    papCoefficient = 1 - Real.exp (-2) := rfl
+
+/- Theory 56, formula 56.4: the printed coefficient lies strictly between
+   zero and one. -/
+theorem pap_coefficient_pos_lt_one :
+    0 < papCoefficient ∧ papCoefficient < 1 := by
+  constructor
+  · exact sub_pos.mpr (Real.exp_lt_one_iff.mpr (by norm_num))
+  · have hexp : 0 < Real.exp (-2) := Real.exp_pos _
+    dsimp [papCoefficient]
+    linarith
+
+/- Theory 56, formula 56.5: finite one-sided error composition.  The analytic
+   principal and nonprincipal estimates remain explicit premises. -/
+theorem pap_finite_error_composition
+    {mainTerm principal error η : ℝ}
+    (hPrincipal : (1 - η) * mainTerm ≤ principal)
+    (hError : |error| ≤ Real.exp (-2) * mainTerm) :
+    (papCoefficient - η) * mainTerm ≤ principal + error := by
+  have hErrorLower : -(Real.exp (-2) * mainTerm) ≤ error :=
+    (abs_le.mp hError).1
+  dsimp [papCoefficient]
+  nlinarith
+
+/- Theory 56, formula 56.6: after Q=T, source epsilon/3 produces Sono's
+   renamed exponent 6+epsilon.  This does not remove the epsilon-dependent
+   implied multiplier. -/
+theorem jutila_epsilon_reparameterization (ε : ℝ) :
+    3 * (2 + ε / 3) = 6 + ε := by
+  ring
+
+/- Theory 56, formula 56.7: the elementary low-alpha exponent bridge. -/
+theorem jutila_low_alpha_exponent_bridge
+    {α : ℝ} (hα : α ≤ 4 / 5) :
+    3 ≤ 15 * (1 - α) := by
+  linarith
+
 end FGKMTSono

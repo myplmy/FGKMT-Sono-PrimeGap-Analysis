@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-11",
+  "gate": "DEP-R09 numerical PAP phase 1",
+  "outcome": "CONSTANT_NORMALIZATION_EXPLICIT_ANALYTIC_RATE_AND_CUTOFF_OPEN",
+  "numerical_pap_package_ready": false,
+  "pap_11_closed": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "fixed_constants": {
+    "c_zfr": "1/24",
+    "short_interval_a": "1/80",
+    "c_zd": 16,
+    "d_pap": 160,
+    "a_times_d_pap": 2,
+    "c_pap": "1-exp(-2)"
+  },
+  "finite_contract": {
+    "coefficient": "1-exp(-2)-eta_pap",
+    "range": "u>=max(u_pap(eta_pap),q^160)",
+    "conditions": [
+      "0<eta_pap<1-exp(-2)",
+      "gcd(residue,q)=1",
+      "the required zero-free and exceptional-modulus case is satisfied"
+    ],
+    "reason_for_slack": "Sono Assumption 3.2 retains a sign-unspecified 1+o(1); a finite one-sided theorem must allocate positive slack unless a stronger signed rate is proved."
+  },
+  "source_registry": [
+    {
+      "key": "SONO2025",
+      "locator": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+      "pages": "534-537",
+      "equations": "(5.1)-(5.7)",
+      "reading_mode": "NATIVE_TEXT_THEN_VISUAL_PAGE_CHECK",
+      "status": "PRIMARY_REVIEWED"
+    },
+    {
+      "key": "FMT2018",
+      "locator": "tmp/pdfs/h1c1b1/Ford_Maynard_Tao2018_Chains_of_large_gaps.pdf",
+      "pages": "4-5",
+      "equations": "Lemma 2.2",
+      "reading_mode": "NATIVE_TEXT_THEN_VISUAL_PAGE_CHECK",
+      "status": "PRIMARY_REVIEWED_NONNUMERIC_PREDECESSOR"
+    },
+    {
+      "key": "JUTILA1977",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "temporary_locator": "tmp/pdfs/dep_r09/Jutila1977_On_Linniks_constant.pdf",
+      "sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "page": 46,
+      "equations": "(1.7)-(1.8)",
+      "reading_mode": "SCAN_REQUIRES_OCR_FOR_SEARCH_VISUAL_PAGE_AUTHORITATIVE",
+      "status": "SOURCE_FORM_CONFIRMED_RATE_OPEN"
+    },
+    {
+      "key": "MCCURLEY1984",
+      "doi": "10.1016/0022-314X(84)90089-1",
+      "status": "FULL_SOURCE_REQUIRED"
+    },
+    {
+      "key": "GALLAGHER1970",
+      "doi": "10.1007/BF01403187",
+      "status": "FULL_SOURCE_REQUIRED_SUBSCRIPTION_PAGE_OBSERVED"
+    },
+    {
+      "key": "MAIER1981",
+      "doi": "10.1016/0001-8708(81)90003-7",
+      "status": "FULL_SOURCE_REQUIRED"
+    }
+  ],
+  "obligations": [
+    {"id": "R09-01", "name": "McCurley full finite range", "status": "PARTIAL_SOURCE"},
+    {"id": "R09-02", "name": "Gallagher multiplier and range", "status": "SOURCE_REQUIRED"},
+    {"id": "R09-03", "name": "Jutila epsilon multiplier and range", "status": "SOURCE_FORM_CONFIRMED_RATE_OPEN"},
+    {"id": "R09-04", "name": "finite high-low alpha bridge", "status": "PARTIAL"},
+    {"id": "R09-05", "name": "Maier density-to-PNT transfer", "status": "SOURCE_REQUIRED"},
+    {"id": "R09-06", "name": "principal one-sided rate", "status": "OPEN"},
+    {"id": "R09-07", "name": "nonprincipal finite cutoff", "status": "HARD_BLOCKER"},
+    {"id": "R09-08", "name": "psi-to-pi finite transfer", "status": "OPEN"},
+    {"id": "R09-09", "name": "actual modulus and B0 uniformity", "status": "OPEN"},
+    {"id": "R09-10", "name": "common u_pap certificate", "status": "HARD_BLOCKER"}
+  ],
+  "lean_scope": {
+    "kernel_checked": ["56.1", "56.2", "56.3", "56.4", "56.6", "56.7"],
+    "conditional_kernel_pass": ["T56-U002", "56.5"],
+    "source_theorem_unformalized": ["T56-U001", "56.8"],
+    "proof_escape_allowed": false
+  },
+  "next_gate": "Acquire and audit Gallagher 1970, Maier 1981, and preferably McCurley 1984 full text before quantitative reproof."
+}

@@ -260,6 +260,64 @@
       "declarations": ["final_interval_upper_composition"]
     },
     {
+      "formula_id": "56.1",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "papCZFR",
+        "papShortIntervalExponent",
+        "pap_short_interval_exponent_value"
+      ]
+    },
+    {
+      "formula_id": "56.2",
+      "status": "KERNEL_PASS",
+      "declarations": ["papCZD", "papDPAP", "pap_dpap_value"]
+    },
+    {
+      "formula_id": "56.3",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "papCoefficient",
+        "pap_exponent_product",
+        "pap_coefficient_identity"
+      ]
+    },
+    {
+      "formula_id": "56.4",
+      "status": "KERNEL_PASS",
+      "declarations": ["pap_coefficient_pos_lt_one"]
+    },
+    {
+      "formula_id": "T56-U001",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "T56-U002",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["pap_finite_error_composition"]
+    },
+    {
+      "formula_id": "56.5",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["pap_finite_error_composition"]
+    },
+    {
+      "formula_id": "56.6",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_epsilon_reparameterization"]
+    },
+    {
+      "formula_id": "56.7",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_low_alpha_exponent_bridge"]
+    },
+    {
+      "formula_id": "56.8",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

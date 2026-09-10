@@ -1049,3 +1049,26 @@ finite-interval 비교와 Ein `103/100` 상계는 `KERNEL_PASS`로 올랐다.
 Rosser--Schoenfeld `theta < 1.01624 t`와 해당 Stieltjes 비교의 독립 형식증명은
 남았다. 이 증거 경계는 R08 판정을 바꾸지 않고 R09--R12·\(X_{\rm cert}\)를
 계속 OPEN으로 유지한다.
+
+## 2026-09-11 Lean 미형식화 의존성 gate·DEP-R09 phase 1
+
+Lean 전수 inventory의 초기 1,005식 중 960식이 `NOT_YET_FORMALIZED`였다는 사실은
+형식검증 coverage가 낮다는 경고이지만, 960식 전부를 source audit보다 먼저 형식화하는
+gate로 사용하지 않는다. 경험적·역사적·대체 식도 섞여 있기 때문이다. 대신 다음 규칙을
+적용한다.
+
+1. source tracing과 exact obligation 정규화는 먼저 진행할 수 있다.
+2. 최종 \(X_{\rm cert}\) 경로에 실제로 쓰일 식은 statement·source를 고정한 뒤,
+   상위 결론에 사용하기 전에 dependency 순서로 형식화한다.
+3. 외부 analytic source theorem을 premise로 받은 대수 합성은
+   `CONDITIONAL_KERNEL_PASS`이며 source theorem의 독립 검증이 아니다.
+4. R09--R12와 end-to-end critical path가 닫히기 전에는 threshold calculator나
+   \(X_{\rm cert}\) 증명 완료를 선언하지 않는다.
+
+[theory 56](method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md)은
+Sono의 \(c_{\rm ZFR}=1/24\), \(a=1/80\), \(c_{\rm ZD}=16\),
+\(D_{\rm PAP}=160\), \(C_{\rm PAP}=1-e^{-2}\)를 source와 대조하고 exact 대수를
+Lean으로 검증했다. 하지만 Gallagher·Jutila·Maier 계열의 implied multiplier와 공통
+finite cutoff는 OPEN이다. 유한 one-sided PAP는 양의 \(\eta_{\rm PAP}\)를 두어
+\(C_{\rm PAP}-\eta_{\rm PAP}\) 형태로 R11 예산에 연결한다. Theory 56 추가 후 inventory는
+1,015식이고, 새 10식을 모두 분류해 미형식화 수는 여전히 960식이다.

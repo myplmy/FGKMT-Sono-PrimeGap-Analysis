@@ -663,5 +663,16 @@
     "same_sono_coefficient_budget_closed": false,
     "broad_siv08_closed": false,
     "numerical_x_cert_ready": false
+  },
+  "successor_dep_r09_phase1": {
+    "id": "DEP-R09-PHASE1",
+    "locator": "docs/method/theory/data/Sono_FMT_DEPR09_numerical_PAP_v1.json",
+    "constant_normalization_explicit": true,
+    "d_pap": 160,
+    "d_pap_is_numerical_starting_threshold": false,
+    "positive_finite_slack_required": true,
+    "analytic_rate_and_cutoff_open": true,
+    "pap_11_closed": false,
+    "numerical_x_cert_ready": false
   }
 }
