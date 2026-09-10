@@ -5,7 +5,22 @@
     {
       "formula_id": "T01-U001",
       "status": "KERNEL_PASS",
-      "declarations": ["iterLog", "fgkmtScale", "iterLog_one", "iterLog_two", "iterLog_three", "iterLog_four", "fgkmtScale_unfold"]
+      "declarations": [
+        "iterLog",
+        "fgkmtScale",
+        "iterLog_one",
+        "iterLog_two",
+        "iterLog_three",
+        "iterLog_four",
+        "fgkmtScale_unfold",
+        "scaleThreshold",
+        "exp_div_self_strictMonoOn",
+        "scale_domain_chain",
+        "fgkmtScale_factorization",
+        "iterLog_strictMono_up_to_four",
+        "fgkmtScale_pos",
+        "fgkmtScale_strictMonoOn"
+      ]
     },
     {
       "formula_id": "T01-U002",
@@ -24,8 +39,12 @@
     },
     {
       "formula_id": "T01-U005",
-      "status": "DEFINITION_ONLY",
-      "declarations": ["intervalMinimum"]
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "intervalMinimum",
+        "fgkmtScale_strictMonoOn",
+        "intervalMinimum_is_minimum"
+      ]
     },
     {
       "formula_id": "T07-U001",

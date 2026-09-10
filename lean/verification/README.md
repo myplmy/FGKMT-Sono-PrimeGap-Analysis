@@ -9,6 +9,7 @@
 - `KERNEL_PASS`: project-local `axiom`, `sorry`, `admit` 없이 명제가 커널 검증됨.
 - `CONDITIONAL_KERNEL_PASS`: 선행 premise를 명시적 theorem 인수로 받아 결론의 논리적 합성만 검증됨.
 - `DEFINITION_ONLY`: 정의·표기이며 참/거짓 증명 대상이 아님.
+- `PARTIAL_FORMALIZATION`: display 식의 핵심 일부만 형식화되었으며 식 전체 PASS가 아님.
 - `SOURCE_THEOREM_UNFORMALIZED`: 채택한 선행 analytic theorem 자체는 아직 Lean 증명이 없음.
 - `NOT_YET_FORMALIZED`: 원장에는 등록됐지만 아직 Lean 선언이 없음.
 - `PARSE_REVIEW_REQUIRED`: Markdown 수식 경계나 식 식별자를 사람이 확인해야 함.

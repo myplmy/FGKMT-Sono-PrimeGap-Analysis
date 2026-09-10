@@ -1259,6 +1259,33 @@
 - 위 실패들은 actual prime 계산이나 `test_result`를 만들지 않았고, Lean PASS 수나 수학적
   결론을 늘리는 데 사용하지 않았다. 특히 전체 Sono/FMT 증명과 `X_cert`는 계속 OPEN이다.
 
+### E083 — Theory 01 Lean scratch의 표현 정규화·실행 추적 실수
+
+- 분류: `CORRECTED_BEFORE_CANONICAL_COMMIT / INVALID_RESULT_NONE`.
+- 최초 scratch에서 `iterLog 4 x`를 완전히 펼친 항과
+  `Real.log (iterLog 3 x)`를 혼용해 `ring`이 정규화하지 못했고, 마지막 strict-log
+  부등식에도 같은 definitional-form mismatch가 남아 direct Lean이 2건을 거부했다.
+  `change`로 표현을 하나로 고정하고 이미 얻은 `iterLog 4` 부등식을 직접 사용한
+  후 scratch·정본 direct Lean·Lake build를 모두 다시 PASS했다. 가정을 느슨하게
+  바꾸거나 proof escape를 쓰지 않았다.
+- 첫 Mathlib 경로 조회에서 `elan`이 PATH에 있을 것으로 가정해 명령이 실패했다.
+  고정된 `C:\\Users\\Uranus\\.elan\\bin\\lake.exe`와 repository-local Mathlib 경로로
+  전환했다. 사용자의 Lean 설치 실패가 아니다.
+- direct Lean을 처음 nested command로 호출했을 때 30초 yield 뒤 process는 계속 실행되었지만
+  session id를 출력하지 않아 즉시 exit code를 회수하지 못했다. 프로세스를 끊지
+  않고 자연 종료를 확인한 뒤, `Start-Process -Wait -PassThru`와 session polling으로
+  direct Lean exit 0과 Lake build exit 0를 독립적으로 다시 회수했다.
+- 첫 전체 unittest는 `-v`로 출력이 절단되어 마지막 집계를 화면에서 즉시 보지
+  못했다. 같은 suite를 비상세 모드로 다시 실행해 664 tests, 92.365초, exit 0을
+  확인했다. 절단된 verbose 출력만으로 PASS를 선언하지 않았다.
+- 첫 staged allowlist 비교에서 Git의 기본 `core.quotePath` 이스케이프 출력을 실제
+  경로와 비교해 한국어 파일 2개를 각각 unexpected/missing으로 잘못 계수했다.
+  스테이징 자체를 변경하지 않고 `git -c core.quotepath=false diff --cached --name-only`로
+  다시 비교해 staged 12개, allowlist delta 0을 확인했다. 첫 비교 출력은 오염
+  증거나 예상 외 파일 stage로 해석하지 않는다.
+- 위 오류는 actual prime 실험·데이터·`test_result`를 변경하지 않았고,
+  Theory 01 정본은 `sorry`/`admit`/project-local `axiom` 0건으로 커널 검증됐다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

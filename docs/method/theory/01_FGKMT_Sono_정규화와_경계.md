@@ -16,6 +16,13 @@ F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x}.
 base-2/3/4 로그는 금지한다. `F(x)>0`인 프로젝트의 최소 정수 시작점은
 `3,814,280`이다.
 
+Lean 커널 검증에서는 소수 근사값을 가정하지 않고 연속 경계
+`scaleThreshold = exp(exp(exp(1)))`를 사용한다. `x > scaleThreshold`이면 의도한
+양의 반복로그 branch에서 `F(x)>0`이고 `F`가 엄격히 증가함을, 외부 가정과
+proof escape 없이 형식화했다. 100-dps Python 대조에서 이 실수 경계는
+`3814279.104760220592209...`이므로 첫 정수가 `3,814,280`이다. 단, 이 소수점
+경계대조 자체는 현재 Lean 커널 증명이 아니라 독립 수치 검사다.
+
 ## 두 maximal-gap finite 함수
 
 Sono와 프로젝트 canonical 함수는
@@ -49,6 +56,12 @@ e_i\le x\le e_{i+1}-1,\qquad G_{end}(x)=g_i.
 이다. 실수 domain에서는 `[e_i,e_{i+1})`이므로 minimum이 아니라
 `x -> e_(i+1)-`에서의 infimum이다. 마지막 record는 verified exhaustive limit까지만
 닫는다.
+
+`lean/FGKMTSono/TheoryVerification.lean`의 `intervalMinimum_is_minimum`은 정수 plateau의
+임의의 `x`에서 오른쪽 끝점 표현이 더 크지 않음을 Lean 커널로 검증한다.
+이 명제는 end-bounded 정수 경계와 scale 단조성을 결합한 것이며, 실수
+half-open plateau의 infimum 주장이나 maximal-gap record 데이터의 완전성을 증명하는
+명제는 아니다.
 
 ## 검증 상태
 

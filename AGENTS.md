@@ -263,9 +263,15 @@ Codex의 저장소 스킬 정본 발견 경로는 `.agents/skills/`다. 현재 �
 - `KERNEL_PASS`, `CONDITIONAL_KERNEL_PASS`, `DEFINITION_ONLY`, `PARTIAL_FORMALIZATION`,
   `SOURCE_THEOREM_UNFORMALIZED`, `NOT_YET_FORMALIZED`을 서로 바꾸어 쓰지 않는다.
   source theorem을 premise로 받은 downstream 대수 증명은 독립 source 증명이 아니다.
-- project-local `axiom`, `sorry`, `admit`으로 검증 항목을 닫지 않는다. `.lake/` build cache는
-  commit하지 않는다. inventory·원장 검증과 `lake build`가 모두 PASS해야 현재 batch를
-  kernel 검증 완료로 기록한다.
+- project-local `axiom`, `sorry`, `admit`으로 검증 항목을 닫지 않는다. 이들이
+  불가피해 보이면 사용 전에 중단하고, 형식화가 안 되는 이유·대체 공식/방법·검증된
+  외부 선행연구의 보장 여부를 보고한 뒤 사용자의 명시적 허가를 받는다. 허가 없이는
+  절대 사용하지 않는다. `.lake/` build cache는 commit하지 않는다. inventory·원장 검증과
+  `lake build`가 모두 PASS해야 현재 batch를 kernel 검증 완료로 기록한다.
+- 2026-09-10 기준 Theory 01의 `F(x)`는 `x > exp(exp(exp(1)))`에서 양수이고
+  엄격히 증가하며, 양의 end-bounded 정수 plateau의 오른쪽 끝점 minimum도
+  proof escape 없이 `KERNEL_PASS`다. `G_end(x)=g_i`의 finite-record 상수성 전체는
+  `T01-U004 PARTIAL_FORMALIZATION`으로 남아 있고 `X_cert`는 OPEN이다.
 - 일부 수식의 Lean 통과를 전체 Sono/FMT 증명이나 `X_cert` 확정으로 확대 해석하지 않는다.
 
 ### 반복로그 정의: 밑이 아니라 반복 횟수

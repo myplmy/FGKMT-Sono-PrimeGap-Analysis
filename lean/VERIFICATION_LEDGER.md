@@ -62,9 +62,9 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 9 |
+| `KERNEL_PASS` | 10 |
 | `CONDITIONAL_KERNEL_PASS` | 8 |
-| `DEFINITION_ONLY` | 4 |
+| `DEFINITION_ONLY` | 3 |
 | `PARTIAL_FORMALIZATION` | 6 |
 | `SOURCE_THEOREM_UNFORMALIZED` | 0 |
 | `NOT_YET_FORMALIZED` | 973 |
@@ -78,7 +78,7 @@
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
 | 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `0d2d9632e744ba0b…` | 0 | 0 | 0 | 0 |
-| 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `129e52d3f9376bdf…` | 5 | 0 | 5 | 5 |
+| 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
 | 04 | [04_residue_state_count_certificate.md](../docs/method/theory/04_residue_state_count_certificate.md) | `de23f999d3899724…` | 1 | 0 | 1 | 0 |
@@ -144,11 +144,11 @@
 
 | # | 수식 ID | Theory·원문 | line | 수식 preview | Lean 선언 | 상태 | 한계·근거 |
 |---:|---|---|---:|---|---|---|---|
-| 1 | `T01-U001` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 11–14 | <code>\log_kx=\underbrace{\ln(\ln(\cdots\ln x))}_{k\text{회}},\qquad F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x}.</code> | `iterLog; fgkmtScale; iterLog_one; iterLog_two; iterLog_three; iterLog_four; fgkmtScale_unfold` | `KERNEL_PASS` | 정의 전개와 반복 횟수 |
-| 2 | `T01-U002` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 23–25 | <code>G_{end}(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n)</code> | `PrimeGapDatum; PrimeGapDatum.endPrime; endBoundedMaxGap; endEligible; endEligible_at_endpoint; endEligible_false_before` | `DEFINITION_ONLY` | finite record 표현 |
-| 3 | `T01-U003` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 29–31 | <code>G_{start}(x)=\max_{p_n\le x}(p_{n+1}-p_n)</code> | `startBoundedMaxGap; startEligible` | `DEFINITION_ONLY` | 보조 start-bounded 정의 |
-| 4 | `T01-U004` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 39–41 | <code>e_i\le x\le e_{i+1}-1,\qquad G_{end}(x)=g_i.</code> | `onEndBoundedPlateau; plateau_integer_upper` | `PARTIAL_FORMALIZATION` | 정수 경계만; G 상수성 premise는 후속 |
-| 5 | `T01-U005` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 45–47 | <code>\boxed{H_{i,min}=\frac{g_i}{F(e_{i+1}-1)}}</code> | `intervalMinimum` | `DEFINITION_ONLY` | F 단조성 증명은 후속 |
+| 1 | `T01-U001` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 11–14 | <code>\log_kx=\underbrace{\ln(\ln(\cdots\ln x))}_{k\text{회}},\qquad F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x}.</code> | `iterLog; fgkmtScale; iterLog_one; iterLog_two; iterLog_three; iterLog_four; fgkmtScale_unfold; scaleThreshold; exp_div_self_strictMonoOn; scale_domain_chain; fgkmtScale_factorization; iterLog_strictMono_up_to_four; fgkmtScale_pos; fgkmtScale_strictMonoOn` | `KERNEL_PASS` | 정의 전개·양수성·exp(exp(exp(1))) 위 strict monotonicity 커널 검증 |
+| 2 | `T01-U002` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 30–32 | <code>G_{end}(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n)</code> | `PrimeGapDatum; PrimeGapDatum.endPrime; endBoundedMaxGap; endEligible; endEligible_at_endpoint; endEligible_false_before` | `DEFINITION_ONLY` | finite record 표현 |
+| 3 | `T01-U003` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 36–38 | <code>G_{start}(x)=\max_{p_n\le x}(p_{n+1}-p_n)</code> | `startBoundedMaxGap; startEligible` | `DEFINITION_ONLY` | 보조 start-bounded 정의 |
+| 4 | `T01-U004` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 46–48 | <code>e_i\le x\le e_{i+1}-1,\qquad G_{end}(x)=g_i.</code> | `onEndBoundedPlateau; plateau_integer_upper` | `PARTIAL_FORMALIZATION` | 정수 경계만; G 상수성 premise는 후속 |
+| 5 | `T01-U005` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 52–54 | <code>\boxed{H_{i,min}=\frac{g_i}{F(e_{i+1}-1)}}</code> | `intervalMinimum; fgkmtScale_strictMonoOn; intervalMinimum_is_minimum` | `KERNEL_PASS` | 양의 end-bounded 정수 plateau의 오른쪽 끝점 minimum 커널 검증 |
 | 6 | `T04-U001` | T04 [04_residue_state_count_certificate.md](../docs/method/theory/04_residue_state_count_certificate.md) | 11–13 | <code>N_{&gt;=H}(A,B)=\#\{p\in[A,B):p^+-p\ge H\}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
 | 7 | `T05-U001` | T05 [05_local_block_boundary_certificate.md](../docs/method/theory/05_local_block_boundary_certificate.md) | 13–15 | <code>U_{total}\le U_{internal}+1</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
 | 8 | `T05-U002` | T05 [05_local_block_boundary_certificate.md](../docs/method/theory/05_local_block_boundary_certificate.md) | 26–28 | <code>q-p&lt;H</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
@@ -1163,11 +1163,12 @@
 ## 10. 순차 형식화 우선순위
 
 1. 초기 batch의 declaration–원장 연결과 no-sorry 검증을 고정한다.
-2. Theory 01의 scale positivity·interval-minimum 단조성 가정을 정식화한다.
-3. Theories 10–11의 finite set/residue pullback 전체 구조를 닫는다.
-4. `X_cert` dependency critical path인 theories 47–55를 역의존 순서로 형식화한다.
-5. source analytic theorem은 먼저 Mathlib/선행 형식화를 찾고, 없으면
+2. Theory 01의 scale positivity·strict monotonicity·end-bounded integer minimum은 커널 검증을 유지한다.
+3. Theory 55의 dependency-critical smooth remainder 후속 식을 역의존 순서로 형식화한다.
+4. Theories 10–11의 finite set/residue pullback 전체 구조를 닫는다.
+5. `X_cert` dependency critical path인 theories 47–55의 나머지 식을 역의존 순서로 형식화한다.
+6. source analytic theorem은 먼저 Mathlib/선행 형식화를 찾고, 없으면
    `SOURCE_THEOREM_UNFORMALIZED`로 차단한 뒤 별도 장기 증명 단위로 분해한다.
-6. 이후 theories 13–46과 초기 empirical/certificate theory를 순차 처리한다.
+7. 이후 theories 13–46과 초기 empirical/certificate theory를 순차 처리한다.
 
 새 theory가 추가되면 inventory와 원장을 재생성하고 기존 source SHA가 움직였는지 먼저 검사한다.

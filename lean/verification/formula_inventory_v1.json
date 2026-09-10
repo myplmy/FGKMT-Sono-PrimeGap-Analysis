@@ -17,7 +17,7 @@
     {
       "theory": "01",
       "source_file": "docs/method/theory/01_FGKMT_Sono_정규화와_경계.md",
-      "source_sha256": "129e52d3f9376bdf7d8f497ac716166270c5ef67b882019a0ff80262bb8ddd35",
+      "source_sha256": "67225209e8ffb71df1540858af5bd6f9f5c8b8f73302eead820295fd5d3b6ae9",
       "display_formula_count": 5,
       "tagged_formula_count": 0,
       "untagged_formula_count": 5
@@ -464,47 +464,47 @@
       "end_line": 14,
       "tagged": false,
       "latex": "\\log_kx=\\underbrace{\\ln(\\ln(\\cdots\\ln x))}_{k\\text{회}},\\qquad\nF(x)=\\frac{\\log x\\,\\log_2x\\,\\log_4x}{\\log_3x}.",
-      "source_sha256": "129e52d3f9376bdf7d8f497ac716166270c5ef67b882019a0ff80262bb8ddd35"
+      "source_sha256": "67225209e8ffb71df1540858af5bd6f9f5c8b8f73302eead820295fd5d3b6ae9"
     },
     {
       "formula_id": "T01-U002",
       "theory": "01",
       "source_file": "docs/method/theory/01_FGKMT_Sono_정규화와_경계.md",
-      "start_line": 23,
-      "end_line": 25,
+      "start_line": 30,
+      "end_line": 32,
       "tagged": false,
       "latex": "G_{end}(x)=\\max_{p_{n+1}\\le x}(p_{n+1}-p_n)",
-      "source_sha256": "129e52d3f9376bdf7d8f497ac716166270c5ef67b882019a0ff80262bb8ddd35"
+      "source_sha256": "67225209e8ffb71df1540858af5bd6f9f5c8b8f73302eead820295fd5d3b6ae9"
     },
     {
       "formula_id": "T01-U003",
       "theory": "01",
       "source_file": "docs/method/theory/01_FGKMT_Sono_정규화와_경계.md",
-      "start_line": 29,
-      "end_line": 31,
+      "start_line": 36,
+      "end_line": 38,
       "tagged": false,
       "latex": "G_{start}(x)=\\max_{p_n\\le x}(p_{n+1}-p_n)",
-      "source_sha256": "129e52d3f9376bdf7d8f497ac716166270c5ef67b882019a0ff80262bb8ddd35"
+      "source_sha256": "67225209e8ffb71df1540858af5bd6f9f5c8b8f73302eead820295fd5d3b6ae9"
     },
     {
       "formula_id": "T01-U004",
       "theory": "01",
       "source_file": "docs/method/theory/01_FGKMT_Sono_정규화와_경계.md",
-      "start_line": 39,
-      "end_line": 41,
+      "start_line": 46,
+      "end_line": 48,
       "tagged": false,
       "latex": "e_i\\le x\\le e_{i+1}-1,\\qquad G_{end}(x)=g_i.",
-      "source_sha256": "129e52d3f9376bdf7d8f497ac716166270c5ef67b882019a0ff80262bb8ddd35"
+      "source_sha256": "67225209e8ffb71df1540858af5bd6f9f5c8b8f73302eead820295fd5d3b6ae9"
     },
     {
       "formula_id": "T01-U005",
       "theory": "01",
       "source_file": "docs/method/theory/01_FGKMT_Sono_정규화와_경계.md",
-      "start_line": 45,
-      "end_line": 47,
+      "start_line": 52,
+      "end_line": 54,
       "tagged": false,
       "latex": "\\boxed{H_{i,min}=\\frac{g_i}{F(e_{i+1}-1)}}",
-      "source_sha256": "129e52d3f9376bdf7d8f497ac716166270c5ef67b882019a0ff80262bb8ddd35"
+      "source_sha256": "67225209e8ffb71df1540858af5bd6f9f5c8b8f73302eead820295fd5d3b6ae9"
     },
     {
       "formula_id": "T04-U001",

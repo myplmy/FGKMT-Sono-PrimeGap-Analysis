@@ -32,7 +32,14 @@ Set-Location -LiteralPath 'Z:\FGKMT-Sono-PrimeGap-Analysis\lean'
 
 `lake build` 성공만으로 모든 논문 입력이 증명된 것은 아니다. 항목별 독립·조건부·미형식화
 상태는 `VERIFICATION_LEDGER.md`를 정본으로 삼는다. `sorry`, `admit`, project-local `axiom`은
-독립 검증에 사용하지 않는다.
+독립 검증에 사용하지 않는다. 불가피해 보이면 형식화 불가 사유, 대체 공식·방법,
+외부 검증 선행연구를 먼저 감사·보고하고 사용자의 명시적 허가 전에는 절대 도입하지
+않는다.
+
+현재 Theory 01에서는 `x > exp(exp(exp(1)))`인 의도한 양의 반복로그 domain의
+`F(x)>0`, strict monotonicity, end-bounded 정수 plateau의 오른쪽 끝점 minimum을
+커널로 검증했다. 이는 finite record의 완전성이나 전체 Sono/FMT 증명,
+`X_cert`를 인증하지 않는다.
 
 원문 theory를 수정한 뒤에는 생성기와 검증기를 차례로 실행한다. 생성기는 display 수식의
 원문 경로·행·SHA-256을 다시 고정하며, 검증기는 전수 coverage, 선언 연결, 금지된 proof

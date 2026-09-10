@@ -45,6 +45,141 @@ theorem fgkmtScale_unfold (x : ℝ) :
         Real.log (Real.log (Real.log (Real.log x))) /
           Real.log (Real.log (Real.log x)) := rfl
 
+/- Theory 01, formula T01-U001: a continuous lower boundary above which all
+   nested-log factors used by the scale are in their intended positive domain. -/
+noncomputable def scaleThreshold : ℝ := Real.exp (Real.exp (Real.exp 1))
+
+/- Auxiliary theorem for Theory 01: `exp(t) / t` is strictly increasing for
+   `t ≥ 1`.  The proof uses Mathlib's strict exponential lower bound and ordered-field
+   algebra, not an analytic assumption or project-local axiom. -/
+theorem exp_div_self_strictMonoOn :
+    StrictMonoOn (fun t : ℝ ↦ Real.exp t / t) (Set.Ici 1) := by
+  intro a ha b hb hab
+  have ha0 : 0 < a := zero_lt_one.trans_le ha
+  have hb0 : 0 < b := ha0.trans hab
+  have hd : 0 < b - a := sub_pos.mpr hab
+  have hd_nonneg : 0 ≤ b - a := hd.le
+  have hscale : 0 ≤ (a - 1) * (b - a) :=
+    mul_nonneg (sub_nonneg.mpr ha) hd_nonneg
+  have hexp : (b - a) + 1 < Real.exp (b - a) :=
+    Real.add_one_lt_exp hd.ne'
+  have hba : b < a * Real.exp (b - a) := by
+    have hmul := mul_lt_mul_of_pos_left hexp ha0
+    nlinarith
+  apply (div_lt_div_iff₀ ha0 hb0).2
+  have hmul := mul_lt_mul_of_pos_left hba (Real.exp_pos a)
+  calc
+    Real.exp a * b < Real.exp a * (a * Real.exp (b - a)) := hmul
+    _ = (Real.exp a * Real.exp (b - a)) * a := by ring
+    _ = Real.exp (a + (b - a)) * a := by rw [Real.exp_add]
+    _ = Real.exp b * a := by ring_nf
+
+/- Theory 01, formula T01-U001: positivity of the successive iterated logs on
+   the continuous project domain. -/
+theorem scale_domain_chain {x : ℝ} (hx : scaleThreshold < x) :
+    0 < x ∧
+      0 < iterLog 1 x ∧
+      0 < iterLog 2 x ∧
+      1 < iterLog 3 x ∧
+      0 < iterLog 4 x := by
+  have ht0 : 0 < scaleThreshold := Real.exp_pos _
+  have hx0 : 0 < x := ht0.trans hx
+  have h1 : Real.exp (Real.exp 1) < Real.log x := by
+    apply (Real.lt_log_iff_exp_lt hx0).2
+    simpa [scaleThreshold]
+  have h1pos : 0 < Real.log x := (Real.exp_pos _).trans h1
+  have h2 : Real.exp 1 < Real.log (Real.log x) := by
+    apply (Real.lt_log_iff_exp_lt h1pos).2
+    simpa using h1
+  have h2pos : 0 < Real.log (Real.log x) := (Real.exp_pos _).trans h2
+  have h3 : 1 < Real.log (Real.log (Real.log x)) := by
+    apply (Real.lt_log_iff_exp_lt h2pos).2
+    simpa using h2
+  have h4 : 0 < Real.log (Real.log (Real.log (Real.log x))) :=
+    Real.log_pos h3
+  simpa [iterLog_one, iterLog_two, iterLog_three, iterLog_four] using
+    ⟨hx0, h1pos, h2pos, h3, h4⟩
+
+/- Theory 01, formula T01-U001: positive-factor representation used for the
+   monotonicity proof. -/
+theorem fgkmtScale_factorization {x : ℝ} (hx : scaleThreshold < x) :
+    fgkmtScale x =
+      iterLog 1 x * (Real.exp (iterLog 3 x) / iterLog 3 x) *
+        Real.log (iterLog 3 x) := by
+  have hchain := scale_domain_chain hx
+  have hexp : Real.exp (iterLog 3 x) = iterLog 2 x := by
+    rw [iterLog_three, iterLog_two]
+    exact Real.exp_log hchain.2.2.1
+  unfold fgkmtScale
+  change
+    iterLog 1 x * iterLog 2 x * Real.log (iterLog 3 x) / iterLog 3 x = _
+  rw [← hexp]
+  ring
+
+/- Theory 01, formula T01-U001: strict order propagation through the first four
+   iterated natural logarithms. -/
+theorem iterLog_strictMono_up_to_four {x y : ℝ}
+    (hx : scaleThreshold < x) (hxy : x < y) :
+    iterLog 1 x < iterLog 1 y ∧
+      iterLog 2 x < iterLog 2 y ∧
+      iterLog 3 x < iterLog 3 y ∧
+      iterLog 4 x < iterLog 4 y := by
+  have hxchain := scale_domain_chain hx
+  have h1 : Real.log x < Real.log y := Real.log_lt_log hxchain.1 hxy
+  have h2 : Real.log (Real.log x) < Real.log (Real.log y) :=
+    Real.log_lt_log hxchain.2.1 h1
+  have h3 : Real.log (Real.log (Real.log x)) <
+      Real.log (Real.log (Real.log y)) :=
+    Real.log_lt_log hxchain.2.2.1 h2
+  have h4 : Real.log (Real.log (Real.log (Real.log x))) <
+      Real.log (Real.log (Real.log (Real.log y))) :=
+    Real.log_lt_log (zero_lt_one.trans hxchain.2.2.2.1) h3
+  simpa [iterLog_one, iterLog_two, iterLog_three, iterLog_four] using
+    ⟨h1, h2, h3, h4⟩
+
+/- Theory 01, formula T01-U001: positivity of the FGKMT/Sono scale on the
+   continuous project domain. -/
+theorem fgkmtScale_pos {x : ℝ} (hx : scaleThreshold < x) :
+    0 < fgkmtScale x := by
+  rw [fgkmtScale_factorization hx]
+  have hchain := scale_domain_chain hx
+  exact mul_pos
+    (mul_pos hchain.2.1 (div_pos (Real.exp_pos _) (zero_lt_one.trans hchain.2.2.2.1)))
+    (Real.log_pos hchain.2.2.2.1)
+
+/- Theory 01, formulae T01-U001 and T01-U005: the FGKMT/Sono scale is strictly
+   increasing above `exp(exp(exp(1)))`. -/
+theorem fgkmtScale_strictMonoOn :
+    StrictMonoOn fgkmtScale (Set.Ioi scaleThreshold) := by
+  intro x hx y hy hxy
+  have hlogs := iterLog_strictMono_up_to_four hx hxy
+  have hxchain := scale_domain_chain hx
+  have hychain := scale_domain_chain hy
+  have hcquot :
+      Real.exp (iterLog 3 x) / iterLog 3 x <
+        Real.exp (iterLog 3 y) / iterLog 3 y :=
+    exp_div_self_strictMonoOn hxchain.2.2.2.1.le hychain.2.2.2.1.le hlogs.2.2.1
+  rw [fgkmtScale_factorization hx, fgkmtScale_factorization hy]
+  calc
+    iterLog 1 x * (Real.exp (iterLog 3 x) / iterLog 3 x) *
+          Real.log (iterLog 3 x) <
+        iterLog 1 y * (Real.exp (iterLog 3 x) / iterLog 3 x) *
+          Real.log (iterLog 3 x) := by
+      exact mul_lt_mul_of_pos_right
+        (mul_lt_mul_of_pos_right hlogs.1
+          (div_pos (Real.exp_pos _) (zero_lt_one.trans hxchain.2.2.2.1)))
+        (Real.log_pos hxchain.2.2.2.1)
+    _ < iterLog 1 y * (Real.exp (iterLog 3 y) / iterLog 3 y) *
+          Real.log (iterLog 3 x) := by
+      exact mul_lt_mul_of_pos_right
+        (mul_lt_mul_of_pos_left hcquot hychain.2.1)
+        (Real.log_pos hxchain.2.2.2.1)
+    _ < iterLog 1 y * (Real.exp (iterLog 3 y) / iterLog 3 y) *
+          Real.log (iterLog 3 y) := by
+      exact mul_lt_mul_of_pos_left hlogs.2.2.2
+        (mul_pos hychain.2.1
+          (div_pos (Real.exp_pos _) (zero_lt_one.trans hychain.2.2.2.1)))
+
 /- Theory 01, formulae T01-U002 and T01-U003: a gap becomes eligible at the
    end prime in the canonical function, not at its start prime. -/
 structure PrimeGapDatum where
@@ -83,6 +218,23 @@ theorem plateau_integer_upper {endPrime nextEnd x : ℕ}
    Monotonicity of the scale is a separate analytic premise. -/
 noncomputable def intervalMinimum (gap nextEnd : ℕ) : ℝ :=
   (gap : ℝ) / fgkmtScale ((nextEnd - 1 : ℕ) : ℝ)
+
+/- Theory 01, formula T01-U005: on every positive-scale integer point in an
+   end-bounded plateau, the right-end expression is no larger. -/
+theorem intervalMinimum_is_minimum
+    {gap endPrime nextEnd x : ℕ}
+    (hplateau : onEndBoundedPlateau endPrime nextEnd x)
+    (hx : scaleThreshold < (x : ℝ)) :
+    intervalMinimum gap nextEnd ≤ (gap : ℝ) / fgkmtScale x := by
+  have hupperNat : x ≤ nextEnd - 1 := plateau_integer_upper hplateau
+  have hupper : (x : ℝ) ≤ ((nextEnd - 1 : ℕ) : ℝ) := by
+    exact_mod_cast hupperNat
+  have hend : scaleThreshold < ((nextEnd - 1 : ℕ) : ℝ) := hx.trans_le hupper
+  have hscale : fgkmtScale x ≤ fgkmtScale ((nextEnd - 1 : ℕ) : ℝ) :=
+    fgkmtScale_strictMonoOn.monotoneOn hx hend hupper
+  unfold intervalMinimum
+  apply (div_le_div_iff₀ (fgkmtScale_pos hend) (fgkmtScale_pos hx)).2
+  exact mul_le_mul_of_nonneg_left hscale (Nat.cast_nonneg gap)
 
 /-! ## Theory 07 — local `li - pi` identity and inequality direction -/
 
