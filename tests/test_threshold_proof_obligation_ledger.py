@@ -28,7 +28,7 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
         cls.by_id = {row["id"]: row for row in cls.rows}
 
     def test_schema_and_required_fields(self) -> None:
-        self.assertEqual(self.document["schema_version"], "1.7.0")
+        self.assertEqual(self.document["schema_version"], "1.8.0")
         self.assertEqual(len(self.rows), 66)
         self.assertEqual(len(self.by_id), len(self.rows), "obligation ids must be unique")
 
@@ -126,11 +126,11 @@ class ThresholdProofObligationLedgerTests(unittest.TestCase):
             Counter(row["status"] for row in self.rows),
             Counter(
                 {
-                    "EXPLICIT": 8,
-                    "PARTIAL": 9,
-                    "RATE_MISSING": 30,
+                    "EXPLICIT": 11,
+                    "PARTIAL": 10,
+                    "RATE_MISSING": 28,
                     "SOURCE_REVIEW_REQUIRED": 4,
-                    "HARD_BLOCKER": 15,
+                    "HARD_BLOCKER": 13,
                 }
             ),
         )

@@ -539,8 +539,8 @@
     "broad_siv08_closed": false
   },
   "next_gate": {
-    "id": "H1b-COV2",
-    "description": "H1b-COV2 / DEP-R08: compose actual interval family, post-covering failure, exception restoration, smooth remainder and rounding. Theory54 proves sufficient C0=100 and closes the theory53 actual log gate. H1b-P92a, H1b-P91a, H1b-P94g and H1b-NORM remain explicit. R01-R07 actual core/fixed-finite-subset children are project explicit; R08-R12 remain OPEN. No global coefficient budget or X_cert promotion.",
+    "id": "DEP-R09",
+    "description": "Numerical PAP source-and-constant audit. H1b-COV2 theory55 closes the actual fixed-A,epsilon,eta post-covering interval, exception, smooth remainder and sequential-existence package. R01-R08 actual children are parameterized explicit; R09-R12 remain OPEN. PAP remains a sibling source chain and no X_cert or calculator is promoted.",
     "ready_for_threshold_calculator": false
   },
   "successor_actual_identity_weighted_moment": {
@@ -647,6 +647,20 @@
     "fixed_finite_subset_rate_closed": true,
     "simultaneous_final_family_budget_closed": false,
     "current_remaining_actual_work_packages": 5,
+    "broad_siv08_closed": false,
+    "numerical_x_cert_ready": false
+  },
+  "successor_post_covering_interval_remainder": {
+    "id": "H1b-COV2",
+    "locator": "docs/method/theory/data/Sono_FMT_H1bCOV2_post_covering_v1.json",
+    "newly_closed_actual_work": ["DEP-R08"],
+    "fixed_parameter_quantifier": "A, epsilon and eta fixed before random choices",
+    "endpoint_safe_equal_grid": true,
+    "actual_width_exception_restoration": true,
+    "smooth_remainder_explicit": true,
+    "sequential_positive_probability_closed": true,
+    "current_remaining_actual_work_packages": 4,
+    "same_sono_coefficient_budget_closed": false,
     "broad_siv08_closed": false,
     "numerical_x_cert_ready": false
   }

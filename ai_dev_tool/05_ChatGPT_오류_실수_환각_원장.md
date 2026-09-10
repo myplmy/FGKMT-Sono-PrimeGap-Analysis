@@ -1174,6 +1174,41 @@
 - 설명상 위험도 교정했다: 기존 범위에서 부등식의 실패가 관측된 것이 아니다. 미완성 X_cert와
   보조변수 cutoff를 “그 이하에서 부등식이 거짓”이라는 뜻으로 설명해서는 안 된다.
 
+### E079 — H1b-COV2 초안의 LaTeX escape·smooth 적분·식 번호 교정
+
+- 분류: `CORRECTED_BEFORE_COMMIT / INVALID_RESULT_NONE`.
+- theory 55 최초 초안을 JavaScript 일반 문자열로 구성하면서 `\\varepsilon`, `\\vartheta`,
+  `\\beta`, `\\rho` 일부가 제어문자 또는 누락된 backslash로 저장됐다. commit 전에 byte/문자
+  감사를 거쳐 모두 교정했다. 최종 사람 검토에서 남아 있던 inline math delimiter 누락도
+  복원했다. actual 계산·실험 산출물은 없었다.
+- 최초 smooth-number 설명의 세 구간 `Ein` 상계는 필요한 중간부등식이 충분히 전개되지 않아
+  그대로는 project proof로 채택하기 어려웠다. Rosser--Schoenfeld Theorem 9의 전 범위
+  theta 상계와 감소함수 Stieltjes 부분적분으로 다시 증명해
+  `21/20 * 27/25 = 567/500 < 189/160`을 얻었다. 원문 printed pp.65, 70--71도 새로 대조했다.
+- 식 번호를 한꺼번에 미는 임시 문자열 치환이 연쇄 적용되어 여러 식이 `55.39`가 된 한 차례
+  편집 오류가 있었다. 번호 55.1--55.39의 유일성·연속성을 재검사해 복구했다.
+- 전체 `tmp`를 대상으로 한 `rg`가 이미 알려진 접근 제한 임시폴더를 다시 만나 출력이 잘렸다.
+  필요한 근거는 `tmp/pdfs/h1bcov2`와 정확한 source 파일로 범위를 좁혀 재조회했다.
+- 첫 control-character 진단용 one-liner의 escape도 잘못되어 newline을 문제문자로 세는 무효
+  출력이 생겼다. 해당 판정은 폐기하고 별도 strict UTF-8/byte 검사로 다시 확인한다.
+
+### E080 — COV2 최종 정적감사에서 PowerShell colon 변수 파싱 오류 재발
+
+- 분류: `CORRECTED_BEFORE_COMMIT / INVALID_RESULT_NONE`.
+- E079와 작업원장에 같은 유형의 예방 기록이 있었는데도, 첫 최종 정적감사 명령에서
+  `"${file}:$i:$code"`를 사용했다. PowerShell은 colon 바로 앞의 `$i`를 잘못된 변수
+  참조로 해석해 parser 단계에서 중단했다.
+- 명령은 파일을 읽기 전에 실패해 연구 코드·문서·실험 결과를 변경하지 않았다. 모든 colon
+  앞 변수를 `${file}:${i}:${code}`로 명시한 뒤 동일 감사를 다시 실행했고, 25파일의 strict
+  UTF-8·제어문자 검사가 issue 0으로 통과했다.
+- 재발 방지: PowerShell 보간 문자열에서 변수 바로 다음에 colon이 오면 첫 변수뿐 아니라
+  **모든 해당 변수**를 `${...}`로 감싼다. 검증 명령의 성공 출력이 없으면 그 검증은
+  수행되지 않은 것으로 기록한다.
+- 이어 작성한 인라인-math 누락 정규식은 표시수식 내부의 정상 괄호까지 문제로 잡는
+  과잉탐지였다. 그 출력은 폐기했고 수식 delimiter는 사람 검토로 교정했다. 최종 자동 증거는
+  strict UTF-8·제어문자·끝 공백, JSON parse, 연속 식번호, 링크, 회귀검사처럼 판정 규칙이
+  명확한 항목으로 제한한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0.0",
+  "id": "H1b-COV2",
+  "date": "2026-09-10",
+  "evidence_level": [
+    "SOURCE_APPLICABILITY_AUDIT",
+    "PROJECT_FINITE_ANALYTIC_PROOF",
+    "BOUNDED_EXACT_ALGEBRA_CHECKS"
+  ],
+  "scope": {
+    "boundary_mode": "end",
+    "logs": "iterated_natural",
+    "auxiliary_X_not_final_gap_X": true,
+    "fixed_A_epsilon_eta_before_random_choices": true,
+    "equal_grid_endpoint_safe": true,
+    "postselection_or_uncountable_union_claimed": false,
+    "outer_and_inner_events_composed_sequentially_without_independence": true,
+    "smooth_remainder_deterministic": true,
+    "final_A_epsilon_eta_instantiated": false,
+    "same_sono_coefficient_budget_closed": false,
+    "broad_sieve_weight_package_closed": false,
+    "x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_experiment_performed": false,
+    "independently_formally_verified": false
+  },
+  "constants": {
+    "c_aux": "1/(153600*ln(5))",
+    "A_domain": "A>=1 fixed",
+    "epsilon_domain": "0<epsilon<=1 fixed",
+    "eta_domain": "0<eta<=1/4 fixed",
+    "grid_cells": "J=ceil(2/epsilon)",
+    "grid_width": "d=1/J; epsilon/(2+epsilon)<=d<=epsilon/2",
+    "precover_relative_error": "r_pre=1/(100*b^2)",
+    "density_choice": "m=floor(log_5(80*c_aux*b/A)); A_prime=5^(-m)*80*c_aux*b",
+    "density_floor_gate": "80*c_aux*b/A>=5",
+    "density_range": "A<=A_prime<5*A and 1<=m<=log_5(b)",
+    "exception_count": "E<=floor(2*X/(a*b))",
+    "cell_restoration": "e_cell<=2/((1-r_pre)*A*d*b)<7/(A*epsilon*b)",
+    "composed_cell_relative_error": "r_pre+(1+r_pre)*(t_cov+e_cell)",
+    "family_size": "K=J+1 (J cells and the whole interval)",
+    "outer_failure": "4800*c_aux/b^5+800*c_aux/b^10+112*k*b^4/a^11+3*K*b^6/a^17",
+    "inner_failure": "K*(beta_hg+2*alpha_hg+2*(1+alpha_hg)*a/((1-r_pre)*A*d*X))/t_cov^2",
+    "smooth_remainder": "#R<(log(b)/(17*b))*X/a for b>=exp(200) and the stated Rankin gates",
+    "finite_output": "A*(1-eta)*X/a<=#T<=5*A*(1+2*eta)*X/a; local upper<=5*A*(1+2*eta)*(2*length+epsilon)*X/a",
+    "actual_child_cutoff": "maximum of inherited X>=2*exp(10^1000) and the explicit COV2 gates",
+    "c_sono": "2e-17"
+  },
+  "children": {
+    "COV2-GRID": "PROJECT_EXPLICIT",
+    "COV2-FLOOR": "PROJECT_EXPLICIT",
+    "COV2-RESTORATION": "PROJECT_EXPLICIT",
+    "COV2-SMOOTH": "PROJECT_EXPLICIT",
+    "COV2-SEQUENTIAL": "PROJECT_EXPLICIT",
+    "DEP-R08": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+  },
+  "source_pins": [
+    {
+      "id": "SONO",
+      "path": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+      "locator": "printed pp.525-526 and 538-542; Proposition 3.1 and Proposition 6.1 proof"
+    },
+    {
+      "id": "FMT",
+      "path": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "locator": "PDF pp.8-11; epsilon partition, smooth remainder and Theorem 4"
+    },
+    {
+      "id": "ROSSER_SCHOENFELD",
+      "path": "tmp/pdfs/h1c1b1a1/Rosser_Schoenfeld1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "locator": "printed pp.65, 70-71; equation (2.7), Theorem 5 (3.18), Theorem 9 (3.32)"
+    },
+    {
+      "id": "PROOF51",
+      "path": "docs/method/theory/51_Sono_FMT_H1bCOR3_finite_local_count_partition.md",
+      "sha256": "4dd99739c4d0abefddfae4e444389c0ef88d5ebe0fbe208d6edcbe801971a1dc",
+      "locator": "sections 3-6; predeclared finite interval family"
+    },
+    {
+      "id": "PROOF53",
+      "path": "docs/method/theory/53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md",
+      "sha256": "615c1501a49f422fe22d5838fb5829c255a48a1d4af9da25c3f7aa2158085672",
+      "locator": "sections 3-7; preparation, fixed-subset moment and exception restoration"
+    },
+    {
+      "id": "PROOF54",
+      "path": "docs/method/theory/54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md",
+      "sha256": "4e9d3608f91e7eece383a79aa367077319958a13f0c5ab6ea208d52f04d1f06b",
+      "locator": "all-parameter C0=100 proof and actual smallness gate"
+    }
+  ],
+  "pdf_reading": [
+    {
+      "source": "SONO",
+      "pages": [16, 17, 18, 19, 20, 21, 22],
+      "page_type": "NATIVE_TEXT",
+      "text_primary": true,
+      "original_page_crosschecked": true,
+      "new_ocr_performed": false
+    },
+    {
+      "source": "FMT",
+      "pages": [8, 9, 10, 11],
+      "page_type": "NATIVE_TEXT",
+      "text_primary": true,
+      "original_page_crosschecked": true,
+      "new_ocr_performed": false
+    },
+    {
+      "source": "ROSSER_SCHOENFELD",
+      "pages": [2, 7, 8],
+      "page_type": "SCAN_WITH_TEXT_LAYER",
+      "text_primary": false,
+      "original_page_crosschecked": true,
+      "new_ocr_performed": false
+    }
+  ],
+  "closed_actual_work": [
+    "DEP-R01",
+    "DEP-R02",
+    "DEP-R03",
+    "DEP-R04",
+    "DEP-R05",
+    "DEP-R06",
+    "DEP-R07",
+    "DEP-R08"
+  ],
+  "remaining_open_work": [
+    "DEP-R09",
+    "DEP-R10",
+    "DEP-R11",
+    "DEP-R12"
+  ],
+  "source_repairs": [
+    {
+      "target": "Sono Proposition 6.1 to Proposition 3.1 cell-cover sentence",
+      "risk": "literal printed cell count can be off by one for a short interval crossing a grid boundary",
+      "repair": "J=ceil(2/epsilon) equal cells and total covered length<=length+2/J<=length+epsilon",
+      "source_result_preserved": true
+    },
+    {
+      "target": "Sono printed 1 << 80*c/A <= 1",
+      "risk": "Vinogradov lower relation has no numerical constant",
+      "repair": "replace the needed positive-m fact by the explicit gate 80*c*b/A>=5; retain 80*c/A<1",
+      "source_result_preserved": true
+    }
+  ],
+  "smooth_source_search": {
+    "drop_in_adopted": false,
+    "reason": "the explicit Waterloo bound inspected is too weak in this parameter regime, while the sharp u*log(u) form inspected still carries an implied constant",
+    "project_reproof": "Rankin product plus Rosser-Schoenfeld explicit prime sums for this special parameter choice"
+  },
+  "closed_claim": "DEP-R08 actual post-covering interface is parameterized explicit for each fixed A, epsilon and eta after its displayed finite gates.",
+  "not_closed": "The final A/epsilon/eta coefficient budget, numerical PAP, two-prime UB, broad SIV-07/08/09, final-variable transfer, numerical X_cert and threshold calculator remain open.",
+  "historical_ledgers_preserved": true,
+  "other_research_directions": "DEFERRED_SEPARATE_RESEARCH_PER_USER_20260909",
+  "next_gate": "DEP-R09 / numerical PAP source-and-constant audit",
+  "no_user_execution_required": true
+}

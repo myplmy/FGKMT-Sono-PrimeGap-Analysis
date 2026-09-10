@@ -104,22 +104,36 @@ class ActualDependencyTests(unittest.TestCase):
         next(r for r in doc["pdf_reading"] if r["source"] == "RS1962")["page_type"] = "NATIVE_TEXT"
         self.assertTrue(validate_contract(doc, check_hashes=False))
 
-    def test_historical_t1_counts_are_preserved_with_explicit_successor_delta(self):
+    def test_historical_t1_counts_are_preserved_with_named_successor_deltas(self):
         from collections import Counter
         path = ROOT / "docs/method/theory/data/Sono_FMT_T1_proof_obligations_v1.json"
         t1 = json.loads(path.read_text(encoding="utf-8"))
         counts = dict(Counter(r["status"] for r in t1["obligations"]))
-        # DEP is immutable history. COV1a subsequently closed exactly COV-06.
+        # DEP is immutable history.  Later packages must be represented by their
+        # exact row transitions rather than silently rewriting that snapshot.
         historical = dict(self.document["historical_T1_counts"])
         self.assertEqual(historical["EXPLICIT"], 7)
         self.assertEqual(historical["HARD_BLOCKER"], 16)
+
+        # COV1a: COV-06 HARD_BLOCKER -> EXPLICIT.
         expected = dict(historical)
         expected["EXPLICIT"] += 1
         expected["HARD_BLOCKER"] -= 1
+
+        # COV2: COV-02/03 RATE_MISSING -> EXPLICIT;
+        # COV-09 PARTIAL -> EXPLICIT; COV-08/11 HARD_BLOCKER -> PARTIAL.
+        expected["EXPLICIT"] += 3
+        expected["RATE_MISSING"] -= 2
+        expected["PARTIAL"] += 1
+        expected["HARD_BLOCKER"] -= 2
         self.assertEqual(counts, expected)
-        core = next(row for row in t1["obligations"] if row["id"] == "COV-06")
-        self.assertEqual(core["status"], "EXPLICIT")
-        self.assertIn("C0=100", core["explicit_bound"])
+        rows = {row["id"]: row for row in t1["obligations"]}
+        self.assertEqual(rows["COV-06"]["status"], "EXPLICIT")
+        self.assertIn("C0=100", rows["COV-06"]["explicit_bound"])
+        for row_id in ("COV-02", "COV-03", "COV-09"):
+            self.assertEqual(rows[row_id]["status"], "EXPLICIT")
+        for row_id in ("COV-08", "COV-11"):
+            self.assertEqual(rows[row_id]["status"], "PARTIAL")
         self.assertTrue(self.document["historical_counts_are_not_completion_percentage"])
 
 

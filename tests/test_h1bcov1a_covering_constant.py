@@ -199,12 +199,14 @@ class CoveringConstantContractTests(unittest.TestCase):
         rows = {r["id"]: r for r in t1["obligations"]}
         self.assertEqual(rows["COV-06"]["status"], "EXPLICIT")
         self.assertIn("C0=100", rows["COV-06"]["explicit_bound"])
-        for key in ("COV-08", "COV-11", "SIV-07", "SIV-08", "SIV-09", "FIN-05"):
+        for key in ("SIV-07", "SIV-08", "SIV-09", "FIN-05"):
             self.assertEqual(rows[key]["status"], "HARD_BLOCKER")
+        for key in ("COV-08", "COV-11"):
+            self.assertEqual(rows[key]["status"], "PARTIAL")
         self.assertEqual(h1b["composition"]["hypergraph_core_C0_sufficient"], 100)
-        self.assertEqual(h1b["composition"]["remaining_actual_work_packages"], 5)
+        self.assertEqual(h1b["composition"]["remaining_actual_work_packages"], 4)
         self.assertFalse(h1b["composition"]["ready_for_threshold_calculator"])
-        self.assertEqual(h1c["next_gate"]["id"], "H1b-COV2")
+        self.assertEqual(h1c["next_gate"]["id"], "DEP-R09")
         self.assertEqual(h1c["successor_explicit_hypergraph_core"]["newly_closed_actual_work"], ["DEP-R07"])
 
     def test_live_hash_pins_and_scope(self):

@@ -1,19 +1,17 @@
 # Sono/FMT H1b Maynard Proposition 6.1 상수 원장
 
-## 2026-09-09 H1b-COV1a 현재 상태
+## 2026-09-10 H1b-COV2 현재 상태
 
-[theory 54](54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md)와
-[review 61](../../review/61_20260909_H1bCOV1a_covering_C0_명시화_타당성검토.md)가 최신 정본이다.
-FGKMT Theorem3의 같은 smallness 형태에서 C0=100 sufficient를 project analytic proof로 닫았다.
-normalization·조건부 moment·Taylor·모든 m 귀납을 명시했고, theory53 actual 입력의
-log gate는 기존 child X>=2exp(10^1000)에서 성립한다. 최소 C0·독립 형식인증 주장은 아니다.
-R01–R07 actual child와 고정 유한 subset rate는 explicit이고 R08–R12는 OPEN이다.
-COV-06은 EXPLICIT; broad SIV-07/08/09와 COV-08/11, X_cert는 HARD_BLOCKER/OPEN 유지다.
-다음은 H1b-COV2 / DEP-R08: 실제 구간 family·복원비·smooth remainder·동시 성공 예산.
-예외복원 8000/√b가 현재 child에서 작다는 주장은 하지 않는다.
+[theory 55](55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md)와
+[review 62](../../review/62_20260910_H1bCOV2_post_covering_구간_smooth_타당성검토.md)가 최신 정본이다.
+equal-grid endpoint, \(m,A'\) floor, actual-width 예외복원, outer→inner 순차 성공사건과
+special-case Rankin–Rosser–Schoenfeld smooth remainder를 유한식으로 닫았다.
+R01–R08 actual child는 parameterized explicit이고 R09–R12는 OPEN이다.
+COV-02/03/09는 EXPLICIT, broad COV-08/11은 PARTIAL, COV-12와
+SIV-07/08/09·X_cert는 HARD_BLOCKER/OPEN이다. 다음은 DEP-R09 numerical PAP다.
+최종 \(A,\varepsilon,\eta\)와 같은 Sono 계수의 공통 budget은 아직 정하지 않았다.
 fixed-subset moment를 모든 subset의 동시 성공이나 사후 선택 보장으로 확대하지 않는다.
-theory52 (52.17)의 '+' 표시 누락은 theory53 §1.1의 정정을 따른다.
-과거 원장·hash-pinned proof는 보존하며, 남은 5작업은 완료율이 아니다.
+과거 원장·hash-pinned proof는 보존하며, 남은 4작업은 완료율이 아니다.
 아래 날짜별 next-gate와 미완료 서술은 당시 이력이며 이 현재 상태가 우선한다.
 
 - 작성: 2026-09-04 KST

@@ -1,19 +1,17 @@
 # Sono/FMT T1 numerical-threshold proof-obligation 원장
 
-## 2026-09-09 H1b-COV1a 현재 상태
+## 2026-09-10 H1b-COV2 현재 상태
 
-[theory 54](54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md)와
-[review 61](../../review/61_20260909_H1bCOV1a_covering_C0_명시화_타당성검토.md)가 최신 정본이다.
-FGKMT Theorem3의 같은 smallness 형태에서 C0=100 sufficient를 project analytic proof로 닫았다.
-normalization·조건부 moment·Taylor·모든 m 귀납을 명시했고, theory53 actual 입력의
-log gate는 기존 child X>=2exp(10^1000)에서 성립한다. 최소 C0·독립 형식인증 주장은 아니다.
-R01–R07 actual child와 고정 유한 subset rate는 explicit이고 R08–R12는 OPEN이다.
-COV-06은 EXPLICIT; broad SIV-07/08/09와 COV-08/11, X_cert는 HARD_BLOCKER/OPEN 유지다.
-다음은 H1b-COV2 / DEP-R08: 실제 구간 family·복원비·smooth remainder·동시 성공 예산.
-예외복원 8000/√b가 현재 child에서 작다는 주장은 하지 않는다.
+[theory 55](55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md)와
+[review 62](../../review/62_20260910_H1bCOV2_post_covering_구간_smooth_타당성검토.md)가 최신 정본이다.
+equal-grid endpoint, \(m,A'\) floor, actual-width 예외복원, outer→inner 순차 성공사건과
+special-case Rankin–Rosser–Schoenfeld smooth remainder를 유한식으로 닫았다.
+R01–R08 actual child는 parameterized explicit이고 R09–R12는 OPEN이다.
+COV-02/03/09는 EXPLICIT, broad COV-08/11은 PARTIAL, COV-12와
+SIV-07/08/09·X_cert는 HARD_BLOCKER/OPEN이다. 다음은 DEP-R09 numerical PAP다.
+최종 \(A,\varepsilon,\eta\)와 같은 Sono 계수의 공통 budget은 아직 정하지 않았다.
 fixed-subset moment를 모든 subset의 동시 성공이나 사후 선택 보장으로 확대하지 않는다.
-theory52 (52.17)의 '+' 표시 누락은 theory53 §1.1의 정정을 따른다.
-과거 원장·hash-pinned proof는 보존하며, 남은 5작업은 완료율이 아니다.
+과거 원장·hash-pinned proof는 보존하며, 남은 4작업은 완료율이 아니다.
 아래 날짜별 next-gate와 미완료 서술은 당시 이력이며 이 현재 상태가 우선한다.
 
 - 작성: 2026-09-02 KST
@@ -170,7 +168,7 @@ Sono의 parameter를 대입한 명목 계수는
 | `PAP-11` | (C_{PAP}=1-e^{-2},D_{PAP}=160)이 시작되는 숫자 (x_{PAP}) | `HARD_BLOCKER` | density estimate의 implied constant와 (psi\to\pi) 유효범위 없음 |
 | `UB-09` | (C_{UB}=8e^{2\gamma})가 시작되는 숫자 (x_{UB}) | `HARD_BLOCKER` | Halberstam–Richert error의 숫자 상수 없음 |
 | `AN-11` | (3.17)–(3.20)의 asymptotic에서 (3.21)–(3.22)의 finite margin으로 이동 | `RATE_MISSING` | slack 소비량이 행 단위로 제시되지 않음 |
-| `COV-11` | 모든 random good event의 실패확률 합 (<1) | `HARD_BLOCKER` | 각 (1-o(1)) rate가 없음 |
+| `COV-11` | 모든 random good event의 finite sequential choice | `PARTIAL` | actual fixed family는 닫혔으나 COV-04/10과 최종 parameter budget은 남음 |
 | `COV-12` | numerical Proposition 3.1 | `HARD_BLOCKER` | covering과 sieve package가 모두 미완성 |
 | `SIV-11` | FMT Theorem 6을 숫자 (x_{sieve})부터 사용 | `HARD_BLOCKER` | (r_0,c_0,x^{-o(1)},u\asymp\log r), moment (O)-상수 미명시 |
 | `TRN-06` | construction subsequence가 아니라 모든 (X\ge X_{cert})를 덮음 | `HARD_BLOCKER` | numerical parameter-selection rule과 rounding proof 없음 |
@@ -243,16 +241,16 @@ Sono의 parameter를 대입한 명목 계수는
 | id | obligation | status |
 |---|---|---|
 | `COV-01` | Proposition 6.1의 (A'\sim c'A)·local count | `RATE_MISSING` |
-| `COV-02` | epsilon finite partition | `RATE_MISSING` |
-| `COV-03` | smooth-number remainder | `RATE_MISSING` |
+| `COV-02` | endpoint-safe epsilon finite partition (theory55) | `EXPLICIT` |
+| `COV-03` | actual smooth-number remainder (theory55) | `EXPLICIT` |
 | `COV-04` | Proposition 6.2 cardinality/probability | `RATE_MISSING` |
 | `COV-05` | covering density (C) | `RATE_MISSING` |
 | `COV-06` | quantitative hypergraph theorem, C0=100 (theory54) | `EXPLICIT` |
 | `COV-07` | FGKMT Corollary 3→FMT Theorem 4 | `PARTIAL` |
-| `COV-08` | finite success probability | `HARD_BLOCKER` |
-| `COV-09` | (m,A') floor relation | `PARTIAL` |
+| `COV-08` | actual fixed-family finite success probability | `PARTIAL` |
+| `COV-09` | (m,A') floor relation과 finite gate | `EXPLICIT` |
 | `COV-10` | (epsilon_0) compatibility | `RATE_MISSING` |
-| `COV-11` | simultaneous good choices | `HARD_BLOCKER` |
+| `COV-11` | sequential simultaneous good choices | `PARTIAL` |
 | `COV-12` | numerical Proposition 3.1 | `HARD_BLOCKER` |
 
 ### 7.6 sieve weight

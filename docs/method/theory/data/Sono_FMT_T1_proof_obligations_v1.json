@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.7.0",
+  "schema_version": "1.8.0",
   "created_kst": "2026-09-02 17:22",
-  "updated_kst": "2026-09-09",
+  "updated_kst": "2026-09-10",
   "h1b1_ledger": "docs/method/theory/data/Sono_FMT_H1b1_basic_summation_constants_v1.json",
   "h1b1b2a_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a_actual_local_factor_lower_bound_v1.json",
   "h1b1b2a1_ledger": "docs/method/theory/data/Sono_FMT_H1b1b2a1_application_exclusion_inventory_v1.json",
@@ -741,13 +741,13 @@
       "equation": "(6.2)-(6.4)",
       "quantity": "uniform control for arbitrary subintervals",
       "direction": "upper and lower bounds",
-      "explicit_bound": "epsilon-partition with O(epsilon^-1) cells",
-      "valid_range": "fixed epsilon and sufficiently large x",
+      "explicit_bound": "J=ceil(2/epsilon), h=1/J, epsilon/(2+epsilon)<=h<=epsilon/2; every target interval is covered by total normalized length<=length+2h<=length+epsilon",
+      "valid_range": "fixed 0<epsilon<=1; pre-cover local-count use additionally a=log x>=J^4",
       "depends_on": ["COV-01"],
-      "status": "RATE_MISSING",
+      "status": "EXPLICIT",
       "criticality": "critical",
       "checker": "finite partition and union bound",
-      "notes": "COR3 theory 51 gives the PRE-covering deterministic disjoint grid, width gate and finite union budget. Post-covering epsilon/partition with the hypergraph loss is still DEP-R08. No uncountable union claim."
+      "notes": "H1b-COV2 theory55 replaces a potentially off-by-one literal cell-count reading by an exact equal grid. J cells plus the whole interval are fixed before random choices; after their finite success, arbitrary intervals are covered deterministically. No uncountable probability union or postselection claim."
     },
     {
       "id": "COV-03",
@@ -758,13 +758,13 @@
       "equation": "remainder R before Theorem 3",
       "quantity": "number of leftover smooth candidates",
       "direction": "upper bound",
-      "explicit_bound": "log x*y*exp(-u log u+O(u loglog(u+2)))=o(x/log x)",
-      "valid_range": "FMT parameter choices",
+      "explicit_bound": "#R<(log_3 x/(17*log_2 x))*x/log x for the auxiliary sieve variable, including all powers of B0",
+      "valid_range": "FMT parameter choices with log_2 x>=exp(200), c*log(x)*log_3(x)/log_2(x)>1 and the explicit Rankin delta<=1/20 gate",
       "depends_on": ["SIV-05"],
-      "status": "RATE_MISSING",
+      "status": "EXPLICIT",
       "criticality": "critical",
-      "checker": "explicit smooth-number theorem",
-      "notes": "The O constant and the finite comparison with x/log x are missing."
+      "checker": "theory55 special-case Rankin proof plus Rosser-Schoenfeld explicit prime sums and exact scalar anchors",
+      "notes": "This is a project finite reproof for the actual FMT parameter, not a general explicit smooth-number theorem. The deterministic remainder has no probability failure term and does not close the final coefficient budget."
     },
     {
       "id": "COV-04",
@@ -843,13 +843,13 @@
       "equation": "(5.2)-(5.5)",
       "quantity": "probability all covering properties hold",
       "direction": "strictly positive lower bound",
-      "explicit_bound": "published as 1-o(1), uniform in the stated sets",
-      "valid_range": "sufficiently large x",
+      "explicit_bound": "for the fixed J+1 actual subsets, inner failure<=K*v_star/t^2 with explicit alpha_h,beta_h and retained-size diagonal term; require this value<1",
+      "valid_range": "fixed A,epsilon,eta before covering and the explicit theory55 gates",
       "depends_on": ["COV-07"],
-      "status": "HARD_BLOCKER",
+      "status": "PARTIAL",
       "criticality": "hard",
       "checker": "finite failure-probability budget",
-      "notes": "Theories53/54 now provide explicit 1/2-point moments and fixed-finite-family failure bounds without unknown C0. Exception restoration and a useful simultaneous final-family total budget remain R08; this row stays HARD_BLOCKER. Uniform fixed-subset bounds do not imply simultaneous all-subset events."
+      "notes": "Theories53-55 close the actual fixed finite family, exception restoration and positive-probability covering child. The original broad FMT wrapper and the final A,epsilon,eta coefficient choice remain open, so this broad row is PARTIAL rather than globally explicit. Uniform fixed-subset bounds still do not imply all-subset or postselected events."
     },
     {
       "id": "COV-09",
@@ -860,13 +860,13 @@
       "equation": "m=floor(log(80c log_2 x/A)/log 5)",
       "quantity": "A'=5^-m*80c log_2 x",
       "direction": "A<=A'<=5A",
-      "explicit_bound": "floor identity is exact; additionally 1 << 80c/A <= 1 is required",
-      "valid_range": "fixed A and a lower bound hidden in Vinogradov notation",
+      "explicit_bound": "m=floor(log_5(80*c*log_2(x)/A)); the finite gate 80*c*log_2(x)/A>=5 gives 1<=m<log_3(x)/log(5) and A<=A'<5A",
+      "valid_range": "fixed A>=1 and the displayed finite gate; 80*c/A<1 is automatic for the actual c",
       "depends_on": ["COV-05"],
-      "status": "PARTIAL",
+      "status": "EXPLICIT",
       "criticality": "critical",
-      "checker": "integer floor and explicit lower constant",
-      "notes": "Visual inspection confirms the printed condition; the Vinogradov lower constant is not numeric."
+      "checker": "theory55 exact integer floor lemma and bounded no-floating-log oracle",
+      "notes": "The printed Vinogradov lower relation is not assigned an invented constant. The exact gate 80*c*log_2(x)/A>=5 supplies precisely the positive-m fact needed by the actual application."
     },
     {
       "id": "COV-10",
@@ -894,13 +894,13 @@
       "equation": "Propositions 6.1-6.3 combination",
       "quantity": "existence of one residue-class realization",
       "direction": "positive probability",
-      "explicit_bound": "each component is stated with probability 1-o(1)",
-      "valid_range": "sufficiently large x",
+      "explicit_bound": "outer failure F_out<1 selects one residue vector; conditional inner failure F_in<1 then selects one covering outcome; smooth remainder is deterministic",
+      "valid_range": "fixed A,epsilon,eta and all explicit theory55 gates",
       "depends_on": ["COV-02", "COV-03", "COV-04", "COV-08", "COV-10"],
-      "status": "HARD_BLOCKER",
+      "status": "PARTIAL",
       "criticality": "root-blocker",
       "checker": "finite union-bound certificate",
-      "notes": "Every failure probability must be numerically bounded and their sum shown below 1."
+      "notes": "H1b-COV2 closes sequential existence for the actual fixed finite family without independence and without requiring F_out+F_in<1. The broad node remains PARTIAL because COV-04/COV-10 and the final common coefficient budget are not yet globally closed."
     },
     {
       "id": "COV-12",
@@ -917,7 +917,7 @@
       "status": "HARD_BLOCKER",
       "criticality": "root-blocker",
       "checker": "proof certificate",
-      "notes": "This is the main combinatorial-probability closure node."
+      "notes": "Theory55 closes DEP-R08 only as a fixed-A,epsilon,eta parameterized actual child. Numerical A/epsilon/eta selection, the broad sieve-weight package and the common coefficient budget remain open, so no numerical x_cover or X_cert is asserted."
     },
 
     {
@@ -1237,5 +1237,6 @@
   "h1bcor2_actual_off_tuple_ledger": "docs/method/theory/data/Sono_FMT_H1bCOR2_off_tuple_budget_v1.json",
   "h1bcor3_actual_local_main_ledger": "docs/method/theory/data/Sono_FMT_H1bCOR3_local_main_moments_v1.json",
   "h1bcov1_hypergraph_interface_ledger": "docs/method/theory/data/Sono_FMT_H1bCOV1_hypergraph_interface_v1.json",
-  "h1bcov1a_covering_constant_ledger": "docs/method/theory/data/Sono_FMT_H1bCOV1a_covering_constant_v1.json"
+  "h1bcov1a_covering_constant_ledger": "docs/method/theory/data/Sono_FMT_H1bCOV1a_covering_constant_v1.json",
+  "h1bcov2_post_covering_ledger": "docs/method/theory/data/Sono_FMT_H1bCOV2_post_covering_v1.json"
 }

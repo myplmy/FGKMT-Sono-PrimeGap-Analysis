@@ -278,11 +278,13 @@ class ContractTests(unittest.TestCase):
         base = m.ROOT / "docs/method/theory/data"
         h1c = json.loads((base / "Sono_FMT_H1c_Hypothesis1_PAP_source_trace_v1.json").read_text(encoding="utf-8"))
         t1 = json.loads((base / "Sono_FMT_T1_proof_obligations_v1.json").read_text(encoding="utf-8"))
-        self.assertEqual(h1c["next_gate"]["id"], "H1b-COV2")
+        self.assertEqual(h1c["next_gate"]["id"], "DEP-R09")
         rows = {r["id"]: r for r in t1["obligations"]}
         self.assertEqual(len(rows), 66)
-        for key in ("COV-08", "COV-11", "SIV-07", "SIV-08", "SIV-09"):
+        for key in ("SIV-07", "SIV-08", "SIV-09"):
             self.assertEqual(rows[key]["status"], "HARD_BLOCKER")
+        for key in ("COV-08", "COV-11"):
+            self.assertEqual(rows[key]["status"], "PARTIAL")
 
 
 if __name__ == "__main__":
