@@ -6,6 +6,12 @@
 - 감사 수준: 원문 정리·증명 구조의 1차 dependency audit
 - 이번 문서가 하지 않는 것: numerical (X_0) 주장, 새 정리 증명, 실제 prime-gap 전수 계산
 
+> **2026-09-11 successor:** 이 문서는 Gallagher·Maier·McCurley 전문 확보 전의 1차
+> dependency snapshot이다. 후속 원문감사에서 Sono Proposition 5.3→p.536 zero-free
+> 정규화와 Gallagher `≪` multiplier 소거가 현재 source로 인증되지 않음을 확인했다.
+> 그러므로 아래 표의 “상수는 증명된 값”은 최신 project 판정이 아니며,
+> [DEP-R09 원문감사](64_20260911_DEPR09_Gallagher_Maier_McCurley_원문감사.md)가 우선한다.
+
 ## 1. 한눈에 보는 판정
 
 결론부터 말하면 다음과 같다.

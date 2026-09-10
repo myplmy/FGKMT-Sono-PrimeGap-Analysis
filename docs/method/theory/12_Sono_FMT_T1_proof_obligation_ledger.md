@@ -2,6 +2,13 @@
 
 ## 2026-09-10 H1b-COV2 현재 상태
 
+> **2026-09-11 successor 경고:** 아래 `PAP-11`의 Sono 인쇄 상수는
+> [Theory 57](57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md)의 full-source
+> 감사에서 현재 source chain으로 인증되지 않는 것으로 판정됐다. Proposition 5.3에서
+> Gallagher `c1=3c_ZFR`로 가는 정규화와 hidden multiplier 소거가 열린 문제다.
+> 이 문서의 coefficient 산술은 역사적 인쇄값 재현이며, 최신 analytic 판정은 Theory 57을
+> 우선한다. `PAP-11`, DEP-R09, \(X_{\rm cert}\)는 OPEN이다.
+
 [theory 55](55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md)와
 [review 62](../../review/62_20260910_H1bCOV2_post_covering_구간_smooth_타당성검토.md)가 최신 정본이다.
 equal-grid endpoint, \(m,A'\) floor, actual-width 예외복원, outer→inner 순차 성공사건과

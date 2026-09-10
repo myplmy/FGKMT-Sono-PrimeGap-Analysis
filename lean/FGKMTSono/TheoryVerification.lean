@@ -1237,4 +1237,134 @@ theorem jutila_low_alpha_exponent_bridge
     3 ≤ 15 * (1 - α) := by
   linarith
 
+/-! ## Theory 57 — DEP-R09 Gallagher-Maier-McCurley source recovery -/
+
+/- Theory 57, formula 57.2: the denominator normalization that follows from
+   Sono Proposition 5.3 after setting Q=T and restricting |t|<=T.  This is an
+   elementary real inequality, not a formalization of the source theorem. -/
+theorem pap_source_log_denominator_bound
+    {T : ℝ} (hT : 2 ≤ T) :
+    Real.log (T * (1 + T)) ≤ 3 * Real.log T := by
+  have hTpos : 0 < T := by linarith
+  have honeTpos : 0 < 1 + T := by linarith
+  have hquadratic : 1 + T ≤ T ^ 2 := by
+    nlinarith [sq_nonneg (T - 1)]
+  have hproduct : T * (1 + T) ≤ T ^ 3 := by
+    calc
+      T * (1 + T) ≤ T * T ^ 2 :=
+        mul_le_mul_of_nonneg_left hquadratic hTpos.le
+      _ = T ^ 3 := by ring
+  have hlog := Real.log_le_log (mul_pos hTpos honeTpos) hproduct
+  simpa [Real.log_pow] using hlog
+
+theorem pap_source_zero_free_width_bound
+    {T : ℝ} (hT : 2 ≤ T) :
+    papCZFR / (3 * Real.log T) ≤
+      papCZFR / Real.log (T * (1 + T)) := by
+  have hTgtOne : 1 < T := by linarith
+  have hlogTpos : 0 < Real.log T := Real.log_pos hTgtOne
+  have hproductGtOne : 1 < T * (1 + T) := by nlinarith
+  have hlogProductPos : 0 < Real.log (T * (1 + T)) :=
+    Real.log_pos hproductGtOne
+  rw [div_le_div_iff₀ (mul_pos (by norm_num) hlogTpos) hlogProductPos]
+  exact mul_le_mul_of_nonneg_left
+    (pap_source_log_denominator_bound hT) (by norm_num [papCZFR])
+
+/- Theory 57, formula 57.3: the source-compatible conservative bridge and
+   Sono's printed bridge are not the same constant. -/
+theorem pap_printed_bridge_constants :
+    papCZFR / 3 = 1 / 72 ∧
+      3 * papCZFR = 1 / 8 ∧
+      papCZFR / 3 ≠ 3 * papCZFR := by
+  norm_num [papCZFR]
+
+/- Theory 57, formula 57.6: only the exact numerical part of the direct
+   McCurley bridge is checked here.  McCurley's zero-free theorems remain
+   source analytic inputs and are not asserted as local axioms. -/
+noncomputable def papMcCurleyR : ℝ := 9645908801 / 1000000000
+
+noncomputable def papDirectBridgeC1 : ℝ := 1 / 24
+
+theorem pap_mccurley_R_lt_twelve : papMcCurleyR < 12 := by
+  norm_num [papMcCurleyR]
+
+theorem pap_direct_bridge_within_theorem_one :
+    2 * papMcCurleyR * papDirectBridgeC1 < 1 := by
+  norm_num [papMcCurleyR, papDirectBridgeC1]
+
+/- Theory 57, formula 57.8: the density-power boundary at c_ZD=16 and
+   D_PAP=160. -/
+theorem pap_density_power_boundary :
+    5 * papCZD / papDPAP = 1 / 2 := by
+  norm_num [papCZD, papDPAP]
+
+/- Theory 57, formula 57.9: the lower Gallagher range after Q=x^(1/D),
+   written with L=log x. -/
+theorem pap_log_range_gate
+    {L D : ℝ} (hD : 0 < D) (hL : D ^ 2 ≤ L) :
+    Real.sqrt L ≤ L / D := by
+  have hLnonneg : 0 ≤ L := (sq_nonneg D).trans hL
+  have hsqrtNonneg : 0 ≤ Real.sqrt L := Real.sqrt_nonneg L
+  have hsqrtSq : (Real.sqrt L) ^ 2 = L := Real.sq_sqrt hLnonneg
+  have hDtoSqrt : D ≤ Real.sqrt L := by
+    nlinarith
+  apply (le_div_iff₀ hD).2
+  have hmul := mul_le_mul_of_nonneg_right hDtoSqrt hsqrtNonneg
+  nlinarith
+
+theorem pap_log_range_gate_160
+    {L : ℝ} (hL : 25600 ≤ L) :
+    Real.sqrt L ≤ L / 160 := by
+  apply pap_log_range_gate (D := 160)
+  · norm_num
+  · norm_num
+    exact hL
+
+/- Theory 57, formula 57.10: repaired conservative zero-free exponent. -/
+noncomputable def papRepairedExponent : ℝ := papDirectBridgeC1 / 10
+
+theorem pap_repaired_exponent_value :
+    papRepairedExponent = 1 / 240 := by
+  norm_num [papRepairedExponent, papDirectBridgeC1]
+
+theorem pap_repaired_exponent_product :
+    papRepairedExponent * papDPAP = 2 / 3 := by
+  rw [pap_repaired_exponent_value, pap_dpap_value]
+  norm_num
+
+/- Theory 57, formula 57.12: an unnamed Vinogradov multiplier cannot be
+   removed while retaining the same exponent unless it is at most one. -/
+theorem pap_same_exponent_multiplier_iff (K a D : ℝ) :
+    K * Real.exp (-a * D) ≤ Real.exp (-a * D) ↔ K ≤ 1 := by
+  have hexp : 0 < Real.exp (-a * D) := Real.exp_pos _
+  constructor <;> intro h <;> nlinarith
+
+/- Theory 57, formula 57.13: a positive multiplier can instead be absorbed
+   by spending exponent or D budget. -/
+theorem pap_multiplier_absorption
+    {K a₀ a D : ℝ}
+    (hK : 0 < K) (hBudget : Real.log K ≤ (a₀ - a) * D) :
+    K * Real.exp (-a₀ * D) ≤ Real.exp (-a * D) := by
+  calc
+    K * Real.exp (-a₀ * D) =
+        Real.exp (Real.log K) * Real.exp (-a₀ * D) := by
+          rw [Real.exp_log hK]
+    _ = Real.exp (Real.log K + (-a₀ * D)) := by
+      rw [← Real.exp_add]
+    _ ≤ Real.exp (-a * D) := by
+      apply Real.exp_le_exp.mpr
+      nlinarith
+
+/- Theory 57, formula 57.14: finite one-sided composition with the source
+   multiplier left visible.  Both analytic estimates are explicit premises. -/
+theorem pap_finite_error_with_multiplier
+    {mainTerm principal error η K a D : ℝ}
+    (hPrincipal : (1 - η) * mainTerm ≤ principal)
+    (hError : |error| ≤ K * Real.exp (-a * D) * mainTerm) :
+    (1 - η - K * Real.exp (-a * D)) * mainTerm ≤ principal + error := by
+  have hErrorLower :
+      -(K * Real.exp (-a * D) * mainTerm) ≤ error :=
+    (abs_le.mp hError).1
+  nlinarith
+
 end FGKMTSono

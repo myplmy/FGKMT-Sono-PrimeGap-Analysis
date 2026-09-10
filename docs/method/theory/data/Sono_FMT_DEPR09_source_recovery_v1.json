@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-11",
+  "gate": "DEP-R09 Gallagher-Maier-McCurley full-source audit",
+  "predecessor": "Sono_FMT_DEPR09_numerical_PAP_v1.json",
+  "outcome": "SONO_SECTION5_NORMALIZATION_NOT_CERTIFIED",
+  "full_sources_acquired": true,
+  "numerical_pap_package_ready": false,
+  "pap_11_closed": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "fixed_2e_minus_17_path_status": "BLOCKED_PENDING_PAP_REPAIR",
+  "reading_policy": {
+    "native_text_first": true,
+    "ocr_used": false,
+    "visual_page_check_completed": true,
+    "note": "All three newly supplied PDFs have usable native text. Formula signs, denominators, exponents, and quantifiers were checked against rendered source pages."
+  },
+  "source_registry": [
+    {
+      "key": "SONO2025",
+      "locator": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+      "physical_pages_checked": [15, 16, 17],
+      "article_pages": "535-537",
+      "statements": "Proposition 5.3 and equations (5.2)-(5.7)",
+      "reading_mode": "NATIVE_TEXT_THEN_VISUAL_PAGE_CHECK",
+      "status": "PRIMARY_REVIEWED_NORMALIZATION_GAP_FOUND"
+    },
+    {
+      "key": "GALLAGHER1970",
+      "locator": "article/gallagher1970.pdf",
+      "doi": "10.1007/BF01403187",
+      "sha256": "ecac1c9470521e410ac8731d2f57b77eb364f1fdc0bbd1f71813205afe84adcf",
+      "page_count": 11,
+      "physical_pages_checked": [7, 8, 9, 10, 11],
+      "article_pages": "335-339",
+      "statements": "Theorems 6-7 and equations (24), (26)-(30)",
+      "reading_mode": "NATIVE_TEXT_THEN_VISUAL_PAGE_CHECK",
+      "status": "FULL_SOURCE_AUDITED_MULTIPLIER_AND_CUTOFF_OPEN"
+    },
+    {
+      "key": "MAIER1981",
+      "locator": "article/Maier 1981.pdf",
+      "doi": "10.1016/0001-8708(81)90003-7",
+      "sha256": "ca6f2425b850dd5f9d81340d8a4a4c76faf6a947d7486ebf87ff072adbf0a3eb",
+      "page_count": 13,
+      "physical_pages_checked": [4, 5],
+      "article_pages": "260-261",
+      "statements": "Lemmas 1-2",
+      "reading_mode": "NATIVE_TEXT_THEN_VISUAL_PAGE_CHECK",
+      "status": "FULL_SOURCE_AUDITED_NORMALIZATION_GAP"
+    },
+    {
+      "key": "MCCURLEY1984",
+      "locator": "article/McCurley 1984.pdf",
+      "doi": "10.1016/0022-314X(84)90089-1",
+      "sha256": "6035c9e290ba4a8bb31ed4afef0e014f49324f33cd978b82450c1bdba204d8ac",
+      "page_count": 26,
+      "physical_pages_checked": [2, 3],
+      "article_pages": "8-9",
+      "statements": "Theorems 1-2",
+      "reading_mode": "NATIVE_TEXT_THEN_VISUAL_PAGE_CHECK",
+      "status": "FULL_SOURCE_STATEMENT_CONFIRMED_APPLICATION_BRIDGE_PARTIAL"
+    }
+  ],
+  "source_constants": {
+    "sono_c_zfr": "1/24",
+    "sono_printed_gallagher_c1": "3*c_zfr=1/8",
+    "proposition_5_3_direct_bridge_c1": "c_zfr/3=1/72 for T>=2",
+    "mccurley_R": "9.645908801",
+    "mccurley_R1": "(5-sqrt(5))/(15-10*sqrt(2))",
+    "mccurley_R1_decimal_80dps": "3.2218752741789645469583158294075430023871506792569",
+    "direct_mccurley_conservative_c1": "1/24",
+    "direct_mccurley_sharp_bottleneck_c1": "1/(2R)",
+    "direct_mccurley_sharp_bottleneck_c1_decimal_80dps": "0.051835447578372765915185434272902783999688781631474",
+    "repaired_exponent_a0": "1/240",
+    "c_zd": 16,
+    "source_range_d_min": 160,
+    "source_range_log_x_min_at_d_160": 25600,
+    "source_range_log10_x_min_at_d_160": "11117.938736723246787868900324265090106736563348574"
+  },
+  "normalization_findings": [
+    {
+      "id": "NORM-01",
+      "status": "DIRECTION_ERROR_IN_PRINTED_BRIDGE",
+      "claim": "Sono Proposition 5.3 gives c_zfr/log(T(1+T)); since log(T(1+T))<=3log(T), the conservative Gallagher c1 is c_zfr/3, not 3*c_zfr."
+    },
+    {
+      "id": "NORM-02",
+      "status": "DIRECT_SOURCE_REPAIR_PARTIAL",
+      "claim": "McCurley Theorems 1-2 directly support the narrower family region c1=1/24 for T>=13; this does not recover Sono's c1=1/8."
+    },
+    {
+      "id": "NORM-03",
+      "status": "HIDDEN_MULTIPLIER_OPEN",
+      "claim": "Gallagher Theorem 7 uses Vinogradov notation and Maier Lemma 2 does not print the multiplier or finite cutoff; K_G cannot be dropped at fixed D=160 without K_G<=1 or an explicit exponent/cutoff absorption budget."
+    },
+    {
+      "id": "NORM-04",
+      "status": "TYPOGRAPHICAL_INCONSISTENCY",
+      "claim": "Sono page 536 first rendering of the lower Q range conflicts with the later line and Gallagher; the source-consistent range is exp(sqrt(log x))<=Q."
+    }
+  ],
+  "finite_interfaces": {
+    "source_range": {
+      "gallagher": "exp(sqrt(log x))<=Q<=x^b",
+      "maier_substitution": "Q=x^(1/D)",
+      "density_sufficient_b": "1/(10*c_zd)",
+      "requirements": ["D>=10*c_zd", "D^2<=log(x)"]
+    },
+    "nonprincipal_error": "abs(E)<=K_G*exp(-a*D)*M",
+    "same_exponent_multiplier_elimination": "K_G*exp(-aD)<=exp(-aD) iff K_G<=1",
+    "exponent_absorption_sufficient_condition": "log(K_G)<=(a0-a)*D with 0<a<a0",
+    "one_sided_composition": "P+E>=(1-eta-K_G*exp(-aD))*M",
+    "analytic_target": "pi(u;q,r)>=(1-eta_pr-K_G*exp(-aD)-eta_psi_to_pi)*u/(phi(q)*log(u)) on one common explicit range"
+  },
+  "coefficient_diagnostics": [
+    {
+      "package": "Sono printed",
+      "c_pap": "1-exp(-2)",
+      "d_pap": 160,
+      "M": 160,
+      "c_hat_80dps": "2.0038612046196703697517178177965083830448639455361e-17",
+      "ratio_to_2e_minus_17": "1.0019306023098351131953148851452734310633600158979"
+    },
+    {
+      "package": "direct McCurley conservative baseline, optimistic K_G=1",
+      "c_pap": "1-exp(-2/3)",
+      "d_pap": 160,
+      "M": 160,
+      "c_hat_80dps": "6.3457917079784338454197124243622053474807109342172e-18",
+      "ratio_to_2e_minus_17": "0.31728958539892166957131955449327925911272851175"
+    },
+    {
+      "package": "restore a0*D=2 with D=M=480, optimistic K_G=1",
+      "c_pap": "1-exp(-2)",
+      "d_pap": 480,
+      "M": 480,
+      "c_hat_80dps": "2.4257626372793001947588508328685855718797638200459e-18",
+      "ratio_to_2e_minus_17": "0.121288131863965001060695579039"
+    },
+    {
+      "package": "sharp direct McCurley c1=1/(2R), optimistic K_G=1",
+      "c_pap": "1-exp(-8/R)",
+      "d_pap": 160,
+      "M": 160,
+      "c_hat_80dps": "8.5158737045537906908795690584733318655590155266399e-18",
+      "ratio_to_2e_minus_17": "0.42579368522768950408166606458409702120285268524668"
+    }
+  ],
+  "obligations": [
+    {"id": "R09-01", "name": "McCurley full finite range", "status": "FULL_SOURCE_STATEMENT_CONFIRMED_APPLICATION_BRIDGE_PARTIAL"},
+    {"id": "R09-02", "name": "Gallagher multiplier and range", "status": "FULL_SOURCE_AUDITED_MULTIPLIER_AND_CUTOFF_OPEN"},
+    {"id": "R09-03", "name": "Jutila epsilon multiplier and range", "status": "SOURCE_FORM_CONFIRMED_RATE_OPEN"},
+    {"id": "R09-04", "name": "finite high-low alpha bridge", "status": "EXPONENT_SHAPE_EXPLICIT_MULTIPLIER_CUTOFF_OPEN"},
+    {"id": "R09-05", "name": "Maier density-to-PNT transfer", "status": "FULL_SOURCE_AUDITED_NORMALIZATION_GAP"},
+    {"id": "R09-06", "name": "principal one-sided rate", "status": "OPEN"},
+    {"id": "R09-07", "name": "nonprincipal finite cutoff", "status": "HARD_BLOCKER"},
+    {"id": "R09-08", "name": "psi-to-pi finite transfer", "status": "OPEN"},
+    {"id": "R09-09", "name": "actual modulus and B0 uniformity", "status": "PARTIAL"},
+    {"id": "R09-10", "name": "common u_pap certificate", "status": "HARD_BLOCKER"}
+  ],
+  "lean_scope": {
+    "kernel_targets": ["57.2", "57.3", "57.8", "57.9", "57.10", "57.12", "57.13"],
+    "conditional_kernel_targets": ["57.14"],
+    "partial_formalization_targets": ["57.6"],
+    "source_theorem_unformalized": ["57.1", "57.4", "57.5", "57.7", "57.11", "57.15"],
+    "proof_escape_allowed": false
+  },
+  "next_gate": "Seek an erratum or stronger explicit nonexceptional PNT-in-AP source; otherwise quantitatively reprove Gallagher-Maier with an explicit multiplier and cutoff before any R11 or threshold-calculator work."
+}

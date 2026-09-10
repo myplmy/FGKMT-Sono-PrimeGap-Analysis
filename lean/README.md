@@ -59,6 +59,14 @@ Gallagher·Maier·McCurley multiplier와 공통 cutoff는 아직 없다. Theory 
 inventory는 1,015식이고 `NOT_YET_FORMALIZED`는 960식이다. 이 batch는 PAP 전체나
 수치 `X_cert`를 인증하지 않는다.
 
+2026-09-11 Theory 57 batch는 확보된 Gallagher·Maier·McCurley 전문을 반영한다.
+Sono Proposition 5.3의 denominator에서 `c_ZFR/3`, 출판본의 `3c_ZFR`가 서로 다름을
+확인하고, `log(T(1+T))<=3log T`, D=160 source-range gate, direct repair exponent
+`1/240`, hidden multiplier의 보존·흡수 대수를 커널로 검증한다. source analytic theorem은
+local axiom으로 넣지 않는다. 이 batch는 Section 5의 normalization gap을 기록하는 것이며,
+PAP-11·fixed `2e-17`·`X_cert`를 인증하지 않는다. Theory 57 뒤 inventory는 1,030식이고,
+새 15식을 모두 분류해 `NOT_YET_FORMALIZED`는 960식으로 유지된다.
+
 원문 theory를 수정한 뒤에는 생성기와 검증기를 차례로 실행한다. 생성기는 display 수식의
 원문 경로·행·SHA-256을 다시 고정하며, 검증기는 전수 coverage, 선언 연결, 금지된 proof
 escape, toolchain pin을 검사한다. `.lake/`는 로컬 build cache이므로 Git에 포함하지 않는다.

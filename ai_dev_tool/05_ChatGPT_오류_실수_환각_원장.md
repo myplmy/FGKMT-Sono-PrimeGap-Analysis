@@ -1374,6 +1374,99 @@
   새 상태는 successor 문서에만 기록한다. 전체 suite의 hash failure를 문서상 사소한
   불일치로 낮춰 보지 않는다.
 
+### E088 — DEP-R09 phase 1이 인쇄 대수와 analytic 정당화를 충분히 분리하지 못함
+
+- 분류: `DISCOVERED_BY_NEW_PRIMARY_SOURCES / PREVIOUS_RESULT_SCOPE_NARROWED / X_CERT_REMAINS_OPEN`.
+- Theory 56 phase 1은 Sono에 인쇄된 `c_ZFR=1/24`, `a=1/80`, `D_PAP=160`,
+  `aD=2`의 exact 대수를 올바르게 Lean 검증했다. 당시 Gallagher·Maier·McCurley 전문이
+  없다고 명시하고 analytic rate를 OPEN으로 유지했으므로 PAP나 X_cert를 PASS로 선언한
+  오류는 없었다.
+- 그러나 전문을 확보해 대조하자 더 강한 문제가 드러났다. Sono Proposition 5.3의
+  `c_ZFR/log(Q(1+|t|))`에서 modulus와 높이를 T 이하로 두면 보수적으로
+  `c1=c_ZFR/3`이 나오며, p.536의 `c1=3c_ZFR`는 반대 방향이다. McCurley 원문을 직접
+  조합해도 안전하게 복원되는 baseline은 `c1=1/24`이지 `1/8`이 아니다.
+- Gallagher Theorem 7은 숨은 multiplier를 가진 `≪`이고 Maier Lemma 2도 exact multiplier나
+  cutoff 없이 `D`를 크게 선택한다. phase 1은 multiplier OPEN을 기록했지만, 기존 상위 문서의
+  “2e-17은 증명된 계수” 표현이 이 더 구체적인 normalization gap과 충돌하는 것을 당시
+  발견하지 못했다.
+- 교정: Theory 56은 인쇄 대수의 역사적 predecessor로 보존하고, Theory 57·review 64에서
+  source-compatible direction, hidden multiplier, finite range와 coefficient 민감도를
+  successor 정본으로 분리했다. AGENTS, METHODS, theory/review 색인과 Lean 원장을 갱신해
+  `PAP-11`, DEP-R09, fixed `2e-17`, X_cert를 fail-closed 상태로 유지한다.
+- 예방: 외부 정리의 상수를 재사용할 때는 (a) 정리 statement, (b) 변수 재매개화,
+  (c) inequality direction, (d) Vinogradov/O multiplier, (e) finite range를 각각 별도 행으로
+  감사한다. exact 숫자 대입이 커널을 통과해도 upstream analytic bridge PASS로 승격하지 않는다.
+
+### E089 — DEP-R09 source audit 중 검색 정규식·multi-file patch 문맥 실패
+
+- 분류: `TOOLING_ERROR / PARTIAL_WRITE_NONE / CORRECTED_IMMEDIATELY`.
+- Sono text excerpt를 한 번에 찾으려다 PowerShell `Select-String`의 regex pattern에 괄호가
+  닫히지 않은 `exp(`를 넣어 그 검색 한 건이 실패했다. 다른 source 출력은 나왔지만 이를
+  Sono 확인 증거로 세지 않았고, page별 native text와 이미 렌더링한 source page를 다시
+  직접 읽었다.
+- AGENTS·METHODS·Theory12·Lean README를 한 patch에서 바꾸려던 첫 시도는 Theory12의 실제
+  제목이 예상 문자열과 달라 apply_patch가 전체 patch를 거부했다. 부분 쓰기는 없었으며,
+  실제 첫 줄을 읽은 뒤 파일별 정상 patch로 나눴다. `git apply` 우회는 사용하지 않았다.
+- 예방: regex에 literal 괄호가 들어가면 `-SimpleMatch` 또는 escape를 사용한다. 여러 파일
+  patch는 각 파일의 현재 anchor를 먼저 읽고, 하나의 mismatch가 전체 작업을 막지 않도록
+  독립 patch로 축소한다.
+
+### E090 — Theory 12 successor 경고가 고정된 첫 H2 위치를 일시 변경
+
+- 분류: `DETECTED_BY_FULL_REGRESSION / CORRECTED_BEFORE_COMMIT / RESULT_IMPACT_NONE`.
+- 최신 DEP-R09 경고를 Theory 12의 문서 제목 바로 아래에 넣었더니, 기존 contract test가
+  요구하는 첫 H2 `2026-09-10 H1b-COV2 현재 상태`보다 경고 blockquote가 먼저 나타났다.
+  수식·상태·hash를 바꾼 오류는 아니지만, 정본 소비자가 의존하는 문서 구조를 깨뜨렸다.
+- 경고 내용은 그대로 보존하면서 첫 H2 바로 아래로 이동했다. 표적 회귀시험 1/1과
+  sandbox 외부 전체 회귀시험 669/669가 통과했다.
+- 같은 첫 전체 시험에서 발생한 82개 `PermissionError`는 sandbox가 저장소·시스템
+  임시폴더를 차단해 생긴 환경 오류였다. 코드 실패로 세지 않고, 기존 사용자 허가 범위의
+  정상 로컬 권한에서 전체 suite를 다시 실행해 669/669 PASS를 확인했다.
+- 예방: 정본 문서의 머리말·첫 H2도 기계 contract일 수 있으므로, successor 경고는 기존
+  구조를 보존하는 위치에 넣고 전체 회귀로 확인한다.
+
+### E091 — 최종 UTF-8 감사용 PowerShell 문자열의 변수 경계 오류
+
+- 분류: `TOOLING_ERROR / READ_ONLY_COMMAND_FAILED / CORRECTED_IMMEDIATELY`.
+- control character 진단 문자열을 `"CONTROL:$rel:$code"`로 만들면서 변수명 뒤의 콜론을
+  `${}`로 구분하지 않아 PowerShell parser가 명령 전체를 실행 전에 거부했다. 읽기 전용
+  검사였으므로 파일 변경이나 검증 오판은 없었다.
+- 문자열 format operator를 쓰는 `('CONTROL:{0}:{1}' -f $rel,$code)`로 교정해 다시 실행했고,
+  변경·신규 19파일의 strict UTF-8/control scan과 표적 local path 7건이 PASS했다.
+- 예방: PowerShell 보간 문자열에서 변수 바로 뒤에 콜론이 오면 `${name}` 또는 `-f`를 쓴다.
+
+### E092 — 작업원장 중간 갱신에 미래 시각을 잘못 기록
+
+- 분류: `PROVENANCE_TIMESTAMP_ERROR / CORRECTED_BEFORE_COMMIT / RESULT_IMPACT_NONE`.
+- 작업원장 두 단계 제목에 당시 시스템 시각보다 뒤인 `03:20`, `03:55 KST`를 정확한
+  측정 없이 적었다. 수식·검증 결과와 무관하지만 재개 이력의 시간 신뢰성을 해친다.
+- `Get-Date`의 실제 관측값이 2026-09-11 03:18 KST임을 확인한 뒤, 정확한 분을 재구성할
+  근거가 없는 두 제목은 `2026-09-11 KST`로 낮춰 기록했다. 확인 가능한 착수 시각과 이후
+  handoff 시각은 도구 출력만 사용한다.
+- 예방: 원장·handoff의 시각은 작성 직전 시스템 명령으로 읽고, 사후 추정한 분 단위 시각은
+  기록하지 않는다.
+
+### E093 — sandbox 내부 첫 Git staging의 index.lock 권한 거부
+
+- 분류: `SANDBOX_PERMISSION_ERROR / RETRIED_WITH_EXISTING_AUTHORIZATION / PARTIAL_STAGE_NONE`.
+- 정상 `apply_patch` 편집은 모두 성공했지만, 첫 `git add`가 현재 sandbox의 read-only
+  `.git` 정책 때문에 `Unable to create .git/index.lock: Permission denied`로 실패했다.
+- 우회 patch나 `git apply`는 사용하지 않았다. 사용자가 이미 승인한 로컬 staging·commit
+  범위에서, 같은 20개 exact allowlist를 sandbox 외부 Git 권한으로 다시 실행해 성공했다.
+- 예방: 현재 permission profile에서 `.git`이 read-only이면 내용 편집 오류와 Git metadata
+  권한 오류를 구분하고, staging은 승인된 exact allowlist로만 권한 상승한다.
+
+### E094 — 한글 경로 quoting을 고려하지 않은 첫 staged allowlist 비교
+
+- 분류: `VERIFICATION_COMMAND_ERROR / CORRECTED_BEFORE_COMMIT / STAGED_SCOPE_UNCHANGED`.
+- 첫 allowlist 비교에서 Git 기본 `core.quotePath` 출력의 한글 경로가 octal escape와
+  따옴표로 표시되는 것을 고려하지 않아, 실제 같은 4개 경로를 다르다고 판정했다.
+- `git -c core.quotePath=false diff --cached --name-only`로 다시 비교해 exact allowlist
+  20개가 일치하고 unstaged·untracked 경로가 0임을 확인했다. 같은 검사에서 review 64의
+  EOF 빈 줄 1개도 `git diff --cached --check`가 발견해 정상 `apply_patch`로 제거했다.
+- 예방: 사람이 읽는 UTF-8 경로 비교에는 `core.quotePath=false`를 명시하고,
+  allowlist 일치 뒤에도 `git diff --cached --check`를 독립 gate로 실행한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

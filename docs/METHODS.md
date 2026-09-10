@@ -8,7 +8,7 @@
 - 완료 승인 범위: P003/P004 분석, P005 calibration, P006–P014-R3 실제 실행·사후 검증, P017 exact-equivalence calibration, P018-P0/A margin-only information pipeline·사후감사, P020 저장 artifact 전수 종합 시각화
 - 현재 미실행 범위: P018-B, P019 actual, P013-C, P010B large-range acceleration, 외부 게시, commit/push/PR
 - 2026-09-09 최신 승인: 완료 proof 단계의 로컬 staging/commit은 허가됐다. push/PR·actual 확대는 여전히 별도 승인 대상이다.
-- 최신 proof 상태: COR1–COR3/COV1–COV2가 R01–R08 actual child를 닫았다. COV1a는 Theorem3의 충분한 C0=100을 정량 재증명했고, COV2는 endpoint-safe equal grid, actual-width 예외복원, outer→inner 순차 성공과 special-case smooth remainder를 fixed \(A,\varepsilon,\eta\)에서 parameterized explicit으로 합성했다. numerical PAP/UB·같은 Sono 계수 총예산·최종변수(R09–R12)는 OPEN이다. 다음은 DEP-R09 numerical PAP이며 같은 Sono 계수·Maynard W-filter를 유지한다. X_cert·계산기·독립 형식인증으로 승격하지 않는다.
+- 최신 proof 상태: COR1–COR3/COV1–COV2가 R01–R08 actual child를 닫았다. COV1a는 Theorem3의 충분한 C0=100을 정량 재증명했고, COV2는 endpoint-safe equal grid, actual-width 예외복원, outer→inner 순차 성공과 special-case smooth remainder를 fixed \(A,\varepsilon,\eta\)에서 parameterized explicit으로 합성했다. R09 full-source 감사에서는 Sono Proposition 5.3→Gallagher zero-free constant 정규화와 숨은 multiplier 소거가 현재 원문으로 인증되지 않음을 확인했다. numerical PAP/UB·같은 Sono 계수 총예산·최종변수(R09–R12)는 OPEN이다. 같은 Sono 계수를 목표로 유지하되, PAP repair 전에는 X_cert·계산기·R11·독립 형식인증으로 승격하지 않는다.
 - 다음 단계: P018-B를 자동 실행하지 않는다. Sono/FMT H1a와 H1b-1 계열은 finite-r 적분비, Lemma 8.2 multiplier 89, 교정된 \(\kappa=1\) one-step multiplier, 실제 제외모듈과 Lemma 8.4 관련 하위호출 9/9를 parameterized explicit 수준으로 닫았다.
   2026-09-08 H1b-2a는 Lemma 8.5의 coefficient·weight envelope와 Lemma 8.6의 절대 \(I_k,J_k\) 크기 및 보수적 \(F_1/F_2\) 비교를 유한식으로 닫았다. H1b-2a.1은 Proposition 9.4 식 (9.66)의 마지막 두 Euler 곱도 exact local factor와 finite singular-series 비교로 닫았다.
   H1b-2a.2는 실제 \(\mathcal A=\mathbb Z,D=1\) 호출의 정확한 \(E_q^{(1)}\le1\)을 이용해 식 (9.52) distribution child를 parameterized explicit으로 닫았다. H1b-2a.3은 actual FGKMT/FMT P94의 모든 닫힌 child를 공통 cutoff로 합성해 모든 정수 \(k\ge36\)에서 multiplier 13 미만을 얻었고, `H1B-P94=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 승격했다. 2026-09-09 H1c-1a는 quantitative character/Bombieri–Vinogradov source inventory를 완료했고, H1c-1b.1은 actual Proposition 9.2의 identity form에 대해 Bordignon 2021의 pointwise growing-\(A\) 대입과 modulus capacity를 닫았다. H1c-1b.1a는 endpoint-safe \(r_T=\lfloor(\log(x/2))^{1/5}\rfloor\)와 실제 \(R=(x/4)^{\theta/3}\)를 사용해 두 finite normalization factor의 곱이 \(39/40\)보다 큼을 exact하게 증명했다. H1c-1b.1a.1은 Rosser--Schoenfeld Theorem 7과 제외 prime 보정을 합성해 \(x\ge2\exp(36^5)\)에서 \(\sigma y<(1001000/998001)80cx\log_2x<(26/25)80cx\log_2x\)를 증명했다. 따라서 `SIV-03=EXPLICIT`이고 Sono의 같은 \(2\times10^{-17}\) 계수가 이 단계에서 유지된다. H1c-1b.2는 fixed \(Q_1\)에서 두 endpoint에 한 exceptional modulus와 그 prime divisor \(B\)를 공통으로 쓰고, 최종 NYJM판 12항을 이용한 raw \((T,2T]\) \(\psi\) composition을 닫았다. H1c-1b.3r1은 Maynard 원문의 일반 \([T,2T)\)와 FGKMT actual \([T,2T]\)를 구분하고 closed target의 한 lower atom을 안전하게 보정했다. H1c-1b.4a–4e는 source 정규화·density·full absorption을 합성해 \(X\ge2\exp(10^{50})\)에서 actual identity-form Hypothesis 1 input을 constants \((1,1,2)\)로 explicit하게 닫았다. 후속 H1b-P92a는 \(k\ge10^{200}\)에서 actual identity weighted P9.2와 lower weight/count atom을 multiplier 1/1로 닫았다. child cutoff \(X\ge2\exp(10^{1000})\)는 전체 threshold가 아니다. H1b-P91a는 filtered unweighted moment·shift를, H1b-P94g는 actual shifted T0의 growing-dimension P94 multiplier 1을 닫았다. 이 1은 더 강한 새 regime의 값이고 기존 13을 보편적으로 대체하지 않는다. 후속 H1b-NORM은 공통 singular-series/lambda-square/tau/u_X와 B0 삭제·확률 입력까지 닫았다. H1b-DEP가 actual dependency를 분리했고 다음은 뒤쪽 finite correlation/failure rate다. `SIV-07/08=HARD_BLOCKER`, `X_cert=OPEN`은 유지하고 P020 figure는 2026-09-02 사용자 시각 QA까지 PASS했다.
@@ -140,7 +140,7 @@ G_k(X)\ge \frac{c_{\mathrm{LG}}}{k^2}F(X),
 
 형태이다.
 
-- `2.0e-17`은 경험적 예상값이나 극한값이 아니라 증명에서 확보한 보수적 상수이다.
+- `2.0e-17`은 경험적 예상값이나 극한값이 아니라 Sono 출판본이 제시한 보수적 계수이다. 다만 이 프로젝트의 2026-09-11 full-source 감사에서는 PAP zero-free 정규화와 숨은 multiplier를 독립 복원하지 못했으므로, 현재 상태는 `PUBLICATION_CLAIM_NOT_PROJECT_CERTIFIED`다.
 - 정리의 문구는 “for any sufficiently large X”이며, 출판본에 바로 사용할 수 있는 수치 \(X_0\)가 제시되어 있지 않다.
 - 유한 데이터에서 \(H(x)<c_{\mathrm{Sono}}\)가 나와도 정의와 계산이 맞다면 정리 반례가 아니라 그 \(x\)가 보장 구간 밖이라는 정보이다.
 - 유한 데이터에서 항상 \(H(x)\ge c_{\mathrm{Sono}}\)여도 정리를 계산으로 입증한 것이 아니다.
@@ -1072,3 +1072,37 @@ Lean으로 검증했다. 하지만 Gallagher·Jutila·Maier 계열의 implied mu
 finite cutoff는 OPEN이다. 유한 one-sided PAP는 양의 \(\eta_{\rm PAP}\)를 두어
 \(C_{\rm PAP}-\eta_{\rm PAP}\) 형태로 R11 예산에 연결한다. Theory 56 추가 후 inventory는
 1,015식이고, 새 10식을 모두 분류해 미형식화 수는 여전히 960식이다.
+
+## 2026-09-11 DEP-R09 Gallagher·Maier·McCurley full-source 보정
+
+[theory 57](method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md)과
+[review 64](review/64_20260911_DEPR09_Gallagher_Maier_McCurley_원문감사.md)는 사용자가
+추가한 세 원문을 native text로 읽고 관련 PDF 페이지를 시각 대조했다. OCR은 사용하지 않았다.
+
+Sono Proposition 5.3은 하나의 possible real exception을 제외하고
+`1-sigma >= c_ZFR/log(Q(1+|t|))`를 준다. modulus와 높이를 모두 T 이하로 놓으면
+`log(T(1+T))<=3log T`이므로 Proposition만 경유한 Gallagher constant는 보수적으로
+`c1=c_ZFR/3=1/72`다. 출판본 p.536의 `c1=3c_ZFR=1/8`은 이 방향으로부터 나오지 않는다.
+McCurley Theorems 1–2를 직접 쓰면 T>=13에서 `c1=1/24`인 더 나은 보수적 family region을
+복원할 수 있지만 `1/8`은 복원하지 못한다.
+
+Gallagher Theorem 7의 실제 lower range는 `exp(sqrt(log x))<=Q`다. `Q=x^(1/D)`와
+`c_ZD=16`을 넣으면 `D>=160` 외에도 `log x>=D^2`가 필요해 D=160에서
+`x>=exp(25600)`이 하나의 source-range gate가 된다. 이것은 PAP 공통 cutoff나 X_cert가 아니다.
+
+더 중요하게 Gallagher의 결론은 hidden `K_G`와 cutoff를 가진 `≪`이고 Maier Lemma 2도
+이를 숫자로 만들지 않는다. 따라서 finite nonprincipal error는 우선
+`abs(E)<=K_G exp(-aD)M`으로 보존한다. 같은 exponent에서 multiplier를 지우는 것은
+`K_G<=1`일 때뿐이며, 그렇지 않으면 `log K_G <= (a0-a)D` 같은 명시 budget으로 exponent나
+D를 소비해야 한다.
+
+direct McCurley 보수값은 `a0=1/240`, D=160에서 `a0D=2/3`이다. hidden multiplier와 finite
+slack을 낙관적으로 1/0으로 놓아도 기존 최종식의 진단값은 약 `6.3458e-18`로
+`2e-17`의 31.7%다. D=M=480으로 exponent product 2를 회복하면 M 비용 때문에 약
+`2.4258e-18`이다. 이 값들은 대체 theorem이 아니라 민감도 진단이다.
+
+따라서 phase-1의 `1/80*160=2`는 **인쇄 숫자의 exact 대수**로만 보존한다. 현재 source chain은
+`C_PAP=1-exp(-2), D_PAP=160`과 final `2e-17`을 독립 인증하지 못한다. DEP-R09, PAP-11,
+SIV-07/08/09, R09–R12, X_cert는 OPEN이다. 다음은 correction·강한 대체 explicit PNT-in-AP
+source 조사 또는 Gallagher–Maier multiplier·cutoff의 정량 재증명이다. 이 repair 전에
+threshold calculator나 R11 coefficient budget으로 넘어가지 않는다.

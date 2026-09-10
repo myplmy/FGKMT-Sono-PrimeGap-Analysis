@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-11 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 57개
-- 전수 단위: Markdown fenced code 밖 display math 1,015개
-- 원래 식번호: 520개, 합성 ID 무번호식: 495개
+- 원문 범위: `docs/method/theory/*.md` 58개
+- 전수 단위: Markdown fenced code 밖 display math 1,030개
+- 원래 식번호: 535개, 합성 ID 무번호식: 495개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,11 +62,11 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 21 |
-| `CONDITIONAL_KERNEL_PASS` | 16 |
+| `KERNEL_PASS` | 28 |
+| `CONDITIONAL_KERNEL_PASS` | 17 |
 | `DEFINITION_ONLY` | 4 |
-| `PARTIAL_FORMALIZATION` | 7 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 2 |
+| `PARTIAL_FORMALIZATION` | 8 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 8 |
 | `NOT_YET_FORMALIZED` | 960 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `8801cafa227b60da…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `463a1d0c269bcd2e…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `9898ede8b38187d0…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `6c17a86c9df26f54…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -134,6 +134,7 @@
 | 54 | [54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md](../docs/method/theory/54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md) | `4e9d3608f91e7eec…` | 37 | 29 | 8 | 0 |
 | 55 | [55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md](../docs/method/theory/55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md) | `cb49fc3d37fd42fa…` | 42 | 39 | 3 | 24 |
 | 56 | [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | `268567081765d139…` | 10 | 8 | 2 | 10 |
+| 57 | [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | `e86ba5075b6ac20e…` | 15 | 15 | 0 | 15 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -173,21 +174,21 @@
 | 26 | `T10-U009` | T10 [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | 163–169 | <code>q-p\ge \begin{cases} (D-1)B+3,&amp;B\text{ odd and }D\text{ even},\\ (D-1)B+2,&amp;\text{otherwise}. \end{cases}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
 | 27 | `T11-U001` | T11 [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | 13–16 | <code>\lambda d+\mu+\phi(r)-\phi(s)\ge w, \qquad \lambda\ge0</code> | `modulus_lift_transition_monotone` | `CONDITIONAL_KERNEL_PASS` | source inequality와 대표 증가 premise |
 | 28 | `T11-U002` | T11 [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | 20–22 | <code>\phi'(r')=\phi(r'\bmod M)</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 29 | `T12-U001` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 67–73 | <code>\boxed{ X_{\mathrm{emp}}(10^{20})=3{,}814{,}280\quad\text{(finite exact)}, \qquad X_{\mathrm{cert}}=\mathrm{OPEN}, \qquad X_\star=\mathrm{OPEN}. }</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 30 | `T12-U002` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 83–87 | <code>G_1(X)\ge 2\times10^{-17} \frac{\log X\,\log_2X\,\log_4X}{\log_3X} \qquad (X\ge X_{\mathrm{cert}}).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 31 | `T12-U003` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 150–152 | <code>\widehat c=2.00386120461967036975\ldots\times10^{-17}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 32 | `T12-U004` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 314–316 | <code>\frac{J_r(F)}{I_r(F)}&gt;\frac{\log r}{4r}\qquad(r\ge36, r\in\mathbb Z)</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 33 | `T12-U005` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 393–395 | <code>c_{\gamma,j}&gt;\frac{1}{3(1+\log\Lambda_*)}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 34 | `T12-U006` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 408–410 | <code>C_{8.3}(a,A_2)c_\gamma(L+1)G_{\max}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 35 | `T12-U007` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 424–426 | <code>a=\frac12,\qquad A_2=8,\qquad L=5+\log\Lambda_*</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 36 | `T12-U008` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 439–443 | <code>\prod_i(1+\delta_i)-1,\qquad \delta_i= \frac{C_{8.3}(1/2,8)(L_i+1)\kappa_i}{\log R}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 37 | `T12-U009` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 461–463 | <code>&#124;Z^2-A^2&#124;\le2\varepsilon AB+\varepsilon^2B^2</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 38 | `T12-U010` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 481–484 | <code>C_Y=327680\frac{14801}{69}e^{264}+10,143,697 &lt;3.17\times10^{122}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 39 | `T12-U011` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 512–515 | <code>I_k(F)\ge(2k\log k)^{-k},\qquad J_k(F)&gt;\frac{\log k}{4k}(2k\log k)^{-k}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 40 | `T12-U012` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 612–614 | <code>r_T=\left\lfloor(\log(x/2))^{1/5}\right\rfloor</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 41 | `T12-U013` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 621–623 | <code>\sigma y\le\frac{26}{25}\,80cx\log_2x</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 42 | `T12-U014` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 646–651 | <code>x\ge2\exp(36^5) \quad\Longrightarrow\quad \sigma y&lt;\frac{1001000}{998001}\,80cx\log_2x &lt;\frac{26}{25}\,80cx\log_2x.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 43 | `T12-U015` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 712–714 | <code>T=X/2,\qquad r=\lfloor(\log T)^{1/5}\rfloor\ge10^{10}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 29 | `T12-U001` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 74–80 | <code>\boxed{ X_{\mathrm{emp}}(10^{20})=3{,}814{,}280\quad\text{(finite exact)}, \qquad X_{\mathrm{cert}}=\mathrm{OPEN}, \qquad X_\star=\mathrm{OPEN}. }</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 30 | `T12-U002` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 90–94 | <code>G_1(X)\ge 2\times10^{-17} \frac{\log X\,\log_2X\,\log_4X}{\log_3X} \qquad (X\ge X_{\mathrm{cert}}).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 31 | `T12-U003` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 157–159 | <code>\widehat c=2.00386120461967036975\ldots\times10^{-17}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 32 | `T12-U004` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 321–323 | <code>\frac{J_r(F)}{I_r(F)}&gt;\frac{\log r}{4r}\qquad(r\ge36, r\in\mathbb Z)</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 33 | `T12-U005` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 400–402 | <code>c_{\gamma,j}&gt;\frac{1}{3(1+\log\Lambda_*)}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 34 | `T12-U006` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 415–417 | <code>C_{8.3}(a,A_2)c_\gamma(L+1)G_{\max}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 35 | `T12-U007` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 431–433 | <code>a=\frac12,\qquad A_2=8,\qquad L=5+\log\Lambda_*</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 36 | `T12-U008` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 446–450 | <code>\prod_i(1+\delta_i)-1,\qquad \delta_i= \frac{C_{8.3}(1/2,8)(L_i+1)\kappa_i}{\log R}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 37 | `T12-U009` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 468–470 | <code>&#124;Z^2-A^2&#124;\le2\varepsilon AB+\varepsilon^2B^2</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 38 | `T12-U010` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 488–491 | <code>C_Y=327680\frac{14801}{69}e^{264}+10,143,697 &lt;3.17\times10^{122}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 39 | `T12-U011` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 519–522 | <code>I_k(F)\ge(2k\log k)^{-k},\qquad J_k(F)&gt;\frac{\log k}{4k}(2k\log k)^{-k}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 40 | `T12-U012` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 619–621 | <code>r_T=\left\lfloor(\log(x/2))^{1/5}\right\rfloor</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 41 | `T12-U013` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 628–630 | <code>\sigma y\le\frac{26}{25}\,80cx\log_2x</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 42 | `T12-U014` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 653–658 | <code>x\ge2\exp(36^5) \quad\Longrightarrow\quad \sigma y&lt;\frac{1001000}{998001}\,80cx\log_2x &lt;\frac{26}{25}\,80cx\log_2x.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 43 | `T12-U015` | T12 [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | 719–721 | <code>T=X/2,\qquad r=\lfloor(\log T)^{1/5}\rfloor\ge10^{10}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
 | 44 | `T13-U001` | T13 [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | 41–44 | <code>T=r\log r,\qquad U=r^{-1/2},\qquad f(t)=\frac{\psi(t/U)}{1+Tt},</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
 | 45 | `T13-U002` | T13 [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | 46–50 | <code>F_1(t_1,\ldots,t_r)=\prod_{i=1}^r f(t_i), \qquad F(t_1,\ldots,t_r)=\psi\!\left(\sum_i t_i\right)F_1(t_1,\ldots,t_r).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
 | 46 | `T13-U003` | T13 [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | 70–73 | <code>A=\int_0^\infty f(t)^2\,dt,\qquad B=\int_0^\infty f(t)\,dt.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
@@ -1160,6 +1161,21 @@
 | 1013 | `56.8` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 120–129 | <code>\pi(u;q,r)\ge \bigl(C_{\rm PAP}-\eta_{\rm PAP}\bigr) \frac{u}{\varphi(q)\log u} \quad \left( u\ge\max\{u_{\rm PAP}(\eta_{\rm PAP}),q^{160}\} \right) \tag{56.8}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | DEP-R09 finite PAP 목표; Gallagher/Jutila/Maier rate와 cutoff 미형식화 |
 | 1014 | `T56-U002` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 136–138 | <code>P\ge(1-\eta)M,\qquad &#124;E&#124;\le e^{-2}M</code> | `pap_finite_error_composition` | `CONDITIONAL_KERNEL_PASS` | finite error 합성의 명시적 analytic premise 쌍 |
 | 1015 | `56.5` | T56 [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | 142–145 | <code>P+E\ge(1-e^{-2}-\eta)M \tag{56.5}</code> | `pap_finite_error_composition` | `CONDITIONAL_KERNEL_PASS` | principal/error premise 이후 finite slack 합성; analytic premise는 미인증 |
+| 1016 | `57.1` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 52–57 | <code>1-\sigma\ge \frac{c_{\rm ZFR}}{\log(Q(1+&#124;t&#124;))}, \qquad c_{\rm ZFR}=\frac1{24}. \tag{57.1}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Sono Proposition 5.3 source statement; analytic theorem은 Lean 미형식화 |
+| 1017 | `57.2` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 61–67 | <code>\log\!\bigl(T(1+T)\bigr)\le3\log T, \qquad \frac{c_{\rm ZFR}}{\log(T(1+T))} \ge \frac{c_{\rm ZFR}}{3\log T}. \tag{57.2}</code> | `pap_source_log_denominator_bound; pap_source_zero_free_width_bound` | `KERNEL_PASS` | T>=2에서 log(T(1+T))<=3logT와 zero-free 폭 방향을 커널 검증 |
+| 1018 | `57.3` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 72–79 | <code>\frac{c_{\rm ZFR}}3=\frac1{72}, \qquad 3c_{\rm ZFR}=\frac18, \qquad \frac1{72}\ne\frac18. \tag{57.3}</code> | `pap_printed_bridge_constants` | `KERNEL_PASS` | c_ZFR/3=1/72와 인쇄값 3c_ZFR=1/8의 불일치 exact 검증 |
+| 1019 | `57.4` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 91–94 | <code>\sigma&gt;1-\frac1{R\log M} \tag{57.4}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | McCurley Theorem 1 source statement; analytic theorem은 Lean 미형식화 |
+| 1020 | `57.5` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 99–107 | <code>\min\{\beta_1,\beta_2\} &lt;1-\frac1{R_1\log M_1}, \quad M_1=\max\{k_1k_2/17,13\}, \quad R_1=\frac{5-\sqrt5}{15-10\sqrt2}. \tag{57.5}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | McCurley Theorem 2 source statement; analytic theorem은 Lean 미형식화 |
+| 1021 | `57.6` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 114–120 | <code>c_{1,\mathrm{dir}}:=\frac1{24}, \qquad \sigma&gt;1-\frac{c_{1,\mathrm{dir}}}{\log T}, \quad &#124;t&#124;\le T, \tag{57.6}</code> | `papMcCurleyR; papDirectBridgeC1; pap_mccurley_R_lt_twelve; pap_direct_bridge_within_theorem_one` | `PARTIAL_FORMALIZATION` | direct c1=1/24의 R<12 수치 포함관계만 검증; family theorem 전체는 미형식화 |
+| 1022 | `57.7` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 131–136 | <code>\sum_{q\le Q}\sum_{\chi\ (\mathrm{mod}\ q)}^{*} \left&#124;\sum_{x&lt;p\le x+h}\chi(p)\log p\right&#124; \ll h\exp\!\left(-a\frac{\log x}{\log Q}\right), \tag{57.7}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Gallagher Theorem 7 source statement; hidden multiplier와 cutoff는 OPEN |
+| 1023 | `57.8` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 143–147 | <code>\frac{5c_{\rm ZD}}{D_{\rm PAP}}=\frac12, \qquad c_{\rm ZD}=16,\quad D_{\rm PAP}=160. \tag{57.8}</code> | `pap_density_power_boundary` | `KERNEL_PASS` | c_ZD=16, D=160의 density-power boundary exact 검증 |
+| 1024 | `57.9` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 151–156 | <code>D^2\le\log x, \qquad D=160\Longrightarrow \log x\ge25600. \tag{57.9}</code> | `pap_log_range_gate; pap_log_range_gate_160` | `KERNEL_PASS` | Q=x^(1/D)의 lower range에 필요한 D^2<=log x와 D=160 gate 검증 |
+| 1025 | `57.10` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 165–169 | <code>a_0:=\frac{c_{1,\mathrm{dir}}}{10}=\frac1{240}, \qquad a_0D_{\rm PAP}=\frac23. \tag{57.10}</code> | `papRepairedExponent; pap_repaired_exponent_value; pap_repaired_exponent_product` | `KERNEL_PASS` | direct-McCurley repair exponent a0=1/240와 a0D=2/3 exact 검증 |
+| 1026 | `57.11` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 174–178 | <code>&#124;E&#124;\le K_G e^{-a_0D}M \quad (x\ge x_G), \tag{57.11}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Gallagher-Maier nonprincipal error의 honest multiplier interface; rate 미형식화 |
+| 1027 | `57.12` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 182–186 | <code>K_Ge^{-aD}\le e^{-aD} \quad\Longleftrightarrow\quad K_G\le1 \tag{57.12}</code> | `pap_same_exponent_multiplier_iff` | `KERNEL_PASS` | 같은 지수에서 multiplier 제거 iff K<=1을 커널 검증 |
+| 1028 | `57.13` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 190–196 | <code>0&lt;K_G,\quad 0\le a&lt;a_0,\quad \log K_G\le(a_0-a)D \quad\Longrightarrow\quad K_Ge^{-a_0D}\le e^{-aD}. \tag{57.13}</code> | `pap_multiplier_absorption` | `KERNEL_PASS` | log K budget으로 multiplier를 exponent에 흡수하는 충분조건 커널 검증 |
+| 1029 | `57.14` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 207–213 | <code>P\ge(1-\eta)M,\quad &#124;E&#124;\le K_Ge^{-aD}M \Longrightarrow P+E\ge(1-\eta-K_Ge^{-aD})M \tag{57.14}</code> | `pap_finite_error_with_multiplier` | `CONDITIONAL_KERNEL_PASS` | principal/error analytic premise 이후 multiplier 보존 one-sided 합성 |
+| 1030 | `57.15` | T57 [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | 217–222 | <code>\pi(u;q,r)\ge \bigl(1-\eta_{\rm pr}-K_Ge^{-aD}-\eta_{\psi\to\pi}\bigr) \frac{u}{\varphi(q)\log u} \tag{57.15}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | 교정 finite PAP analytic target; common cutoff와 source proof 미형식화 |
 
 ## 9. 발견된 원문·작업 오류
 
