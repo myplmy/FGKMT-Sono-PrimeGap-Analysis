@@ -424,6 +424,339 @@ theorem sequential_positive_probability_choice
   obtain ⟨b, hb⟩ := hInner a ha
   exact ⟨a, b, ha, hb⟩
 
+/- Theory 55, formula 55.24: the exact exponential normalization inside
+   Rankin's inequality.  The counting inequality itself remains a named source
+   premise in `rankin_bound_after_normalization`. -/
+theorem rankin_power_normalization
+    {Y L u w δ α : ℝ}
+    (hY : 0 < Y) (hL : L ≠ 0)
+    (hu : u = Real.log Y / L) (hδ : δ = w / L) (hα : α = 1 - δ) :
+    Y ^ α = Y * Real.exp (-u * w) := by
+  rw [Real.rpow_def_of_pos hY, hα, hδ, hu]
+  calc
+    Real.exp (Real.log Y * (1 - w / L)) =
+        Real.exp (Real.log Y) * Real.exp (-(Real.log Y / L) * w) := by
+      rw [← Real.exp_add]
+      congr 1
+      field_simp
+      ring
+    _ = Y * Real.exp (-(Real.log Y / L) * w) := by rw [Real.exp_log hY]
+
+theorem rankin_bound_after_normalization
+    {psi Y L u w δ α product : ℝ}
+    (hY : 0 < Y) (hL : L ≠ 0)
+    (hu : u = Real.log Y / L) (hδ : δ = w / L) (hα : α = 1 - δ)
+    (hRankin : psi ≤ Y ^ α * product) :
+    psi ≤ Y * Real.exp (-u * w) * product := by
+  rw [rankin_power_normalization hY hL hu hδ hα] at hRankin
+  exact hRankin
+
+/- Theory 55, formula 55.25: the elementary terminal comparison after the
+   Rosser--Schoenfeld prime-harmonic estimate supplied as `hPrimeSource`. -/
+theorem prime_harmonic_terminal_bound
+    {primeSum L B : ℝ}
+    (hL : 2000 ≤ L) (hB : B < 1)
+    (hPrimeSource : primeSum < Real.log L + B + 1 / (2 * L ^ 2)) :
+    primeSum < Real.log L + B + 1 / (2 * L ^ 2) ∧
+      Real.log L + B + 1 / (2 * L ^ 2) < Real.log L + 3 / 2 := by
+  have hLpos : 0 < L := by linarith
+  have hden : 0 < 2 * L ^ 2 := by positivity
+  have hfrac : 1 / (2 * L ^ 2) < (1 / 2 : ℝ) := by
+    rw [div_lt_iff₀ hden]
+    nlinarith [sq_nonneg (L - 1)]
+  exact ⟨hPrimeSource, by linarith⟩
+
+/- Theory 55, formula 55.26: the scalar kernel used in the Stieltjes step.
+   The prime sum and its Stieltjes representation remain outside this
+   definition-only transcription. -/
+noncomputable def smoothStieltjesKernel (δ t : ℝ) : ℝ :=
+  (t ^ δ - 1) / (t * Real.log t)
+
+/- Theory 55, untagged formula T55-U002: the entire exponential integral.
+   Its value at the removable singularity `v = 0` is irrelevant to the
+   interval integral. -/
+noncomputable def smoothEin (w : ℝ) : ℝ :=
+  ∫ v in (0 : ℝ)..w, (Real.exp v - 1) / v
+
+/- Theory 55, formula 55.28 and untagged Ein bound: exact scalar constants
+   after the two integral pieces have been bounded. -/
+theorem ein_split_upper_composition
+    {einValue lowerPiece upperPiece scale : ℝ}
+    (hSplit : einValue = lowerPiece + upperPiece)
+    (hLower : lowerPiece ≤ (1 / 100 : ℝ) * scale)
+    (hUpper : upperPiece ≤ (51 / 50 : ℝ) * scale) :
+    einValue ≤ (103 / 100 : ℝ) * scale := by
+  rw [hSplit]
+  nlinarith
+
+theorem smooth_exp_w_identity
+    {u w : ℝ} (hu : 1 < u)
+    (hw : w = Real.log u + Real.log (Real.log u)) :
+    Real.exp w = u * Real.log u := by
+  have hupos : 0 < u := zero_lt_one.trans hu
+  have hlogupos : 0 < Real.log u := Real.log_pos hu
+  rw [hw, Real.exp_add, Real.exp_log hupos, Real.exp_log hlogupos]
+
+theorem exponential_linear_integral_factor {w : ℝ} (hw : 100 ≤ w) :
+    1 + 2 / w ≤ (51 / 50 : ℝ) := by
+  have hwpos : 0 < w := by linarith
+  have hquot : 2 / w ≤ (1 / 50 : ℝ) := by
+    rw [div_le_iff₀ hwpos]
+    nlinarith
+  linarith
+
+theorem exponential_linear_improper_integral {w : ℝ} :
+    (∫ t in Set.Ioi (0 : ℝ), Real.exp (-t) * (1 + 2 * t / w)) =
+      1 + 2 / w := by
+  have hExp : MeasureTheory.IntegrableOn
+      (fun t : ℝ ↦ Real.exp (-t)) (Set.Ioi 0) :=
+    integrableOn_exp_neg_Ioi 0
+  have hMoment : MeasureTheory.IntegrableOn
+      (fun t : ℝ ↦ t * Real.exp (-t)) (Set.Ioi 0) := by
+    simpa only [show (2 : ℝ) - 1 = 1 by norm_num, Real.rpow_one, mul_comm] using
+      (Real.GammaIntegral_convergent (s := (2 : ℝ)) (by norm_num))
+  have hMomentIntegral :
+      (∫ t in Set.Ioi (0 : ℝ), t * Real.exp (-t)) = 1 := by
+    have h := integral_rpow_mul_exp_neg_rpow
+      (p := (1 : ℝ)) (q := (1 : ℝ)) (by norm_num) (by norm_num)
+    have hGamma : Real.Gamma (2 : ℝ) = 1 := by
+      norm_num [Real.Gamma_ofNat_eq_factorial]
+    rw [show ((1 : ℝ) + 1) / 1 = 2 by norm_num, hGamma] at h
+    norm_num [Real.rpow_one] at h
+    exact h
+  have hFunction :
+      (fun t : ℝ ↦ Real.exp (-t) * (1 + 2 * t / w)) =
+        (fun t : ℝ ↦ Real.exp (-t) + (2 / w) * (t * Real.exp (-t))) := by
+    funext t
+    ring
+  rw [hFunction, MeasureTheory.integral_add hExp (hMoment.const_mul (2 / w)),
+    MeasureTheory.integral_const_mul, integral_exp_neg_Ioi_zero, hMomentIntegral]
+  ring
+
+theorem exponential_half_tail_bound {w : ℝ} (hw : 100 ≤ w) :
+    Real.exp (w / 2) ≤ (1 / 100 : ℝ) * Real.exp w / w := by
+  have hwpos : 0 < w := by linarith
+  have hhalf : 50 ≤ w / 2 := by linarith
+  have hhalfDomain : 1 ≤ w / 2 := by linarith
+  have hratioMono :
+      Real.exp 50 / 50 ≤ Real.exp (w / 2) / (w / 2) :=
+    exp_div_self_strictMonoOn.monotoneOn (by norm_num) hhalfDomain hhalf
+  have hexp50 : (10000 : ℝ) < Real.exp 50 := by
+    have hseries := Real.sum_le_exp_of_nonneg (x := (50 : ℝ)) (by norm_num) 4
+    norm_num [Finset.sum_range_succ] at hseries ⊢
+    linarith
+  have hratio50 : (200 : ℝ) < Real.exp 50 / 50 := by
+    rw [lt_div_iff₀ (by norm_num : (0 : ℝ) < 50)]
+    rw [show (200 : ℝ) * 50 = 10000 by norm_num]
+    exact hexp50
+  have hratio : (200 : ℝ) < Real.exp (w / 2) / (w / 2) :=
+    hratio50.trans_le hratioMono
+  have hcore : 100 * w < Real.exp (w / 2) := by
+    rw [lt_div_iff₀ (by linarith : (0 : ℝ) < w / 2)] at hratio
+    nlinarith
+  have hsq : Real.exp (w / 2) * Real.exp (w / 2) = Real.exp w := by
+    rw [← Real.exp_add]
+    congr 1
+    ring
+  have hcross :
+      Real.exp (w / 2) * w < (1 / 100 : ℝ) * Real.exp w := by
+    have hmul := mul_lt_mul_of_pos_right hcore (Real.exp_pos (w / 2))
+    rw [mul_assoc, mul_comm w (Real.exp (w / 2)), hsq] at hmul
+    nlinarith
+  exact (le_div_iff₀ hwpos).2 hcross.le
+
+/- Theory 55, formula 55.30: the elementary constant
+   `2 ^ (-3/4) < 3/5`.  The proof compares fourth powers and then reverses the
+   inequality under positive inversion. -/
+theorem two_rpow_neg_three_quarters_lt_three_fifths :
+    (2 : ℝ) ^ (-(3 / 4 : ℝ)) < 3 / 5 := by
+  have hFourthPower :
+      (5 / 3 : ℝ) ^ (4 : ℕ) <
+        ((2 : ℝ) ^ (3 / 4 : ℝ)) ^ (4 : ℕ) := by
+    rw [← Real.rpow_mul_natCast (by norm_num : (0 : ℝ) ≤ 2)]
+    norm_num [Real.rpow_natCast]
+  have hRoot :
+      (5 / 3 : ℝ) < (2 : ℝ) ^ (3 / 4 : ℝ) :=
+    lt_of_pow_lt_pow_left₀ 4 (Real.rpow_nonneg (by norm_num) _) hFourthPower
+  have hInverse :
+      ((2 : ℝ) ^ (3 / 4 : ℝ))⁻¹ < ((5 / 3 : ℝ))⁻¹ :=
+    inv_strictAnti₀ (by norm_num) hRoot
+  rw [Real.rpow_neg (by norm_num : (0 : ℝ) ≤ 2)]
+  norm_num at hInverse ⊢
+  exact hInverse
+
+/- Theory 55, formula 55.30: the exact terminal arithmetic after the geometric
+   comparison and p-series estimate are supplied explicitly. -/
+theorem euler_tail_terminal_bound
+    {tail base : ℝ}
+    (hbaseUpper : base < 2)
+    (hTail : tail ≤
+      (1 / 2 : ℝ) * (1 / (1 - (2 : ℝ) ^ (-(3 / 4 : ℝ)))) * base) :
+    tail < 3 := by
+  have htwoUpper := two_rpow_neg_three_quarters_lt_three_fifths
+  have hden : 0 < 1 - (2 : ℝ) ^ (-(3 / 4 : ℝ)) := by linarith
+  have hInv : 1 / (1 - (2 : ℝ) ^ (-(3 / 4 : ℝ))) < (5 / 2 : ℝ) := by
+    rw [div_lt_iff₀ hden]
+    nlinarith
+  have hMid :
+      (1 / 2 : ℝ) * (1 / (1 - (2 : ℝ) ^ (-(3 / 4 : ℝ)))) * base <
+        (1 / 2 : ℝ) * (5 / 2) * 2 := by
+    have hFirst :
+        (1 / 2 : ℝ) * (1 / (1 - (2 : ℝ) ^ (-(3 / 4 : ℝ)))) <
+          (1 / 2 : ℝ) * (5 / 2) :=
+      mul_lt_mul_of_pos_left hInv (by norm_num)
+    have hAtBase :
+        (1 / 2 : ℝ) * (1 / (1 - (2 : ℝ) ^ (-(3 / 4 : ℝ)))) * base <
+          (1 / 2 : ℝ) * (1 / (1 - (2 : ℝ) ^ (-(3 / 4 : ℝ)))) * 2 :=
+      mul_lt_mul_of_pos_left hbaseUpper (by positivity)
+    have hAtTwo :
+        (1 / 2 : ℝ) * (1 / (1 - (2 : ℝ) ^ (-(3 / 4 : ℝ)))) * 2 <
+          (1 / 2 : ℝ) * (5 / 2) * 2 :=
+      mul_lt_mul_of_pos_right hFirst (by norm_num)
+    exact hAtBase.trans hAtTwo
+  exact hTail.trans_lt (hMid.trans (by norm_num))
+
+/- Theory 55, formula 55.31: Euler-product logarithm composition, conditional
+   only on the three preceding analytic/counting estimates and the exact log
+   decomposition. -/
+theorem euler_product_log_composition
+    {productLog primeSum increment tail L u : ℝ}
+    (hDecompose : productLog = primeSum + increment + tail)
+    (hPrime : primeSum < Real.log L + 3 / 2)
+    (hIncrement : increment < (189 / 160 : ℝ) * u)
+    (hTail : tail < 3) :
+    productLog < Real.log L + 7 + (189 / 160 : ℝ) * u := by
+  rw [hDecompose]
+  linarith
+
+/- Theory 55, formula 55.32: all logarithmic estimates from the actual
+   hypotheses `q ≥ 200`, `b = exp q`, and `u > 4b/q`. -/
+theorem log_le_one_twentieth_of_ge_200 {q : ℝ} (hq : 200 ≤ q) :
+    Real.log q ≤ q / 20 := by
+  have h200Domain : Real.exp 1 ≤ (200 : ℝ) :=
+    (le_of_lt Real.exp_one_lt_three).trans (by norm_num)
+  have hqDomain : Real.exp 1 ≤ q := h200Domain.trans hq
+  have hLog200 : Real.log (200 : ℝ) < 6 := by
+    rw [Real.log_lt_iff_lt_exp (by norm_num : (0 : ℝ) < 200)]
+    have hseries := Real.sum_le_exp_of_nonneg (x := (6 : ℝ)) (by norm_num) 8
+    norm_num [Finset.sum_range_succ] at hseries ⊢
+    linarith
+  have hRatio200 : Real.log (200 : ℝ) / 200 ≤ (1 / 20 : ℝ) := by
+    norm_num at hLog200 ⊢
+    linarith
+  have hRatio := Real.log_div_self_antitoneOn h200Domain hqDomain hq
+  have hqpos : 0 < q := by linarith
+  calc
+    Real.log q = (Real.log q / q) * q := by field_simp
+    _ ≤ (1 / 20 : ℝ) * q :=
+      mul_le_mul_of_nonneg_right (hRatio.trans hRatio200) hqpos.le
+    _ = q / 20 := by ring
+
+theorem log_nineteen_twentieth_gt_neg_one_nineteenth :
+    Real.log (19 / 20 : ℝ) > -(1 / 19 : ℝ) := by
+  have h := Real.log_lt_sub_one_of_pos (x := (20 / 19 : ℝ)) (by norm_num) (by norm_num)
+  rw [show (19 / 20 : ℝ) = (20 / 19 : ℝ)⁻¹ by norm_num, Real.log_inv]
+  norm_num at h ⊢
+  linarith
+
+theorem log_four_gt_four_thirds : Real.log (4 : ℝ) > 4 / 3 := by
+  rw [show (4 : ℝ) = 2 * 2 by norm_num, Real.log_mul (by norm_num) (by norm_num)]
+  nlinarith [Real.log_two_gt_d9]
+
+theorem smooth_log_lower_bounds
+    {q b u : ℝ}
+    (hq : 200 ≤ q) (hb : b = Real.exp q) (hu : 4 * b / q < u) :
+    q + Real.log 4 - Real.log q < Real.log u ∧
+      Real.log q - 1 / 19 < Real.log (Real.log u) := by
+  have hqpos : 0 < q := by linarith
+  have hbpos : 0 < b := by rw [hb]; positivity
+  have hlowerPos : 0 < 4 * b / q := by positivity
+  have hupos : 0 < u := hlowerPos.trans hu
+  have hFirst : Real.log (4 * b / q) < Real.log u :=
+    Real.log_lt_log hlowerPos hu
+  have hFirstRewrite : Real.log (4 * b / q) = q + Real.log 4 - Real.log q := by
+    rw [Real.log_div (by positivity) hqpos.ne', Real.log_mul (by norm_num) hbpos.ne', hb,
+      Real.log_exp]
+    ring
+  have hlogq := log_le_one_twentieth_of_ge_200 hq
+  have hloguLower : (19 / 20 : ℝ) * q < Real.log u := by
+    rw [hFirstRewrite] at hFirst
+    have hlog4pos : 0 < Real.log (4 : ℝ) := Real.log_pos (by norm_num)
+    nlinarith
+  have hnineteenPos : 0 < (19 / 20 : ℝ) * q := by positivity
+  have hSecondRaw :
+      Real.log ((19 / 20 : ℝ) * q) < Real.log (Real.log u) :=
+    Real.log_lt_log hnineteenPos hloguLower
+  have hSecondRewrite :
+      Real.log ((19 / 20 : ℝ) * q) =
+        Real.log q + Real.log (19 / 20 : ℝ) := by
+    rw [Real.log_mul (by norm_num) hqpos.ne']
+    ring
+  constructor
+  · rwa [← hFirstRewrite]
+  · rw [hSecondRewrite] at hSecondRaw
+    nlinarith [log_nineteen_twentieth_gt_neg_one_nineteenth]
+
+/- Theory 55, formula 55.29: the complete numerical composition from the
+   Stieltjes and Ein upper bounds.  Those two analytic bounds remain explicit
+   premises; all parameter and exponential algebra below is kernel-checked. -/
+theorem smooth_increment_terminal_bound
+    {q b u w δ increment einValue : ℝ}
+    (hq : 200 ≤ q) (hb : b = Real.exp q) (hu : 4 * b / q < u)
+    (hw : w = Real.log u + Real.log (Real.log u))
+    (hδ : δ ≤ 1 / 20)
+    (hEin : einValue ≤ (103 / 100 : ℝ) * (Real.exp w / w))
+    (hStieltjes : increment ≤ (21 / 20 : ℝ) * (δ + einValue)) :
+    increment < (189 / 160 : ℝ) * u := by
+  obtain ⟨hlogu, hloglogu⟩ := smooth_log_lower_bounds hq hb hu
+  have hqpos : 0 < q := by linarith
+  have hbpos : 0 < b := by rw [hb]; positivity
+  have hupos : 0 < u := (div_pos (mul_pos (by norm_num) hbpos) hqpos).trans hu
+  have hlogqLarge : (1 / 19 : ℝ) < Real.log q := by
+    have htwoq : (2 : ℝ) < q := by linarith
+    have hlogtwoq := Real.log_lt_log (by norm_num : (0 : ℝ) < 2) htwoq
+    nlinarith [Real.log_two_gt_d9]
+  have hloglogupos : 0 < Real.log (Real.log u) := by
+    linarith
+  have hwlog : Real.log u < w := by rw [hw]; linarith
+  have hwLarge : 100 < w := by
+    rw [hw]
+    nlinarith [log_four_gt_four_thirds]
+  have hwpos : 0 < w := by linarith
+  have hexpRatio : 1 < Real.exp w / w := by
+    rw [lt_div_iff₀ hwpos]
+    linarith [Real.add_one_lt_exp hwpos.ne']
+  have hδexp : δ < (1 / 20 : ℝ) * (Real.exp w / w) := by
+    nlinarith
+  have hCombined :
+      δ + einValue < (27 / 25 : ℝ) * (Real.exp w / w) := by
+    nlinarith
+  have hFirst :
+      increment < (567 / 500 : ℝ) * (Real.exp w / w) := by
+    calc
+      increment ≤ (21 / 20 : ℝ) * (δ + einValue) := hStieltjes
+      _ < (21 / 20 : ℝ) * ((27 / 25 : ℝ) * (Real.exp w / w)) :=
+        mul_lt_mul_of_pos_left hCombined (by norm_num)
+      _ = (567 / 500 : ℝ) * (Real.exp w / w) := by ring
+  have huOne : 1 < u := by
+    have hbOne : 1 < b := by rw [hb]; exact Real.one_lt_exp_iff.mpr hqpos
+    have hLowerOne : 1 < 4 * b / q := by
+      have hqUpper : q < b := by
+        rw [hb]
+        linarith [Real.add_one_lt_exp hqpos.ne']
+      rw [one_lt_div hqpos]
+      nlinarith
+    exact hLowerOne.trans hu
+  have hexpIdentity := smooth_exp_w_identity huOne hw
+  have hRatioU : Real.exp w / w < u := by
+    rw [div_lt_iff₀ hwpos, hexpIdentity]
+    exact mul_lt_mul_of_pos_left hwlog hupos
+  have hCoeff : (567 / 500 : ℝ) < 189 / 160 := by norm_num
+  calc
+    increment < (567 / 500 : ℝ) * (Real.exp w / w) := hFirst
+    _ < (567 / 500 : ℝ) * u := mul_lt_mul_of_pos_left hRatioU (by norm_num)
+    _ < (189 / 160 : ℝ) * u := mul_lt_mul_of_pos_right hCoeff hupos
+
 /- Theory 55, formula 55.33: exact rational slack. -/
 theorem smooth_rational_slack_identity :
     (4 / 3 : ℚ) - 1 / 19 - 189 / 160 = 907 / 9120 := by
@@ -432,6 +765,112 @@ theorem smooth_rational_slack_identity :
 theorem smooth_rational_slack_positive :
     (0 : ℚ) < 907 / 9120 := by
   norm_num
+
+/- Theory 55, formula 55.34: the full elementary implication from formula
+   55.32 and the exact rational slack. -/
+theorem smooth_decay_exceeds_four_b
+    {q b u w : ℝ}
+    (hq : 200 ≤ q) (hb : b = Real.exp q) (hu : 4 * b / q < u)
+    (hw : w = Real.log u + Real.log (Real.log u)) :
+    4 * b < u * (w - 189 / 160) := by
+  obtain ⟨hlogu, hloglogu⟩ := smooth_log_lower_bounds hq hb hu
+  have hqpos : 0 < q := by linarith
+  have hbpos : 0 < b := by rw [hb]; positivity
+  have hupos : 0 < u := (div_pos (mul_pos (by norm_num) hbpos) hqpos).trans hu
+  have hcore : q < w - 189 / 160 := by
+    rw [hw]
+    nlinarith [log_four_gt_four_thirds,
+      (show (0 : ℝ) < 907 / 9120 by norm_num)]
+  have hmul : u * q < u * (w - 189 / 160) :=
+    mul_lt_mul_of_pos_left hcore hupos
+  have hbase : 4 * b < u * q := by
+    rw [div_lt_iff₀ hqpos] at hu
+    nlinarith
+  exact hbase.trans hmul
+
+/- Theory 55, formula 55.35: final smooth-count composition.  Rankin's
+   counting bound and the Euler-product logarithm bound are explicit premises;
+   the exponential cancellation and `a⁻³` conclusion are kernel-checked. -/
+theorem smooth_count_terminal_bound
+    {psi Y a b L u w product : ℝ}
+    (hY : 0 < Y) (hL : 0 < L) (hProduct : 0 < product)
+    (haExp : a = Real.exp b)
+    (hRankin : psi ≤ Y * Real.exp (-u * w) * product)
+    (hProductLog :
+      Real.log product < Real.log L + 7 + (189 / 160 : ℝ) * u)
+    (hLogL : Real.log L < b)
+    (hDecay : 4 * b < u * (w - 189 / 160)) :
+    psi < Real.exp 7 * Y / a ^ 3 := by
+  have hProductExp :
+      product < Real.exp (Real.log L + 7 + (189 / 160 : ℝ) * u) :=
+    (Real.log_lt_iff_lt_exp hProduct).mp hProductLog
+  have hRankinFactorPos : 0 < Y * Real.exp (-u * w) := by positivity
+  have hFirst :
+      psi < Y * Real.exp (-u * w) *
+        Real.exp (Real.log L + 7 + (189 / 160 : ℝ) * u) :=
+    hRankin.trans_lt (mul_lt_mul_of_pos_left hProductExp hRankinFactorPos)
+  have hExpCombine :
+      Real.exp (-u * w) *
+          Real.exp (Real.log L + 7 + (189 / 160 : ℝ) * u) =
+        L * Real.exp 7 * Real.exp (-u * (w - 189 / 160)) := by
+    rw [← Real.exp_add]
+    calc
+      Real.exp (-u * w + (Real.log L + 7 + (189 / 160 : ℝ) * u)) =
+          Real.exp (Real.log L + 7 + (-u * (w - 189 / 160))) := by
+        congr 1
+        ring
+      _ = L * Real.exp 7 * Real.exp (-u * (w - 189 / 160)) := by
+        rw [show Real.log L + 7 + (-u * (w - 189 / 160)) =
+          (Real.log L + 7) + (-u * (w - 189 / 160)) by ring,
+          Real.exp_add, Real.exp_add, Real.exp_log hL]
+  have hFirstReshaped :
+      psi < (Real.exp 7 * Y) *
+        (L * Real.exp (-u * (w - 189 / 160))) := by
+    calc
+      psi < Y * Real.exp (-u * w) *
+          Real.exp (Real.log L + 7 + (189 / 160 : ℝ) * u) := hFirst
+      _ = (Real.exp 7 * Y) *
+          (L * Real.exp (-u * (w - 189 / 160))) := by
+        rw [mul_assoc, hExpCombine]
+        ring
+  have hExponent : -u * (w - 189 / 160) < -4 * b := by
+    nlinarith
+  have hExpDecay :
+      Real.exp (-u * (w - 189 / 160)) < Real.exp (-4 * b) :=
+    Real.exp_lt_exp.mpr hExponent
+  have hLExp : L < Real.exp b := (Real.log_lt_iff_lt_exp hL).mp hLogL
+  have hCoreFirst :
+      L * Real.exp (-u * (w - 189 / 160)) < L * Real.exp (-4 * b) :=
+    mul_lt_mul_of_pos_left hExpDecay hL
+  have hCoreSecond :
+      L * Real.exp (-4 * b) < Real.exp b * Real.exp (-4 * b) :=
+    mul_lt_mul_of_pos_right hLExp (Real.exp_pos _)
+  have hCoreExp :
+      L * Real.exp (-u * (w - 189 / 160)) < Real.exp (-3 * b) := by
+    calc
+      L * Real.exp (-u * (w - 189 / 160)) < L * Real.exp (-4 * b) := hCoreFirst
+      _ < Real.exp b * Real.exp (-4 * b) := hCoreSecond
+      _ = Real.exp (-3 * b) := by
+        rw [← Real.exp_add]
+        congr 1
+        ring
+  have hExpA : Real.exp (-3 * b) = 1 / a ^ 3 := by
+    calc
+      Real.exp (-3 * b) = (Real.exp (3 * b))⁻¹ := by
+        rw [show -3 * b = -(3 * b) by ring, Real.exp_neg]
+      _ = (Real.exp b ^ 3)⁻¹ := by
+        rw [show (3 : ℝ) * b = (3 : ℕ) * b by norm_num, Real.exp_nat_mul]
+      _ = 1 / a ^ 3 := by rw [haExp]; simp [one_div]
+  have hCore :
+      L * Real.exp (-u * (w - 189 / 160)) < 1 / a ^ 3 := by
+    rwa [← hExpA]
+  have hMultiplier : 0 < Real.exp 7 * Y := by positivity
+  calc
+    psi < (Real.exp 7 * Y) *
+        (L * Real.exp (-u * (w - 189 / 160))) := hFirstReshaped
+    _ < (Real.exp 7 * Y) * (1 / a ^ 3) :=
+      mul_lt_mul_of_pos_left hCore hMultiplier
+    _ = Real.exp 7 * Y / a ^ 3 := by ring
 
 /- Theory 55, formula 55.36: exact elementary constant used after `e < 3`. -/
 theorem smooth_remainder_integer_constant :

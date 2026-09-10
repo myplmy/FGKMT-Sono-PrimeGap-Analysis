@@ -1286,6 +1286,35 @@
 - 위 오류는 actual prime 실험·데이터·`test_result`를 변경하지 않았고,
   Theory 01 정본은 `sorry`/`admit`/project-local `axiom` 0건으로 커널 검증됐다.
 
+### E084 — Theory 55 smooth-remainder Lean 형식화의 정리 선택·정규화 시행착오
+
+- 분류: `CORRECTED_BEFORE_COMMIT / INVALID_RESULT_NONE`.
+- 첫 증명 초안에서 나눗셈 부등식의 목표 방향에 맞지 않는 `le_div_iff` rewrite와
+  strict/non-strict `mul_lt_mul` 변형을 사용해 Lean이 거부했다. 양의 분모를 먼저 증명하고
+  목표와 정확히 일치하는 `div_le_iff₀`, `lt_div_iff₀`, 양의 수 곱셈 정리로 교정했다.
+- `log 200 < 6`을 보일 때 \(e^6\)의 finite-series 항을 4까지만 합해 61밖에 얻지 못하는
+  불충분한 시도를 했다. 그 출력은 폐기하고 8항 합으로 \(e^6>200\)을 커널에서 증명했다.
+  `Real.log_div_self_antitoneOn`의 domain 인수와 strict monotonicity 호출도 처음에는 잘못
+  배치했으며, 실제 Mathlib 선언을 읽고 \(e\le200\le q\)를 명시해 고쳤다.
+- 존재하지 않는 이름 `Real.one_lt_exp`를 한 차례 사용했고, `Real.exp_nat_mul`에 실수 3과
+  자연수 3의 cast가 맞지 않는 초안도 있었다. 각각 고정 Mathlib의
+  `Real.one_lt_exp_iff`/`Real.add_one_lt_exp`와 명시적 cast equality로 교정했다.
+- improper integral을 처음 전개할 때 namespace가 다른 적분 정리, Gamma 값의 정규화,
+  integrand 곱셈 순서를 잘못 맞춘 시도가 있었다. Mathlib의
+  `integrableOn_exp_neg_Ioi`, `Real.GammaIntegral_convergent`,
+  `integral_rpow_mul_exp_neg_rpow`를 source에서 확인하고 integrand equality를 별도로 증명했다.
+- (55.30)의 실제 상수 \(2^{-3/4}<3/5\)를 초안에서는 추상 premise로 남겼으나, 원문과
+  대조한 뒤 네제곱 비교와 양의 역수 반전을 사용한 독립 정리로 보강했다. 이제 남은 premise는
+  prime/j-sum 비교이며 수치 상수 자체가 아니다.
+- 모든 시행착오는 Lean compile 단계에서 발견됐고 채택된 theorem은 없었다. 최종 상태는
+  direct Lean·원장 validator에서 통과했으며 executable source의 `axiom`/`sorry`/`admit`은
+  0건이다. 소수 계산, dataset, `test_result`, \(X_{\rm cert}\) 판정에는 영향이 없다.
+- 최종 묶음 검증 한 번은 작업 디렉터리가 이미 `lean/`인데 Python 생성기·검증기 경로 앞에
+  `lean/`을 다시 붙여 두 명령이 `can't open file ... lean/lean/tools/...`로 실패했다.
+  direct Lean과 `git diff --check`는 별개로 실행됐지만 실패한 두 Python 출력을 PASS로
+  세지 않았다. 저장소 루트에서 정확한 같은 명령을 다시 실행해 generator `GENERATED`,
+  validator `PASS`와 banned escape 0을 확인했다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

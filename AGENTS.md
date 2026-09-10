@@ -272,6 +272,12 @@ Codex의 저장소 스킬 정본 발견 경로는 `.agents/skills/`다. 현재 �
   엄격히 증가하며, 양의 end-bounded 정수 plateau의 오른쪽 끝점 minimum도
   proof escape 없이 `KERNEL_PASS`다. `G_end(x)=g_i`의 finite-record 상수성 전체는
   `T01-U004 PARTIAL_FORMALIZATION`으로 남아 있고 `X_cert`는 OPEN이다.
+- 같은 날 Theory 55 식 (55.24)--(55.35)의 smooth-remainder 경로를 분해했다.
+  (55.32), (55.34)와 기존 (55.33)은 `KERNEL_PASS`; Rankin·prime-harmonic·Stieltjes
+  source premise 이후 합성은 `CONDITIONAL_KERNEL_PASS`; (55.27)은
+  `SOURCE_THEOREM_UNFORMALIZED`; (55.28)은 finite-interval 비교가 남은
+  `PARTIAL_FORMALIZATION`이다. 이를 전체 smooth-number source proof나
+  `DEP-R08`, broad `SIV`, `X_cert`의 Lean 인증으로 확대하지 않는다.
 - 일부 수식의 Lean 통과를 전체 Sono/FMT 증명이나 `X_cert` 확정으로 확대 해석하지 않는다.
 
 ### 반복로그 정의: 밑이 아니라 반복 횟수

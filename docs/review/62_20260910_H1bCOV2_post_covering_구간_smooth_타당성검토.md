@@ -129,6 +129,26 @@ smooth-number theorem이나 정밀한 직접 bound로 교체하는 편이 효율
 `parameterized explicit`은 “식에 숨은 상수가 없고 정해진 parameter를 넣으면 검사할 수 있다”는
 뜻이다. “현재 모든 parameter를 넣어 최종 숫자까지 계산했다”는 뜻이 아니다.
 
+### 6.1 Lean 형식검증으로 다시 나눈 증거 경계
+
+2026-09-10 후속 감사에서는 [단일 Lean 파일](../../lean/FGKMTSono/TheoryVerification.lean)과
+[전수 검증 원장](../../lean/VERIFICATION_LEDGER.md)을 사용해 식 (55.24)--(55.35)를 다시
+나눴다.
+
+| 범위 | Lean 판정 | 뜻 |
+|---|---|---|
+| (55.32), (55.34), 기존 (55.33) | `KERNEL_PASS` | 실제 \(q,b,u,w\) 조건에서 로그 하계·유리수 여유·감쇠 결론을 proof escape 없이 검사 |
+| (55.24), (55.25), (55.29)--(55.31), (55.35) | `CONDITIONAL_KERNEL_PASS` | 적어 둔 source premise가 참이면 뒤의 지수·로그·상수 합성이 맞음을 검사 |
+| (55.26) | `PARTIAL_FORMALIZATION` | \(h(t)\)의 scalar 정의만 전사; prime sum과 적분 항등식은 미완료 |
+| (55.27) | `SOURCE_THEOREM_UNFORMALIZED` | Rosser--Schoenfeld theta bound와 Stieltjes 부분적분의 독립 Lean 증명 없음 |
+| (55.28) | `PARTIAL_FORMALIZATION` | half-tail, improper integral, \(51/50\) factor는 검사했지만 두 finite interval 비교 전체는 미완료 |
+
+특히 \(2^{-3/4}<3/5\), \(w\ge100\)에서의 half-tail, improper integral
+\(\int_0^\infty e^{-t}(1+2t/w)\,dt=1+2/w\)는 직접 커널 검증했다. 반대로 논문에서
+가져오는 소수 역수합과 Chebyshev--Stieltjes 입력을 Lean의 가정 없는 정리처럼 표시하지
+않았다. 그러므로 위 표는 project proof의 전사·계산 오류 위험을 줄이지만, 제6절의
+`DEP-R08` 판정이나 \(X_{\rm cert}\) 상태를 더 강하게 만들지는 않는다.
+
 ## 7. 검증 코드의 역할과 한계
 
 [helper](../../source/h1bcov2_post_covering.py)는 `Fraction`으로 equal-grid, floor, 복원식과

@@ -142,9 +142,86 @@
       "declarations": ["relative_error_budget"]
     },
     {
+      "formula_id": "55.24",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["rankin_power_normalization", "rankin_bound_after_normalization"]
+    },
+    {
+      "formula_id": "55.25",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["prime_harmonic_terminal_bound"]
+    },
+    {
+      "formula_id": "55.26",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["smoothStieltjesKernel"]
+    },
+    {
+      "formula_id": "55.27",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "T55-U002",
+      "status": "DEFINITION_ONLY",
+      "declarations": ["smoothEin"]
+    },
+    {
+      "formula_id": "55.28",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "exponential_half_tail_bound",
+        "exponential_linear_improper_integral",
+        "exponential_linear_integral_factor"
+      ]
+    },
+    {
+      "formula_id": "T55-U003",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["ein_split_upper_composition"]
+    },
+    {
+      "formula_id": "55.29",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["smooth_exp_w_identity", "smooth_increment_terminal_bound"]
+    },
+    {
+      "formula_id": "55.30",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "two_rpow_neg_three_quarters_lt_three_fifths",
+        "euler_tail_terminal_bound"
+      ]
+    },
+    {
+      "formula_id": "55.31",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["euler_product_log_composition"]
+    },
+    {
+      "formula_id": "55.32",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "log_le_one_twentieth_of_ge_200",
+        "log_nineteen_twentieth_gt_neg_one_nineteenth",
+        "log_four_gt_four_thirds",
+        "smooth_log_lower_bounds"
+      ]
+    },
+    {
       "formula_id": "55.33",
       "status": "KERNEL_PASS",
       "declarations": ["smooth_rational_slack_identity", "smooth_rational_slack_positive"]
+    },
+    {
+      "formula_id": "55.34",
+      "status": "KERNEL_PASS",
+      "declarations": ["smooth_decay_exceeds_four_b"]
+    },
+    {
+      "formula_id": "55.35",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["smooth_count_terminal_bound"]
     },
     {
       "formula_id": "55.36",
