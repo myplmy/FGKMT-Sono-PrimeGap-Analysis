@@ -1208,6 +1208,22 @@
   과잉탐지였다. 그 출력은 폐기했고 수식 delimiter는 사람 검토로 교정했다. 최종 자동 증거는
   strict UTF-8·제어문자·끝 공백, JSON parse, 연속 식번호, 링크, 회귀검사처럼 판정 규칙이
   명확한 항목으로 제한한다.
+- closure 링크 검사 한 줄에서는 `foreach($m in[regex]...)`처럼 `in` 뒤 공백을 빠뜨려
+  PowerShell parser 오류를 한 번 더 냈다. 파일 변경 전 실패였으며
+  `foreach($m in ([regex]::Matches(...)))`로 고친 동일 검사는 handoff local link 9개와
+  본체 commit object를 issue 0으로 확인했다.
+
+### E081 — H1b-COV2 handoff 초안의 전체 commit hash 환각
+
+- 분류: `CORRECTED_BEFORE_COMMIT / PROVENANCE_CONTAMINATION_NONE`.
+- 본체 commit의 짧은 해시 `5629565`만 확인한 상태에서 전체 40자 해시를 조회하지 않고
+  임의의 나머지 문자를 붙여 handoff 초안에 적었다. Git object를 가리키지 않는 잘못된
+  provenance였으며 수학 결과·코드·이미 완료된 본체 commit 자체에는 영향이 없다.
+- handoff를 commit하기 전에 `git rev-parse HEAD`로 실제
+  `5629565b8a5cafd742134eeafb72848c65314f04`를 확인해 교정했다.
+- 재발 방지: 전체 hash가 필요한 문서는 짧은 console hash를 확장하지 말고 반드시
+  `git rev-parse <commit>`의 출력을 그대로 사용한다. 문서에 쓴 hash는 commit 전
+  `git cat-file -e <hash>^{commit}`으로 존재 여부도 검사한다.
 
 ## 4. 아직 남은 오류 위험
 
