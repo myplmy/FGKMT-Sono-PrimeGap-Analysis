@@ -153,13 +153,24 @@
     },
     {
       "formula_id": "55.26",
-      "status": "PARTIAL_FORMALIZATION",
-      "declarations": ["smoothStieltjesKernel"]
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "smoothStieltjesKernel",
+        "smoothPrimeIncrement",
+        "smoothStieltjesKernel_integral"
+      ]
     },
     {
       "formula_id": "55.27",
-      "status": "SOURCE_THEOREM_UNFORMALIZED",
-      "declarations": []
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "smoothStieltjesKernelExtended",
+        "smoothStieltjesKernelExtended_one",
+        "smoothPrimeKernel_term",
+        "smoothPrimeIncrement_kernel_sum",
+        "rosserSchoenfeld_constant_slack",
+        "smoothStieltjes_terminal_composition"
+      ]
     },
     {
       "formula_id": "T55-U002",
@@ -168,17 +179,32 @@
     },
     {
       "formula_id": "55.28",
-      "status": "PARTIAL_FORMALIZATION",
+      "status": "KERNEL_PASS",
       "declarations": [
+        "expm1DivContinuous",
+        "continuous_expm1DivContinuous",
+        "expm1DivContinuous_eq",
+        "raw_expm1_intervalIntegrable",
+        "raw_expm1_div_le_exp",
+        "raw_expm1_lower_half_bound",
         "exponential_half_tail_bound",
+        "exponential_linear_integrableOn",
+        "exponential_linear_interval_le_improper",
         "exponential_linear_improper_integral",
-        "exponential_linear_integral_factor"
+        "exponential_linear_integral_factor",
+        "reciprocal_half_interval_bound",
+        "raw_expm1_upper_transform",
+        "raw_expm1_upper_half_bound"
       ]
     },
     {
       "formula_id": "T55-U003",
-      "status": "CONDITIONAL_KERNEL_PASS",
-      "declarations": ["ein_split_upper_composition"]
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "smoothEin_split",
+        "ein_split_upper_composition",
+        "smoothEin_upper_bound"
+      ]
     },
     {
       "formula_id": "55.29",

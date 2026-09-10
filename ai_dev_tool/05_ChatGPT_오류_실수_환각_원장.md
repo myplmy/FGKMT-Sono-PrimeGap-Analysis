@@ -1315,6 +1315,33 @@
   세지 않았다. 저장소 루트에서 정확한 같은 명령을 다시 실행해 generator `GENERATED`,
   validator `PASS`와 banned escape 0을 확인했다.
 
+### E085 — Theory 55 잔여 적분 형식화의 API 탐색·원장 선언 인식 오류
+
+- 분류: `CORRECTED_BEFORE_COMMIT / INVALID_RESULT_NONE`.
+- Mathlib 초기 광범위 검색 출력이 잘려 `Chebyshev.theta`가 없는 것처럼 보였지만,
+  `NumberTheory/Chebyshev.lean`을 집중 검색해 theta 정의·Abel summation·`theta_le_log4_mul_x`를
+  확인했다. 다만 필요한 Rosser--Schoenfeld `1.01624` drop-in theorem은 없었다.
+  광범위 검색의 부정확한 초기 인상을 source 판정에 쓰지 않았다.
+- 임시 `Probe.lean`에서 적분·Gamma API를 탐색할 때 namespace를 잘못 추측한 초안과
+  interval change-of-variable의 정규화가 맞지 않는 초안을 Lean이 거부했다. 고정 Mathlib
+  source의 실제 정리명·형을 확인해 교정했고, 최종 단일 theory 파일은 direct Lean을
+  경고 없이 통과했다. 임시 probe는 정본이 아니며 commit 전 제거한다.
+- 검증 상태 JSON을 처음 재생성한 뒤 validator가 `@[simp] theorem` 선언을 자신의
+  단순 선언 정규식으로 인식하지 못해 1회 실패했다. 해당 simp 속성은 증명에
+  필요하지 않아 제거하고 direct Lean을 다시 통과한 후 validator도 declaration 87,
+  banned escape 0으로 PASS했다. 첫 validator 실패를 최종 PASS로 세지 않는다.
+- 전체 unittest를 알고 있던 sandbox `TemporaryDirectory` 제약 안에서 먼저 실행해
+  664건 중 82건의 `PermissionError`를 다시 발생시켰다. 이 출력은 회귀 실패로
+  사용하지 않고, 기존 허가 및 저장소 규약대로 정상 로컬 권한에서 같은 664건을
+  74.349초에 모두 PASS했다.
+- 실패한 sandbox test가 만든 workspace `tmp` 16개를 정리하는 첫 PowerShell에서
+  `Remove-Item`의 non-terminating error를 종료코드에 반영하지 않고 `removed=16`이라는
+  부정확한 요약을 출력했다. 이 요약을 성공 증거로 쓰지 않았다. 각 절대경로가
+  저장소 `tmp` 하위임을 다시 검증하고 `$ErrorActionPreference='Stop'`, 삭제 후 존재
+  재검사를 사용한 정상 로컬 권한 명령으로 16개 전부를 제거했다.
+- 이 시행착오는 actual prime 계산·dataset·`test_result`를 변경하지 않았고,
+  (55.27)의 source theorem을 가정 없이 증명했다고 선언하지 않았다. `X_cert`는 OPEN이다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

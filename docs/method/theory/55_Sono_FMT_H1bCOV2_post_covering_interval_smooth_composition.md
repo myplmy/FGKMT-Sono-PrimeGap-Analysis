@@ -427,3 +427,17 @@ toy PASS는 이 해석적 증명의 독립 형식 인증이 아니다.
 다음 root는 `DEP-R09`: Sono의 numerical PAP에서 \(C_{\rm PAP}=1-e^{-2}\),
 \(D_{\rm PAP}=160\), exceptional modulus와 actual interval을 source equation별로 다시 고정하고
 finite cutoff·오차를 합성하는 일이다. 그 뒤 `DEP-R10`, `DEP-R11`, `DEP-R12` 순서다.
+
+### 10.1 2026-09-11 Lean 잔여 적분 검증 경계
+
+[단일 Lean 파일](../../../lean/FGKMTSono/TheoryVerification.lean)에서 (55.26)의
+const-rpow 적분 항등식, (55.28)의 두 finite-interval 비교와 untagged Ein
+`103/100` 상계를 proof escape 없이 검증했다. (55.27)은 finite prime-sum
+정규화, endpoint \(h(1)=\delta\), \(1.01624<21/20\), Ein 종단 치환까지 형식화했다.
+
+그러나 고정 Mathlib에는 Rosser--Schoenfeld의 \(\vartheta(t)<1.01624t\) 정리가
+없고, 해당 theta 상계를 감소 kernel에 적용하는 Stieltjes/Abel 비교도 독립
+커널 증명으로 닫지 않았다. 따라서 (55.26), (55.28), Ein `103/100`은
+`KERNEL_PASS`, (55.27) 전체는 `PARTIAL_FORMALIZATION`이다. 상태 정본은
+[Lean 검증 원장](../../../lean/VERIFICATION_LEDGER.md)이며, 이 보강은 `DEP-R08`을
+Lean으로 전체 재증명하거나 R09--R12·\(X_{\rm cert}\)를 닫지 않는다.

@@ -466,17 +466,140 @@ theorem prime_harmonic_terminal_bound
     nlinarith [sq_nonneg (L - 1)]
   exact ⟨hPrimeSource, by linarith⟩
 
-/- Theory 55, formula 55.26: the scalar kernel used in the Stieltjes step.
-   The prime sum and its Stieltjes representation remain outside this
-   definition-only transcription. -/
+/- Theory 55, formula 55.26: the scalar kernel used in the Stieltjes step. -/
 noncomputable def smoothStieltjesKernel (δ t : ℝ) : ℝ :=
   (t ^ δ - 1) / (t * Real.log t)
+
+/- Theory 55, formula 55.26: exact integral representation of the scalar
+   kernel away from the removable endpoint `t = 1`.  The endpoint value is
+   handled separately in formula 55.27. -/
+theorem smoothStieltjesKernel_integral {δ t : ℝ} (ht : 0 < t) (ht1 : t ≠ 1) :
+    smoothStieltjesKernel δ t = ∫ v in (0 : ℝ)..δ, t ^ (v - 1) := by
+  unfold smoothStieltjesKernel
+  have hlog : Real.log t ≠ 0 := Real.log_ne_zero_of_pos_of_ne_one ht ht1
+  have hderiv : ∀ v : ℝ,
+      HasDerivAt (fun u : ℝ ↦ t ^ (u - 1) / Real.log t) (t ^ (v - 1)) v := by
+    intro v
+    simpa [hlog] using
+      (((hasDerivAt_id v).sub_const 1).const_rpow ht).div_const (Real.log t)
+  have hint : IntervalIntegrable (fun v : ℝ ↦ t ^ (v - 1)) MeasureTheory.volume 0 δ :=
+    (Real.continuous_const_rpow ht.ne').comp
+      (continuous_id.sub continuous_const) |>.intervalIntegrable 0 δ
+  rw [intervalIntegral.integral_eq_sub_of_hasDerivAt (fun v _ ↦ hderiv v) hint]
+  rw [Real.rpow_sub_one ht.ne']
+  norm_num [Real.rpow_neg_one]
+  field_simp
+
+/- Theory 55, formulae 55.26--55.27: endpoint extension and the finite prime
+   sum whose exact Stieltjes interpretation is the remaining source-level
+   obligation. -/
+noncomputable def smoothStieltjesKernelExtended (δ t : ℝ) : ℝ :=
+  if t = 1 then δ else smoothStieltjesKernel δ t
+
+noncomputable def smoothPrimeIncrement (δ z : ℝ) : ℝ :=
+  ∑ p ∈ Finset.Icc 0 ⌊z⌋₊ with p.Prime,
+    (((p : ℝ) ^ δ - 1) / (p : ℝ))
+
+theorem smoothStieltjesKernelExtended_one (δ : ℝ) :
+    smoothStieltjesKernelExtended δ 1 = δ := by
+  simp [smoothStieltjesKernelExtended]
+
+theorem smoothPrimeKernel_term (δ : ℝ) {p : ℕ} (hp : p.Prime) :
+    smoothStieltjesKernelExtended δ p * Real.log p =
+      ((p : ℝ) ^ δ - 1) / (p : ℝ) := by
+  have hpPos : (0 : ℝ) < p := by exact_mod_cast hp.pos
+  have hpOne : (p : ℝ) ≠ 1 := by exact_mod_cast hp.ne_one
+  have hlog : Real.log (p : ℝ) ≠ 0 := Real.log_ne_zero_of_pos_of_ne_one hpPos hpOne
+  simp only [smoothStieltjesKernelExtended, hpOne, ↓reduceIte]
+  unfold smoothStieltjesKernel
+  field_simp
+
+theorem smoothPrimeIncrement_kernel_sum (δ z : ℝ) :
+    smoothPrimeIncrement δ z =
+      ∑ p ∈ Finset.Icc 0 ⌊z⌋₊ with p.Prime,
+        smoothStieltjesKernelExtended δ p * Real.log p := by
+  unfold smoothPrimeIncrement
+  apply Finset.sum_congr rfl
+  intro p hpMem
+  rw [Finset.mem_filter] at hpMem
+  exact (smoothPrimeKernel_term δ hpMem.2).symm
+
+theorem rosserSchoenfeld_constant_slack :
+    (1.01624 : ℝ) < 21 / 20 := by
+  norm_num
 
 /- Theory 55, untagged formula T55-U002: the entire exponential integral.
    Its value at the removable singularity `v = 0` is irrelevant to the
    interval integral. -/
 noncomputable def smoothEin (w : ℝ) : ℝ :=
   ∫ v in (0 : ℝ)..w, (Real.exp v - 1) / v
+
+/- Theory 55, formula 55.27: exact downstream endpoint and Ein substitution.
+   `hPartialSummation` deliberately remains a premise: it contains the
+   Rosser--Schoenfeld theta estimate and Stieltjes/Abel comparison that are not
+   independently formalized by the pinned Mathlib. -/
+theorem smoothStieltjes_terminal_composition
+    {δ w z kernelIntegral : ℝ}
+    (hPartialSummation : smoothPrimeIncrement δ z ≤
+      (21 / 20 : ℝ) * (smoothStieltjesKernelExtended δ 1 + kernelIntegral))
+    (hKernelIntegral : kernelIntegral = smoothEin w) :
+    smoothPrimeIncrement δ z ≤ (21 / 20 : ℝ) * (δ + smoothEin w) := by
+  rw [smoothStieltjesKernelExtended_one, hKernelIntegral] at hPartialSummation
+  exact hPartialSummation
+
+/- Theory 55, formula 55.28: continuous extension of `(exp v - 1) / v`
+   through its removable singularity.  The raw quotient differs only at the
+   null singleton `{0}`, so it has the same interval integrals. -/
+noncomputable def expm1DivContinuous (v : ℝ) : ℝ :=
+  Function.update (fun x : ℝ ↦ (Real.exp x - Real.exp 0) / (x - 0)) 0 1 v
+
+theorem continuous_expm1DivContinuous : Continuous expm1DivContinuous := by
+  rw [continuous_iff_continuousAt]
+  intro v
+  by_cases hv : v = 0
+  · subst v
+    unfold expm1DivContinuous
+    simpa using (Real.hasDerivAt_exp 0).continuousAt_div
+  · unfold expm1DivContinuous
+    rw [continuousAt_update_of_ne hv]
+    fun_prop (disch := aesop)
+
+theorem expm1DivContinuous_eq {v : ℝ} (hv : v ≠ 0) :
+    expm1DivContinuous v = (Real.exp v - 1) / v := by
+  simp [expm1DivContinuous, hv]
+
+theorem raw_expm1_intervalIntegrable (a b : ℝ) :
+    IntervalIntegrable (fun v : ℝ ↦ (Real.exp v - 1) / v) MeasureTheory.volume a b := by
+  have hcont : IntervalIntegrable expm1DivContinuous MeasureTheory.volume a b :=
+    continuous_expm1DivContinuous.intervalIntegrable a b
+  have hae : (fun v : ℝ ↦ (Real.exp v - 1) / v) =ᵐ[MeasureTheory.volume]
+      expm1DivContinuous := by
+    filter_upwards [MeasureTheory.Measure.ae_ne MeasureTheory.volume (0 : ℝ)] with v hv
+    exact (expm1DivContinuous_eq hv).symm
+  exact hcont.congr_ae (MeasureTheory.ae_restrict_of_ae hae.symm)
+
+theorem raw_expm1_div_le_exp {v : ℝ} (hv : 0 < v) :
+    (Real.exp v - 1) / v ≤ Real.exp v := by
+  rw [div_le_iff₀ hv]
+  have hbase := Real.add_one_le_exp (-v)
+  have hmul := mul_le_mul_of_nonneg_left hbase (Real.exp_pos v).le
+  rw [← Real.exp_add] at hmul
+  norm_num at hmul
+  nlinarith
+
+theorem raw_expm1_lower_half_bound {w : ℝ} (hw : 0 ≤ w) :
+    (∫ v in (0 : ℝ)..w / 2, (Real.exp v - 1) / v) ≤ Real.exp (w / 2) := by
+  have hhalf : 0 ≤ w / 2 := by positivity
+  have hmono :
+      (∫ v in (0 : ℝ)..w / 2, (Real.exp v - 1) / v) ≤
+        ∫ v in (0 : ℝ)..w / 2, Real.exp v := by
+    apply intervalIntegral.integral_mono_on_of_le_Ioo hhalf
+      (raw_expm1_intervalIntegrable 0 (w / 2)) intervalIntegral.intervalIntegrable_exp
+    intro v hv
+    exact raw_expm1_div_le_exp hv.1
+  rw [integral_exp] at hmono
+  norm_num at hmono
+  linarith
 
 /- Theory 55, formula 55.28 and untagged Ein bound: exact scalar constants
    after the two integral pieces have been bounded. -/
@@ -533,6 +656,107 @@ theorem exponential_linear_improper_integral {w : ℝ} :
     MeasureTheory.integral_const_mul, integral_exp_neg_Ioi_zero, hMomentIntegral]
   ring
 
+theorem exponential_linear_integrableOn {w : ℝ} :
+    MeasureTheory.IntegrableOn
+      (fun t : ℝ ↦ Real.exp (-t) * (1 + 2 * t / w)) (Set.Ioi 0) := by
+  have hExp : MeasureTheory.IntegrableOn
+      (fun t : ℝ ↦ Real.exp (-t)) (Set.Ioi 0) :=
+    integrableOn_exp_neg_Ioi 0
+  have hMoment : MeasureTheory.IntegrableOn
+      (fun t : ℝ ↦ t * Real.exp (-t)) (Set.Ioi 0) := by
+    simpa only [show (2 : ℝ) - 1 = 1 by norm_num, Real.rpow_one, mul_comm] using
+      (Real.GammaIntegral_convergent (s := (2 : ℝ)) (by norm_num))
+  have hFunction :
+      (fun t : ℝ ↦ Real.exp (-t) * (1 + 2 * t / w)) =
+        (fun t : ℝ ↦ Real.exp (-t) + (2 / w) * (t * Real.exp (-t))) := by
+    funext t
+    ring
+  rw [hFunction]
+  exact hExp.add (hMoment.const_mul (2 / w))
+
+theorem exponential_linear_interval_le_improper {w M : ℝ}
+    (hw : 0 < w) (hM : 0 ≤ M) :
+    (∫ t in (0 : ℝ)..M, Real.exp (-t) * (1 + 2 * t / w)) ≤
+      ∫ t in Set.Ioi (0 : ℝ), Real.exp (-t) * (1 + 2 * t / w) := by
+  rw [intervalIntegral.integral_of_le hM]
+  apply MeasureTheory.setIntegral_mono_set exponential_linear_integrableOn
+  · filter_upwards [MeasureTheory.ae_restrict_mem measurableSet_Ioi] with t ht
+    have hquot : 0 ≤ 2 * t / w := div_nonneg (mul_nonneg (by norm_num) ht.le) hw.le
+    exact mul_nonneg (Real.exp_pos (-t)).le (by linarith)
+  · exact Set.Ioc_subset_Ioi_self.eventuallyLE
+
+theorem reciprocal_half_interval_bound {w t : ℝ}
+    (hw : 0 < w) (ht0 : 0 ≤ t) (htHalf : t ≤ w / 2) :
+    1 / (w - t) ≤ (1 / w) * (1 + 2 * t / w) := by
+  have hden : 0 < w - t := by linarith
+  rw [div_le_iff₀ hden]
+  rw [one_div]
+  field_simp
+  nlinarith [mul_nonneg ht0 (show 0 ≤ w - 2 * t by linarith)]
+
+theorem raw_expm1_upper_transform {w t : ℝ}
+    (hw : 100 ≤ w) (ht0 : 0 ≤ t) (htHalf : t ≤ w / 2) :
+    (Real.exp (w - t) - 1) / (w - t) ≤
+      (Real.exp w / w) * (Real.exp (-t) * (1 + 2 * t / w)) := by
+  have hwpos : 0 < w := by linarith
+  have hden : 0 < w - t := by linarith
+  have hnum : Real.exp (w - t) - 1 ≤ Real.exp (w - t) := by linarith
+  have hfirst : (Real.exp (w - t) - 1) / (w - t) ≤ Real.exp (w - t) / (w - t) :=
+    (div_le_div_iff_of_pos_right hden).2 hnum
+  have hrecip := reciprocal_half_interval_bound hwpos ht0 htHalf
+  have hmul := mul_le_mul_of_nonneg_left hrecip (Real.exp_pos (w - t)).le
+  calc
+    (Real.exp (w - t) - 1) / (w - t) ≤ Real.exp (w - t) / (w - t) := hfirst
+    _ = Real.exp (w - t) * (1 / (w - t)) := by ring
+    _ ≤ Real.exp (w - t) * ((1 / w) * (1 + 2 * t / w)) := hmul
+    _ = (Real.exp w / w) * (Real.exp (-t) * (1 + 2 * t / w)) := by
+      rw [show w - t = w + (-t) by ring, Real.exp_add]
+      ring
+
+theorem raw_expm1_upper_half_bound {w : ℝ} (hw : 100 ≤ w) :
+    (∫ v in w / 2..w, (Real.exp v - 1) / v) ≤
+      (Real.exp w / w) *
+        (∫ t in Set.Ioi (0 : ℝ), Real.exp (-t) * (1 + 2 * t / w)) := by
+  have hwpos : 0 < w := by linarith
+  have hhalf : 0 ≤ w / 2 := by positivity
+  have htransform :
+      (∫ v in w / 2..w, (Real.exp v - 1) / v) =
+        ∫ t in (0 : ℝ)..w / 2, (Real.exp (w - t) - 1) / (w - t) := by
+    symm
+    convert intervalIntegral.integral_comp_sub_left
+      (fun v : ℝ ↦ (Real.exp v - 1) / v) w using 1
+    ring_nf
+  have hleft : IntervalIntegrable
+      (fun t : ℝ ↦ (Real.exp (w - t) - 1) / (w - t)) MeasureTheory.volume 0 (w / 2) := by
+    have hraw := raw_expm1_intervalIntegrable (w / 2) w
+    have hcomp := hraw.comp_sub_left w
+    convert hcomp.symm using 1 <;> ring_nf
+  have hright : IntervalIntegrable
+      (fun t : ℝ ↦ (Real.exp w / w) *
+        (Real.exp (-t) * (1 + 2 * t / w))) MeasureTheory.volume 0 (w / 2) := by
+    apply Continuous.intervalIntegrable
+    fun_prop (disch := exact hwpos.ne')
+  have hmono :
+      (∫ t in (0 : ℝ)..w / 2, (Real.exp (w - t) - 1) / (w - t)) ≤
+        ∫ t in (0 : ℝ)..w / 2, (Real.exp w / w) *
+          (Real.exp (-t) * (1 + 2 * t / w)) := by
+    apply intervalIntegral.integral_mono_on_of_le_Ioo hhalf hleft hright
+    intro t ht
+    exact raw_expm1_upper_transform hw ht.1.le ht.2.le
+  have hfinite := exponential_linear_interval_le_improper hwpos hhalf
+  have hscale : 0 ≤ Real.exp w / w := by positivity
+  calc
+    (∫ v in w / 2..w, (Real.exp v - 1) / v) =
+        ∫ t in (0 : ℝ)..w / 2, (Real.exp (w - t) - 1) / (w - t) := htransform
+    _ ≤ ∫ t in (0 : ℝ)..w / 2, (Real.exp w / w) *
+        (Real.exp (-t) * (1 + 2 * t / w)) := hmono
+    _ = (Real.exp w / w) *
+        (∫ t in (0 : ℝ)..w / 2, Real.exp (-t) * (1 + 2 * t / w)) := by
+      rw [intervalIntegral.integral_const_mul]
+    _ ≤ (Real.exp w / w) *
+        (∫ t in Set.Ioi (0 : ℝ), Real.exp (-t) * (1 + 2 * t / w)) :=
+      mul_le_mul_of_nonneg_left hfinite hscale
+
 theorem exponential_half_tail_bound {w : ℝ} (hw : 100 ≤ w) :
     Real.exp (w / 2) ≤ (1 / 100 : ℝ) * Real.exp w / w := by
   have hwpos : 0 < w := by linarith
@@ -564,6 +788,48 @@ theorem exponential_half_tail_bound {w : ℝ} (hw : 100 ≤ w) :
     rw [mul_assoc, mul_comm w (Real.exp (w / 2)), hsq] at hmul
     nlinarith
   exact (le_div_iff₀ hwpos).2 hcross.le
+
+theorem smoothEin_split {w : ℝ} :
+    smoothEin w =
+      (∫ v in (0 : ℝ)..w / 2, (Real.exp v - 1) / v) +
+        ∫ v in w / 2..w, (Real.exp v - 1) / v := by
+  unfold smoothEin
+  exact (intervalIntegral.integral_add_adjacent_intervals
+    (raw_expm1_intervalIntegrable 0 (w / 2))
+    (raw_expm1_intervalIntegrable (w / 2) w)).symm
+
+/- Theory 55, formula 55.28: both finite-interval comparisons and the final
+   `103/100` bound, including the removable singularity at zero. -/
+theorem smoothEin_upper_bound {w : ℝ} (hw : 100 ≤ w) :
+    smoothEin w ≤ (103 / 100 : ℝ) * (Real.exp w / w) := by
+  have hwpos : 0 < w := by linarith
+  have hscale : 0 ≤ Real.exp w / w := by positivity
+  have hLowerRaw := raw_expm1_lower_half_bound hwpos.le
+  have hHalfTail := exponential_half_tail_bound hw
+  have hLower :
+      (∫ v in (0 : ℝ)..w / 2, (Real.exp v - 1) / v) ≤
+        (1 / 100 : ℝ) * (Real.exp w / w) := by
+    calc
+      (∫ v in (0 : ℝ)..w / 2, (Real.exp v - 1) / v) ≤ Real.exp (w / 2) :=
+        hLowerRaw
+      _ ≤ (1 / 100 : ℝ) * Real.exp w / w := hHalfTail
+      _ = (1 / 100 : ℝ) * (Real.exp w / w) := by ring
+  have hUpperRaw := raw_expm1_upper_half_bound hw
+  rw [exponential_linear_improper_integral] at hUpperRaw
+  have hFactor := exponential_linear_integral_factor hw
+  have hUpperScale :
+      (Real.exp w / w) * (1 + 2 / w) ≤
+        (Real.exp w / w) * (51 / 50 : ℝ) :=
+    mul_le_mul_of_nonneg_left hFactor hscale
+  have hUpper :
+      (∫ v in w / 2..w, (Real.exp v - 1) / v) ≤
+        (51 / 50 : ℝ) * (Real.exp w / w) := by
+    calc
+      (∫ v in w / 2..w, (Real.exp v - 1) / v) ≤
+          (Real.exp w / w) * (1 + 2 / w) := hUpperRaw
+      _ ≤ (Real.exp w / w) * (51 / 50 : ℝ) := hUpperScale
+      _ = (51 / 50 : ℝ) * (Real.exp w / w) := by ring
+  exact ein_split_upper_composition smoothEin_split hLower hUpper
 
 /- Theory 55, formula 55.30: the elementary constant
    `2 ^ (-3/4) < 3/5`.  The proof compares fourth powers and then reverses the
@@ -698,15 +964,14 @@ theorem smooth_log_lower_bounds
     nlinarith [log_nineteen_twentieth_gt_neg_one_nineteenth]
 
 /- Theory 55, formula 55.29: the complete numerical composition from the
-   Stieltjes and Ein upper bounds.  Those two analytic bounds remain explicit
-   premises; all parameter and exponential algebra below is kernel-checked. -/
+   remaining Stieltjes premise.  The Ein upper bound is discharged internally
+   by the kernel proof of formula 55.28 and T55-U003. -/
 theorem smooth_increment_terminal_bound
-    {q b u w δ increment einValue : ℝ}
+    {q b u w δ increment : ℝ}
     (hq : 200 ≤ q) (hb : b = Real.exp q) (hu : 4 * b / q < u)
     (hw : w = Real.log u + Real.log (Real.log u))
     (hδ : δ ≤ 1 / 20)
-    (hEin : einValue ≤ (103 / 100 : ℝ) * (Real.exp w / w))
-    (hStieltjes : increment ≤ (21 / 20 : ℝ) * (δ + einValue)) :
+    (hStieltjes : increment ≤ (21 / 20 : ℝ) * (δ + smoothEin w)) :
     increment < (189 / 160 : ℝ) * u := by
   obtain ⟨hlogu, hloglogu⟩ := smooth_log_lower_bounds hq hb hu
   have hqpos : 0 < q := by linarith
@@ -722,6 +987,8 @@ theorem smooth_increment_terminal_bound
   have hwLarge : 100 < w := by
     rw [hw]
     nlinarith [log_four_gt_four_thirds]
+  have hEin : smoothEin w ≤ (103 / 100 : ℝ) * (Real.exp w / w) :=
+    smoothEin_upper_bound hwLarge.le
   have hwpos : 0 < w := by linarith
   have hexpRatio : 1 < Real.exp w / w := by
     rw [lt_div_iff₀ hwpos]
@@ -729,12 +996,12 @@ theorem smooth_increment_terminal_bound
   have hδexp : δ < (1 / 20 : ℝ) * (Real.exp w / w) := by
     nlinarith
   have hCombined :
-      δ + einValue < (27 / 25 : ℝ) * (Real.exp w / w) := by
+      δ + smoothEin w < (27 / 25 : ℝ) * (Real.exp w / w) := by
     nlinarith
   have hFirst :
       increment < (567 / 500 : ℝ) * (Real.exp w / w) := by
     calc
-      increment ≤ (21 / 20 : ℝ) * (δ + einValue) := hStieltjes
+      increment ≤ (21 / 20 : ℝ) * (δ + smoothEin w) := hStieltjes
       _ < (21 / 20 : ℝ) * ((27 / 25 : ℝ) * (Real.exp w / w)) :=
         mul_lt_mul_of_pos_left hCombined (by norm_num)
       _ = (567 / 500 : ℝ) * (Real.exp w / w) := by ring

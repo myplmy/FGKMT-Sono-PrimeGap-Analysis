@@ -449,7 +449,7 @@
     {
       "theory": "55",
       "source_file": "docs/method/theory/55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c",
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df",
       "display_formula_count": 42,
       "tagged_formula_count": 39,
       "untagged_formula_count": 3
@@ -10094,7 +10094,7 @@
       "end_line": 40,
       "tagged": true,
       "latex": "a=\\log X,\\qquad b=\\log a,\\qquad q=\\log b,\\qquad\n c=\\frac1{153600\\log5},\\qquad\n Y=cXa\\frac q b.\n \\tag{55.1}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.2",
@@ -10104,7 +10104,7 @@
       "end_line": 47,
       "tagged": true,
       "latex": "A\\ge1,\\qquad0<\\varepsilon\\le1,\\qquad0<\\eta\\le\\frac14\n \\tag{55.2}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.3",
@@ -10114,7 +10114,7 @@
       "end_line": 56,
       "tagged": true,
       "latex": "S_*\\subseteq T\\subseteq S_*\\cup R,\n \\tag{55.3}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.4",
@@ -10124,7 +10124,7 @@
       "end_line": 65,
       "tagged": true,
       "latex": "J=\\left\\lceil\\frac2\\varepsilon\\right\\rceil,\\qquad h=\\frac1J,\\qquad\n I_j=((j-1)h,jh]\\quad(1\\le j\\le J).\n \\tag{55.4}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.5",
@@ -10134,7 +10134,7 @@
       "end_line": 71,
       "tagged": true,
       "latex": "\\frac{\\varepsilon}{2+\\varepsilon}\\le h\\le\\frac\\varepsilon2,\\qquad h\\ge\\frac\\varepsilon3.\n \\tag{55.5}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.6",
@@ -10144,7 +10144,7 @@
       "end_line": 80,
       "tagged": true,
       "latex": "|U_{\\alpha,\\beta}|\\le(\\beta-\\alpha)+2h\n \\le(\\beta-\\alpha)+\\varepsilon\n \\le2(\\beta-\\alpha)+\\varepsilon.\n \\tag{55.6}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.7",
@@ -10154,7 +10154,7 @@
       "end_line": 93,
       "tagged": true,
       "latex": "a\\ge J^4\n \\tag{55.7}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.8",
@@ -10164,7 +10164,7 @@
       "end_line": 105,
       "tagged": true,
       "latex": "R_A=\\frac{80cb}{A},\\qquad\n m=\\lfloor\\log_5R_A\\rfloor,\\qquad\n A'=5^{-m}80cb.\n \\tag{55.8}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.9",
@@ -10174,7 +10174,7 @@
       "end_line": 110,
       "tagged": true,
       "latex": "R_A\\ge5.\n \\tag{55.9}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.10",
@@ -10184,7 +10184,7 @@
       "end_line": 115,
       "tagged": true,
       "latex": "A\\le A'<5A.\n \\tag{55.10}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.11",
@@ -10194,7 +10194,7 @@
       "end_line": 120,
       "tagged": true,
       "latex": "m<\\log_5b=\\frac{\\log_3X}{\\log5}.\n \\tag{55.11}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.12",
@@ -10204,7 +10204,7 @@
       "end_line": 132,
       "tagged": true,
       "latex": "\\mu_j=80ch\\frac{Xb}{a},\\qquad r_0=\\frac1{100b^2}\n \\tag{55.12}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.13",
@@ -10214,7 +10214,7 @@
       "end_line": 141,
       "tagged": true,
       "latex": "e_j:=\\frac{#(E\\cap I_jY)}{\\rho M_{0,j}}\n \\le\\frac2{(1-r_0)Ahb}\n <\\frac7{A\\varepsilon b}.\n \\tag{55.13}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.14",
@@ -10224,7 +10224,7 @@
       "end_line": 149,
       "tagged": true,
       "latex": "t=\\eta/8\n \\tag{55.14}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.15",
@@ -10234,7 +10234,7 @@
       "end_line": 154,
       "tagged": true,
       "latex": "r_0\\le\\eta/8,\\qquad e_*:=\\frac2{(1-r_0)Ahb}\\le\\eta/8.\n \\tag{55.15}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.16",
@@ -10244,7 +10244,7 @@
       "end_line": 162,
       "tagged": true,
       "latex": "\\left|\\frac{Z_j}{\\rho\\mu_j}-1\\right|\n \\le r_0+(1+r_0)(t+e_*)\n \\le\\frac{49}{128}\\eta<\\eta.\n \\tag{55.16}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.17",
@@ -10254,7 +10254,7 @@
       "end_line": 175,
       "tagged": true,
       "latex": "F_{\\rm out}=\n \\frac{4800c}{b^5}+\\frac{800c}{b^{10}}\n +\\frac{112kb^4}{a^{11}}+\\frac{3Kb^6}{a^{17}}.\n \\tag{55.17}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.18",
@@ -10264,7 +10264,7 @@
       "end_line": 183,
       "tagged": true,
       "latex": "\\epsilon_h=X^{-1/(20\\cdot10^{m+1})},\\qquad\n \\xi=3^m/b,\n \\tag{55.18}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.19",
@@ -10274,7 +10274,7 @@
       "end_line": 188,
       "tagged": true,
       "latex": "\\alpha_h=(1+\\epsilon_h)e^\\xi-1,\\qquad\n \\beta_h=(1+\\epsilon_h)e^{2\\xi}-1\n \\tag{55.19}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.20",
@@ -10284,7 +10284,7 @@
       "end_line": 195,
       "tagged": true,
       "latex": "v_*:=\\beta_h+2\\alpha_h+\n \\frac{2(1+\\alpha_h)a}{(1-r_0)AhX}\n \\tag{55.20}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.21",
@@ -10294,7 +10294,7 @@
       "end_line": 200,
       "tagged": true,
       "latex": "F_{\\rm in}:=\\frac{Kv_*}{t^2}.\n \\tag{55.21}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.22",
@@ -10304,7 +10304,7 @@
       "end_line": 218,
       "tagged": true,
       "latex": "z=X^{q/(4b)},\\quad L=\\log z=\\frac{aq}{4b},\\quad\n u=\\frac{\\log Y}{L}.\n \\tag{55.22}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.23",
@@ -10314,7 +10314,7 @@
       "end_line": 224,
       "tagged": true,
       "latex": "b\\ge e^{200},\\qquad caq/b>1,\\qquad\n w:=\\log u+\\log\\log u,\\qquad0<\\delta:=w/L\\le1/20.\n \\tag{55.23}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.24",
@@ -10324,7 +10324,7 @@
       "end_line": 234,
       "tagged": true,
       "latex": "\\Psi(Y,z)\\le Y^\\alpha\\prod_{p\\le z}(1-p^{-\\alpha})^{-1}\n =Y e^{-uw}\\prod_{p\\le z}(1-p^{-\\alpha})^{-1}.\n \\tag{55.24}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "T55-U001",
@@ -10334,7 +10334,7 @@
       "end_line": 241,
       "tagged": false,
       "latex": "B=\\gamma+\\sum_p\\{\\log(1-1/p)+1/p\\}<\\gamma<1",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.25",
@@ -10344,7 +10344,7 @@
       "end_line": 248,
       "tagged": true,
       "latex": "\\sum_{p\\le z}\\frac1p\n <\\log L+B+\\frac1{2L^2}\n <\\log L+\\frac32.\n \\tag{55.25}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.26",
@@ -10354,7 +10354,7 @@
       "end_line": 258,
       "tagged": true,
       "latex": "S_\\delta:=\\sum_{p\\le z}\\frac{p^\\delta-1}{p},\\qquad\n h(t):=\\frac{t^\\delta-1}{t\\log t}\n      =\\int_0^\\delta t^{v-1}\\,dv.\n \\tag{55.26}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.27",
@@ -10364,7 +10364,7 @@
       "end_line": 271,
       "tagged": true,
       "latex": "\\begin{aligned}\n S_\\delta\n &=\\int_{1^-}^{z}h(t)\\,d\\vartheta(t)\\\\\n &\\le\\frac{21}{20}\n \\left\\{h(1)+\\int_1^z h(t)\\,dt\\right\\}\\\\\n &=\\frac{21}{20}\\{\\delta+\\operatorname{Ein}(w)\\},\n\\end{aligned}\n \\tag{55.27}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "T55-U002",
@@ -10374,7 +10374,7 @@
       "end_line": 276,
       "tagged": false,
       "latex": "\\operatorname{Ein}(w):=\\int_0^w\\frac{e^v-1}{v}\\,dv,\n \\qquad \\delta L=w.",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.28",
@@ -10384,7 +10384,7 @@
       "end_line": 294,
       "tagged": true,
       "latex": "\\begin{aligned}\n \\int_0^{w/2}\\frac{e^v-1}{v}\\,dv\n &\\le e^{w/2}\n \\le\\frac1{100}\\frac{e^w}{w},\\\\\n \\int_{w/2}^{w}\\frac{e^v-1}{v}\\,dv\n &\\le\\frac{e^w}{w}\n \\int_0^\\infty e^{-t}\\left(1+\\frac{2t}{w}\\right)dt\n \\le\\frac{51}{50}\\frac{e^w}{w}.\n\\end{aligned}\n \\tag{55.28}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "T55-U003",
@@ -10394,7 +10394,7 @@
       "end_line": 299,
       "tagged": false,
       "latex": "\\operatorname{Ein}(w)\\le\\frac{103}{100}\\frac{e^w}{w}.",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.29",
@@ -10404,7 +10404,7 @@
       "end_line": 307,
       "tagged": true,
       "latex": "S_\\delta\n <\\frac{21}{20}\\frac{27}{25}\\frac{e^w}{w}\n =\\frac{567}{500}\\frac{e^w}{w}\n <\\frac{189}{160}u.\n \\tag{55.29}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.30",
@@ -10414,7 +10414,7 @@
       "end_line": 314,
       "tagged": true,
       "latex": "\\sum_p\\sum_{j\\ge2}\\frac{p^{-j\\alpha}}j\n \\le\\frac12\\frac1{1-2^{-3/4}}\\sum_{n\\ge2}n^{-3/2}<3.\n \\tag{55.30}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.31",
@@ -10424,7 +10424,7 @@
       "end_line": 322,
       "tagged": true,
       "latex": "\\log\\prod_{p\\le z}(1-p^{-\\alpha})^{-1}\n <\\log L+7+\\frac{189}{160}u.\n \\tag{55.31}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.32",
@@ -10434,7 +10434,7 @@
       "end_line": 332,
       "tagged": true,
       "latex": "\\log u>q+\\log4-\\log q,\\qquad\n \\log\\log u>\\log q-1/19.\n \\tag{55.32}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.33",
@@ -10444,7 +10444,7 @@
       "end_line": 337,
       "tagged": true,
       "latex": "\\frac43-\\frac1{19}-\\frac{189}{160}=\\frac{907}{9120}>0\n \\tag{55.33}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.34",
@@ -10454,7 +10454,7 @@
       "end_line": 342,
       "tagged": true,
       "latex": "u\\left(w-\\frac{189}{160}\\right)>4b.\n \\tag{55.34}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.35",
@@ -10464,7 +10464,7 @@
       "end_line": 347,
       "tagged": true,
       "latex": "\\boxed{\\Psi(Y,z)<e^7\\frac{Y}{a^3}.}\n \\tag{55.35}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.36",
@@ -10474,7 +10474,7 @@
       "end_line": 356,
       "tagged": true,
       "latex": "\\#R<4e^7\\frac{Y}{a^2}\n =4e^7c\\frac q b\\frac Xa\n <\\boxed{\\frac q{17b}\\frac Xa}.\n \\tag{55.36}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.37",
@@ -10484,7 +10484,7 @@
       "end_line": 367,
       "tagged": true,
       "latex": "\\frac q{17b}\\le A\\eta\\varepsilon\n \\tag{55.37}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.38",
@@ -10494,7 +10494,7 @@
       "end_line": 372,
       "tagged": true,
       "latex": "A(1-\\eta)\\frac Xa\\le\\#T\\le5A(1+2\\eta)\\frac Xa,\n \\tag{55.38}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     },
     {
       "formula_id": "55.39",
@@ -10504,7 +10504,7 @@
       "end_line": 379,
       "tagged": true,
       "latex": "\\boxed{\n \\#\\bigl(T\\cap(\\alpha Y,\\beta Y]\\bigr)\n \\le5A(1+2\\eta)\\bigl(2(\\beta-\\alpha)+\\varepsilon\\bigr)\\frac Xa.}\n \\tag{55.39}",
-      "source_sha256": "50e4cb68fc9329abc8cfbe7c7318ea1aa7d834dadbb07deb834829885497587c"
+      "source_sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df"
     }
   ],
   "issues": [],

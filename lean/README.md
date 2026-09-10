@@ -41,12 +41,14 @@ Set-Location -LiteralPath 'Z:\FGKMT-Sono-PrimeGap-Analysis\lean'
 커널로 검증했다. 이는 finite record의 완전성이나 전체 Sono/FMT 증명,
 `X_cert`를 인증하지 않는다.
 
-2026-09-10 Theory 55 batch에서는 식 (55.24)--(55.35)의 smooth-remainder 경로를
-초등 계산과 외부 해석 입력으로 분해했다. 식 (55.32), (55.34)는 독립
-`KERNEL_PASS`이고, 기존 식 (55.33)도 같은 상태다. Rankin counting, 명시적
-prime-harmonic bound, Stieltjes 비교를 premise로 받는 downstream 합성은
-`CONDITIONAL_KERNEL_PASS`다. 식 (55.27)은 `SOURCE_THEOREM_UNFORMALIZED`, 식
-(55.28)은 유한구간 적분 비교가 남은 `PARTIAL_FORMALIZATION`이다. 따라서 이 batch도
+2026-09-10--11 Theory 55 batch에서는 식 (55.24)--(55.35)의 smooth-remainder
+경로를 초등 계산과 외부 해석 입력으로 분해했다. 식 (55.26)의 kernel 적분
+항등식, (55.28)의 두 finite-interval 비교, untagged Ein `103/100` 상계,
+(55.32), (55.34), 기존 (55.33)은 독립 `KERNEL_PASS`다. (55.29)는 이제 Ein
+상계를 내부에서 커널 정리로 호출하지만 Stieltjes 입력은 여전히 premise다.
+식 (55.27)의 prime-sum 정규화, `h(1)=δ`, decimal slack, 종단 합성은 형식화했으나,
+Rosser--Schoenfeld `θ(t)<1.01624t`와 그 상계를 쓰는 Stieltjes/Abel 비교의
+독립 Lean 증명은 없어 식 전체는 `PARTIAL_FORMALIZATION`이다. 따라서 이 batch도
 smooth-number source theorem 전체나 `X_cert`를 인증하지 않는다.
 
 원문 theory를 수정한 뒤에는 생성기와 검증기를 차례로 실행한다. 생성기는 display 수식의

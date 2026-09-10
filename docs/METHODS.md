@@ -1041,3 +1041,11 @@ FMT §4의 smooth remainder는 actual parameter에 한정한 Rankin–Rosser–S
 로 명시화했다. 최종 \(A,\varepsilon,\eta\)는 R11에서 PAP/UB 오차와 함께 정해야 하므로
 numerical covering cutoff나 \(X_{\rm cert}\)를 아직 계산하지 않는다. R01–R08 actual child가
 parameterized explicit이고 다음은 R09 numerical PAP다.
+
+2026-09-11 Lean 보강에서 (55.26)의 kernel 적분 항등식, (55.28)의 두
+finite-interval 비교와 Ein `103/100` 상계는 `KERNEL_PASS`로 올랐다.
+(55.27)은 prime-sum 정규화·endpoint·decimal slack·종단 합성까지 검증한
+`PARTIAL_FORMALIZATION`이다. 고정 Mathlib의 Chebyshev/Abel 기반은 있지만
+Rosser--Schoenfeld `theta < 1.01624 t`와 해당 Stieltjes 비교의 독립 형식증명은
+남았다. 이 증거 경계는 R08 판정을 바꾸지 않고 R09--R12·\(X_{\rm cert}\)를
+계속 OPEN으로 유지한다.

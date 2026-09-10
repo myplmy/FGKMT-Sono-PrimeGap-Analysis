@@ -139,15 +139,26 @@ smooth-number theorem이나 정밀한 직접 bound로 교체하는 편이 효율
 |---|---|---|
 | (55.32), (55.34), 기존 (55.33) | `KERNEL_PASS` | 실제 \(q,b,u,w\) 조건에서 로그 하계·유리수 여유·감쇠 결론을 proof escape 없이 검사 |
 | (55.24), (55.25), (55.29)--(55.31), (55.35) | `CONDITIONAL_KERNEL_PASS` | 적어 둔 source premise가 참이면 뒤의 지수·로그·상수 합성이 맞음을 검사 |
-| (55.26) | `PARTIAL_FORMALIZATION` | \(h(t)\)의 scalar 정의만 전사; prime sum과 적분 항등식은 미완료 |
-| (55.27) | `SOURCE_THEOREM_UNFORMALIZED` | Rosser--Schoenfeld theta bound와 Stieltjes 부분적분의 독립 Lean 증명 없음 |
-| (55.28) | `PARTIAL_FORMALIZATION` | half-tail, improper integral, \(51/50\) factor는 검사했지만 두 finite interval 비교 전체는 미완료 |
+| (55.26) | `KERNEL_PASS` | \(S_\delta\), \(h(t)\)를 정의하고 \(t>0,t\ne1\)에서 const-rpow 미분과 FTC로 \(h(t)=\int_0^\delta t^{v-1}dv\)를 검증 |
+| (55.27) | `PARTIAL_FORMALIZATION` | finite prime-sum 정규화, \(h(1)=\delta\), \(1.01624<21/20\), 종단 Ein 치환은 검증; Rosser--Schoenfeld theta bound와 Stieltjes/Abel 비교는 외부 premise |
+| (55.28) | `KERNEL_PASS` | 0의 removable singularity를 continuous extension·AE equality로 처리하고 두 finite interval 비교와 improper integral 상계를 전체 검증 |
+| untagged Ein \(103/100\) bound | `KERNEL_PASS` | 정확한 interval split과 (55.28)을 합성해 \(w\ge100\)에서 최종 상계를 검증 |
 
 특히 \(2^{-3/4}<3/5\), \(w\ge100\)에서의 half-tail, improper integral
-\(\int_0^\infty e^{-t}(1+2t/w)\,dt=1+2/w\)는 직접 커널 검증했다. 반대로 논문에서
-가져오는 소수 역수합과 Chebyshev--Stieltjes 입력을 Lean의 가정 없는 정리처럼 표시하지
-않았다. 그러므로 위 표는 project proof의 전사·계산 오류 위험을 줄이지만, 제6절의
-`DEP-R08` 판정이나 \(X_{\rm cert}\) 상태를 더 강하게 만들지는 않는다.
+\(\int_0^\infty e^{-t}(1+2t/w)\,dt=1+2/w\)뿐 아니라, 날것의
+\((e^v-1)/v\)가 \(v=0\)에서 정의되지 않는 문제도 연속 확장과 거의 모든 곳
+동치로 처리했다. 이제 (55.29)는 Ein 상계를 외부 premise로 받지 않고 이 커널
+정리를 내부에서 쓴다.
+
+반면 고정 Mathlib에는 `Chebyshev.theta`와 Abel summation 기반은 있지만,
+필요한 Rosser--Schoenfeld \(\vartheta(t)<1.01624t\) 전 범위 정리는 없다. 현재
+제공되는 즉시 사용 가능한 상계는 \(\vartheta(t)\le(\log4)t\)로 상수가 더 크다.
+따라서 (55.27)을 완전 `KERNEL_PASS`로 올리려면 Rosser--Schoenfeld 정리의
+finite verification을 포함한 별도 형식화와 그 상계를 감소 kernel에 적용하는
+Stieltjes/Abel lemma가 필요하다. 이를 `axiom`, `sorry`, `admit`으로 우회하지 않았다.
+그러므로 이번 보강은 project proof의 적분·endpoint·상수 전사 오류 위험을
+크게 줄였지만, 제6절의 `DEP-R08` 판정이나 \(X_{\rm cert}\) 상태를 더 강하게
+만들지는 않는다.
 
 ## 7. 검증 코드의 역할과 한계
 
