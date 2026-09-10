@@ -219,6 +219,7 @@ handoff/          세션별 YYYYMMDDHHmm_HANDOFF.md; 기존 메모 비덮어쓰�
 .agents/skills/   Codex가 자동 탐색하는 프로젝트 스킬
 ai_dev_tool/      이 프로젝트의 계산 함정·착수·핸드오프·작업원장 절차
 ai_dev_tool/work_ledgers/ 장기 작업의 진행 중 원장과 `-done` 완료 원장
+lean/             고정 Lean/Mathlib 프로젝트, 전수 수식 원장과 단일 theory 형식검증 파일
 test_done/         완료 BAT/PS1/SH와 실험 전용 helper를 `-done` suffix·SHA-256으로 보존; 재실행 금지
 scripts/common/    재사용 공통 로깅·실행 기능
 scripts/runners/   특정 완료 실험과 분리된 공통 runner
@@ -250,6 +251,22 @@ Codex의 저장소 스킬 정본 발견 경로는 `.agents/skills/`다. 현재 �
 - issue, PR, push, merge 같은 외부 변경 스킬은 사용자의 명시적 요청 범위에서만 사용한다.
 
 ## 수학적 불변식
+
+### Lean 형식검증 증거 경계
+
+- Lean 도구chain은 `lean/lean-toolchain`, `lean/lakefile.toml`, `lean/lake-manifest.json`으로
+  고정하고, 관측 kernel·dependency commit은 `lean/README.md`에 기록한다. 임의 upgrade는 금지한다.
+- theory 형식화는 요청대로 `lean/FGKMTSono/TheoryVerification.lean` 한 파일에 모으고,
+  각 선언 주석에 원문 theory·식 ID를 적는다. 전수 수식 상태 정본은
+  `lean/VERIFICATION_LEDGER.md`, 기계 inventory는
+  `lean/verification/formula_inventory_v1.json`이다.
+- `KERNEL_PASS`, `CONDITIONAL_KERNEL_PASS`, `DEFINITION_ONLY`, `PARTIAL_FORMALIZATION`,
+  `SOURCE_THEOREM_UNFORMALIZED`, `NOT_YET_FORMALIZED`을 서로 바꾸어 쓰지 않는다.
+  source theorem을 premise로 받은 downstream 대수 증명은 독립 source 증명이 아니다.
+- project-local `axiom`, `sorry`, `admit`으로 검증 항목을 닫지 않는다. `.lake/` build cache는
+  commit하지 않는다. inventory·원장 검증과 `lake build`가 모두 PASS해야 현재 batch를
+  kernel 검증 완료로 기록한다.
+- 일부 수식의 Lean 통과를 전체 Sono/FMT 증명이나 `X_cert` 확정으로 확대 해석하지 않는다.
 
 ### 반복로그 정의: 밑이 아니라 반복 횟수
 

@@ -1,0 +1,173 @@
+{
+  "schema_version": "fgkmt-lean-verification-status-v1",
+  "default_status": "NOT_YET_FORMALIZED",
+  "formulae": [
+    {
+      "formula_id": "T01-U001",
+      "status": "KERNEL_PASS",
+      "declarations": ["iterLog", "fgkmtScale", "iterLog_one", "iterLog_two", "iterLog_three", "iterLog_four", "fgkmtScale_unfold"]
+    },
+    {
+      "formula_id": "T01-U002",
+      "status": "DEFINITION_ONLY",
+      "declarations": ["PrimeGapDatum", "PrimeGapDatum.endPrime", "endBoundedMaxGap", "endEligible", "endEligible_at_endpoint", "endEligible_false_before"]
+    },
+    {
+      "formula_id": "T01-U003",
+      "status": "DEFINITION_ONLY",
+      "declarations": ["startBoundedMaxGap", "startEligible"]
+    },
+    {
+      "formula_id": "T01-U004",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["onEndBoundedPlateau", "plateau_integer_upper"]
+    },
+    {
+      "formula_id": "T01-U005",
+      "status": "DEFINITION_ONLY",
+      "declarations": ["intervalMinimum"]
+    },
+    {
+      "formula_id": "T07-U001",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["local_discrepancy_identity"]
+    },
+    {
+      "formula_id": "T07-U002",
+      "status": "KERNEL_PASS",
+      "declarations": ["local_discrepancy_identity"]
+    },
+    {
+      "formula_id": "T07-U003",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["local_count_upper_of_discrepancy_lower"]
+    },
+    {
+      "formula_id": "T07-U004",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["local_count_upper_of_discrepancy_lower"]
+    },
+    {
+      "formula_id": "T07-U005",
+      "status": "KERNEL_PASS",
+      "declarations": ["integer_upper_bound_uses_floor"]
+    },
+    {
+      "formula_id": "T10-U001",
+      "status": "DEFINITION_ONLY",
+      "declarations": ["riskyStart"]
+    },
+    {
+      "formula_id": "T10-U002",
+      "status": "KERNEL_PASS",
+      "declarations": ["candidate_superset_eliminates"]
+    },
+    {
+      "formula_id": "T10-U003",
+      "status": "KERNEL_PASS",
+      "declarations": ["witness_family_eliminates"]
+    },
+    {
+      "formula_id": "T10-U004",
+      "status": "KERNEL_PASS",
+      "declarations": ["witness_family_eliminates"]
+    },
+    {
+      "formula_id": "T10-U005",
+      "status": "KERNEL_PASS",
+      "declarations": ["shared_prime_witness_is_strict"]
+    },
+    {
+      "formula_id": "T11-U001",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["modulus_lift_transition_monotone"]
+    },
+    {
+      "formula_id": "55.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["equalGridJ", "equalGridH"]
+    },
+    {
+      "formula_id": "55.5",
+      "status": "KERNEL_PASS",
+      "declarations": ["equalGrid_width_bounds"]
+    },
+    {
+      "formula_id": "55.6",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["grid_cover_length_budget"]
+    },
+    {
+      "formula_id": "55.10",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["floor_log_rescaling_window"]
+    },
+    {
+      "formula_id": "55.13",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["exception_restoration_bound"]
+    },
+    {
+      "formula_id": "55.14",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["relative_error_budget"]
+    },
+    {
+      "formula_id": "55.15",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["relative_error_budget"]
+    },
+    {
+      "formula_id": "55.16",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["relative_error_budget"]
+    },
+    {
+      "formula_id": "55.33",
+      "status": "KERNEL_PASS",
+      "declarations": ["smooth_rational_slack_identity", "smooth_rational_slack_positive"]
+    },
+    {
+      "formula_id": "55.36",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["smooth_remainder_integer_constant"]
+    },
+    {
+      "formula_id": "55.39",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["final_interval_upper_composition"]
+    },
+    {
+      "formula_id": "27.9",
+      "status": "PARSE_REVIEW_REQUIRED",
+      "declarations": []
+    },
+    {
+      "formula_id": "27.10",
+      "status": "PARSE_REVIEW_REQUIRED",
+      "declarations": []
+    },
+    {
+      "formula_id": "27.11",
+      "status": "PARSE_REVIEW_REQUIRED",
+      "declarations": []
+    },
+    {
+      "formula_id": "27.12",
+      "status": "PARSE_REVIEW_REQUIRED",
+      "declarations": []
+    },
+    {
+      "formula_id": "27.13",
+      "status": "PARSE_REVIEW_REQUIRED",
+      "declarations": []
+    }
+  ],
+  "supplemental_theorems": [
+    {
+      "source": "Theory 55 section 6 sequential outer/inner choice",
+      "status": "KERNEL_PASS",
+      "declarations": ["sequential_positive_probability_choice"]
+    }
+  ]
+}

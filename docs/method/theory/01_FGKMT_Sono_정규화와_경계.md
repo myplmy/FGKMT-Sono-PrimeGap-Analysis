@@ -37,7 +37,7 @@ G_{start}(x)=\max_{p_n\le x}(p_{n+1}-p_n)
 record `i`의 start, end, gap을 `s_i,e_i,g_i`라 하면 canonical 정수 plateau는
 
 \[
-e_i\le x\le e_{i+1}-1,qquad G_{end}(x)=g_i.
+e_i\le x\le e_{i+1}-1,\qquad G_{end}(x)=g_i.
 \]
 
 양의 scale 구간에서 `F`가 증가하므로

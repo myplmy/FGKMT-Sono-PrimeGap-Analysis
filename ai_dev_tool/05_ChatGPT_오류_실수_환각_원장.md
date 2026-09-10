@@ -1225,6 +1225,40 @@
   `git rev-parse <commit>`의 출력을 그대로 사용한다. 문서에 쓴 hash는 commit 전
   `git cat-file -e <hash>^{commit}`으로 존재 여부도 검사한다.
 
+### E082 — Lean 전수 원장 구축의 작업 순서·provenance·sandbox 오류
+
+- 분류: `CORRECTED_BEFORE_COMMIT / INVALID_RESULT_NONE`.
+- `FGKMTSono.lean`에 새 target import를 먼저 넣고 target 파일 생성과 build를 병렬화해 최초
+  build가 `no such file ... TheoryVerification.lean`으로 실패했다. 기존 Lean 설치나 사용자
+  scaffold 문제가 아니라 작업 순서 오류다. target 생성 뒤 직접 kernel 검사와 전체
+  `lake build`를 모두 exit 0으로 다시 수행했다.
+- Theory 27의 식 (27.9)–(27.13)에 누락된 display 종료기호 5개를 발견하고 처음에는 원문을
+  교정했으나, downstream JSON이 이 역사 문서의 SHA-256을 고정한다는 사실을 뒤늦게 확인했다.
+  소급 교정을 취소하고 byte hash `e138f779...ff12`까지 복원했다. 전수 parser만 다섯 경계를
+  안전 복구하며 `PARSE_REVIEW_REQUIRED`로 표시한다. hash 계약 확인을 patch보다 먼저 했어야 한다.
+- sandbox 안 `git restore`는 `.git/index.lock` 접근 거부로 실패해, 허가된 범위의 정확한 단일
+  경로 restore를 외부 권한으로 재실행했다. line-ending 변환 뒤 raw SHA가 달라진 단계도 있어
+  대상 하나만 LF byte로 복원하고 Git blob·downstream SHA를 모두 확인했다.
+- 첫 inventory parser의 blank-line 복구 규칙은 정상적인 닫는 `\\]` 앞 공백이 있는 Theory 31
+  세 식까지 과잉복구했다. 다음 nonblank가 실제 종료기호인지 보는 look-ahead를 추가해 최종
+  복구는 Theory 27의 5개만 남겼다. 한 번에 전체 JSON을 stdout으로 넘긴 시도도 출력 절단으로
+  무효였으며 section/chunk 출력과 결정적 생성기로 교체했다.
+- 임시 PowerShell helper 이름 `H`가 내장 `Get-History` alias와 충돌해 해시 점검 출력이 오염됐다.
+  이를 `Get-TaskHash`로 바꾸고 실제 SHA를 다시 확인했다. 실패 출력은 provenance 증거로 쓰지 않았다.
+- 최종 version 점검 한 번을 `lean/` 작업 디렉터리에서 실행하면서 Mathlib·Theory 27 경로 앞에
+  불필요한 `lean/` 또는 빠진 `../`를 사용해 두 read-only 조회가 실패했다. 저장소 루트에서
+  정확한 경로로 즉시 재실행해 Mathlib HEAD와 Theory 27 SHA를 확인했다. 첫 조회를 검증으로 세지 않는다.
+- 전체 664 tests를 sandbox 안에서 먼저 실행해 `TemporaryDirectory` 접근 거부로 82 errors가
+  발생했다. 이는 코드 회귀가 아니며, 사용자가 이미 허가한 정상 로컬 권한에서 같은 suite를
+  재실행해 664/664 PASS를 확인했다. 앞으로 이 저장소의 전체 suite는 원장의 기존 규칙대로
+  처음부터 허가된 정상 로컬 권한에서 실행한다.
+- strict UTF-8 감사의 첫 PowerShell 명령에서 E080에 이미 기록한 `$file:` 보간 실수를 다시
+  범해 parser 단계에서 중단했다. `${file}:${n}`으로 즉시 고쳐 재실행했다. 두 번째 실행은
+  binary `__pycache__/*.pyc`까지 text로 읽어 3건을 잘못 보고했으며, 생성 source만 대상으로
+  범위를 고쳐 22파일 issue 0을 확인했다. 첫 두 출력은 최종 검증 증거로 쓰지 않는다.
+- 위 실패들은 actual prime 계산이나 `test_result`를 만들지 않았고, Lean PASS 수나 수학적
+  결론을 늘리는 데 사용하지 않았다. 특히 전체 Sono/FMT 증명과 `X_cert`는 계속 OPEN이다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.
