@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila Lemma 6 actual truncation-tail bound",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_v1.json",
+  "outcome": "JL6_TAIL_ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT_BUT_PRINTED_GENERAL_STATEMENT_AND_COMMON_BUDGET_OPEN",
+  "numerical_pap_package_ready": false,
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "author": "Matti Jutila",
+      "journal": "Mathematica Scandinavica 41 (1977), 45-62",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [48, 50, 51, 52],
+      "statement": "definition of psi_r, equation (2.11), truncation sentence, and actual R/X parameter choice",
+      "classification": "ORIGINAL_TARGET_AND_ACTUAL_PARAMETER_SOURCE"
+    },
+    {
+      "key": "NIST_DLMF_8_10",
+      "title": "NIST Digital Library of Mathematical Functions, Incomplete Gamma Inequalities",
+      "url": "https://dlmf.nist.gov/8.10",
+      "reading_mode": "OFFICIAL_WEB_EQUATIONS",
+      "statement": "continuous incomplete-gamma tail inequalities considered as a cross-check",
+      "classification": "CROSS_CHECK_NOT_NEEDED_BY_PRIMARY_DISCRETE_PROOF"
+    },
+    {
+      "key": "GRAHAM_1981",
+      "title": "On Linnik's constant",
+      "author": "Sidney W. Graham",
+      "journal": "Acta Arithmetica 39 (1981), 163-179",
+      "doi": "10.4064/aa-39-2-163-179",
+      "url": "https://doi.org/10.4064/aa-39-2-163-179",
+      "reading_mode": "OFFICIAL_METADATA_AND_SEARCHABLE_STATEMENT_ONLY_PDF_DOWNLOAD_BLOCKED_BY_JAVASCRIPT_CHALLENGE",
+      "statement": "different truncated-Perron zero detector and different Lemma 6",
+      "classification": "NOT_A_DROP_IN_SOURCE_FOR_JUTILA_1977_EQUATION_2_11_TAIL"
+    }
+  ],
+  "jutila_original": {
+    "infinite_series_tail": "sum over integers n>x of a(n) chi(n) exp(-n/X) n^(-rho) sum'_{r<=R} psi_r(n)/r",
+    "finite_cut": "x=X log(qT)^2",
+    "first_omitted_integer": "N=floor(x)+1",
+    "printed_bound": "the rest is Vinogradov-less-than_epsilon 1",
+    "printed_general_X_conditions": [
+      "X>=1",
+      "X^alpha>=((qT)^(1/2) R z2)^(1+epsilon)"
+    ],
+    "missing_for_uniform_absolute_proof": "no explicit upper envelope for X in the printed general lemma"
+  },
+  "direct_tail_derivation": {
+    "coefficient": "|a(n)|<=tau(n)<=2 sqrt(n) from |lambda_d|<=1",
+    "pseudocharacter": "|psi_r(n)|=|mu((r,n)) phi((r,n))|<=r",
+    "zero_real_part": "beta>=alpha>=1/2, hence |a(n)| n^(-beta)<=2",
+    "r_sum": "sum'_{r<=R} |psi_r(n)|/r <= R",
+    "geometric_endpoint": "sum_{n>x} exp(-n/X)=exp(-(floor(x)+1)/X)/(1-exp(-1/X))",
+    "reciprocal_bound": "1/(1-exp(-1/X))<=X+1",
+    "endpoint_free_bound": "|E_tail|<=2R(X+1)exp(-x/X)",
+    "X_at_least_one_bound": "|E_tail|<=4RX exp(-log(D)^2), D=qT",
+    "general_upper_envelope": "if R<=D^r and X<=D^c then |E_tail|<=4 exp(-L^2+(r+c)L), L=log D",
+    "sufficient_budget_gate": "for 0<tau<=4, L>=max(2(r+c),sqrt(2 log(4/tau))) implies |E_tail|<=tau"
+  },
+  "actual_application": {
+    "D": "qT",
+    "R": "D^epsilon",
+    "z1": "D^(1/2+7epsilon)",
+    "z2": "D^(1/2+8epsilon)",
+    "X": "D^(1+12epsilon)",
+    "r_plus_c": "1+13epsilon",
+    "tail_bound": "4 exp(-L^2+(1+13epsilon)L)",
+    "sufficient_log_D_cutoff": "max(2(1+13epsilon),sqrt(2 log(4/tau)))",
+    "classification": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT"
+  },
+  "source_first_result": {
+    "drop_in_explicit_tail_source_identified": false,
+    "primary_proof": "DIRECT_ELEMENTARY_DISCRETE_GEOMETRIC_TAIL",
+    "reason": "the actual coefficient and exponential weight admit a shorter endpoint-safe bound than a continuous incomplete-gamma replacement",
+    "graham_1981_pdf_inspected": false,
+    "graham_1981_required_for_primary_proof": false
+  },
+  "jutila_nodes": [
+    {
+      "id": "JL6-MELLIN",
+      "status": "ACTUAL_FORM_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "JL6-TAIL-ACTUAL",
+      "status": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "JL6-TAIL-GENERAL",
+      "status": "OPEN_PRINTED_STATEMENT_REQUIRES_X_UPPER_ENVELOPE_OR_CANCELLATION"
+    },
+    {
+      "id": "JL6-COMMON-BUDGET",
+      "status": "HARD_BLOCKER",
+      "remaining": "allocate JL5 relative loss plus Mellin and actual tail absolute errors into the final detector coefficient with one common cutoff"
+    },
+    {
+      "id": "JL6",
+      "status": "HARD_BLOCKER"
+    },
+    {
+      "id": "JL8",
+      "status": "HARD_BLOCKER"
+    }
+  ],
+  "lean_scope": {
+    "divisor_and_pseudocharacter_analytic_derivation_formalized": false,
+    "geometric_infinite_series_formalized": false,
+    "actual_exponent_algebra_formalized": true,
+    "quadratic_decay_budget_formalized": true,
+    "explicit_cutoff_transfer_formalized": true,
+    "classification": "DIRECT_ANALYTIC_DERIVATION_PLUS_KERNEL_VERIFIED_FINITE_REAL_ALGEBRA"
+  },
+  "next_gate": "JL6c: actual JL5/Mellin/tail common detector error budget and common finite cutoff",
+  "user_compute_required_now": false,
+  "new_dependency_required_now": false
+}

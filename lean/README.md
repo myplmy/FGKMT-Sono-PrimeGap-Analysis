@@ -105,3 +105,15 @@ display 1,104식이며 전체 상태는 `KERNEL_PASS=36`, `CONDITIONAL_KERNEL_PA
 `SOURCE_THEOREM_UNFORMALIZED=34`, `NOT_YET_FORMALIZED=984`,
 `PARSE_REVIEW_REQUIRED=5`다. 금지 proof escape는 0건이다. `JL6-TAIL`, JL6 전체, JL8,
 PAP-11, fixed `2e-17`, `X_cert`는 OPEN이다.
+
+2026-09-13 Theory 63 batch는 Jutila Lemma 6의 actual truncation tail을 분해했다.
+`X+1<=2X`, `1/(1-exp(-1/X))<=X+1`, actual exponent
+`epsilon+(1+12epsilon)=1+13epsilon`, quadratic decay와 max/square-root cutoff의
+tail-budget transfer를 커널로 검증했다. 무한 geometric series, divisor pairing과
+pseudocharacter 전체는 local axiom으로 넣지 않고 미형식화·부분형식화로 남겼다.
+inventory는 theory 문서 64개, display 1,119식이며 전체 상태는
+`KERNEL_PASS=40`, `CONDITIONAL_KERNEL_PASS=20`, `DEFINITION_ONLY=13`,
+`PARTIAL_FORMALIZATION=20`, `SOURCE_THEOREM_UNFORMALIZED=34`,
+`NOT_YET_FORMALIZED=987`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 143개이고 금지
+proof escape는 0건이다. `JL6-TAIL-ACTUAL`은 문서상 parameterized explicit이지만,
+printed general tail·JL6 common budget/전체·JL8·PAP-11·fixed `2e-17`·`X_cert`는 OPEN이다.

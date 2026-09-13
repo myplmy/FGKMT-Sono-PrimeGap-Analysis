@@ -9,7 +9,9 @@
 
 > **후속 상태(2026-09-13):** [Theory 62](62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md)가
 > 두 오차 중 Mellin 항을 `ACTUAL_FORM_PARAMETERIZED_EXPLICIT`으로 닫았다.
-> 별도 truncation tail, JL6 전체, JL8과 root certificate는 계속 OPEN이다.
+> [Theory 63](63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md)은 actual
+> truncation tail도 닫았다. printed general tail과 JL6 common budget·전체, JL8과
+> root certificate는 계속 OPEN이다.
 
 ## 1. 결론
 

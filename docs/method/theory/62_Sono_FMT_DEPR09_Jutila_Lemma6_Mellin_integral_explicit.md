@@ -8,6 +8,11 @@
 - 비목적: 절단 tail을 Mellin 적분과 합치기, actual prime sweep, threshold calculator,
   fixed (2\times10^{-17}) 또는 (X_{\rm cert}) 승격
 
+> **후속 상태(2026-09-13):** [Theory 63](63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md)이
+> actual 선택 `R=D^epsilon`, `X=D^(1+12epsilon)`에서 truncation tail을
+> `ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`으로 닫았다. 인쇄된 일반 Lemma 6의
+> uniform tail과 JL5/Mellin/tail common budget, JL6 전체·JL8·root certificate는 계속 OPEN이다.
+
 ## 1. 결론
 
 Jutila 1977 Lemma 6 proof에서 첫 번째 숨은 오차인 Mellin 적분은 Jutila의 원래

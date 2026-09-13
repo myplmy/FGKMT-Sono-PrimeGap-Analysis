@@ -7,8 +7,10 @@
 - 판정: **타당 — JL5만 명시적으로 닫힘; JL6와 전체 PAP는 미완**
 
 > **후속 상태(2026-09-13):** [Review 69](69_20260913_DEPR09_Jutila_Lemma6_Mellin_적분_타당성검토.md)에서
-> JL6의 두 후속 오차 중 Mellin 항은 parameterized explicit로 진전했다. truncation tail과
-> JL6 전체, JL8, PAP/root certificate는 계속 미완이다.
+> JL6의 두 후속 오차 중 Mellin 항은 parameterized explicit로 진전했고,
+> [review 70](70_20260913_DEPR09_Jutila_Lemma6_actual_tail_타당성검토.md)이 actual
+> truncation tail도 닫았다. printed general tail, JL6 common budget·전체, JL8,
+> PAP/root certificate는 계속 미완이다.
 
 ## 1. 한눈에 보는 결과
 

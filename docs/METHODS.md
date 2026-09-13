@@ -1260,3 +1260,53 @@ inventory는 theory 문서 63개, display 1,104식이다. 전체 상태는
 `KERNEL_PASS=36`, `CONDITIONAL_KERNEL_PASS=20`, `DEFINITION_ONLY=8`,
 `PARTIAL_FORMALIZATION=17`, `SOURCE_THEOREM_UNFORMALIZED=34`,
 `NOT_YET_FORMALIZED=984`, `PARSE_REVIEW_REQUIRED=5`이며 금지 proof escape는 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila Lemma 6 actual truncation tail 명시화
+
+[theory 63](method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md)과
+[review 70](review/70_20260913_DEPR09_Jutila_Lemma6_actual_tail_타당성검토.md)은
+Jutila 식 (2.11)의 두 번째 숨은 오차인 finite-cut tail을 actual application에 한정해
+명시화한다. 첫 생략 정수는 `N=floor(x)+1`이고
+
+```text
+x = X*log(D)^2, D=q*T
+|a(n)| <= tau(n) <= 2*sqrt(n)
+|psi_r(n)| <= r
+beta >= 1/2
+```
+
+이므로 비지수 coefficient 합은 `2R` 이하이다. geometric series의 정확한 endpoint와
+`1/(1-exp(-1/X))<=X+1`을 합치면
+
+```text
+|E_tail| <= 2*R*(X+1)*exp(-log(D)^2)
+         <= 4*R*X*exp(-log(D)^2).
+```
+
+general upper envelope `R<=D^r`, `X<=D^c`에서는
+
+```text
+|E_tail| <= 4*exp(-L^2+(r+c)*L), L=log(D).
+```
+
+actual Jutila 선택 `R=D^epsilon`, `X=D^(1+12epsilon)`에는 `r+c=1+13epsilon`이다.
+따라서 `0<eta_tail<=4`에서
+
+```text
+L >= max(2*(1+13*epsilon), sqrt(2*log(4/eta_tail)))
+```
+
+이면 `|E_tail|<=eta_tail`이다. 상태는
+`JL6-TAIL-ACTUAL=ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`이다.
+
+인쇄된 general Lemma 6은 `X`의 lower condition만 주고 upper envelope를 주지 않는다.
+이번 absolute proof는 `X`에 비례하므로 printed general uniform tail이나 Lemma 자체를
+증명하지 않는다. `JL6-TAIL-GENERAL`, `JL6-COMMON-BUDGET`, JL6 전체와 JL8은 열려 있고,
+`PAP-11`, DEP-R09, fixed `2e-17`, `X_cert`는 OPEN이다. 다음에는 JL5 loss, Mellin과
+actual tail을 하나의 detector error budget 및 common finite cutoff로 합친다.
+
+Theory 63 뒤 Lean inventory는 theory 문서 64개, display 1,119식이다. 전체 상태는
+`KERNEL_PASS=40`, `CONDITIONAL_KERNEL_PASS=20`, `DEFINITION_ONLY=13`,
+`PARTIAL_FORMALIZATION=20`, `SOURCE_THEOREM_UNFORMALIZED=34`,
+`NOT_YET_FORMALIZED=987`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 143개,
+금지 proof escape 0건이다.

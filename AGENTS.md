@@ -10,7 +10,7 @@
 Z:\FGKMT-Sono-PrimeGap-Analysis
 ```
 
-## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1b.1 actual identity modulus capacity·dyadic repair 닫힘 / H1c-1b.1a coefficient 보존 / H1c-1b.1a.1 `sigma y` cutoff \(x\ge2\exp(36^5)\)로 SIV-03 EXPLICIT / H1c-1b.2 raw \((T,2T]\) psi composition 닫힘 / H1c-1b.3r1 FGKMT actual interval \([T,2T]\)로 교정 / H1c-1b.4a–4e actual identity Hypothesis 1 input constants 1·1·2, \(X\ge2\exp(10^{50})\)에서 explicit / H1b-P92a actual identity weighted P9.2·lower atom explicit (child cutoff X>=2exp(10^1000)); H1b-P91a W-filtered unweighted·shift explicit; H1b-P94g actual T0·growing-k multiplier 1 explicit; H1b-NORM 공통 filtered moment·fixed-X 확률 입력 explicit / H1b-COR1/2/3 R01–R06 actual probability explicit·finite-family count·unit main-degree error / H1b-COV1a Theorem3 C0=100 충분·actual gate explicit / H1b-COV2 fixed-parameter 구간·예외복원·smooth remainder·순차 성공 explicit, R01–R08 child 닫힘·R09–R12 OPEN / DEP-R09 JL5와 JL6-MELLIN parameterized explicit·JL6-TAIL/JL6/JL8 OPEN / SIV-07·08·09 HARD_BLOCKER / X_cert OPEN
+## 현재 상태: P002–P013-B PASS·시각 QA 완료 / P010A G4 PASS / P014-R3 actual PASS·상한 개선 없음 / P017 actual PASS / P018-P0/A PASS·A 정보량 HOLD / P019 toy PASS / P020 종합·시각 QA PASS / Sono-FMT H1b-1b Lemma 8.2=89·Lemma 8.4 관련 actual 하위호출 9/9 parameterized explicit / H1b-2a Lemma 8.5·8.6 finite component·H1b-2a.1 Euler normalization·H1b-2a.2 distribution child·H1b-2a.3 actual P94 multiplier 13 닫힘 / H1c-1b.1 actual identity modulus capacity·dyadic repair 닫힘 / H1c-1b.1a coefficient 보존 / H1c-1b.1a.1 `sigma y` cutoff \(x\ge2\exp(36^5)\)로 SIV-03 EXPLICIT / H1c-1b.2 raw \((T,2T]\) psi composition 닫힘 / H1c-1b.3r1 FGKMT actual interval \([T,2T]\)로 교정 / H1c-1b.4a–4e actual identity Hypothesis 1 input constants 1·1·2, \(X\ge2\exp(10^{50})\)에서 explicit / H1b-P92a actual identity weighted P9.2·lower atom explicit (child cutoff X>=2exp(10^1000)); H1b-P91a W-filtered unweighted·shift explicit; H1b-P94g actual T0·growing-k multiplier 1 explicit; H1b-NORM 공통 filtered moment·fixed-X 확률 입력 explicit / H1b-COR1/2/3 R01–R06 actual probability explicit·finite-family count·unit main-degree error / H1b-COV1a Theorem3 C0=100 충분·actual gate explicit / H1b-COV2 fixed-parameter 구간·예외복원·smooth remainder·순차 성공 explicit, R01–R08 child 닫힘·R09–R12 OPEN / DEP-R09 JL5·JL6-MELLIN·JL6-TAIL-ACTUAL parameterized explicit·JL6-COMMON-BUDGET/JL6/JL8 OPEN / SIV-07·08·09 HARD_BLOCKER / X_cert OPEN
 
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
@@ -83,9 +83,22 @@ JL6 전체·JL8은 `HARD_BLOCKER`다. 최신 analytic 정본은 theory 62·revie
 `PAP-11`, DEP-R09, fixed `2e-17`, `X_cert`는 계속 OPEN이다. Theory 62 뒤 inventory는
 63개 theory 문서, 1,104식, `NOT_YET_FORMALIZED` 984식, 금지 proof escape 0건이다.
 
+2026-09-13 JL6b 후속감사는 Jutila 식 (2.11)을 `x=X log(qT)^2`에서 자른 actual tail을
+직접 초등 상계했다. `|a(n)|<=2sqrt(n)`, `|psi_r(n)|<=r`, `beta>=1/2`와 endpoint-safe
+geometric series를 합치면 `|E_tail|<=4RX exp(-log(D)^2)`이다. 실제
+`R=D^epsilon`, `X=D^(1+12epsilon)`에서는
+`4 exp(-L^2+(1+13epsilon)L)`이고, 원하는 absolute tail budget의 명시적 `log D`
+cutoff도 얻었다. 따라서 `JL6-TAIL-ACTUAL=ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`이다.
+다만 printed general Lemma 6에는 `X` upper envelope가 없으므로 일반 uniform tail을
+닫지 않았고 JL5/Mellin/tail common budget도 남아 있다. 최신 analytic 정본은 theory 63·
+review 70이며 `JL6-COMMON-BUDGET`, JL6 전체·JL8, `PAP-11`, DEP-R09, fixed `2e-17`,
+`X_cert`는 계속 OPEN이다. Theory 63 뒤 inventory는 64개 theory 문서, 1,119식,
+`KERNEL_PASS=40`, `NOT_YET_FORMALIZED=987`, Lean declaration 143개, 금지 proof escape
+0건이다.
+
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011–P013-B recurrence 계열은 enrichment를 검출하지 못했다. P013-A/B는 각각 primary 기대 0.077829/0.066797, 관측 0, 모든 행 LOW_INFORMATION이며 사용자 figure QA까지 PASS했다. P017 combined queue와 A/B child는 terminal·saved·exact equality PASS다. P017-B 동일범위 serial 12,598.410초 대 parallel 2,866.160초로 관측 wall-time 비가 약 4.3956이었다. P014-R3는 modulus 510510의 92,160 states와 8,524,288,932 constraints를 parallel exact scan과 saved serial oracle로 issue 0 검증했지만 새 candidate를 만들지 못해 `NO_IMPROVEMENT`다. P018-P0/A는 exact 실행·저장 검증 PASS지만 conditioned information이 0이라 `HOLD_PREFIX_INFORMATION`이다. P020은 성공 정본 8개와 72,178,455,399 gap-start를 종합했고 사용자 figure QA까지 PASS했다. Sono/FMT 최신 source-first 감사는 JL5와 JL6의 Mellin component를 parameterized explicit로 닫았지만 JL6 tail/전체·JL8과 PAP는 남아 있다. 따라서 fixed `2e-17`은 현재 프로젝트가 독립 인증한 계수가 아니며 numerical `X_cert`와 실제 전역 최소도 OPEN이다. `X_emp(10^20)=3,814,280`만 finite exact이다. 최신 analytic 정본은 `docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md`와 `docs/review/69_20260913_DEPR09_Jutila_Lemma6_Mellin_적분_타당성검토.md`다. P019는 future 범위의 dual-partition parallel full-pass toy를 exact count 21로 검증했지만 actual runner는 없다. 완료 runner는 `test_done`에 hash 보존하며, 추가 actual 실행·외부 게시·push/PR은 별도 사용자 승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011–P013-B recurrence 계열은 enrichment를 검출하지 못했다. P013-A/B는 각각 primary 기대 0.077829/0.066797, 관측 0, 모든 행 LOW_INFORMATION이며 사용자 figure QA까지 PASS했다. P017 combined queue와 A/B child는 terminal·saved·exact equality PASS다. P017-B 동일범위 serial 12,598.410초 대 parallel 2,866.160초로 관측 wall-time 비가 약 4.3956이었다. P014-R3는 modulus 510510의 92,160 states와 8,524,288,932 constraints를 parallel exact scan과 saved serial oracle로 issue 0 검증했지만 새 candidate를 만들지 못해 `NO_IMPROVEMENT`다. P018-P0/A는 exact 실행·저장 검증 PASS지만 conditioned information이 0이라 `HOLD_PREFIX_INFORMATION`이다. P020은 성공 정본 8개와 72,178,455,399 gap-start를 종합했고 사용자 figure QA까지 PASS했다. Sono/FMT 최신 source-first 감사는 JL5와 JL6의 Mellin component 및 actual truncation tail을 parameterized explicit로 닫았지만 JL6 common budget·전체, JL8과 PAP는 남아 있다. 따라서 fixed `2e-17`은 현재 프로젝트가 독립 인증한 계수가 아니며 numerical `X_cert`와 실제 전역 최소도 OPEN이다. `X_emp(10^20)=3,814,280`만 finite exact이다. 최신 analytic 정본은 `docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md`와 `docs/review/70_20260913_DEPR09_Jutila_Lemma6_actual_tail_타당성검토.md`다. P019는 future 범위의 dual-partition parallel full-pass toy를 exact count 21로 검증했지만 actual runner는 없다. 완료 runner는 `test_done`에 hash 보존하며, 추가 actual 실행·외부 게시·push/PR은 별도 사용자 승인 없이 수행하지 않는다.
 
 Sono/FMT T1은 direct proof edge 66개를 source/page/equation/dependency 단위로 등록하고 DAG·source
 hash를 검증했다. H1a 뒤 6개가 해당 행 자체에서 `EXPLICIT`이고, 30개는 rate 누락, 16개는 hard blocker다.
@@ -611,10 +624,12 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 
 2026-09-09 사용자 결정: review 57의 기존 고정계수 X_cert 연구를 먼저 진행한다.
 계수 개선·새 관측범위·독립 bridge 강화는 별도 후속 연구이며 자동 착수하지 않는다.
-다음 권장 행동은 P018-B가 아니라 DEP-R09 `JL6b`의 truncation tail 상수를
-source-first로 복원하는 일이다. `JL6-MELLIN`은 Theory 62에서 parameterized explicit로
-진전했다. JL5 cutoff 최적화나 actual prime sweep은 tail과 JL6 공통 error budget이
-numerical해진 뒤 필요성을 다시 판정한다.
+다음 권장 행동은 P018-B가 아니라 DEP-R09 `JL6c`의 common detector error budget이다.
+`JL6-MELLIN`과 actual truncation tail은 Theory 62--63에서 parameterized explicit로
+진전했다. JL5 relative loss, Mellin absolute error와 tail absolute error를 최종
+`(1-epsilon)` coefficient에 배분하고 하나의 finite cutoff로 합쳐야 한다. JL5 cutoff
+최적화나 actual prime sweep은 이 common budget과 뒤의 JL8 multiplier가 numerical해진 뒤
+필요성을 다시 판정한다.
 H1b-COV2는 실제 fixed-parameter 구간 family·예외 복원·smooth remainder·순차 성공을 닫았고,
 H1b-DEP는 완료했으며
 P95는 actual 경로의 직접·간접 필수 입력이 아니다. general P95는 별도 OPEN이다.

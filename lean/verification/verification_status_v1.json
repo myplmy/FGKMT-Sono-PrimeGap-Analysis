@@ -723,6 +723,90 @@
       "declarations": []
     },
     {
+      "formula_id": "T63-U001",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "T63-U002",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "63.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl6_tail_actual_exponent_identity"]
+    },
+    {
+      "formula_id": "63.11",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl6_tail_actual_exponent_identity",
+        "jutila_jl6_tail_sufficient_cutoff"
+      ]
+    },
+    {
+      "formula_id": "63.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "63.2",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "63.3",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "63.4",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "63.5",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl6_tail_geometric_reciprocal"]
+    },
+    {
+      "formula_id": "63.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl6_tail_geometric_reciprocal",
+        "jutila_jl6_tail_X_plus_one"
+      ]
+    },
+    {
+      "formula_id": "63.7",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "63.8",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "63.9",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl6_tail_quadratic_decay",
+        "jutila_jl6_tail_budget_transfer"
+      ]
+    },
+    {
+      "formula_id": "63.12",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "63.13",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl6_tail_actual_exponent_identity"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

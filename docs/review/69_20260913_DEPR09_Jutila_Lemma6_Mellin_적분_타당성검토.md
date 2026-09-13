@@ -5,6 +5,11 @@
 - 상세 수학 정본: [Theory 62](../method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md)
 - 판정: **타당 — Mellin 조각만 parameterized explicit; 절단 tail과 JL6 전체는 미완**
 
+> **후속 상태(2026-09-13):** [Theory 63](../method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md)과
+> [review 70](70_20260913_DEPR09_Jutila_Lemma6_actual_tail_타당성검토.md)이 actual parameter의
+> tail component를 명시화했다. 이 문서의 “tail 미완”은 작성 당시 snapshot이며,
+> printed general tail과 JL6 common budget·전체는 여전히 미완이다.
+
 ## 1. 사용자가 알아야 할 결과
 
 이번 단계에서 “적분 때문에 생기는 오차”는 숫자가 있는 식으로 제한했다.

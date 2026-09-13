@@ -1718,6 +1718,42 @@
   사용한다. 가능하면 이 반복 검사를 독립된 검증 스크립트로 고정해 ad-hoc 문자열 생성을
   줄인다.
 
+### E111 — JL6b source 검색 범위·보조 PDF 다운로드 후속검사 오류
+
+- 분류:
+  `SOURCE_SEARCH_AND_DOWNLOAD_CONTROL_FLOW_ERROR / DETECTED_DURING_AUDIT /
+  SCIENTIFIC_RESULT_IMPACT_NONE`.
+- 작업 시작 시 이미 E108에서 경고한 `rg --files tmp`의 광범위 검색을 다시 실행해 과거
+  접근 제한 임시 디렉터리의 access-denied 메시지를 다수 발생시켰다. 읽기 전용 검색
+  실패였고 파일·실행 중 프로세스·연구 판정에는 영향이 없었다. 이후 Jutila audit copy의
+  명시 경로로 제한했다.
+- S. Graham 1981 PDF를 공식 endpoint에서 보조 source로 확보하려 한 첫 명령은 Anubis
+  JavaScript challenge로 실패했는데도, 같은 명령 흐름이 존재하지 않는 출력 파일의 byte와
+  hash를 계속 검사해 연쇄 오류를 만들었다. `.part`를 쓰도록 고친 두 번째 시도도 redirect
+  뒤 challenge로 다운로드가 실패했지만 생성되지 않은 `.part` 검사·정리를 계속 시도했다.
+  실제 PDF나 `.part` 파일은 생성되지 않았고 삭제된 파일도 없다.
+- Graham의 공식 metadata와 검색 가능한 statement만으로도 이 논문이 다른 truncated-Perron
+  detector를 사용해 Jutila 1977 식 (2.11) tail의 drop-in source가 아님을 판정할 수 있었다.
+  PDF를 읽었다고 기록하지 않았으며, 이번 primary geometric-tail proof에 이 source를
+  사용하지 않았다.
+- Theory 63 초안 식 (63.9)에는 patch 문자열 작성 중 `\\le`의 backslash가 빠진 `le`가
+  한 번 들어갔다. inventory preview에서 즉시 발견해 `\\le`로 교정하고 원장 전체를 다시
+  생성했다. 잘못된 초안은 최종 판정에 쓰지 않았다.
+- 마감 때 UTF-8·link·JSON·compile·diff 검사를 한 PowerShell one-liner에 과도하게 합친
+  첫 명령이 진단 출력 없이 exit 1을 반환했다. 성공으로 취급하지 않고 검사를 UTF-8/control,
+  local link, Python/JSON/diff의 세 명령으로 분리했다. 분리한 최종 검사는 변경 텍스트
+  23파일, Markdown 16파일·local link 1,377개, JSON 3개에서 issue 0으로 PASS했다.
+- 예방:
+  1. 대용량 `tmp` 전체가 아니라 정본·audit-copy 명시 경로만 검색한다.
+  2. 다운로드는 `.part`에 수행하고 `Invoke-WebRequest -ErrorAction Stop` 실패 시 같은
+     command block을 즉시 끝낸다.
+  3. 존재 여부와 PDF magic bytes가 확인된 뒤에만 hash·rename·cleanup을 실행한다.
+  4. 공식 endpoint가 challenge를 요구하고 source가 비필수이면 반복 우회하지 않고
+     `PDF_NOT_INSPECTED`로 남긴다.
+  5. 새 tagged formula는 inventory preview에서 LaTeX 제어문자 보존을 확인한다.
+  6. 서로 다른 validator를 긴 one-liner 하나로 합치지 말고 실패 지점을 식별할 수 있도록
+     단계별 명령으로 실행한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

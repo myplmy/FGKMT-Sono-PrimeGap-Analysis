@@ -1602,4 +1602,114 @@ theorem jutila_jl6_mellin_exponent_budget
       ring
     _ ≤ -ε / 2 := by linarith
 
+/-! ## Theory 63 — DEP-R09 Jutila Lemma 6 actual truncation tail -/
+
+/- Theory 63, formula 63.6: the last elementary simplification in the
+   endpoint-free tail bound.  The preceding divisor, pseudocharacter and
+   geometric-series arguments remain direct analytic statements. -/
+theorem jutila_jl6_tail_X_plus_one
+    {X : ℝ} (hX : 1 ≤ X) :
+    X + 1 ≤ 2 * X := by
+  linarith
+
+/- Theory 63, formula 63.5: the elementary reciprocal estimate used after
+   summing the geometric tail. -/
+theorem jutila_jl6_tail_geometric_reciprocal
+    {X : ℝ} (hX : 0 < X) :
+    (1 - Real.exp (-1 / X))⁻¹ ≤ X + 1 := by
+  have hu : 0 < (1 : ℝ) / X := one_div_pos.mpr hX
+  have hExpLower : 1 / X ≤ Real.exp (1 / X) - 1 := by
+    nlinarith [Real.add_one_le_exp (1 / X)]
+  have hExpGt : 1 < Real.exp (1 / X) := by
+    simpa using (Real.exp_lt_exp.mpr hu : Real.exp 0 < Real.exp (1 / X))
+  have hDen : 0 < Real.exp (1 / X) - 1 := by linarith
+  have hMul := mul_le_mul_of_nonneg_left hExpLower hX.le
+  have hXne : X ≠ 0 := ne_of_gt hX
+  have hOne : 1 ≤ X * (Real.exp (1 / X) - 1) := by
+    calc
+      1 = X * (1 / X) := by field_simp
+      _ ≤ X * (Real.exp (1 / X) - 1) := hMul
+  have hInverse : (Real.exp (1 / X) - 1)⁻¹ ≤ X :=
+    (inv_le_iff_one_le_mul₀ hDen).2 hOne
+  have hExpNe : Real.exp (1 / X) ≠ 0 := ne_of_gt (Real.exp_pos _)
+  have hExpSubNe : Real.exp (1 / X) - 1 ≠ 0 := ne_of_gt hDen
+  have hIdentity :
+      (1 - Real.exp (-1 / X))⁻¹ =
+        1 + (Real.exp (1 / X) - 1)⁻¹ := by
+    rw [show -1 / X = -(1 / X) by ring, Real.exp_neg]
+    field_simp [hExpNe, hExpSubNe]
+    ring
+  rw [hIdentity]
+  linarith
+
+/- Theory 63, formula 63.13: exact exponent sum in Jutila's actual choice
+   R=D^epsilon and X=D^(1+12 epsilon). -/
+theorem jutila_jl6_tail_actual_exponent_identity (ε : ℝ) :
+    ε + (1 + 12 * ε) = 1 + 13 * ε := by
+  ring
+
+/- Theory 63, formula 63.9: the linear cutoff converts the mixed quadratic
+   exponent into pure Gaussian decay. -/
+theorem jutila_jl6_tail_quadratic_decay
+    {L a : ℝ} (hL : 0 ≤ L) (hLinear : 2 * a ≤ L) :
+    -L ^ 2 + a * L ≤ -L ^ 2 / 2 := by
+  have hProduct : 0 ≤ L * (L - 2 * a) :=
+    mul_nonneg hL (sub_nonneg.mpr hLinear)
+  nlinarith
+
+/- Theory 63, formula 63.9: once the two visible real budgets are supplied,
+   the parameterized exponential tail is at most eta. -/
+theorem jutila_jl6_tail_budget_transfer
+    {η L a : ℝ}
+    (hη : 0 < η) (hL : 0 ≤ L)
+    (hLinear : 2 * a ≤ L)
+    (hQuadratic : 2 * Real.log (4 / η) ≤ L ^ 2) :
+    4 * Real.exp (-L ^ 2 + a * L) ≤ η := by
+  have hDecay := jutila_jl6_tail_quadratic_decay hL hLinear
+  have hExponent :
+      -L ^ 2 + a * L ≤ -Real.log (4 / η) := by
+    nlinarith
+  have hRatio : 0 < (4 : ℝ) / η := div_pos (by norm_num) hη
+  calc
+    4 * Real.exp (-L ^ 2 + a * L) ≤
+        4 * Real.exp (-Real.log (4 / η)) := by
+          exact mul_le_mul_of_nonneg_left
+            (Real.exp_le_exp.mpr hExponent) (by norm_num)
+    _ = η := by
+      rw [Real.exp_neg, Real.exp_log hRatio]
+      field_simp [ne_of_gt hη]
+
+/- Theory 63, formula 63.11: the displayed max/square-root cutoff implies
+   the two hypotheses of the preceding budget theorem. -/
+theorem jutila_jl6_tail_sufficient_cutoff
+    {η L a : ℝ}
+    (hη : 0 < η) (hηUpper : η ≤ 4) (ha : 0 ≤ a)
+    (hCutoff :
+      max (2 * a) (Real.sqrt (2 * Real.log (4 / η))) ≤ L) :
+    4 * Real.exp (-L ^ 2 + a * L) ≤ η := by
+  have hRatioOne : 1 ≤ (4 : ℝ) / η := by
+    exact (le_div_iff₀ hη).2 (by simpa using hηUpper)
+  have hLog : 0 ≤ Real.log (4 / η) := Real.log_nonneg hRatioOne
+  have hInside : 0 ≤ 2 * Real.log (4 / η) := by positivity
+  have hLinear : 2 * a ≤ L :=
+    (le_max_left (2 * a) (Real.sqrt (2 * Real.log (4 / η)))).trans hCutoff
+  have hSqrt : Real.sqrt (2 * Real.log (4 / η)) ≤ L :=
+    (le_max_right (2 * a) (Real.sqrt (2 * Real.log (4 / η)))).trans hCutoff
+  have hL : 0 ≤ L := by
+    have hTwoA : 0 ≤ 2 * a := by positivity
+    exact hTwoA.trans hLinear
+  have hSum :
+      0 ≤ L + Real.sqrt (2 * Real.log (4 / η)) := by positivity
+  have hProduct :
+      0 ≤
+        (L - Real.sqrt (2 * Real.log (4 / η))) *
+          (L + Real.sqrt (2 * Real.log (4 / η))) :=
+    mul_nonneg (sub_nonneg.mpr hSqrt) hSum
+  have hSqrtSquare :
+      (Real.sqrt (2 * Real.log (4 / η))) ^ 2 =
+        2 * Real.log (4 / η) := Real.sq_sqrt hInside
+  have hQuadratic : 2 * Real.log (4 / η) ≤ L ^ 2 := by
+    nlinarith
+  exact jutila_jl6_tail_budget_transfer hη hL hLinear hQuadratic
+
 end FGKMTSono

@@ -11,8 +11,10 @@
 > [Theory 61](61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md)이
 > peer-reviewed explicit source로 `JL5`를 \(q\)-의존 cutoff까지 닫았다.
 > 이어 [Theory 62](62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md)가
-> `JL6-MELLIN`을 actual form에서 parameterized explicit로 닫았다. `JL6-TAIL`, `JL6`
-> 전체와 `JL8`, root certificate는 계속 OPEN이다.
+> `JL6-MELLIN`을 actual form에서 parameterized explicit로 닫았다. 이어
+> [Theory 63](63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md)이 actual
+> `JL6-TAIL`도 parameterized explicit로 닫았다. printed general tail, JL6 common
+> budget·전체와 `JL8`, root certificate는 계속 OPEN이다.
 
 ## 1. 결론
 
