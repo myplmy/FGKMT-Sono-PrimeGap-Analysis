@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-13 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 70개
-- 전수 단위: Markdown fenced code 밖 display math 1,252개
-- 원래 식번호: 726개, 합성 ID 무번호식: 526개
+- 원문 범위: `docs/method/theory/*.md` 71개
+- 전수 단위: Markdown fenced code 밖 display math 1,271개
+- 원래 식번호: 745개, 합성 ID 무번호식: 526개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,11 +62,11 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 67 |
-| `CONDITIONAL_KERNEL_PASS` | 37 |
-| `DEFINITION_ONLY` | 43 |
-| `PARTIAL_FORMALIZATION` | 48 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 54 |
+| `KERNEL_PASS` | 72 |
+| `CONDITIONAL_KERNEL_PASS` | 42 |
+| `DEFINITION_ONLY` | 48 |
+| `PARTIAL_FORMALIZATION` | 50 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 56 |
 | `NOT_YET_FORMALIZED` | 998 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `b86f8fe7d3ddb044…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `6c79921935308efc…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `83c9cd29a46f2295…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `5e1784f1e61e0c7b…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -146,7 +146,8 @@
 | 66 | [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | `2eb7fa38dc7033ab…` | 20 | 20 | 0 | 20 |
 | 67 | [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | `37f13fb2ed2f00eb…` | 25 | 18 | 7 | 25 |
 | 68 | [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | `bee21f2470ee74a8…` | 18 | 13 | 5 | 18 |
-| 69 | [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | `ba019c3b397282c7…` | 26 | 22 | 4 | 23 |
+| 69 | [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | `a1b177d95525d037…` | 26 | 22 | 4 | 23 |
+| 70 | [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | `b8e081e70303a000…` | 19 | 19 | 0 | 19 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1410,6 +1411,25 @@
 | 1250 | `69.21` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 268–271 | <code>\boxed{S_q(R)&lt;12\frac{\varphi(q)}qL.} \tag{69.21}</code> | `jutila_jl7_residue_rankin_rsum_coefficient` | `PARTIAL_FORMALIZATION` | Rankin·excluded-prime·zeta rational multipliers 2*3*2=12만 부분형식화 |
 | 1251 | `T69-U004` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 280–282 | <code>L^{-2}\frac{\varphi(q)}q x^{2-2\alpha}.</code> | — | `DEFINITION_ONLY` | Jutila p.53 바깥 residue prefactor 전사 |
 | 1252 | `69.22` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 286–289 | <code>12\cdot91\theta=1092\theta\le\frac{1092}{21}=52. \tag{69.22}</code> | `jutila_jl7_residue_endpoint_coefficient; jutila_jl7_residue_final_composition` | `KERNEL_PASS` | 12*91*theta<=52 endpoint와 nonnegative-base 합성을 커널 검증 |
+| 1253 | `70.1` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 18–23 | <code>0&lt;\theta\le\frac1{21},\qquad D=qT,\quad q\ge3,\quad T\ge1,\quad L=\log D, \qquad 0&lt;\delta:=1-\alpha\le\theta . \tag{70.1}</code> | — | `DEFINITION_ONLY` | JL7-ABSORB actual nonprincipal near-one fixed-modulus 범위 전사 |
+| 1254 | `70.2` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 29–36 | <code>\boxed{ J\le C_J(\theta)x^{2\delta},\qquad C_J(\theta)= \frac{884000}{9(1-\theta)^2\theta^6}, \qquad x=D^{1+12\theta}L^2 .} \tag{70.2}</code> | `jutila_jl7_half_margin_terminal; jutila_jl7_selected_system_coefficient` | `CONDITIONAL_KERNEL_PASS` | half-margin premise 아래 selected-system bound와 exact C_J 계수 합성을 조건부 커널 검증 |
+| 1255 | `70.3` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 40–47 | <code>\boxed{ N_{\rm nonprin}(\alpha,T,q) \le2C_J(\theta)x^{2\delta} \{3+r\log(2D)\}, \qquad r=\max\{\delta,L^{-1}\}.} \tag{70.3}</code> | `jutila_jl7_parity_local_count_composition` | `CONDITIONAL_KERNEL_PASS` | 한 parity system bound에서 even/odd local zero-count로의 비음수 합성을 조건부 커널 검증 |
+| 1256 | `70.4` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 79–84 | <code>C_{\rm pre}(\theta) :=5\frac{34}{\theta^2} =\frac{170}{\theta^2}. \tag{70.4}</code> | `jutila_jl7_preterminal_multiplier` | `KERNEL_PASS` | weighted call 34/theta^2와 denominator quotient 5의 exact 단일 곱을 커널 검증 |
+| 1257 | `70.5` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 88–93 | <code>\overline C_{\rm CL3}(\theta) :=144\left(1+\frac1\theta\right) \left(\frac2\theta+1\right) \tag{70.5}</code> | — | `DEFINITION_ONLY` | Theory 68 contour-plus-Lemma3 multiplier 재사용 정의 |
+| 1258 | `70.6` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 104–111 | <code>c_g(\theta)=(1-\theta)\frac6{\pi^2}\theta,\qquad A_{\rm int}(\theta,L)= \theta^2\left(\frac12+7\theta\right) \left(1+12\theta+\frac{2\log L}{L}\right) \ge\frac{\theta^2}{2}. \tag{70.6}</code> | — | `PARTIAL_FORMALIZATION` | detector·integration-area 정의와 lower 일부는 선행 Lean 선언; analytic identification은 미형식화 |
+| 1259 | `70.7` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 115–118 | <code>\underline c_g(\theta):=\frac35(1-\theta)\theta&lt;c_g(\theta) \tag{70.7}</code> | `jutila_pi_square_lt_ten; jutila_jl7_rational_detector_lower` | `KERNEL_PASS` | pi^2<10과 rational detector strict lower를 커널 검증 |
+| 1260 | `70.8` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 122–126 | <code>\underline c_g(\theta)^2 A_{\rm int}(\theta,L) \left(\frac{\varphi(q)}q\right)^2J^2L^2 \tag{70.8}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Jutila Lemma 7 detector left side의 source analytic 식; Lean 미형식화 |
+| 1261 | `70.9` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 137–147 | <code>\begin{aligned} &amp;\underline c_g^2A_{\rm int} \left(\frac{\varphi(q)}q\right)^2J^2L^2 \\ &amp;\quad\le C_{\rm pre}\Bigg[ 52\left(\frac{\varphi(q)}q\right)^2Jx^{2\delta}L^2 +A_{\rm int}\overline C_{\rm CL3}J^2e^{-\gamma L} \B…</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | predecessor source estimates를 합친 actual terminal analytic inequality; 전체 Lean 미형식화 |
+| 1262 | `70.10` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 157–162 | <code>AJ^2\le BJY+EJ^2,\qquad A=\underline c_g^2A_{\rm int},\quad B=52C_{\rm pre}, \tag{70.10}</code> | `jutila_t1_terminal_absorption` | `PARTIAL_FORMALIZATION` | A,B,E 정규화와 generic terminal algebra 일부를 조건부 형식화 |
+| 1263 | `70.11` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 164–168 | <code>E=C_{\rm pre}A_{\rm int}\overline C_{\rm CL3} \left(\frac q{\varphi(q)}\right)^2L^{-2}e^{-\gamma L}. \tag{70.11}</code> | — | `DEFINITION_ONLY` | normalized off-diagonal coefficient E 정의 |
+| 1264 | `70.12` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 172–175 | <code>E\le36C_{\rm pre}A_{\rm int}\overline C_{\rm CL3}e^{-\gamma L}. \tag{70.12}</code> | `jutila_jl7_totient_square_normalization` | `CONDITIONAL_KERNEL_PASS` | q/phi(q)<=6L premise에서 exact square factor 36을 조건부 커널 검증 |
+| 1265 | `70.13` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 181–187 | <code>\mathcal P(\theta):= \frac{72C_{\rm pre}(\theta)\overline C_{\rm CL3}(\theta)} {\underline c_g(\theta)^2},\qquad L_{\rm abs}(\theta):=\frac{\log\mathcal P(\theta)}{\gamma(\theta)}. \tag{70.13}</code> | — | `DEFINITION_ONLY` | half-margin ratio P와 logarithmic cutoff 정의 |
+| 1266 | `70.14` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 191–194 | <code>E\le\frac12\underline c_g^2A_{\rm int}=\frac A2&lt;A. \tag{70.14}</code> | `jutila_jl7_exponential_cutoff_transfer; jutila_jl7_half_margin_terminal` | `CONDITIONAL_KERNEL_PASS` | exponential cutoff와 E<=A/2 premise에서 strict terminal 합성을 조건부 커널 검증 |
+| 1267 | `70.15` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 199–204 | <code>L\ge L_{\rm abs}^{\rm rat}(\theta) :=\frac{\mathcal P(\theta)}{\gamma(\theta)} \quad\Longrightarrow\quad L\ge L_{\rm abs}(\theta), \tag{70.15}</code> | `jutila_jl7_rational_fallback_cutoff` | `KERNEL_PASS` | log P<=P를 사용한 rational fallback implication을 커널 검증 |
+| 1268 | `70.16` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 211–217 | <code>L\ge e^8 \quad\Longrightarrow\quad \frac{4\log L}{L}\le\frac{32}{e^8} \le\frac{45}{512}&lt;\frac{29}{252}. \tag{70.16}</code> | `jutila_jl7_exp_eight_log_gate` | `KERNEL_PASS` | L>=exp(8)에서 4logL/L<=29/252 finite gate를 커널 검증 |
+| 1269 | `70.17` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 222–227 | <code>\boxed{ L_{\rm common}:= \max\{L_0,\ e^8,\ L_{\rm abs}(\theta)\}.} \tag{70.17}</code> | — | `DEFINITION_ONLY` | JL6·finite-log·absorption cutoff의 공통 maximum 정의 |
+| 1270 | `70.18` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 236–242 | <code>J\le\frac{2B}{A}Y \le\frac{104C_{\rm pre}} {\underline c_g^2(\theta^2/2)}x^{2\delta} =\frac{884000}{9(1-\theta)^2\theta^6}x^{2\delta}, \tag{70.18}</code> | `jutila_jl7_half_margin_terminal; jutila_jl7_selected_system_coefficient` | `CONDITIONAL_KERNEL_PASS` | half-margin terminal algebra와 exact selected-system coefficient를 조건부 커널 검증 |
+| 1271 | `70.19` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 260–267 | <code>C_{\rm pre}=74970,\quad \overline C_{\rm CL3}=136224,\quad \underline c_g=\frac4{147},\quad \gamma=\frac{29}{5292},\quad \mathcal P=993089345703840. \tag{70.19}</code> | `jutila_jl7_absorption_endpoint_coefficients; jutila_jl7_absorption_ratio_endpoint; jutila_jl7_selected_system_endpoint` | `KERNEL_PASS` | theta=1/21의 Cpre,Cbar,cbar,gamma,P,C_J exact endpoint를 커널 검증 |
 
 ## 9. 발견된 원문·작업 오류
 

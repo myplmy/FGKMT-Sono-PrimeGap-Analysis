@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila JL7-ABSORB strict terminal composition",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_JL7_residue_v1.json",
+  "outcome": "JL7_ABSORB_ACTUAL_NONPRINCIPAL_NEAR_ONE_PARAMETERIZED_EXPLICIT_AVERAGED_REPLAY_OPEN",
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "author": "Matti Jutila",
+      "journal": "Mathematica Scandinavica 41 (1977), 45-62",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AS_LOCATOR_AFTER_EMPTY_NATIVE_TEXT_LAYER_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [46, 51, 52, 53],
+      "statements": "Theorem 1 equation (1.7), Lemmas 7-8, equations (3.1)-(3.6), contour and residue terminal paragraphs",
+      "classification": "ORIGINAL_PEER_REVIEWED_STRUCTURAL_SOURCE_WITH_HIDDEN_TERMINAL_CONSTANTS_REPLACED_BY_AUDITED_COMPONENTS"
+    }
+  ],
+  "predecessor_artifacts": [
+    {
+      "path": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0",
+      "bytes": 11242,
+      "role": "detector coefficient and common finite JL6 cutoff"
+    },
+    {
+      "path": "docs/method/theory/65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md",
+      "sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51",
+      "bytes": 13158,
+      "role": "even-odd and local zero-count recovery"
+    },
+    {
+      "path": "docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md",
+      "sha256": "2eb7fa38dc7033abd0badcc979c7ac0384cc2e017ff14747fffbf466e4565ff0",
+      "bytes": 12857,
+      "role": "weighted call, denominator loss, integration area and exponent margin"
+    },
+    {
+      "path": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "sha256": "37f13fb2ed2f00eb6ec5099a7d418aac51095ac44be1fb0fa37551f0ce45bf84",
+      "bytes": 10838,
+      "role": "actual shifted-contour multiplier"
+    },
+    {
+      "path": "docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md",
+      "sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2",
+      "bytes": 9364,
+      "role": "absolute h-sum multiplier 3"
+    },
+    {
+      "path": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23",
+      "bytes": 10578,
+      "role": "one-selected-system principal residue multiplier 52"
+    }
+  ],
+  "actual_parameters": {
+    "theta": "0<theta<=1/21",
+    "D": "D=qT with q>=3 and T>=1",
+    "L": "L=log D",
+    "delta": "delta=1-alpha with 0<delta<=theta",
+    "R": "D^theta",
+    "z1": "D^(1/2+7theta)",
+    "z2": "D^(1/2+8theta)",
+    "X": "D^(1+12theta)",
+    "x": "X*L^2",
+    "system_scope": "one even-strip or odd-strip Delta-well-spaced selected system"
+  },
+  "coefficient_composition": {
+    "weighted_square_sum": "34/theta^2",
+    "weight_denominator": 5,
+    "preterminal_multiplier_C_pre": "170/theta^2",
+    "contour_lemma3_multiplier_C_bar": "144*(1+1/theta)*(2/theta+1)",
+    "residue_multiplier": 52,
+    "actual_detector_coefficient": "c_g=(1-theta)*(6/pi^2)*theta",
+    "rational_detector_lower": "c_bar=(3/5)*(1-theta)*theta<c_g using pi^2<10",
+    "normalized_integration_area": "A_int=theta^2*(1/2+7theta)*(1+12theta+2log(L)/L)>=theta^2/2",
+    "off_diagonal_decay_rate": "gamma=29theta/252",
+    "totient_normalization": "q/phi(q)<=6L",
+    "area_count_rule": "A_int occurs once in the detector left side and once in the contour term, then cancels from the absorption ratio; the residue 52 already includes its integration and L^-2 normalization",
+    "status": "EXACT_DIMENSION_AND_MULTIPLIER_COMPOSITION"
+  },
+  "normalized_terminal_inequality": {
+    "shape": "A*J^2 <= B*J*Y + E*J^2 with Y=x^(2delta)",
+    "A_lower": "c_bar^2*A_int",
+    "B": "52*C_pre",
+    "E_upper_before_totient": "C_pre*A_int*C_bar*(q/phi(q))^2*L^(-2)*exp(-gamma L)",
+    "E_upper_after_totient": "36*C_pre*A_int*C_bar*exp(-gamma L)",
+    "half_margin_condition": "72*C_pre*C_bar*exp(-gamma L)<=c_bar^2",
+    "absorption_ratio_P": "72*C_pre*C_bar/c_bar^2",
+    "logarithmic_cutoff": "L_abs=log(P)/gamma",
+    "rational_fallback_cutoff": "L_abs_rat=P/gamma, sufficient by log(P)<=P",
+    "conclusion": "E<=A/2<A and J<=(2B/A)Y",
+    "status": "STRICT_HALF_MARGIN_PARAMETERIZED_EXPLICIT"
+  },
+  "common_cutoff": {
+    "definition": "L_common=max(L0_JL6, exp(8), L_abs)",
+    "exp8_role": "4log(L)/L<=29/252 for the finite off-diagonal log correction",
+    "L0_JL6_role": "four detector losses with positive budgets summing to eta_output<=theta",
+    "symbolic_implication": "rigorous given the audited predecessor source premises",
+    "mpmath_diagnostic_is_directed_interval_certificate": false,
+    "status": "COMPUTABLE_PARAMETERIZED_SUFFICIENT_CUTOFF"
+  },
+  "terminal_conclusion": {
+    "selected_system_coefficient": "C_J(theta)=884000/[9*(1-theta)^2*theta^6]",
+    "selected_system_bound": "J<=C_J(theta)*x^(2delta)",
+    "local_radius": "r=max(delta,1/L)",
+    "nonprincipal_near_one_bound": "N_nonprin(alpha,T,q)<=2*C_J(theta)*x^(2delta)*[3+r*log(2D)]",
+    "parity_rule": "factor 2 is inserted only at this final zero-count recovery, not inside the one-system A-E inequality",
+    "scope": "actual nonprincipal near-one branch 0<1-alpha<=theta; not the printed theorem for all 4/5<=alpha<=1",
+    "status": "ACTUAL_NONPRINCIPAL_NEAR_ONE_DENSITY_PARAMETERIZED_EXPLICIT"
+  },
+  "endpoint_diagnostic_theta_1_over_21": {
+    "C_pre": 74970,
+    "C_contour_plus_Lemma3": 136224,
+    "c_bar": "4/147",
+    "gamma": "29/5292",
+    "absorption_ratio": 993089345703840,
+    "L_abs_mpmath": "6301.4657430592971306571057992544310475933890419193893591664",
+    "L_abs_rational_fallback": "5255428817464721280/29",
+    "L0_JL6_equal_four_way_budget_mpmath": "8827.24070409655979683241494482188923545674372220021283644994",
+    "L_common_driver": "JL6_COMMON",
+    "E_over_Abar_at_L_common_mpmath": "0.000000487333276480464375095695969185710379968157283625649232286726",
+    "selected_system_coefficient": 9287613243090,
+    "warning": "all decimal values are high-precision diagnostics, not outward-rounded interval certificates"
+  },
+  "lean_scope": {
+    "preterminal_coefficient_formalized": true,
+    "rational_detector_lower_formalized": true,
+    "finite_log_gate_formalized": true,
+    "exponential_cutoff_transfer_formalized": true,
+    "half_margin_absorption_formalized": true,
+    "selected_system_coefficient_formalized": true,
+    "parity_local_count_composition_formalized": true,
+    "external_analytic_sources_fully_formalized": false,
+    "classification": "SOURCE_PREMISES_PLUS_KERNEL_VERIFIED_DEPENDENCY_CRITICAL_FINITE_ALGEBRA"
+  },
+  "remaining_nodes": [
+    {
+      "id": "JL7-AVERAGED",
+      "status": "HARD_BLOCKER",
+      "remaining": "variable-modulus primitive-character replay of equation (3.7), including conductor and multiplicity normalization"
+    },
+    {
+      "id": "GALLAGHER-MAIER-PAP",
+      "status": "HARD_BLOCKER",
+      "remaining": "translate explicit density inputs into the exact pointwise PAP lower bound with exceptional character, principal term, prime powers, psi-to-pi and one common cutoff"
+    }
+  ],
+  "contour_multiplier_explicit": true,
+  "jutila_lemma3_multiplier_explicit": true,
+  "residue_well_spacing_multiplier_explicit": true,
+  "jl7_absorb_actual_selected_system_closed": true,
+  "actual_nonprincipal_near_one_density_closed": true,
+  "terminal_density_closed": true,
+  "terminal_density_scope": "ACTUAL_NONPRINCIPAL_NEAR_ONE_ONLY",
+  "printed_full_jutila_theorem_one_closed": false,
+  "averaged_primitive_density_closed": false,
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "new_dependency_required_now": false,
+  "user_compute_required_now": false,
+  "next_gate": "JL7-AVERAGED: replay equation (3.7) with variable moduli and primitive characters while preserving the new strict half-margin constants"
+}

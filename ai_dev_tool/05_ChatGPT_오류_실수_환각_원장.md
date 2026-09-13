@@ -2003,6 +2003,47 @@
      사용하지 않는다.
   5. 첫 Lean 실패와 patch 거부는 최종 PASS 로그와 분리해 원장에 남긴다.
 
+### E118 — JL7-ABSORB 수치 허용오차·Lean proof 초안·patch transport 오류
+
+- 분류:
+  <code>PRE_COMMIT_TEST_AND_PROOF_DRAFT_ERRORS / DETECTED_AND_CORRECTED /
+  NO_SCIENTIFIC_RESULT_AFFECTED</code>.
+- 첫 표적시험은 \(L_{\rm abs}=\log\mathcal P/\gamma\)에서 계산한 흡수비가 정확히
+  \(1/2\)와 같다고 <code>mp.almosteq</code>의 기본 허용오차로 검사했다.
+  \(\theta=1/100\)에서 약 \(3.3\times10^{-100}\)의 고정밀 평가 오차 때문에 한 건이
+  실패했다. 기호식이나 cutoff를 바꾸지 않고 100 dps에 충분히 엄격한
+  <code>abs(value-1/2)&lt;10^-90</code>로 판정을 명시했다. 수정 뒤 표적 11건이 PASS했다.
+- Theory 70·review 초안의 첫 큰 patch는 JavaScript 문자열 안의 LaTeX
+  backslash 또는 Markdown backtick transport 때문에 실행 전에 거부됐다.
+  거부된 호출은 파일을 부분 변경하지 않았다. raw-safe 문자열, 작은 hunk와
+  backtick placeholder를 사용해 정상 <code>apply_patch</code>로 다시 적용했다.
+- 첫 Lean compile은 함수표현을 펼치지 않은 <code>rw</code>, 예약어
+  <code>local</code>, 이미 목표를 닫은 <code>field_simp</code> 뒤의 불필요한
+  <code>ring</code> 때문에 실패했다. 표현을 명시적으로 <code>change</code>하고
+  변수명을 <code>radius</code>로 바꾸며 불필요한 tactic을 제거했다. 두 번째
+  log-gate 초안도 분수의 결합형이 달라 rewrite가 실패해, exact ring 정규화와
+  단조성의 단계별 <code>calc</code>로 교정했다. 최종 direct Lean compile은 exit 0이다.
+- ledger validator PASS 뒤의 별도 요약용 scratch 명령은 JSON key를
+  <code>formula_statuses</code>로 잘못 가정해 <code>KeyError</code>를 냈다.
+  정본 validator가 이미 1,271식을 전부 PASS하고 상태 수를 출력했으므로 검증 결과에는
+  영향이 없으며, 이후 정본 schema key를 먼저 확인하도록 한다.
+- 일반 <code>git diff --check</code>를 먼저 통과시켰지만, 아직 untracked였던 Theory 70은
+  그 검사 범위에 포함되지 않았다. 명시적 allowlist staging 뒤의 독립
+  <code>git diff --cached --check</code>가 EOF 빈 줄 1건을 발견했다. 빈 줄을 제거하고
+  staged 검사를 다시 실행했다. 이어서 Lean ledger validator가 source hash 불일치를
+  fail-closed로 검출했다. EOF 보정도 source 바이트를 바꾸기 때문이었다. generator를
+  다시 실행해 inventory와 human ledger를 동기화한 뒤 validator를 재통과시켰다.
+  내용·수식·검증 결과에는 영향이 없다.
+- 예방:
+  1. 초월함수 경계의 numerical equality는 작업 dps와 독립적인 명시적 절대오차로 검사한다.
+  2. Lean proof는 함수표현·분수 결합형과 예약어를 먼저 정규화한 뒤 tactic을 적용한다.
+  3. 긴 LaTeX patch는 처음부터 raw-safe transport와 작은 hunk를 사용한다.
+  4. 검증 정본 명령과 편의용 scratch 통계를 같은 PASS로 묶지 않는다.
+  5. 신규 파일이 있는 마감에서는 일반 diff 검사만으로 끝내지 않고, 명시적 staging 뒤
+     <code>git diff --cached --check</code>를 반드시 단독 gate로 실행한다.
+  6. theory 문서는 공백만 바꿔도 source hash가 달라지므로 마지막 문서 보정 뒤에는
+     Lean ledger generator와 validator를 순서대로 다시 실행한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

@@ -902,3 +902,30 @@ endpoint다. 따라서 `JL7-RES=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 진�
 `JL7-AVERAGED`의 variable-modulus replay와 Gallagher--Maier pointwise PAP bridge가
 남아 있다. 따라서 root 상태 수는 바꾸지 않고 `PAP-11=HARD_BLOCKER`,
 DEP-R09·fixed `2e-17`·`X_cert=OPEN`을 유지한다. 다음 gate는 `JL7-ABSORB`다.
+
+## 39. 2026-09-13 DEP-R09 JL7-ABSORB strict terminal 후속 상태
+
+[theory 70](70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md)은
+Theory 64--69의 detector, weighted upper, contour·Lemma 3와 residue 상수를 한
+selected-system 부등식에 넣었다. exact composition은
+
+~~~text
+C_pre = 170/theta^2
+C_CL3 = 144*(1+1/theta)*(2/theta+1)
+A = c_bar^2*A_int
+B = 52*C_pre
+E <= 36*C_pre*A_int*C_CL3*exp(-29*theta*L/252)
+~~~
+
+이다. \(L\ge L_{\rm common}\)에서 \(E\le A/2<A\)이므로
+<code>J <= 884000*x^(2(1-alpha)) / [9(1-theta)^2*theta^6]</code>이다.
+
+Theory 65의 parity·local-count factor는 이 one-system 흡수 뒤에만 넣는다.
+따라서 <code>JL7-ABSORB</code>와 actual fixed-\(q\) nonprincipal near-one terminal
+density는 parameterized explicit으로 진전한다.
+
+이 승격은 66개 root row의 <code>PAP-08/PAP-11</code>을 닫지 않는다. printed
+Jutila Theorem 1 전체, 식 (3.7)의 가변 modulus·primitive-character averaged replay와
+Gallagher--Maier pointwise PAP bridge가 남아 있다. 그러므로 root 상태 수,
+<code>PAP-11=HARD_BLOCKER</code>, DEP-R09·fixed \(2\times10^{-17}\)·
+\(X_{\rm cert}=\mathrm{OPEN}\)은 유지한다. 다음 gate는 <code>JL7-AVERAGED</code>다.

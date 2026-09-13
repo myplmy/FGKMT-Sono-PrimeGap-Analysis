@@ -329,3 +329,13 @@ JL7-ABSORB다.
 - NIST Digital Library of Mathematical Functions,
   [§5.5 Functional Relations](https://dlmf.nist.gov/5.5),
   [§5.9 Integral Representations](https://dlmf.nist.gov/5.9).
+
+## 13. 2026-09-13 후속 상태
+
+[Theory 70](70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md)이 residue 52,
+contour·Lemma 3 계수와 detector lower를 한 \(A,B,E\) 식에 합성했다.
+\(L\ge L_{\rm common}\)에서 \(E\le A/2<A\)인 strict half-margin을 얻었으므로
+<code>JL7-ABSORB</code>와 actual fixed-modulus nonprincipal near-one terminal density는
+parameterized explicit으로 진전했다. 위 11절의 다음-gate 표는 Theory 69 완료 시점의
+snapshot이다. 현재 다음 gate는 <code>JL7-AVERAGED</code>이고, printed Theorem 1 전체,
+PAP-11, DEP-R09, fixed \(2\times10^{-17}\), numerical \(X_{\rm cert}\)는 계속 OPEN이다.

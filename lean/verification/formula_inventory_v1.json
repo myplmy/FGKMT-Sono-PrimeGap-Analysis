@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 70,
-  "formula_count": 1252,
-  "tagged_formula_count": 726,
+  "theory_count": 71,
+  "formula_count": 1271,
+  "tagged_formula_count": 745,
   "untagged_formula_count": 526,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "b86f8fe7d3ddb0440ffe4bba65cd8f4820b00202c40418c591902f7a77bc8e71",
+      "source_sha256": "6c79921935308efc73d3b7b617f2bf5baf5159326adb492ca4b27d39509e6751",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431",
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -561,10 +561,18 @@
     {
       "theory": "69",
       "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31",
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23",
       "display_formula_count": 26,
       "tagged_formula_count": 22,
       "untagged_formula_count": 4
+    },
+    {
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555",
+      "display_formula_count": 19,
+      "tagged_formula_count": 19,
+      "untagged_formula_count": 0
     }
   ],
   "formulae": [
@@ -856,7 +864,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U002",
@@ -866,7 +874,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U003",
@@ -876,7 +884,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U004",
@@ -886,7 +894,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U005",
@@ -896,7 +904,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U006",
@@ -906,7 +914,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U007",
@@ -916,7 +924,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U008",
@@ -926,7 +934,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U009",
@@ -936,7 +944,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U010",
@@ -946,7 +954,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U011",
@@ -956,7 +964,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U012",
@@ -966,7 +974,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U013",
@@ -976,7 +984,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U014",
@@ -986,7 +994,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T12-U015",
@@ -996,7 +1004,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
+      "source_sha256": "5e1784f1e61e0c7b78014b6ec3ba1bd0bfef5ef37ff6e56bbefe6bc508ab37d8"
     },
     {
       "formula_id": "T13-U001",
@@ -12836,7 +12844,7 @@
       "end_line": 20,
       "tagged": true,
       "latex": "0<\\theta\\le\\frac1{21},\\qquad\n D=qT,\\qquad L=\\log D\\ge\\theta^{-2}\n\\tag{69.1}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.2",
@@ -12846,7 +12854,7 @@
       "end_line": 30,
       "tagged": true,
       "latex": "\\boxed{\n |\\mathcal R|\n <52J\\left(\\frac{\\varphi(q)}q\\right)^2\n       x^{2-2\\alpha}L^2.}\n\\tag{69.2}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.3",
@@ -12856,7 +12864,7 @@
       "end_line": 62,
       "tagged": true,
       "latex": "R=D^\\theta,\\qquad\n z_1=D^{1/2+7\\theta},\\qquad\n x=D^{1+12\\theta}L^2.\n\\tag{69.3}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.4",
@@ -12866,7 +12874,7 @@
       "end_line": 69,
       "tagged": true,
       "latex": "0\\le\\Re s_j\\le\\theta,\\qquad |\\Im s_j|\\le T.\n\\tag{69.4}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.5",
@@ -12876,7 +12884,7 @@
       "end_line": 79,
       "tagged": true,
       "latex": "\\sum_{r,r'\\le R}'\\frac1{rr'}\n \\sum_d\\frac{h(d;r,r')}d\n \\sum_{\\bar\\chi_j\\chi_k=\\chi_0}\n \\bar\\eta_j\\eta_k\\,\\mathcal I(\\bar s_j+s_k)\n\\tag{69.5}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.6",
@@ -12886,7 +12894,7 @@
       "end_line": 88,
       "tagged": true,
       "latex": "\\sum_d\\frac{h(d;r,r')}d\n   =\\delta_{r,r'}\\varphi(r)\n\\tag{69.6}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.7",
@@ -12896,7 +12904,7 @@
       "end_line": 99,
       "tagged": true,
       "latex": "S_q(R)=\n \\sum_{\\substack{r\\le R\\;r\\ {\\rm squarefree}\\\\(r,q)=1}}\n \\frac{\\varphi(r)}{r^2}\n\\tag{69.7}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.8",
@@ -12906,7 +12914,7 @@
       "end_line": 114,
       "tagged": true,
       "latex": "\\begin{aligned}\n a&=(1-\\theta)\\log z_1,& b&=\\log z_1,\\\\\n c&=\\log x,& d&=(1+\\theta)\\log x,\\\\\n A&=b-a,&B&=d-c.\n\\end{aligned}\n\\tag{69.8}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.9",
@@ -12916,7 +12924,7 @@
       "end_line": 122,
       "tagged": true,
       "latex": "(e^{-\\xi z}-e^{-\\eta z})\\Gamma(-z)\n =-\\Gamma(1-z)\\int_\\xi^\\eta e^{-uz}\\,du.\n\\tag{69.9}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.10",
@@ -12926,7 +12934,7 @@
       "end_line": 130,
       "tagged": true,
       "latex": "K(z)=\\int_a^b\\int_c^d\\int_\\xi^\\eta e^{-uz}\\,du\\,d\\eta\\,d\\xi.\n\\tag{69.10}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.11",
@@ -12936,7 +12944,7 @@
       "end_line": 138,
       "tagged": true,
       "latex": "K(z)=\n \\frac{B(e^{-az}-e^{-bz})-A(e^{-cz}-e^{-dz})}{z^2}.\n\\tag{69.11}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.12",
@@ -12946,7 +12954,7 @@
       "end_line": 149,
       "tagged": true,
       "latex": "A\\le\\frac56\\theta L,\\qquad\n B\\le\\frac{18}{7}\\theta L,\\qquad\n d-a<3L.\n\\tag{69.12}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.13",
@@ -12956,7 +12964,7 @@
       "end_line": 157,
       "tagged": true,
       "latex": "K(0)=\\int_a^b\\int_c^d(\\eta-\\xi)\\,d\\eta\\,d\\xi\n <7\\theta^2L^3.\n\\tag{69.13}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.14",
@@ -12966,7 +12974,7 @@
       "end_line": 167,
       "tagged": true,
       "latex": "|K(z)|\n \\le\\frac{2(A+B)}{|z|^2}\n <\\frac{7\\theta L}{v^2}.\n\\tag{69.14}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "T69-U001",
@@ -12976,7 +12984,7 @@
       "end_line": 175,
       "tagged": false,
       "latex": "\\frac{19}{21}\\le\\Re w\\le1.",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.15",
@@ -12986,7 +12994,7 @@
       "end_line": 187,
       "tagged": true,
       "latex": "\\begin{aligned}\n |\\Gamma(w)|\n &\\le\\Gamma(\\Re w)\\\\\n &\\le\\int_0^1 t^{-2/21}\\,dt+\\int_1^\\infty e^{-t}\\,dt\\\\\n &<\\frac{21}{19}+1=\\frac{40}{19}<3.\n\\end{aligned}\n\\tag{69.15}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.16",
@@ -12996,7 +13004,7 @@
       "end_line": 198,
       "tagged": true,
       "latex": "\\Delta=L^{-1}\n\\tag{69.16}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.17",
@@ -13006,7 +13014,7 @@
       "end_line": 211,
       "tagged": true,
       "latex": "\\sum_{\\substack{k\\ne j\\\\\\chi_k=\\chi_j}}\n \\frac1{(t_k-t_j)^2}\n \\le2L^2\\sum_{m\\ge1}\\frac1{m^2}\n <\\frac{10}{3}L^2.\n\\tag{69.17}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "T69-U002",
@@ -13016,7 +13024,7 @@
       "end_line": 217,
       "tagged": false,
       "latex": "3\\cdot7\\theta^2L^3=21\\theta^2L^3,",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "T69-U003",
@@ -13026,7 +13034,7 @@
       "end_line": 224,
       "tagged": false,
       "latex": "3\\cdot7\\theta L\\cdot\\frac{10}{3}L^2\n =70\\theta L^3.",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.18",
@@ -13036,7 +13044,7 @@
       "end_line": 234,
       "tagged": true,
       "latex": "\\boxed{\n \\sum_{j,k:\\chi_j=\\chi_k}\n |\\Gamma(1-\\bar s_j-s_k)K(\\bar s_j+s_k)|\n <91J\\theta L^3.}\n\\tag{69.18}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.19",
@@ -13046,7 +13054,7 @@
       "end_line": 252,
       "tagged": true,
       "latex": "S_q(R)\n \\le e^\\theta\n \\prod_{p\\nmid q}\n \\left(1+\\frac{p-1}{p^{2+\\lambda}}\\right)\n \\le e^\\theta\\zeta(1+\\lambda)\n \\prod_{p\\mid q}(1-p^{-1-\\lambda}).\n\\tag{69.19}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.20",
@@ -13056,7 +13064,7 @@
       "end_line": 261,
       "tagged": true,
       "latex": "\\frac{1-p^{-1-\\lambda}}{1-p^{-1}}\n =1+\\frac{1-p^{-\\lambda}}{p-1}\n \\le\\exp\\!\\left(\\frac{\\lambda\\log p}{p-1}\\right).\n\\tag{69.20}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.21",
@@ -13066,7 +13074,7 @@
       "end_line": 271,
       "tagged": true,
       "latex": "\\boxed{S_q(R)<12\\frac{\\varphi(q)}qL.}\n\\tag{69.21}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "T69-U004",
@@ -13076,7 +13084,7 @@
       "end_line": 282,
       "tagged": false,
       "latex": "L^{-2}\\frac{\\varphi(q)}q x^{2-2\\alpha}.",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
     },
     {
       "formula_id": "69.22",
@@ -13086,7 +13094,197 @@
       "end_line": 289,
       "tagged": true,
       "latex": "12\\cdot91\\theta=1092\\theta\\le\\frac{1092}{21}=52.\n\\tag{69.22}",
-      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+      "source_sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23"
+    },
+    {
+      "formula_id": "70.1",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 18,
+      "end_line": 23,
+      "tagged": true,
+      "latex": "0<\\theta\\le\\frac1{21},\\qquad\n D=qT,\\quad q\\ge3,\\quad T\\ge1,\\quad L=\\log D,\n \\qquad 0<\\delta:=1-\\alpha\\le\\theta .\n\\tag{70.1}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.2",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 29,
+      "end_line": 36,
+      "tagged": true,
+      "latex": "\\boxed{\n J\\le C_J(\\theta)x^{2\\delta},\\qquad\n C_J(\\theta)=\n \\frac{884000}{9(1-\\theta)^2\\theta^6},\n \\qquad x=D^{1+12\\theta}L^2 .}\n\\tag{70.2}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.3",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 40,
+      "end_line": 47,
+      "tagged": true,
+      "latex": "\\boxed{\n N_{\\rm nonprin}(\\alpha,T,q)\n \\le2C_J(\\theta)x^{2\\delta}\n       \\{3+r\\log(2D)\\},\n \\qquad r=\\max\\{\\delta,L^{-1}\\}.}\n\\tag{70.3}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.4",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 79,
+      "end_line": 84,
+      "tagged": true,
+      "latex": "C_{\\rm pre}(\\theta)\n :=5\\frac{34}{\\theta^2}\n =\\frac{170}{\\theta^2}.\n\\tag{70.4}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.5",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 88,
+      "end_line": 93,
+      "tagged": true,
+      "latex": "\\overline C_{\\rm CL3}(\\theta)\n :=144\\left(1+\\frac1\\theta\\right)\n       \\left(\\frac2\\theta+1\\right)\n\\tag{70.5}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.6",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 104,
+      "end_line": 111,
+      "tagged": true,
+      "latex": "c_g(\\theta)=(1-\\theta)\\frac6{\\pi^2}\\theta,\\qquad\n A_{\\rm int}(\\theta,L)=\n \\theta^2\\left(\\frac12+7\\theta\\right)\n \\left(1+12\\theta+\\frac{2\\log L}{L}\\right)\n \\ge\\frac{\\theta^2}{2}.\n\\tag{70.6}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.7",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 115,
+      "end_line": 118,
+      "tagged": true,
+      "latex": "\\underline c_g(\\theta):=\\frac35(1-\\theta)\\theta<c_g(\\theta)\n\\tag{70.7}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.8",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 122,
+      "end_line": 126,
+      "tagged": true,
+      "latex": "\\underline c_g(\\theta)^2 A_{\\rm int}(\\theta,L)\n \\left(\\frac{\\varphi(q)}q\\right)^2J^2L^2\n\\tag{70.8}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.9",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 137,
+      "end_line": 147,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n &\\underline c_g^2A_{\\rm int}\n   \\left(\\frac{\\varphi(q)}q\\right)^2J^2L^2 \\\\\n &\\quad\\le C_{\\rm pre}\\Bigg[\n 52\\left(\\frac{\\varphi(q)}q\\right)^2Jx^{2\\delta}L^2\n +A_{\\rm int}\\overline C_{\\rm CL3}J^2e^{-\\gamma L}\n \\Bigg].\n\\end{aligned}\n\\tag{70.9}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.10",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 157,
+      "end_line": 162,
+      "tagged": true,
+      "latex": "AJ^2\\le BJY+EJ^2,\\qquad\n A=\\underline c_g^2A_{\\rm int},\\quad\n B=52C_{\\rm pre},\n\\tag{70.10}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.11",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 164,
+      "end_line": 168,
+      "tagged": true,
+      "latex": "E=C_{\\rm pre}A_{\\rm int}\\overline C_{\\rm CL3}\n \\left(\\frac q{\\varphi(q)}\\right)^2L^{-2}e^{-\\gamma L}.\n\\tag{70.11}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.12",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 172,
+      "end_line": 175,
+      "tagged": true,
+      "latex": "E\\le36C_{\\rm pre}A_{\\rm int}\\overline C_{\\rm CL3}e^{-\\gamma L}.\n\\tag{70.12}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.13",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 181,
+      "end_line": 187,
+      "tagged": true,
+      "latex": "\\mathcal P(\\theta):=\n \\frac{72C_{\\rm pre}(\\theta)\\overline C_{\\rm CL3}(\\theta)}\n      {\\underline c_g(\\theta)^2},\\qquad\n L_{\\rm abs}(\\theta):=\\frac{\\log\\mathcal P(\\theta)}{\\gamma(\\theta)}.\n\\tag{70.13}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.14",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 191,
+      "end_line": 194,
+      "tagged": true,
+      "latex": "E\\le\\frac12\\underline c_g^2A_{\\rm int}=\\frac A2<A.\n\\tag{70.14}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.15",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 199,
+      "end_line": 204,
+      "tagged": true,
+      "latex": "L\\ge L_{\\rm abs}^{\\rm rat}(\\theta)\n :=\\frac{\\mathcal P(\\theta)}{\\gamma(\\theta)}\n \\quad\\Longrightarrow\\quad L\\ge L_{\\rm abs}(\\theta),\n\\tag{70.15}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.16",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 211,
+      "end_line": 217,
+      "tagged": true,
+      "latex": "L\\ge e^8\n \\quad\\Longrightarrow\\quad\n \\frac{4\\log L}{L}\\le\\frac{32}{e^8}\n \\le\\frac{45}{512}<\\frac{29}{252}.\n\\tag{70.16}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.17",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 222,
+      "end_line": 227,
+      "tagged": true,
+      "latex": "\\boxed{\n L_{\\rm common}:=\n \\max\\{L_0,\\ e^8,\\ L_{\\rm abs}(\\theta)\\}.}\n\\tag{70.17}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.18",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 236,
+      "end_line": 242,
+      "tagged": true,
+      "latex": "J\\le\\frac{2B}{A}Y\n \\le\\frac{104C_{\\rm pre}}\n          {\\underline c_g^2(\\theta^2/2)}x^{2\\delta}\n =\\frac{884000}{9(1-\\theta)^2\\theta^6}x^{2\\delta},\n\\tag{70.18}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
+    },
+    {
+      "formula_id": "70.19",
+      "theory": "70",
+      "source_file": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "start_line": 260,
+      "end_line": 267,
+      "tagged": true,
+      "latex": "C_{\\rm pre}=74970,\\quad\n \\overline C_{\\rm CL3}=136224,\\quad\n \\underline c_g=\\frac4{147},\\quad\n \\gamma=\\frac{29}{5292},\\quad\n \\mathcal P=993089345703840.\n\\tag{70.19}",
+      "source_sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555"
     }
   ],
   "issues": [],

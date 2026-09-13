@@ -1587,3 +1587,61 @@ Theory 69 뒤 Lean inventory는 theory 문서 70개, display 1,252식이다. 전
 `PARTIAL_FORMALIZATION=48`, `SOURCE_THEOREM_UNFORMALIZED=54`,
 `NOT_YET_FORMALIZED=998`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 218개,
 금지 proof escape 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila JL7 strict 종단 흡수
+
+[theory 70](method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md)과
+[review 77](review/77_20260913_DEPR09_Jutila_JL7_strict_terminal_absorption_타당성검토.md)은
+Theory 64--69의 actual component를 Jutila 식 (3.6)의 한 selected system에 합성한다.
+
+\[
+ C_{\rm pre}=\frac{170}{\theta^2},\qquad
+ \overline C_{\rm CL3}
+ =144\left(1+\frac1\theta\right)\left(\frac2\theta+1\right),
+ \qquad
+ \underline c_g=\frac35(1-\theta)\theta
+\]
+
+로 두고 \(A=\underline c_g^2A_{\rm int}\), \(B=52C_{\rm pre}\)라 하면
+
+\[
+ AJ^2\le BJx^{2\delta}+EJ^2,\qquad
+ E\le36C_{\rm pre}A_{\rm int}\overline C_{\rm CL3}
+       e^{-29\theta L/252}.
+\]
+
+\[
+ L_{\rm abs}=
+ \frac{252}{29\theta}
+ \log\!\left(
+ \frac{72C_{\rm pre}\overline C_{\rm CL3}}{\underline c_g^2}
+ \right),\qquad
+ L_{\rm common}=\max\{L_0,e^8,L_{\rm abs}\}
+\]
+
+이면 \(E\le A/2<A\)라서
+
+\[
+ J\le
+ \frac{884000}{9(1-\theta)^2\theta^6}x^{2\delta}.
+\]
+
+even/odd와 Theory 65 local count는 이 one-system 흡수가 끝난 뒤 정확히 한 번만
+복원한다. 따라서 <code>JL7-ABSORB</code>와 actual fixed-modulus nonprincipal
+near-one terminal density는 parameterized explicit이다. residue 52에 integration area나
+Lemma 3 상수 3을 다시 곱하거나 parity 2를 내부와 외부에 두 번 넣지 않는다.
+
+\(\theta=1/21\)에서 \(L_{\rm abs}\approx6301.47\)이고 equal four-way JL6
+\(L_0\approx8827.24\)가 더 크다. 이 decimal은 진단값이며 directed interval
+certificate가 아니다. 이 \(L=\log(qT)\) cutoff는 final \(X_{\rm cert}\)가 아니다.
+
+Theory 70 뒤 inventory는 theory 문서 71개, display 1,271식이다. 전체 상태는
+`KERNEL_PASS=72`, `CONDITIONAL_KERNEL_PASS=42`, `DEFINITION_ONLY=48`,
+`PARTIAL_FORMALIZATION=50`, `SOURCE_THEOREM_UNFORMALIZED=56`,
+`NOT_YET_FORMALIZED=998`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 231개,
+금지 proof escape 0건이다.
+
+printed Jutila Theorem 1 전체, 식 (3.7)의 variable-modulus averaged replay,
+Gallagher--Maier PAP bridge, PAP-11, DEP-R09, fixed \(2\times10^{-17}\)과 numerical
+\(X_{\rm cert}\)는 계속 OPEN/NOT READY다. 다음 source-first gate는
+<code>JL7-AVERAGED</code>다.

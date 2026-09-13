@@ -2590,4 +2590,164 @@ theorem jutila_jl7_residue_final_composition
   have hCoefficient := jutila_jl7_residue_endpoint_coefficient hθ hθUpper
   exact hValue.trans (mul_le_mul_of_nonneg_right hCoefficient hBase)
 
+/-! ## Theory 70 — Jutila JL7 strict terminal absorption -/
+
+/- Theory 70, formula 70.4: the weighted square-sum multiplier and the
+   denominator quotient are counted exactly once. -/
+theorem jutila_jl7_preterminal_multiplier
+    {θ : ℝ} (hθ : θ ≠ 0) :
+    5 * (34 / θ ^ 2) = 170 / θ ^ 2 := by
+  field_simp
+  ring
+
+/- Theory 70, formulas 70.6--70.7: pi^2 < 10 gives a strict rational
+   detector lower bound on the actual 0 < theta < 1 range. -/
+theorem jutila_pi_square_lt_ten : Real.pi ^ 2 < 10 := by
+  have hPi : Real.pi < 3.15 := Real.pi_lt_d2
+  have hPiPos : 0 < Real.pi := Real.pi_pos
+  nlinarith
+
+theorem jutila_jl7_rational_detector_lower
+    {θ : ℝ} (hθ : 0 < θ) (hθUpper : θ < 1) :
+    (3 / 5) * (1 - θ) * θ <
+      (1 - θ) * (6 / Real.pi ^ 2) * θ := by
+  have hPiSquarePos : 0 < Real.pi ^ 2 := sq_pos_of_pos Real.pi_pos
+  have hCoefficient : (3 / 5 : ℝ) < 6 / Real.pi ^ 2 := by
+    rw [lt_div_iff₀ hPiSquarePos]
+    nlinarith [jutila_pi_square_lt_ten]
+  have hScale : 0 < (1 - θ) * θ :=
+    mul_pos (sub_pos.mpr hθUpper) hθ
+  simpa [mul_assoc, mul_left_comm, mul_comm] using
+    (mul_lt_mul_of_pos_right hCoefficient hScale)
+
+/- Theory 70, formula 70.16: a completely finite sufficient gate for
+   4*log(L)/L <= 29/252. -/
+theorem jutila_jl7_exp_eight_log_gate
+    {L : ℝ} (hL : Real.exp 8 ≤ L) :
+    4 * Real.log L / L ≤ 29 / 252 := by
+  have hDomainEight : Real.exp 1 ≤ Real.exp 8 :=
+    Real.exp_le_exp.mpr (by norm_num)
+  have hDomainL : Real.exp 1 ≤ L := hDomainEight.trans hL
+  have hRatio :=
+    Real.log_div_self_antitoneOn hDomainEight hDomainL hL
+  change Real.log L / L ≤ Real.log (Real.exp 8) / Real.exp 8 at hRatio
+  rw [Real.log_exp] at hRatio
+  have hExpLower :=
+    Real.pow_div_factorial_le_exp (x := (8 : ℝ)) (by norm_num) 6
+  norm_num at hExpLower
+  have hAtEight :
+      4 * (8 / Real.exp 8) ≤ (29 / 252 : ℝ) := by
+    have hExpPos : 0 < Real.exp 8 := Real.exp_pos 8
+    rw [show 4 * (8 / Real.exp 8) = 32 / Real.exp 8 by ring]
+    rw [div_le_iff₀ hExpPos]
+    nlinarith
+  have hScaled :=
+    mul_le_mul_of_nonneg_left hRatio (by norm_num : (0 : ℝ) ≤ 4)
+  calc
+    4 * Real.log L / L = 4 * (Real.log L / L) := by ring
+    _ ≤ 4 * (8 / Real.exp 8) := hScaled
+    _ ≤ 29 / 252 := hAtEight
+
+/- Theory 70, formulas 70.13--70.14: the logarithmic cutoff pays one
+   exponential multiplier.  This is the finite real implication only. -/
+theorem jutila_jl7_exponential_cutoff_transfer
+    {P γ L : ℝ}
+    (hP : 0 < P) (hγ : 0 < γ)
+    (hCutoff : Real.log P / γ ≤ L) :
+    P * Real.exp (-γ * L) ≤ 1 := by
+  apply pap_fixed_d_transfer_gate (K := P) (η := 1) (c := L) (D := γ)
+  · exact hP
+  · norm_num
+  · exact hγ
+  · simpa using hCutoff
+
+/- Theory 70, formula 70.12: q/phi(q) <= 6L supplies the exact square
+   normalization 36 after division by L^2. -/
+theorem jutila_jl7_totient_square_normalization
+    {u L : ℝ}
+    (hL : 0 < L) (hu : 0 ≤ u) (hUpper : u ≤ 6 * L) :
+    u ^ 2 / L ^ 2 ≤ 36 := by
+  have hSquare : u ^ 2 ≤ (6 * L) ^ 2 := by nlinarith
+  rw [div_le_iff₀ (sq_pos_of_pos hL)]
+  nlinarith
+
+/- Theory 70, formula 70.15: the exact rational fallback P/gamma is a
+   stronger sufficient cutoff than log(P)/gamma. -/
+theorem jutila_jl7_rational_fallback_cutoff
+    {P γ L : ℝ}
+    (hP : 0 < P) (hγ : 0 < γ)
+    (hFallback : P / γ ≤ L) :
+    Real.log P / γ ≤ L := by
+  rw [div_le_iff₀ hγ] at hFallback ⊢
+  exact (Real.log_le_self hP.le).trans hFallback
+
+/- Theory 70, formulas 70.14 and 70.18: a half-margin version of the
+   fail-closed terminal algebra.  A,B,E,J,Y are finite real inputs. -/
+theorem jutila_jl7_half_margin_terminal
+    {A B E J Y : ℝ}
+    (hA : 0 < A) (hB : 0 ≤ B) (hY : 0 ≤ Y)
+    (hE : E ≤ A / 2) (hJ : 0 < J)
+    (hInequality : A * J ^ 2 ≤ B * J * Y + E * J ^ 2) :
+    J ≤ 2 * B * Y / A := by
+  have hGap : 0 < A - E := by nlinarith
+  have hRaw :=
+    jutila_t1_terminal_absorption hGap hJ hInequality
+  have hHalfPos : 0 < A / 2 := by positivity
+  have hDenominator : A / 2 ≤ A - E := by nlinarith
+  have hNumerator : 0 ≤ B * Y := mul_nonneg hB hY
+  have hCompare :
+      B * Y / (A - E) ≤ B * Y / (A / 2) :=
+    div_le_div_of_nonneg_left hNumerator hHalfPos hDenominator
+  calc
+    J ≤ B * Y / (A - E) := hRaw
+    _ ≤ B * Y / (A / 2) := hCompare
+    _ = 2 * B * Y / A := by field_simp
+
+/- Theory 70, formula 70.18: exact simplification of the selected-system
+   coefficient. -/
+theorem jutila_jl7_selected_system_coefficient
+    {θ : ℝ} (hθ : θ ≠ 0) (hOne : 1 - θ ≠ 0) :
+    (2 * (52 * (170 / θ ^ 2))) /
+        (((3 / 5) * (1 - θ) * θ) ^ 2 * (θ ^ 2 / 2)) =
+      884000 / (9 * (1 - θ) ^ 2 * θ ^ 6) := by
+  field_simp
+  ring
+
+/- Theory 70, formula 70.19: exact endpoint diagnostics at theta=1/21. -/
+theorem jutila_jl7_absorption_ratio_endpoint :
+    (72 : ℝ) * 74970 * 136224 / (4 / 147) ^ 2 =
+      993089345703840 := by
+  norm_num
+
+theorem jutila_jl7_absorption_endpoint_coefficients :
+    (170 : ℝ) / (1 / 21) ^ 2 = 74970 ∧
+      (144 : ℝ) * (1 + 1 / (1 / 21)) *
+          (2 / (1 / 21) + 1) = 136224 ∧
+      (3 / 5 : ℝ) * (1 - 1 / 21) * (1 / 21) = 4 / 147 ∧
+      (29 / 252 : ℝ) * (1 / 21) = 29 / 5292 := by
+  norm_num
+
+theorem jutila_jl7_selected_system_endpoint :
+    (884000 : ℝ) /
+        (9 * (1 - 1 / 21) ^ 2 * (1 / 21) ^ 6) =
+      9287613243090 := by
+  norm_num
+
+/- Theory 70, formula 70.3: parity and local-square recovery happens only
+   after the one-system bound. -/
+theorem jutila_jl7_parity_local_count_composition
+    {N J C Y radius : ℝ}
+    (hRadius : 0 ≤ radius)
+    (hN : N ≤ 2 * J * radius)
+    (hJ : J ≤ C * Y) :
+    N ≤ 2 * C * Y * radius := by
+  have hScaled :
+      2 * J * radius ≤ 2 * (C * Y) * radius := by
+    exact mul_le_mul_of_nonneg_right
+      (mul_le_mul_of_nonneg_left hJ (by norm_num)) hRadius
+  calc
+    N ≤ 2 * J * radius := hN
+    _ ≤ 2 * (C * Y) * radius := hScaled
+    _ = 2 * C * Y * radius := by ring
+
 end FGKMTSono

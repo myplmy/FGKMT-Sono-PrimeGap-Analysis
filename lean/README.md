@@ -208,3 +208,19 @@ Rankin rational multiplier 12와 최종 \(1092\theta\le52\)를 단일 파일에�
 `DEFINITION_ONLY=43`, `PARTIAL_FORMALIZATION=48`,
 `SOURCE_THEOREM_UNFORMALIZED=54`, `NOT_YET_FORMALIZED=998`,
 `PARSE_REVIEW_REQUIRED=5`다. declaration은 218개이고 금지 proof escape는 0건이다.
+
+2026-09-13 Theory 70 batch는 Jutila actual 식 (3.6)의 strict terminal absorption을
+추가했다. weighted-square-sum·denominator의 \(170/\theta^2\), rational detector lower,
+\(q/\varphi(q)\) square normalization 36, \(L\ge e^8\) finite log gate,
+exponential cutoff transfer, half-margin terminal algebra,
+\(C_J=884000/[9(1-\theta)^2\theta^6]\)와 parity/local-count 합성을 단일 파일에서
+검사한다. external complex/character source premise는 local axiom으로 넣지 않았다.
+따라서 Lean 결과는 <code>JL7-ABSORB</code>와 actual fixed-modulus nonprincipal
+near-one terminal 합성만 지원한다. printed Theorem 1 전체, averaged 식 (3.7),
+PAP-11, DEP-R09, fixed \(2\times10^{-17}\), \(X_{\rm cert}\)는 OPEN이다.
+
+Theory 70 뒤 inventory는 theory 문서 71개, display 1,271식이며 전체 상태는
+`KERNEL_PASS=72`, `CONDITIONAL_KERNEL_PASS=42`, `DEFINITION_ONLY=48`,
+`PARTIAL_FORMALIZATION=50`, `SOURCE_THEOREM_UNFORMALIZED=56`,
+`NOT_YET_FORMALIZED=998`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 231개이고
+금지 proof escape는 0건이다.

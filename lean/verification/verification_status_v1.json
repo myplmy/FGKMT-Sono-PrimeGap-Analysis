@@ -1528,6 +1528,129 @@
       ]
     },
     {
+      "formula_id": "70.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "70.2",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_half_margin_terminal",
+        "jutila_jl7_selected_system_coefficient"
+      ]
+    },
+    {
+      "formula_id": "70.3",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_parity_local_count_composition"
+      ]
+    },
+    {
+      "formula_id": "70.4",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_preterminal_multiplier"
+      ]
+    },
+    {
+      "formula_id": "70.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "70.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "70.7",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_pi_square_lt_ten",
+        "jutila_jl7_rational_detector_lower"
+      ]
+    },
+    {
+      "formula_id": "70.8",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "70.9",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "70.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_t1_terminal_absorption"
+      ]
+    },
+    {
+      "formula_id": "70.11",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "70.12",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_totient_square_normalization"
+      ]
+    },
+    {
+      "formula_id": "70.13",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "70.14",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_exponential_cutoff_transfer",
+        "jutila_jl7_half_margin_terminal"
+      ]
+    },
+    {
+      "formula_id": "70.15",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_rational_fallback_cutoff"
+      ]
+    },
+    {
+      "formula_id": "70.16",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_exp_eight_log_gate"
+      ]
+    },
+    {
+      "formula_id": "70.17",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "70.18",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_half_margin_terminal",
+        "jutila_jl7_selected_system_coefficient"
+      ]
+    },
+    {
+      "formula_id": "70.19",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_absorption_endpoint_coefficients",
+        "jutila_jl7_absorption_ratio_endpoint",
+        "jutila_jl7_selected_system_endpoint"
+      ]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []
