@@ -2234,6 +2234,30 @@
   4. PDF 변환기의 logging warning과 실제 extraction/render 실패를 exit code·산출물로 구분한다.
   5. 장시간 session을 호출할 때는 output뿐 아니라 session id와 최종 exit code를 보존한다.
 
+### E123 — Theory 75 Lean 공통분모 비교 lemma 선택 오류와 smoothing scope 과장 초안
+
+- 분류:
+  <code>PRE_COMMIT_FORMALIZATION_AND_SCOPE_DRAFT_ERRORS /
+  DETECTED_AND_CORRECTED / NO_SCIENTIFIC_RESULT_AFFECTED</code>.
+- second-moment terminal proof의 마지막 공통분모 비교에 서로 다른 두 양의 분모를 받는
+  `div_le_div_iff₀`를 인수 하나로 적용해 첫 direct Lean compile이 실패했다. 같은 분모 전용
+  `div_le_div_iff_of_pos_right`로 교정했고, `field_simp` 뒤 실행되지 않던 `ring` tactic도
+  제거했다. 재실행은 exit 0·경고 0이다.
+- smoothing 초안은 처음에 `[1,2]` 비음수 weight의 실수 Mellin factor만 보고 “fixed
+  nonnegative smoothing 실패”라고 넓게 이름 붙였다. 실제 complex zero term에는
+  `u^(i*gamma)` 진동이 있으므로, 증거가 지지하는 범위는 zero-height 정보를 쓰지 않는
+  gamma-uniform absolute-value envelope다. 함수·machine ledger·Theory 75·review 82를
+  `source-blind gamma-uniform` 판정으로 좁히고 height-sensitive smoothing 전체는
+  `NOT RULED OUT`으로 보존했다.
+- 위 두 오류는 모두 commit 전 발견됐다. 최종 수치 8602.030894..., 필요한 감쇠율,
+  `PAP-11`·`X_cert` OPEN 상태와 사용자 데이터에는 영향이 없다. `sorry`, `admit`,
+  project-local `axiom`은 사용하지 않았다.
+- 예방:
+  1. Lean division lemma는 공통분모인지 서로 다른 분모인지 signature를 먼저 확인한다.
+  2. Mellin smoothing은 실수부 감쇠와 imaginary-height oscillation을 분리하고,
+     uniform supremum·actual zero-height 정보를 명시한다.
+  3. necessary condition의 실패를 전체 proof family의 불가능성으로 이름 붙이지 않는다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

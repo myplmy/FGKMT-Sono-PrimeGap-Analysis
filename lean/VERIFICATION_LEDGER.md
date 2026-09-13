@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-14 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 75개
-- 전수 단위: Markdown fenced code 밖 display math 1,362개
-- 원래 식번호: 832개, 합성 ID 무번호식: 530개
+- 원문 범위: `docs/method/theory/*.md` 76개
+- 전수 단위: Markdown fenced code 밖 display math 1,381개
+- 원래 식번호: 851개, 합성 ID 무번호식: 530개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,12 +62,12 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 90 |
-| `CONDITIONAL_KERNEL_PASS` | 51 |
-| `DEFINITION_ONLY` | 64 |
-| `PARTIAL_FORMALIZATION` | 70 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 67 |
-| `NOT_YET_FORMALIZED` | 1,015 |
+| `KERNEL_PASS` | 91 |
+| `CONDITIONAL_KERNEL_PASS` | 53 |
+| `DEFINITION_ONLY` | 67 |
+| `PARTIAL_FORMALIZATION` | 73 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 68 |
+| `NOT_YET_FORMALIZED` | 1,024 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `b01eba009fb40fdc…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `f5e65a9948688479…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `48c195009faf0b40…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `d44c0325aab8ea67…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -152,6 +152,7 @@
 | 72 | [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | `65aa796e27bced61…` | 16 | 16 | 0 | 13 |
 | 73 | [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | `9fce155834fdaf35…` | 33 | 29 | 4 | 26 |
 | 74 | [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | `636bbc4bac58f7f6…` | 18 | 18 | 0 | 12 |
+| 75 | [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | `74bf91c06fadb6e9…` | 19 | 19 | 0 | 10 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1525,6 +1526,25 @@
 | 1360 | `74.16` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 233–237 | <code>\sum_{\chi\bmod q}N(\sigma,T,\chi) \le(qT)^{\frac73(1-\sigma)+o(1)} \tag{74.16}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Chen--Gupta--Li arXiv v2 asymptotic source statement; o(1)과 analytic proof 미형식화 |
 | 1361 | `74.17` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 251–256 | <code>x\ge q^{52600},\qquad \varphi(q)\pi_f(x;q,a)\ge \frac{\widehat f(0)x}{210000\log x}. \tag{74.17}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Friedlander--Iwaniec Lemma 7.1 source sieve statement; analytic premise는 미형식화 |
 | 1362 | `74.18` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 260–263 | <code>80\cdot18\cdot52600=75{,}744{,}000. \tag{74.18}</code> | `dep_r09_modern_fi_arithmetic` | `KERNEL_PASS` | 80*18*52600과 coefficient comparison의 exact arithmetic을 커널 검증 |
+| 1363 | `75.1` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 30–38 | <code>\boxed{ \begin{gathered} \text{pointwise minimum: FAILS CURRENT CERTIFICATE},\\ \text{source-blind fixed nonnegative smoothing: FAILS CURRENT CERTIFICATE},\\ \text{cancellation: NEW ANALYTIC INPUT REQUIRED}. \end{gather…</code> | — | `NOT_YET_FORMALIZED` | 세 transfer 후보의 좁은 feasibility 판정; analytic 불가능성 정리가 아니며 Lean 형식화 대상 아님 |
+| 1364 | `75.2` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 50–54 | <code>Q=X^{1/d},\qquad T=Q^5,\qquad \mathcal D=Q^2T=Q^7,\qquad L=\log\mathcal D=\frac7d\log X. \tag{75.2}</code> | — | `DEFINITION_ONLY` | Maier--Gallagher actual PAP 변수와 family scale 정의 전사 |
+| 1365 | `75.3` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 59–62 | <code>\frac{c_1d}{5}\le y\le\frac{c_1d}{5}+1. \tag{75.3}</code> | `dep_r09_transfer_endpoint_arithmetic` | `PARTIAL_FORMALIZATION` | first y-slice 정의 중 d=186,c1=1/24의 두 endpoint 산술을 부분 커널 검증 |
+| 1366 | `75.4` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 82–85 | <code>N^*\le U_{\rm hyb}:=\min\{U_R,U_J\}. \tag{75.4}</code> | `dep_r09_hybrid_min_monotone` | `CONDITIONAL_KERNEL_PASS` | 두 analytic upper premise가 주어졌을 때 pointwise min의 ordered-field 단조성을 조건부 커널 검증 |
+| 1367 | `75.5` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 100–110 | <code>\begin{aligned} R_d(\log X)&amp;= 20\left(\frac{7\log X}{d}\right)^3 \exp\!\left[-\left(1-\frac{20}{d}\right) \left(\frac{c_1d}{5}+1\right)\right],\\ J_d&amp;=6C_{J,\rm tight} \exp\!\left[-\left(\frac{c_1d}{5}+1\right)\right], …</code> | `dep_r09_transfer_endpoint_arithmetic` | `PARTIAL_FORMALIZATION` | Ramaré/Jutila first-slice lower는 문서·Python 검산; edge rational만 부분 형식화 |
+| 1368 | `75.6` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 114–117 | <code>C_{J,\rm tight}=\frac{11503697604450072}{425315}. \tag{75.6}</code> | `jutila_cj_tightened_endpoint_coefficient` | `KERNEL_PASS` | Theory 73의 tightened exact coefficient kernel proof를 재사용 |
+| 1369 | `75.7` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 127–135 | <code>\begin{aligned} R_d(d\log10) &amp;=20(7\log10)^3 \exp\!\left[-\left(\frac d{120}+\frac56-\frac{20}{d}\right)\right],\\ J_d&amp;=6C_{J,\rm tight}\exp\!\left[-\left(\frac d{120}+1\right)\right]. \end{aligned} \tag{75.7}</code> | — | `NOT_YET_FORMALIZED` | source 최소점에서의 두 transcendental lower 함수; Python 120-dps와 문서 미분 proof |
+| 1370 | `75.8` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 139–144 | <code>\frac d{120}+\frac56-\frac{20}{d} \quad\text{은 미분값}\quad \frac1{120}+\frac{20}{d^2}&gt;0 \tag{75.8}</code> | — | `NOT_YET_FORMALIZED` | finite d endpoint reduction의 elementary calculus; Lean 순차 형식화 대기 |
+| 1371 | `75.9` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 152–158 | <code>\boxed{ \int_{31/20}^{51/20}\min\{B_R(y),B_J(y)\}\,dy \ge \min\{R_{186}(186\log10),J_{186}\} \ge 8602.0308942005285029\ldots.} \tag{75.9}</code> | `dep_r09_transfer_endpoint_arithmetic` | `PARTIAL_FORMALIZATION` | 8602 decimal은 고정밀 diagnostic; endpoint와 coarse 1/8602<1/7만 커널 검증 |
+| 1372 | `75.10` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 163–168 | <code>a_{\rm req}:= \frac{e^{-2}}{8602.0308942005285\ldots} =0.000015732945498702575\ldots. \tag{75.10}</code> | — | `NOT_YET_FORMALIZED` | exp(-2) 대비 required attenuation 120-dps diagnostic; directed interval certificate 아님 |
+| 1373 | `75.11` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 181–185 | <code>K_w(\delta,0)= \frac{\int_1^2w(u)u^{-\delta}\,du}{\int_1^2w(u)\,du}. \tag{75.11}</code> | — | `DEFINITION_ONLY` | normalized nonnegative zero-frequency Mellin factor 정의 |
+| 1374 | `75.12` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 189–192 | <code>2^{-\delta}\le K_w(\delta,0)\le1. \tag{75.12}</code> | — | `NOT_YET_FORMALIZED` | support와 positivity에서 오는 elementary integral bound; 문서 직접 proof, Lean 미형식화 |
+| 1375 | `75.13` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 197–201 | <code>K_w(\delta,0)\ge2^{-1/21}=0.9675317785\ldots &gt;61497\,a_{\rm req}. \tag{75.13}</code> | — | `NOT_YET_FORMALIZED` | zero-frequency support lower와 attenuation 비의 고정밀 diagnostic |
+| 1376 | `75.14` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 207–212 | <code>\log_{10}U\ge100.8669\ldots\quad(\delta=1/21), \qquad \log_{10}U\ge806.7114\ldots\quad(\text{actual slice}). \tag{75.14}</code> | — | `NOT_YET_FORMALIZED` | support expansion 필요조건의 고정밀 diagnostic; original interval 보존 불가를 뜻함 |
+| 1377 | `75.15` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 225–229 | <code>\left&#124;K_w(\delta,0)-1\right&#124; \le\delta\log2\,\kappa_w. \tag{75.15}</code> | — | `NOT_YET_FORMALIZED` | signed weight Mellin continuity의 elementary integral inequality; 문서 직접 proof, Lean 미형식화 |
+| 1378 | `75.16` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 233–237 | <code>\kappa_w\ge \frac{1-a_{\rm req}}{\delta\log2}. \tag{75.16}</code> | — | `NOT_YET_FORMALIZED` | target attenuation에서 signed condition-number necessary lower; Lean 순차 형식화 대기 |
+| 1379 | `75.17` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 251–254 | <code>\log X\int X^{\alpha-1}N^*(\alpha,T,Q)\,d\alpha \tag{75.17}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Gallagher 식 (30)의 positive zero-count integral 구조; source analytic identity 미형식화 |
+| 1380 | `75.18` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 262–266 | <code>E_q(a)=\frac1{\varphi(q)} \sum_{\chi\bmod q}\overline{\chi(a)}Z_\chi. \tag{75.18}</code> | — | `DEFINITION_ONLY` | pre-absolute-value residue-class zero contribution 정의 |
+| 1381 | `75.19` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 270–276 | <code>\sum_{\chi\bmod q}&#124;Z_\chi&#124;^2 \le\frac{\varepsilon^2X^2}{\varphi(q)} \quad\Longrightarrow\quad &#124;E_q(a)&#124;\le\frac{\varepsilon X}{\varphi(q)} \tag{75.19}</code> | `dep_r09_cancellation_second_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | complex Cauchy와 second-moment를 explicit premise로 받은 terminal scale만 조건부 커널 검증 |
 
 ## 9. 발견된 원문·작업 오류
 

@@ -23,3 +23,13 @@
 `NOT_YET_FORMALIZED=1015`, `PARSE_REVIEW_REQUIRED=5`이며 금지 proof escape는 0건이다.
 modern density source theorem은 local axiom으로 넣지 않았고, (d=186) exponent와
 Friedlander--Iwaniec의 유한 산술만 kernel proof로 추가했다.
+
+2026-09-14 Theory 75 갱신 뒤 전수 inventory는 76개 theory 문서·1,381개 display
+수식·270개 Lean declaration이다. 상태는 `KERNEL_PASS=91`,
+`CONDITIONAL_KERNEL_PASS=53`, `DEFINITION_ONLY=67`,
+`PARTIAL_FORMALIZATION=73`, `SOURCE_THEOREM_UNFORMALIZED=68`,
+`NOT_YET_FORMALIZED=1024`, `PARSE_REVIEW_REQUIRED=5`이며 금지 proof escape는 0건이다.
+Lean은 first-slice endpoint rational, pointwise min monotonicity와 explicit
+second-moment premise 이후 Cauchy terminal 대수만 검사한다. density·smooth explicit
+formula·complex moment theorem은 local axiom으로 넣지 않았다. PAP-11, DEP-R09,
+fixed `2e-17`, `X_cert`는 OPEN이다.

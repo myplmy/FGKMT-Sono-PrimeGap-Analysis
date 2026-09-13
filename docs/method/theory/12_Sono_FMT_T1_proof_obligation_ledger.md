@@ -1042,3 +1042,22 @@ DEP-R09·fixed (2\times10^{-17})·(X_{\rm cert}=mathrm{OPEN})은 변경하지 �
 다음 gate는 numerical source watch 또는 smoothing·hybrid minimum·cancellation을
 보존하는 PAP transfer의 coefficient-feasibility 설계다. 이 gate 전에는 threshold
 calculator나 장시간 prime sweep을 실행하지 않는다.
+
+## 44. 2026-09-14 DEP-R09 alternative PAP transfer feasibility 상태
+
+[theory 75](75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md)는
+Theory 74가 남긴 hybrid·smoothing·cancellation 세 경로를 coefficient gate에서 먼저
+검사했다. Ramaré와 tightened Jutila RHS의 pointwise minimum도
+$21\le d\le186$ 전체에서 첫 unit slice certificate floor가 8602.030894...를 넘는다.
+이는 실제 error 하한이 아니라 현 sufficient upper certificates의 결합 한계다.
+
+fixed nonnegative $[1,2]$ smoothing은 zero-height 분포를 사용하지 않는 gamma-uniform
+absolute envelope에서 필요한 $1.5733\times10^{-5}$ 감쇠를 보증하지 못한다.
+height-sensitive smoothing 전체는 배제하지 않는다. Gallagher 식 (30)의 절댓값 뒤
+$N^*$에는 phase 정보가 없으므로 cancellation은 pre-absolute-value pointwise PNT 또는
+explicit second-moment theorem이라는 새 input을 요구한다.
+
+따라서 66개 root row의 상태와 <code>PAP-11=HARD_BLOCKER</code>,
+DEP-R09·fixed $2\times10^{-17}$·$X_{\rm cert}=\mathrm{OPEN}$은 변경하지 않는다.
+threshold calculator와 장시간 prime sweep도 NOT READY다. 다음 gate는 fully numerical
+pointwise PNT 또는 pre-absolute-value uniform moment source audit다.

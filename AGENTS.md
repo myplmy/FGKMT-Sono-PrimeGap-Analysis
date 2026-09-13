@@ -46,6 +46,20 @@ cutoff·pointwise transfer가 없거나 exponent·coefficient 범위가 맞지 �
 최신 analytic 정본은 theory 74·review 81이다. PAP-11·DEP-R09·fixed 2e-17·
 X_cert는 계속 OPEN이며, 다음 gate 전 장시간 prime 계산은 금지한다.
 
+2026-09-14 alternative-transfer successor는 Ramaré와 tightened Jutila RHS의
+pointwise minimum도 \(21\le d\le186\)의 첫 unit slice에서 certificate floor가
+8602.030894...보다 작아지지 않음을 확인했다. 필요한 감쇠는 약
+\(1.5733\times10^{-5}\)다. zero-height 정보를 쓰지 않는 source-blind gamma-uniform
+fixed nonnegative `[1,2]` smoothing은 zero-frequency factor가 최소 0.967531...라
+이 gate를 통과하지 못한다. height-sensitive smoothing 전체는 배제하지 않는다.
+Gallagher 식 (30)의 절댓값 뒤에는 phase가 없으므로 cancellation에는
+pre-absolute-value pointwise PNT 또는 explicit second-moment theorem이 필요하다.
+Theory 75 뒤 inventory는 76개 문서, 1,381식이고 `KERNEL_PASS=91`,
+`CONDITIONAL_KERNEL_PASS=53`, `NOT_YET_FORMALIZED=1024`, Lean declaration 270개,
+금지 proof escape 0건이다. 최신 analytic 정본은 theory 75·review 82다.
+PAP-11·DEP-R09·fixed 2e-17·X_cert는 계속 OPEN이고 threshold calculator·장시간
+prime 계산은 NOT READY다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

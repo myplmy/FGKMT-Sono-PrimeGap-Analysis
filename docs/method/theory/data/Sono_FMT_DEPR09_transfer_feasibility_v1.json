@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 hybrid minimum, smoothing, and cancellation-preserving PAP transfer feasibility",
+  "predecessors": [
+    "Sono_FMT_DEPR09_Gallagher_Maier_PAP_split_v1.json",
+    "Sono_FMT_DEPR09_CJ_loss_tree_v1.json",
+    "Sono_FMT_DEPR09_modern_density_source_screen_v1.json"
+  ],
+  "outcome": "POINTWISE_MINIMUM_AND_SOURCE_BLIND_FIXED_NONNEGATIVE_SMOOTHING_FAIL_CURRENT_PAP_CERTIFICATE_NEW_PRE_ABSOLUTE_VALUE_THEOREM_REQUIRED",
+  "source_registry": [
+    {
+      "key": "GALLAGHER1970",
+      "title": "A Large Sieve Density Estimate near sigma = 1",
+      "locator": "article/gallagher1970.pdf",
+      "doi": "10.1007/BF01403187",
+      "sha256": "ecac1c9470521e410ac8731d2f57b77eb364f1fdc0bbd1f71813205afe84adcf",
+      "printed_pages": "335--338",
+      "statements": "Theorems 6--7 and equations (24), (26)--(30)",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "classification": "PRIMARY_PEER_REVIEWED_SOURCE_ABSOLUTE_VALUES_PRECEDE_ZERO_COUNT"
+    },
+    {
+      "key": "MAIER1981",
+      "title": "Chains of Large Gaps between Consecutive Primes",
+      "locator": "article/Maier 1981.pdf",
+      "doi": "10.1016/0001-8708(81)90003-7",
+      "sha256": "ca6f2425b850dd5f9d81340d8a4a4c76faf6a947d7486ebf87ff072adbf0a3eb",
+      "printed_pages": "260--261",
+      "statements": "good modulus definition and Lemmas 1--2 with h=x and Q=x^(1/D)",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "classification": "PRIMARY_PEER_REVIEWED_POINTWISE_PAP_APPLICATION_INTERVAL_X_TO_2X"
+    },
+    {
+      "key": "RAMARE2016",
+      "title": "An explicit density estimate for Dirichlet L-series",
+      "locator": "tmp/pdfs/dep_r09_modern_screen_20260914/Ramare_2016_explicit_density.pdf",
+      "doi": "10.1090/mcom/2991",
+      "sha256": "ffdc82e6b6e635b04160fa6baac18ac6fd095ce4d80093de94585237bc6ec7fb",
+      "printed_pages": "325--326",
+      "statements": "Theorem 1.1",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "classification": "PRIMARY_PEER_REVIEWED_FULLY_NUMERICAL_AVERAGED_DENSITY"
+    },
+    {
+      "key": "HELFGOTT2015",
+      "title": "The ternary Goldbach problem",
+      "arxiv": "1501.05438",
+      "url": "https://arxiv.org/abs/1501.05438",
+      "statements": "Chapter 9, Lemma 9.1.1 smooth explicit-formula structure",
+      "classification": "PEER_REVIEWED_BOOK_BACKGROUND_NOT_A_DROP_IN_PAP_THEOREM"
+    },
+    {
+      "key": "THORNER_ZAMAN2024",
+      "title": "Refinements to the prime number theorem for arithmetic progressions",
+      "arxiv": "2108.10878",
+      "doi": "10.1007/s00209-023-03414-3",
+      "url": "https://arxiv.org/abs/2108.10878",
+      "classification": "PRIMARY_PEER_REVIEWED_STRUCTURAL_CANDIDATE_NUMERICAL_MULTIPLIER_AND_CUTOFF_OPEN"
+    }
+  ],
+  "normalization": {
+    "PAP_prime_interval": "[X,2X] via Maier h=X",
+    "Q": "X^(1/d)",
+    "T": "Q^5",
+    "family_scale": "Q^2*T=Q^7",
+    "y": "(1-alpha)*log(X)",
+    "first_slice": "c1*d/5 <= y <= c1*d/5+1",
+    "capacity_range": "21<=d<=186",
+    "zero_free_c1": "1/24",
+    "theta": "1/21",
+    "tightened_C_J": "11503697604450072/425315",
+    "positive_error_budget": "exp(-2)"
+  },
+  "hybrid_pointwise_minimum": {
+    "ramare_main_slice_lower": "20*(7*log(X)/d)^3*exp(-(1-20/d)*(c1*d/5+1))",
+    "jutila_slice_lower": "6*C_J_tight*exp(-(c1*d/5+1))",
+    "source_minimum_log_X_for_21_le_d_le_186": "d*log(10)",
+    "endpoint_monotonicity": "both displayed lower functions decrease with d on 21<=d<=186; for fixed d their minimum is nondecreasing in log(X)",
+    "capacity_floor_attained_d": 186,
+    "capacity_floor": "8602.030894200528502976661078207712760444865760914727443515",
+    "budget_exp_minus_2": "0.135335283236612691893999494972484403407631545909575881468159",
+    "required_attenuation": "0.0000157329454987025750951379074564583693773369329351141888635681",
+    "interpretation": "uniform pointwise floors for the two transformed nonnegative integrands imply a lower bound on their integrated pointwise-minimum upper certificate; this is not min of two integral bounds and not a lower bound on the true prime-distribution error",
+    "status": "FAILS_CURRENT_PAP_CERTIFICATE"
+  },
+  "fixed_smoothing": {
+    "normalized_nonnegative_zero_frequency_transform": "K_w(delta,0)=integral_[1,2] w(u)u^(-delta)du / integral_[1,2]w(u)du",
+    "source_blind_uniform_envelope_reason": "a gamma-uniform absolute-value bound that uses no quantitative zero-height information must include the zero-frequency supremum",
+    "nonnegative_zero_frequency_support_bound": "2^(-delta)<=K_w(delta,0)<=1",
+    "lower_at_theta": "0.967531778523891631761418572127369937162251147657341711203798",
+    "actual_first_slice_delta_upper": "0.00595403725189942021779773517869539225726189443440510614834332",
+    "lower_at_actual_first_slice": "0.995881480326604711836726167013771523002183120315616908624639",
+    "support_log10_required_at_theta_if_only_U_minus_delta": "100.866989197723165601715698427473818173600734007148174166573",
+    "support_log10_required_at_actual_slice_if_only_U_minus_delta": "806.711439412653523654090704591495564198500106121838112885704",
+    "signed_weight_continuity_bound": "abs(K_w(delta)-1)<=delta*log(2)*||w||_1/abs(integral w)",
+    "signed_condition_number_lower_at_theta": "30.2961192039767909091267886310653154000723100888652208207833",
+    "signed_condition_number_lower_at_actual_slice": "242.301531215022449787729946238814330678115212663207849990571",
+    "status": "FIXED_NONNEGATIVE_SOURCE_BLIND_GAMMA_UNIFORM_ENVELOPE_FAILS; HEIGHT_SENSITIVE_OR_X_DEPENDENT_WEIGHT_REQUIRES_NEW_ZERO_HEIGHT_MAIN_TERM_AND_REMAINDER_PROOF"
+  },
+  "cancellation_contract": {
+    "information_loss_edge": "Gallagher equation (30) takes absolute values of prime-character errors before replacement by a positive zero-count integral",
+    "irrecoverability": "phase and residue-class signs cannot be reconstructed from N*(alpha,T,Q) alone",
+    "example_new_input": "a uniform pre-absolute-value bound for E_q(a)=phi(q)^(-1) sum_chi conjugate(chi(a))*Z_chi, or an explicit second-moment theorem strong enough for Cauchy plus all principal, exceptional, prime-power, endpoint, and psi-to-pi terms",
+    "mean_or_almost_all_warning": "an average or almost-all progression result is not a drop-in replacement for Maier's pointwise good-modulus PAP without downstream redesign",
+    "status": "NEW_ANALYTIC_INPUT_REQUIRED_NO_PUBLIC_NUMERICAL_DROP_IN_IDENTIFIED"
+  },
+  "status_after_this_gate": {
+    "pointwise_minimum_screen_complete": true,
+    "fixed_nonnegative_smoothing_screen_complete": true,
+    "signed_weight_continuity_necessary_condition_complete": true,
+    "absolute_value_information_loss_source_fixed": true,
+    "all_smoothing_impossible": false,
+    "all_cancellation_proofs_impossible": false,
+    "public_numerical_cancellation_drop_in_found": false,
+    "gallagher_full_numerical_replay_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "user_compute_required_now": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "lean_scope": {
+    "finite_arithmetic_to_formalize": [
+      "d=186 edge endpoint c1*d/5+1=51/20",
+      "capacity interval endpoints 21<=186",
+      "rational separation 1/8602<1/7",
+      "conditional Cauchy residue-class averaging algebra"
+    ],
+    "analytic_integral_and_source_theorems_fully_formalized": false,
+    "project_local_axiom_allowed": false,
+    "proof_escape_allowed": false
+  },
+  "next_gate": "Seek a fully numerical pointwise PNT in progressions or a pre-absolute-value uniform moment theorem; do not start a threshold calculator or long prime computation from this result."
+}

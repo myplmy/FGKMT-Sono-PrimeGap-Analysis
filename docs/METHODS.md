@@ -1814,3 +1814,37 @@ Friedlander--Iwaniec의 다른 sieve route는 (x\ge q^{52600})과 coefficient
 OPEN/NOT READY다. 다음 단계는 public numerical source watch 또는 smoothing·hybrid
 minimum·cancellation을 보존하는 PAP transfer의 작은 coefficient-feasibility 감사다.
 이전에는 장시간 prime 계산을 실행하지 않는다.
+
+## 2026-09-14 DEP-R09 hybrid·smoothing·cancellation 전달 feasibility
+
+[theory 75](method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md)와
+[review 82](review/82_20260914_DEPR09_hybrid_smoothing_cancellation_transfer_타당성검토.md)는
+Theory 74가 열어 둔 세 갈래를 actual Maier interval $[X,2X]$와
+$Q=X^{1/d},T=Q^5$ 계약에서 수치 선별한다.
+
+$y=(1-\alpha)\log X$의 첫 unit slice에서 Ramaré main RHS와 tightened Jutila RHS의
+pointwise minimum을 사용해도, coefficient capacity $21\le d\le186$ 전체의 computed
+upper-certificate floor는 $d=186$에서
+
+\[
+8602.0308942005285\ldots
+\]
+
+보다 작아지지 않는다. $e^{-2}$ budget에 맞추려면 약
+$1.57329455\times10^{-5}$의 추가 감쇠가 필요하다. 이 값은 실제
+prime-distribution error의 하한이 아니라 두 sufficient upper bound를 단순 결합한
+증명서의 한계다.
+
+$[1,2]$ 고정 비음수 weight를 zero-height 정보 없이 gamma-uniform 절댓값 envelope로
+사용하면 normalized zero-frequency Mellin factor는 $2^{-\delta}$ 이상이다.
+$\delta\le1/21$에서는 $0.967531\ldots$, 실제 첫 slice에서는 $0.995881\ldots$ 이상이므로
+필요한 감쇠를 보증하지 못한다. 이는 height-sensitive oscillatory smoothing 전체의
+불가능성 판정이 아니다. signed 또는 X-dependent weight는 main mass·condition number·
+tail을 새로 수치화해야 한다.
+
+Gallagher 식 (30)은 character error에 먼저 절댓값을 취하므로 positive zero-count
+$N^*$만 남은 뒤에는 phase cancellation을 복구할 수 없다. cancellation 경로에는
+절댓값 이전의 pointwise error 또는 explicit second moment를 numerical cutoff와 함께
+제어하는 새 theorem이 필요하다. 따라서 <code>PAP-11</code>, <code>DEP-R09</code>,
+fixed $2\times10^{-17}$, numerical $X_{\rm cert}$와 threshold calculator는 계속
+OPEN/NOT READY이며 장시간 prime 계산은 실행하지 않는다.

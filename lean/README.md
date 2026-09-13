@@ -289,3 +289,17 @@ Theory 74 뒤 inventory는 theory 문서 75개, display 1,362식이며 전체 �
 `NOT_YET_FORMALIZED=1015`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 267개이고
 금지 proof escape는 0건이다. 이 형식화는 선별 후보의 수치 drop-in 실패를 analytic
 불가능성 정리로 바꾸지 않는다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-14 Theory 75 batch는 두 certified upper bound의 pointwise minimum에 대한
+ordered-field 단조성, d=186 first-slice endpoint, coarse rational budget separation과
+pre-absolute-value second-moment premise 뒤 Cauchy terminal transfer를 단일 파일에서
+검사한다. Ramaré/Jutila analytic theorem, Mellin integral, actual complex character
+second moment는 local axiom으로 넣지 않았다. smoothing 판정도 zero-height 정보를 쓰지
+않는 source-blind gamma-uniform envelope에 한정하며 모든 oscillatory smoothing의
+불가능성으로 승격하지 않는다.
+
+Theory 75 뒤 inventory는 theory 문서 76개, display 1,381식이며 전체 상태는
+`KERNEL_PASS=91`, `CONDITIONAL_KERNEL_PASS=53`, `DEFINITION_ONLY=67`,
+`PARTIAL_FORMALIZATION=73`, `SOURCE_THEOREM_UNFORMALIZED=68`,
+`NOT_YET_FORMALIZED=1024`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 270개이고
+금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.

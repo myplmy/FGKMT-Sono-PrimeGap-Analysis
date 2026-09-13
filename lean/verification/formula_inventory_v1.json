@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 75,
-  "formula_count": 1362,
-  "tagged_formula_count": 832,
+  "theory_count": 76,
+  "formula_count": 1381,
+  "tagged_formula_count": 851,
   "untagged_formula_count": 530,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "b01eba009fb40fdc1b3ee794965213933e5224b9cc346933fb217146b9687537",
+      "source_sha256": "f5e65a9948688479e0a86263a319f396e8975617548fc0fa18c3a1f9a828f750",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29",
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -605,6 +605,14 @@
       "display_formula_count": 18,
       "tagged_formula_count": 18,
       "untagged_formula_count": 0
+    },
+    {
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606",
+      "display_formula_count": 19,
+      "tagged_formula_count": 19,
+      "untagged_formula_count": 0
     }
   ],
   "formulae": [
@@ -896,7 +904,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U002",
@@ -906,7 +914,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U003",
@@ -916,7 +924,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U004",
@@ -926,7 +934,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U005",
@@ -936,7 +944,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U006",
@@ -946,7 +954,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U007",
@@ -956,7 +964,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U008",
@@ -966,7 +974,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U009",
@@ -976,7 +984,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U010",
@@ -986,7 +994,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U011",
@@ -996,7 +1004,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U012",
@@ -1006,7 +1014,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U013",
@@ -1016,7 +1024,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U014",
@@ -1026,7 +1034,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T12-U015",
@@ -1036,7 +1044,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
+      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
     },
     {
       "formula_id": "T13-U001",
@@ -14227,6 +14235,196 @@
       "tagged": true,
       "latex": "80\\cdot18\\cdot52600=75{,}744{,}000.\n\\tag{74.18}",
       "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "75.1",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 30,
+      "end_line": 38,
+      "tagged": true,
+      "latex": "\\boxed{\n \\begin{gathered}\n \\text{pointwise minimum: FAILS CURRENT CERTIFICATE},\\\\\n \\text{source-blind fixed nonnegative smoothing: FAILS CURRENT CERTIFICATE},\\\\\n \\text{cancellation: NEW ANALYTIC INPUT REQUIRED}.\n \\end{gathered}}\n\\tag{75.1}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.2",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 50,
+      "end_line": 54,
+      "tagged": true,
+      "latex": "Q=X^{1/d},\\qquad T=Q^5,\\qquad\n \\mathcal D=Q^2T=Q^7,\\qquad L=\\log\\mathcal D=\\frac7d\\log X.\n\\tag{75.2}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.3",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 59,
+      "end_line": 62,
+      "tagged": true,
+      "latex": "\\frac{c_1d}{5}\\le y\\le\\frac{c_1d}{5}+1.\n\\tag{75.3}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.4",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 82,
+      "end_line": 85,
+      "tagged": true,
+      "latex": "N^*\\le U_{\\rm hyb}:=\\min\\{U_R,U_J\\}.\n\\tag{75.4}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.5",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 100,
+      "end_line": 110,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n R_d(\\log X)&=\n 20\\left(\\frac{7\\log X}{d}\\right)^3\n \\exp\\!\\left[-\\left(1-\\frac{20}{d}\\right)\n \\left(\\frac{c_1d}{5}+1\\right)\\right],\\\\\n J_d&=6C_{J,\\rm tight}\n \\exp\\!\\left[-\\left(\\frac{c_1d}{5}+1\\right)\\right],\n \\end{aligned}\n\\tag{75.5}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.6",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 114,
+      "end_line": 117,
+      "tagged": true,
+      "latex": "C_{J,\\rm tight}=\\frac{11503697604450072}{425315}.\n\\tag{75.6}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.7",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 127,
+      "end_line": 135,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n R_d(d\\log10)\n &=20(7\\log10)^3\n \\exp\\!\\left[-\\left(\\frac d{120}+\\frac56-\\frac{20}{d}\\right)\\right],\\\\\n J_d&=6C_{J,\\rm tight}\\exp\\!\\left[-\\left(\\frac d{120}+1\\right)\\right].\n \\end{aligned}\n\\tag{75.7}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.8",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 139,
+      "end_line": 144,
+      "tagged": true,
+      "latex": "\\frac d{120}+\\frac56-\\frac{20}{d}\n \\quad\\text{은 미분값}\\quad\n \\frac1{120}+\\frac{20}{d^2}>0\n\\tag{75.8}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.9",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 152,
+      "end_line": 158,
+      "tagged": true,
+      "latex": "\\boxed{\n \\int_{31/20}^{51/20}\\min\\{B_R(y),B_J(y)\\}\\,dy\n \\ge \\min\\{R_{186}(186\\log10),J_{186}\\}\n \\ge 8602.0308942005285029\\ldots.}\n\\tag{75.9}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.10",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 163,
+      "end_line": 168,
+      "tagged": true,
+      "latex": "a_{\\rm req}:=\n \\frac{e^{-2}}{8602.0308942005285\\ldots}\n =0.000015732945498702575\\ldots.\n\\tag{75.10}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.11",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 181,
+      "end_line": 185,
+      "tagged": true,
+      "latex": "K_w(\\delta,0)=\n \\frac{\\int_1^2w(u)u^{-\\delta}\\,du}{\\int_1^2w(u)\\,du}.\n\\tag{75.11}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.12",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 189,
+      "end_line": 192,
+      "tagged": true,
+      "latex": "2^{-\\delta}\\le K_w(\\delta,0)\\le1.\n\\tag{75.12}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.13",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 197,
+      "end_line": 201,
+      "tagged": true,
+      "latex": "K_w(\\delta,0)\\ge2^{-1/21}=0.9675317785\\ldots\n >61497\\,a_{\\rm req}.\n\\tag{75.13}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.14",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 207,
+      "end_line": 212,
+      "tagged": true,
+      "latex": "\\log_{10}U\\ge100.8669\\ldots\\quad(\\delta=1/21),\n \\qquad\n \\log_{10}U\\ge806.7114\\ldots\\quad(\\text{actual slice}).\n\\tag{75.14}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.15",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 225,
+      "end_line": 229,
+      "tagged": true,
+      "latex": "\\left|K_w(\\delta,0)-1\\right|\n \\le\\delta\\log2\\,\\kappa_w.\n\\tag{75.15}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.16",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 233,
+      "end_line": 237,
+      "tagged": true,
+      "latex": "\\kappa_w\\ge\n \\frac{1-a_{\\rm req}}{\\delta\\log2}.\n\\tag{75.16}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.17",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 251,
+      "end_line": 254,
+      "tagged": true,
+      "latex": "\\log X\\int X^{\\alpha-1}N^*(\\alpha,T,Q)\\,d\\alpha\n\\tag{75.17}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.18",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 262,
+      "end_line": 266,
+      "tagged": true,
+      "latex": "E_q(a)=\\frac1{\\varphi(q)}\n \\sum_{\\chi\\bmod q}\\overline{\\chi(a)}Z_\\chi.\n\\tag{75.18}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "75.19",
+      "theory": "75",
+      "source_file": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "start_line": 270,
+      "end_line": 276,
+      "tagged": true,
+      "latex": "\\sum_{\\chi\\bmod q}|Z_\\chi|^2\n \\le\\frac{\\varepsilon^2X^2}{\\varphi(q)}\n \\quad\\Longrightarrow\\quad\n |E_q(a)|\\le\\frac{\\varepsilon X}{\\varphi(q)}\n\\tag{75.19}",
+      "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
     }
   ],
   "issues": [],

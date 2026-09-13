@@ -2164,6 +2164,101 @@
       "declarations": ["dep_r09_modern_fi_arithmetic"]
     },
     {
+      "formula_id": "75.1",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.3",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_transfer_endpoint_arithmetic"]
+    },
+    {
+      "formula_id": "75.4",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_hybrid_min_monotone"]
+    },
+    {
+      "formula_id": "75.5",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_transfer_endpoint_arithmetic"]
+    },
+    {
+      "formula_id": "75.6",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_cj_tightened_endpoint_coefficient"]
+    },
+    {
+      "formula_id": "75.7",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.8",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_transfer_endpoint_arithmetic"]
+    },
+    {
+      "formula_id": "75.10",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.11",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.12",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.13",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.14",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.15",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.16",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.17",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.18",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "75.19",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_cancellation_second_moment_terminal"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

@@ -3268,4 +3268,53 @@ theorem dep_r09_modern_fi_arithmetic :
       (1 / 210000 : ℝ) < 4 / 5 := by
   norm_num
 
+/- Theory 75, formulas 75.5--75.7: elementary endpoint arithmetic for the
+   first y-slice and a coarse rational separation between the computed
+   certificate floor and the positive PAP budget.  The transcendental
+   numerical bounds are kept outside Lean as high-precision diagnostics. -/
+theorem dep_r09_transfer_endpoint_arithmetic :
+    (1 / 24 : ℝ) * 186 / 5 + 1 = 51 / 20 ∧
+      (21 : ℕ) ≤ 186 ∧
+      (1 / 8602 : ℝ) < 1 / 7 := by
+  norm_num
+
+/- Theory 75, formula 75.4: min is monotone in both certified upper bounds.
+   This only verifies the ordered-field composition, not either analytic
+   density premise. -/
+theorem dep_r09_hybrid_min_monotone
+    {R J rLower jLower : ℝ}
+    (hR : rLower ≤ R) (hJ : jLower ≤ J) :
+    min rLower jLower ≤ min R J := by
+  exact min_le_min hR hJ
+
+/- Theory 75, formula 75.15: if a pre-absolute-value Cauchy estimate and the
+   required second-moment budget are supplied as explicit premises, the
+   residue-class normalization has exactly the desired scale.  This theorem
+   does not assert that the missing analytic second-moment estimate exists. -/
+theorem dep_r09_cancellation_second_moment_terminal
+    {phi epsilon X z secondMoment : ℝ}
+    (hPhi : 0 < phi) (hEpsilon : 0 ≤ epsilon) (hX : 0 ≤ X)
+    (hCauchy : z ^ 2 ≤ phi * secondMoment)
+    (hSecondMoment : secondMoment ≤ epsilon ^ 2 * X ^ 2 / phi) :
+    |z / phi| ≤ epsilon * X / phi := by
+  have hSquare : z ^ 2 ≤ (epsilon * X) ^ 2 := by
+    calc
+      z ^ 2 ≤ phi * secondMoment := hCauchy
+      _ ≤ phi * (epsilon ^ 2 * X ^ 2 / phi) :=
+        mul_le_mul_of_nonneg_left hSecondMoment hPhi.le
+      _ = (epsilon * X) ^ 2 := by
+        field_simp
+  have hScale : 0 ≤ epsilon * X := mul_nonneg hEpsilon hX
+  have hUpper : z ≤ epsilon * X := by
+    by_contra hNot
+    have hStrict : epsilon * X < z := lt_of_not_ge hNot
+    nlinarith
+  have hLower : -(epsilon * X) ≤ z := by
+    by_contra hNot
+    have hStrict : z < -(epsilon * X) := lt_of_not_ge hNot
+    nlinarith
+  have hAbs : |z| ≤ epsilon * X := (abs_le).2 ⟨hLower, hUpper⟩
+  rw [abs_div, abs_of_pos hPhi]
+  exact (div_le_div_iff_of_pos_right hPhi).2 hAbs
+
 end FGKMTSono
