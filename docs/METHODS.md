@@ -1645,3 +1645,54 @@ printed Jutila Theorem 1 전체, 식 (3.7)의 variable-modulus averaged replay,
 Gallagher--Maier PAP bridge, PAP-11, DEP-R09, fixed \(2\times10^{-17}\)과 numerical
 \(X_{\rm cert}\)는 계속 OPEN/NOT READY다. 다음 source-first gate는
 <code>JL7-AVERAGED</code>다.
+
+## 2026-09-14 DEP-R09 Jutila JL7 averaged primitive replay
+
+[theory 71](method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md)과
+[review 78](review/78_20260914_DEPR09_Jutila_JL7_averaged_primitive_replay_타당성검토.md)는
+Jutila printed pp.53--54 식 (3.7)의 modulus-dependent pseudocharacter detector를
+primitive nonprincipal near-one family에서 재생한다. 공통 scale은
+
+\[
+ D=Q^2T,\qquad L=\log D,
+\]
+
+이고, 각 conductor (q_j\le Q)의 Mellin scale은
+
+\[
+ D^{1/2+9\theta}\le
+ (q_jT)^{1/2}D^{1/2+9\theta}
+ \le D^{1+9\theta}.
+\]
+
+오른쪽 상계는 power condition, 왼쪽 하계는 Mellin 오차 decay에만 쓴다.
+두 방향을 바꾸지 않은 common detector replay에서 (θ=1/21)의 Mellin decay
+exponent는 (13/588)이며, 공통 detector cutoff는 기존 (ℒ_q) absorption
+항이 여전히 지배한다.
+
+Jutila의 phase (|\eta_j|=q_j/\varphi(q_j))는 detector의
+(\varphi(q_j)/q_j)를 정확히 상쇄한다. principal product pair에서는
+같은 primitive character이므로 conductor가 같고, phase·(L)-residue·
+pseudocharacter totient factor의 곱이 1이다. off-diagonal에서는 두
+(q/\varphi(q)\le6L)이 normalized factor 36을 준다. 이 36은 Theory 70의
+같은 자리에 들어가므로 raw (Q) 또는 (Q^2) multiplier가 새로 생기지 않고,
+
+\[
+ N^*_{\rm np}(\alpha,T,Q)
+ \le 2C_J(\theta)x^{2(1-\alpha)}
+ \{3+r\log(2D)\}
+\]
+
+의 actual primitive nonprincipal near-one branch가 parameterized explicit으로 진전한다.
+complex generalized Halasz inequality·primitive conductor fact·source analytic input은
+local axiom으로 채우지 않았고, Lean은 phase/residue 상쇄, factor 36,
+Mellin envelope 방향, (L^2) cancellation과 terminal algebra만 검사한다.
+
+Theory 71 뒤 Lean inventory는 theory 문서 72개, display 1,295식,
+declaration 240개이며 금지 proof escape는 0건이다. 이는 printed all-alpha
+Theorem 1이나 pointwise PAP를 증명한 것이 아니다. principal zeta,
+away-from-one 필요성, exceptional character, prime powers, (ψ\to\pi), endpoint·공통
+cutoff를 Gallagher--Maier argument 안에서 다시 합성해야 한다. 따라서
+PAP-11, DEP-R09, fixed (2\times10^{-17}), numerical (X_{\rm cert})와 threshold
+calculator는 계속 OPEN/NOT READY다. 다음 gate는 `JL7-AVERAGED-TO-PAP`의
+source call map이다.

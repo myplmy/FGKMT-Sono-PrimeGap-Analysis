@@ -2750,4 +2750,115 @@ theorem jutila_jl7_parity_local_count_composition
     _ ≤ 2 * (C * Y) * radius := hScaled
     _ = 2 * C * Y * radius := by ring
 
+/-! ## Theory 71 — Jutila JL7 averaged primitive replay -/
+
+/- Theory 71, formula 71.13: the phase magnitude q/phi(q) cancels the
+   detector's phi(q)/q exactly.  The arithmetic variables are positive
+   finite reals; the character-theoretic phase choice remains a source
+   analytic premise. -/
+theorem jutila_jl7_averaged_detector_phase_cancellation
+    {q phiQ : ℝ} (hq : q ≠ 0) (hPhi : phiQ ≠ 0) :
+    (q / phiQ) * (phiQ / q) = 1 := by
+  field_simp
+
+/- Theory 71, formula 71.16: on a principal primitive-character pair,
+   the two phase weights cancel the L-residue and pseudocharacter
+   totient factors.  Primitivity forcing equal conductors is deliberately
+   not asserted by this scalar theorem. -/
+theorem jutila_jl7_averaged_principal_residue_cancellation
+    {q phiQ : ℝ} (hq : q ≠ 0) (hPhi : phiQ ≠ 0) :
+    (q / phiQ) ^ 2 * (phiQ / q) ^ 2 = 1 := by
+  field_simp
+
+/- Theory 71, formula 71.18: two separate phase bounds q/phi(q) <= 6L
+   cost at most 36 after the common detector L^2 is divided out. -/
+theorem jutila_jl7_averaged_phase_pair_normalization
+    {u v L : ℝ}
+    (hL : 0 < L) (hv : 0 ≤ v)
+    (huUpper : u ≤ 6 * L) (hvUpper : v ≤ 6 * L) :
+    u * v / L ^ 2 ≤ 36 := by
+  have hSixL : 0 ≤ 6 * L := by positivity
+  have hProduct : u * v ≤ (6 * L) * (6 * L) :=
+    mul_le_mul huUpper hvUpper hv hSixL
+  rw [div_le_iff₀ (sq_pos_of_pos hL)]
+  nlinarith
+
+/- Theory 71, formula 71.7: abstract finite algebra behind the two
+   directions of the common Mellin scale envelope.  Here `base` denotes
+   D^(1/2+9 theta), `u` denotes sqrt(qT), and `sqrtD` denotes sqrt(D).
+   The real-power identifications remain outside this algebraic theorem. -/
+theorem jutila_jl7_averaged_mellin_scale_envelope
+    {base u sqrtD : ℝ}
+    (hBase : 0 ≤ base) (hLower : 1 ≤ u) (hUpper : u ≤ sqrtD) :
+    base ≤ u * base ∧ u * base ≤ sqrtD * base := by
+  constructor
+  · simpa [one_mul] using mul_le_mul_of_nonneg_right hLower hBase
+  · exact mul_le_mul_of_nonneg_right hUpper hBase
+
+/- Theory 71, formulas 71.7 and 71.9: exact exponents used for the lower
+   Mellin envelope and its negative-power decay. -/
+theorem jutila_jl7_averaged_mellin_exponent_identities (theta : ℝ) :
+    (1 / 2 + 9 * theta) + 1 / 2 = 1 + 9 * theta ∧
+      theta * (1 / 2 + 9 * theta) / 2 =
+        theta / 4 + 9 * theta ^ 2 / 2 := by
+  constructor <;> ring
+
+theorem jutila_jl7_averaged_mellin_decay_endpoint :
+    (1 / 21 : ℝ) * (1 / 2 + 9 * (1 / 21)) / 2 = 13 / 588 := by
+  norm_num
+
+/- Theory 71, formulas 71.20--71.21: cancellation of the common positive
+   L^2 normalization.  All analytic estimates are explicit premises. -/
+theorem jutila_jl7_averaged_cancel_log_square
+    {A B E J Y L : ℝ} (hL : L ≠ 0)
+    (hRaw :
+      (A * J ^ 2) * L ^ 2 ≤
+        (B * J * Y + E * J ^ 2) * L ^ 2) :
+    A * J ^ 2 ≤ B * J * Y + E * J ^ 2 := by
+  exact le_of_mul_le_mul_right hRaw (sq_pos_of_ne_zero hL)
+
+/- Theory 71, formulas 71.21--71.23: after the averaged replay has
+   produced the same normalized A,B,E inequality, Theory 70's strict
+   half-margin terminal applies without a new Q-dependent coefficient. -/
+theorem jutila_jl7_averaged_terminal_reuse
+    {A B E J Y : ℝ}
+    (hA : 0 < A) (hB : 0 ≤ B) (hY : 0 ≤ Y)
+    (hE : E ≤ A / 2) (hJ : 0 < J)
+    (hInequality : A * J ^ 2 ≤ B * J * Y + E * J ^ 2) :
+    J ≤ 2 * B * Y / A := by
+  exact jutila_jl7_half_margin_terminal
+    hA hB hY hE hJ hInequality
+
+/- Theory 71, formula 71.24: the local zero-count logarithm is uniformly
+   bounded by the common family scale D=Q^2*T. -/
+theorem jutila_jl7_averaged_height_log_upper
+    {q Q T D : ℝ}
+    (hq : 0 < q) (hQ : 1 ≤ Q) (hT : 1 ≤ T)
+    (hqUpper : q ≤ Q) (hD : D = Q ^ 2 * T) :
+    Real.log (q * (1 + T)) ≤ Real.log (2 * Q * T) ∧
+      Real.log (2 * Q * T) ≤ Real.log (2 * D) := by
+  have hQPos : 0 < Q := lt_of_lt_of_le zero_lt_one hQ
+  have hTPos : 0 < T := lt_of_lt_of_le zero_lt_one hT
+  have hOnePlus : 1 + T ≤ 2 * T := by linarith
+  have hFirst : q * (1 + T) ≤ 2 * Q * T := by
+    calc
+      q * (1 + T) ≤ q * (2 * T) :=
+        mul_le_mul_of_nonneg_left hOnePlus hq.le
+      _ ≤ Q * (2 * T) :=
+        mul_le_mul_of_nonneg_right hqUpper (by positivity)
+      _ = 2 * Q * T := by ring
+  have hQSquare : Q ≤ Q ^ 2 := by
+    nlinarith [sq_nonneg (Q - 1)]
+  have hSecond : 2 * Q * T ≤ 2 * D := by
+    rw [hD]
+    have hQT : Q * T ≤ Q ^ 2 * T :=
+      mul_le_mul_of_nonneg_right hQSquare hTPos.le
+    calc
+      2 * Q * T = 2 * (Q * T) := by ring
+      _ ≤ 2 * (Q ^ 2 * T) :=
+        mul_le_mul_of_nonneg_left hQT (by norm_num)
+  constructor
+  · exact Real.log_le_log (mul_pos hq (by linarith)) hFirst
+  · exact Real.log_le_log (by positivity) hSecond
+
 end FGKMTSono

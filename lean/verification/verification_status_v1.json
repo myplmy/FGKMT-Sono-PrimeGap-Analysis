@@ -1651,6 +1651,161 @@
       ]
     },
     {
+      "formula_id": "71.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "71.2",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_averaged_terminal_reuse",
+        "jutila_jl7_parity_local_count_composition"
+      ]
+    },
+    {
+      "formula_id": "71.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "71.4",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "71.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "71.6",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "71.7",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl7_averaged_mellin_scale_envelope",
+        "jutila_jl7_averaged_mellin_exponent_identities"
+      ]
+    },
+    {
+      "formula_id": "71.8",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl6_actual_power_margin"
+      ]
+    },
+    {
+      "formula_id": "71.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl6_mellin_exponent_budget",
+        "jutila_jl7_averaged_mellin_exponent_identities",
+        "jutila_jl7_averaged_mellin_decay_endpoint"
+      ]
+    },
+    {
+      "formula_id": "71.10",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "71.11",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl6_four_part_budget_transfer",
+        "jutila_jl6_output_recovers_source_coefficient"
+      ]
+    },
+    {
+      "formula_id": "71.12",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl7_averaged_detector_phase_cancellation"
+      ]
+    },
+    {
+      "formula_id": "71.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl7_averaged_detector_phase_cancellation"
+      ]
+    },
+    {
+      "formula_id": "71.14",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "71.15",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_averaged_principal_residue_cancellation"
+      ]
+    },
+    {
+      "formula_id": "71.16",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_averaged_principal_residue_cancellation",
+        "jutila_jl7_residue_final_composition"
+      ]
+    },
+    {
+      "formula_id": "71.17",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "71.18",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_averaged_phase_pair_normalization"
+      ]
+    },
+    {
+      "formula_id": "71.19",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "71.20",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl7_averaged_cancel_log_square"
+      ]
+    },
+    {
+      "formula_id": "71.21",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_averaged_cancel_log_square"
+      ]
+    },
+    {
+      "formula_id": "71.22",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "71.23",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_averaged_terminal_reuse",
+        "jutila_jl7_selected_system_coefficient"
+      ]
+    },
+    {
+      "formula_id": "71.24",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_averaged_height_log_upper"
+      ]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

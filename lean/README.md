@@ -224,3 +224,20 @@ Theory 70 뒤 inventory는 theory 문서 71개, display 1,271식이며 전체 �
 `PARTIAL_FORMALIZATION=50`, `SOURCE_THEOREM_UNFORMALIZED=56`,
 `NOT_YET_FORMALIZED=998`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 231개이고
 금지 proof escape는 0건이다.
+
+2026-09-14 Theory 71 batch는 Jutila 식 (3.7)의 primitive nonprincipal near-one
+variable-modulus 평균을 공통 `D=Q^2*T`에서 재생했다. phase·detector와
+principal residue의 totient factor cancellation, off-diagonal phase factor 36,
+Mellin scale envelope 방향, common `L^2` cancellation, terminal coefficient 재사용과
+local-count log upper를 단일 Lean 파일에서 검사했다. generalized Halasz
+inequality, primitive-character conductor uniqueness, complex Mellin/contour와 averaged
+analytic 합성 전체는 local axiom으로 넣지 않고 source-unformalized 또는 partial로
+보존했다. 따라서 `JL7-AVERAGED-NP-NEAR-ONE`만 actual-input
+parameterized explicit이며, printed all-alpha theorem, Gallagher--Maier PAP bridge,
+PAP-11, DEP-R09, fixed `2e-17`, `X_cert`는 OPEN이다.
+
+Theory 71 뒤 inventory는 theory 문서 72개, display 1,295식이며 전체 상태는
+`KERNEL_PASS=75`, `CONDITIONAL_KERNEL_PASS=47`, `DEFINITION_ONLY=55`,
+`PARTIAL_FORMALIZATION=56`, `SOURCE_THEOREM_UNFORMALIZED=58`,
+`NOT_YET_FORMALIZED=999`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 240개이고
+금지 proof escape는 0건이다.

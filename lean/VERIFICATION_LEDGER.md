@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-13 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 71개
-- 전수 단위: Markdown fenced code 밖 display math 1,271개
-- 원래 식번호: 745개, 합성 ID 무번호식: 526개
+- 원문 범위: `docs/method/theory/*.md` 72개
+- 전수 단위: Markdown fenced code 밖 display math 1,295개
+- 원래 식번호: 769개, 합성 ID 무번호식: 526개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,12 +62,12 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 72 |
-| `CONDITIONAL_KERNEL_PASS` | 42 |
-| `DEFINITION_ONLY` | 48 |
-| `PARTIAL_FORMALIZATION` | 50 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 56 |
-| `NOT_YET_FORMALIZED` | 998 |
+| `KERNEL_PASS` | 75 |
+| `CONDITIONAL_KERNEL_PASS` | 47 |
+| `DEFINITION_ONLY` | 55 |
+| `PARTIAL_FORMALIZATION` | 56 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 58 |
+| `NOT_YET_FORMALIZED` | 999 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `6c79921935308efc…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `40c4b224611a70eb…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `5e1784f1e61e0c7b…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `082e27a905ba7ae8…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -147,7 +147,8 @@
 | 67 | [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | `37f13fb2ed2f00eb…` | 25 | 18 | 7 | 25 |
 | 68 | [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | `bee21f2470ee74a8…` | 18 | 13 | 5 | 18 |
 | 69 | [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | `a1b177d95525d037…` | 26 | 22 | 4 | 23 |
-| 70 | [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | `b8e081e70303a000…` | 19 | 19 | 0 | 19 |
+| 70 | [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | `f72a97738711d416…` | 19 | 19 | 0 | 19 |
+| 71 | [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | `49e7ff91c52830bb…` | 24 | 24 | 0 | 23 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1430,6 +1431,30 @@
 | 1269 | `70.17` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 222–227 | <code>\boxed{ L_{\rm common}:= \max\{L_0,\ e^8,\ L_{\rm abs}(\theta)\}.} \tag{70.17}</code> | — | `DEFINITION_ONLY` | JL6·finite-log·absorption cutoff의 공통 maximum 정의 |
 | 1270 | `70.18` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 236–242 | <code>J\le\frac{2B}{A}Y \le\frac{104C_{\rm pre}} {\underline c_g^2(\theta^2/2)}x^{2\delta} =\frac{884000}{9(1-\theta)^2\theta^6}x^{2\delta}, \tag{70.18}</code> | `jutila_jl7_half_margin_terminal; jutila_jl7_selected_system_coefficient` | `CONDITIONAL_KERNEL_PASS` | half-margin terminal algebra와 exact selected-system coefficient를 조건부 커널 검증 |
 | 1271 | `70.19` | T70 [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | 260–267 | <code>C_{\rm pre}=74970,\quad \overline C_{\rm CL3}=136224,\quad \underline c_g=\frac4{147},\quad \gamma=\frac{29}{5292},\quad \mathcal P=993089345703840. \tag{70.19}</code> | `jutila_jl7_absorption_endpoint_coefficients; jutila_jl7_absorption_ratio_endpoint; jutila_jl7_selected_system_endpoint` | `KERNEL_PASS` | theta=1/21의 Cpre,Cbar,cbar,gamma,P,C_J exact endpoint를 커널 검증 |
+| 1272 | `71.1` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 20–23 | <code>D:=Q^2T,\qquad L:=\log D \tag{71.1}</code> | — | `DEFINITION_ONLY` | 가변 modulus 평균의 공통 D=Q^2*T와 L=log D 정의 |
+| 1273 | `71.2` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 29–37 | <code>N^*_{\rm np}(\alpha,T,Q) \le 2C_J(\theta)x^{2(1-\alpha)} \{3+r\log(2D)\}, \qquad C_J(\theta)= \frac{884000}{9(1-\theta)^2\theta^6} \tag{71.2}</code> | `jutila_jl7_averaged_terminal_reuse; jutila_jl7_parity_local_count_composition` | `CONDITIONAL_KERNEL_PASS` | averaged terminal과 even/odd local-count premise 이후 near-one primitive nonprincipal count를 조건부 커널 검증 |
+| 1274 | `71.3` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 41–45 | <code>x=D^{1+12\theta}L^2,\qquad r=\max\{1-\alpha,L^{-1}\}. \tag{71.3}</code> | — | `DEFINITION_ONLY` | x와 local square radius r의 actual averaged 정의 |
+| 1275 | `71.4` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 74–82 | <code>\left&#124;\sum_{j=1}^J\eta_j \sum_n a_nC(n,\chi_j)\chi_j(n)n^{-s_j}\right&#124;^2 \le \sum_n&#124;a_n&#124;^2b_n^{-1} \sum_{j,k}\bar\eta_j\eta_k\, \mathcal B_{jk}(\bar s_j+s_k) \tag{71.4}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Jutila 식 (3.7) generalized Halasz source inequality; complex/character proof는 Lean 미형식화 |
+| 1276 | `71.5` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 86–91 | <code>C(m,\chi_j)= \sum_{\substack{r\le R\\(r,q_j)=1}}' \frac{\psi_r(m)}r \tag{71.5}</code> | — | `DEFINITION_ONLY` | modulus-dependent pseudocharacter detector 정의 전사 |
+| 1277 | `71.6` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 101–105 | <code>A_j:=(q_jT)^{1/2}Rz_2,\qquad R=D^\theta,\quad z_2=D^{1/2+8\theta} \tag{71.6}</code> | — | `DEFINITION_ONLY` | 각 primitive conductor의 Mellin scale과 common R,z2 정의 |
+| 1278 | `71.7` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 109–113 | <code>\boxed{ D^{1/2+9\theta}\le A_j\le D^{1+9\theta}.} \tag{71.7}</code> | `jutila_jl7_averaged_mellin_scale_envelope; jutila_jl7_averaged_mellin_exponent_identities` | `PARTIAL_FORMALIZATION` | 상·하 envelope 방향의 비음수 곱 대수와 exponent identity만 커널 검증; real-rpow/source identification은 부분형식화 |
+| 1279 | `71.8` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 121–126 | <code>(1-\theta)(1+12\theta) -(1+\theta)(1+9\theta) =\theta(1-21\theta)\ge0. \tag{71.8}</code> | `jutila_jl6_actual_power_margin` | `KERNEL_PASS` | 0<=theta<=1/21의 common power-condition exponent margin을 선행 커널 정리로 검증 |
+| 1280 | `71.9` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 131–139 | <code>&#124;I_j&#124; \le K_M(\delta_\theta)A_j^{-\theta/2} \le K_M(\delta_\theta) D^{-\theta(1/2+9\theta)/2}, \qquad \delta_\theta=\frac{\theta}{4(1+\theta)} \tag{71.9}</code> | `jutila_jl6_mellin_exponent_budget; jutila_jl7_averaged_mellin_exponent_identities; jutila_jl7_averaged_mellin_decay_endpoint` | `PARTIAL_FORMALIZATION` | Mellin exponent 대수와 theta=1/21 endpoint는 커널 검증; complex Mellin bound와 real-rpow transfer는 부분형식화 |
+| 1281 | `71.10` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 149–163 | <code>\begin{aligned} L_{0,*}=\max\Bigg\{&amp; e,\ \theta^{-2},\ \left(\frac{18}{\theta(\log2)^{1/3}}\right)^{3/2},\\ &amp;\frac6\theta\log\frac{(1277/500)\pi^2}{\theta\eta_5},\ \frac{\log(1/\eta_X)}{1+12\theta},\\ &amp;\frac{2}{\theta(1…</code> | — | `DEFINITION_ONLY` | four-loss common averaged detector cutoff의 기호적 maximum 정의 |
+| 1282 | `71.11` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 167–172 | <code>&#124;g_j&#124;\ge (1-\theta)\frac6{\pi^2} \frac{\varphi(q_j)}{q_j}\log R. \tag{71.11}</code> | `jutila_jl6_four_part_budget_transfer; jutila_jl6_output_recovers_source_coefficient` | `PARTIAL_FORMALIZATION` | source detector identity를 제외한 four-part loss budget과 (1-theta) 회복만 부분형식화 |
+| 1283 | `71.12` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 184–188 | <code>&#124;\eta_j&#124;=\frac{q_j}{\varphi(q_j)},\qquad \eta_jg_j=\frac{q_j}{\varphi(q_j)}&#124;g_j&#124; \tag{71.12}</code> | `jutila_jl7_averaged_detector_phase_cancellation` | `PARTIAL_FORMALIZATION` | phase magnitude·alignment 중 scalar totient cancellation만 커널 검증 |
+| 1284 | `71.13` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 192–197 | <code>\left&#124;\sum_j\eta_jg_j\right&#124; =\sum_j\frac{q_j}{\varphi(q_j)}&#124;g_j&#124; \ge(1-\theta)\frac6{\pi^2}J\log R. \tag{71.13}</code> | `jutila_jl7_averaged_detector_phase_cancellation` | `PARTIAL_FORMALIZATION` | phase-weighted complex sum과 finite-family 합은 미형식화; 항별 scalar cancellation만 커널 검증 |
+| 1285 | `71.14` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 205–210 | <code>\bar\chi_j\chi_k\ \hbox{가 principal} \quad\Longleftrightarrow\quad \chi_j=\chi_k. \tag{71.14}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | primitive product가 principal인 정확한 character 조건은 source theorem으로 보존 |
+| 1286 | `71.15` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 220–224 | <code>\left(\frac q{\varphi(q)}\right)^2 \frac{\varphi(q)}q\frac{\varphi(q)}q=1. \tag{71.15}</code> | `jutila_jl7_averaged_principal_residue_cancellation` | `KERNEL_PASS` | phase-residue-pseudocharacter totient factor의 exact scalar cancellation을 커널 검증 |
+| 1287 | `71.16` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 228–231 | <code>&#124;\mathcal R_*&#124;&lt;52Jx^{2(1-\alpha)}L^2 \tag{71.16}</code> | `jutila_jl7_averaged_principal_residue_cancellation; jutila_jl7_residue_final_composition` | `CONDITIONAL_KERNEL_PASS` | same-character residue analytic premise 이후 multiplier 52와 phase cancellation을 조건부 커널 검증 |
+| 1288 | `71.17` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 239–243 | <code>m_{jk}=\operatorname{lcm}(q_j,q_k) \le q_jq_k\le Q^2,\qquad m_{jk}T\le D. \tag{71.17}</code> | — | `NOT_YET_FORMALIZED` | product conductor lcm<=q_j*q_k<=Q^2의 표준 유한 정수식; Lean 형식화 대기 |
+| 1289 | `71.18` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 251–256 | <code>\frac1{L^2} \frac{q_j}{\varphi(q_j)} \frac{q_k}{\varphi(q_k)}\le36. \tag{71.18}</code> | `jutila_jl7_averaged_phase_pair_normalization` | `CONDITIONAL_KERNEL_PASS` | 두 q/phi(q)<=6L premise에서 normalized phase-pair factor<=36을 조건부 커널 검증 |
+| 1290 | `71.19` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 266–273 | <code>C_{\rm pre}=\frac{170}{\theta^2},\quad \overline C_{\rm CL3}= 144\left(1+\frac1\theta\right)\left(\frac2\theta+1\right),\quad \underline c_g=\frac35(1-\theta)\theta,\quad \gamma=\frac{29\theta}{252} \tag{71.19}</code> | — | `DEFINITION_ONLY` | Theory 70 terminal coefficient의 averaged 재사용 정의 |
+| 1291 | `71.20` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 278–285 | <code>\underline c_g^2A_{\rm int}J^2L^2 \le C_{\rm pre}\left[ 52Jx^{2(1-\alpha)}L^2 +36A_{\rm int}\overline C_{\rm CL3} J^2L^2e^{-\gamma L}\right]. \tag{71.20}</code> | `jutila_jl7_averaged_cancel_log_square` | `PARTIAL_FORMALIZATION` | averaged generalized-Halasz analytic 합성은 미형식화; common L^2 cancellation만 부분형식화 |
+| 1292 | `71.21` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 289–296 | <code>AJ^2\le BJY+EJ^2,\quad A=\underline c_g^2A_{\rm int},\quad B=52C_{\rm pre},\quad E=36C_{\rm pre}A_{\rm int}\overline C_{\rm CL3}e^{-\gamma L}, \quad Y=x^{2(1-\alpha)} \tag{71.21}</code> | `jutila_jl7_averaged_cancel_log_square` | `CONDITIONAL_KERNEL_PASS` | positive common L^2를 나눈 normalized A,B,E 식을 analytic raw premise 아래 조건부 커널 검증 |
+| 1293 | `71.22` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 300–308 | <code>L_{\rm avg}:=max\left\{ L_{0,*},\ e^8,\ \frac1\gamma\log \frac{72C_{\rm pre}\overline C_{\rm CL3}} {\underline c_g^2} \right\} \tag{71.22}</code> | — | `DEFINITION_ONLY` | averaged detector·log gate·half-margin cutoff의 공통 maximum 정의 |
+| 1294 | `71.23` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 312–318 | <code>\boxed{ J\le \frac{884000}{9(1-\theta)^2\theta^6} x^{2(1-\alpha)}.} \tag{71.23}</code> | `jutila_jl7_averaged_terminal_reuse; jutila_jl7_selected_system_coefficient` | `CONDITIONAL_KERNEL_PASS` | half-margin premise 아래 Theory 70 selected-system coefficient를 raw Q 손실 없이 조건부 커널 검증 |
+| 1295 | `71.24` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 328–331 | <code>\log\{q_j(1+T)\}\le\log(2QT)\le\log(2D). \tag{71.24}</code> | `jutila_jl7_averaged_height_log_upper` | `KERNEL_PASS` | q<=Q, Q,T>=1, D=Q^2*T에서 두 logarithmic upper bound를 커널 검증 |
 
 ## 9. 발견된 원문·작업 오류
 

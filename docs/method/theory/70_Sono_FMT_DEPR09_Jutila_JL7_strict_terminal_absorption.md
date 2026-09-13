@@ -319,3 +319,16 @@ character를 어떤 conductor와 multiplicity로 세는지 source 재전사하�
   *Approximate formulas for some functions of prime numbers*,
   *Illinois Journal of Mathematics* 6 (1962), 64--94,
   DOI [10.1215/ijm/1255631807](https://doi.org/10.1215/ijm/1255631807).
+
+## 14. 2026-09-14 후속 상태
+
+[Theory 71](71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md)이 Jutila
+식 (3.7)의 primitive nonprincipal near-one averaged branch를 공통
+(D=Q^2T)에서 재생했다. detector·phase와 principal residue의 totient factor가
+정확히 상쇄되고 off-diagonal phase pair은 normalized factor 36으로 남아,
+Theory 70의 strict half-margin과 (C_J)에 raw (Q) multiplier를 더하지 않음을
+확인했다. 따라서 위 12절의 `JL7-AVERAGED` snapshot은 해당 좁은
+branch에서 parameterized explicit으로 진전했다.
+
+그러나 printed all-alpha theorem, principal zeta branch, Gallagher--Maier PAP bridge,
+PAP-11, DEP-R09, fixed (2\times10^{-17}), numerical (X_{\rm cert})는 계속 OPEN이다.

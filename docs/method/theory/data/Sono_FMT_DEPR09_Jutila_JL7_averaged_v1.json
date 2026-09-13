@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 Jutila JL7-AVERAGED variable-modulus primitive-character replay",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_JL7_absorption_v1.json",
+  "outcome": "JL7_AVERAGED_NONPRINCIPAL_NEAR_ONE_PARAMETERIZED_EXPLICIT_PRINTED_ALL_ALPHA_AND_PAP_OPEN",
+  "source_registry": [
+    {
+      "key": "JUTILA_1977_LINNIK",
+      "title": "On Linnik's constant",
+      "author": "Matti Jutila",
+      "journal": "Mathematica Scandinavica 41 (1977), 45-62",
+      "doi": "10.7146/math.scand.a-11701",
+      "official_url": "https://www.mscand.dk/article/download/11701/9717",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AS_LOCATOR_AFTER_EMPTY_NATIVE_TEXT_LAYER_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [46, 50, 51, 52, 53, 54],
+      "statements": "Theorem 1 equations (1.7)-(1.8), Lemmas 6-8, equations (3.1)-(3.7), phase choice and primitive principal-pair sentence",
+      "classification": "ORIGINAL_PEER_REVIEWED_STRUCTURAL_SOURCE_WITH_OMITTED_AVERAGED_NUMERICAL_REPLAY"
+    },
+    {
+      "key": "JUTILA_1977_ZERO_DENSITY",
+      "title": "Zero-density estimates for L-functions",
+      "author": "Matti Jutila",
+      "journal": "Acta Arithmetica 32 (1977), 55-62",
+      "doi": "10.4064/aa-32-1-55-62",
+      "official_url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa32/aa3216.pdf",
+      "audit_copy_locator": "article/Jutila 1977 Zero-density estimates for L-functions.pdf",
+      "audit_copy_sha256": "cbe2d1e7115717cf28f9ffaffdc1fe232958595b17c5c2ee59fc968e8ff0d5a1",
+      "audit_copy_bytes": 400716,
+      "page_count": 5,
+      "native_text_bytes": 5,
+      "reading_mode": "OCR_ONLY_AS_LOCATOR_AFTER_EMPTY_NATIVE_TEXT_LAYER_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [55, 56, 57, 58, 59, 60, 61, 62],
+      "statements": "variable-character large-value setup, Theorem (1.2)-(1.4), Corollary (1.5)-(1.8), Lemma 3(ii) and primitive-conductor mean-value structure",
+      "classification": "PEER_REVIEWED_STRUCTURAL_CROSS_CHECK_WITH_EPSILON_DEPENDENT_IMPLIED_CONSTANTS_NOT_A_DROP_IN_NUMERICAL_REPLAY"
+    }
+  ],
+  "source_first_search_result": {
+    "drop_in_explicit_equation_3_7_replay_found": false,
+    "absence_claimed_for_all_literature": false,
+    "decision": "replay the finite common-scale detector and phase/residue algebra directly; preserve complex analytic source premises and all remaining PAP edges"
+  },
+  "predecessor_artifacts": [
+    {
+      "path": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0",
+      "bytes": 11242,
+      "role": "fixed-modulus detector component formulas re-run at the common family scale"
+    },
+    {
+      "path": "docs/method/theory/65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md",
+      "sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51",
+      "bytes": 13158,
+      "role": "local square count and even-odd selected-system recovery"
+    },
+    {
+      "path": "docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md",
+      "sha256": "2eb7fa38dc7033abd0badcc979c7ac0384cc2e017ff14747fffbf466e4565ff0",
+      "bytes": 12857,
+      "role": "weighted sum, integration area and terminal exponent"
+    },
+    {
+      "path": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "sha256": "37f13fb2ed2f00eb6ec5099a7d418aac51095ac44be1fb0fa37551f0ce45bf84",
+      "bytes": 10838,
+      "role": "uniform product-character contour multiplier"
+    },
+    {
+      "path": "docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md",
+      "sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2",
+      "bytes": 9364,
+      "role": "restriction-safe absolute pseudocharacter double sum"
+    },
+    {
+      "path": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23",
+      "bytes": 10578,
+      "role": "same-character residue row multiplier 52"
+    },
+    {
+      "path": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "sha256": "b8e081e70303a0001860907897ef598858dfcd4b3f1bfc52580f19438dfea555",
+      "bytes": 12559,
+      "role": "strict half-margin and selected-system coefficient"
+    }
+  ],
+  "actual_family_parameters": {
+    "scope": "primitive nonprincipal characters chi_j of their conductor q_j<=Q, one even-strip or odd-strip selected system",
+    "theta": "0<theta<=1/21",
+    "delta": "delta=1-alpha with 0<delta<=theta",
+    "D": "D=Q^2*T with Q>=3 and T>=1",
+    "L": "L=log(D)",
+    "Delta": "1/L",
+    "R": "D^theta",
+    "z1": "D^(1/2+7theta)",
+    "z2": "D^(1/2+8theta)",
+    "X": "D^(1+12theta)",
+    "x": "X*L^2"
+  },
+  "uniform_detector_replay": {
+    "mellin_scale": "A_j=(q_j*T)^(1/2)*R*z2",
+    "lower_envelope_for_decay": "A_j>=D^(1/2+9theta)",
+    "upper_envelope_for_power_condition": "A_j<=D^(1+9theta)",
+    "warning": "the lower and upper envelopes have different inequality directions and cannot be interchanged",
+    "power_margin": "(1-theta)(1+12theta)-(1+theta)(1+9theta)=theta(1-21theta)>=0",
+    "common_mellin_decay": "K_M*D^[-theta(1/2+9theta)/2]",
+    "common_detector": "|g_j|>=(1-theta)*(6/pi^2)*(phi(q_j)/q_j)*log R",
+    "printed_log_R_big_O_condition_reused_without_reproof": false,
+    "component_proof_replayed_directly": true,
+    "status": "ACTUAL_FAMILY_PARAMETERIZED_EXPLICIT"
+  },
+  "phase_and_principal_pair_map": {
+    "phase_choice": "choose eta_j with |eta_j|=q_j/phi(q_j) and phase aligning eta_j*g_j",
+    "detector_cancellation": "(q_j/phi(q_j))*(phi(q_j)/q_j)=1",
+    "principal_condition": "for primitive characters, conjugate(chi_j)*chi_k is principal only if chi_j=chi_k; equality fixes the primitive conductor q_j=q_k",
+    "principal_residue_cancellation": "(q/phi(q))^2*(phi(q)/q)*(phi(q)/q)=1",
+    "off_diagonal_phase_bound": "[(q_j/phi(q_j))*(q_k/phi(q_k))]/L^2<=36",
+    "raw_Q_multiplicity_inserted": false,
+    "status": "EXACT_NORMALIZATION_WITH_PRIMITIVITY_SOURCE_PREMISE"
+  },
+  "averaged_terminal_inequality": {
+    "raw_shape": "c_bar^2*A_int*J^2*L^2 <= C_pre*[52*J*x^(2delta)*L^2 + 36*A_int*C_bar*J^2*L^2*exp(-gamma*L)]",
+    "normalized_shape": "A*J^2<=B*J*Y+E*J^2",
+    "A": "c_bar^2*A_int",
+    "B": "52*C_pre",
+    "E": "36*C_pre*A_int*C_bar*exp(-gamma*L)",
+    "Y": "x^(2delta)",
+    "C_pre": "170/theta^2",
+    "C_bar": "144*(1+1/theta)*(2/theta+1)",
+    "c_bar": "(3/5)*(1-theta)*theta",
+    "gamma": "29theta/252",
+    "half_margin_cutoff": "L>=log(72*C_pre*C_bar/c_bar^2)/gamma",
+    "selected_system_bound": "J<=884000/[9(1-theta)^2*theta^6]*x^(2delta)",
+    "status": "ACTUAL_PRIMITIVE_NONPRINCIPAL_NEAR_ONE_PARAMETERIZED_EXPLICIT"
+  },
+  "zero_count_recovery": {
+    "r": "max(delta,1/L)",
+    "bound": "N_nonprin_star(alpha,T,Q)<=2*C_J(theta)*x^(2delta)*[3+r*log(2D)]",
+    "primitive_principal_conductor_one": "excluded here and retained for the separate zeta/principal PAP branch",
+    "printed_all_alpha_conversion": "not performed",
+    "status": "ACTUAL_PRIMITIVE_NONPRINCIPAL_NEAR_ONE_PARAMETERIZED_EXPLICIT"
+  },
+  "endpoint_diagnostic_theta_1_over_21": {
+    "averaged_mellin_decay_exponent": "13/588",
+    "averaged_mellin_relative_cutoff": "953.850175847791586526740147004032352987439968873050745772669",
+    "averaged_detector_log_cutoff": "8827.24070409655979683241494482188923545674372220021283644994",
+    "detector_cutoff_driver": "B_Q_ABSORPTION",
+    "absorption_log_cutoff": "6301.4657430592971306571057992544310475933890419193893591664",
+    "common_log_D_cutoff": "8827.24070409655979683241494482188923545674372220021283644994",
+    "common_cutoff_driver": "AVERAGED_DETECTOR",
+    "total_detector_relative_upper_at_common": "1.98686826977964146675797047152280346334002413434624320691288e-28",
+    "absorption_fraction_upper_at_common": "0.000000487333276480464375095695969185710379968157283625649232286722",
+    "selected_system_coefficient": 9287613243090,
+    "warning": "decimal values are high-precision diagnostics, not outward-rounded interval certificates"
+  },
+  "lean_scope": {
+    "detector_phase_scalar_cancellation_formalized": true,
+    "principal_residue_scalar_cancellation_formalized": true,
+    "phase_pair_36_bound_formalized": true,
+    "mellin_envelope_direction_algebra_formalized": true,
+    "averaged_terminal_coefficient_reuse_formalized": true,
+    "complex_halasz_inequality_fully_formalized": false,
+    "primitive_character_conductor_uniqueness_fully_formalized": false,
+    "analytic_source_components_fully_formalized": false,
+    "classification": "SOURCE_PREMISES_PLUS_KERNEL_VERIFIED_DEPENDENCY_CRITICAL_FINITE_ALGEBRA"
+  },
+  "remaining_nodes": [
+    {
+      "id": "JUTILA-PRINTED-ALL-ALPHA",
+      "status": "OPEN",
+      "remaining": "principal zeta branch, 4/5<=alpha<1-theta source range, and exact conversion of x^(2delta) plus local count into the printed (2+epsilon) exponent"
+    },
+    {
+      "id": "JL7-AVERAGED-TO-PAP",
+      "status": "HARD_BLOCKER",
+      "remaining": "replay the averaged density inside the Gallagher-Maier pointwise prime-count argument, with exceptional character, explicit formula, prime powers, endpoint and one common cutoff"
+    }
+  ],
+  "status_after_this_gate": {
+    "averaged_uniform_detector_closed": true,
+    "primitive_principal_pair_diagonalized": true,
+    "averaged_principal_residue_normalization_closed": true,
+    "averaged_off_diagonal_multiplier_closed": true,
+    "averaged_selected_system_terminal_closed": true,
+    "averaged_nonprincipal_near_one_density_closed": true,
+    "printed_all_alpha_theorem_one_closed": false,
+    "gallagher_maier_pap_bridge_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false,
+    "new_dependency_required_now": false,
+    "user_compute_required_now": false
+  },
+  "next_gate": "JL7-AVERAGED-TO-PAP: map the actual primitive nonprincipal near-one density package into the exact Gallagher-Maier pointwise PAP proof without assuming the printed all-alpha theorem or fixed 2e-17"
+}

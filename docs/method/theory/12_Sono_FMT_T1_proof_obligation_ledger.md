@@ -929,3 +929,30 @@ Jutila Theorem 1 전체, 식 (3.7)의 가변 modulus·primitive-character averag
 Gallagher--Maier pointwise PAP bridge가 남아 있다. 그러므로 root 상태 수,
 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09·fixed \(2\times10^{-17}\)·
 \(X_{\rm cert}=\mathrm{OPEN}\)은 유지한다. 다음 gate는 <code>JL7-AVERAGED</code>다.
+
+## 40. 2026-09-14 DEP-R09 JL7-AVERAGED primitive near-one 후속 상태
+
+[theory 71](71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md)은 Jutila
+printed pp.53--54 식 (3.7)을 공통 \(D=Q^2T\)에서 재생했다. 각
+primitive nonprincipal conductor \(q_j\le Q\)에서 detector의
+\(\varphi(q_j)/q_j\)는 phase \(q_j/\varphi(q_j)\)와 상쇄된다. principal
+product pair는 같은 primitive character에서만 생기므로 conductor가 같고,
+residue·pseudocharacter totient factor까지 합친 exact product는 1이다.
+off-diagonal phase pair는 \(L^{-2}\)로 정규화하면 36 이하이며, product
+conductor는 \(\operatorname{lcm}(q_j,q_k)\le Q^2\)라 공통 contour scale에 든다.
+
+따라서 Theory 70의 strict half-margin과
+
+<code>C_J = 884000 / [9(1-theta)^2 theta^6]</code>
+
+를 raw \(Q\) multiplier 없이 재사용할 수 있고,
+<code>JL7-AVERAGED-NP-NEAR-ONE=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT</code>으로
+진전한다.
+
+하지만 이 좁은 density result는 66개 root row의 pointwise
+<code>PAP-08/PAP-11</code>을 직접 닫지 않는다. Gallagher--Maier proof 안에서
+near-one family, principal zeta, exceptional character, prime powers,
+\(\psi\to\pi\), endpoint와 common cutoff를 합성하는
+<code>JL7-AVERAGED-TO-PAP</code>가 새 hard blocker다. 그러므로 root 상태 수,
+<code>PAP-11=HARD_BLOCKER</code>, DEP-R09·fixed \(2\times10^{-17}\)·
+\(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다.

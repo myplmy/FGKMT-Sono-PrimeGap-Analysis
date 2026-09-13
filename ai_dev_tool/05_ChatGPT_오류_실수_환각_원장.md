@@ -2044,6 +2044,58 @@
   6. theory 문서는 공백만 바꿔도 source hash가 달라지므로 마지막 문서 보정 뒤에는
      Lean ledger generator와 validator를 순서대로 다시 실행한다.
 
+### E119 — JL7-AVERAGED LaTeX transport와 Lean API 초안 오류
+
+- 분류:
+  <code>PRE_COMMIT_DOCUMENT_AND_FORMAL_PROOF_DRAFT_ERRORS /
+  DETECTED_AND_CORRECTED / NO_SCIENTIFIC_RESULT_AFFECTED</code>.
+- Theory 71 초안의 세 식에서 JavaScript 일반 문자열 transport가
+  <code>\qquad</code>의 선행 backslash를 잃어
+  <code>L^2,qquad</code>, <code>Rz_2,qquad</code>,
+  <code>Q^2,qquad</code>로 저장됐다. 수식의 변수·부등호·계수는 바뀌지 않았고,
+  정본 동기화 전에 PCRE 검색으로 발견해 세 곳 모두 교정했다.
+- 첫 Lean 형식화에서 양의 \(L^2\)를 부등식 양변에서 소거할 때 현재 Mathlib의
+  <code>mul_le_mul_right</code> API를 iff처럼 호출해 compile이 실패했다.
+  목적에 맞는 <code>le_of_mul_le_mul_right</code>로 바꿨다.
+- local-count log upper의 첫 초안도 중첩 곱셈에서 nonnegative multiplier
+  metavariable가 해소되지 않았다. \(Q T\le Q^2T\)를 별도 명제로 만든 뒤
+  명시적 두 배 곱셈으로 분리했고 direct Lean compile exit 0을 확인했다.
+- 새 Jutila PDF는 5개 landscape PDF page가 printed pp.55--62를 두 면씩 담지만,
+  첫 machine ledger는 이번에 사용한 핵심 부분만 따라 rendered check를 pp.55--59로
+  불완전하게 기록했다. 최종 감사에서 5개 PDF page 전체를 직접 확인하고
+  rendered 범위를 pp.55--62로 교정했다.
+- 최종 UTF-8 검사 초안에서 PowerShell의 두 명령 출력을 중첩 배열로 합쳐, 실제 파일
+  목록 대신 여러 경로가 이어 붙은 두 개의 가짜 경로를 검사했다. 그 결과는 유효한
+  검사 결과가 아니므로 즉시 폐기했고 파일에는 아무 변경도 가하지 않았다. 최종 검사는
+  명시적 경로 목록과 독립 JSON·Markdown 검사를 사용한다.
+- 수정된 UTF-8 검사 첫 실행도 colon 바로 앞의 PowerShell 변수
+  <code>$p:</code>를 쓴 탓에 parser 단계에서 멈췄다. format operator를 사용해
+  재실행했고 19개 파일 모두 strict UTF-8·control issue 0을 확인했다.
+- JSON 검사 첫 실행은 PowerShell의 case-insensitive object 변환이 inventory 안의
+  <code>delta</code>/<code>Delta</code>를 같은 key로 보아 경고했는데도 nonterminating
+  error 뒤 PASS 문자열까지 출력했다. 이 결과를 폐기하고
+  <code>$ErrorActionPreference='Stop'</code>과 <code>-AsHashtable</code>로 다시 실행해
+  JSON 3개를 정상 parse했다.
+- AGENTS 상단 successor 문단은 Theory 71을 정확히 기록했지만, 아래의 긴 현재상태
+  요약 한 곳이 여전히 “averaged replay OPEN·Theory 70 최신”이라고 적혀 있었다.
+  최종 stale-reference 검색에서 발견해 narrow averaged branch는 닫혔고 PAP는
+  열려 있다는 현재 판정과 Theory 71/review 78 링크로 교정했다.
+- 이 실패들은 commit 전 형식검증 단계에서 발견됐고 analytic 판정이나 Python
+  진단값을 변경하지 않았다. <code>sorry</code>, <code>admit</code>,
+  project-local <code>axiom</code>은 사용하지 않았다.
+- 예방:
+  1. LaTeX patch는 raw-safe transport를 사용하고 모든 새 theory에
+     missing-command PCRE와 control-character scan을 수행한다.
+  2. Lean의 order API는 저장소 내 현재 Mathlib 사용례를 먼저 검색한 뒤 적용한다.
+  3. 여러 곱의 단조성은 중간 부등식과 부호 전제를 이름 붙여 elaborator의
+     암묵 metavariable에 의존하지 않는다.
+  4. PowerShell에서 여러 외부 명령의 line output을 합칠 때는 중첩 배열을 만들지 말고,
+     각 출력을 명시적으로 평탄화하거나 검증 대상 allowlist를 직접 고정한다.
+  5. ad-hoc PowerShell 검사는 fail-fast를 기본으로 하고 JSON key case를 보존하는
+     hashtable parser를 사용하며, 오류 뒤 출력된 PASS 문자열은 증거로 인정하지 않는다.
+  6. successor를 덧붙인 뒤에도 기존 “최신 상태” 요약을 검색해 최신 정본 번호와
+     OPEN/CLOSED 문구가 서로 충돌하지 않는지 확인한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.
