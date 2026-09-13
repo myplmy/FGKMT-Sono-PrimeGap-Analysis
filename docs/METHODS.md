@@ -1172,12 +1172,15 @@ display 1,056식, `NOT_YET_FORMALIZED` 970식이며 금지 proof escape는 0건�
 [theory 60](method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md)과
 [review 67](review/67_20260913_DEPR09_Jutila_Lemma4_8_정량복원_타당성검토.md)은 Jutila
 Lemmas 4--8의 actual proof call을 분해했다. 공식 Huxley III 원문을 hash 고정했고,
-Ramaré--Zuniga Alterman Corollary 1.3을 actual \(\tau=8/5\)에 대입해 Jutila 식 (3.6)의
-one-sided weighted square-sum upper call을 exact coefficient
-`18884947/500000 = 37.769894`로 명시화했다.
+Ramaré--Zuniga Alterman Corollary 1.3을 \(\tau=8/5\)에 대입한 exact coefficient
+`18884947/500000 = 37.769894`를 얻었다. 후속 Theory 66 감사에서 이 고정값은
+Jutila printed p.54의 Theorem \(1'\) branch에만 해당하고, p.52 식 (3.6)에 적용한
+기존 문구는 scope 오류였음이 확인됐다. 식 (3.6)은 별도
+\(\tau_\theta=(1+16\theta)/(1+14\theta)\)를 사용한다.
 
 이는 Graham/Jutila Lemma 4의 전체 점근식 복원이 아니다. finite
-`x_D=D^(11/2) log(D)^2`에는 `exp(4 lambda loglog(D)/log(D))` 보정이 남으므로 Jutila의
+Theorem \(1'\)의 `x_D=D^(11/2) log(D)^2`에는
+`exp(4 lambda loglog(D)/log(D))` 보정이 남으므로 Jutila의
 인쇄된 `10 exp(11 lambda)`를 그대로 인증하지 않는다. `JL5` harmonic lower bound,
 `JL6` Mellin·tail, `JL8` local zero-count는 HARD_BLOCKER다. 따라서 `PAP-11`, DEP-R09,
 fixed `2e-17`, `X_cert`와 threshold calculator는 계속 OPEN/NOT READY다. Theory 60의
@@ -1415,4 +1418,46 @@ Theory 65 뒤 Lean inventory는 theory 문서 66개, display 1,163식이다. 전
 `KERNEL_PASS=49`, `CONDITIONAL_KERNEL_PASS=26`, `DEFINITION_ONLY=23`,
 `PARTIAL_FORMALIZATION=24`, `SOURCE_THEOREM_UNFORMALIZED=41`,
 `NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 161개,
+금지 proof escape 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila JL7·식 (3.6) 종단 매개변수 교정
+
+[theory 66](method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md)과
+[review 73](review/73_20260913_DEPR09_Jutila_JL7_terminal_parameter_repair_타당성검토.md)은
+Theory 60의 branch scope 오류를 교정한다. 고정 \(\tau=8/5\), `37.769894`는 p.54
+Theorem \(1'\)에만 해당한다. p.52 식 (3.6)의 actual parameter는
+
+```text
+z1 = D^(1/2+7*theta)
+z2 = D^(1/2+8*theta)
+tau_theta = (1+16*theta)/(1+14*theta)
+```
+
+이고, Ramaré--Zuniga Corollary 1.3의 올바른 특수화는
+
+\[
+ K_{\rm BV}(\theta)<\frac{13}{\theta},\qquad
+ K_{\rm BV}(\theta)\frac{\log x}{\log(z_2/z_1)}
+ <\frac{34}{\theta^2}
+\]
+
+를 준다. actual Lemma 7 weight quotient는 5 미만이고, normalized integration area는
+\(\theta^2/2\) 이상이다. off-diagonal의 finite log gate
+\(4\log L/L\le29/252\) 아래 총 \(D\)-지수는 \(-29\theta/252\) 이하로 감소한다.
+이 유한 대수와 \(AJ^2\le BJY+EJ^2,\ E<A\)의 fail-closed absorption은 Lean kernel
+검사 대상이다.
+
+그러나 Jutila p.53의 contour integral, Lemma 3 absolute sum,
+principal residue·well-spacing에는 numerical \(\ll_\theta\) multiplier가 없다.
+Ramaré 2016 Theorem 1.1도 explicit source이지만 additive
+\(32Q^2\log^2(Q^2T)\) 항 때문에 현재 near-one log-free density의 drop-in replacement가
+아니다. 따라서 `JL4-T1-DENSITY-ACTUAL` weighted call만 parameterized explicit이고,
+terminal density·averaged replay·PAP-11·DEP-R09·fixed `2e-17`·numerical
+`X_cert`는 OPEN, threshold calculator는 NOT READY다. 다음 gate는 `JL7-CONT`의
+shifted-contour numerical multiplier source-first 복원이다.
+
+Theory 66 뒤 Lean inventory는 theory 문서 67개, display 1,183식이다. 전체 상태는
+`KERNEL_PASS=58`, `CONDITIONAL_KERNEL_PASS=28`, `DEFINITION_ONLY=27`,
+`PARTIAL_FORMALIZATION=27`, `SOURCE_THEOREM_UNFORMALIZED=43`,
+`NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 177개,
 금지 proof escape 0건이다.

@@ -6,8 +6,10 @@
 > [Theory 57](57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md)의 full-source
 > 감사에서 현재 source chain으로 인증되지 않는 것으로 판정됐다. Proposition 5.3에서
 > Gallagher `c1=3c_ZFR`로 가는 정규화와 hidden multiplier 소거가 열린 문제다.
-> 이 문서의 coefficient 산술은 역사적 인쇄값 재현이며, 최신 analytic 판정은 Theory 57을
-> 우선한다. `PAP-11`, DEP-R09, \(X_{\rm cert}\)는 OPEN이다.
+> 이 문서의 coefficient 산술은 역사적 인쇄값 재현이다. 최신 analytic 판정은
+> [Theory 66](66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md)을 우선하며,
+> Theory 57의 source-chain 경고도 계속 유효하다. `PAP-11`, DEP-R09,
+> \(X_{\rm cert}\)는 OPEN이다.
 
 [theory 55](55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md)와
 [review 62](../../review/62_20260910_H1bCOV2_post_covering_구간_smooth_타당성검토.md)가 최신 정본이다.
@@ -810,4 +812,25 @@ N_square < 3 + r*log(q*(1+abs(t0))),  0<r<=1/21
 그러나 T1의 root `PAP-08/PAP-11`은 JL7·식 (3.6) terminal multiplier, finite
 log correction, exceptional branch와 Gallagher/Maier 종단 합성을 함께 포함한다. 따라서
 66개 root row의 상태 수는 바꾸지 않고 `PAP-11=HARD_BLOCKER`, DEP-R09·fixed coefficient·
-`X_cert=OPEN`을 유지한다. 다음 gate는 Jutila JL7/(3.6) terminal budget이다.
+`X_cert=OPEN`을 유지한다. 이 절의 다음 gate 표기는 당시 snapshot이며 아래 절이 우선한다.
+
+## 35. 2026-09-13 DEP-R09 JL7·식 (3.6) 종단 매개변수 교정
+
+[theory 66](66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md)은 Theory 60의
+branch scope를 교정했다. 고정 \(\tau=8/5\), `37.769894`는 Jutila printed p.54
+Theorem \(1'\)에만 해당하고, p.52 식 (3.6)은
+
+```text
+tau_theta = (1+16*theta)/(1+14*theta)
+```
+
+를 쓴다. 올바른 대입으로 \(0<\theta\le1/21\)에서 Barban--Vehov coefficient는
+\(13/\theta\) 미만, finite log ratio까지 곱한 weighted call은
+\(34/\theta^2\) 미만이다. weight quotient 5, normalized area \(\theta^2/2\),
+off-diagonal exponent margin과 strict \(A-E>0\) absorption interface도 explicit하다.
+
+하지만 `JL7-CONT` shifted contour, `JL7-LEMMA3` absolute sum, `JL7-RES`
+principal residue·well-spacing multiplier는 숫자가 아니다. 따라서 66개 root row의
+상태를 바꾸지 않고 `PAP-11=HARD_BLOCKER`, DEP-R09·fixed coefficient·
+`X_cert=OPEN`을 유지한다. 다음 gate는 `JL7-CONT`의 numerical multiplier를
+선행 source에서 복원하거나 actual 범위에 직접 증명하는 일이다.

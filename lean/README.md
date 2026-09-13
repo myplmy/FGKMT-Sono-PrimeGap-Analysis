@@ -84,12 +84,14 @@ coefficient/interface 진단 8식으로 분류했다. 전체 inventory는 theory
 
 2026-09-13 Theory 60 batch는 Jutila Lemmas 4--8의 source inventory를 추가했다. 공식
 Huxley III 원문을 확보·hash 고정하고, Ramaré--Zuniga Alterman의 explicit Corollary 1.3을
-actual `tau=8/5`에 대입한 coefficient `18884947/500000`과 finite log-ratio 대수를
+p.54 Theorem 1-prime branch의 `tau=8/5`에 대입한 coefficient `18884947/500000`과
+그 branch의 finite log-ratio 대수를
 `KERNEL_PASS`로 검증했다. finite power correction은 exponent 대수만
 `PARTIAL_FORMALIZATION`이다. 외부 Barban--Vehov·Jutila·Huxley 정리는 local axiom으로
 가정하지 않았다. 새 12식 뒤 inventory는 theory 문서 61개, display 1,068식,
 `NOT_YET_FORMALIZED` 971식이며 금지 proof escape는 0건이다. `JL5/JL6/JL8`, PAP-11,
-fixed `2e-17`, `X_cert`는 OPEN이다.
+fixed `2e-17`, `X_cert`는 OPEN이다. Theory 66은 이 고정값을 식 (3.6)에 적용하면
+안 된다는 scope 교정을 기록한다.
 
 원문 theory를 수정한 뒤에는 생성기와 검증기를 차례로 실행한다. 생성기는 display 수식의
 원문 경로·행·SHA-256을 다시 고정하며, 검증기는 전수 coverage, 선언 연결, 금지된 proof
@@ -144,4 +146,19 @@ inventory는 theory 문서 66개, display 1,163식이며 전체 상태는
 `KERNEL_PASS=49`, `CONDITIONAL_KERNEL_PASS=26`, `DEFINITION_ONLY=23`,
 `PARTIAL_FORMALIZATION=24`, `SOURCE_THEOREM_UNFORMALIZED=41`,
 `NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 161개이고
+금지 proof escape는 0건이다.
+
+2026-09-13 Theory 66 batch는 Theory 60의 적용범위 오류를 교정했다. 고정
+`tau=8/5`, `37.769894`는 p.54 Theorem 1-prime branch에만 해당하고, p.52 식
+(3.6)은 `tau_theta=(1+16 theta)/(1+14 theta)`를 쓴다. 수정된 coefficient identity,
+`K_BV(theta)<13/theta`, finite log-ratio와 결합 상계 `34/theta^2`, elementary
+exponential slack, integration-area lower bound, off-diagonal exponent margin과
+fail-closed terminal absorption을 커널 검증했다. Ramaré--Zuniga의 analytic corollary,
+Jutila contour·Lemma 3·residue/well-spacing 및 Ramaré 2016 density theorem은 local
+axiom으로 넣지 않았다. 따라서 식 (3.6)의 weighted call은 parameterized explicit지만
+terminal multiplier, averaged density, PAP-11, DEP-R09, fixed `2e-17`, `X_cert`는 OPEN이다.
+Theory 66 뒤 inventory는 theory 문서 67개, display 1,183식이며 전체 상태는
+`KERNEL_PASS=58`, `CONDITIONAL_KERNEL_PASS=28`, `DEFINITION_ONLY=27`,
+`PARTIAL_FORMALIZATION=27`, `SOURCE_THEOREM_UNFORMALIZED=43`,
+`NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 177개이고
 금지 proof escape는 0건이다.

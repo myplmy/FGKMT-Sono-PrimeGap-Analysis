@@ -66,7 +66,9 @@ Lean 독립증명으로 과장하지 않는다. source theorem을 Lean의 local 
 이번 결과는 local box 하나와 strip-to-\(J\) 전달까지만 닫는다. 다음이 남아 있다.
 
 - Jutila Lemma 7의 Halasz 합을 실제 식 (3.6)에 넣었을 때 생기는 multiplier
-- Theory 60의 `37.769894`와 finite \(\log\log D/\log D\) 보정의 종단 흡수
+- Theory 66에서 교정한 식 (3.6)의 theta-dependent Barban--Vehov 계수와 finite
+  \(\log\log D/\log D\) 보정의 종단 흡수. Theory 60의 고정 `37.769894`는
+  Theorem 1-prime branch에만 해당한다.
 - Theory 64의 detector lower bound와 이번 local factor의 공통 cutoff
 - Theorem 1-prime density에서 Gallagher/Maier PAP까지의 multiplier·exception 처리
 - 최종 fixed \(2\times10^{-17}\) coefficient budget과 numerical \(X_{\rm cert}\)

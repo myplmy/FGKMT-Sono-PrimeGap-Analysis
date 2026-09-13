@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila Lemma 7 and equation (3.6) terminal parameter repair",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_Lemma8_local_count_v1.json",
+  "outcome": "EQUATION_3_6_PARAMETER_REPAIRED_WEIGHTED_CALL_EXPLICIT_TERMINAL_MULTIPLIERS_OPEN",
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "doi": "10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [51, 52, 53, 54],
+      "statements": "Lemma 7, equations (3.2)-(3.7), Theorems 1 and 1-prime",
+      "classification": "STRUCTURAL_SOURCE_TERMINAL_MULTIPLIERS_HIDDEN"
+    },
+    {
+      "key": "RAMARE_ZUNIGA_2024_2025",
+      "title": "An L2-bound for the Barban-Vehov weights",
+      "arxiv": "2405.12662v1",
+      "doi": "10.7169/facm/241018-19-5",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jutila_sources_20260913/Ramare_Zuniga_2024_Barban_Vehov_L2.pdf",
+      "audit_copy_sha256": "79d16666b2126477fa93d8cdf182c8304be6fd7e4edc954475d6bd6b984c2db1",
+      "audit_copy_bytes": 141901,
+      "page_count": 6,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_pages_checked": [1, 5, 6],
+      "statements": "Corollary 1.3 for every tau>1",
+      "classification": "ACTUAL_THETA_DEPENDENT_WEIGHTED_SQUARE_SUM_EXPLICIT_REPLACEMENT"
+    },
+    {
+      "key": "RAMARE_2016_DENSITY",
+      "title": "An explicit density estimate for Dirichlet L-series",
+      "official_url": "https://ramare-olivier.github.io/Maths/DensityEstimate-34.pdf",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jl7_terminal_20260913/Ramare_2016_Explicit_Density_Estimate.pdf",
+      "audit_copy_sha256": "ffdc82e6b6e635b04160fa6baac18ac6fd095ce4d80093de94585237bc6ec7fb",
+      "audit_copy_bytes": 475173,
+      "page_count": 32,
+      "native_text_bytes": 105547,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_STATEMENT_COMPARISON",
+      "statements": "Theorem 1.1 explicit averaged density estimate",
+      "classification": "EXPLICIT_COMPARISON_NOT_NEAR_ONE_LOG_FREE_DROPIN"
+    }
+  ],
+  "scope_correction": {
+    "incorrect_predecessor_scope": "tau=8/5 and coefficient 37.769894 were described as the equation (3.6) weighted call",
+    "correct_scope": "tau=8/5 and coefficient 37.769894 belong only to the printed page 54 Theorem 1-prime parameter choice",
+    "equation_3_6_tau": "(1+16*theta)/(1+14*theta)",
+    "historical_value_deleted": false,
+    "historical_value_reclassified": true,
+    "scientific_downstream_results_affected": "No numerical X_cert or PAP result existed; current dependency wording, test, theory and machine ledger require correction"
+  },
+  "equation_3_6_actual_specialization": {
+    "theta_domain": "0<theta<=1/21",
+    "R": "D^theta",
+    "z1": "D^(1/2+7*theta)",
+    "z2": "D^(1/2+8*theta)",
+    "X": "D^(1+12*theta)",
+    "x_lowercase": "X*(log D)^2",
+    "tau_theta": "(1+16*theta)/(1+14*theta)",
+    "tau_theta_minus_one": "2*theta/(1+14*theta)",
+    "bv_coefficient_exact": "(309/200)*(2327/500+(34421/250)*theta+(255149/250)*theta^2)/(theta*(1+14*theta))",
+    "bv_coefficient_bound": "K_BV(theta)<13/theta",
+    "log_ratio_exact": "1/theta+12+2*log(log D)/(theta*log D)",
+    "log_ratio_gate": "2*log(log D)<=log D",
+    "log_ratio_bound": "log(x)/log(z2/z1)<=18/(7*theta)",
+    "combined_weighted_sum_bound": "K_BV(theta)*log(x)/log(z2/z1)<34/theta^2",
+    "theorem_one_prime_fixed_coefficient_applies": false
+  },
+  "weight_denominator": {
+    "quotient": "exp(-2*n/x)/(exp(-n/N)-exp(-n/M))",
+    "conditions": "z1<n<=x, N>=x, M<=z1, x/z1>=4",
+    "split": "n<=sqrt(x*z1) or n>=sqrt(x*z1)",
+    "first_denominator_lower": "exp(-1/2)-exp(-1)>1/5",
+    "second_denominator_lower": "exp(-1)-exp(-2)>1/5",
+    "uniform_quotient_bound": "strictly less than 5",
+    "status": "PROJECT_FINITE_COMPONENT_EXPLICIT"
+  },
+  "integration_detector_interface": {
+    "normalized_area_exact": "theta^2*(1/2+7*theta)*(1+12*theta+2*log(log D)/log D)",
+    "normalized_area_lower": "theta^2/2 for log D>=1",
+    "detector_coefficient": "c_g(theta)=(1-theta)*(6/pi^2)*theta",
+    "terminal_left_coefficient": "c_g(theta)^2*normalized_area",
+    "status": "PARAMETERIZED_EXPLICIT_AFTER_THEORY64_SOURCE_INPUT"
+  },
+  "off_diagonal_interface": {
+    "source_shape": "J^2*x^(2*delta)*D^(1/2)*z1^(-(1-theta)^2)*R^2 times a hidden theta-dependent multiplier",
+    "base_D_exponent": "-2*theta+(75/2)*theta^2-7*theta^3",
+    "base_exponent_bound": "at most -(29/126)*theta",
+    "finite_log_correction": "4*theta*log(log D)/log D",
+    "finite_log_gate": "4*log(log D)/log D<=29/252",
+    "total_exponent_bound": "at most -(29/252)*theta",
+    "multiplier_explicit": false,
+    "status": "EXPONENT_DIRECTION_EXPLICIT_MULTIPLIER_OPEN"
+  },
+  "terminal_hidden_multiplier_inventory": [
+    {
+      "id": "JL7-CONT",
+      "component": "shifted contour integral I_d(s,chi)",
+      "printed_form": "I_d(s,chi) <<_theta D^(1/2)(M/d)^(-1+theta)",
+      "status": "HARD_BLOCKER",
+      "remaining": "numerical multiplier uniform over actual s,d,M,N and a common finite cutoff"
+    },
+    {
+      "id": "JL7-LEMMA3",
+      "component": "absolute h-sum and off-diagonal r,r-prime,d composition",
+      "printed_form": "by Lemma 3 and the choices of z1,x,R",
+      "status": "HARD_BLOCKER",
+      "remaining": "explicit Lemma 3 multiplier and all finite sum endpoints"
+    },
+    {
+      "id": "JL7-RES",
+      "component": "principal-character residue and height well-spacing row sum",
+      "printed_form": "residue contribution <<_theta J*(phi(q)/q)^2*x^(2-2alpha)*log(D)^2",
+      "status": "HARD_BLOCKER",
+      "remaining": "numerical multiplier, exact diagonal condition and repeated-character height row sum"
+    },
+    {
+      "id": "JL7-ABSORB",
+      "component": "absorb the final unweighted J^2 term",
+      "printed_form": "(phi/q)^2*J^2*L^2 <<_theta (phi/q)^2*J*x^(2-2alpha)*L^2+J^2",
+      "status": "HARD_BLOCKER",
+      "remaining": "insert the hidden constants and an explicit q/phi(q) bound into a strict A>E gate"
+    },
+    {
+      "id": "JL7-AVERAGED",
+      "component": "equation (3.7) averaged primitive-character replay",
+      "printed_form": "the estimate (1.8) is easy ... arguing as before",
+      "status": "HARD_BLOCKER",
+      "remaining": "repeat every constant for variable moduli and exceptional/principal character cases"
+    }
+  ],
+  "alternative_source_audit": {
+    "source": "Ramare 2016 Theorem 1.1",
+    "explicit_bound": "20*(56*Q^5*T^3)^(1-sigma)*log(Q^2*T)^(5-2*sigma)+32*Q^2*log(Q^2*T)^2",
+    "conditions": "T>=2000, T>=Q>=10, sigma>=0.52",
+    "drop_in_for_actual_near_one_log_free_density": false,
+    "reason": "the additive 32*Q^2*log^2 term is not uniformly absorbed by a bounded D^(c*(1-alpha)) factor when 1-alpha=lambda/log D and Q grows",
+    "possible_future_role": "new transfer design rather than a source-equivalent substitution"
+  },
+  "status": {
+    "jl4_theorem_one_prime_actual": "ACTUAL_APPLICATION_EXPLICIT_SOURCE_REPLACEMENT",
+    "jl4_theorem_one_density_actual": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT_SOURCE_REPLACEMENT",
+    "jl7_finite_cauchy_schwarz": "EXACT_SOURCE_STATEMENT",
+    "weight_denominator_loss": "PROJECT_FINITE_COMPONENT_EXPLICIT",
+    "integration_detector_normalization": "PARAMETERIZED_EXPLICIT",
+    "off_diagonal_exponent_direction": "PARAMETERIZED_EXPLICIT",
+    "jutila_terminal_density": "OPEN",
+    "averaged_primitive_density": "OPEN",
+    "printed_general_jl8": "OPEN"
+  },
+  "contour_multiplier_explicit": false,
+  "residue_well_spacing_multiplier_explicit": false,
+  "terminal_density_closed": false,
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "new_dependency_required_now": false,
+  "user_compute_required_now": false,
+  "next_gate": "JL7-CONT: recover or directly prove an explicit multiplier for the shifted contour integral before the Lemma 3 and residue/well-spacing compositions"
+}

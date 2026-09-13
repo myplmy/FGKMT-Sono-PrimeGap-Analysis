@@ -1846,6 +1846,46 @@
   6. PowerShell JSON 검사는 `-AsHashTable`과 stop-on-error를 쓰고, 가능하면 Python strict
      parser와 교차검증한다. 오류 뒤의 자체 출력 문자열을 성공 증거로 쓰지 않는다.
 
+### E114 — Jutila 식 (3.6)과 Theorem 1-prime의 Barban--Vehov 매개변수 혼동
+
+- 분류:
+  `MATHEMATICAL_SCOPE_ERROR / COMMITTED_PREDECESSOR_CORRECTED_BY_SUCCESSOR /
+  NO_NUMERICAL_X_CERT_RESULT_EXISTED`.
+- Theory 60과 그 후속 요약에서 fixed `tau=8/5`, coefficient `37.769894`를 Jutila
+  식 (3.6)의 one-sided weighted square-sum 호출에 적용할 수 있다고 기록했다. 원문
+  printed pp.52--54를 proof branch별로 다시 대조한 결과, 이 고정 매개변수는 p.54의
+  Theorem 1-prime에만 해당한다. p.52 식 (3.6)은
+  `z1=D^(1/2+7 theta)`, `z2=D^(1/2+8 theta)`이므로
+  `tau_theta=(1+16 theta)/(1+14 theta)`다.
+- 기존 fixed coefficient의 exact 계산 자체는 맞았지만 적용 대상이 틀렸다. 잘못된
+  coefficient로 numerical PAP, fixed Sono coefficient 또는 `X_cert`를 계산한 적은 없으므로
+  폐기할 numerical result는 없다. 그러나 그대로 두면 향후 threshold calculator 기반을
+  훼손하는 중대한 선행 scope 오류였다.
+- Theory 66에서 theta-dependent coefficient를 다시 특수화해
+  `K_BV(theta)<13/theta`, weighted/log 결합 상계 `34/theta^2`를 얻었다. Theory 60,
+  machine ledger, tests, METHODS, AGENTS, review와 Lean 주석을 successor correction으로
+  동기화했다. fixed `37.769894`는 역사적으로 삭제하지 않고 Theorem 1-prime scope로
+  재분류했다.
+- 이번 작업 중 새 Theory 66·Review 73을 첫 patch에서 JavaScript 일반 문자열로 전달해
+  LaTeX backslash가 tab·carriage-return 등 escape로 해석되는 E107 유형 오류를 한 번
+  재발시켰다. commit 전에 제어문자와 손상된 display delimiter를 발견했고 두 초안 파일을
+  삭제한 뒤 raw-safe patch로 전수 재작성했다. 수학 코드·Lean·기계 원장에는 이 손상문서를
+  근거로 한 결과를 남기지 않았다.
+- optional symbolic 확인에서 설치되지 않은 `sympy` import를 한 번 시도해
+  `ModuleNotFoundError`가 났다. 표준 `fractions.Fraction`만으로 exact 대수가 충분하므로
+  package 설치를 요청하거나 환경을 변경하지 않았다.
+- Lean 초안은 coefficient 분모 정규화, log-ratio 덧셈 정규형, total-exponent 곱셈 정규형,
+  양수 인자 cancellation에서 세 차례 compile 오류를 냈다. 각 실패 목표를 근거로 direct
+  proof를 교정했고 proof escape 없이 최종 direct Lean check를 다시 통과시켰다. 실패 초안을
+  검증 완료로 기록하지 않는다.
+- 예방:
+  1. 같은 논문의 서로 닮은 proof branch도 theorem 번호, printed page, 실제 parameter tuple을
+     machine ledger의 `scope_id`로 분리한다.
+  2. 상수를 downstream 식에 넣기 전에 source parameter map을 exact test로 고정한다.
+  3. LaTeX가 포함된 대형 patch는 처음부터 raw-safe 문자열을 사용하고 patch 직후 strict
+     UTF-8·제어문자·display delimiter 검사를 수행한다.
+  4. optional dependency import보다 표준 exact arithmetic 가능성을 먼저 확인한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

@@ -148,9 +148,13 @@ Theory 22의 corrected Wirsing theorem도 같은 곱셈함수로 특수화할 �
 이번 결과로 DEP-R09 Branch S의 blocker 하나가 줄었다.
 
 ```text
-이전: JL4-ACTUAL 닫힘 -> JL5 열림 -> JL6 열림 -> JL8 열림
-현재: JL4-ACTUAL 닫힘 -> JL5 닫힘 -> JL6 열림 -> JL8 열림
+당시 표기: JL4-ACTUAL 닫힘 -> JL5 열림 -> JL6 열림 -> JL8 열림
+당시 갱신: JL4-ACTUAL 닫힘 -> JL5 닫힘 -> JL6 열림 -> JL8 열림
 ```
+
+후속 Theory 66 교정에 따라 첫 항은 두 branch로 분리한다. 고정 `37.769894`는
+`JL4-T1PRIME-ACTUAL`에만 해당하고, 식 (3.6)의 `JL4-T1-DENSITY-ACTUAL`은
+theta-dependent 상계로 별도 명시화됐다.
 
 그러나 최종 결론은 여전히 다음과 같다.
 

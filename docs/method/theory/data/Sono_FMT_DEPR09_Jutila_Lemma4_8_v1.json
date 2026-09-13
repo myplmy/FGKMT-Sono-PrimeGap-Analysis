@@ -3,7 +3,7 @@
   "created_kst": "2026-09-13",
   "gate": "DEP-R09 Jutila Lemma 4-8 quantitative source inventory",
   "predecessor": "Sono_FMT_DEPR09_branch_S_transfer_v1.json",
-  "outcome": "LEMMA4_ACTUAL_UPPER_CALL_EXPLICIT_FULL_DENSITY_PACKAGE_OPEN",
+  "outcome": "THEOREM1PRIME_LEMMA4_ACTUAL_EXPLICIT_EQUATION3_6_SCOPE_CORRECTED_IN_THEORY66",
   "numerical_pap_package_ready": false,
   "pap_11_closed": false,
   "dep_r09_closed": false,
@@ -100,6 +100,7 @@
   ],
   "actual_bv_specialization": {
     "source": "Ramaré-Zuniga Alterman Corollary 1.3",
+    "scope_id": "JL4-T1PRIME-ACTUAL",
     "conditions": "X>=z1>=100, z2=z1^tau, tau>1, 1/2<=alpha<=1",
     "a1": "5/2",
     "a2": "4",
@@ -111,7 +112,9 @@
     "power_correction_identity": "x_D^(2-2alpha)=exp(11*lambda+4*lambda*loglog(D)/log(D))",
     "finite_delta_gate": "4*loglog(D)/log(D)<=delta",
     "jutila_printed_10_exp_11lambda_certified": false,
-    "scope": "actual one-sided weighted square-sum upper call only, not the full Graham-Jutila asymptotic"
+    "applies_to_equation_3_6": false,
+    "scope": "printed page 54 Theorem 1-prime one-sided weighted square-sum upper call only; not equation (3.6) and not the full Graham-Jutila asymptotic",
+    "successor_correction": "Theory 66 uses tau_theta=(1+16*theta)/(1+14*theta) for equation (3.6)"
   },
   "jutila_nodes": [
     {
@@ -121,10 +124,16 @@
       "remaining": "explicit O multiplier or independent quantitative proof"
     },
     {
-      "id": "JL4-ACTUAL",
-      "name": "Jutila equation (3.6) one-sided weighted square-sum upper call",
+      "id": "JL4-T1PRIME-ACTUAL",
+      "name": "Jutila printed page 54 Theorem 1-prime one-sided weighted square-sum upper call",
       "status": "ACTUAL_APPLICATION_EXPLICIT_SOURCE_REPLACEMENT",
       "remaining": "retain finite log-squared correction in terminal composition"
+    },
+    {
+      "id": "JL4-T1-DENSITY-ACTUAL",
+      "name": "Jutila equation (3.6) theta-dependent one-sided weighted square-sum upper call",
+      "status": "CORRECTED_BY_SUCCESSOR_THEORY66",
+      "remaining": "use tau_theta and the Theory 66 coefficient; never use the fixed 37.769894 value"
     },
     {
       "id": "JL5",
@@ -161,7 +170,7 @@
     "JL8 local zero count",
     "JL6 detector lower bound",
     "JL7 modified Halasz inequality",
-    "JL4-ACTUAL weighted square-sum upper bound",
+    "JL4-T1-DENSITY-ACTUAL theta-dependent weighted square-sum upper bound (Theory 66)",
     "Jutila equation (3.6)",
     "Theorem 1-prime terminal density bound"
   ],

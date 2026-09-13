@@ -23,11 +23,19 @@
 > `JL8-ACTUAL-NEAR-ONE`은 explicit source replacement로 닫혔다. printed unrestricted
 > JL8, Jutila 식 (3.6) 종단 density, PAP-11·DEP-R09·fixed coefficient·`X_cert`는 OPEN이다.
 
+> **중요 후속 교정(2026-09-13, JL7/식 (3.6)):** 이 문서가 식 (60.1)의
+> `tau=8/5`, `37.769894`를 식 (3.6)의 actual 호출로 분류한 것은 잘못이었다. 그
+> 고정값은 printed p.54의 Theorem 1-prime branch에만 해당한다. printed p.52의 식
+> (3.6)은 `tau_theta=(1+16 theta)/(1+14 theta)`를 사용한다. 현재 교정 정본인
+> [Theory 66](66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md)이
+> `K_BV(theta)<13/theta`와 결합 상계 `34/theta^2`로 실제 호출을 다시 닫는다.
+
 ## 1. 결론
 
-Jutila 1977의 Lemma 4--8을 원문과 인용 source 단위로 분해한 결과, Lemma 4의 **실제
-증명 호출에 필요한 한쪽 상계**는 Ramaré--Zuniga Alterman의 명시적 Corollary 1.3으로
-교체할 수 있다. Jutila Theorem 1-prime의 실제 매개변수 \(\tau=8/5\)에서 새 상수는
+Jutila 1977의 Lemma 4--8을 원문과 인용 source 단위로 분해한 결과, Lemma 4의
+**Theorem 1-prime branch에 필요한 한쪽 상계**는 Ramaré--Zuniga Alterman의 명시적
+Corollary 1.3으로 교체할 수 있다. Jutila Theorem 1-prime의 실제 매개변수
+\(\tau=8/5\)에서 새 상수는
 
 \[
  K_{\rm BV}
@@ -36,8 +44,8 @@ Jutila 1977의 Lemma 4--8을 원문과 인용 source 단위로 분해한 결과,
 \tag{60.1}
 \]
 
-이는 Graham/Jutila Lemma 4의 전체 점근식과 오차항을 복원한 것이 아니다. 그러나 Jutila
-식 (3.6)에서 실제로 필요한 것은 양의 제곱합의 위쪽 경계이므로, 그 호출 하나에는 충분하다.
+이는 Graham/Jutila Lemma 4의 전체 점근식과 오차항을 복원한 것이 아니며, 식 (3.6)에
+그대로 적용되는 값도 아니다. 식 (3.6)의 올바른 theta-dependent 특수화는 Theory 66을 따른다.
 
 반면 다음 세 병목은 남는다.
 
@@ -68,7 +76,7 @@ Huxley 1975 III 공식 PDF는 IMPAN의 실제 CC-BY endpoint에서 확보해
 파일 SHA-256은
 `cc8b7282c1963687d357829416d5e471e130810e5324709a96319bb7a2a3428f`다.
 
-## 3. Jutila Lemma 4와 actual replacement
+## 3. Jutila Lemma 4와 Theorem 1-prime actual replacement
 
 Jutila의 Barban--Vehov weight를 \(a(n)=\sum_{d\mid n}\lambda_d\)라 쓰면 Lemma 4는
 
@@ -94,9 +102,10 @@ Ramaré--Zuniga Alterman Corollary 1.3은 \(X\ge z_1\ge100\),
 \tag{60.3}
 \]
 
-를 준다. 제곱합 항은 음이 아니므로 Jutila 식 (3.6)의 부분구간
-\(z_1<n\le x\)도 같은 우변으로 상계된다. 즉 **full asymptotic은 열려 있지만 actual
-one-sided call은 닫힌다.**
+를 준다. 제곱합 항은 음이 아니므로 해당 parameter branch의 부분구간도 같은 우변으로
+상계된다. 즉 **full asymptotic은 열려 있지만 Theorem 1-prime의 one-sided call은
+닫힌다.** 식 (3.6)의 별도 one-sided call은 Theory 66에서 올바른
+\(\tau_\theta\)로 닫는다.
 
 ### 3.1 Theorem 1-prime 매개변수 대입
 
@@ -239,7 +248,8 @@ density 경로를 제공한다. 대표적으로 fixed-modulus 형태는
 | ID | 명제·호출 | 이번 판정 | 다음 닫힘 조건 |
 |---|---|---|---|
 | `JL4-FULL` | Graham/Jutila Lemma 4 전체 점근식 | `SOURCE_THEOREM_UNFORMALIZED` | 원문 explicit \(O\) 또는 독립 재증명 |
-| `JL4-ACTUAL` | 식 (3.6)의 weighted upper call | `ACTUAL_APPLICATION_EXPLICIT_SOURCE_REPLACEMENT` | Ramaré--Zuniga 식과 finite correction 사용 |
+| `JL4-T1PRIME-ACTUAL` | p.54 Theorem 1-prime weighted upper call | `ACTUAL_APPLICATION_EXPLICIT_SOURCE_REPLACEMENT` | 고정 `37.769894`; 식 (3.6)에 사용 금지 |
+| `JL4-T1-DENSITY-ACTUAL` | p.52 식 (3.6)의 theta-dependent weighted upper call | `CORRECTED_BY_SUCCESSOR_THEORY66` | Theory 66의 \(K_{\rm BV}(\theta)\), `34/theta^2` 사용 |
 | `JL5` | squarefree·coprime harmonic lower bound | `HARD_BLOCKER` | uniform eta·R0 숫자 |
 | `JL6` | detector lower bound | `HARD_BLOCKER` | JL5 + Mellin/tail absolute constants |
 | `JL7` | modified Halasz inequality | `EXACT_SOURCE_STATEMENT` | 필요 시 finite direct proof·Lean |
@@ -248,7 +258,7 @@ density 경로를 제공한다. 대표적으로 fixed-modulus 형태는
 
 ## 7. Lean·기계검증 경계
 
-- 식 (60.1)의 \(\tau=8/5\) 대입과 exact rational 값은 Lean theorem
+- 식 (60.1)의 Theorem 1-prime \(\tau=8/5\) 대입과 exact rational 값은 Lean theorem
   `jutila_bv_actual_coefficient_value`로 검증한다.
 - 식 (60.5)의 유리 대수는 `jutila_bv_actual_log_ratio_identity`로 검증한다.
 - 외부 Corollary 1.3, Jutila Lemmas 4--8, Huxley density를 project-local axiom으로 선언하지
@@ -263,7 +273,8 @@ density 경로를 제공한다. 대표적으로 fixed-modulus 형태는
    convolution·partial summation으로 직접 정량화한다.
 2. `JL6a`: Mellin integral과 truncation tail을 분리해 각각 absolute constant를 붙인다.
 3. `JL8a`: Prachar/Linnik local lemma의 원 source와 현대 explicit local zero-count를 비교한다.
-4. 위 세 항이 숫자가 된 뒤 Jutila 식 (3.6)부터 Theorem 1-prime 종단까지 multiplier를 합성한다.
+4. 위 세 항이 숫자가 된 뒤 식 (3.6)의 theta-dependent branch와 Theorem 1-prime branch를
+   섞지 않고 각각 종단 multiplier를 합성한다.
 5. 그 뒤에만 Branch S의 \(K e^{-160c}\) gate와 \(0.1361687\ldots\) 예산을 비교한다.
 
 현재 단계는 문헌·증명 감사이므로 장시간 CPU, 추가 Python package, 새 prime 계산이 필요 없다.

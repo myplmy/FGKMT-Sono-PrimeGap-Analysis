@@ -312,9 +312,13 @@ square 하나에 포함된다. 또 \(|t_0|\le T\), \(T\ge1\)이면
 | `PAP-11 / DEP-R09` | `OPEN` | Jutila 종단 뒤 Gallagher/Maier bridge까지 필요 |
 | fixed \(2\times10^{-17}\) / \(X_{\rm cert}\) | `OPEN` | calculator 제작 금지 유지 |
 
-다음 우선순위는 `JL7/(3.6)-TERMINAL`이다. 식 (65.21), Theory 64의 detector lower
-bound와 Theory 60의 Barban--Vehov coefficient를 Jutila 식 (3.6)에 실제로 넣어, 남은
-Halasz 합과 \(\log D\) factor가 얼마의 multiplier·cutoff를 요구하는지 분해한다.
+> **후속 Theory 66 교정:** 아래 당시 우선순위는 수행됐다. Theory 60의 고정
+> `37.769894`는 p.54 Theorem \(1'\) 전용이므로 식 (3.6)에 넣지 않는다. 식 (3.6)의
+> 올바른 weighted call은 Theory 66의 \(\theta\)-의존 \(34/\theta^2\) 상계를 쓴다.
+
+현재 다음 우선순위는 `JL7-CONT`다. 식 (65.21), Theory 64의 detector lower bound와
+Theory 66의 corrected weighted call을 보존한 채, shifted contour의 숨은 numerical
+multiplier·finite cutoff를 source-first로 복원한다.
 
 ## 9. 참고문헌
 

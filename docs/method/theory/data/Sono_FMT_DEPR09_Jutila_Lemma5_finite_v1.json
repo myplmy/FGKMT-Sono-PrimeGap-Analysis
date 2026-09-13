@@ -98,8 +98,12 @@
   },
   "jutila_nodes": [
     {
-      "id": "JL4-ACTUAL",
+      "id": "JL4-T1PRIME-ACTUAL",
       "status": "ACTUAL_APPLICATION_EXPLICIT_SOURCE_REPLACEMENT"
+    },
+    {
+      "id": "JL4-T1-DENSITY-ACTUAL",
+      "status": "CORRECTED_BY_SUCCESSOR_THEORY66"
     },
     {
       "id": "JL5",

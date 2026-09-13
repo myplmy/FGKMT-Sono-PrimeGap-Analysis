@@ -1394,7 +1394,8 @@ theorem pap_fixed_d_transfer_gate
 /-! ## Theory 60 — DEP-R09 Jutila Lemma 4--8 source inventory -/
 
 /- Theory 60, formula 60.1: exact specialization of the explicit
-   Ramaré--Zuniga Alterman coefficient at Jutila's actual tau=8/5.
+   Ramaré--Zuniga Alterman coefficient at Jutila's p.54 Theorem 1-prime
+   tau=8/5.  Theory 66 records that this is not the p.52 equation (3.6) tau.
    The external analytic corollary itself is not asserted as a local axiom. -/
 noncomputable def jutilaBVActualTau : ℝ := 8 / 5
 
@@ -1947,5 +1948,237 @@ theorem jutila_jl8_even_odd_cell_transfer
     N ≤ B * cells := hN
     _ ≤ B * (2 * J) := mul_le_mul_of_nonneg_left hCells hB
     _ = 2 * B * J := by ring
+
+/-! ## Theory 66 — DEP-R09 Jutila JL7 and equation (3.6) parameter repair -/
+
+/- Theory 66, formula 66.3: the p.52 Theorem 1 density branch has a
+   theta-dependent tau.  The fixed tau=8/5 in Theory 60 belongs only to the
+   separate p.54 Theorem 1-prime branch. -/
+noncomputable def jutilaT1DensityTau (θ : ℝ) : ℝ :=
+  (1 + 16 * θ) / (1 + 14 * θ)
+
+theorem jutila_t1_density_tau_sub_one
+    {θ : ℝ} (hθ : 0 < θ) :
+    jutilaT1DensityTau θ - 1 = 2 * θ / (1 + 14 * θ) := by
+  have hDen : 1 + 14 * θ ≠ 0 := by nlinarith
+  rw [jutilaT1DensityTau]
+  field_simp
+  ring
+
+/- Theory 66, formula 66.4: exact rational specialization of the
+   Ramaré--Zuniga coefficient at the corrected theta-dependent tau. -/
+theorem jutila_t1_density_bv_coefficient_identity
+    {θ : ℝ} (hθ : 0 < θ) :
+    jutilaBVCorollaryCoefficient (jutilaT1DensityTau θ) =
+      (309 / 200) *
+        ((2327 / 500) + (34421 / 250) * θ + (255149 / 250) * θ ^ 2) /
+          (θ * (1 + 14 * θ)) := by
+  have hθNe : θ ≠ 0 := ne_of_gt hθ
+  have hDen : 1 + 14 * θ ≠ 0 := by nlinarith
+  have hTau : jutilaT1DensityTau θ - 1 ≠ 0 := by
+    rw [jutila_t1_density_tau_sub_one hθ]
+    positivity
+  rw [jutilaBVCorollaryCoefficient, jutila_t1_density_tau_sub_one hθ,
+    jutilaT1DensityTau]
+  field_simp [hθNe, hDen, hTau]
+  ring
+
+/- Theory 66, formulas 66.5--66.6: the corrected coefficient is strictly
+   below 13/theta throughout the actual interval. -/
+theorem jutila_t1_density_bv_coefficient_lt
+    {θ : ℝ} (hθ : 0 < θ) (hθUpper : θ ≤ 1 / 21) :
+    (309 / 200) *
+          ((2327 / 500) + (34421 / 250) * θ + (255149 / 250) * θ ^ 2) /
+        (θ * (1 + 14 * θ)) <
+      13 / θ := by
+  have hDenFactor : 0 < 1 + 14 * θ := by nlinarith
+  have hDen : 0 < θ * (1 + 14 * θ) := mul_pos hθ hDenFactor
+  have hSquare : θ ^ 2 ≤ θ / 21 := by
+    have hProduct : 0 ≤ θ * (1 / 21 - θ) :=
+      mul_nonneg hθ.le (sub_nonneg.mpr hθUpper)
+    nlinarith
+  have hCore :
+      (309 / 200) *
+          ((2327 / 500) + (34421 / 250) * θ + (255149 / 250) * θ ^ 2) <
+        13 * (1 + 14 * θ) := by
+    nlinarith
+  calc
+    (309 / 200) *
+          ((2327 / 500) + (34421 / 250) * θ + (255149 / 250) * θ ^ 2) /
+        (θ * (1 + 14 * θ)) <
+        (13 * (1 + 14 * θ)) / (θ * (1 + 14 * θ)) :=
+      div_lt_div_of_pos_right hCore hDen
+    _ = 13 / θ := by field_simp
+
+/- Theory 66, formulas 66.7--66.8: after writing ell=log(log D), the
+   finite logarithmic ratio is at most 18/(7 theta). -/
+theorem jutila_t1_density_log_ratio_identity
+    {θ L ell : ℝ} (hθ : 0 < θ) (hL : 0 < L) :
+    ((1 + 12 * θ) * L + 2 * ell) / (θ * L) =
+      1 / θ + 12 + 2 * ell / (θ * L) := by
+  field_simp [ne_of_gt hθ, ne_of_gt hL]
+
+theorem jutila_t1_density_log_ratio_upper
+    {θ L ell : ℝ}
+    (hθ : 0 < θ) (hθUpper : θ ≤ 1 / 21)
+    (hL : 0 < L) (hLog : 2 * ell ≤ L) :
+    1 / θ + 12 + 2 * ell / (θ * L) ≤ 18 / (7 * θ) := by
+  have hTerm : 2 * ell / (θ * L) ≤ 1 / θ := by
+    rw [div_le_div_iff₀ (mul_pos hθ hL) hθ]
+    nlinarith
+  have hTwelve : 12 ≤ 4 / (7 * θ) := by
+    rw [le_div_iff₀ (by positivity : 0 < 7 * θ)]
+    nlinarith
+  calc
+    1 / θ + 12 + 2 * ell / (θ * L) ≤
+        1 / θ + 12 + 1 / θ :=
+      by
+        simpa [add_assoc, add_comm, add_left_comm] using
+          add_le_add_left hTerm (1 / θ + 12)
+    _ = 2 / θ + 12 := by ring
+    _ ≤ 2 / θ + 4 / (7 * θ) := by linarith
+    _ = 18 / (7 * θ) := by field_simp; ring
+
+/- Theory 66, formula 66.9: abstract multiplication of the two strict
+   coefficient envelopes.  The analytic source corollary remains external. -/
+theorem jutila_t1_density_bv_log_product_upper
+    {θ K ratio : ℝ}
+    (hθ : 0 < θ) (hRatio : 0 < ratio)
+    (hKUpper : K < 13 / θ)
+    (hRatioUpper : ratio ≤ 18 / (7 * θ)) :
+    K * ratio < 34 / θ ^ 2 := by
+  have hFirst : K * ratio < (13 / θ) * ratio :=
+    mul_lt_mul_of_pos_right hKUpper hRatio
+  have hCoeff : 0 ≤ 13 / θ := by positivity
+  have hSecond : (13 / θ) * ratio ≤ (13 / θ) * (18 / (7 * θ)) :=
+    mul_le_mul_of_nonneg_left hRatioUpper hCoeff
+  have hExact : (13 / θ) * (18 / (7 * θ)) < 34 / θ ^ 2 := by
+    have hθNe : θ ≠ 0 := ne_of_gt hθ
+    field_simp
+    nlinarith [sq_pos_of_pos hθ]
+  exact hFirst.trans_le hSecond |>.trans hExact
+
+/- Theory 66, formula 66.11: exact elementary exponential slacks behind
+   the two-case denominator bound. -/
+theorem jutila_exp_neg_half_gt_three_fifths :
+    (3 : ℝ) / 5 < Real.exp (-1 / 2) := by
+  have hSquare : (Real.exp (-1 / 2)) ^ 2 = Real.exp (-1) := by
+    rw [pow_two, ← Real.exp_add]
+    congr 1
+    ring
+  have hExpLower : (9 : ℝ) / 25 < Real.exp (-1) :=
+    (by norm_num : (9 : ℝ) / 25 < 0.36787944116).trans
+      Real.exp_neg_one_gt_d9
+  have hPos : 0 < Real.exp (-1 / 2) := Real.exp_pos _
+  nlinarith
+
+theorem jutila_exp_neg_one_between_rationals :
+    (9 : ℝ) / 25 < Real.exp (-1) ∧ Real.exp (-1) < 2 / 5 := by
+  constructor
+  · exact (by norm_num : (9 : ℝ) / 25 < 0.36787944116).trans
+      Real.exp_neg_one_gt_d9
+  · exact Real.exp_neg_one_lt_d9.trans (by norm_num)
+
+theorem jutila_weight_denominator_two_slacks :
+    (1 : ℝ) / 5 < Real.exp (-1 / 2) - Real.exp (-1) ∧
+      (1 : ℝ) / 5 < Real.exp (-1) - Real.exp (-2) := by
+  rcases jutila_exp_neg_one_between_rationals with ⟨hLower, hUpper⟩
+  constructor
+  · linarith [jutila_exp_neg_half_gt_three_fifths]
+  · have hPos : 0 < Real.exp (-1) := Real.exp_pos _
+    have hOneMinus : (3 : ℝ) / 5 < 1 - Real.exp (-1) := by linarith
+    have hProductOne :
+        (9 / 25 : ℝ) * (3 / 5) < Real.exp (-1) * (3 / 5) :=
+      mul_lt_mul_of_pos_right hLower (by norm_num)
+    have hProductTwo :
+        Real.exp (-1) * (3 / 5) <
+          Real.exp (-1) * (1 - Real.exp (-1)) :=
+      mul_lt_mul_of_pos_left hOneMinus hPos
+    have hExpTwo : Real.exp (-2) = (Real.exp (-1)) ^ 2 := by
+      rw [pow_two, ← Real.exp_add]
+      congr 1
+      ring
+    rw [hExpTwo]
+    nlinarith
+
+theorem jutila_weight_quotient_lt_five
+    {numerator denominator : ℝ}
+    (hNumerator : numerator ≤ 1)
+    (hDenominator : 1 / 5 < denominator) :
+    numerator / denominator < 5 := by
+  have hDenPos : 0 < denominator := by linarith
+  rw [div_lt_iff₀ hDenPos]
+  nlinarith
+
+/- Theory 66, formula 66.12: the normalized integration area is at least
+   theta^2/2 once the displayed positive factors are supplied. -/
+theorem jutila_t1_density_integration_area_lower
+    {θ L ell : ℝ} (hθ : 0 < θ) (hL : 0 < L) (hEll : 0 ≤ ell) :
+    θ ^ 2 / 2 ≤
+      θ ^ 2 * (1 / 2 + 7 * θ) * (1 + 12 * θ + 2 * ell / L) := by
+  have hThetaSquare : 0 ≤ θ ^ 2 := sq_nonneg θ
+  have hFirst : 1 / 2 ≤ 1 / 2 + 7 * θ := by linarith
+  have hEllTerm : 0 ≤ 2 * ell / L := div_nonneg (by positivity) hL.le
+  have hSecond : 1 ≤ 1 + 12 * θ + 2 * ell / L := by linarith
+  have hA : θ ^ 2 / 2 ≤ θ ^ 2 * (1 / 2 + 7 * θ) := by
+    nlinarith
+  have hNonneg : 0 ≤ θ ^ 2 * (1 / 2 + 7 * θ) := by positivity
+  calc
+    θ ^ 2 / 2 ≤ θ ^ 2 * (1 / 2 + 7 * θ) := hA
+    _ ≤ θ ^ 2 * (1 / 2 + 7 * θ) *
+          (1 + 12 * θ + 2 * ell / L) := by
+      nlinarith [mul_nonneg hNonneg (sub_nonneg.mpr hSecond)]
+
+/- Theory 66, formulas 66.15--66.16: exact off-diagonal exponent and its
+   uniform negative margin on 0<theta<=1/21. -/
+theorem jutila_t1_off_diagonal_exponent_identity (θ : ℝ) :
+    2 * θ * (1 + 12 * θ) + 1 / 2 -
+          (1 / 2 + 7 * θ) * (1 - θ) ^ 2 + 2 * θ =
+      -2 * θ + (75 / 2) * θ ^ 2 - 7 * θ ^ 3 := by
+  ring
+
+theorem jutila_t1_off_diagonal_base_margin
+    {θ : ℝ} (hθ : 0 < θ) (hθUpper : θ ≤ 1 / 21) :
+    -2 * θ + (75 / 2) * θ ^ 2 - 7 * θ ^ 3 ≤
+      -(29 / 126) * θ := by
+  have hBracket : 0 ≤ 75 / 2 - 7 * (θ + 1 / 21) := by
+    nlinarith
+  have hProduct :
+      0 ≤ (1 / 21 - θ) * (75 / 2 - 7 * (θ + 1 / 21)) :=
+    mul_nonneg (sub_nonneg.mpr hθUpper) hBracket
+  have hInner : -2 + (75 / 2) * θ - 7 * θ ^ 2 ≤ -(29 / 126) := by
+    nlinarith
+  have hScaled := mul_le_mul_of_nonneg_left hInner hθ.le
+  nlinarith
+
+/- Theory 66, formula 66.17: the finite log(log D)/log D gate preserves
+   half of the negative exponent margin. -/
+theorem jutila_t1_off_diagonal_total_margin
+    {θ L ell : ℝ}
+    (hθ : 0 < θ) (hθUpper : θ ≤ 1 / 21)
+    (_hL : 0 < L) (hGate : 4 * ell / L ≤ 29 / 252) :
+    (-2 * θ + (75 / 2) * θ ^ 2 - 7 * θ ^ 3) +
+        4 * θ * ell / L ≤
+      -(29 / 252) * θ := by
+  have hBase := jutila_t1_off_diagonal_base_margin hθ hθUpper
+  have hScaled : 4 * θ * ell / L ≤ (29 / 252) * θ := by
+    have h := mul_le_mul_of_nonneg_left hGate hθ.le
+    simpa [div_eq_mul_inv, mul_assoc, mul_left_comm, mul_comm] using h
+  nlinarith
+
+/- Theory 66, formula 66.19: fail-closed terminal absorption.  The source
+   contour and residue multipliers must be supplied as finite A,B,E inputs;
+   this theorem does not invent them. -/
+theorem jutila_t1_terminal_absorption
+    {A B E J Y : ℝ}
+    (hGap : 0 < A - E) (hJ : 0 < J)
+    (hInequality : A * J ^ 2 ≤ B * J * Y + E * J ^ 2) :
+    J ≤ B * Y / (A - E) := by
+  have hMultiplied : J * ((A - E) * J) ≤ J * (B * Y) := by
+    nlinarith
+  have hCancelled : (A - E) * J ≤ B * Y :=
+    le_of_mul_le_mul_left hMultiplied hJ
+  rw [le_div_iff₀ hGap]
+  simpa [mul_comm] using hCancelled
 
 end FGKMTSono

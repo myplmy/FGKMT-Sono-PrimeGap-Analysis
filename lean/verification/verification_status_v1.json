@@ -1041,6 +1041,118 @@
       "declarations": ["jutila_jl8_even_odd_cell_transfer"]
     },
     {
+      "formula_id": "66.1",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutilaBVActualTau",
+        "jutilaBVCorollaryCoefficient",
+        "jutila_bv_actual_coefficient_value"
+      ]
+    },
+    {
+      "formula_id": "66.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "66.3",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutilaT1DensityTau",
+        "jutila_t1_density_tau_sub_one"
+      ]
+    },
+    {
+      "formula_id": "66.4",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_t1_density_bv_coefficient_identity"]
+    },
+    {
+      "formula_id": "66.5",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_t1_density_bv_coefficient_lt"]
+    },
+    {
+      "formula_id": "66.6",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_t1_density_bv_coefficient_lt"]
+    },
+    {
+      "formula_id": "66.7",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_t1_density_log_ratio_identity"]
+    },
+    {
+      "formula_id": "66.8",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_t1_density_log_ratio_upper"]
+    },
+    {
+      "formula_id": "66.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_t1_density_bv_log_product_upper"]
+    },
+    {
+      "formula_id": "66.10",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "66.11",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_exp_neg_half_gt_three_fifths",
+        "jutila_exp_neg_one_between_rationals",
+        "jutila_weight_denominator_two_slacks",
+        "jutila_weight_quotient_lt_five"
+      ]
+    },
+    {
+      "formula_id": "66.12",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_t1_density_integration_area_lower"]
+    },
+    {
+      "formula_id": "66.13",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "66.14",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "66.15",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_t1_off_diagonal_exponent_identity"]
+    },
+    {
+      "formula_id": "66.16",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_t1_off_diagonal_base_margin"]
+    },
+    {
+      "formula_id": "66.17",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_t1_off_diagonal_total_margin"]
+    },
+    {
+      "formula_id": "66.18",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "66.19",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_t1_terminal_absorption"]
+    },
+    {
+      "formula_id": "66.20",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

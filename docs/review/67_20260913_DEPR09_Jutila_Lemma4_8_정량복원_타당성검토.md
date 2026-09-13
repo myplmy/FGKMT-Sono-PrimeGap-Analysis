@@ -18,6 +18,12 @@
 > [후속 검토 68](68_20260913_DEPR09_Jutila_Lemma5_유한하한_타당성검토.md)이
 > peer-reviewed explicit source로 `JL5`를 닫았다. `JL6`과 `JL8`은 계속 열려 있다.
 - 기계 원장: [Jutila Lemma 4--8 v1](../method/theory/data/Sono_FMT_DEPR09_Jutila_Lemma4_8_v1.json)
+
+> **중요 후속 교정:** 아래 `tau=8/5`, `37.769894` 판정은 Jutila printed p.54의
+> Theorem 1-prime branch에만 타당하다. 이를 p.52 식 (3.6)의 actual 호출이라고 쓴
+> 문장은 scope 오류였다. [Theory 66](../method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md)과
+> [Review 73](73_20260913_DEPR09_Jutila_JL7_terminal_parameter_repair_타당성검토.md)이
+> 식 (3.6)을 올바른 `tau_theta=(1+16 theta)/(1+14 theta)`로 교정한다.
 - 선행 검토: [Branch S 검토](66_20260913_DEPR09_branch_S_정량_transfer_타당성검토.md)
 - 결론: `한 실제 제곱합 호출은 명시화 / 전체 zero-density·PAP는 미완성`
 
@@ -32,10 +38,12 @@ Jutila 증명의 여러 부품 가운데 Lemma 4를 쓰는 **실제 한쪽 상�
 \]
 
 다. 이 대입과 로그 비율의 유리 대수는 Lean으로 검증한다. 원 논문의 전체 점근식을
-재증명한 것은 아니지만, Jutila 식 (3.6)이 요구하는 위쪽 경계에는 충분하다.
+재증명한 것은 아니며, 이 고정값은 Theorem 1-prime branch가 요구하는 위쪽 경계에만
+충분하다. 식 (3.6)에는 Theory 66의 theta-dependent 계수를 써야 한다.
 
 > 쉬운 설명: 부품 상자 하나에 “대략 이 정도”라고만 쓰여 있던 값을, 실제 숫자
-> `37.769894`가 적힌 현대 부품으로 교체했다.
+> Theorem 1-prime 부품은 `37.769894`가 적힌 현대 부품으로 교체했다. 식 (3.6)의 부품은
+> 별도 theta-dependent 크기다.
 
 ## 2. 아직 전체 결과가 나오지 않는 이유
 
@@ -56,7 +64,8 @@ Huxley 1975 원문도 공식 경로에서 확보했다. 이는 과거의 “sour
 
 ## 3. 비판적 타당성 판정
 
-- **타당한 진전:** 최신 explicit Barban--Vehov 상계를 실제 \(\tau=8/5\) 호출에 적용하는 것.
+- **타당한 진전:** 최신 explicit Barban--Vehov 상계를 Theorem 1-prime의 실제
+  \(\tau=8/5\) 호출에 적용하는 것.
 - **금지할 확대 해석:** 이 한 호출이 닫혔다는 이유로 Jutila Theorem 1-prime, PAP 또는
   Sono의 fixed \(2\times10^{-17}\)이 인증됐다고 쓰는 것.
 - **주의할 finite 보정:** \(x_D=D^{11/2}\log^2D\) 때문에 인쇄된 \(e^{11\lambda}\) 외에
@@ -85,7 +94,8 @@ Huxley 1975 원문도 공식 경로에서 확보했다. 이는 과거의 “sour
 
 ```text
 Huxley official source leaf             = ACQUIRED AND HASHED
-Jutila Lemma 4 actual upper call         = EXPLICIT SOURCE REPLACEMENT
+Jutila Lemma 4 Theorem 1-prime call      = EXPLICIT SOURCE REPLACEMENT
+Jutila equation (3.6) weighted call       = CORRECTED BY THEORY 66
 Jutila Lemma 4 full asymptotic           = UNFORMALIZED SOURCE THEOREM
 JL5 / JL6 / JL8                          = HARD_BLOCKER
 PAP-11 / DEP-R09                         = OPEN

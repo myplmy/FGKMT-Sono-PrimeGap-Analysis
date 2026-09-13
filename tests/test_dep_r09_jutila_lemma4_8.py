@@ -53,7 +53,7 @@ class DepR09JutilaLemma48Tests(unittest.TestCase):
         self.assertTrue(data.startswith(b"%PDF-"))
         self.assertIn("OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY", source["reading_mode"])
 
-    def test_actual_tau_and_coefficient_are_exact(self):
+    def test_theorem_one_prime_tau_and_coefficient_are_exact(self):
         tau = Fraction(8, 5)
         coefficient = (
             Fraction(309, 100)
@@ -66,8 +66,10 @@ class DepR09JutilaLemma48Tests(unittest.TestCase):
         )
         self.assertEqual(coefficient, Fraction(18884947, 500000))
         actual = self.ledger["actual_bv_specialization"]
+        self.assertEqual(actual["scope_id"], "JL4-T1PRIME-ACTUAL")
         self.assertEqual(actual["tau"], "8/5")
         self.assertEqual(actual["coefficient_rational"], "18884947/500000")
+        self.assertFalse(actual["applies_to_equation_3_6"])
         self.assertEqual(mp.mpf(coefficient.numerator) / coefficient.denominator, mp.mpf("37.769894"))
 
     def test_finite_parameter_identities(self):
@@ -87,11 +89,15 @@ class DepR09JutilaLemma48Tests(unittest.TestCase):
             rhs = mp.exp(11 * lam + 4 * lam * log2_d / log_d)
             self.assertTrue(mp.almosteq(lhs, rhs, rel_eps=mp.mpf("1e-65")))
 
-    def test_scope_closes_only_actual_lemma4_call(self):
+    def test_scope_separates_theorem_one_prime_from_equation_3_6(self):
         statuses = {row["id"]: row["status"] for row in self.ledger["jutila_nodes"]}
         self.assertEqual(
-            statuses["JL4-ACTUAL"],
+            statuses["JL4-T1PRIME-ACTUAL"],
             "ACTUAL_APPLICATION_EXPLICIT_SOURCE_REPLACEMENT",
+        )
+        self.assertEqual(
+            statuses["JL4-T1-DENSITY-ACTUAL"],
+            "CORRECTED_BY_SUCCESSOR_THEORY66",
         )
         self.assertEqual(statuses["JL4-FULL"], "SOURCE_THEOREM_UNFORMALIZED")
         for node in ("JL5", "JL6", "JL8"):
@@ -103,7 +109,7 @@ class DepR09JutilaLemma48Tests(unittest.TestCase):
     def test_all_root_claims_remain_fail_closed(self):
         self.assertEqual(
             self.ledger["outcome"],
-            "LEMMA4_ACTUAL_UPPER_CALL_EXPLICIT_FULL_DENSITY_PACKAGE_OPEN",
+            "THEOREM1PRIME_LEMMA4_ACTUAL_EXPLICIT_EQUATION3_6_SCOPE_CORRECTED_IN_THEORY66",
         )
         for key in (
             "numerical_pap_package_ready",
