@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila JL7-RES principal residue and repeated-character height row sum",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_JL7_Lemma3_v1.json",
+  "outcome": "JL7_RES_ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT_TERMINAL_ABSORPTION_AND_AVERAGED_REPLAY_OPEN",
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "author": "Matti Jutila",
+      "journal": "Mathematica Scandinavica 41 (1977), 45-62",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AS_LOCATOR_AFTER_EMPTY_NATIVE_TEXT_LAYER_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [49, 51, 52, 53],
+      "statements": "Lemma 3 reciprocal identity, even/odd Delta-well-spaced selection, equation (3.6) parameter intervals, and the printed-p.53 residue paragraph",
+      "classification": "ORIGINAL_PEER_REVIEWED_EXACT_SOURCE_AND_ACTUAL_CALL"
+    },
+    {
+      "key": "DLMF_GAMMA_RECURRENCE",
+      "title": "DLMF 5.5 Functional Relations",
+      "institution": "NIST Digital Library of Mathematical Functions",
+      "url": "https://dlmf.nist.gov/5.5",
+      "equation": "5.5.1",
+      "statement": "Gamma(z+1)=z Gamma(z)",
+      "classification": "AUTHORITATIVE_STANDARD_IDENTITY"
+    },
+    {
+      "key": "DLMF_GAMMA_EULER_INTEGRAL",
+      "title": "DLMF 5.9 Integral Representations",
+      "institution": "NIST Digital Library of Mathematical Functions",
+      "url": "https://dlmf.nist.gov/5.9",
+      "equation": "5.9.1",
+      "statement": "Euler integral for Gamma in the positive-real-part half-plane",
+      "classification": "AUTHORITATIVE_STANDARD_IDENTITY"
+    }
+  ],
+  "source_first_search": {
+    "target": "a numerical drop-in theorem for Jutila printed-p.53 principal residue and same-character height row sum",
+    "result": "NO_DROPIN_NUMERICAL_THEOREM_IDENTIFIED_IN_TARGETED_SEARCH",
+    "scope_warning": "not a worldwide novelty claim",
+    "decision": "retain Jutila's exact source formula and give a direct finite envelope"
+  },
+  "actual_parameters": {
+    "theta": "0<theta<=1/21",
+    "D": "D=qT with q>=3 and T>=1",
+    "L": "L=log D >= theta^(-2), hence L>=441",
+    "R": "D^theta",
+    "z1": "D^(1/2+7theta)",
+    "x": "D^(1+12theta)*L^2",
+    "xi_interval": "[(1-theta)log z1, log z1]",
+    "eta_interval": "[log x, (1+theta)log x]",
+    "selected_shift": "s_j=rho_j-alpha, so 0<=Re(s_j)<=theta and |Im(s_j)|<=T",
+    "system_scope": "one even-strip or odd-strip Delta-well-spaced selected system; the outer factor 2 for both systems remains in the terminal composition"
+  },
+  "residue_source_formula": {
+    "character_condition": "conjugate(chi_j)*chi_k=chi_0, equivalently chi_j=chi_k",
+    "lemma3_diagonal": "sum_d h(d;r,r-prime)/d=delta_(r,r-prime)*phi(r)",
+    "post_diagonal_r_sum": "S_q(R)=sum'_(r<=R) phi(r)/r^2",
+    "zero_pair": "z=conjugate(s_j)+s_k with 0<=Re(z)<=2theta",
+    "printed_conclusion": "hidden-theta Vinogradov bound of order J*(phi(q)/q)^2*x^(2-2alpha)*L^2"
+  },
+  "ladder_kernel": {
+    "definition": "K(z)=integral_a^b integral_c^d integral_xi^eta exp(-u*z) du d_eta d_xi",
+    "gamma_cancellation": "(exp(-xi*z)-exp(-eta*z))*Gamma(-z)=-Gamma(1-z)*integral_xi^eta exp(-u*z)du",
+    "closed_form": "K(z)=[B(exp(-a*z)-exp(-b*z))-A(exp(-c*z)-exp(-d*z))]/z^2 for z!=0",
+    "zero_value": "K(0)=integral_a^b integral_c^d (eta-xi)d_eta d_xi",
+    "interval_bounds": [
+      "A<=5theta L/6",
+      "B<=18theta L/7",
+      "d-a<3L"
+    ],
+    "zero_mass_bound": "K(0)<7theta^2 L^3",
+    "off_diagonal_bound": "|K(u+iv)|<7theta L/v^2 for v!=0",
+    "status": "DIRECT_FINITE_ANALYTIC_ENVELOPE"
+  },
+  "gamma_and_spacing": {
+    "gamma_strip": "19/21<=Re(1-z)<=1",
+    "gamma_bound": "|Gamma(1-z)|<=Gamma(Re(1-z))<40/19<3",
+    "spacing": "within one character and one parity system, successive selected heights differ by at least Delta=1/L",
+    "inverse_square_row": "sum_(k!=j,chi_k=chi_j) 1/(t_k-t_j)^2 < (10/3)L^2",
+    "diagonal_pair": "<21theta^2 L^3",
+    "off_diagonal_row": "<70theta L^3",
+    "whole_row": "<91theta L^3",
+    "all_rows": "<91J theta L^3",
+    "status": "ACTUAL_SELECTED_SYSTEM_PARAMETERIZED_EXPLICIT"
+  },
+  "diagonal_r_sum": {
+    "rankin_parameter": "lambda=1/L",
+    "rankin_factor": "R^lambda=exp(theta)<2",
+    "euler_majorant": "product_(p not dividing q)(1+(p-1)/p^(2+lambda)) <= zeta(1+lambda)*product_(p|q)(1-p^(-1-lambda))",
+    "excluded_prime_comparison": "product_(p|q)(1-p^(-1-lambda)) <= e*phi(q)/q",
+    "zeta_integral_bound": "zeta(1+lambda)<=1+L<=2L",
+    "result": "S_q(R)<12*(phi(q)/q)*L",
+    "calculator_safe_multiplier": 12,
+    "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+  },
+  "residue_composition": {
+    "pre_endpoint_coefficient": "12*91*theta=1092theta",
+    "theta_endpoint": "1092theta<=1092/21=52",
+    "result": "absolute residue < 52*J*(phi(q)/q)^2*x^(2-2alpha)*L^2 for one selected parity system",
+    "calculator_safe_multiplier": 52,
+    "new_finite_cutoff": "none beyond the predecessor conditions 0<theta<=1/21 and L>=theta^(-2)",
+    "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+  },
+  "lean_scope": {
+    "interval_rational_coefficients_formalized": true,
+    "gamma_rational_endpoint_formalized": true,
+    "spacing_basel_coefficient_formalized": true,
+    "row_sum_coefficient_formalized": true,
+    "rankin_r_sum_rational_composition_formalized": true,
+    "final_52_composition_formalized": true,
+    "complex_gamma_integral_fully_formalized": false,
+    "dirichlet_character_spacing_construction_fully_formalized": false,
+    "euler_product_rankin_argument_fully_formalized": false,
+    "classification": "SOURCE_THEOREM_UNFORMALIZED_PLUS_KERNEL_VERIFIED_COEFFICIENT_ALGEBRA"
+  },
+  "remaining_terminal_nodes": [
+    {
+      "id": "JL7-ABSORB",
+      "status": "HARD_BLOCKER",
+      "remaining": "combine weighted lower bound, contour, Lemma 3 and residue constants and prove a common strict A>E cutoff"
+    },
+    {
+      "id": "JL7-AVERAGED",
+      "status": "HARD_BLOCKER",
+      "remaining": "variable-modulus primitive-character replay of equation (3.7)"
+    },
+    {
+      "id": "GALLAGHER-MAIER-PAP",
+      "status": "HARD_BLOCKER",
+      "remaining": "translate the repaired density result into the exact pointwise PAP statement with a numerical multiplier and common cutoff"
+    }
+  ],
+  "contour_multiplier_explicit": true,
+  "jutila_lemma3_multiplier_explicit": true,
+  "residue_well_spacing_multiplier_explicit": true,
+  "terminal_density_closed": false,
+  "averaged_primitive_density_closed": false,
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "new_dependency_required_now": false,
+  "user_compute_required_now": false,
+  "next_gate": "JL7-ABSORB: insert the now-explicit contour, Lemma 3 and residue multipliers into the strict terminal inequality and derive a common finite cutoff"
+}

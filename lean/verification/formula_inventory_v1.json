@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 69,
-  "formula_count": 1226,
-  "tagged_formula_count": 704,
-  "untagged_formula_count": 522,
+  "theory_count": 70,
+  "formula_count": 1252,
+  "tagged_formula_count": 726,
+  "untagged_formula_count": 526,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "8111c56a493a38e71b814baeeb9d108e9d45556256f8a3619fd601afdc0f3bd5",
+      "source_sha256": "b86f8fe7d3ddb0440ffe4bba65cd8f4820b00202c40418c591902f7a77bc8e71",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e",
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -553,10 +553,18 @@
     {
       "theory": "68",
       "source_file": "docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c",
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2",
       "display_formula_count": 18,
       "tagged_formula_count": 13,
       "untagged_formula_count": 5
+    },
+    {
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31",
+      "display_formula_count": 26,
+      "tagged_formula_count": 22,
+      "untagged_formula_count": 4
     }
   ],
   "formulae": [
@@ -848,7 +856,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U002",
@@ -858,7 +866,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U003",
@@ -868,7 +876,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U004",
@@ -878,7 +886,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U005",
@@ -888,7 +896,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U006",
@@ -898,7 +906,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U007",
@@ -908,7 +916,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U008",
@@ -918,7 +926,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U009",
@@ -928,7 +936,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U010",
@@ -938,7 +946,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U011",
@@ -948,7 +956,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U012",
@@ -958,7 +966,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U013",
@@ -968,7 +976,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U014",
@@ -978,7 +986,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T12-U015",
@@ -988,7 +996,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "6b3f0efaa37a2be56fa910ac5de8f1dd9d007187eabc7295141a2ca7e0d08a0e"
+      "source_sha256": "83c9cd29a46f229549860ca0b29e8e2755e01bfaa02bb792d030971f8919e431"
     },
     {
       "formula_id": "T13-U001",
@@ -12648,7 +12656,7 @@
       "end_line": 21,
       "tagged": true,
       "latex": "{\\cal H}_q(R)=\n \\sum_{\\substack{r,r'\\le R\\\\r,r'\\ {\\rm squarefree}\\\\\n                  (rr',q)=1}}\n \\frac1{rr'}\\sum_{d\\ge1}|h(d;r,r')|\n\\tag{68.1}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.2",
@@ -12658,7 +12666,7 @@
       "end_line": 29,
       "tagged": true,
       "latex": "\\boxed{{\\cal H}_q(R)<3R^2}\n\\tag{68.2}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.3",
@@ -12668,7 +12676,7 @@
       "end_line": 67,
       "tagged": true,
       "latex": "\\prod_{\\substack{p\\mid rr'\\\\p\\nmid(r,r')}}\n   \\{1+(f(p)-1)p^{-s}\\}\n \\prod_{p\\mid(r,r')}\n   \\{1+(f(p)^2-1)p^{-s}\\}\n =\\sum_{d\\ge1}h(d;r,r')d^{-s}\n\\tag{68.3}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "T68-U001",
@@ -12678,7 +12686,7 @@
       "end_line": 73,
       "tagged": false,
       "latex": "f(p)=\\mu(p)\\varphi(p)=-(p-1).",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "T68-U002",
@@ -12688,7 +12696,7 @@
       "end_line": 86,
       "tagged": false,
       "latex": "d\\le {\\rm lcm}(r,r')\\le rr'\\le \\lfloor R\\rfloor^2.",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.4",
@@ -12698,7 +12706,7 @@
       "end_line": 96,
       "tagged": true,
       "latex": "\\sum_d|h(d;r,r')|\n =\n \\prod_{p\\mid r\\triangle r'}(p+1)\n \\prod_{p\\mid(r,r')}(p-1)^2.\n\\tag{68.4}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.5",
@@ -12708,7 +12716,7 @@
       "end_line": 109,
       "tagged": true,
       "latex": "\\sum_d|h(d;r,r')|\n \\le\n \\prod_{p\\mid r}(p+1)\\prod_{p\\mid r'}(p+1)\n\\tag{68.5}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.6",
@@ -12718,7 +12726,7 @@
       "end_line": 117,
       "tagged": true,
       "latex": "\\sum_d\\frac{h(d;r,r')}{d}\n =\\delta_{r,r'}\\varphi(r).\n\\tag{68.6}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.7",
@@ -12728,7 +12736,7 @@
       "end_line": 133,
       "tagged": true,
       "latex": "a(r)=\\frac1r\\prod_{p\\mid r}(p+1)\n     =\\prod_{p\\mid r}\\left(1+\\frac1p\\right),\n\\qquad\n A_q(K)=\\sum_{\\substack{r\\le K\\\\r\\ {\\rm squarefree}\\\\ (r,q)=1}}a(r).\n\\tag{68.7}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.8",
@@ -12738,7 +12746,7 @@
       "end_line": 140,
       "tagged": true,
       "latex": "{\\cal H}_q(R)\\le A_q(K)^2.\n\\tag{68.8}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "T68-U003",
@@ -12748,7 +12756,7 @@
       "end_line": 150,
       "tagged": false,
       "latex": "a(r)=\\sum_{d\\mid r}\\frac1d.",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.9",
@@ -12758,7 +12766,7 @@
       "end_line": 162,
       "tagged": true,
       "latex": "\\begin{aligned}\n A_q(K)\n &\\le \\sum_{n\\le K}\\sum_{d\\mid n}\\frac1d\\\\\n &=\\sum_{d\\le K}\\frac{\\lfloor K/d\\rfloor}{d}\\\\\n &\\le K\\sum_{d\\le K}\\frac1{d^2}.\n\\end{aligned}\n\\tag{68.9}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.10",
@@ -12768,7 +12776,7 @@
       "end_line": 171,
       "tagged": true,
       "latex": "\\sum_{d\\le K}\\frac1{d^2}\n \\le\\frac{\\pi^2}{6}\n <\\frac53.\n\\tag{68.10}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "T68-U004",
@@ -12778,7 +12786,7 @@
       "end_line": 178,
       "tagged": false,
       "latex": "A_q(K)<\\frac53K,\\qquad\n {\\cal H}_q(R)<\\frac{25}{9}K^2<3K^2\\le3R^2,",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "T68-U005",
@@ -12788,7 +12796,7 @@
       "end_line": 195,
       "tagged": false,
       "latex": "|I_d(s,\\chi)|\n \\le C_{\\rm CONT}(\\theta)\\sqrt{qT}(M/d)^{-1+\\theta}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.11",
@@ -12798,7 +12806,7 @@
       "end_line": 202,
       "tagged": true,
       "latex": "C_{\\rm CONT+L3}(\\theta)=3C_{\\rm CONT}(\\theta).\n\\tag{68.11}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.12",
@@ -12808,7 +12816,7 @@
       "end_line": 212,
       "tagged": true,
       "latex": "\\boxed{\n \\overline C_{\\rm CONT+L3}(\\theta)\n =144\\left(1+\\frac1\\theta\\right)\n      \\left(\\frac2\\theta+1\\right)}\n\\tag{68.12}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
     },
     {
       "formula_id": "68.13",
@@ -12818,7 +12826,267 @@
       "end_line": 219,
       "tagged": true,
       "latex": "\\overline C_{\\rm CONT+L3}(1/21)=136224.\n\\tag{68.13}",
-      "source_sha256": "7bb008547eea97b6bdad62a00159fea865fc7e1ee897cd9d00d01974630c0a6c"
+      "source_sha256": "bee21f2470ee74a80d511e6f2940691ff1240aaca1266a5ac1f2ef04e02768d2"
+    },
+    {
+      "formula_id": "69.1",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 16,
+      "end_line": 20,
+      "tagged": true,
+      "latex": "0<\\theta\\le\\frac1{21},\\qquad\n D=qT,\\qquad L=\\log D\\ge\\theta^{-2}\n\\tag{69.1}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.2",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 24,
+      "end_line": 30,
+      "tagged": true,
+      "latex": "\\boxed{\n |\\mathcal R|\n <52J\\left(\\frac{\\varphi(q)}q\\right)^2\n       x^{2-2\\alpha}L^2.}\n\\tag{69.2}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.3",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 57,
+      "end_line": 62,
+      "tagged": true,
+      "latex": "R=D^\\theta,\\qquad\n z_1=D^{1/2+7\\theta},\\qquad\n x=D^{1+12\\theta}L^2.\n\\tag{69.3}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.4",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 66,
+      "end_line": 69,
+      "tagged": true,
+      "latex": "0\\le\\Re s_j\\le\\theta,\\qquad |\\Im s_j|\\le T.\n\\tag{69.4}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.5",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 73,
+      "end_line": 79,
+      "tagged": true,
+      "latex": "\\sum_{r,r'\\le R}'\\frac1{rr'}\n \\sum_d\\frac{h(d;r,r')}d\n \\sum_{\\bar\\chi_j\\chi_k=\\chi_0}\n \\bar\\eta_j\\eta_k\\,\\mathcal I(\\bar s_j+s_k)\n\\tag{69.5}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.6",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 84,
+      "end_line": 88,
+      "tagged": true,
+      "latex": "\\sum_d\\frac{h(d;r,r')}d\n   =\\delta_{r,r'}\\varphi(r)\n\\tag{69.6}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.7",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 94,
+      "end_line": 99,
+      "tagged": true,
+      "latex": "S_q(R)=\n \\sum_{\\substack{r\\le R\\;r\\ {\\rm squarefree}\\\\(r,q)=1}}\n \\frac{\\varphi(r)}{r^2}\n\\tag{69.7}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.8",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 107,
+      "end_line": 114,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n a&=(1-\\theta)\\log z_1,& b&=\\log z_1,\\\\\n c&=\\log x,& d&=(1+\\theta)\\log x,\\\\\n A&=b-a,&B&=d-c.\n\\end{aligned}\n\\tag{69.8}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.9",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 118,
+      "end_line": 122,
+      "tagged": true,
+      "latex": "(e^{-\\xi z}-e^{-\\eta z})\\Gamma(-z)\n =-\\Gamma(1-z)\\int_\\xi^\\eta e^{-uz}\\,du.\n\\tag{69.9}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.10",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 127,
+      "end_line": 130,
+      "tagged": true,
+      "latex": "K(z)=\\int_a^b\\int_c^d\\int_\\xi^\\eta e^{-uz}\\,du\\,d\\eta\\,d\\xi.\n\\tag{69.10}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.11",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 134,
+      "end_line": 138,
+      "tagged": true,
+      "latex": "K(z)=\n \\frac{B(e^{-az}-e^{-bz})-A(e^{-cz}-e^{-dz})}{z^2}.\n\\tag{69.11}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.12",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 144,
+      "end_line": 149,
+      "tagged": true,
+      "latex": "A\\le\\frac56\\theta L,\\qquad\n B\\le\\frac{18}{7}\\theta L,\\qquad\n d-a<3L.\n\\tag{69.12}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.13",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 153,
+      "end_line": 157,
+      "tagged": true,
+      "latex": "K(0)=\\int_a^b\\int_c^d(\\eta-\\xi)\\,d\\eta\\,d\\xi\n <7\\theta^2L^3.\n\\tag{69.13}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.14",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 162,
+      "end_line": 167,
+      "tagged": true,
+      "latex": "|K(z)|\n \\le\\frac{2(A+B)}{|z|^2}\n <\\frac{7\\theta L}{v^2}.\n\\tag{69.14}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "T69-U001",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 173,
+      "end_line": 175,
+      "tagged": false,
+      "latex": "\\frac{19}{21}\\le\\Re w\\le1.",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.15",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 179,
+      "end_line": 187,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n |\\Gamma(w)|\n &\\le\\Gamma(\\Re w)\\\\\n &\\le\\int_0^1 t^{-2/21}\\,dt+\\int_1^\\infty e^{-t}\\,dt\\\\\n &<\\frac{21}{19}+1=\\frac{40}{19}<3.\n\\end{aligned}\n\\tag{69.15}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.16",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 195,
+      "end_line": 198,
+      "tagged": true,
+      "latex": "\\Delta=L^{-1}\n\\tag{69.16}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.17",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 205,
+      "end_line": 211,
+      "tagged": true,
+      "latex": "\\sum_{\\substack{k\\ne j\\\\\\chi_k=\\chi_j}}\n \\frac1{(t_k-t_j)^2}\n \\le2L^2\\sum_{m\\ge1}\\frac1{m^2}\n <\\frac{10}{3}L^2.\n\\tag{69.17}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "T69-U002",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 215,
+      "end_line": 217,
+      "tagged": false,
+      "latex": "3\\cdot7\\theta^2L^3=21\\theta^2L^3,",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "T69-U003",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 221,
+      "end_line": 224,
+      "tagged": false,
+      "latex": "3\\cdot7\\theta L\\cdot\\frac{10}{3}L^2\n =70\\theta L^3.",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.18",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 228,
+      "end_line": 234,
+      "tagged": true,
+      "latex": "\\boxed{\n \\sum_{j,k:\\chi_j=\\chi_k}\n |\\Gamma(1-\\bar s_j-s_k)K(\\bar s_j+s_k)|\n <91J\\theta L^3.}\n\\tag{69.18}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.19",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 244,
+      "end_line": 252,
+      "tagged": true,
+      "latex": "S_q(R)\n \\le e^\\theta\n \\prod_{p\\nmid q}\n \\left(1+\\frac{p-1}{p^{2+\\lambda}}\\right)\n \\le e^\\theta\\zeta(1+\\lambda)\n \\prod_{p\\mid q}(1-p^{-1-\\lambda}).\n\\tag{69.19}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.20",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 256,
+      "end_line": 261,
+      "tagged": true,
+      "latex": "\\frac{1-p^{-1-\\lambda}}{1-p^{-1}}\n =1+\\frac{1-p^{-\\lambda}}{p-1}\n \\le\\exp\\!\\left(\\frac{\\lambda\\log p}{p-1}\\right).\n\\tag{69.20}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.21",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 268,
+      "end_line": 271,
+      "tagged": true,
+      "latex": "\\boxed{S_q(R)<12\\frac{\\varphi(q)}qL.}\n\\tag{69.21}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "T69-U004",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 280,
+      "end_line": 282,
+      "tagged": false,
+      "latex": "L^{-2}\\frac{\\varphi(q)}q x^{2-2\\alpha}.",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
+    },
+    {
+      "formula_id": "69.22",
+      "theory": "69",
+      "source_file": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "start_line": 286,
+      "end_line": 289,
+      "tagged": true,
+      "latex": "12\\cdot91\\theta=1092\\theta\\le\\frac{1092}{21}=52.\n\\tag{69.22}",
+      "source_sha256": "ba019c3b397282c7f78a5eb7ad3f49ff418d3b65edcaa5a0e7a52f62f7b00e31"
     }
   ],
   "issues": [],

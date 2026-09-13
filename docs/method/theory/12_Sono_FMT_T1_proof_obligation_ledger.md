@@ -880,3 +880,25 @@ Cbar_CONT+L3(1/21) = 136224
 row의 상태와 `PAP-11=HARD_BLOCKER`, DEP-R09·fixed `2e-17`·`X_cert=OPEN`은
 바꾸지 않는다. 다음 gate는 `JL7-RES`의 principal residue, 대각 조건과 같은
 character의 repeated-height row-sum multiplier를 source-first로 복원하는 일이다.
+
+## 38. 2026-09-13 DEP-R09 JL7-RES principal residue 후속 상태
+
+[theory 69](69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md)은
+Jutila printed p.53 residue와 p.51의 parity별 \(\Delta\)-well-spacing을 합성했다.
+Lemma 3의 reciprocal identity로 \(r=r'\)만 남기고, pole-cancelled Gamma ladder
+kernel과 same-character height inverse-square row를 수치화하면 한 selected system에서
+
+~~~text
+zero-pair row < 91*theta*L^3
+sum'_(r<=R) phi(r)/r^2 < 12*(phi(q)/q)*L
+principal residue < 52*J*(phi(q)/q)^2*x^(2-2alpha)*L^2
+~~~
+
+를 얻는다. 마지막 52는 \(12\cdot91\theta\le1092/21=52\)의 calculator-safe
+endpoint다. 따라서 `JL7-RES=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 진전한다.
+
+그러나 이 결과는 66개 root row 중 `PAP-08/PAP-11` 자체를 닫지 않는다.
+`JL7-ABSORB`의 even/odd factor·모든 오차의 strict common cutoff,
+`JL7-AVERAGED`의 variable-modulus replay와 Gallagher--Maier pointwise PAP bridge가
+남아 있다. 따라서 root 상태 수는 바꾸지 않고 `PAP-11=HARD_BLOCKER`,
+DEP-R09·fixed `2e-17`·`X_cert=OPEN`을 유지한다. 다음 gate는 `JL7-ABSORB`다.

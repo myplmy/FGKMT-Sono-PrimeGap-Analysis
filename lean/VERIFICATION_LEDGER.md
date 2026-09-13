@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-13 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 69개
-- 전수 단위: Markdown fenced code 밖 display math 1,226개
-- 원래 식번호: 704개, 합성 ID 무번호식: 522개
+- 원문 범위: `docs/method/theory/*.md` 70개
+- 전수 단위: Markdown fenced code 밖 display math 1,252개
+- 원래 식번호: 726개, 합성 ID 무번호식: 526개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,12 +62,12 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 63 |
-| `CONDITIONAL_KERNEL_PASS` | 35 |
-| `DEFINITION_ONLY` | 35 |
-| `PARTIAL_FORMALIZATION` | 41 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 52 |
-| `NOT_YET_FORMALIZED` | 995 |
+| `KERNEL_PASS` | 67 |
+| `CONDITIONAL_KERNEL_PASS` | 37 |
+| `DEFINITION_ONLY` | 43 |
+| `PARTIAL_FORMALIZATION` | 48 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 54 |
+| `NOT_YET_FORMALIZED` | 998 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `8111c56a493a38e7…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `b86f8fe7d3ddb044…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `6b3f0efaa37a2be5…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `83c9cd29a46f2295…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -145,7 +145,8 @@
 | 65 | [65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md](../docs/method/theory/65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md) | `eeb93afd56cf2aee…` | 21 | 21 | 0 | 20 |
 | 66 | [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | `2eb7fa38dc7033ab…` | 20 | 20 | 0 | 20 |
 | 67 | [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | `37f13fb2ed2f00eb…` | 25 | 18 | 7 | 25 |
-| 68 | [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | `7bb008547eea97b6…` | 18 | 13 | 5 | 18 |
+| 68 | [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | `bee21f2470ee74a8…` | 18 | 13 | 5 | 18 |
+| 69 | [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | `ba019c3b397282c7…` | 26 | 22 | 4 | 23 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1383,6 +1384,32 @@
 | 1224 | `68.11` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 199–202 | <code>C_{\rm CONT+L3}(\theta)=3C_{\rm CONT}(\theta). \tag{68.11}</code> | — | `DEFINITION_ONLY` | contour와 Lemma 3 multiplier 합성 정의 |
 | 1225 | `68.12` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 206–212 | <code>\boxed{ \overline C_{\rm CONT+L3}(\theta) =144\left(1+\frac1\theta\right) \left(\frac2\theta+1\right)} \tag{68.12}</code> | `jutila_jl7_contour_lemma3_combined_coefficient` | `CONDITIONAL_KERNEL_PASS` | Theory 67 elementary contour 상계 이후 factor 3 coefficient 항등식을 조건부 커널 검증 |
 | 1226 | `68.13` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 216–219 | <code>\overline C_{\rm CONT+L3}(1/21)=136224. \tag{68.13}</code> | `jutila_jl7_contour_lemma3_endpoint` | `KERNEL_PASS` | theta=1/21의 exact endpoint 136224를 커널 검증 |
+| 1227 | `69.1` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 16–20 | <code>0&lt;\theta\le\frac1{21},\qquad D=qT,\qquad L=\log D\ge\theta^{-2} \tag{69.1}</code> | — | `DEFINITION_ONLY` | JL7-RES actual theta,D,L 범위 전사 |
+| 1228 | `69.2` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 24–30 | <code>\boxed{ &#124;\mathcal R&#124; &lt;52J\left(\frac{\varphi(q)}q\right)^2 x^{2-2\alpha}L^2.} \tag{69.2}</code> | `jutila_jl7_residue_final_composition` | `CONDITIONAL_KERNEL_PASS` | analytic residue bound를 premise로 받은 endpoint coefficient 52 합성을 조건부 커널 검증 |
+| 1229 | `69.3` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 57–62 | <code>R=D^\theta,\qquad z_1=D^{1/2+7\theta},\qquad x=D^{1+12\theta}L^2. \tag{69.3}</code> | — | `DEFINITION_ONLY` | Jutila 식 (3.6)의 R,z1,x actual parameter 전사 |
+| 1230 | `69.4` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 66–69 | <code>0\le\Re s_j\le\theta,\qquad &#124;\Im s_j&#124;\le T. \tag{69.4}</code> | — | `DEFINITION_ONLY` | 선택 shifted zero의 actual real·height 범위 전사 |
+| 1231 | `69.5` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 73–79 | <code>\sum_{r,r'\le R}'\frac1{rr'} \sum_d\frac{h(d;r,r')}d \sum_{\bar\chi_j\chi_k=\chi_0} \bar\eta_j\eta_k\,\mathcal I(\bar s_j+s_k) \tag{69.5}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Jutila printed p.53 principal residue source 식; complex·character 합은 Lean 미형식화 |
+| 1232 | `69.6` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 84–88 | <code>\sum_d\frac{h(d;r,r')}d =\delta_{r,r'}\varphi(r) \tag{69.6}</code> | `jutila_jl7_reciprocal_exclusive; jutila_jl7_reciprocal_common` | `PARTIAL_FORMALIZATION` | Lemma 3 reciprocal local factor는 Theory 68에서 부분형식화; full diagonal product identity는 source theorem |
+| 1233 | `69.7` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 94–99 | <code>S_q(R)= \sum_{\substack{r\le R\;r\ {\rm squarefree}\\(r,q)=1}} \frac{\varphi(r)}{r^2} \tag{69.7}</code> | — | `DEFINITION_ONLY` | 대각화 뒤 actual finite r-sum 정의 |
+| 1234 | `69.8` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 107–114 | <code>\begin{aligned} a&amp;=(1-\theta)\log z_1,&amp; b&amp;=\log z_1,\\ c&amp;=\log x,&amp; d&amp;=(1+\theta)\log x,\\ A&amp;=b-a,&amp;B&amp;=d-c. \end{aligned} \tag{69.8}</code> | — | `DEFINITION_ONLY` | xi·eta interval endpoint와 길이 정의 |
+| 1235 | `69.9` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 118–122 | <code>(e^{-\xi z}-e^{-\eta z})\Gamma(-z) =-\Gamma(1-z)\int_\xi^\eta e^{-uz}\,du. \tag{69.9}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Gamma recurrence에 의한 removable-pole identity; complex integral 전체는 Lean 미형식화 |
+| 1236 | `69.10` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 127–130 | <code>K(z)=\int_a^b\int_c^d\int_\xi^\eta e^{-uz}\,du\,d\eta\,d\xi. \tag{69.10}</code> | — | `DEFINITION_ONLY` | pole-cancelled ladder kernel 정의 |
+| 1237 | `69.11` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 134–138 | <code>K(z)= \frac{B(e^{-az}-e^{-bz})-A(e^{-cz}-e^{-dz})}{z^2}. \tag{69.11}</code> | — | `NOT_YET_FORMALIZED` | closed-form은 Python 독립 quadrature로 검산; Lean 형식화 대기 |
+| 1238 | `69.12` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 144–149 | <code>A\le\frac56\theta L,\qquad B\le\frac{18}{7}\theta L,\qquad d-a&lt;3L. \tag{69.12}</code> | `jutila_jl7_residue_xi_length_coefficient; jutila_jl7_residue_eta_length_coefficient` | `PARTIAL_FORMALIZATION` | xi·eta rational coefficient는 커널 검증; d-a와 실제 log 연결은 부분형식화 |
+| 1239 | `69.13` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 153–157 | <code>K(0)=\int_a^b\int_c^d(\eta-\xi)\,d\eta\,d\xi &lt;7\theta^2L^3. \tag{69.13}</code> | `jutila_jl7_residue_zero_mass_coefficient` | `PARTIAL_FORMALIZATION` | interval coefficient product<7은 커널 검증; triple-integral identification은 부분형식화 |
+| 1240 | `69.14` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 162–167 | <code>&#124;K(z)&#124; \le\frac{2(A+B)}{&#124;z&#124;^2} &lt;\frac{7\theta L}{v^2}. \tag{69.14}</code> | `jutila_jl7_residue_offdiag_kernel_coefficient` | `PARTIAL_FORMALIZATION` | off-diagonal coefficient<7은 커널 검증; complex modulus transfer는 부분형식화 |
+| 1241 | `T69-U001` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 173–175 | <code>\frac{19}{21}\le\Re w\le1.</code> | `jutila_jl7_residue_gamma_strip` | `KERNEL_PASS` | 0<=Re z<=2/21에서 19/21<=Re(1-z)<=1을 커널 검증 |
+| 1242 | `69.15` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 179–187 | <code>\begin{aligned} &#124;\Gamma(w)&#124; &amp;\le\Gamma(\Re w)\\ &amp;\le\int_0^1 t^{-2/21}\,dt+\int_1^\infty e^{-t}\,dt\\ &amp;&lt;\frac{21}{19}+1=\frac{40}{19}&lt;3. \end{aligned} \tag{69.15}</code> | `jutila_jl7_residue_gamma_rational_envelope` | `PARTIAL_FORMALIZATION` | 40/19<3 rational endpoint는 커널 검증; complex Gamma Euler-integral 비교는 부분형식화 |
+| 1243 | `69.16` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 195–198 | <code>\Delta=L^{-1} \tag{69.16}</code> | — | `DEFINITION_ONLY` | Jutila selected-system spacing Delta=1/L 정의 |
+| 1244 | `69.17` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 205–211 | <code>\sum_{\substack{k\ne j\\\chi_k=\chi_j}} \frac1{(t_k-t_j)^2} \le2L^2\sum_{m\ge1}\frac1{m^2} &lt;\frac{10}{3}L^2. \tag{69.17}</code> | `jutila_jl7_residue_spacing_row_coefficient` | `PARTIAL_FORMALIZATION` | two-sided Basel coefficient 10/3은 커널 검증; character-height ordering은 source theorem 미형식화 |
+| 1245 | `T69-U002` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 215–217 | <code>3\cdot7\theta^2L^3=21\theta^2L^3,</code> | `jutila_jl7_residue_diagonal_pair_identity` | `KERNEL_PASS` | diagonal pair coefficient 21의 exact 항등식 커널 검증 |
+| 1246 | `T69-U003` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 221–224 | <code>3\cdot7\theta L\cdot\frac{10}{3}L^2 =70\theta L^3.</code> | `jutila_jl7_residue_offdiagonal_pair_identity` | `KERNEL_PASS` | off-diagonal pair coefficient 70의 exact 항등식 커널 검증 |
+| 1247 | `69.18` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 228–234 | <code>\boxed{ \sum_{j,k:\chi_j=\chi_k} &#124;\Gamma(1-\bar s_j-s_k)K(\bar s_j+s_k)&#124; &lt;91J\theta L^3.} \tag{69.18}</code> | `jutila_jl7_residue_row_coefficient` | `CONDITIONAL_KERNEL_PASS` | theta<=1에서 row coefficient 91 합성을 커널 검증; analytic pair premise는 조건부 |
+| 1248 | `69.19` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 244–252 | <code>S_q(R) \le e^\theta \prod_{p\nmid q} \left(1+\frac{p-1}{p^{2+\lambda}}\right) \le e^\theta\zeta(1+\lambda) \prod_{p\mid q}(1-p^{-1-\lambda}). \tag{69.19}</code> | — | `NOT_YET_FORMALIZED` | Rankin·Euler-product actual r-sum direct proof; Lean 전체 형식화 대기 |
+| 1249 | `69.20` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 256–261 | <code>\frac{1-p^{-1-\lambda}}{1-p^{-1}} =1+\frac{1-p^{-\lambda}}{p-1} \le\exp\!\left(\frac{\lambda\log p}{p-1}\right). \tag{69.20}</code> | — | `NOT_YET_FORMALIZED` | excluded-prime local ratio의 exponential 상계; Python 검산, Lean 형식화 대기 |
+| 1250 | `69.21` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 268–271 | <code>\boxed{S_q(R)&lt;12\frac{\varphi(q)}qL.} \tag{69.21}</code> | `jutila_jl7_residue_rankin_rsum_coefficient` | `PARTIAL_FORMALIZATION` | Rankin·excluded-prime·zeta rational multipliers 2*3*2=12만 부분형식화 |
+| 1251 | `T69-U004` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 280–282 | <code>L^{-2}\frac{\varphi(q)}q x^{2-2\alpha}.</code> | — | `DEFINITION_ONLY` | Jutila p.53 바깥 residue prefactor 전사 |
+| 1252 | `69.22` | T69 [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | 286–289 | <code>12\cdot91\theta=1092\theta\le\frac{1092}{21}=52. \tag{69.22}</code> | `jutila_jl7_residue_endpoint_coefficient; jutila_jl7_residue_final_composition` | `KERNEL_PASS` | 12*91*theta<=52 endpoint와 nonnegative-base 합성을 커널 검증 |
 
 ## 9. 발견된 원문·작업 오류
 

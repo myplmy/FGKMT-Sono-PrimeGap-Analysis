@@ -1549,3 +1549,41 @@ Theory 68 뒤 Lean inventory는 theory 문서 69개, display 1,226식이다. 전
 `PARTIAL_FORMALIZATION=41`, `SOURCE_THEOREM_UNFORMALIZED=52`,
 `NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 205개,
 금지 proof escape 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila JL7 principal residue·height row sum
+
+[theory 69](method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md)와
+[review 76](review/76_20260913_DEPR09_Jutila_JL7_principal_residue_height_row_sum_타당성검토.md)은
+Jutila printed p.53의 principal residue를 원문 대각 조건과 selected-system spacing으로
+명시화한다. \(L=\log D\ge\theta^{-2}\), \(0<\theta\le1/21\)에서 pole-cancelled
+ladder kernel은 대각에서 \(7\theta^2L^3\), off-diagonal에서
+\(7\theta L/(t_k-t_j)^2\) 이하이고 \(|\Gamma(1-z)|<3\)이다. 같은 character의
+한 parity system은 \(\Delta=1/L\)-well-spaced이므로 한 zero row 전체가
+\(91\theta L^3\) 이하이다.
+
+Lemma 3의 exact 대각화 뒤 남는
+\(S_q(R)=\sum'_{r\le R}\varphi(r)/r^2\)는 Rankin parameter \(1/L\)과 excluded
+Euler factor를 사용해
+
+\[
+ S_q(R)<12\frac{\varphi(q)}qL
+\]
+
+로 제어된다. 따라서 한 parity system의 actual residue는
+
+\[
+ |\mathcal R|
+ <52J\left(\frac{\varphi(q)}q\right)^2x^{2-2\alpha}L^2
+\]
+
+이다. `JL7-RES=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이지만 even/odd factor를 포함한
+strict terminal absorption, variable-modulus averaged replay와 Gallagher--Maier PAP
+bridge는 남아 있다. 따라서 terminal density, PAP-11, DEP-R09, fixed `2e-17`,
+numerical `X_cert`와 threshold calculator는 OPEN/NOT READY다. 다음 gate는
+`JL7-ABSORB`다.
+
+Theory 69 뒤 Lean inventory는 theory 문서 70개, display 1,252식이다. 전체 상태는
+`KERNEL_PASS=67`, `CONDITIONAL_KERNEL_PASS=37`, `DEFINITION_ONLY=43`,
+`PARTIAL_FORMALIZATION=48`, `SOURCE_THEOREM_UNFORMALIZED=54`,
+`NOT_YET_FORMALIZED=998`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 218개,
+금지 proof escape 0건이다.

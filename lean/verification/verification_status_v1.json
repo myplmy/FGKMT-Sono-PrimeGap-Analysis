@@ -1389,6 +1389,145 @@
       "declarations": ["jutila_jl7_contour_lemma3_endpoint"]
     },
     {
+      "formula_id": "69.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.2",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_jl7_residue_final_composition"]
+    },
+    {
+      "formula_id": "69.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.4",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.5",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl7_reciprocal_exclusive",
+        "jutila_jl7_reciprocal_common"
+      ]
+    },
+    {
+      "formula_id": "69.7",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.8",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.9",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.10",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.11",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.12",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl7_residue_xi_length_coefficient",
+        "jutila_jl7_residue_eta_length_coefficient"
+      ]
+    },
+    {
+      "formula_id": "69.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_residue_zero_mass_coefficient"]
+    },
+    {
+      "formula_id": "69.14",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_residue_offdiag_kernel_coefficient"]
+    },
+    {
+      "formula_id": "T69-U001",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl7_residue_gamma_strip"]
+    },
+    {
+      "formula_id": "69.15",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_residue_gamma_rational_envelope"]
+    },
+    {
+      "formula_id": "69.16",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.17",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_residue_spacing_row_coefficient"]
+    },
+    {
+      "formula_id": "T69-U002",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl7_residue_diagonal_pair_identity"]
+    },
+    {
+      "formula_id": "T69-U003",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl7_residue_offdiagonal_pair_identity"]
+    },
+    {
+      "formula_id": "69.18",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_jl7_residue_row_coefficient"]
+    },
+    {
+      "formula_id": "69.19",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.20",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.21",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_residue_rankin_rsum_coefficient"]
+    },
+    {
+      "formula_id": "T69-U004",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "69.22",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_residue_endpoint_coefficient",
+        "jutila_jl7_residue_final_composition"
+      ]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

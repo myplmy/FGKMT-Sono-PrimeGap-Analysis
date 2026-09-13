@@ -192,3 +192,19 @@ multiplicative-function proof와 Euler-product finite-prime induction은 local a
 `PARTIAL_FORMALIZATION=41`, `SOURCE_THEOREM_UNFORMALIZED=52`,
 `NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 205개이고 금지
 proof escape는 0건이다.
+
+2026-09-13 Theory 69 batch는 Jutila printed p.53의 principal residue를
+Lemma 3 대각식, pole-cancelled Gamma ladder kernel, 같은-character·같은-parity
+height spacing과 diagonal \(r\)-합으로 분해했다. actual
+\(0<\theta\le1/21,\ L\ge\theta^{-2}\)에서 interval coefficient,
+\(40/19<3\), two-sided Basel coefficient, row coefficient \(91\),
+Rankin rational multiplier 12와 최종 \(1092\theta\le52\)를 단일 파일에서
+검사한다. 복소 Gamma 적분, character selection 전체와 Euler-product/Rankin analytic
+전개는 local axiom으로 넣지 않고 source-unformalized·partial·not-yet 상태로 보존한다.
+따라서 `JL7-RES=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이라는 문서 합성만 지원하며,
+`JL7-ABSORB/AVERAGED`, terminal density, PAP-11, DEP-R09, fixed `2e-17`,
+`X_cert`는 OPEN이다. Theory 69 뒤 inventory는 theory 문서 70개, display 1,252식이며
+전체 상태는 `KERNEL_PASS=67`, `CONDITIONAL_KERNEL_PASS=37`,
+`DEFINITION_ONLY=43`, `PARTIAL_FORMALIZATION=48`,
+`SOURCE_THEOREM_UNFORMALIZED=54`, `NOT_YET_FORMALIZED=998`,
+`PARSE_REVIEW_REQUIRED=5`다. declaration은 218개이고 금지 proof escape는 0건이다.

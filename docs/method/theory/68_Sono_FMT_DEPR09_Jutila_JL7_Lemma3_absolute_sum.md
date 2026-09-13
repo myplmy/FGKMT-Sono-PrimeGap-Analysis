@@ -262,3 +262,11 @@ numerical \(X_{\rm cert}\)와 threshold calculator는 계속 OPEN/NOT READY다.
 - Y. Motohashi, *On a Density Theorem of Linntik*, Proc. Japan Acad.
   51 Supplement (1975), 815--817,
   DOI [10.2183/pjab1945.51.Supplemnt_815](https://doi.org/10.2183/pjab1945.51.Supplemnt_815).
+
+## 10. 후속 상태
+
+위 8절의 `JL7-RES=HARD_BLOCKER` 표는 Theory 68 완료 시점의 snapshot이다.
+[Theory 69](69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md)가
+principal residue와 same-character height row multiplier를 52로 명시화해
+`JL7-RES=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 진전했다. 현재 다음 gate는
+`JL7-ABSORB`이며 terminal density·averaged replay·PAP·\(X_{\rm cert}\)는 여전히 OPEN이다.

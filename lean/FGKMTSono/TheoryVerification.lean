@@ -2494,4 +2494,100 @@ theorem jutila_jl7_contour_lemma3_endpoint :
     (144 : ℝ) * (1 + 1 / (1 / 21)) * (2 / (1 / 21) + 1) = 136224 := by
   norm_num
 
+/-! ## Theory 69 — Jutila JL7 principal residue and height row sum -/
+
+/- Theory 69, formula 69.12: the xi-interval coefficient at the actual
+   endpoint.  Multiplication by log D is a separate nonnegative scaling. -/
+theorem jutila_jl7_residue_xi_length_coefficient
+    {θ : ℝ} (hθ : 0 ≤ θ) (hθUpper : θ ≤ 1 / 21) :
+    θ * (1 / 2 + 7 * θ) ≤ (5 / 6) * θ := by
+  nlinarith
+
+/- Theory 69, formula 69.12: after the finite premise 2 log L <= L has
+   been supplied, the eta-interval coefficient is at most 18/7. -/
+theorem jutila_jl7_residue_eta_length_coefficient
+    {θ L logL : ℝ}
+    (hθ : 0 ≤ θ) (hθUpper : θ ≤ 1 / 21)
+    (hL : 0 ≤ L) (hLog : 2 * logL ≤ L) :
+    θ * ((1 + 12 * θ) * L + 2 * logL) ≤
+      (18 / 7) * θ * L := by
+  have hThetaScale : 1 + 12 * θ ≤ 11 / 7 := by nlinarith
+  have hMain : (1 + 12 * θ) * L ≤ (11 / 7) * L :=
+    mul_le_mul_of_nonneg_right hThetaScale hL
+  have hBracket : (1 + 12 * θ) * L + 2 * logL ≤ (18 / 7) * L := by
+    nlinarith
+  simpa [mul_assoc, mul_left_comm, mul_comm] using
+    (mul_le_mul_of_nonneg_left hBracket hθ)
+
+/- Theory 69, formulas 69.12--69.13: the three interval coefficients fit
+   below the rational mass coefficient 7. -/
+theorem jutila_jl7_residue_zero_mass_coefficient :
+    (5 / 6 : ℝ) * (18 / 7) * 3 < 7 := by
+  norm_num
+
+/- Theory 69, formula 69.14: twice the two interval lengths fits below 7. -/
+theorem jutila_jl7_residue_offdiag_kernel_coefficient :
+    2 * ((5 / 6 : ℝ) + 18 / 7) < 7 := by
+  norm_num
+
+/- Theory 69, untagged Gamma-strip display: 0 <= Re z <= 2/21 implies
+   19/21 <= Re(1-z) <= 1. -/
+theorem jutila_jl7_residue_gamma_strip
+    {u : ℝ} (hu : 0 ≤ u) (huUpper : u ≤ 2 / 21) :
+    19 / 21 ≤ 1 - u ∧ 1 - u ≤ 1 := by
+  constructor <;> linarith
+
+/- Theory 69, formula 69.15: the split Euler-integral envelope for Gamma
+   is strictly smaller than 3.  The complex integral comparison itself is
+   an external/source analytic step. -/
+theorem jutila_jl7_residue_gamma_rational_envelope :
+    (21 / 19 : ℝ) + 1 = 40 / 19 ∧ (40 / 19 : ℝ) < 3 := by
+  constructor <;> norm_num
+
+/- Theory 69, formula 69.17: the two-sided Basel row coefficient. -/
+theorem jutila_jl7_residue_spacing_row_coefficient :
+    2 * (5 / 3 : ℝ) = 10 / 3 := by
+  norm_num
+
+/- Theory 69, untagged diagonal/off-diagonal displays: exact coefficient
+   arithmetic before the one-row envelope. -/
+theorem jutila_jl7_residue_diagonal_pair_identity (θ L : ℝ) :
+    3 * 7 * θ ^ 2 * L ^ 3 = 21 * θ ^ 2 * L ^ 3 := by
+  ring
+
+theorem jutila_jl7_residue_offdiagonal_pair_identity (θ L : ℝ) :
+    3 * 7 * θ * L * (10 / 3 * L ^ 2) = 70 * θ * L ^ 3 := by
+  ring
+
+/- Theory 69, formula 69.18: diagonal and off-diagonal pair bounds combine
+   to the one-row coefficient 91 theta when 0 <= theta <= 1. -/
+theorem jutila_jl7_residue_row_coefficient
+    {θ : ℝ} (hθ : 0 ≤ θ) (hθUpper : θ ≤ 1) :
+    3 * 7 * θ ^ 2 + 3 * 7 * θ * (10 / 3) ≤ 91 * θ := by
+  nlinarith
+
+/- Theory 69, formula 69.21: the three conservative Rankin/Euler/zeta
+   rational envelopes multiply to 12. -/
+theorem jutila_jl7_residue_rankin_rsum_coefficient :
+    (2 : ℝ) * 3 * 2 = 12 := by
+  norm_num
+
+/- Theory 69, formula 69.22: the actual theta endpoint turns the
+   pre-endpoint coefficient 1092 theta into the calculator-safe 52. -/
+theorem jutila_jl7_residue_endpoint_coefficient
+    {θ : ℝ} (_hθ : 0 ≤ θ) (hθUpper : θ ≤ 1 / 21) :
+    12 * 91 * θ ≤ 52 := by
+  nlinarith
+
+/- Theory 69, formulas 69.2 and 69.22: conditional terminal multiplication.
+   `base` is the nonnegative J*(phi(q)/q)^2*x^(2-2alpha)*L^2 factor;
+   the analytic residue estimate remains an explicit premise. -/
+theorem jutila_jl7_residue_final_composition
+    {θ base value : ℝ}
+    (hθ : 0 ≤ θ) (hθUpper : θ ≤ 1 / 21)
+    (hBase : 0 ≤ base) (hValue : value ≤ (12 * 91 * θ) * base) :
+    value ≤ 52 * base := by
+  have hCoefficient := jutila_jl7_residue_endpoint_coefficient hθ hθUpper
+  exact hValue.trans (mul_le_mul_of_nonneg_right hCoefficient hBase)
+
 end FGKMTSono

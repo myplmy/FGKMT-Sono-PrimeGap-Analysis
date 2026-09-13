@@ -1962,6 +1962,47 @@
      명령으로 종료코드를 각각 확보한다.
   6. `git diff --check`와 `git diff --cached --check`는 뒤 명령과 묶지 않고 단독 실행한다.
 
+### E117 — JL7-RES 경계 반올림·LaTeX escape·scratch 계수 입력 오류
+
+- 분류:
+  `PRE_COMMIT_NUMERICAL_BOUNDARY_AND_DRAFT_ERRORS / DETECTED_AND_CORRECTED /
+  NO_SCIENTIFIC_RESULT_AFFECTED`.
+- 첫 Python 표적시험에서 부동소수 `theta=1/21`의 역제곱이 441보다 극미량 크게
+  표현되어, 정확히 허용돼야 할 `L=441`과 `Delta=1/441` 간격을 validator가
+  거부했다. 수학 cutoff를 느슨하게 바꾸지 않고 `mp.almosteq`로 표현상 같은
+  endpoint만 허용했다. 수정 후 12개 표적시험이 모두 PASS했다.
+- 독립 검산을 70 dps의 3중 nested quadrature로 처음 구현해 30초 호출 안에 끝나지
+  않았다. 같은 triple integral에 Fubini를 적용해 두 독립 1차원 numerical quadrature로
+  바꿨다. 이는 closed endpoint formula를 사용하지 않는 독립 oracle 성격을 유지하면서
+  12개 suite를 약 2.5초에 끝낸다.
+- scratch 진단 출력 한 줄에서 row coefficient를 `3*(7*theta+70)`로 잘못 입력해
+  `211`을 출력했다. 올바른 식은 `21*theta^2+70*theta<=91*theta`다. 이 scratch
+  수치는 문서·JSON·코드·Lean 결과에 사용하지 않았고, 최종 residue coefficient는
+  exact `12*91/21=52`로 다시 검증했다.
+- 새 Theory 69·Review 76의 첫 patch도 JavaScript 일반 문자열을 사용해 `\bar`의
+  backspace, `\varphi`의 vertical-tab, `\theta`의 tab과 `\rm`의 carriage-return이
+  일부 초안에 들어갔다. commit 전에 byte-level control scan과 formula inventory
+  preview로 발견했고, `apply_patch`를 사용한 raw-safe 재작성 및 인라인 delimiter
+  복구 뒤 두 파일의 C0 control·tab이 0건임을 확인했다.
+- 첫 Lean build는 eta coefficient 결론의 곱셈 결합형이 목표와 달라 type mismatch가
+  났다. 교환·결합법칙을 명시한 `simpa`로 고친 뒤 전체 8,765 jobs build와 ledger
+  validator를 다시 PASS했다. `sorry`, `admit`, project-local `axiom`은 사용하지 않았다.
+- 문서 동기화 중 일부 `apply_patch`가 실제 tail 문맥 차이 또는 JavaScript template의
+  Markdown backtick 때문에 실행 전에 거부됐다. 작은 hunk와 placeholder 방식으로
+  재적용했으며 거부된 patch가 파일을 부분 수정하지 않았음을 확인했다.
+- 전체 unittest를 먼저 sandbox 안에서 실행해 `TemporaryDirectory` 쓰기·정리
+  `PermissionError` 82건이 발생했다. 이를 회귀로 보고하지 않고 같은 773개 suite를
+  허가된 정상 로컬 권한에서 재실행해 전부 PASS임을 확인했다. 실패 출력에는 새 residue
+  표적시험도 모두 PASS였고, 오류 traceback은 임시경로 접근으로 일관됐다.
+- 예방:
+  1. LaTeX 포함 patch는 처음부터 raw-safe 문자열과 backtick placeholder를 함께 쓴다.
+  2. exact endpoint를 arbitrary precision float로 받는 validator는 exact rational 입력과
+     표현오차 동등성 검사를 분리한다.
+  3. 고정밀 독립 적분 oracle은 먼저 Fubini·대수적 차원축소 가능성을 확인한다.
+  4. scratch 출력도 정본 식에서 coefficient를 재사용하고, 수작업 재입력값을 판정 근거로
+     사용하지 않는다.
+  5. 첫 Lean 실패와 patch 거부는 최종 PASS 로그와 분리해 원장에 남긴다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.
