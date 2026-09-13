@@ -956,3 +956,34 @@ near-one family, principal zeta, exceptional character, prime powers,
 <code>JL7-AVERAGED-TO-PAP</code>가 새 hard blocker다. 그러므로 root 상태 수,
 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09·fixed \(2\times10^{-17}\)·
 \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다.
+
+## 41. 2026-09-14 DEP-R09 Gallagher--Maier PAP split 후속 상태
+
+[theory 72](72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md)는
+앞 절의 <code>JL7-AVERAGED-TO-PAP</code>를 다음 두 primitive nonprincipal
+component로 분리했다.
+
+~~~text
+GMP-FAR-ALPHA:
+  Bennett total zero-count + Stieltjes endpoint
+  -> ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT
+
+GMP-NEAR-INTEGRAL:
+  Theory 71 near-one density split at delta=1/log(D)
+  -> ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT
+~~~
+
+\(Q=X^{1/d},T=Q^5,\mathcal D=Q^7\)와
+\(\theta=1/21,d=160,c_1=1/24\)에서 far exponent는 \(13/3360>0\)이지만,
+near certificate의 asymptotic upper envelope는 약
+\(2.7277\times10^{13}\)이다. 따라서 현재 sufficient certificate는 양의 PAP
+main-term gate도 통과하지 못한다. 이 판정은 actual prime-distribution error의
+크기에 관한 하한이 아니며, 현 proof upper bound의 불충분성만 뜻한다.
+
+printed Jutila all-alpha theorem은 이 분할의 필수 의무에서 제외할 수 있지만,
+Gallagher explicit-formula multiplier·공통 cutoff, principal zeta,
+exceptional/good-modulus transfer, full orthogonality replay,
+\(\psi\)-to-\(\pi\)는 여전히 OPEN이다. 더구나 가장 앞선 coefficient gate가
+이미 실패하므로 66개 root 상태 수와 <code>PAP-11=HARD_BLOCKER</code>,
+DEP-R09·fixed \(2\times10^{-17}\)·\(X_{\rm cert}=\mathrm{OPEN}\)은 유지한다.
+다음 gate는 \(C_J\) loss tree의 구조적 축소 가능성 감사다.

@@ -241,3 +241,18 @@ Theory 71 뒤 inventory는 theory 문서 72개, display 1,295식이며 전체 �
 `PARTIAL_FORMALIZATION=56`, `SOURCE_THEOREM_UNFORMALIZED=58`,
 `NOT_YET_FORMALIZED=999`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 240개이고
 금지 proof escape는 0건이다.
+
+2026-09-14 Theory 72 batch는 Gallagher 식 (30)의 영점 적분을 near/far로
+분리했다. Bennett--Martin--O'Bryant--Rechnitzer Theorem 1.1의 전 높이 영점수를
+far branch에 넣었을 때 endpoint가 정확히 소거되는 대수, family-count 합성,
+endpoint 지수와 near piecewise 적분의 원시함수 소거를 단일 Lean 파일에서 검사했다.
+외부 zero-count theorem과 Stieltjes identity 자체는 local axiom으로 넣지 않고
+source-unformalized 또는 조건부 상태로 남겼다. 현재 near certificate의 asymptotic
+상계는 d=160에서 약 2.73e13이므로 양의 PAP gate를 통과하지 못한다. 이는 실제
+오차의 크기가 아니라 현재 충분 상계의 불충분성을 뜻한다.
+
+Theory 72 뒤 inventory는 theory 문서 73개, display 1,311식이며 전체 상태는
+`KERNEL_PASS=77`, `CONDITIONAL_KERNEL_PASS=49`, `DEFINITION_ONLY=58`,
+`PARTIAL_FORMALIZATION=58`, `SOURCE_THEOREM_UNFORMALIZED=62`,
+`NOT_YET_FORMALIZED=1002`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 245개이고
+금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 OPEN이다.

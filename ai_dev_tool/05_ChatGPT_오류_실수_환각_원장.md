@@ -2096,6 +2096,64 @@
   6. successor를 덧붙인 뒤에도 기존 “최신 상태” 요약을 검색해 최신 정본 번호와
      OPEN/CLOSED 문구가 서로 충돌하지 않는지 확인한다.
 
+### E120 — Gallagher--Maier PAP split 작성·검증 중 transport와 시험 초안 오류
+
+- 분류:
+  <code>PRE_COMMIT_DOCUMENT_TEST_AND_FORMAL_PROOF_DRAFT_ERRORS /
+  DETECTED_AND_CORRECTED / NO_SCIENTIFIC_RESULT_AFFECTED</code>.
+- 첫 작업원장 patch는 JavaScript template 안의 Markdown backtick 때문에
+  <code>ReferenceError</code>로 실행 전에 거부됐다. Theory·review 대형 patch와
+  후속 METHODS·AGENTS patch에서도 같은 계열의 parser 오류가 있었고, 다중 파일
+  patch 한 번은 hunk 구분 형식 오류로 거부됐다. 거부된 호출은 파일을 부분 변경하지
+  않았다. 작은 hunk와 backtick placeholder를 사용해 정상 apply_patch로 다시 적용했다.
+- 첫 표적시험은 허용범위 \(\theta\le1/21\) 밖의 toy 값 \(\theta=1/5\)를 썼고,
+  저장된 60자리 decimal과 90-dps quadrature를 기본 <code>mp.almosteq</code>로
+  비교했다. 각각 1 error·1 failure로 검출됐다. 수학 공식을 바꾸지 않고
+  \(\theta=1/42\)와 명시적 상대오차 \(10^{-55}\)로 교정했으며, 후속 11건이 PASS했다.
+- 첫 Lean endpoint conjunction에서 두 분수의 타입 주석이 없어 Nat division으로
+  추론되어 목표가 False가 됐다. 분자에 \((1:\mathbb R)\)을 명시했고 direct
+  kernel compile exit 0을 확인했다. source theorem을 local axiom으로 넣지 않았다.
+- 재컴파일 호출 한 번은 wrapper가 반환한 session id를 요약 출력에서 누락해 종료
+  상태를 보존하지 못했다. 동일 커널 검사를 다시 시작해 session id를 보존하고
+  exit 0을 확인했다. 중복 실행은 소스나 산출물을 바꾸지 않았다.
+- 광범위한 임시경로 검색과 process command-line 조회는 접근 거부 메시지를 냈다.
+  필요한 정본 경로는 명시적 allowlist로 다시 검사했고, 실행 중 사용자 프로세스를
+  중단하거나 수정하지 않았다.
+- 새 문서 LaTeX command 누락 검사의 첫 정규식은 prose의 영문 alpha, theta와
+  quadrature 안의 quad까지 오류로 분류했다. 이 출력은 무효로 폐기하고 display
+  delimiter 쌍과 실제 과거 손상형인 comma-qquad·bare-frac만 표적 검사해 issue 0을
+  확인했다.
+- 전체 unittest의 첫 sandbox 실행도 TemporaryDirectory 생성·정리 권한 때문에
+  805건 중 82건이 PermissionError로 끝났다. 이를 코드 실패로 해석하지 않고 같은
+  명령을 사용자가 이미 허가한 정상 로컬 권한에서 재실행했으며, 805건이 74.799초에
+  전부 PASS했다. 첫 실패가 남긴 임시경로는 다른 tmp provenance와 섞일 수 있어
+  이 작업에서 임의 삭제하지 않았다.
+- 최종 보강에서 Bennett uniform helper가 작은 \(\ell\)의 source zero-free branch를
+  일반 error 식으로 평가할 수 있음을 발견했다. 실제 \(T=Q^5\) 진단에는 영향이
+  없었지만, source theorem대로 0을 반환하도록 고치고 경계 회귀시험을 추가했다.
+- cached diff를 식 단위로 읽는 마지막 감사에서 Theory 72의 식 (72.2)와 (72.3)에
+  줄바꿈 앞 덧셈기호가 각각 하나씩 빠진 것을 발견했다. Gallagher printed p.338의
+  식 (30)과 바로 다음 Stieltjes identity를 native text로 다시 대조해 두 기호를
+  복구했다. Python 계산과 Lean partial theorem은 처음부터 endpoint와 \(Q^4/T\)를
+  별도 항으로 다뤄 수치 결과에는 영향이 없었다. 문서 hash가 바뀌었으므로
+  inventory를 재생성하고 전수 검증을 다시 수행했다.
+- 위 실패는 모두 commit 전에 발견됐다. analytic 식, diagnostic 수치, OPEN 판정과
+  사용자 데이터에는 영향이 없다. <code>sorry</code>, <code>admit</code>,
+  project-local <code>axiom</code>은 사용하지 않았다.
+- 예방:
+  1. LaTeX·Markdown patch는 처음부터 backtick placeholder와 작은 hunk를 사용한다.
+  2. toy parameter도 production domain validator를 통과하는 값으로 고정한다.
+  3. 서로 다른 정밀도의 decimal 비교는 요구 유효자리보다 엄격한 명시적 오차를 쓴다.
+  4. Lean의 수치 literal·division은 목표 type이 모호하면 처음부터 Real 주석을 붙인다.
+  5. 장시간 tool session은 session id와 최종 exit code를 원문 그대로 보존한다.
+  6. 임시경로 전수검색보다 정본 allowlist를 우선하며, 접근 거부 뒤 PASS를 추론하지 않는다.
+  7. TemporaryDirectory·multiprocessing을 쓰는 전체 suite는 처음부터 승인된 정상
+     로컬 권한에서 실행하고, sandbox 결과와 정상권한 결과를 별도 증거로 기록한다.
+  8. LaTeX command 누락 scan은 일반 영단어와 겹치는 command stem을 쓰지 말고
+     과거 손상 형태와 delimiter 구조만 표적으로 검사한다.
+  9. display 수식은 delimiter·command뿐 아니라 각 줄의 이항연산자가 줄바꿈에서
+     누락되지 않았는지 cached diff와 source 원문을 함께 읽어 확인한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

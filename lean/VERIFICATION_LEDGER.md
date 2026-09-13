@@ -1,10 +1,10 @@
 # FGKMT-Sono Lean 전수 수식·정리 검증 원장
 
-- 생성 기준: 2026-09-13 KST
+- 생성 기준: 2026-09-14 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 72개
-- 전수 단위: Markdown fenced code 밖 display math 1,295개
-- 원래 식번호: 769개, 합성 ID 무번호식: 526개
+- 원문 범위: `docs/method/theory/*.md` 73개
+- 전수 단위: Markdown fenced code 밖 display math 1,311개
+- 원래 식번호: 785개, 합성 ID 무번호식: 526개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,12 +62,12 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 75 |
-| `CONDITIONAL_KERNEL_PASS` | 47 |
-| `DEFINITION_ONLY` | 55 |
-| `PARTIAL_FORMALIZATION` | 56 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 58 |
-| `NOT_YET_FORMALIZED` | 999 |
+| `KERNEL_PASS` | 77 |
+| `CONDITIONAL_KERNEL_PASS` | 49 |
+| `DEFINITION_ONLY` | 58 |
+| `PARTIAL_FORMALIZATION` | 58 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 62 |
+| `NOT_YET_FORMALIZED` | 1,002 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `40c4b224611a70eb…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `21a67c3afde29fb3…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `082e27a905ba7ae8…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `537b26e583b29389…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -149,6 +149,7 @@
 | 69 | [69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md](../docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md) | `a1b177d95525d037…` | 26 | 22 | 4 | 23 |
 | 70 | [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | `f72a97738711d416…` | 19 | 19 | 0 | 19 |
 | 71 | [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | `49e7ff91c52830bb…` | 24 | 24 | 0 | 23 |
+| 72 | [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | `65aa796e27bced61…` | 16 | 16 | 0 | 13 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1455,6 +1456,22 @@
 | 1293 | `71.22` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 300–308 | <code>L_{\rm avg}:=max\left\{ L_{0,*},\ e^8,\ \frac1\gamma\log \frac{72C_{\rm pre}\overline C_{\rm CL3}} {\underline c_g^2} \right\} \tag{71.22}</code> | — | `DEFINITION_ONLY` | averaged detector·log gate·half-margin cutoff의 공통 maximum 정의 |
 | 1294 | `71.23` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 312–318 | <code>\boxed{ J\le \frac{884000}{9(1-\theta)^2\theta^6} x^{2(1-\alpha)}.} \tag{71.23}</code> | `jutila_jl7_averaged_terminal_reuse; jutila_jl7_selected_system_coefficient` | `CONDITIONAL_KERNEL_PASS` | half-margin premise 아래 Theory 70 selected-system coefficient를 raw Q 손실 없이 조건부 커널 검증 |
 | 1295 | `71.24` | T71 [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | 328–331 | <code>\log\{q_j(1+T)\}\le\log(2QT)\le\log(2D). \tag{71.24}</code> | `jutila_jl7_averaged_height_log_upper` | `KERNEL_PASS` | q<=Q, Q,T>=1, D=Q^2*T에서 두 logarithmic upper bound를 커널 검증 |
+| 1296 | `72.1` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 20–24 | <code>0\le\alpha\le1-\theta,\qquad 1-\theta\le\alpha\le1-\eta \tag{72.1}</code> | — | `DEFINITION_ONLY` | Gallagher zero-density integral의 far/near alpha 구간 정의 |
+| 1297 | `72.2` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 64–71 | <code>\sum_{q\le Q}\sum_\chi^* \left&#124;\sum_{X&lt;p\le X+h}\chi(p)\log p\right&#124; \ll h\left\{ \sum_{q\le Q}\sum_\chi^*\sum_\rho X^{\beta-1} +\frac{Q^4}{T}\right\} \tag{72.2}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Gallagher 식 (30)의 explicit-formula 평균 구조; 숨은 multiplier와 cutoff는 OPEN |
+| 1298 | `72.3` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 75–80 | <code>\mathcal S(X)= \log X\int_0^{1-\eta}X^{\alpha-1}N^*(\alpha,T,Q)\,d\alpha +X^{-1}N^*(0,T,Q) \tag{72.3}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Gallagher 식 (30)의 Stieltjes zero-density identity; analytic identity 전체는 미형식화 |
+| 1299 | `72.4` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 96–106 | <code>\left&#124; N(T,\chi)- \left\{\frac{T}{\pi}\log\frac{qT}{2\pi e} -\frac{\chi(-1)}4\right\} \right&#124; \le0.22737\ell+2\log(1+\ell)-\frac12, \quad \ell=\log\frac{q(T+2)}{2\pi}, \tag{72.4}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Bennett et al. Theorem 1.1 source statement; peer-reviewed analytic theorem은 Lean 미형식화 |
+| 1300 | `72.5` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 112–115 | <code>\ell\le\ell_Q\le\log(2QT)\le\frac76\log(QT). \tag{72.5}</code> | — | `NOT_YET_FORMALIZED` | T=Q^5의 elementary logarithm envelope; Lean 순차 형식화 대기 |
+| 1301 | `72.6` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 119–122 | <code>N(T,\chi)\le2T\log(QT). \tag{72.6}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Bennett source theorem에서 per-character coarse upper로 가는 analytic 합성 |
+| 1302 | `72.7` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 126–134 | <code>\begin{aligned} Z_{\rm np}(Q,T) &amp;:= \sum_{2\le q\le Q}\ \sum_{\chi\bmod q}^{*}N(T,\chi)\\ &amp;\le2Q^2T\log(QT). \end{aligned} \tag{72.7}</code> | `bennett_family_total_zero_composition` | `CONDITIONAL_KERNEL_PASS` | per-character와 character-count premise에서 family total-zero upper를 조건부 커널 검증 |
+| 1303 | `72.8` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 144–153 | <code>\begin{aligned} \mathcal S_{\rm far} &amp;\le Z_{\rm np}\log X\, \int_0^{1-\theta}X^{\alpha-1}\,d\alpha +X^{-1}Z_{\rm np}\\ &amp;=Z_{\rm np}X^{-\theta}. \end{aligned} \tag{72.8}</code> | `gallagher_maier_far_endpoint_cancellation` | `PARTIAL_FORMALIZATION` | far integral 평가를 premise로 받은 endpoint X^-1 cancellation만 커널 검증 |
+| 1304 | `72.9` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 157–161 | <code>Q=X^{1/d},\qquad T=Q^5,\qquad \mathcal D=Q^2T=Q^7=X^{7/d} \tag{72.9}</code> | — | `DEFINITION_ONLY` | PAP X,Q,T와 common family scale D의 정의 |
+| 1305 | `72.10` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 165–171 | <code>\boxed{ \mathcal S_{\rm far} \le\frac{12}{d}\log X\, X^{-(\theta-7/d)}.} \tag{72.10}</code> | `gallagher_maier_far_power_composition` | `CONDITIONAL_KERNEL_PASS` | total-zero와 real-power 정규화를 premise로 받은 far upper 합성을 조건부 커널 검증 |
+| 1306 | `72.11` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 175–181 | <code>\theta-\frac7d =\frac1{21}-\frac7{160} =\frac{13}{3360}&gt;0,\qquad \frac{12}{d}=\frac3{40}. \tag{72.11}</code> | `gallagher_maier_pap_split_endpoint_exponents` | `KERNEL_PASS` | theta=1/21,d=160의 far exponent와 coefficient를 exact 유리수로 커널 검증 |
+| 1307 | `72.12` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 186–191 | <code>\log X\ge \frac{2}{\theta-7/d} \log\frac{12}{d(\theta-7/d)\varepsilon_F} \tag{72.12}</code> | — | `NOT_YET_FORMALIZED` | y<=exp(y/2)를 통한 far budget cutoff; Lean 순차 형식화 대기 |
+| 1308 | `72.13` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 201–213 | <code>\begin{gathered} L=\log\mathcal D=\frac7d\log X,\qquad C_J(\theta)=\frac{884000}{9(1-\theta)^2\theta^6},\\ \kappa(\theta)=14(1+12\theta),\qquad \lambda=1-\frac{\kappa(\theta)}d,\\ A=\lambda\log X-4\log L,\quad B=\log(2\…</code> | — | `DEFINITION_ONLY` | near integral의 L,C_J,kappa,lambda,A,B,eta,delta0 정의 |
+| 1309 | `72.14` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 219–230 | <code>\boxed{ \begin{aligned} \mathcal S_{\rm near}\le2C_J\log X\Bigg\{&amp; \frac{(3+B/L)e^{-A\eta}}{A} +\frac{B e^{-A/L}}{A^2}\\ &amp;-e^{-A\theta} \left(\frac{3+B\theta}{A}+\frac{B}{A^2}\right) \Bigg\}. \end{aligned}} \tag{72.14}</code> | `gallagher_maier_near_piecewise_cancellation` | `PARTIAL_FORMALIZATION` | 두 exponential antiderivative를 premise로 받고 switch 항의 exact cancellation을 부분형식화 |
+| 1310 | `72.15` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 235–239 | <code>\kappa(1/21)=22,\qquad \lambda(1/21,160)=\frac{69}{80}. \tag{72.15}</code> | `gallagher_maier_pap_split_endpoint_exponents` | `KERNEL_PASS` | theta=1/21,d=160의 kappa=22와 lambda=69/80을 커널 검증 |
+| 1311 | `72.16` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 245–253 | <code>\boxed{ \mathcal K_\infty(d,\theta,c_1)= 2C_J(\theta)\left\{ \frac{4e^{-\lambda c_1d/5}}{\lambda} +\frac{(7/d)e^{-\lambda d/7}}{\lambda^2} \right\}.} \tag{72.16}</code> | — | `NOT_YET_FORMALIZED` | near certificate의 asymptotic limit; calculus와 고정밀 진단은 Lean 미형식화 |
 
 ## 9. 발견된 원문·작업 오류
 

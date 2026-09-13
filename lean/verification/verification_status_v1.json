@@ -1806,6 +1806,98 @@
       ]
     },
     {
+      "formula_id": "72.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "72.2",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "72.3",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "72.4",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "72.5",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "72.6",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "72.7",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "bennett_family_total_zero_composition"
+      ]
+    },
+    {
+      "formula_id": "72.8",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "gallagher_maier_far_endpoint_cancellation"
+      ]
+    },
+    {
+      "formula_id": "72.9",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "72.10",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "gallagher_maier_far_power_composition"
+      ]
+    },
+    {
+      "formula_id": "72.11",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "gallagher_maier_pap_split_endpoint_exponents"
+      ]
+    },
+    {
+      "formula_id": "72.12",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "72.13",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "72.14",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "gallagher_maier_near_piecewise_cancellation"
+      ]
+    },
+    {
+      "formula_id": "72.15",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "gallagher_maier_pap_split_endpoint_exponents"
+      ]
+    },
+    {
+      "formula_id": "72.16",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 72,
-  "formula_count": 1295,
-  "tagged_formula_count": 769,
+  "theory_count": 73,
+  "formula_count": 1311,
+  "tagged_formula_count": 785,
   "untagged_formula_count": 526,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "40c4b224611a70eb591c819ed28fcfa80b353c29059d6196643b8930126de020",
+      "source_sha256": "21a67c3afde29fb3263d8ead77ea9e33143052da9dfd34dd869f5293b8202a6d",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4",
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -581,6 +581,14 @@
       "display_formula_count": 24,
       "tagged_formula_count": 24,
       "untagged_formula_count": 0
+    },
+    {
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185",
+      "display_formula_count": 16,
+      "tagged_formula_count": 16,
+      "untagged_formula_count": 0
     }
   ],
   "formulae": [
@@ -872,7 +880,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U002",
@@ -882,7 +890,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U003",
@@ -892,7 +900,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U004",
@@ -902,7 +910,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U005",
@@ -912,7 +920,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U006",
@@ -922,7 +930,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U007",
@@ -932,7 +940,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U008",
@@ -942,7 +950,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U009",
@@ -952,7 +960,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U010",
@@ -962,7 +970,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U011",
@@ -972,7 +980,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U012",
@@ -982,7 +990,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U013",
@@ -992,7 +1000,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U014",
@@ -1002,7 +1010,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T12-U015",
@@ -1012,7 +1020,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "082e27a905ba7ae894f70d90d6f2c4793ca993d8e174ae64a414a1c9490e57a4"
+      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
     },
     {
       "formula_id": "T13-U001",
@@ -13533,6 +13541,166 @@
       "tagged": true,
       "latex": "\\log\\{q_j(1+T)\\}\\le\\log(2QT)\\le\\log(2D).\n\\tag{71.24}",
       "source_sha256": "49e7ff91c52830bb0eb72f83bc75be02f62c469371884b1a332ff958e31f82e2"
+    },
+    {
+      "formula_id": "72.1",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 20,
+      "end_line": 24,
+      "tagged": true,
+      "latex": "0\\le\\alpha\\le1-\\theta,\\qquad\n 1-\\theta\\le\\alpha\\le1-\\eta\n\\tag{72.1}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.2",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 64,
+      "end_line": 71,
+      "tagged": true,
+      "latex": "\\sum_{q\\le Q}\\sum_\\chi^*\n \\left|\\sum_{X<p\\le X+h}\\chi(p)\\log p\\right|\n \\ll h\\left\\{\n \\sum_{q\\le Q}\\sum_\\chi^*\\sum_\\rho X^{\\beta-1}\n +\\frac{Q^4}{T}\\right\\}\n\\tag{72.2}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.3",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 75,
+      "end_line": 80,
+      "tagged": true,
+      "latex": "\\mathcal S(X)=\n \\log X\\int_0^{1-\\eta}X^{\\alpha-1}N^*(\\alpha,T,Q)\\,d\\alpha\n +X^{-1}N^*(0,T,Q)\n\\tag{72.3}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.4",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 96,
+      "end_line": 106,
+      "tagged": true,
+      "latex": "\\left|\nN(T,\\chi)-\n\\left\\{\\frac{T}{\\pi}\\log\\frac{qT}{2\\pi e}\n-\\frac{\\chi(-1)}4\\right\\}\n\\right|\n\\le0.22737\\ell+2\\log(1+\\ell)-\\frac12,\n\\quad\n\\ell=\\log\\frac{q(T+2)}{2\\pi},\n\\tag{72.4}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.5",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 112,
+      "end_line": 115,
+      "tagged": true,
+      "latex": "\\ell\\le\\ell_Q\\le\\log(2QT)\\le\\frac76\\log(QT).\n\\tag{72.5}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.6",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 119,
+      "end_line": 122,
+      "tagged": true,
+      "latex": "N(T,\\chi)\\le2T\\log(QT).\n\\tag{72.6}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.7",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 126,
+      "end_line": 134,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n Z_{\\rm np}(Q,T)\n &:=\n \\sum_{2\\le q\\le Q}\\ \\sum_{\\chi\\bmod q}^{*}N(T,\\chi)\\\\\n &\\le2Q^2T\\log(QT).\n\\end{aligned}\n\\tag{72.7}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.8",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 144,
+      "end_line": 153,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n\\mathcal S_{\\rm far}\n&\\le Z_{\\rm np}\\log X\\,\n\\int_0^{1-\\theta}X^{\\alpha-1}\\,d\\alpha\n+X^{-1}Z_{\\rm np}\\\\\n&=Z_{\\rm np}X^{-\\theta}.\n\\end{aligned}\n\\tag{72.8}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.9",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 157,
+      "end_line": 161,
+      "tagged": true,
+      "latex": "Q=X^{1/d},\\qquad T=Q^5,\\qquad\n \\mathcal D=Q^2T=Q^7=X^{7/d}\n\\tag{72.9}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.10",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 165,
+      "end_line": 171,
+      "tagged": true,
+      "latex": "\\boxed{\n \\mathcal S_{\\rm far}\n \\le\\frac{12}{d}\\log X\\,\n X^{-(\\theta-7/d)}.}\n\\tag{72.10}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.11",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 175,
+      "end_line": 181,
+      "tagged": true,
+      "latex": "\\theta-\\frac7d\n =\\frac1{21}-\\frac7{160}\n =\\frac{13}{3360}>0,\\qquad\n \\frac{12}{d}=\\frac3{40}.\n\\tag{72.11}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.12",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 186,
+      "end_line": 191,
+      "tagged": true,
+      "latex": "\\log X\\ge\n \\frac{2}{\\theta-7/d}\n \\log\\frac{12}{d(\\theta-7/d)\\varepsilon_F}\n\\tag{72.12}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.13",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 201,
+      "end_line": 213,
+      "tagged": true,
+      "latex": "\\begin{gathered}\n L=\\log\\mathcal D=\\frac7d\\log X,\\qquad\n C_J(\\theta)=\\frac{884000}{9(1-\\theta)^2\\theta^6},\\\\\n \\kappa(\\theta)=14(1+12\\theta),\\qquad\n \\lambda=1-\\frac{\\kappa(\\theta)}d,\\\\\n A=\\lambda\\log X-4\\log L,\\quad\n B=\\log(2\\mathcal D),\\quad\n \\eta=\\frac{c_1d}{5\\log X},\\quad\n \\delta_0=\\frac1L.\n\\end{gathered}\n\\tag{72.13}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.14",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 219,
+      "end_line": 230,
+      "tagged": true,
+      "latex": "\\boxed{\n\\begin{aligned}\n\\mathcal S_{\\rm near}\\le2C_J\\log X\\Bigg\\{&\n\\frac{(3+B/L)e^{-A\\eta}}{A}\n+\\frac{B e^{-A/L}}{A^2}\\\\\n&-e^{-A\\theta}\n\\left(\\frac{3+B\\theta}{A}+\\frac{B}{A^2}\\right)\n\\Bigg\\}.\n\\end{aligned}}\n\\tag{72.14}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.15",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 235,
+      "end_line": 239,
+      "tagged": true,
+      "latex": "\\kappa(1/21)=22,\\qquad\n \\lambda(1/21,160)=\\frac{69}{80}.\n\\tag{72.15}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "72.16",
+      "theory": "72",
+      "source_file": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "start_line": 245,
+      "end_line": 253,
+      "tagged": true,
+      "latex": "\\boxed{\n\\mathcal K_\\infty(d,\\theta,c_1)=\n2C_J(\\theta)\\left\\{\n\\frac{4e^{-\\lambda c_1d/5}}{\\lambda}\n+\\frac{(7/d)e^{-\\lambda d/7}}{\\lambda^2}\n\\right\\}.}\n\\tag{72.16}",
+      "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
     }
   ],
   "issues": [],

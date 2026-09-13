@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 Gallagher--Maier PAP density-integral near/far split",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_JL7_averaged_v1.json",
+  "outcome": "NEAR_FAR_DENSITY_INTEGRAL_SPLIT_PARAMETERIZED_EXPLICIT_CURRENT_D160_CERTIFICATE_INSUFFICIENT_PAP_OPEN",
+  "source_registry": [
+    {
+      "key": "GALLAGHER1970",
+      "title": "A Large Sieve Density Estimate near sigma = 1",
+      "locator": "article/gallagher1970.pdf",
+      "doi": "10.1007/BF01403187",
+      "sha256": "ecac1c9470521e410ac8731d2f57b77eb364f1fdc0bbd1f71813205afe84adcf",
+      "bytes": 377236,
+      "page_count": 11,
+      "native_text_bytes": 24750,
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "rendered_pages_checked": [7, 8, 9, 10],
+      "printed_pages": "335--338",
+      "statements": "Theorems 6--7, equations (24), (26)--(30), T=Q^5",
+      "classification": "PRIMARY_PEER_REVIEWED_SOURCE_WITH_HIDDEN_VINOGRADOV_MULTIPLIERS"
+    },
+    {
+      "key": "MAIER1981",
+      "title": "Chains of Large Gaps between Consecutive Primes",
+      "locator": "article/Maier 1981.pdf",
+      "doi": "10.1016/0001-8708(81)90003-7",
+      "sha256": "ca6f2425b850dd5f9d81340d8a4a4c76faf6a947d7486ebf87ff072adbf0a3eb",
+      "bytes": 650004,
+      "page_count": 13,
+      "native_text_bytes": 30516,
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "rendered_pages_checked": [4, 5],
+      "printed_pages": "260--261",
+      "statements": "good modulus definition and Lemmas 1--2",
+      "classification": "PRIMARY_PEER_REVIEWED_SOURCE_WITH_EXISTENTIAL_D_AND_HIDDEN_CONSTANT"
+    },
+    {
+      "key": "MCCURLEY1984",
+      "title": "Explicit Estimates for the Error Term in the Prime Number Theorem for Arithmetic Progressions",
+      "locator": "article/McCurley 1984.pdf",
+      "doi": "10.1016/0022-314X(84)90089-1",
+      "sha256": "6035c9e290ba4a8bb31ed4afef0e014f49324f33cd978b82450c1bdba204d8ac",
+      "bytes": 908495,
+      "page_count": 26,
+      "native_text_bytes": 51518,
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "rendered_pages_checked": [2, 3],
+      "printed_pages": "8--9",
+      "statements": "Theorems 1--2 and the conservative c1=1/24 predecessor specialization",
+      "classification": "PRIMARY_PEER_REVIEWED_ZERO_FREE_INPUT_APPLICATION_BRIDGE_PARTIAL"
+    },
+    {
+      "key": "BENNETT_MARTIN_OBRYANT_RECHNITZER2021",
+      "title": "Counting Zeros of Dirichlet L-Functions",
+      "locator": "article/Bennett Martin OBryant Rechnitzer 2021 Counting Zeros of Dirichlet L-Functions.pdf",
+      "doi": "10.1090/mcom/3599",
+      "arxiv": "2005.02989v1",
+      "sha256": "bc7d063bcde319274f878acb05816c3ddeddce8820ae614485e9ff9ecd64ab43",
+      "bytes": 587625,
+      "page_count": 22,
+      "native_text_bytes": 115483,
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "rendered_pages_checked": [2],
+      "printed_pages": "arXiv p.2; journal statement p.1456 independently matched",
+      "statements": "definition of N(T,chi), Theorem 1.1 and Corollary 1.2",
+      "classification": "ARXIV_AUDIT_COPY_OF_PEER_REVIEWED_THEOREM_STATEMENT_MATCHED_TO_AMS_PUBLICATION"
+    }
+  ],
+  "predecessor_artifacts": [
+    {
+      "path": "docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md",
+      "sha256": "49e7ff91c52830bb0eb72f83bc75be02f62c469371884b1a332ff958e31f82e2",
+      "bytes": 14528,
+      "role": "primitive nonprincipal near-one family density envelope"
+    }
+  ],
+  "source_call_map": [
+    {
+      "id": "GMP-01",
+      "call": "Gallagher explicit formula and prime-power/truncation reduction",
+      "source": "Gallagher printed pp.337--338",
+      "status": "SOURCE_STRUCTURE_FIXED_NUMERICAL_MULTIPLIER_AND_COMMON_CUTOFF_OPEN"
+    },
+    {
+      "id": "GMP-02",
+      "call": "Stieltjes zero-density integral plus endpoint N(0)",
+      "source": "Gallagher equation (30)",
+      "status": "SOURCE_IDENTITY_FIXED_FINITE_SPLIT_EXPLICIT"
+    },
+    {
+      "id": "GMP-03",
+      "call": "primitive nonprincipal near-one density",
+      "source": "Theory 71",
+      "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "GMP-04",
+      "call": "away-from-one total primitive zero count",
+      "source": "Bennett et al. Theorem 1.1",
+      "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "GMP-05",
+      "call": "nonexceptional zero-free boundary",
+      "source": "McCurley Theorems 1--2 plus predecessor application",
+      "status": "CONSERVATIVE_C1_1_OVER_24_PARAMETERIZED_EXCEPTIONAL_TRANSFER_OPEN"
+    },
+    {
+      "id": "GMP-06",
+      "call": "q=1 principal zeta term",
+      "source": "Gallagher and Maier handle separately",
+      "status": "OPEN"
+    },
+    {
+      "id": "GMP-07",
+      "call": "good-modulus or exceptional-character branch",
+      "source": "Gallagher (26)--(28), Maier Lemma 1",
+      "status": "INEFFECTIVE_OR_HIDDEN_CONSTANTS_OPEN"
+    },
+    {
+      "id": "GMP-08",
+      "call": "primitive-character induction and orthogonality to one residue class",
+      "source": "Maier Lemma 2 proof",
+      "status": "SOURCE_STRUCTURE_FIXED_NUMERICAL_REPLAY_OPEN"
+    },
+    {
+      "id": "GMP-09",
+      "call": "psi/theta to pi one-sided partial summation",
+      "source": "not numerically printed in Gallagher--Maier call",
+      "status": "OPEN"
+    },
+    {
+      "id": "GMP-10",
+      "call": "common finite cutoff and fixed Sono coefficient",
+      "source": "downstream composition",
+      "status": "HARD_BLOCKER"
+    }
+  ],
+  "normalization": {
+    "PAP_variable": "X",
+    "Q": "X^(1/d)",
+    "T": "Q^5",
+    "family_scale_D": "Q^2*T=Q^7=X^(7/d)",
+    "L": "log(D)=7*log(X)/d",
+    "theta": "1/21",
+    "density_power_kappa": "14*(1+12*theta)=22",
+    "near_kernel_margin_lambda": "1-kappa/d; at d=160 equals 69/80",
+    "far_power_margin": "theta-7/d; at d=160 equals 13/3360",
+    "zero_free_eta": "c1/log(T)=c1*d/[5*log(X)]",
+    "conservative_c1": "1/24"
+  },
+  "bennett_total_zero_reduction": {
+    "theorem": "for primitive conductor q>1, T>=5/7, ell=log(q(T+2)/(2*pi)); N=0 if ell<=1.567, otherwise absolute error <=0.22737*ell+2log(1+ell)-0.5",
+    "primitive_character_count": "sum_(2<=q<=Q) phi_star(q) <= sum_(2<=q<=Q) phi(q) <= Q^2 for Q>=2",
+    "common_per_character_envelope": "U(Q,T)=T/pi*log(QT)+0.22737*ell_Q+2log(1+ell_Q)+1/4",
+    "coarse_family_bound_for_T_Q5": "Z_np(Q,T)<=2*Q^2*T*log(QT)",
+    "scope": "primitive nonprincipal family; q=1 zeta branch excluded",
+    "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+  },
+  "density_integral_split": {
+    "gallagher_kernel": "S=log(X)*integral_[0,1-eta] X^(alpha-1)N(alpha)dalpha+X^(-1)N(0)",
+    "far_exact_collapse": "S_far<=Z_np*X^(-theta)",
+    "far_coarse_envelope": "S_far<=(12/d)*log(X)*X^[-(theta-7/d)]",
+    "far_one_percent_sufficient_log_X_cutoff_d160": "3912.92672582886244216538735970874771187889290031629287759194",
+    "near_A": "A=[1-14(1+12theta)/d]log(X)-4log(L)",
+    "near_B": "B=log(2D)",
+    "near_switch": "delta_0=1/L",
+    "near_piecewise_exact_upper": "2*C_J*log(X)*{(3+B/L)e^(-A*eta)/A+B e^(-A/L)/A^2-e^(-A*theta)[(3+B*theta)/A+B/A^2]}",
+    "status": "NEAR_AND_FAR_PARAMETERIZED_EXPLICIT_WITH_PREDECESSOR_ANALYTIC_PREMISES"
+  },
+  "endpoint_diagnostic": {
+    "theta": "1/21",
+    "d": 160,
+    "c1": "1/24",
+    "C_J": 9287613243090,
+    "theory71_log_D_cutoff": "8827.24070409655979683241494482188923545674372220021283644994",
+    "induced_log_X_cutoff": "201765.501807921366784740913024500325381868427936004864833141",
+    "near_envelope_at_induced_cutoff": "27289770554758.1062923547530796281983357661619337585720999303",
+    "near_asymptotic_certificate_limit_d160": "27276984142443.3142668821712269282131700762404602875720838582",
+    "near_asymptotic_limit_d186": "21484606972311.3770021700815101",
+    "ratio_d160_to_exp_minus_two_budget": "201551166038155.403393361743697008256669589262204194179613423",
+    "first_integer_d_asymptotic_limit_le_one": 3856,
+    "first_integer_d_asymptotic_limit_le_exp_minus_two": 4096,
+    "warning": "These are high-precision diagnostics of this sufficient certificate, not lower bounds for the true prime-distribution error and not directed interval certificates."
+  },
+  "interpretation": {
+    "near_one_range_sufficient_in_principle": true,
+    "printed_all_alpha_jutila_theorem_required_for_this_split": false,
+    "current_d160_certificate_sufficient_for_positive_PAP": false,
+    "current_d160_certificate_preserves_sono_exp_minus_two_error_budget": false,
+    "failure_meaning": "the current explicit upper certificate is too coarse; it does not prove that the true error is large or that no sharper proof can work",
+    "d_required_warning": "d=3856 or 4096 is only an asymptotic certificate diagnostic and is far beyond the previously audited fixed-coefficient capacity d<=186; it is not a valid replacement theorem parameter"
+  },
+  "status_after_this_gate": {
+    "far_alpha_branch_parameterized_explicit": true,
+    "near_alpha_integration_parameterized_explicit": true,
+    "printed_all_alpha_theorem_needed_for_current_split": false,
+    "gallagher_explicit_formula_multiplier_closed": false,
+    "principal_zeta_branch_closed": false,
+    "exceptional_character_branch_closed": false,
+    "psi_to_pi_closed": false,
+    "gallagher_maier_pap_bridge_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "rigorous_interval_certificate": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "lean_scope": {
+    "finite_endpoint_exponent_algebra_to_formalize": [
+      "kappa(1/21)=22",
+      "lambda(1/21,160)=69/80",
+      "theta-7/160=13/3360",
+      "Stieltjes far-part endpoint cancellation under an explicit integral premise"
+    ],
+    "source_analytic_theorems_fully_formalized": false,
+    "project_local_axiom_allowed": false,
+    "proof_escape_allowed": false
+  },
+  "next_gate": "Replace or sharply reduce the near-one coefficient C_J before pursuing the remaining Gallagher explicit-formula, principal, exceptional, and psi-to-pi multipliers; the current d=160 certificate cannot meet even the positive PAP error gate."
+}

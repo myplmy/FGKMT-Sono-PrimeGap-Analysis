@@ -2861,4 +2861,71 @@ theorem jutila_jl7_averaged_height_log_upper
   · exact Real.log_le_log (mul_pos hq (by linarith)) hFirst
   · exact Real.log_le_log (by positivity) hSecond
 
+/-! ## Theory 72 — Gallagher--Maier PAP density-integral split -/
+
+/- Theory 72, formulas 72.11 and 72.15: exact endpoint exponent algebra.
+   These identities do not assert the analytic zero-density premises. -/
+theorem gallagher_maier_pap_split_endpoint_exponents :
+    (14 : ℝ) * (1 + 12 * (1 / 21)) = 22 ∧
+      (1 : ℝ) - 22 / 160 = 69 / 80 ∧
+      (1 : ℝ) / 21 - 7 / 160 = 13 / 3360 ∧
+      0 < (13 / 3360 : ℝ) ∧
+      12 / 160 = (3 / 40 : ℝ) := by
+  norm_num
+
+/- Theory 72, formulas 72.6--72.7: finite scalar composition after the
+   source theorem has supplied a per-character upper bound and elementary
+   character counting has supplied count <= Q^2. -/
+theorem bennett_family_total_zero_composition
+    {Z count U Q T logQT : ℝ}
+    (hUPos : 0 ≤ U)
+    (hCount : count ≤ Q ^ 2)
+    (hPerCharacter : U ≤ 2 * T * logQT)
+    (hTotal : Z ≤ count * U) :
+    Z ≤ 2 * Q ^ 2 * T * logQT := by
+  have hCountStep : count * U ≤ Q ^ 2 * U :=
+    mul_le_mul_of_nonneg_right hCount hUPos
+  have hEnvelopeStep : Q ^ 2 * U ≤ Q ^ 2 * (2 * T * logQT) :=
+    mul_le_mul_of_nonneg_left hPerCharacter (sq_nonneg Q)
+  calc
+    Z ≤ count * U := hTotal
+    _ ≤ Q ^ 2 * U := hCountStep
+    _ ≤ Q ^ 2 * (2 * T * logQT) := hEnvelopeStep
+    _ = 2 * Q ^ 2 * T * logQT := by ring
+
+/- Theory 72, formula 72.8: the integrated far interval and Gallagher's
+   endpoint term cancel the artificial X^(-1) boundary exactly.  The
+   integral evaluation itself is an explicit analytic premise. -/
+theorem gallagher_maier_far_endpoint_cancellation
+    (Z xTheta xInv : ℝ) :
+    Z * (xTheta - xInv) + xInv * Z = Z * xTheta := by
+  ring
+
+/- Theory 72, formula 72.14: exact algebraic cancellation when the near
+   integral is split at delta=1/L.  The exponential antiderivatives and
+   branch ordering eta <= 1/L <= theta remain analytic premises. -/
+theorem gallagher_maier_near_piecewise_cancellation
+    {A C B eEta eSwitch eTheta terminalLinear : ℝ}
+    (hA : A ≠ 0) :
+    C * (eEta - eSwitch) / A +
+        eSwitch * (C / A + B / A ^ 2) -
+        eTheta * (terminalLinear / A + B / A ^ 2) =
+      C * eEta / A + B * eSwitch / A ^ 2 -
+        eTheta * (terminalLinear / A + B / A ^ 2) := by
+  field_simp
+  ring
+
+/- Theory 72, formulas 72.9--72.10: conditional real-power normalization.
+   The symbols q2t and logQT represent Q^2*T and log(Q*T), respectively. -/
+theorem gallagher_maier_far_power_composition
+    {Z q2t logQT Xtheta target : ℝ}
+    (hXTheta : 0 ≤ Xtheta)
+    (hZ : Z ≤ 2 * q2t * logQT)
+    (hNormalize : (2 * q2t * logQT) * Xtheta = target) :
+    Z * Xtheta ≤ target := by
+  calc
+    Z * Xtheta ≤ (2 * q2t * logQT) * Xtheta :=
+      mul_le_mul_of_nonneg_right hZ hXTheta
+    _ = target := hNormalize
+
 end FGKMTSono

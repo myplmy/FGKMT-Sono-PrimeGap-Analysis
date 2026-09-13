@@ -16,6 +16,13 @@ Z:\FGKMT-Sono-PrimeGap-Analysis
 actual-input parameterized explicit으로 진전했다. 위 한 줄의 `JL7-AVERAGED OPEN`은
 printed all-alpha·principal·PAP transfer까지 포함한 넓은 의미에서만 계속 유효하다.
 
+2026-09-14 Gallagher--Maier PAP split successor: Bennett 전 높이 영점수로
+far-alpha branch를 닫고 Theory 71 near-one branch를 정확히 적분했다. 그러나
+현재 certificate의 asymptotic near 상계는 d=160에서 약 2.73e13이라 양의 PAP
+gate를 통과하지 못한다. d=186에서도 같은 구조가 실패하므로 뒤쪽 cutoff 계산보다
+\(C_J\) loss tree의 구조적 축소 가능성을 먼저 감사한다. 최신 analytic 정본은
+theory 72·review 79다. PAP-11·DEP-R09·fixed 2e-17·X_cert는 계속 OPEN이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는
@@ -183,11 +190,14 @@ OPEN이므로 PAP-11·DEP-R09·fixed \(2\times10^{-17}\)·\(X_{\rm cert}\)도 OP
 Theory 71 뒤 inventory는 72개 theory 문서, 1,295식이고
 `KERNEL_PASS=75`, `CONDITIONAL_KERNEL_PASS=47`,
 `NOT_YET_FORMALIZED=999`, Lean declaration 240개, 금지 proof escape 0건이다.
-최신 analytic 정본은 theory 71·review 78이다.
+Theory 72 뒤 inventory는 73개 theory 문서, 1,311식이고
+`KERNEL_PASS=77`, `CONDITIONAL_KERNEL_PASS=49`,
+`NOT_YET_FORMALIZED=1002`, Lean declaration 245개, 금지 proof escape 0건이다.
+최신 analytic 정본은 theory 72·review 79다.
 
 P002 pilot, P003 전체 `10^20` end-bounded 분석, P004 start/end 경계·local-envelope 민감도 분석이 완료됐다. P004 authoritative run `20260823T075238Z_p004_sensitivity`는 64 end/start paired intervals와 100-dps 수치·정수 3,747개를 issue 0으로 검증했고, 사용자가 y축 제한 새 그래프도 큰 문제없다고 확인했다.
 
-P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011–P013-B recurrence 계열은 enrichment를 검출하지 못했다. P013-A/B는 각각 primary 기대 0.077829/0.066797, 관측 0, 모든 행 LOW_INFORMATION이며 사용자 figure QA까지 PASS했다. P017 combined queue와 A/B child는 terminal·saved·exact equality PASS다. P017-B 동일범위 serial 12,598.410초 대 parallel 2,866.160초로 관측 wall-time 비가 약 4.3956이었다. P014-R3는 modulus 510510의 92,160 states와 8,524,288,932 constraints를 parallel exact scan과 saved serial oracle로 issue 0 검증했지만 새 candidate를 만들지 못해 `NO_IMPROVEMENT`다. P018-P0/A는 exact 실행·저장 검증 PASS지만 conditioned information이 0이라 `HOLD_PREFIX_INFORMATION`이다. P020은 성공 정본 8개와 72,178,455,399 gap-start를 종합했고 사용자 figure QA까지 PASS했다. Sono/FMT 최신 source-first 감사는 JL5·JL6 actual과 JL8 actual near-one local-count를 explicit/parameterized explicit로 닫고, 식 (3.6)의 weighted call을 \(34/\theta^2\) 미만으로 교정했으며 JL7 shifted-contour·Lemma 3 absolute-sum·principal residue 52와 strict terminal absorption을 actual-input parameterized explicit으로 닫았다. Jutila 식 (3.7)의 primitive nonprincipal near-one averaged replay도 공통 \(D=Q^2T\)에서 raw \(Q\) 손실 없이 parameterized explicit으로 닫혔다. 다만 Gallagher--Maier pointwise PAP 전달은 남아 있으므로 fixed `2e-17`은 현재 프로젝트가 독립 인증한 계수가 아니며 numerical `X_cert`와 실제 전역 최소도 OPEN이다. `X_emp(10^20)=3,814,280`만 finite exact이다. 최신 analytic 정본은 `docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md`와 `docs/review/78_20260914_DEPR09_Jutila_JL7_averaged_primitive_replay_타당성검토.md`다. P019는 future 범위의 dual-partition parallel full-pass toy를 exact count 21로 검증했지만 actual runner는 없다. 완료 runner는 `test_done`에 hash 보존하며, 추가 actual 실행·외부 게시·push/PR은 별도 사용자 승인 없이 수행하지 않는다.
+P004 해석 정본은 `test_result/202608231652_P004_sensitivity_analysis.md`다. P005 bounded CPU calibration, P006 `[2,10^9]`, P007 modulus 30/210/2310 비교, P008 toy·exact prime-count·phase-A full은 모두 terminal/saved verification PASS다. P009 actual `[10^20,10^20+1000)`은 internal zero와 exact boundary witness를 결합해 certified zero 1 block을 만들었다. P010A G4는 modulus 30030의 35,224,647 constraints를 exact 검증해 count 상한을 `436,001,550,591,586,306`으로 약 0.7195% 낮췄지만 acceleration은 미증명이다. P011–P013-B recurrence 계열은 enrichment를 검출하지 못했다. P013-A/B는 각각 primary 기대 0.077829/0.066797, 관측 0, 모든 행 LOW_INFORMATION이며 사용자 figure QA까지 PASS했다. P017 combined queue와 A/B child는 terminal·saved·exact equality PASS다. P017-B 동일범위 serial 12,598.410초 대 parallel 2,866.160초로 관측 wall-time 비가 약 4.3956이었다. P014-R3는 modulus 510510의 92,160 states와 8,524,288,932 constraints를 parallel exact scan과 saved serial oracle로 issue 0 검증했지만 새 candidate를 만들지 못해 `NO_IMPROVEMENT`다. P018-P0/A는 exact 실행·저장 검증 PASS지만 conditioned information이 0이라 `HOLD_PREFIX_INFORMATION`이다. P020은 성공 정본 8개와 72,178,455,399 gap-start를 종합했고 사용자 figure QA까지 PASS했다. Sono/FMT 최신 source-first 감사는 JL5·JL6 actual과 JL8 actual near-one local-count를 explicit/parameterized explicit로 닫고, 식 (3.6)의 weighted call을 \(34/\theta^2\) 미만으로 교정했으며 JL7 shifted-contour·Lemma 3 absolute-sum·principal residue 52와 strict terminal absorption을 actual-input parameterized explicit으로 닫았다. Jutila 식 (3.7)의 primitive nonprincipal near-one averaged replay도 공통 \(D=Q^2T\)에서 raw \(Q\) 손실 없이 parameterized explicit으로 닫혔다. Theory 72는 Gallagher 적분의 primitive nonprincipal branch를 near/far로 분리했으나 현 near certificate가 d=160에서 약 2.73e13이라 PAP gate를 통과하지 못함을 확인했다. 따라서 fixed `2e-17`은 현재 프로젝트가 독립 인증한 계수가 아니며 numerical `X_cert`와 실제 전역 최소도 OPEN이다. `X_emp(10^20)=3,814,280`만 finite exact이다. 최신 analytic 정본은 `docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md`와 `docs/review/79_20260914_DEPR09_Gallagher_Maier_PAP_density_integral_split_타당성검토.md`다. P019는 future 범위의 dual-partition parallel full-pass toy를 exact count 21로 검증했지만 actual runner는 없다. 완료 runner는 `test_done`에 hash 보존하며, 추가 actual 실행·외부 게시·push/PR은 별도 사용자 승인 없이 수행하지 않는다.
 
 Sono/FMT T1은 direct proof edge 66개를 source/page/equation/dependency 단위로 등록하고 DAG·source
 hash를 검증했다. H1a 뒤 6개가 해당 행 자체에서 `EXPLICIT`이고, 30개는 rate 누락, 16개는 hard blocker다.
@@ -713,14 +723,14 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 
 2026-09-09 사용자 결정: review 57의 기존 고정계수 X_cert 연구를 먼저 진행한다.
 계수 개선·새 관측범위·독립 bridge 강화는 별도 후속 연구이며 자동 착수하지 않는다.
-다음 권장 행동은 P018-B가 아니라 DEP-R09 `JL7-AVERAGED-TO-PAP`의
-source call map이다. Theory 66--71에서 식 (3.6)의 올바른 \(\theta\)-의존
-weighted call부터 식 (3.7)의 actual primitive nonprincipal near-one 평균까지
-닫았다. 이제 Gallagher--Maier proof에서 필요한 zero family와 kernel, principal·
-exceptional·prime-power·\(\psi\to\pi\) edge를 페이지·식 단위로 고정한다.
-printed general JL6/JL8과 all-alpha theorem은 별도 OPEN이다. cutoff 최적화나
-actual prime sweep은 PAP multiplier와 공통 cutoff가 numerical해진 뒤 필요성을
-다시 판정한다.
+다음 권장 행동은 P018-B나 actual prime sweep이 아니라 DEP-R09의
+\(C_J\) loss tree 감사다. Theory 72는 Gallagher--Maier proof의 primitive
+nonprincipal 영점 적분을 near/far로 분리했지만, 현 near certificate가 d<=186의
+coefficient gate를 약 \(10^{14}\)배 규모로 통과하지 못함을 확인했다. residue,
+preterminal, detector·area·local-count 손실 중 구조적으로 제거 가능한 중복이 있는지
+source-first로 판정한다. printed general JL6/JL8과 principal·exceptional·
+\(\psi\to\pi\)는 별도 OPEN이며, 이 coefficient gate가 개선되기 전에는
+threshold calculator나 장시간 계산을 만들지 않는다.
 H1b-COV2는 실제 fixed-parameter 구간 family·예외 복원·smooth remainder·순차 성공을 닫았고,
 H1b-DEP는 완료했으며
 P95는 actual 경로의 직접·간접 필수 입력이 아니다. general P95는 별도 OPEN이다.

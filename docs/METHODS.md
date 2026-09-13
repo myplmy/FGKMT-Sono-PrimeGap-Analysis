@@ -1696,3 +1696,43 @@ cutoff를 Gallagher--Maier argument 안에서 다시 합성해야 한다. 따라
 PAP-11, DEP-R09, fixed (2\times10^{-17}), numerical (X_{\rm cert})와 threshold
 calculator는 계속 OPEN/NOT READY다. 다음 gate는 `JL7-AVERAGED-TO-PAP`의
 source call map이다.
+
+## 2026-09-14 DEP-R09 Gallagher--Maier PAP density-integral split
+
+[theory 72](method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md)와
+[review 79](review/79_20260914_DEPR09_Gallagher_Maier_PAP_density_integral_split_타당성검토.md)는
+Gallagher 식 (30)의 primitive nonprincipal 영점 기여를
+\(0\le\alpha\le1-\theta\)와
+\(1-\theta\le\alpha\le1-\eta\)로 분리한다. 첫 구간은
+Bennett--Martin--O'Bryant--Rechnitzer Theorem 1.1의 explicit total zero-count,
+둘째 구간은 Theory 71의 actual near-one averaged density를 사용한다.
+
+\[
+ Q=X^{1/d},\qquad T=Q^5,\qquad \mathcal D=Q^2T=Q^7
+\]
+
+에서 far branch와 Stieltjes endpoint는 정확히
+\[
+ \mathcal S_{\rm far}\le Z_{\rm np}X^{-\theta}
+ \le {12\over d}\log X\,
+ X^{-(\theta-7/d)}
+\]
+로 합쳐진다. \(\theta=1/21,d=160\)의 지수는 \(13/3360>0\)이므로 이 항은
+감소한다. near branch는 \(\delta_0=1/\log\mathcal D\)에서
+\(\max\{\delta,\delta_0\}\)를 정확히 나누어 적분했다.
+
+그러나 \(c_1=1/24\)인 현재 certificate의 near asymptotic 상계는 d=160에서
+약 \(2.7277\times10^{13}\), fixed-coefficient capacity의 끝 d=186에서도
+약 \(2.1485\times10^{13}\)이다. 따라서 이 경로는 PAP의 양수성 또는
+\(e^{-2}\) 오차 예산을 인증하지 못한다. 이는 실제 소수분포 오차의 하한이 아니라
+현재 증명 상계가 지나치게 크다는 판정이다. 현 상계가 1 이하가 되는 첫 정수 d=3856,
+\(e^{-2}\) 이하가 되는 첫 정수 d=4096은 선행 capacity d<=186과 양립하지 않아
+채택 가능한 PAP parameter가 아니다.
+
+따라서 far branch와 near 적분은 actual-input parameterized explicit으로
+진전했지만, Gallagher explicit-formula multiplier·공통 cutoff, principal zeta,
+exceptional/good-modulus transfer, full orthogonality replay와
+\(\psi\)-to-\(\pi\)는 OPEN이다. <code>PAP-11</code>, <code>DEP-R09</code>,
+fixed \(2\times10^{-17}\), numerical \(X_{\rm cert}\)와 threshold calculator도
+계속 OPEN/NOT READY다. 다음 우선순위는 \(C_J\)의 약 \(10^{14}\)배 loss tree를
+역추적해 d<=186에서 통과 가능한 구조적 개선이 있는지 판정하는 일이다.
