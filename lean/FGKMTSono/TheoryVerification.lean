@@ -3243,4 +3243,29 @@ theorem jutila_cj_capacity_endpoint_exponents :
       (82 / 93 : ℝ) * 186 / 7 = 164 / 7 := by
   norm_num
 
+/- Theory 74, formula 74.11: exact arithmetic after the Ramaré source
+   theorem is specialized to Q=X^(1/d), T=Q^5, d=186 and c1=1/24.
+   This does not formalize the analytic density theorem itself. -/
+theorem dep_r09_modern_ramare_endpoint_arithmetic :
+    (1 : ℝ) - 20 / 186 = 83 / 93 ∧
+      (2 / 186 : ℝ) = 1 / 93 ∧
+      (1 / 24 : ℝ) * 186 / 5 = 31 / 20 := by
+  norm_num
+
+/- Theory 74, formula 74.15 and the Friedlander--Iwaniec comparison in
+   formula 74.17: integer exponent-capacity checks only. -/
+theorem dep_r09_modern_exponent_gate :
+    (99 : ℕ) ≤ 186 ∧
+      (170 : ℕ) ≤ 186 ∧
+      ¬ (198 : ℕ) ≤ 186 ∧
+      ¬ (52600 : ℕ) ≤ 186 := by
+  norm_num
+
+/- Theory 74, formula 74.18 and the coefficient comparison following
+   formula 74.17.  The external sieve premises remain unformalized. -/
+theorem dep_r09_modern_fi_arithmetic :
+    80 * 18 * 52600 = (75744000 : ℕ) ∧
+      (1 / 210000 : ℝ) < 4 / 5 := by
+  norm_num
+
 end FGKMTSono

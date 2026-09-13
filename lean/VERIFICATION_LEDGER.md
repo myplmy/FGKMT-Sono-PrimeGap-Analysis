@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-14 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 74개
-- 전수 단위: Markdown fenced code 밖 display math 1,344개
-- 원래 식번호: 814개, 합성 ID 무번호식: 530개
+- 원문 범위: `docs/method/theory/*.md` 75개
+- 전수 단위: Markdown fenced code 밖 display math 1,362개
+- 원래 식번호: 832개, 합성 ID 무번호식: 530개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,12 +62,12 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 87 |
+| `KERNEL_PASS` | 90 |
 | `CONDITIONAL_KERNEL_PASS` | 51 |
-| `DEFINITION_ONLY` | 62 |
-| `PARTIAL_FORMALIZATION` | 67 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 63 |
-| `NOT_YET_FORMALIZED` | 1,009 |
+| `DEFINITION_ONLY` | 64 |
+| `PARTIAL_FORMALIZATION` | 70 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 67 |
+| `NOT_YET_FORMALIZED` | 1,015 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `d7cfb08f08006981…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `b01eba009fb40fdc…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `eb3bb51ab0eb6a16…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `48c195009faf0b40…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -151,6 +151,7 @@
 | 71 | [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | `49e7ff91c52830bb…` | 24 | 24 | 0 | 23 |
 | 72 | [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | `65aa796e27bced61…` | 16 | 16 | 0 | 13 |
 | 73 | [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | `9fce155834fdaf35…` | 33 | 29 | 4 | 26 |
+| 74 | [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | `636bbc4bac58f7f6…` | 18 | 18 | 0 | 12 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1506,6 +1507,24 @@
 | 1342 | `73.27` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 364–371 | <code>K_{\rm unit}=2\left\{ \frac{4e^{-1271/930}}{82/93} +\frac{7}{186}\frac{e^{-164/7}}{(82/93)^2} \right\} =2.3132538371250\ldots . \tag{73.27}</code> | — | `NOT_YET_FORMALIZED` | unit-C_J near kernel의 transcendental 120-dps 진단; directed interval certificate 아님 |
 | 1343 | `73.28` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 376–380 | <code>2.1484606972311\ldots\times10^{13},qquad 6.2567679542504\ldots\times10^{10}. \tag{73.28}</code> | — | `NOT_YET_FORMALIZED` | baseline/tightened near upper의 120-dps 진단; directed interval certificate 아님 |
 | 1344 | `73.29` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 387–390 | <code>\theta^{-6}=21^6=85{,}766{,}121 \tag{73.29}</code> | `jutila_cj_theta_power_endpoint` | `KERNEL_PASS` | theta=1/21의 theta^-6 exact integer를 커널 검증; proof-architecture 불가능성 정리는 아님 |
+| 1345 | `74.1` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 30–33 | <code>\boxed{\text{이번에 식별·감사한 공개 후보 중 numerical drop-in 통과 후보는 0개다.}} \tag{74.1}</code> | — | `NOT_YET_FORMALIZED` | 선별 후보 집합의 source-screen 결론; 문헌 전수 불가능성 명제가 아니며 Lean 형식화 대상 아님 |
+| 1346 | `74.2` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 48–53 | <code>\pi(u;q,a)\ge C_{\rm PAP}\frac{u}{\varphi(q)\log u}, \qquad q\le u^{1/D} \tag{74.2}</code> | — | `DEFINITION_ONLY` | 현재 downstream pointwise PAP target 계약의 정의 전사 |
+| 1347 | `74.3` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 58–62 | <code>C_{\rm PAP}\ge 0.8638312615226712472\ldots \tag{74.3}</code> | — | `NOT_YET_FORMALIZED` | D=160 minimum C_PAP 100-dps 선행 진단; directed interval certificate 아님 |
+| 1348 | `74.4` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 105–113 | <code>\sum_{q\le Q}\frac q{\varphi(q)} \sum_{\chi\bmod^{*}q}N(\sigma,T,\chi) \le 20(56Q^5T^3)^{1-\sigma} \log^{5-2\sigma}(Q^2T) +32Q^2\log^2(Q^2T) \tag{74.4}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Ramaré 2016 Theorem 1.1 source analytic statement; Lean 독립 proof 없음 |
+| 1349 | `74.5` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 118–123 | <code>\delta=1-\sigma,\qquad Q=X^{1/d},\qquad T=Q^5,\qquad L=\log(Q^2T)=\frac7d\log X \tag{74.5}</code> | — | `DEFINITION_ONLY` | Ramaré direct-insertion 변수 정규화 정의 |
+| 1350 | `74.6` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 127–132 | <code>B_{\rm main}(\delta) =20\,56^\delta L^{3+2\delta} \exp\!\left[-\left(1-\frac{20}{d}\right)\delta\log X\right], \tag{74.6}</code> | `dep_r09_modern_ramare_endpoint_arithmetic` | `PARTIAL_FORMALIZATION` | main-term 일반 변환은 문서·Python 검산; d=186 rational exponent만 커널 검증 |
+| 1351 | `74.7` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 134–138 | <code>B_{\rm add}(\delta) =32L^2\exp\!\left[\left(\frac2d-\delta\right)\log X\right]. \tag{74.7}</code> | `dep_r09_modern_ramare_endpoint_arithmetic` | `PARTIAL_FORMALIZATION` | additive-term 일반 변환은 문서·Python 검산; d=186 rational exponent만 커널 검증 |
+| 1352 | `74.8` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 142–145 | <code>\eta\log X=\frac{c_1d}{5}. \tag{74.8}</code> | `dep_r09_modern_ramare_endpoint_arithmetic` | `PARTIAL_FORMALIZATION` | zero-free edge의 d=186,c1=1/24 exact mass만 커널 검증 |
+| 1353 | `74.9` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 151–156 | <code>\mathcal C_{\rm main}^{\rm slice}\ge 20L^3\exp\!\left[-\left(1-\frac{20}{d}\right) \left(\frac{c_1d}{5}+1\right)\right], \tag{74.9}</code> | — | `NOT_YET_FORMALIZED` | Ramaré source RHS의 unit-slice main certificate 하한; 문서 직접 proof와 Python 범위검사 |
+| 1354 | `74.10` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 158–163 | <code>\mathcal C_{\rm add}^{\rm slice}\ge 32L^2\exp\!\left[\frac{2\log X}{d} -\left(\frac{c_1d}{5}+1\right)\right]. \tag{74.10}</code> | — | `NOT_YET_FORMALIZED` | Ramaré additive certificate 하한; 문서 직접 proof와 Python 범위검사 |
+| 1355 | `74.11` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 167–172 | <code>1-\frac{20}{d}=\frac{83}{93},\qquad \frac2d=\frac1{93},\qquad \frac{c_1d}{5}=\frac{31}{20}. \tag{74.11}</code> | `dep_r09_modern_ramare_endpoint_arithmetic` | `KERNEL_PASS` | d=186 Ramaré exponent margins와 zero-free edge mass exact rational 커널 검증 |
+| 1356 | `74.12` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 176–182 | <code>\log X\ge \max\!\left\{d\log10,\frac d5\log2000, \frac{c_1d/5+1}{1-0.52}\right\} =186\log10. \tag{74.12}</code> | — | `NOT_YET_FORMALIZED` | Ramaré printed source-range max의 100-dps 진단; directed interval certificate 아님 |
+| 1357 | `74.13` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 186–192 | <code>\mathcal C_{\rm main}^{\rm slice}&gt;8602.03, \qquad \mathcal C_{\rm add}^{\rm slice}&gt;64912.22, \qquad e^{-2}&lt;0.136. \tag{74.13}</code> | — | `NOT_YET_FORMALIZED` | direct slice certificate의 100-dps 진단; 실제 prime error 하한이 아님 |
+| 1358 | `74.14` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 208–214 | <code>10^{88}(10^{421}Q^{99})^{1-\sigma}, \qquad 10^{93}\min\{1,(1-\beta_1)\log Q\} (10^{466}Q^{170})^{1-\sigma} \tag{74.14}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Thorner--Zaman explicit Bombieri source statements; analytic theorem은 Lean 미형식화 |
+| 1359 | `74.15` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 218–221 | <code>99\le186,\qquad170\le186,\qquad198&gt;186. \tag{74.15}</code> | `dep_r09_modern_exponent_gate` | `KERNEL_PASS` | 99,170,198의 d=186 integer capacity 비교를 커널 검증 |
+| 1360 | `74.16` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 233–237 | <code>\sum_{\chi\bmod q}N(\sigma,T,\chi) \le(qT)^{\frac73(1-\sigma)+o(1)} \tag{74.16}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Chen--Gupta--Li arXiv v2 asymptotic source statement; o(1)과 analytic proof 미형식화 |
+| 1361 | `74.17` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 251–256 | <code>x\ge q^{52600},\qquad \varphi(q)\pi_f(x;q,a)\ge \frac{\widehat f(0)x}{210000\log x}. \tag{74.17}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Friedlander--Iwaniec Lemma 7.1 source sieve statement; analytic premise는 미형식화 |
+| 1362 | `74.18` | T74 [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | 260–263 | <code>80\cdot18\cdot52600=75{,}744{,}000. \tag{74.18}</code> | `dep_r09_modern_fi_arithmetic` | `KERNEL_PASS` | 80*18*52600과 coefficient comparison의 exact arithmetic을 커널 검증 |
 
 ## 9. 발견된 원문·작업 오류
 

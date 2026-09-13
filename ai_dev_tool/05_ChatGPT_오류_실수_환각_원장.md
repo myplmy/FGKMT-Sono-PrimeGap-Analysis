@@ -2194,6 +2194,46 @@
   6. Markdown 수식 delimiter 검사는 코드 literal을 포함한 원장 전체에 기계적으로 적용하지
      말고, 새 수식 본문 allowlist에만 적용한다.
 
+### E122 — modern density source-screen의 저자·서지 초안 및 도구 호출 오류
+
+- 분류:
+  <code>PRE_COMMIT_SOURCE_METADATA_DOCUMENT_AND_TOOLING_DRAFT_ERRORS /
+  DETECTED_AND_CORRECTED / NO_SCIENTIFIC_RESULT_AFFECTED</code>.
+- 첫 작업원장 Add File patch는 JavaScript string 안의 Markdown backtick 때문에 parser에서
+  실행 전에 거부됐다. 파일은 생성되지 않았고 정상 `apply_patch`로 다시 만들었다.
+- 초기 source 조회 한 번은 존재하지 않는 예상 test 파일명과 Windows에서 해석되지 않는
+  wildcard 경로를 `rg`에 넘겼다. 조회만 실패했고 명시적 파일 경로로 다시 검사했다.
+- hash 수집용 PowerShell scratch에서 `foreach` block을 직접 pipe해 빈 pipe parser 오류가
+  났다. `$rows`에 결과를 먼저 저장한 뒤 같은 read-only 계산을 성공시켰다.
+- Bellotti 공동연구자의 이름을 초안 machine ledger에서 근거 없이
+  `Daniel R. Johnston Castillo`로 적었다. 공식 연구페이지와 CV를 다시 확인해
+  `Cruz Castillo`로 교정했다. 공개 원고가 없다는 판정에는 영향이 없다.
+- Theory 74 참고문헌 초안에서 Maier 1981을 다른 Maier 논문의 제목으로,
+  McCurley 1984를 다른 서지·DOI로 잘못 적었다. 사용자가 제공한 두 PDF 첫 페이지와
+  기존 hash-pinned source registry를 재대조해 각각 *Chains of Large Gaps between
+  Consecutive Primes*, DOI `10.1016/0001-8708(81)90003-7` 및 *Explicit Zero-Free
+  Regions for Dirichlet L-Functions*, DOI `10.1016/0022-314X(84)90089-1`로 교정했다.
+- local MiKTeX `pdftotext`는 로그파일 접근에 관한 `log4cxx` 경고를 냈지만 native text
+  출력은 정상 생성됐다. 새 네 PDF는 Poppler 렌더 중 Symbol display-font 경고가 있었으나
+  페이지 PNG와 핵심 수식은 온전했다. 경고를 PASS 근거로 무시하지 않고 산출물을 직접 확인했다.
+- METHODS 첫 append는 마지막 문맥을 너무 짧게 지정해 hunk가 적용 전에 거부됐다.
+  실제 tail 두 줄을 다시 읽고 좁은 hunk로 적용했으며 부분 변경은 없었다.
+- Lean generator 첫 호출의 선행 `Get-Content`는 작업 디렉터리가 이미 `lean/`인데 다시
+  `lean/verification/...`을 붙여 조회만 실패했다. 이어진 generator·validator는 정상 경로로
+  PASS했고, 최종에는 올바른 경로로 재검증한다.
+- direct Lean compile의 첫 wrapper는 출력 문자열만 표시해 session id를 보존하지 못했다.
+  동일 compile을 다시 실행해 두 번째 session의 exit 0을 확인했다. 중복 compile은 source나
+  연구 산출물을 변경하지 않는다.
+- 위 오류는 모두 commit 전 발견·교정됐고 source-screen 수치, OPEN 판정, 사용자 데이터에는
+  영향이 없다. `sorry`, `admit`, project-local `axiom`은 사용하지 않았다.
+- 예방:
+  1. 저자·제목·journal·DOI는 검색 결과 요약이 아니라 PDF 첫 페이지와 기존 source registry를
+     함께 대조한 뒤 정본에 넣는다.
+  2. in-preparation 공동저자는 저자 개인의 공식 CV나 연구페이지에서 정확히 확인한다.
+  3. PowerShell에서는 block pipeline과 현재 working directory를 명령 전에 확인한다.
+  4. PDF 변환기의 logging warning과 실제 extraction/render 실패를 exit code·산출물로 구분한다.
+  5. 장시간 session을 호출할 때는 output뿐 아니라 session id와 최종 exit code를 보존한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

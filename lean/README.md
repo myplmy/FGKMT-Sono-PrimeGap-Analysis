@@ -273,3 +273,19 @@ Theory 73 뒤 inventory는 theory 문서 74개, display 1,344식이며 전체 �
 금지 proof escape는 0건이다. 이 형식화는 약 343.38배의 local tightening을 확인하지만,
 \(d=186\) PAP budget보다 여전히 약 \(4.623\times10^{11}\)배 크다. PAP-11,
 DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-14 Theory 74 batch는 modern explicit density 후보의 analytic 정리 자체를
+local axiom으로 넣지 않고, source 대입 뒤 dependency-critical 유한 대수만 검사한다.
+Ramaré (d=186,c_1=1/24,T=Q^5)의 exponent margin `83/93`, additive exponent
+`1/93`, zero-free edge mass `31/20`, Thorner--Zaman exponent 99·170·198의
+capacity 비교와 Friedlander--Iwaniec `80*18*52600=75744000`,
+`1/210000<4/5`가 단일 theory 파일에서 커널 검증된다. Ramaré source theorem과
+unit-slice integral, 다른 후보의 analytic theorem은 source-unformalized 또는
+partial/not-yet 상태로 보존한다.
+
+Theory 74 뒤 inventory는 theory 문서 75개, display 1,362식이며 전체 상태는
+`KERNEL_PASS=90`, `CONDITIONAL_KERNEL_PASS=51`, `DEFINITION_ONLY=64`,
+`PARTIAL_FORMALIZATION=70`, `SOURCE_THEOREM_UNFORMALIZED=67`,
+`NOT_YET_FORMALIZED=1015`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 267개이고
+금지 proof escape는 0건이다. 이 형식화는 선별 후보의 수치 drop-in 실패를 analytic
+불가능성 정리로 바꾸지 않는다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.

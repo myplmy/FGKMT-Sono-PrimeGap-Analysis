@@ -1013,3 +1013,32 @@ DEP-R09·fixed \(2\times10^{-17}\)·\(X_{\rm cert}=\mathrm{OPEN}\)은 변경하�
 다음 gate는 \(d\le186\) actual family에 적용되는 modern explicit near-one density source
 또는 detector·weight·integration 구조를 바꾸는 증명의 정량 비교다. 새 source가 cap을
 통과할 전망을 보이기 전에는 threshold calculator와 장시간 prime 계산을 만들지 않는다.
+
+## 43. 2026-09-14 DEP-R09 modern explicit density source-screen 상태
+
+[theory 74](74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md)는
+Theory 73 이후 식별한 modern 후보를 다음 fail-closed 계약으로 선별했다.
+
+~~~text
+actual primitive family + numerical multiplier + numerical finite cutoff
++ exceptional handling + pointwise PAP transfer + D<=186 coefficient capacity
+~~~
+
+Ramaré 2016은 이 중 source density 상수와 범위는 모두 수치지만, 현재 Gallagher
+kernel에 theorem RHS를 direct nonnegative insertion하면 (d=186,c_1=1/24)의
+source 최소범위에서 한 unit slice만으로 main certificate가 8602, additive certificate가
+64912보다 크다. 이 certificate floor는 (X)와 함께 증가한다. 이는 실제 error의
+하한이나 Ramaré source의 무용성 명제가 아니라 이 direct proof composition의 실패다.
+
+Thorner--Zaman explicit density의 near exponent 99·170은 capacity 안이지만 fixed
+prefactor·exceptional·PAP transfer budget이 닫히지 않았다. uniform PNT 계열은 구조상
+유망하지만 relevant numerical constants와 cutoff가 없다. Friedlander--Iwaniec sieve
+route는 (52600>186), (1/210000<4/5)이고, 미검증 arXiv의 (o(1))과
+in-preparation statement는 승격하지 않았다.
+
+따라서 66개 root row의 상태와 <code>PAP-11=HARD_BLOCKER</code>,
+DEP-R09·fixed (2\times10^{-17})·(X_{\rm cert}=mathrm{OPEN})은 변경하지 않는다.
+이번 판정은 식별한 후보 집합에 한정하며 모든 문헌·hybrid proof를 배제하지 않는다.
+다음 gate는 numerical source watch 또는 smoothing·hybrid minimum·cancellation을
+보존하는 PAP transfer의 coefficient-feasibility 설계다. 이 gate 전에는 threshold
+calculator나 장시간 prime sweep을 실행하지 않는다.

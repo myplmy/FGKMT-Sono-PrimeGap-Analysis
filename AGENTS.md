@@ -34,6 +34,18 @@ Lean declaration 264개, 금지 proof escape 0건이다. 최신 analytic 정본�
 theory 73·review 80이며 다음 gate는 modern explicit near-one density source 또는
 구조적으로 다른 proof의 비교다. PAP-11·DEP-R09·fixed 2e-17·X_cert는 계속 OPEN이다.
 
+2026-09-14 modern source-screen successor는 Ramaré, Thorner--Zaman,
+Kaneko--Thorner, Thorner--Zhang, Friedlander--Iwaniec와 미검증·미공개 후보를
+동일한 (d\le186) PAP 계약에서 비교했다. Ramaré 2016은 fully numerical이지만
+direct nonnegative Gallagher insertion의 unit-slice certificate가 source 시작점부터
+(e^{-2}) budget을 크게 넘고 (X)와 함께 증가한다. 다른 후보는 수치 multiplier·
+cutoff·pointwise transfer가 없거나 exponent·coefficient 범위가 맞지 않았다. 이는
+모든 문헌·hybrid proof의 불가능성 명제가 아니다. Theory 74 뒤 inventory는 75개 문서,
+1,362식이고 `KERNEL_PASS=90`, `CONDITIONAL_KERNEL_PASS=51`,
+`NOT_YET_FORMALIZED=1015`, Lean declaration 267개, 금지 proof escape 0건이다.
+최신 analytic 정본은 theory 74·review 81이다. PAP-11·DEP-R09·fixed 2e-17·
+X_cert는 계속 OPEN이며, 다음 gate 전 장시간 prime 계산은 금지한다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

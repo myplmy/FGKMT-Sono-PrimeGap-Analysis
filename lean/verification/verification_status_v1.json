@@ -2074,6 +2074,96 @@
       "declarations": ["jutila_cj_theta_power_endpoint"]
     },
     {
+      "formula_id": "74.1",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.3",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.4",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_modern_ramare_endpoint_arithmetic"]
+    },
+    {
+      "formula_id": "74.7",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_modern_ramare_endpoint_arithmetic"]
+    },
+    {
+      "formula_id": "74.8",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_modern_ramare_endpoint_arithmetic"]
+    },
+    {
+      "formula_id": "74.9",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.10",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.11",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_modern_ramare_endpoint_arithmetic"]
+    },
+    {
+      "formula_id": "74.12",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.13",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.14",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.15",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_modern_exponent_gate"]
+    },
+    {
+      "formula_id": "74.16",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.17",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "74.18",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_modern_fi_arithmetic"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

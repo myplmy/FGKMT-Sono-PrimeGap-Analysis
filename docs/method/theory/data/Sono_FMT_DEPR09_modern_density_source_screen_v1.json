@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 modern explicit near-one density source screen",
+  "predecessor": "Sono_FMT_DEPR09_CJ_loss_tree_v1.json",
+  "outcome": "NO_IDENTIFIED_NUMERICAL_DROP_IN_AMONG_SCREENED_PUBLIC_CANDIDATES_PASSES_D_LE_186_PAP_GATE",
+  "reading_policy": {
+    "native_text_first": true,
+    "ocr_used": false,
+    "visual_page_check_completed": true,
+    "note": "All four newly acquired PDFs had usable native text. Exact statements, exponents, inequalities and source ranges were compared with rendered pages; no OCR transcription was used."
+  },
+  "target_contract": {
+    "pointwise_lower_bound": "pi(u;q,a)>=C_PAP*u/(phi(q)*log(u))",
+    "modulus_range": "q<=u^(1/D)",
+    "unchanged_downstream_capacity": "D<=186 under M=D and C_PAP<=1",
+    "d_160_minimum_c_pap": "0.8638312615226712472016653696080424379304128166312518652195064677219080976982928276811",
+    "required_error_budget_for_printed_coefficient": "at most exp(-2), before any additional finite loss",
+    "screening_rule": "A candidate must provide the actual primitive family, numerical multiplier, numerical finite cutoff, exceptional handling and a pointwise prime-count transfer."
+  },
+  "source_registry": [
+    {
+      "key": "RAMARE_2016_EXPLICIT_DENSITY",
+      "title": "An explicit density estimate for Dirichlet L-series",
+      "author": "Olivier Ramare",
+      "journal": "Mathematics of Computation 85 (2016), 325-356",
+      "doi": "10.1090/mcom/2991",
+      "official_url": "https://ramare-olivier.github.io/Maths/contenu.html",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_modern_screen_20260914/Ramare_2016_explicit_density.pdf",
+      "audit_copy_sha256": "ffdc82e6b6e635b04160fa6baac18ac6fd095ce4d80093de94585237bc6ec7fb",
+      "audit_copy_bytes": 475173,
+      "page_count": 32,
+      "native_text_bytes": 105547,
+      "rendered_pages_checked": [1, 2],
+      "statements": "Abstract and Theorem 1.1",
+      "classification": "FULLY_NUMERICAL_AVERAGED_DENSITY_BUT_DIRECT_GALLAGHER_INSERTION_FAILS",
+      "reason": "With T=Q^5 the main term retains log(Q^2 T)^(3+2 delta), while the additive 32 Q^2 log(Q^2 T)^2 term leaves a positive X^(2/D) floor."
+    },
+    {
+      "key": "THORNER_ZAMAN_2024_EXPLICIT_BOMBIERI",
+      "title": "An explicit version of Bombieri's log-free density estimate and Sarkozy's theorem for shifted primes",
+      "author": "Jesse Thorner and Asif Zaman",
+      "journal": "Forum Mathematicum 36 (2024), 1059-1080",
+      "arxiv": "2208.11123v4",
+      "doi": "10.1515/forum-2023-0091",
+      "official_url": "https://arxiv.org/abs/2208.11123",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_20260913/Thorner_Zaman_Explicit_Bombieri_LogFree.pdf",
+      "audit_copy_sha256": "64c02753b55698f64625d3c84721303fa61fea7120bca993ffcd907456a104c6",
+      "audit_copy_bytes": 342744,
+      "page_count": 24,
+      "statements": "Theorem 1.2 and Corollary 6.1",
+      "classification": "FULLY_EXPLICIT_LOG_FREE_COMPONENT_BUT_DIRECT_COEFFICIENT_AND_TRANSFER_GATE_FAIL",
+      "constants": {
+        "near_nonexceptional": "10^88*(10^421*Q^99)^(1-sigma)",
+        "near_exceptional_removed": "10^93*min(1,(1-beta1)*log(Q))*(10^466*Q^170)^(1-sigma)",
+        "all_sigma_nonexceptional_exponent": 127,
+        "all_sigma_exceptional_removed_exponent": 198
+      },
+      "reason": "Near exponents 99 and 170 fit below 186, but the fixed prefactors are enormous and no numerical pointwise PAP transfer meeting the exp(-2) budget has been derived. The all-sigma exceptional exponent 198 also exceeds the downstream capacity gate."
+    },
+    {
+      "key": "THORNER_ZAMAN_2024_UNIFORM_PNT_AP",
+      "title": "Refinements to the prime number theorem for arithmetic progressions",
+      "author": "Jesse Thorner and Asif Zaman",
+      "journal": "Mathematische Zeitschrift 306 (2024), Paper 54",
+      "arxiv": "2108.10878v2",
+      "doi": "10.1007/s00209-023-03414-3",
+      "official_url": "https://arxiv.org/abs/2108.10878",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_20260913/Thorner_Zaman_Refinements_PNTAP.pdf",
+      "audit_copy_sha256": "588ec896e0820c3620175b25da58850efbefc67b71227acac1d5c3fa4f6b3b09",
+      "audit_copy_bytes": 228218,
+      "page_count": 11,
+      "statements": "Theorems 1.1, 2.1 and 2.3",
+      "classification": "BEST_PUBLISHED_STRUCTURAL_CANDIDATE_NUMERICAL_CONSTANTS_NOT_PRINTED",
+      "reason": "The needed range is structurally available, but the effective multiplier, decay constant and common cutoff are unnamed rather than numerical."
+    },
+    {
+      "key": "CHEN_GUPTA_LI_2026_DENSITY",
+      "title": "Large value estimates for Dirichlet polynomials, and the density of zeros of Dirichlet's L-functions",
+      "author": "Bin Chen, Vishal Gupta and Yung Chi Li",
+      "arxiv": "2507.08296v2",
+      "official_url": "https://arxiv.org/abs/2507.08296",
+      "publication_status": "UNVERIFIED_ARXIV_PREPRINT_AS_OF_2026-09-14",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_modern_screen_20260914/Bin_Chen_2025_large_values_density.pdf",
+      "audit_copy_sha256": "adfe65cf0952bbb4eddfdaec7a8d3341130e427827f9159d9da039fc16336058",
+      "audit_copy_bytes": 650080,
+      "page_count": 58,
+      "native_text_bytes": 263888,
+      "rendered_pages_checked": [2, 3],
+      "statements": "Theorem 1.2 in the rendered v2 PDF",
+      "classification": "ASYMPTOTIC_EXPONENT_IMPROVEMENT_NOT_A_NUMERICAL_CERTIFICATE",
+      "constants": {
+        "uniform_exponent": "7/3",
+        "smooth_modulus_exponent": "30/13",
+        "unresolved_factor": "(qT)^o(1)"
+      },
+      "reason": "The o(1) factor and its cutoff are not numerical, so the theorem cannot be inserted into a finite X_cert certificate even before pointwise PAP transfer."
+    },
+    {
+      "key": "THORNER_ZHANG_2026_CHEBOTAREV",
+      "title": "A new bound on the relative error in the Chebotarev density theorem",
+      "author": "Jesse Thorner and Zhuo Zhang",
+      "journal": "Forum Mathematicum (published online 2026)",
+      "arxiv": "2412.01802v2",
+      "doi": "10.1515/forum-2025-0281",
+      "official_url": "https://arxiv.org/abs/2412.01802",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_modern_screen_20260914/Thorner_Zhang_2025_Chebotarev_relative_error.pdf",
+      "audit_copy_sha256": "e99f0a78fec436b0e4ea2086047fd47b08a16dba6895d673a31226f89473c3b5",
+      "audit_copy_bytes": 609396,
+      "page_count": 34,
+      "native_text_bytes": 137707,
+      "rendered_pages_checked": [1, 2, 3, 4],
+      "statements": "Introduction, Theorems 1.1-1.2 and Proposition 1.4",
+      "classification": "EFFECTIVELY_COMPUTABLE_BUT_NOT_NUMERICALLY_PRINTED_CHEBOTAREV_ROUTE",
+      "reason": "The relative-error theorem uses unnamed positive effectively computable constants c_i; cyclotomic specialization therefore does not supply the numerical PAP multiplier and cutoff required here."
+    },
+    {
+      "key": "KANEKO_THORNER_2025_HIGHLY_UNIFORM_PNT",
+      "title": "Highly Uniform Prime Number Theorems",
+      "author": "Ikuya Kaneko and Jesse Thorner",
+      "journal": "Annales de l'Institut Fourier (2025)",
+      "arxiv": "2203.09515v2",
+      "doi": "10.5802/aif.3698",
+      "official_url": "https://arxiv.org/abs/2203.09515",
+      "classification": "STRUCTURAL_UNIFORMITY_RESULT_WITH_UNNAMED_EFFECTIVE_CONSTANTS",
+      "reason": "The dependence is effective in principle but not printed as the numerical Dirichlet pointwise PAP package needed for X_cert."
+    },
+    {
+      "key": "FRIEDLANDER_IWANIEC_2023_SIEVE_ROUTE",
+      "title": "Sifting for small primes from an arithmetic progression",
+      "author": "John B. Friedlander and Henryk Iwaniec",
+      "journal": "Science China Mathematics 66 (2023), 2715-2730",
+      "arxiv": "2303.06122",
+      "doi": "10.1007/s11425-022-2123-2",
+      "official_url": "https://arxiv.org/abs/2303.06122",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_modern_screen_20260914/Friedlander_Iwaniec_2023_sifting_small_primes.pdf",
+      "audit_copy_sha256": "c6e6172d2da1a1f1e05032803130a8476887e0f058d205eba913a582778a89ca",
+      "audit_copy_bytes": 240545,
+      "page_count": 23,
+      "native_text_bytes": 57183,
+      "rendered_pages_checked": [20, 21],
+      "statements": "Lemma 7.1, equation (7.2), Theorem 7.2",
+      "classification": "STRUCTURALLY_DIFFERENT_SIEVE_ROUTE_BUT_NUMERICALLY_OUTSIDE_GATE",
+      "constants": {
+        "power_exponent": 52600,
+        "smoothed_lower_coefficient": "1/210000",
+        "linnik_exponent": 75744000
+      },
+      "reason": "The x>=q^52600 range is far outside D<=186, the coefficient is far below the required PAP coefficient, pi_f is smoothed, and the exceptional branch invokes a sister source."
+    },
+    {
+      "key": "BELLOTTI_CASTILLO_DIRICHLET_LOG_FREE_IN_PREPARATION",
+      "title": "An explicit log-free zero density estimate for Dirichlet L-functions",
+      "author": "Chiara Bellotti and Cruz Castillo",
+      "official_url": "https://ccasti30.web.illinois.edu/research.html",
+      "publication_status": "IN_PREPARATION_NO_PUBLIC_THEOREM_IDENTIFIED_AS_OF_2026-09-14",
+      "classification": "WATCHLIST_ONLY",
+      "reason": "The title directly matches the missing component, but no public statement, formula, numerical multiplier or finite cutoff is available to audit."
+    }
+  ],
+  "ramare_direct_insertion": {
+    "source_formula": "20*(56*Q^5*T^3)^delta*log(Q^2*T)^(3+2*delta)+32*Q^2*log(Q^2*T)^2",
+    "normalization": "Q=X^(1/d), T=Q^5, L=log(Q^2*T)=7*log(X)/d",
+    "zero_free_edge": "eta*log(X)=c1*d/5",
+    "main_weighted_term": "20*56^delta*L^(3+2*delta)*exp(-(1-20/d)*delta*log(X))",
+    "additive_weighted_term": "32*L^2*exp((2/d-delta)*log(X))",
+    "unit_slice": "delta in [eta, eta+1/log(X)]",
+    "unit_slice_main_lower": "20*L^3*exp(-(1-20/d)*(c1*d/5+1))",
+    "unit_slice_additive_lower": "32*L^2*exp(2*log(X)/d-(c1*d/5+1))",
+    "d_186_exact": {
+      "main_power_margin": "83/93",
+      "additive_growth_exponent": "1/93",
+      "edge_mass": "31/20"
+    },
+    "source_minimum_log_x_100dps": "428.280827296892497227346410571291742613804876884951773542199",
+    "source_minimum_main_slice_lower_100dps": "8602.030894200528502976661078207712760444865760914727443515",
+    "source_minimum_additive_slice_lower_100dps": "64912.2266697326214940753011394958547817852549523697513144347",
+    "interpretation": "These are lower bounds on the numerical upper certificate obtained by directly integrating the theorem RHS, not lower bounds on the true error. They prove only that theorem-only nonnegative insertion cannot meet exp(-2). Hybrid minima, cancellation or a redesigned transfer are not ruled out.",
+    "direct_insertion_passes_exp_minus_2": false
+  },
+  "finite_arithmetic_checks": {
+    "thorner_zaman_near_99_le_186": true,
+    "thorner_zaman_near_170_le_186": true,
+    "thorner_zaman_all_sigma_198_le_186": false,
+    "bin_chen_o1_numerical": false,
+    "friedlander_iwaniec_52600_le_186": false,
+    "friedlander_iwaniec_1_over_210000_ge_4_over_5": false,
+    "friedlander_iwaniec_factorization": "80*18*52600=75744000"
+  },
+  "proof_boundary": {
+    "proved_or_exactly_replayed": [
+      "Ramare T=Q^5 exponent and logarithmic normalization",
+      "direct unit-slice certificate lower bounds",
+      "d=186 rational exponent margins",
+      "Friedlander-Iwaniec printed exponent arithmetic",
+      "candidate metadata and published theorem-shape classifications"
+    ],
+    "not_proved": [
+      "impossibility of every hybrid or cancellation-based use of Ramare's theorem",
+      "analytic truth of any source theorem inside Lean",
+      "a numerical transfer from modern density estimates to pointwise PAP",
+      "PAP-11, DEP-R09, the fixed Sono coefficient or numerical X_cert"
+    ]
+  },
+  "status_after_this_gate": {
+    "named_modern_candidate_set_screened": true,
+    "all_possible_literature_exhaustively_ruled_out": false,
+    "current_public_numerical_drop_in_found": false,
+    "ramare_direct_nonnegative_insertion_passes": false,
+    "structurally_different_published_sieve_route_passes_d_gate": false,
+    "unverified_asymptotic_exponent_promoted": false,
+    "in_preparation_result_promoted": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "threshold_calculator_ready": false,
+    "numerical_x_cert_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false,
+    "new_dependency_required_now": false,
+    "user_compute_required_now": false
+  },
+  "next_gate": "Do not perform a prime sweep. Preserve a source-watch gate for the Bellotti-Castillo Dirichlet log-free theorem and separately decide whether to invest in a redesigned smoothed or cancellation-based pointwise PAP transfer; ordinary X growth does not repair the screened direct certificates."
+}

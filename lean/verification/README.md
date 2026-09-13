@@ -15,3 +15,11 @@
 - `PARSE_REVIEW_REQUIRED`: Markdown 수식 경계나 식 식별자를 사람이 확인해야 함.
 
 `CONDITIONAL_KERNEL_PASS`는 premise의 진실을 인증하지 않으며 `KERNEL_PASS`로 승격하지 않는다.
+
+2026-09-14 Theory 74 갱신 뒤 전수 inventory는 75개 theory 문서·1,362개 display
+수식·267개 Lean declaration이다. 상태는 `KERNEL_PASS=90`,
+`CONDITIONAL_KERNEL_PASS=51`, `DEFINITION_ONLY=64`,
+`PARTIAL_FORMALIZATION=70`, `SOURCE_THEOREM_UNFORMALIZED=67`,
+`NOT_YET_FORMALIZED=1015`, `PARSE_REVIEW_REQUIRED=5`이며 금지 proof escape는 0건이다.
+modern density source theorem은 local axiom으로 넣지 않았고, (d=186) exponent와
+Friedlander--Iwaniec의 유한 산술만 kernel proof로 추가했다.

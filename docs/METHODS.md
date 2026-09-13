@@ -1777,3 +1777,40 @@ local axiom으로 넣지 않는다. 그러므로 <code>PAP-11</code>, <code>DEP-
 OPEN/NOT READY다. 다음 gate는 \(d\le186\)에서 near integral을 실제 budget 아래로 내릴
 수 있는 modern explicit zero-density source 또는 구조적으로 다른 detector·weight·적분
 합성의 source-first 비교다. 이 gate 전에는 장시간 prime 계산을 실행하지 않는다.
+
+## 2026-09-14 DEP-R09 현대 명시적 zero-density source screen
+
+[theory 74](method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md)와
+[review 81](review/81_20260914_DEPR09_modern_explicit_density_source_screen_타당성검토.md)은
+Theory 73의 구조 병목을 바꿀 수 있는 published·preprint·in-preparation 후보를
+동일한 PAP 입력 계약에서 비교한다. 통과 조건은 actual primitive family,
+numerical multiplier·finite cutoff, exceptional 처리와 pointwise prime-count
+transfer를 모두 갖추는 것이다.
+
+Ramaré 2016 Theorem 1.1은 fully numerical averaged density지만,
+
+\[
+Q=X^{1/d},\qquad T=Q^5,\qquad L=7\log X/d
+\]
+
+를 대입하면 direct Gallagher certificate에 main (L^{3+2\delta})와 additive
+(32Q^2L^2)가 남는다. (d=186,c_1=1/24)의 source 최소범위에서도
+한 unit slice의 certificate 하한은 main 8602, additive 64912보다 크고
+(e^{-2}<0.136)을 통과하지 못한다. 이 값은 실제 error의 하한이 아니라
+해당 theorem RHS를 그대로 양수 적분한 upper-certificate의 하한이다. 다른 bound와의
+minimum, cancellation 또는 redesigned transfer는 배제하지 않는다.
+
+Thorner--Zaman explicit density의 near exponent 99·170은 186 안이지만 큰 fixed
+prefactor와 numerical PAP transfer가 남고, uniform PNT·Kaneko--Thorner·
+Thorner--Zhang은 필요한 상수와 cutoff가 숫자로 인쇄되지 않았다.
+Friedlander--Iwaniec의 다른 sieve route는 (x\ge q^{52600})과 coefficient
+(1/210000) 때문에 현재 gate 밖이다. Chen--Gupta--Li arXiv v2의 exponent 개선은
+((qT)^{o(1)})이 남아 미검증 후보로만 보존하고, Bellotti--Castillo in-preparation
+결과는 공개 statement가 없어 watchlist에 둔다.
+
+따라서 선별한 후보 중 numerical drop-in은 0개이며, 이것을 문헌 전체의 불가능성으로
+해석하지 않는다. <code>PAP-11</code>, <code>DEP-R09</code>, fixed
+(2\times10^{-17}), numerical (X_{\rm cert})와 threshold calculator는 계속
+OPEN/NOT READY다. 다음 단계는 public numerical source watch 또는 smoothing·hybrid
+minimum·cancellation을 보존하는 PAP transfer의 작은 coefficient-feasibility 감사다.
+이전에는 장시간 prime 계산을 실행하지 않는다.

@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 74,
-  "formula_count": 1344,
-  "tagged_formula_count": 814,
+  "theory_count": 75,
+  "formula_count": 1362,
+  "tagged_formula_count": 832,
   "untagged_formula_count": 530,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "d7cfb08f08006981184c787508ff47dd132e713494392a982f9e6c2a9d17a3db",
+      "source_sha256": "b01eba009fb40fdc1b3ee794965213933e5224b9cc346933fb217146b9687537",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680",
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -597,6 +597,14 @@
       "display_formula_count": 33,
       "tagged_formula_count": 29,
       "untagged_formula_count": 4
+    },
+    {
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406",
+      "display_formula_count": 18,
+      "tagged_formula_count": 18,
+      "untagged_formula_count": 0
     }
   ],
   "formulae": [
@@ -888,7 +896,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U002",
@@ -898,7 +906,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U003",
@@ -908,7 +916,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U004",
@@ -918,7 +926,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U005",
@@ -928,7 +936,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U006",
@@ -938,7 +946,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U007",
@@ -948,7 +956,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U008",
@@ -958,7 +966,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U009",
@@ -968,7 +976,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U010",
@@ -978,7 +986,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U011",
@@ -988,7 +996,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U012",
@@ -998,7 +1006,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U013",
@@ -1008,7 +1016,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U014",
@@ -1018,7 +1026,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T12-U015",
@@ -1028,7 +1036,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
+      "source_sha256": "48c195009faf0b406b6b09b4ec65127f7a6be427b70d655d29232f55b95b8f29"
     },
     {
       "formula_id": "T13-U001",
@@ -14039,6 +14047,186 @@
       "tagged": true,
       "latex": "\\theta^{-6}=21^6=85{,}766{,}121\n\\tag{73.29}",
       "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "74.1",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 30,
+      "end_line": 33,
+      "tagged": true,
+      "latex": "\\boxed{\\text{이번에 식별·감사한 공개 후보 중 numerical drop-in 통과 후보는 0개다.}}\n\\tag{74.1}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.2",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 48,
+      "end_line": 53,
+      "tagged": true,
+      "latex": "\\pi(u;q,a)\\ge\n C_{\\rm PAP}\\frac{u}{\\varphi(q)\\log u},\n \\qquad q\\le u^{1/D}\n\\tag{74.2}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.3",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 58,
+      "end_line": 62,
+      "tagged": true,
+      "latex": "C_{\\rm PAP}\\ge\n 0.8638312615226712472\\ldots\n\\tag{74.3}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.4",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 105,
+      "end_line": 113,
+      "tagged": true,
+      "latex": "\\sum_{q\\le Q}\\frac q{\\varphi(q)}\n \\sum_{\\chi\\bmod^{*}q}N(\\sigma,T,\\chi)\n \\le\n 20(56Q^5T^3)^{1-\\sigma}\n \\log^{5-2\\sigma}(Q^2T)\n +32Q^2\\log^2(Q^2T)\n\\tag{74.4}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.5",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 118,
+      "end_line": 123,
+      "tagged": true,
+      "latex": "\\delta=1-\\sigma,\\qquad\n Q=X^{1/d},\\qquad T=Q^5,\\qquad\n L=\\log(Q^2T)=\\frac7d\\log X\n\\tag{74.5}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.6",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 127,
+      "end_line": 132,
+      "tagged": true,
+      "latex": "B_{\\rm main}(\\delta)\n =20\\,56^\\delta L^{3+2\\delta}\n \\exp\\!\\left[-\\left(1-\\frac{20}{d}\\right)\\delta\\log X\\right],\n\\tag{74.6}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.7",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 134,
+      "end_line": 138,
+      "tagged": true,
+      "latex": "B_{\\rm add}(\\delta)\n =32L^2\\exp\\!\\left[\\left(\\frac2d-\\delta\\right)\\log X\\right].\n\\tag{74.7}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.8",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 142,
+      "end_line": 145,
+      "tagged": true,
+      "latex": "\\eta\\log X=\\frac{c_1d}{5}.\n\\tag{74.8}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.9",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 151,
+      "end_line": 156,
+      "tagged": true,
+      "latex": "\\mathcal C_{\\rm main}^{\\rm slice}\\ge\n 20L^3\\exp\\!\\left[-\\left(1-\\frac{20}{d}\\right)\n \\left(\\frac{c_1d}{5}+1\\right)\\right],\n\\tag{74.9}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.10",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 158,
+      "end_line": 163,
+      "tagged": true,
+      "latex": "\\mathcal C_{\\rm add}^{\\rm slice}\\ge\n 32L^2\\exp\\!\\left[\\frac{2\\log X}{d}\n -\\left(\\frac{c_1d}{5}+1\\right)\\right].\n\\tag{74.10}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.11",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 167,
+      "end_line": 172,
+      "tagged": true,
+      "latex": "1-\\frac{20}{d}=\\frac{83}{93},\\qquad\n \\frac2d=\\frac1{93},\\qquad\n \\frac{c_1d}{5}=\\frac{31}{20}.\n\\tag{74.11}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.12",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 176,
+      "end_line": 182,
+      "tagged": true,
+      "latex": "\\log X\\ge\n \\max\\!\\left\\{d\\log10,\\frac d5\\log2000,\n \\frac{c_1d/5+1}{1-0.52}\\right\\}\n =186\\log10.\n\\tag{74.12}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.13",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 186,
+      "end_line": 192,
+      "tagged": true,
+      "latex": "\\mathcal C_{\\rm main}^{\\rm slice}>8602.03,\n \\qquad\n \\mathcal C_{\\rm add}^{\\rm slice}>64912.22,\n \\qquad e^{-2}<0.136.\n\\tag{74.13}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.14",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 208,
+      "end_line": 214,
+      "tagged": true,
+      "latex": "10^{88}(10^{421}Q^{99})^{1-\\sigma},\n \\qquad\n 10^{93}\\min\\{1,(1-\\beta_1)\\log Q\\}\n (10^{466}Q^{170})^{1-\\sigma}\n\\tag{74.14}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.15",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 218,
+      "end_line": 221,
+      "tagged": true,
+      "latex": "99\\le186,\\qquad170\\le186,\\qquad198>186.\n\\tag{74.15}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.16",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 233,
+      "end_line": 237,
+      "tagged": true,
+      "latex": "\\sum_{\\chi\\bmod q}N(\\sigma,T,\\chi)\n \\le(qT)^{\\frac73(1-\\sigma)+o(1)}\n\\tag{74.16}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.17",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 251,
+      "end_line": 256,
+      "tagged": true,
+      "latex": "x\\ge q^{52600},\\qquad\n \\varphi(q)\\pi_f(x;q,a)\\ge\n \\frac{\\widehat f(0)x}{210000\\log x}.\n\\tag{74.17}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
+    },
+    {
+      "formula_id": "74.18",
+      "theory": "74",
+      "source_file": "docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md",
+      "start_line": 260,
+      "end_line": 263,
+      "tagged": true,
+      "latex": "80\\cdot18\\cdot52600=75{,}744{,}000.\n\\tag{74.18}",
+      "source_sha256": "636bbc4bac58f7f6641f9c82f1b2dc86d2842f75e8235d25cbb70a7657cd8406"
     }
   ],
   "issues": [],
