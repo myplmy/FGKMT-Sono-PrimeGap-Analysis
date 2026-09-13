@@ -1505,3 +1505,47 @@ Theory 67 뒤 Lean inventory는 theory 문서 68개, display 1,208식이다. 전
 `PARTIAL_FORMALIZATION=35`, `SOURCE_THEOREM_UNFORMALIZED=51`,
 `NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 192개,
 금지 proof escape 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila JL7 Lemma 3 absolute-sum multiplier
+
+[theory 68](method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md)과
+[review 75](review/75_20260913_DEPR09_Jutila_JL7_Lemma3_absolute_sum_타당성검토.md)는
+Jutila printed pp.48--49 Lemmas 2--3과 p.53 actual 호출을 source-first로 복원한다.
+actual \(f(p)=\mu(p)\varphi(p)=-(p-1)\)에서 local coefficient는 한 outer 변수에만
+있는 소수에 \(-p\), 두 변수에 공통인 소수에 \(p(p-2)\)다. 따라서
+
+\[
+ \sum_d|h(d;r,r')|
+ =\prod_{p\mid r\triangle r'}(p+1)
+  \prod_{p\mid(r,r')}(p-1)^2.
+\]
+
+공통 \(p=2\)는 nonconstant coefficient가 0이고 local 합이 1이므로 별도 누락하지
+않는다. Jutila의 printed product bound를 사용하고 \(K=\lfloor R\rfloor\)에서
+
+\[
+ \sum_{n\le K}\sum_{d\mid n}\frac1d
+ =\sum_{d\le K}\frac{\lfloor K/d\rfloor}{d}
+ \le K\sum_{d\le K}\frac1{d^2}<\frac53K
+\]
+
+를 적용하면 actual outer absolute sum은 \(3R^2\)보다 작다. 따라서 Theory 67과
+합친 calculator-safe coefficient는
+
+\[
+ \overline C_{\rm CONT+L3}(\theta)
+ =144\left(1+\frac1\theta\right)\left(\frac2\theta+1\right),
+ \qquad
+ \overline C_{\rm CONT+L3}(1/21)=136224.
+\]
+
+`JL7-LEMMA3=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이지만 principal residue,
+repeated-height row sum, strict absorption, averaged replay는 남아 있다. 따라서
+terminal density, PAP-11, DEP-R09, fixed `2e-17`, numerical `X_cert`와 threshold
+calculator는 계속 OPEN/NOT READY다. 다음 source-first gate는 `JL7-RES`다.
+
+Theory 68 뒤 Lean inventory는 theory 문서 69개, display 1,226식이다. 전체 상태는
+`KERNEL_PASS=63`, `CONDITIONAL_KERNEL_PASS=35`, `DEFINITION_ONLY=35`,
+`PARTIAL_FORMALIZATION=41`, `SOURCE_THEOREM_UNFORMALIZED=52`,
+`NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 205개,
+금지 proof escape 0건이다.

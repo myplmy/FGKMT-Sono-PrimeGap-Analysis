@@ -310,10 +310,9 @@ source statement를 premise로 받은 finite composition과 범위 오류 방지
 
 ## 12. 다음 우선순위
 
-다음은 `JL7-LEMMA3`다. Jutila Lemma 3의 actual (f(n)=\mu(n)\varphi(n)) local factor를
-직접 전개해 (h(d;r,r')) support와 절대합을 exact Euler product로 복원한 뒤, (r,r'\le R)
-endpoint까지 숫자로 합성해야 한다. 이 단계에도 맞는 explicit 선행 source가 있는지 먼저
-찾고, 없을 때만 원문의 짧은 proof를 actual input에 맞춰 직접 유한화한다.
+이 문서 작성 당시 다음 gate였던 `JL7-LEMMA3`는 [Theory 68](68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md)에서
+`H_q(R)<3R^2`로 닫혔다. 최신 다음 gate는 `JL7-RES`의 principal residue·대각 조건·
+같은 character의 height row-sum multiplier를 source-first로 복원하는 일이다.
 
 ## 13. 참고문헌
 

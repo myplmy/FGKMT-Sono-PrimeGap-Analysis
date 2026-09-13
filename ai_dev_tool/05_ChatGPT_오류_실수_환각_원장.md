@@ -1916,6 +1916,52 @@
   4. 같은 검증 단계의 첫 명령이 실패하면 후속 출력이 있더라도 전체 PASS로 묶지 않고,
      실패 원인을 기록한 뒤 올바른 경로에서 독립 재실행한다.
 
+### E116 — JL7-LEMMA3 source 도구 추정·초안 key·patch 문맥 불일치
+
+- 분류:
+  `PRE_COMMIT_TOOLING_AND_DRAFT_ERRORS / DETECTED_AND_CORRECTED /
+  NO_SCIENTIFIC_RESULT_AFFECTED`.
+- Motohashi PDF native text를 읽을 때 workspace dependency가 반환한 bundled Poppler 경로에
+  `pdftotext.exe`도 있을 것으로 먼저 가정했으나 실제로는 없었다. 이 실패 출력은 source
+  증거로 사용하지 않았다. 설치된 MiKTeX `pdftotext.exe`로 다시 추출하고, Adobe-Japan1
+  font-map warning 때문에 printed p.816 렌더링 원페이지와 수식을 대조했다.
+- machine JSON 초안의 `rendered_printed_pages_checked` key에 임시 공백이 들어갔으나 strict
+  JSON·schema 검증 전에 발견해 즉시 교정했다. 잘못된 key를 provenance 판정에 사용하지
+  않았다.
+- 상위 요약·handoff patch의 JavaScript 일반 문자열에서 인라인 수식 구분자 `\(`, `\)`의
+  backslash가 소실돼 `(p)`, `(3R^2)`처럼 일반 괄호로 보이는 E107 계열 서식 오류가
+  재발했다. display 수식과 수치에는 영향이 없었고 정적 TeX 검색에서 commit 전에 발견해
+  모든 신규 단락의 인라인 delimiter를 복구했다.
+- Lean finite divisor proof는 별도 scratch에서 타입·분수 정규형을 순차 교정한 뒤 direct
+  compile PASS를 확인하고 단일 정본 파일로 옮겼다. scratch는 commit 전에 삭제했고,
+  `sorry`, `admit`, project-local `axiom`은 사용하지 않았다.
+- Lean README와 작업원장의 첫 일괄 `apply_patch`는 예상 문맥이 실제 tail과 달라 적용 전에
+  거부됐다. 정확한 파일 끝을 다시 읽고 작은 patch로 적용했다. 이는 과거 sandbox patch
+  장애의 재발이 아니며 대상 파일을 부분 손상시키지 않았다.
+- `git status --short --ignored`를 좁은 경로 확인에 사용하면서 기존 ACL 제한
+  `tmp/tmp*` 디렉터리를 대량 순회해 access-warning을 만들었다. 이 출력은 상태 판정에
+  사용하지 않고 `git check-ignore`와 평범한 `git status --short`로 다시 확인했다.
+- direct Lean compile과 `lake build`를 한 30초 호출에 묶어 tool wrapper가 child session
+  ID를 표면에 남기지 못했다. `Get-CimInstance` 확인도 권한 거부됐지만, 비파괴적인
+  `Get-Process`로 실행 중임을 확인하고 종료를 기다렸다. 완료 뒤 cached `lake build`를
+  독립 재실행해 `Build completed successfully (8765 jobs)`, exit 0을 확보했다.
+- 첫 staged 감사에서 `git diff --cached --check` 뒤에 stat/status 명령을 연이어 실행해
+  세 신규 파일의 `new blank line at EOF` 경고가 있었는데도 shell 전체 종료코드는 0이었다.
+  경고를 PASS로 취급하지 않고 세 EOF 빈 줄을 제거한 뒤 staged check를 단독 재실행해
+  exit 0을 확인했다.
+- 영향: actual prime 계산과 threshold calculator는 실행하지 않았고, numerical
+  `X_cert`, fixed `2e-17`, PAP 또는 terminal density를 승격하지 않았다. 최종 판정은
+  교정된 source hash, 렌더링 대조, exact Python test, Lean kernel 검증에만 의존한다.
+- 예방:
+  1. dependency runtime의 디렉터리 이름만 보고 개별 executable 존재를 가정하지 않고
+     `Test-Path`/`Get-Command`로 먼저 확인한다.
+  2. 새 machine-ledger key는 strict parser와 표적 test로 즉시 고정한다.
+  3. 긴 문서 patch는 적용 직전에 짧은 tail을 읽고 독립 hunk로 나눈다.
+  4. scratch proof는 canonical 단일 파일 direct compile 뒤 삭제 여부를 `git status`로 확인한다.
+  5. ignored tree 전수 status와 Lean compile+build 묶음 호출을 피하고, 좁은 경로·단계별
+     명령으로 종료코드를 각각 확보한다.
+  6. `git diff --check`와 `git diff --cached --check`는 뒤 명령과 묶지 않고 단독 실행한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

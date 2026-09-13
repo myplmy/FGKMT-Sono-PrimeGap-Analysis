@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-13 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 68개
-- 전수 단위: Markdown fenced code 밖 display math 1,208개
-- 원래 식번호: 691개, 합성 ID 무번호식: 517개
+- 원문 범위: `docs/method/theory/*.md` 69개
+- 전수 단위: Markdown fenced code 밖 display math 1,226개
+- 원래 식번호: 704개, 합성 ID 무번호식: 522개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,11 +62,11 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 61 |
-| `CONDITIONAL_KERNEL_PASS` | 31 |
-| `DEFINITION_ONLY` | 30 |
-| `PARTIAL_FORMALIZATION` | 35 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 51 |
+| `KERNEL_PASS` | 63 |
+| `CONDITIONAL_KERNEL_PASS` | 35 |
+| `DEFINITION_ONLY` | 35 |
+| `PARTIAL_FORMALIZATION` | 41 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 52 |
 | `NOT_YET_FORMALIZED` | 995 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `7618d5548d532e6b…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `8111c56a493a38e7…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `46c71dd99e4df41c…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `6b3f0efaa37a2be5…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -143,8 +143,9 @@
 | 63 | [63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md](../docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md) | `fc490cfe72c2af08…` | 15 | 13 | 2 | 12 |
 | 64 | [64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md](../docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md) | `3e305f5bb238cdb4…` | 23 | 23 | 0 | 16 |
 | 65 | [65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md](../docs/method/theory/65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md) | `eeb93afd56cf2aee…` | 21 | 21 | 0 | 20 |
-| 66 | [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | `0beb062f3fef63a5…` | 20 | 20 | 0 | 20 |
-| 67 | [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | `83b7e020325ae8ab…` | 25 | 18 | 7 | 25 |
+| 66 | [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | `2eb7fa38dc7033ab…` | 20 | 20 | 0 | 20 |
+| 67 | [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | `37f13fb2ed2f00eb…` | 25 | 18 | 7 | 25 |
+| 68 | [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | `7bb008547eea97b6…` | 18 | 13 | 5 | 18 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1364,6 +1365,24 @@
 | 1206 | `67.14` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 246–251 | <code>\int_{-\infty}^{\infty} \sqrt{1+&#124;y&#124;}\,&#124;\Gamma(-1+\theta+iy)&#124;\,dy \le8\sqrt2\left(\frac2\theta+1\right). \tag{67.14}</code> | `jutila_jl6_gamma_integral_budget_identity` | `PARTIAL_FORMALIZATION` | Gamma split의 finite coefficient identity만 커널 검증; complex improper integral은 부분형식화 |
 | 1207 | `67.16` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 259–265 | <code>\zeta(1+\theta) =\sum_{n\ge1}n^{-1-\theta} \le1+\int_1^\infty t^{-1-\theta}\,dt =1+\frac1\theta. \tag{67.16}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Riemann zeta 급수 integral-test 상계; source/direct proof는 Lean 미형식화 |
 | 1208 | `67.18` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 270–275 | <code>C_{\rm CONT}(1/21) \approx40102.3459386232,\qquad \overline C_{\rm CONT}(1/21)=45408. \tag{67.18}</code> | `jutila_jl7_elementary_endpoint` | `PARTIAL_FORMALIZATION` | elementary endpoint 45408은 커널 검증; zeta 포함 decimal은 비구간 수치진단이라 부분형식화 |
+| 1209 | `68.1` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 15–21 | <code>{\cal H}_q(R)= \sum_{\substack{r,r'\le R\\r,r'\ {\rm squarefree}\\ (rr',q)=1}} \frac1{rr'}\sum_{d\ge1}&#124;h(d;r,r')&#124; \tag{68.1}</code> | — | `DEFINITION_ONLY` | actual primed outer absolute-sum 함수 정의 |
+| 1210 | `68.2` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 26–29 | <code>\boxed{{\cal H}_q(R)&lt;3R^2} \tag{68.2}</code> | `jutila_jl7_pair_envelope; jutila_jl7_floor_endpoint` | `CONDITIONAL_KERNEL_PASS` | Jutila Lemma 3와 one-variable envelope를 premise로 받은 3R^2 종단 대수는 조건부 커널 검증 |
+| 1211 | `68.3` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 60–67 | <code>\prod_{\substack{p\mid rr'\\p\nmid(r,r')}} \{1+(f(p)-1)p^{-s}\} \prod_{p\mid(r,r')} \{1+(f(p)^2-1)p^{-s}\} =\sum_{d\ge1}h(d;r,r')d^{-s} \tag{68.3}</code> | — | `DEFINITION_ONLY` | Jutila Lemma 2의 h Euler-product 정의 전사 |
+| 1212 | `T68-U001` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 71–73 | <code>f(p)=\mu(p)\varphi(p)=-(p-1).</code> | — | `DEFINITION_ONLY` | actual f(p)=mu(p)phi(p)=-(p-1) 특수화 전사 |
+| 1213 | `T68-U002` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 84–86 | <code>d\le {\rm lcm}(r,r')\le rr'\le \lfloor R\rfloor^2.</code> | — | `PARTIAL_FORMALIZATION` | squarefree lcm support와 floor endpoint는 문서·exact Python 검산; 전체 prime-factor induction 미형식화 |
+| 1214 | `68.4` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 90–96 | <code>\sum_d&#124;h(d;r,r')&#124; = \prod_{p\mid r\triangle r'}(p+1) \prod_{p\mid(r,r')}(p-1)^2. \tag{68.4}</code> | `jutila_jl7_local_exclusive; jutila_jl7_local_common` | `PARTIAL_FORMALIZATION` | exclusive/common local 절댓값 대수는 커널 검증; 전체 Euler-product 곱셈은 부분형식화 |
+| 1215 | `68.5` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 104–109 | <code>\sum_d&#124;h(d;r,r')&#124; \le \prod_{p\mid r}(p+1)\prod_{p\mid r'}(p+1) \tag{68.5}</code> | `jutila_jl7_local_common_le_printed` | `PARTIAL_FORMALIZATION` | 공통소수 local printed bound는 커널 검증; Jutila Lemma 3 전체는 source theorem 미형식화 |
+| 1216 | `68.6` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 113–117 | <code>\sum_d\frac{h(d;r,r')}{d} =\delta_{r,r'}\varphi(r). \tag{68.6}</code> | `jutila_jl7_reciprocal_exclusive; jutila_jl7_reciprocal_common` | `PARTIAL_FORMALIZATION` | exclusive/common reciprocal local factor는 커널 검증; delta identity 전체 prime-factor induction은 부분형식화 |
+| 1217 | `68.7` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 127–133 | <code>a(r)=\frac1r\prod_{p\mid r}(p+1) =\prod_{p\mid r}\left(1+\frac1p\right), \qquad A_q(K)=\sum_{\substack{r\le K\\r\ {\rm squarefree}\\ (r,q)=1}}a(r). \tag{68.7}</code> | — | `DEFINITION_ONLY` | one-variable outer weight와 합의 정의 |
+| 1218 | `68.8` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 137–140 | <code>{\cal H}_q(R)\le A_q(K)^2. \tag{68.8}</code> | `jutila_jl7_pair_envelope` | `CONDITIONAL_KERNEL_PASS` | Jutila printed product bound를 premise로 한 Cartesian-square 합성; finite family 전체는 Lean 미형식화 |
+| 1219 | `T68-U003` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 148–150 | <code>a(r)=\sum_{d\mid r}\frac1d.</code> | — | `PARTIAL_FORMALIZATION` | squarefree divisor identity는 문서·exact Python 검산; prime-factor induction 미형식화 |
+| 1220 | `68.9` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 154–162 | <code>\begin{aligned} A_q(K) &amp;\le \sum_{n\le K}\sum_{d\mid n}\frac1d\\ &amp;=\sum_{d\le K}\frac{\lfloor K/d\rfloor}{d}\\ &amp;\le K\sum_{d\le K}\frac1{d^2}. \end{aligned} \tag{68.9}</code> | `jutila_jl7_divisor_double_count; jutila_jl7_divisor_envelope_le_reciprocal_square` | `PARTIAL_FORMALIZATION` | finite divisor double-count와 floor(K/d)/d 상계는 커널 검증; actual subset-extension은 부분형식화 |
+| 1221 | `68.10` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 166–171 | <code>\sum_{d\le K}\frac1{d^2} \le\frac{\pi^2}{6} &lt;\frac53. \tag{68.10}</code> | `jutila_jl7_basel_partial_lt_five_thirds; jutila_jl7_divisor_envelope_lt_five_thirds` | `KERNEL_PASS` | Mathlib zeta(2) identity와 pi<3.15에서 finite reciprocal-square sum<5/3을 커널 검증 |
+| 1222 | `T68-U004` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 175–178 | <code>A_q(K)&lt;\frac53K,\qquad {\cal H}_q(R)&lt;\frac{25}{9}K^2&lt;3K^2\le3R^2,</code> | `jutila_jl7_pair_envelope; jutila_jl7_floor_endpoint` | `CONDITIONAL_KERNEL_PASS` | one-variable 5K/3 premise에서 pair 3K^2 및 floor endpoint 합성을 조건부 커널 검증 |
+| 1223 | `T68-U005` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 192–195 | <code>&#124;I_d(s,\chi)&#124; \le C_{\rm CONT}(\theta)\sqrt{qT}(M/d)^{-1+\theta}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Theory 67 shifted-contour source/conditional 결과의 재사용 |
+| 1224 | `68.11` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 199–202 | <code>C_{\rm CONT+L3}(\theta)=3C_{\rm CONT}(\theta). \tag{68.11}</code> | — | `DEFINITION_ONLY` | contour와 Lemma 3 multiplier 합성 정의 |
+| 1225 | `68.12` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 206–212 | <code>\boxed{ \overline C_{\rm CONT+L3}(\theta) =144\left(1+\frac1\theta\right) \left(\frac2\theta+1\right)} \tag{68.12}</code> | `jutila_jl7_contour_lemma3_combined_coefficient` | `CONDITIONAL_KERNEL_PASS` | Theory 67 elementary contour 상계 이후 factor 3 coefficient 항등식을 조건부 커널 검증 |
+| 1226 | `68.13` | T68 [68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md](../docs/method/theory/68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md) | 216–219 | <code>\overline C_{\rm CONT+L3}(1/21)=136224. \tag{68.13}</code> | `jutila_jl7_contour_lemma3_endpoint` | `KERNEL_PASS` | theta=1/21의 exact endpoint 136224를 커널 검증 |
 
 ## 9. 발견된 원문·작업 오류
 

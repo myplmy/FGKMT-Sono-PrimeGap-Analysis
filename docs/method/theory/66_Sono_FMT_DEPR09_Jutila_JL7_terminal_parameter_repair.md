@@ -308,8 +308,9 @@ PAP-11 / DEP-R09 / fixed 2e-17 / X_cert   = OPEN / OPEN / NOT CERTIFIED / OPEN
 threshold calculator                      = NOT READY
 ```
 
-이 문서 작성 당시 다음 우선순위였던 `JL7-CONT`는 Theory 67에서 완료됐다. 최신 순서는
-`JL7-LEMMA3`, `JL7-RES`, `JL7-ABSORB`, 마지막으로 averaged 식 (3.7)이다.
+이 문서 작성 당시 다음 우선순위였던 `JL7-CONT`는 Theory 67에서,
+`JL7-LEMMA3`는 Theory 68에서 완료됐다. 최신 순서는 `JL7-RES`, `JL7-ABSORB`,
+마지막으로 averaged 식 (3.7)이다.
 
 이번 단계에는 장시간 CPU 계산, 새 Python package, actual prime 데이터가 필요하지 않다.
 

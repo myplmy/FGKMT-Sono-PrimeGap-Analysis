@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila JL7-LEMMA3 absolute h-sum and endpoint composition",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_JL7_contour_v1.json",
+  "outcome": "JL7_LEMMA3_ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT_REMAINING_RESIDUE_AND_TERMINAL_NODES_OPEN",
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "author": "Matti Jutila",
+      "journal": "Mathematica Scandinavica 41 (1977), 45-62",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [48, 49, 53],
+      "statements": "Lemmas 2-3 and the Lemma 3 off-diagonal call on printed p.53",
+      "classification": "ORIGINAL_EXACT_SOURCE_STATEMENT_AND_ACTUAL_CALL"
+    },
+    {
+      "key": "MOTOHASHI_1975",
+      "title": "On a Density Theorem of Linntik",
+      "author": "Yoichi Motohashi",
+      "journal": "Proceedings of the Japan Academy 51 Supplement (1975), 815-817",
+      "doi": "10.2183/pjab1945.51.Supplemnt_815",
+      "url": "https://www.jstage.jst.go.jp/article/pjab1945/51/Supplemnt/51_Supplemnt_815/_article/-char/en",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jl7_lemma3_20260913/Motohashi_1975_On_a_Density_Theorem_of_Linnik.pdf",
+      "audit_copy_sha256": "f4502e49ebbf31a6468bc0400b08ee332fc35b177926463fd3bb4e7bed92cfc9",
+      "audit_copy_bytes": 199429,
+      "page_count": 3,
+      "native_text_bytes": 7117,
+      "reading_mode": "NATIVE_TEXT_WITH_ADOBE_JAPAN1_FONTMAP_WARNINGS_AND_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [816],
+      "statements": "Lemmas 1-2, especially the same product_(p|r)(p+1) product_(p|r-prime)(p+1) local loss",
+      "classification": "PEER_REVIEWED_PROVENANCE_CORROBORATION_NOT_A_STRONGER_DROPIN"
+    }
+  ],
+  "actual_scope": {
+    "R": "R=D^theta>1 in Jutila equation (3.6)",
+    "endpoint": "K=floor(R), so the integer sums are 1<=r,r-prime<=K",
+    "primed_sum": "r and r-prime are positive square-free integers coprime to q",
+    "h_support": "square-free divisors of lcm(r,r-prime), hence d<=lcm(r,r-prime)<=r*r-prime<=K^2",
+    "target": "H_q(R)=sum'_(r,r-prime<=R) (r*r-prime)^(-1) sum_d |h(d;r,r-prime)|"
+  },
+  "exact_local_factor": {
+    "f_at_prime": "f(p)=mu(p)*phi(p)=-(p-1)",
+    "prime_in_exactly_one_input": "1-p*p^(-s), so the nonconstant h coefficient is -p",
+    "prime_in_both_inputs": "1+p*(p-2)*p^(-s), so the nonconstant h coefficient is p*(p-2)",
+    "absolute_sum_exact": "product_(p|r symmetric_difference r-prime)(p+1) * product_(p|gcd(r,r-prime))(p-1)^2",
+    "printed_bound": "sum_d |h(d;r,r-prime)| <= product_(p|r)(p+1) product_(p|r-prime)(p+1)",
+    "reciprocal_identity": "sum_d h(d;r,r-prime)/d = delta_(r,r-prime)*phi(r)",
+    "status": "EXACT_FINITE_LOCAL_ALGEBRA"
+  },
+  "outer_sum_composition": {
+    "outer_weight": "a(r)=product_(p|r)(1+1/p)=sum_(d|r)1/d for square-free r",
+    "actual_outer_sum": "A_q(K)=sum'_(r<=K) a(r)",
+    "subset_extension": "A_q(K)<=sum_(n<=K)sum_(d|n)1/d",
+    "finite_double_count": "sum_(n<=K)sum_(d|n)1/d=sum_(d<=K)floor(K/d)/d",
+    "floor_bound": "sum_(d<=K)floor(K/d)/d<=K*sum_(d<=K)1/d^2",
+    "basel_bound": "sum_(d<=K)1/d^2<=pi^2/6<5/3, using pi<3.15",
+    "outer_result": "A_q(K)<(5/3)K",
+    "pair_factorization": "H_q(R)<=A_q(K)^2",
+    "pair_result": "H_q(R)<(25/9)K^2<3K^2<=3R^2",
+    "calculator_safe_multiplier": 3,
+    "new_finite_cutoff": "none beyond K>=1; actual R=D^theta>1 already supplies it",
+    "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+  },
+  "lean_scope": {
+    "source_lemma3_analytic_statement_formalized": false,
+    "exact_h_euler_product_fully_formalized": false,
+    "finite_divisor_double_count_formalized": true,
+    "basel_partial_sum_majorant_formalized": true,
+    "outer_to_pair_coefficient_composition_formalized": true,
+    "local_factor_real_arithmetic_formalized": true,
+    "classification": "SOURCE_THEOREM_UNFORMALIZED_PLUS_KERNEL_VERIFIED_FINITE_COEFFICIENT_ALGEBRA"
+  },
+  "remaining_terminal_nodes": [
+    {
+      "id": "JL7-RES",
+      "status": "HARD_BLOCKER",
+      "remaining": "principal residue, exact diagonal restriction and repeated-character height row sum"
+    },
+    {
+      "id": "JL7-ABSORB",
+      "status": "HARD_BLOCKER",
+      "remaining": "insert contour, Lemma 3 and residue constants and prove a common strict A>E cutoff"
+    },
+    {
+      "id": "JL7-AVERAGED",
+      "status": "HARD_BLOCKER",
+      "remaining": "variable-modulus primitive-character replay of equation (3.7)"
+    }
+  ],
+  "contour_multiplier_explicit": true,
+  "jutila_lemma3_multiplier_explicit": true,
+  "residue_well_spacing_multiplier_explicit": false,
+  "terminal_density_closed": false,
+  "averaged_primitive_density_closed": false,
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "new_dependency_required_now": false,
+  "user_compute_required_now": false,
+  "next_gate": "JL7-RES: recover the principal residue, diagonal condition and repeated-character height row-sum multiplier before terminal absorption"
+}

@@ -177,3 +177,18 @@ complex contour 이동, Gamma improper integral, zeta integral test 전체는 lo
 `PARTIAL_FORMALIZATION=35`, `SOURCE_THEOREM_UNFORMALIZED=51`,
 `NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 192개이고 금지
 proof escape는 0건이다.
+
+2026-09-13 Theory 68 batch는 Jutila JL7 Lemma 3의 actual finite absolute-sum
+component를 추가했다. exclusive/common-prime local 계수와 공통 \(p=2\), reciprocal
+local identity, finite divisor double-count, floor termwise bound, finite Basel
+partial sum \(<5/3\), pair envelope \(<3R^2\), contour 결합 coefficient와
+`theta=1/21` endpoint `136224`를 단일 파일에서 검사한다. Jutila Lemma 3 전체
+multiplicative-function proof와 Euler-product finite-prime induction은 local axiom으로
+가정하지 않고 source-unformalized 또는 partial로 보존한다. 따라서
+`JL7-LEMMA3=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이라는 문서 합성만 지원하며,
+`JL7-RES/ABSORB/AVERAGED`, terminal density, PAP-11, DEP-R09, fixed `2e-17`,
+`X_cert`는 OPEN이다. Theory 68 뒤 inventory는 theory 문서 69개, display 1,226식이며
+전체 상태는 `KERNEL_PASS=63`, `CONDITIONAL_KERNEL_PASS=35`, `DEFINITION_ONLY=35`,
+`PARTIAL_FORMALIZATION=41`, `SOURCE_THEOREM_UNFORMALIZED=52`,
+`NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 205개이고 금지
+proof escape는 0건이다.

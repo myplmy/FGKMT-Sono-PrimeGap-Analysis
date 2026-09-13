@@ -1281,6 +1281,114 @@
       "declarations": ["jutila_jl7_elementary_endpoint"]
     },
     {
+      "formula_id": "68.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "68.2",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_pair_envelope",
+        "jutila_jl7_floor_endpoint"
+      ]
+    },
+    {
+      "formula_id": "68.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "T68-U001",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "T68-U002",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "68.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl7_local_exclusive",
+        "jutila_jl7_local_common"
+      ]
+    },
+    {
+      "formula_id": "68.5",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_local_common_le_printed"]
+    },
+    {
+      "formula_id": "68.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl7_reciprocal_exclusive",
+        "jutila_jl7_reciprocal_common"
+      ]
+    },
+    {
+      "formula_id": "68.7",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "68.8",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_jl7_pair_envelope"]
+    },
+    {
+      "formula_id": "T68-U003",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "68.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_jl7_divisor_double_count",
+        "jutila_jl7_divisor_envelope_le_reciprocal_square"
+      ]
+    },
+    {
+      "formula_id": "68.10",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_basel_partial_lt_five_thirds",
+        "jutila_jl7_divisor_envelope_lt_five_thirds"
+      ]
+    },
+    {
+      "formula_id": "T68-U004",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_pair_envelope",
+        "jutila_jl7_floor_endpoint"
+      ]
+    },
+    {
+      "formula_id": "T68-U005",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "68.11",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "68.12",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_jl7_contour_lemma3_combined_coefficient"]
+    },
+    {
+      "formula_id": "68.13",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl7_contour_lemma3_endpoint"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

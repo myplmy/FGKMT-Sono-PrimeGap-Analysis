@@ -2365,4 +2365,133 @@ theorem jutila_jl7_elementary_endpoint :
     (48 : ℝ) * (1 + 1 / (1 / 21)) * (2 / (1 / 21) + 1) = 45408 := by
   norm_num
 
+/-! ## Theory 68 — Jutila JL7 Lemma 3 absolute-sum multiplier -/
+
+/- Theory 68, formula 68.10: every finite reciprocal-square partial sum is
+   below 5/3.  Mathlib's zeta(2) identity and pi < 3.15 are the only inputs. -/
+theorem jutila_jl7_basel_partial_lt_five_thirds (S : Finset ℕ) :
+    (∑ n ∈ S, (1 : ℝ) / (n : ℝ) ^ 2) < 5 / 3 := by
+  have hNonneg : ∀ n : ℕ, 0 ≤ (1 : ℝ) / (n : ℝ) ^ 2 := by
+    intro n
+    positivity
+  have hPartial :
+      (∑ n ∈ S, (1 : ℝ) / (n : ℝ) ^ 2) ≤ Real.pi ^ 2 / 6 := by
+    have hSum := hasSum_zeta_two.summable.sum_le_tsum S
+        (fun n _hn => hNonneg n)
+    have hTsum : (∑' n : ℕ, (1 : ℝ) / (n : ℝ) ^ 2) = Real.pi ^ 2 / 6 :=
+      hasSum_zeta_two.tsum_eq
+    rw [hTsum] at hSum
+    exact hSum
+  have hPi : Real.pi < 3.15 := Real.pi_lt_d2
+  have hPiPos : 0 < Real.pi := Real.pi_pos
+  nlinarith
+
+/- Theory 68, formula 68.4: local absolute coefficient when p divides
+   exactly one of r and r'. -/
+theorem jutila_jl7_local_exclusive (p : ℝ) (hp : 0 ≤ p) :
+    1 + |-p| = p + 1 := by
+  rw [abs_neg, abs_of_nonneg hp]
+  ring
+
+/- Theory 68, formula 68.4: local absolute coefficient when p divides both
+   r and r'.  In particular p=2 gives the exact local value 1. -/
+theorem jutila_jl7_local_common (p : ℝ) (hp : 2 ≤ p) :
+    1 + |p * (p - 2)| = (p - 1) ^ 2 := by
+  rw [abs_of_nonneg (mul_nonneg (by linarith) (by linarith))]
+  ring
+
+/- Theory 68, formulas 68.4--68.5: the exact common-prime factor is bounded
+   by the product factor printed in Jutila Lemma 3. -/
+theorem jutila_jl7_local_common_le_printed (p : ℝ) (hp : 0 ≤ p) :
+    (p - 1) ^ 2 ≤ (p + 1) ^ 2 := by
+  nlinarith
+
+/- Theory 68, formula 68.6: an exclusive prime forces the reciprocal local
+   factor to zero. -/
+theorem jutila_jl7_reciprocal_exclusive (p : ℝ) (hp : 0 < p) :
+    1 + (-p) / p = 0 := by
+  field_simp
+  ring
+
+/- Theory 68, formula 68.6: a common prime contributes p-1 to the reciprocal
+   local factor. -/
+theorem jutila_jl7_reciprocal_common (p : ℝ) (hp : 0 < p) :
+    1 + (p * (p - 2)) / p = p - 1 := by
+  field_simp
+  ring
+
+/- Theory 68, formulas 68.8--68.10: once the outer one-variable envelope is
+   at most (5/3)K, its square is safely at most 3K^2. -/
+theorem jutila_jl7_pair_envelope
+    {K A H : ℝ}
+    (hK : 0 ≤ K) (hA : 0 ≤ A)
+    (hAUpper : A ≤ (5 / 3) * K) (hH : H ≤ A ^ 2) :
+    H ≤ 3 * K ^ 2 := by
+  have hSquare : A ^ 2 ≤ ((5 / 3) * K) ^ 2 := by
+    nlinarith
+  nlinarith
+
+/- Theory 68, formula 68.2: floor(R) <= R preserves the final 3R^2 bound. -/
+theorem jutila_jl7_floor_endpoint
+    {K R : ℝ} (hK : 0 ≤ K) (hKR : K ≤ R) :
+    3 * K ^ 2 ≤ 3 * R ^ 2 := by
+  nlinarith
+
+/- Theory 68, formula 68.9: finite divisor double counting. -/
+theorem jutila_jl7_divisor_double_count (K : ℕ) :
+    (∑ n ∈ Finset.Ioc 0 K,
+        ∑ d ∈ Finset.Ioc 0 K,
+          if d ∣ n then (1 : ℝ) / (d : ℝ) else 0) =
+      ∑ d ∈ Finset.Ioc 0 K, ((K / d : ℕ) : ℝ) / (d : ℝ) := by
+  rw [Finset.sum_comm]
+  apply Finset.sum_congr rfl
+  intro d hd
+  rw [← Finset.sum_filter]
+  rw [Finset.sum_const]
+  simp only [nsmul_eq_mul]
+  rw [Nat.Ioc_filter_dvd_card_eq_div]
+  ring
+
+/- Theory 68, formula 68.9: floor(K/d)/d is bounded by K/d^2 termwise. -/
+theorem jutila_jl7_divisor_envelope_le_reciprocal_square (K : ℕ) :
+    (∑ d ∈ Finset.Ioc 0 K, ((K / d : ℕ) : ℝ) / (d : ℝ)) ≤
+      (K : ℝ) * ∑ d ∈ Finset.Ioc 0 K, (1 : ℝ) / (d : ℝ) ^ 2 := by
+  rw [Finset.mul_sum]
+  apply Finset.sum_le_sum
+  intro d hd
+  have hdNat : 0 < d := (Finset.mem_Ioc.mp hd).1
+  have hdReal : 0 < (d : ℝ) := by exact_mod_cast hdNat
+  have hMulNat : K / d * d ≤ K := Nat.div_mul_le_self K d
+  have hMulReal : ((K / d : ℕ) : ℝ) * (d : ℝ) ≤ (K : ℝ) := by
+    exact_mod_cast hMulNat
+  rw [show (K : ℝ) * (1 / (d : ℝ) ^ 2) =
+      (K : ℝ) / (d : ℝ) ^ 2 by ring]
+  rw [div_le_div_iff₀ hdReal (sq_pos_of_pos hdReal)]
+  nlinarith
+
+/- Theory 68, formulas 68.9--68.10: the finite divisor envelope is strictly
+   below (5/3)K for positive K. -/
+theorem jutila_jl7_divisor_envelope_lt_five_thirds
+    {K : ℕ} (hK : 0 < K) :
+    (∑ d ∈ Finset.Ioc 0 K, ((K / d : ℕ) : ℝ) / (d : ℝ)) <
+      (5 / 3 : ℝ) * K := by
+  have hPartial :=
+    jutila_jl7_basel_partial_lt_five_thirds (Finset.Ioc 0 K)
+  have hKReal : 0 < (K : ℝ) := by exact_mod_cast hK
+  have hScaled := mul_lt_mul_of_pos_left hPartial hKReal
+  exact (jutila_jl7_divisor_envelope_le_reciprocal_square K).trans_lt (by
+    simpa [mul_comm] using hScaled)
+
+/- Theory 68, formulas 68.11--68.12: the Lemma 3 multiplier 3 multiplies
+   Theory 67's elementary contour coefficient exactly. -/
+theorem jutila_jl7_contour_lemma3_combined_coefficient (θ : ℝ) :
+    3 * (48 * (1 + 1 / θ) * (2 / θ + 1)) =
+      144 * (1 + 1 / θ) * (2 / θ + 1) := by
+  ring
+
+/- Theory 68, formula 68.13: exact endpoint at theta=1/21. -/
+theorem jutila_jl7_contour_lemma3_endpoint :
+    (144 : ℝ) * (1 + 1 / (1 / 21)) * (2 / (1 / 21) + 1) = 136224 := by
+  norm_num
+
 end FGKMTSono

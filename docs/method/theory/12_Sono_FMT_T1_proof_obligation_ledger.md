@@ -857,3 +857,26 @@ Cbar_CONT(theta)
 따라서 66개 root row의 상태와 `PAP-11=HARD_BLOCKER`, DEP-R09·fixed coefficient·
 `X_cert=OPEN`은 바꾸지 않는다. 다음 gate는 `JL7-LEMMA3`의 actual absolute-sum
 multiplier와 support endpoint를 source-first로 복원하는 일이다.
+
+## 37. 2026-09-13 DEP-R09 JL7-LEMMA3 absolute-sum 후속 상태
+
+[theory 68](68_Sono_FMT_DEPR09_Jutila_JL7_Lemma3_absolute_sum.md)은 위 절의
+두 번째 gate를 닫았다. Jutila Lemma 2의 actual
+`f(p)=mu(p)phi(p)=-(p-1)`를 대입하면, \(p\)가 한 outer 변수에만 있을 때 local
+절댓값 계수합은 \(p+1\), 두 변수에 모두 있을 때는 \((p-1)^2\)다. 특히 \(p=2\)의
+nonconstant coefficient는 0이고 local 합은 1이다. Jutila Lemma 3의 인쇄 상계와
+유한 divisor double-counting을 결합해
+
+```text
+H_q(R) < 3*R^2
+Cbar_CONT+L3(theta) = 144*(1+1/theta)*(2/theta+1)
+Cbar_CONT+L3(1/21) = 136224
+```
+
+를 얻었다. 이로써 `JL7-LEMMA3=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다. 상수 3은
+최적화값이 아니라 hidden asymptotic 없이 쓸 수 있는 rational safety bound다.
+
+그러나 `JL7-RES`, `JL7-ABSORB`, `JL7-AVERAGED`는 계속 OPEN이다. 따라서 66개 root
+row의 상태와 `PAP-11=HARD_BLOCKER`, DEP-R09·fixed `2e-17`·`X_cert=OPEN`은
+바꾸지 않는다. 다음 gate는 `JL7-RES`의 principal residue, 대각 조건과 같은
+character의 repeated-height row-sum multiplier를 source-first로 복원하는 일이다.
