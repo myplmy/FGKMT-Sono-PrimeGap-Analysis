@@ -1898,6 +1898,182 @@
       "declarations": []
     },
     {
+      "formula_id": "73.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "73.2",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_cj_baseline_factorization"]
+    },
+    {
+      "formula_id": "73.3",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_cj_baseline_endpoint"]
+    },
+    {
+      "formula_id": "73.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_cj_tightened_endpoint_coefficient"]
+    },
+    {
+      "formula_id": "73.5",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_cj_exact_improvement_factor"]
+    },
+    {
+      "formula_id": "73.6",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "73.7",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "T73-U001",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "73.8",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_cj_denominator_quotient_lt_eight_fifths"]
+    },
+    {
+      "formula_id": "73.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_cj_denominator_quotient_lt_eight_fifths"]
+    },
+    {
+      "formula_id": "73.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_cj_denominator_limit_lt_eight_fifths",
+        "jutila_cj_exp_quarter_lt_four_thirds",
+        "jutila_cj_denominator_quotient_lt_eight_fifths"
+      ]
+    },
+    {
+      "formula_id": "73.11",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_cj_rz_endpoint_coefficient"]
+    },
+    {
+      "formula_id": "73.12",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "73.13",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_cj_log_ratio_441"]
+    },
+    {
+      "formula_id": "73.14",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "jutila_cj_rz_endpoint_coefficient",
+        "jutila_cj_log_ratio_441",
+        "jutila_cj_weighted_preterminal_endpoint"
+      ]
+    },
+    {
+      "formula_id": "73.15",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_cj_weighted_preterminal_endpoint"]
+    },
+    {
+      "formula_id": "73.16",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "73.17",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_cj_residue_endpoint",
+        "jutila_cj_residue_row_monotone_endpoint"
+      ]
+    },
+    {
+      "formula_id": "73.18",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_cj_averaged_log_ratio_half"]
+    },
+    {
+      "formula_id": "73.19",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "73.20",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_cj_exp_endpoint_envelope"]
+    },
+    {
+      "formula_id": "T73-U002",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_cj_exp_endpoint_envelope"]
+    },
+    {
+      "formula_id": "T73-U003",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_cj_exp_endpoint_envelope"]
+    },
+    {
+      "formula_id": "73.21",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_cj_residue_endpoint"]
+    },
+    {
+      "formula_id": "73.22",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_cj_area_endpoint"]
+    },
+    {
+      "formula_id": "73.23",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_cj_arbitrary_absorption_terminal"]
+    },
+    {
+      "formula_id": "73.24",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "73.25",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "T73-U004",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "73.26",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_cj_capacity_endpoint_exponents"]
+    },
+    {
+      "formula_id": "73.27",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "73.28",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "73.29",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_cj_theta_power_endpoint"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

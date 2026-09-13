@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-14 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 73개
-- 전수 단위: Markdown fenced code 밖 display math 1,311개
-- 원래 식번호: 785개, 합성 ID 무번호식: 526개
+- 원문 범위: `docs/method/theory/*.md` 74개
+- 전수 단위: Markdown fenced code 밖 display math 1,344개
+- 원래 식번호: 814개, 합성 ID 무번호식: 530개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,12 +62,12 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 77 |
-| `CONDITIONAL_KERNEL_PASS` | 49 |
-| `DEFINITION_ONLY` | 58 |
-| `PARTIAL_FORMALIZATION` | 58 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 62 |
-| `NOT_YET_FORMALIZED` | 1,002 |
+| `KERNEL_PASS` | 87 |
+| `CONDITIONAL_KERNEL_PASS` | 51 |
+| `DEFINITION_ONLY` | 62 |
+| `PARTIAL_FORMALIZATION` | 67 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 63 |
+| `NOT_YET_FORMALIZED` | 1,009 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `21a67c3afde29fb3…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `d7cfb08f08006981…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `537b26e583b29389…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `eb3bb51ab0eb6a16…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -150,6 +150,7 @@
 | 70 | [70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md](../docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md) | `f72a97738711d416…` | 19 | 19 | 0 | 19 |
 | 71 | [71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md](../docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md) | `49e7ff91c52830bb…` | 24 | 24 | 0 | 23 |
 | 72 | [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | `65aa796e27bced61…` | 16 | 16 | 0 | 13 |
+| 73 | [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | `9fce155834fdaf35…` | 33 | 29 | 4 | 26 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1472,6 +1473,39 @@
 | 1309 | `72.14` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 219–230 | <code>\boxed{ \begin{aligned} \mathcal S_{\rm near}\le2C_J\log X\Bigg\{&amp; \frac{(3+B/L)e^{-A\eta}}{A} +\frac{B e^{-A/L}}{A^2}\\ &amp;-e^{-A\theta} \left(\frac{3+B\theta}{A}+\frac{B}{A^2}\right) \Bigg\}. \end{aligned}} \tag{72.14}</code> | `gallagher_maier_near_piecewise_cancellation` | `PARTIAL_FORMALIZATION` | 두 exponential antiderivative를 premise로 받고 switch 항의 exact cancellation을 부분형식화 |
 | 1310 | `72.15` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 235–239 | <code>\kappa(1/21)=22,\qquad \lambda(1/21,160)=\frac{69}{80}. \tag{72.15}</code> | `gallagher_maier_pap_split_endpoint_exponents` | `KERNEL_PASS` | theta=1/21,d=160의 kappa=22와 lambda=69/80을 커널 검증 |
 | 1311 | `72.16` | T72 [72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md](../docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md) | 245–253 | <code>\boxed{ \mathcal K_\infty(d,\theta,c_1)= 2C_J(\theta)\left\{ \frac{4e^{-\lambda c_1d/5}}{\lambda} +\frac{(7/d)e^{-\lambda d/7}}{\lambda^2} \right\}.} \tag{72.16}</code> | — | `NOT_YET_FORMALIZED` | near certificate의 asymptotic limit; calculus와 고정밀 진단은 Lean 미형식화 |
+| 1312 | `73.1` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 17–20 | <code>C_J(\theta)=\frac{884000}{9(1-\theta)^2\theta^6}. \tag{73.1}</code> | — | `DEFINITION_ONLY` | selected-system coefficient 정의; 여섯 factor의 generic identity는 식 73.2와 함께 커널 검증 |
+| 1313 | `73.2` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 24–36 | <code>\boxed{ C_J= \underbrace{2}_{\text{half margin}} \underbrace{52}_{\text{residue}} \underbrace{5}_{\text{denominator}} \underbrace{\frac{34}{\theta^2}}_{\text{weighted sum}} \underbrace{\underline c_g^{-2}}_{\text{detect…</code> | `jutila_cj_baseline_factorization` | `KERNEL_PASS` | nonzero theta premises 아래 여섯 loss factor와 baseline coefficient의 exact 항등식을 커널 검증 |
+| 1314 | `73.3` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 40–44 | <code>C_J=9{,}287{,}613{,}243{,}090 =108{,}290\cdot21^6. \tag{73.3}</code> | `jutila_cj_baseline_endpoint` | `KERNEL_PASS` | theta=1/21의 detector와 baseline coefficient exact 정수 산술을 커널 검증 |
+| 1315 | `73.4` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 49–55 | <code>\boxed{ C_{J,{\rm tight}} =\frac{11503697604450072}{425315} =27047476821.7675\ldots .} \tag{73.4}</code> | `jutila_cj_tightened_endpoint_coefficient` | `PARTIAL_FORMALIZATION` | tightened exact rational composition은 커널 검증; decimal과 analytic factor premises는 별도 |
+| 1316 | `73.5` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 59–64 | <code>\frac{C_J}{C_{J,{\rm tight}}} =\frac{2304222695775}{6710379548} =343.3818727081\ldots \tag{73.5}</code> | `jutila_cj_exact_improvement_factor` | `PARTIAL_FORMALIZATION` | baseline/tightened exact 개선비는 커널 검증; decimal은 비구간 진단 |
+| 1317 | `73.6` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 69–72 | <code>C_J\le0.0585042942822\ldots \tag{73.6}</code> | — | `NOT_YET_FORMALIZED` | exp(-2) PAP budget에서 얻은 120-dps coefficient cap; directed interval certificate 아님 |
+| 1318 | `73.7` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 76–80 | <code>\frac{C_{J,{\rm tight}}}{C_{J,{\rm cap}}} =4.62316094119\ldots\times10^{11} \tag{73.7}</code> | — | `NOT_YET_FORMALIZED` | tightened coefficient의 PAP budget 초과비 120-dps 진단; exact source ledger로 재계산 |
+| 1319 | `T73-U001` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 131–134 | <code>W(n;M,N,x)= \frac{e^{-2n/x}}{e^{-n/N}-e^{-n/M}}.</code> | — | `DEFINITION_ONLY` | Lemma 7 denominator weight 정의 전사 |
+| 1320 | `73.8` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 139–144 | <code>W(n;M,N,x) \le f_\rho(t):= \frac{e^{-t}}{1-e^{-(\rho-1)t}}. \tag{73.8}</code> | `jutila_cj_denominator_quotient_lt_eight_fifths` | `PARTIAL_FORMALIZATION` | M,N 단조 transfer는 문서 proof; reduced exponential quotient는 식 73.10과 함께 커널 검증 |
+| 1321 | `73.9` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 148–153 | <code>\frac{d}{dt}\log f_\rho(t) =-1-\frac{(\rho-1)e^{-(\rho-1)t}} {1-e^{-(\rho-1)t}}&lt;0. \tag{73.9}</code> | `jutila_cj_denominator_quotient_lt_eight_fifths` | `PARTIAL_FORMALIZATION` | 문서의 derivative proof 대신 더 짧은 exp order proof로 식 73.10 결론을 커널 검증 |
+| 1322 | `73.10` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 159–165 | <code>f_\rho(1/\rho) \le\lim_{a\downarrow0} \frac{e^{-a}}{1-e^{-1+a}} =\frac e{e-1}&lt;\frac85. \tag{73.10}</code> | `jutila_cj_denominator_limit_lt_eight_fifths; jutila_cj_exp_quarter_lt_four_thirds; jutila_cj_denominator_quotient_lt_eight_fifths` | `PARTIAL_FORMALIZATION` | rho>=4, t>=1/rho에서 full quotient<8/5를 커널 검증; displayed limit identity 자체는 부분형식화 |
+| 1323 | `73.11` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 173–177 | <code>K_{\rm BV}(1/21)=\frac{921495783}{3500000} =263.2845094285\ldots . \tag{73.11}</code> | `jutila_cj_rz_endpoint_coefficient` | `PARTIAL_FORMALIZATION` | Ramaré--Zuniga coefficient의 endpoint exact rational은 커널 검증; source analytic theorem은 미형식화 |
+| 1324 | `73.12` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 181–185 | <code>\frac{\log x}{\log(z_2/z_1)} =33+42\frac{\log L}{L}. \tag{73.12}</code> | — | `NOT_YET_FORMALIZED` | Theory 66 source parameter에서 나온 finite log-ratio identity; 이번 Lean batch에서는 미형식화 |
+| 1325 | `73.13` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 189–193 | <code>42\frac{\log L}{L} \le42\frac{\log441}{441}&lt;\frac{16}{21}&lt;1. \tag{73.13}</code> | `jutila_cj_log_ratio_441` | `KERNEL_PASS` | L>=441에서 log(L)/L antitonicity와 exp(8)>441을 이용한 strict rational upper를 커널 검증 |
+| 1326 | `73.14` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 197–201 | <code>C_{\rm WS}\le34K_{\rm BV}(1/21) =\frac{15665428311}{1750000}. \tag{73.14}</code> | `jutila_cj_rz_endpoint_coefficient; jutila_cj_log_ratio_441; jutila_cj_weighted_preterminal_endpoint` | `PARTIAL_FORMALIZATION` | source weighted inequality는 미형식화; endpoint rational multiplication은 커널 검증 |
+| 1327 | `73.15` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 205–210 | <code>C_{{\rm pre},{\rm tight}} =\frac85 C_{\rm WS} =\frac{15665428311}{1093750}. \tag{73.15}</code> | `jutila_cj_weighted_preterminal_endpoint` | `KERNEL_PASS` | denominator 8/5와 weighted endpoint rational의 exact preterminal 합성을 커널 검증 |
+| 1328 | `73.16` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 216–220 | <code>C_{\rm row}(\theta) =\frac{280}{19}\theta^2+\frac{2800}{57}\theta. \tag{73.16}</code> | — | `DEFINITION_ONLY` | height-row coefficient 정의 전사 |
+| 1329 | `73.17` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 224–228 | <code>C_{\rm row}(\theta)\le C_{\rm row}(1/21) =\frac{2840}{1197}. \tag{73.17}</code> | `jutila_cj_residue_endpoint; jutila_cj_residue_row_monotone_endpoint` | `KERNEL_PASS` | 0<=theta<=1/21의 row monotonic upper와 endpoint exact rational을 커널 검증 |
+| 1330 | `73.18` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 233–236 | <code>\frac{\log q}{L}\le\frac12. \tag{73.18}</code> | `jutila_cj_averaged_log_ratio_half` | `KERNEL_PASS` | q<=Q, L=log(Q^2T)>0의 averaged log-ratio<=1/2를 커널 검증 |
+| 1331 | `73.19` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 240–244 | <code>\frac{S_q(R)}{(\varphi(q)/q)L} \le e^{\theta+1/2}\left(1+\frac1L\right). \tag{73.19}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Theory 69 Rankin Euler-product 계산의 sharpened analytic 합성; Lean 독립 proof는 없음 |
+| 1332 | `73.20` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 248–251 | <code>e^{23/42}\frac{442}{441}&lt;\frac74. \tag{73.20}</code> | `jutila_cj_exp_endpoint_envelope` | `KERNEL_PASS` | Mathlib six-term exp remainder로 e^(23/42)*(442/441)<7/4를 커널 검증 |
+| 1333 | `T73-U002` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 255–258 | <code>e^{23/42}\le \frac{5857471148617}{3387516733440},</code> | `jutila_cj_exp_endpoint_envelope` | `PARTIAL_FORMALIZATION` | six-term exponential upper의 rational 계산은 73.20 proof 내부에서 커널 검증 |
+| 1334 | `T73-U003` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 262–264 | <code>\frac{12656895671803}{746947439723520}&gt;0</code> | `jutila_cj_exp_endpoint_envelope` | `KERNEL_PASS` | 7/4와 rational upper의 exact positive slack은 73.20 proof 내부에서 커널 검증 |
+| 1335 | `73.21` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 268–274 | <code>\boxed{ C_{{\rm RES},{\rm tight}} =\frac74\frac{2840}{1197} =\frac{710}{171}.} \tag{73.21}</code> | `jutila_cj_residue_endpoint` | `CONDITIONAL_KERNEL_PASS` | 7/4와 exact height row의 residue rational 합성을 커널 검증; Rankin premise는 식 73.19 경계 |
+| 1336 | `73.22` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 283–288 | <code>A_{\rm int} \ge\theta^2\left(\frac12+7\theta\right)(1+12\theta) =\frac{55}{18522}. \tag{73.22}</code> | `jutila_cj_area_endpoint` | `PARTIAL_FORMALIZATION` | endpoint area rational equality는 커널 검증; A_int analytic lower identification은 선행 premise |
+| 1337 | `73.23` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 293–297 | <code>A-E\ge\frac{m-1}{m}A,\qquad J\le\frac{m}{m-1}\frac BA Y. \tag{73.23}</code> | `jutila_cj_arbitrary_absorption_terminal` | `CONDITIONAL_KERNEL_PASS` | E<=A/m과 normalized terminal premise에서 arbitrary strict absorption을 조건부 커널 검증 |
+| 1338 | `73.24` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 301–306 | <code>L\ge\frac1\gamma\log\left( \frac{36mC_{{\rm pre},{\rm tight}}\overline C_{\rm CL3}} {\underline c_g^2}\right) \tag{73.24}</code> | — | `NOT_YET_FORMALIZED` | exponential remainder에서 E<=A/m으로 가는 symbolic cutoff; Lean 순차 형식화 대기 |
+| 1339 | `73.25` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 312–315 | <code>L\ge8394.0173339360\ldots . \tag{73.25}</code> | — | `NOT_YET_FORMALIZED` | m=10^6 cutoff의 120-dps diagnostic; directed interval certificate 아님 |
+| 1340 | `T73-U004` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 339–341 | <code>AJ^2\le BJY+EJ^2.</code> | — | `DEFINITION_ONLY` | normalized terminal inequality의 재사용 정의 |
+| 1341 | `73.26` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 355–360 | <code>\lambda=\frac{82}{93},\qquad \lambda\frac{c_1d}{5}=\frac{1271}{930},qquad \lambda\frac d7=\frac{164}{7}. \tag{73.26}</code> | `jutila_cj_capacity_endpoint_exponents` | `KERNEL_PASS` | d=186,c1=1/24,theta=1/21의 lambda와 두 exponent를 exact rational로 커널 검증 |
+| 1342 | `73.27` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 364–371 | <code>K_{\rm unit}=2\left\{ \frac{4e^{-1271/930}}{82/93} +\frac{7}{186}\frac{e^{-164/7}}{(82/93)^2} \right\} =2.3132538371250\ldots . \tag{73.27}</code> | — | `NOT_YET_FORMALIZED` | unit-C_J near kernel의 transcendental 120-dps 진단; directed interval certificate 아님 |
+| 1343 | `73.28` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 376–380 | <code>2.1484606972311\ldots\times10^{13},qquad 6.2567679542504\ldots\times10^{10}. \tag{73.28}</code> | — | `NOT_YET_FORMALIZED` | baseline/tightened near upper의 120-dps 진단; directed interval certificate 아님 |
+| 1344 | `73.29` | T73 [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | 387–390 | <code>\theta^{-6}=21^6=85{,}766{,}121 \tag{73.29}</code> | `jutila_cj_theta_power_endpoint` | `KERNEL_PASS` | theta=1/21의 theta^-6 exact integer를 커널 검증; proof-architecture 불가능성 정리는 아님 |
 
 ## 9. 발견된 원문·작업 오류
 

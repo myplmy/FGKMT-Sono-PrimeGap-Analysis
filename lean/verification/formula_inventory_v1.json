@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 73,
-  "formula_count": 1311,
-  "tagged_formula_count": 785,
-  "untagged_formula_count": 526,
+  "theory_count": 74,
+  "formula_count": 1344,
+  "tagged_formula_count": 814,
+  "untagged_formula_count": 530,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "21a67c3afde29fb3263d8ead77ea9e33143052da9dfd34dd869f5293b8202a6d",
+      "source_sha256": "d7cfb08f08006981184c787508ff47dd132e713494392a982f9e6c2a9d17a3db",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef",
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -589,6 +589,14 @@
       "display_formula_count": 16,
       "tagged_formula_count": 16,
       "untagged_formula_count": 0
+    },
+    {
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2",
+      "display_formula_count": 33,
+      "tagged_formula_count": 29,
+      "untagged_formula_count": 4
     }
   ],
   "formulae": [
@@ -880,7 +888,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U002",
@@ -890,7 +898,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U003",
@@ -900,7 +908,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U004",
@@ -910,7 +918,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U005",
@@ -920,7 +928,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U006",
@@ -930,7 +938,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U007",
@@ -940,7 +948,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U008",
@@ -950,7 +958,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U009",
@@ -960,7 +968,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U010",
@@ -970,7 +978,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U011",
@@ -980,7 +988,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U012",
@@ -990,7 +998,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U013",
@@ -1000,7 +1008,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U014",
@@ -1010,7 +1018,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T12-U015",
@@ -1020,7 +1028,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "537b26e583b29389ebe593fb78e3a103539b67e9151f9e1d5aae1fd6f8dd5cef"
+      "source_sha256": "eb3bb51ab0eb6a1656cc9db878e338e816ba33e218087a975c89af0626457680"
     },
     {
       "formula_id": "T13-U001",
@@ -13701,6 +13709,336 @@
       "tagged": true,
       "latex": "\\boxed{\n\\mathcal K_\\infty(d,\\theta,c_1)=\n2C_J(\\theta)\\left\\{\n\\frac{4e^{-\\lambda c_1d/5}}{\\lambda}\n+\\frac{(7/d)e^{-\\lambda d/7}}{\\lambda^2}\n\\right\\}.}\n\\tag{72.16}",
       "source_sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185"
+    },
+    {
+      "formula_id": "73.1",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 17,
+      "end_line": 20,
+      "tagged": true,
+      "latex": "C_J(\\theta)=\\frac{884000}{9(1-\\theta)^2\\theta^6}.\n\\tag{73.1}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.2",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 24,
+      "end_line": 36,
+      "tagged": true,
+      "latex": "\\boxed{\n C_J=\n \\underbrace{2}_{\\text{half margin}}\n \\underbrace{52}_{\\text{residue}}\n \\underbrace{5}_{\\text{denominator}}\n \\underbrace{\\frac{34}{\\theta^2}}_{\\text{weighted sum}}\n \\underbrace{\\underline c_g^{-2}}_{\\text{detector}}\n \\underbrace{(\\theta^2/2)^{-1}}_{\\text{area}},\n \\qquad\n \\underline c_g=\\frac35(1-\\theta)\\theta .}\n\\tag{73.2}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.3",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 40,
+      "end_line": 44,
+      "tagged": true,
+      "latex": "C_J=9{,}287{,}613{,}243{,}090\n     =108{,}290\\cdot21^6.\n\\tag{73.3}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.4",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 49,
+      "end_line": 55,
+      "tagged": true,
+      "latex": "\\boxed{\n C_{J,{\\rm tight}}\n =\\frac{11503697604450072}{425315}\n =27047476821.7675\\ldots .}\n\\tag{73.4}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.5",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 59,
+      "end_line": 64,
+      "tagged": true,
+      "latex": "\\frac{C_J}{C_{J,{\\rm tight}}}\n =\\frac{2304222695775}{6710379548}\n =343.3818727081\\ldots\n\\tag{73.5}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.6",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 69,
+      "end_line": 72,
+      "tagged": true,
+      "latex": "C_J\\le0.0585042942822\\ldots\n\\tag{73.6}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.7",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 76,
+      "end_line": 80,
+      "tagged": true,
+      "latex": "\\frac{C_{J,{\\rm tight}}}{C_{J,{\\rm cap}}}\n =4.62316094119\\ldots\\times10^{11}\n\\tag{73.7}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "T73-U001",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 131,
+      "end_line": 134,
+      "tagged": false,
+      "latex": "W(n;M,N,x)=\n \\frac{e^{-2n/x}}{e^{-n/N}-e^{-n/M}}.",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.8",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 139,
+      "end_line": 144,
+      "tagged": true,
+      "latex": "W(n;M,N,x)\n \\le f_\\rho(t):=\n \\frac{e^{-t}}{1-e^{-(\\rho-1)t}}.\n\\tag{73.8}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.9",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 148,
+      "end_line": 153,
+      "tagged": true,
+      "latex": "\\frac{d}{dt}\\log f_\\rho(t)\n =-1-\\frac{(\\rho-1)e^{-(\\rho-1)t}}\n              {1-e^{-(\\rho-1)t}}<0.\n\\tag{73.9}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.10",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 159,
+      "end_line": 165,
+      "tagged": true,
+      "latex": "f_\\rho(1/\\rho)\n \\le\\lim_{a\\downarrow0}\n \\frac{e^{-a}}{1-e^{-1+a}}\n =\\frac e{e-1}<\\frac85.\n\\tag{73.10}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.11",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 173,
+      "end_line": 177,
+      "tagged": true,
+      "latex": "K_{\\rm BV}(1/21)=\\frac{921495783}{3500000}\n =263.2845094285\\ldots .\n\\tag{73.11}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.12",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 181,
+      "end_line": 185,
+      "tagged": true,
+      "latex": "\\frac{\\log x}{\\log(z_2/z_1)}\n =33+42\\frac{\\log L}{L}.\n\\tag{73.12}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.13",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 189,
+      "end_line": 193,
+      "tagged": true,
+      "latex": "42\\frac{\\log L}{L}\n \\le42\\frac{\\log441}{441}<\\frac{16}{21}<1.\n\\tag{73.13}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.14",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 197,
+      "end_line": 201,
+      "tagged": true,
+      "latex": "C_{\\rm WS}\\le34K_{\\rm BV}(1/21)\n =\\frac{15665428311}{1750000}.\n\\tag{73.14}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.15",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 205,
+      "end_line": 210,
+      "tagged": true,
+      "latex": "C_{{\\rm pre},{\\rm tight}}\n =\\frac85 C_{\\rm WS}\n =\\frac{15665428311}{1093750}.\n\\tag{73.15}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.16",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 216,
+      "end_line": 220,
+      "tagged": true,
+      "latex": "C_{\\rm row}(\\theta)\n =\\frac{280}{19}\\theta^2+\\frac{2800}{57}\\theta.\n\\tag{73.16}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.17",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 224,
+      "end_line": 228,
+      "tagged": true,
+      "latex": "C_{\\rm row}(\\theta)\\le C_{\\rm row}(1/21)\n =\\frac{2840}{1197}.\n\\tag{73.17}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.18",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 233,
+      "end_line": 236,
+      "tagged": true,
+      "latex": "\\frac{\\log q}{L}\\le\\frac12.\n\\tag{73.18}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.19",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 240,
+      "end_line": 244,
+      "tagged": true,
+      "latex": "\\frac{S_q(R)}{(\\varphi(q)/q)L}\n \\le e^{\\theta+1/2}\\left(1+\\frac1L\\right).\n\\tag{73.19}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.20",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 248,
+      "end_line": 251,
+      "tagged": true,
+      "latex": "e^{23/42}\\frac{442}{441}<\\frac74.\n\\tag{73.20}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "T73-U002",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 255,
+      "end_line": 258,
+      "tagged": false,
+      "latex": "e^{23/42}\\le\n \\frac{5857471148617}{3387516733440},",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "T73-U003",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 262,
+      "end_line": 264,
+      "tagged": false,
+      "latex": "\\frac{12656895671803}{746947439723520}>0",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.21",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 268,
+      "end_line": 274,
+      "tagged": true,
+      "latex": "\\boxed{\n C_{{\\rm RES},{\\rm tight}}\n =\\frac74\\frac{2840}{1197}\n =\\frac{710}{171}.}\n\\tag{73.21}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.22",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 283,
+      "end_line": 288,
+      "tagged": true,
+      "latex": "A_{\\rm int}\n \\ge\\theta^2\\left(\\frac12+7\\theta\\right)(1+12\\theta)\n =\\frac{55}{18522}.\n\\tag{73.22}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.23",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 293,
+      "end_line": 297,
+      "tagged": true,
+      "latex": "A-E\\ge\\frac{m-1}{m}A,\\qquad\n J\\le\\frac{m}{m-1}\\frac BA Y.\n\\tag{73.23}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.24",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 301,
+      "end_line": 306,
+      "tagged": true,
+      "latex": "L\\ge\\frac1\\gamma\\log\\left(\n \\frac{36mC_{{\\rm pre},{\\rm tight}}\\overline C_{\\rm CL3}}\n      {\\underline c_g^2}\\right)\n\\tag{73.24}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.25",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 312,
+      "end_line": 315,
+      "tagged": true,
+      "latex": "L\\ge8394.0173339360\\ldots .\n\\tag{73.25}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "T73-U004",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 339,
+      "end_line": 341,
+      "tagged": false,
+      "latex": "AJ^2\\le BJY+EJ^2.",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.26",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 355,
+      "end_line": 360,
+      "tagged": true,
+      "latex": "\\lambda=\\frac{82}{93},\\qquad\n \\lambda\\frac{c_1d}{5}=\\frac{1271}{930},qquad\n \\lambda\\frac d7=\\frac{164}{7}.\n\\tag{73.26}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.27",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 364,
+      "end_line": 371,
+      "tagged": true,
+      "latex": "K_{\\rm unit}=2\\left\\{\n \\frac{4e^{-1271/930}}{82/93}\n +\\frac{7}{186}\\frac{e^{-164/7}}{(82/93)^2}\n \\right\\}\n =2.3132538371250\\ldots .\n\\tag{73.27}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.28",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 376,
+      "end_line": 380,
+      "tagged": true,
+      "latex": "2.1484606972311\\ldots\\times10^{13},qquad\n 6.2567679542504\\ldots\\times10^{10}.\n\\tag{73.28}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
+    },
+    {
+      "formula_id": "73.29",
+      "theory": "73",
+      "source_file": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "start_line": 387,
+      "end_line": 390,
+      "tagged": true,
+      "latex": "\\theta^{-6}=21^6=85{,}766{,}121\n\\tag{73.29}",
+      "source_sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2"
     }
   ],
   "issues": [],

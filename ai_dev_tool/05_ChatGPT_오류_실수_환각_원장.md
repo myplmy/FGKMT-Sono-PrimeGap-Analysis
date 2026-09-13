@@ -2154,6 +2154,46 @@
   9. display 수식은 delimiter·command뿐 아니라 각 줄의 이항연산자가 줄바꿈에서
      누락되지 않았는지 cached diff와 source 원문을 함께 읽어 확인한다.
 
+### E121 — C_J loss-tree 감사의 탐색·초안 호출·Lean proof 오류
+
+- 분류:
+  <code>PRE_COMMIT_SEARCH_TEST_DOCUMENT_AND_FORMAL_PROOF_DRAFT_ERRORS /
+  DETECTED_AND_CORRECTED / NO_SCIENTIFIC_RESULT_AFFECTED</code>.
+- source 탐색 초기에 `article`과 `tmp`를 너무 넓게 한 번 검색해, 이번 감사와 무관한
+  임시경로에서 접근 거부 경고가 다수 출력됐다. 이후 Theory 64--72가 고정한 두 PDF와
+  predecessor artifact allowlist만 검사했다. 사용자 프로세스나 파일을 변경·중단하지 않았다.
+- 수치 확인용 첫 scratch 명령은 존재하지 않는 함수명
+  <code>asymptotic_near_upper</code>를 import했고, 두 번째는 keyword-only 함수
+  <code>near_asymptotic_certificate_limit</code>를 positional argument로 호출해 실패했다.
+  두 출력은 증거에서 폐기하고 실제 module signature를 확인한 세 번째 호출과 정식
+  fail-closed unit test로 재계산했다.
+- Theory 73 초안의 세 LaTeX 식에서 transport 과정에 <code>\le</code>와
+  <code>\qquad</code>의 선행 backslash가 빠졌다. 수식 정본·inventory 생성 전에 검색으로
+  발견해 복구했다.
+- 첫 Lean absorption proof는 이미 닫힌 <code>field_simp</code> 뒤 불필요한 tactic을
+  실행했고, 나눗셈 정리의 곱셈 결합형을 잘못 제시해 compile이 실패했다. 곱을 명시적으로
+  재결합하고 불필요 tactic을 제거했다. full denominator proof 초안에서도 unary minus의
+  parser 결합형, 현재 Mathlib의 제곱 nonzero lemma 이름, 곱의 순서가 맞지 않아 compile이
+  실패했다. 표준 exponential order와 명시적 ring normalization으로 교정한 뒤 direct Lean
+  compile exit 0을 확인했다.
+- METHODS에 successor 절을 붙이는 첫 patch는 실제 마지막 문맥과 맞지 않아 적용 전에
+  거부됐고 파일은 부분 변경되지 않았다. 더 좁은 hunk로 정상 적용했다.
+- 최종 정적검사에서 모든 변경 파일에 단순한 수식 delimiter 개수 검사를 적용해, 오류원장과
+  자동생성 Lean 원장 안의 코드 literal·과거 예시까지 수식으로 오인한 false positive가
+  발생했다. UTF-8·금지 제어문자 검사는 그대로 유효했지만 delimiter 판정은 폐기했다.
+  신규 theory·review·작업원장처럼 실제 수식 문서인 세 파일에 범위를 좁혀 다시 검사해
+  display·inline delimiter가 모두 짝을 이룸을 확인했다.
+- 이 실패들은 모두 commit 전 검증에서 발견됐다. exact coefficient, PAP gap 판정,
+  OPEN 상태에는 영향이 없고 `sorry`, `admit`, project-local `axiom`은 사용하지 않았다.
+- 예방:
+  1. 대형 `tmp` 전수검색보다 predecessor ledger의 고정 source allowlist를 우선한다.
+  2. scratch 호출 전 실제 함수 signature를 먼저 확인하고 scratch PASS를 정식 시험과 구분한다.
+  3. 새 theory는 inventory 전에 missing-command 표적검색을 실행한다.
+  4. Lean 분수·지수 proof는 parser 결합형과 현재 Mathlib lemma 이름을 작은 단계에서 확인한다.
+  5. 긴 정본 문서 append는 마지막 5--10줄을 다시 읽고 좁은 hunk로 적용한다.
+  6. Markdown 수식 delimiter 검사는 코드 literal을 포함한 원장 전체에 기계적으로 적용하지
+     말고, 새 수식 본문 allowlist에만 적용한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

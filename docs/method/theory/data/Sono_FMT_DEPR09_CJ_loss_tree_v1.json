@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 Jutila terminal C_J loss-tree audit",
+  "predecessor": "Sono_FMT_DEPR09_Gallagher_Maier_PAP_split_v1.json",
+  "outcome": "LOCAL_CONSTANT_TIGHTENING_DERIVED_BUT_STRUCTURALLY_INSUFFICIENT_FOR_D_LE_186_PAP_GATE",
+  "source_registry": [
+    {
+      "key": "JUTILA_1977_LINNIK",
+      "title": "On Linnik's constant",
+      "author": "Matti Jutila",
+      "journal": "Mathematica Scandinavica 41 (1977), 45-62",
+      "doi": "10.7146/math.scand.a-11701",
+      "official_url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AS_LOCATOR_AFTER_EMPTY_NATIVE_TEXT_LAYER_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [52, 53],
+      "statements": "equations (3.2)-(3.7), weighted terminal inequality, contour and residue split",
+      "classification": "ORIGINAL_PEER_REVIEWED_STRUCTURAL_SOURCE_WITH_HIDDEN_CONSTANTS"
+    },
+    {
+      "key": "RAMARE_ZUNIGA_ALTERMAN_2024",
+      "title": "An L2-bound for the Barban-Vehov weights",
+      "author": "Olivier Ramare and Sebastian Zuniga-Alterman",
+      "doi": "10.7169/facm/241018-19-5",
+      "arxiv": "2405.12662",
+      "official_url": "https://arxiv.org/abs/2405.12662",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jutila_sources_20260913/Ramare_Zuniga_2024_Barban_Vehov_L2.pdf",
+      "audit_copy_sha256": "79d16666b2126477fa93d8cdf182c8304be6fd7e4edc954475d6bd6b984c2db1",
+      "audit_copy_bytes": 141901,
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_RENDERED_FORMULA_COMPARISON",
+      "rendered_pages_checked": [2],
+      "statements": "Corollary 1.3 and its explicit coefficient",
+      "classification": "PEER_REVIEWED_EXPLICIT_SOURCE_REPLACEMENT_ALREADY_ADOPTED_IN_THEORY_66"
+    }
+  ],
+  "predecessor_artifacts": [
+    {
+      "path": "docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md",
+      "sha256": "2eb7fa38dc7033abd0badcc979c7ac0384cc2e017ff14747fffbf466e4565ff0",
+      "bytes": 12857,
+      "role": "weighted square coefficient, denominator quotient and integration area"
+    },
+    {
+      "path": "docs/method/theory/69_Sono_FMT_DEPR09_Jutila_JL7_principal_residue_height_row_sum.md",
+      "sha256": "a1b177d95525d03704c3c38a32d70d7d5ed18a2a179a60d4ac186ae1b548cc23",
+      "bytes": 10578,
+      "role": "residue coefficient and same-character height row"
+    },
+    {
+      "path": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "sha256": "f72a97738711d41692311b3509984aae17d0e12c094415ee8f1edc6182527802",
+      "bytes": 13317,
+      "role": "baseline C_J factorization and absorption interface"
+    },
+    {
+      "path": "docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md",
+      "sha256": "49e7ff91c52830bb0eb72f83bc75be02f62c469371884b1a332ff958e31f82e2",
+      "bytes": 14528,
+      "role": "q<=Q averaged scale and phase normalization"
+    },
+    {
+      "path": "docs/method/theory/72_Sono_FMT_DEPR09_Gallagher_Maier_PAP_density_integral_split.md",
+      "sha256": "65aa796e27bced61d54b682c8e70f571a9e49898c6d605bf90ab22be49cec185",
+      "bytes": 12633,
+      "role": "near-integral PAP budget and d<=186 coefficient capacity"
+    }
+  ],
+  "baseline_loss_tree": {
+    "formula": "C_J=2*52*5*(34/theta^2)*cbar^(-2)*(theta^2/2)^(-1)",
+    "half_margin_factor": 2,
+    "residue_factor": 52,
+    "weight_denominator_factor": 5,
+    "weighted_square_factor": "34/theta^2",
+    "detector_lower": "cbar=(3/5)*(1-theta)*theta",
+    "area_lower": "theta^2/2",
+    "simplified": "884000/[9*(1-theta)^2*theta^6]",
+    "theta_power": "theta^(-6)",
+    "dimensionless_endpoint_factor": 108290,
+    "status": "EXACT_FACTOR_REPLAY"
+  },
+  "finite_safe_local_tightening": {
+    "scope": "theta=1/21, log(D)>=441 plus the displayed one-over-million absorption cutoff",
+    "rz_coefficient": "921495783/3500000",
+    "log_x_over_log_z2_z1_upper": 34,
+    "weighted_square_upper": "15665428311/1750000",
+    "weight_denominator_upper": "8/5",
+    "preterminal_upper": "15665428311/1093750",
+    "residue_row_upper": "2840/1197",
+    "averaged_scale_harmonic_upper": "7/4",
+    "residue_upper": "710/171",
+    "detector_lower_retained": "4/147",
+    "area_lower": "55/18522",
+    "absorbed_error_fraction": "1/1000000",
+    "absorption_factor": "1000000/999999",
+    "selected_system_coefficient": "11503697604450072/425315",
+    "coefficient_improvement_factor": "343.381872708193345846791436960310668853391659150902025847674",
+    "absorption_log_D_cutoff": "8394.0173339360660810902472341011861015440935864457239950028",
+    "decimal_values_are_directed_interval_certificates": false,
+    "status": "PROJECT_FINITE_SAFE_LOCAL_TIGHTENING"
+  },
+  "classification_by_factor": [
+    {
+      "factor": "half-margin 2",
+      "classification": "REMOVABLE_FINITE_SLACK",
+      "replacement": "m/(m-1) after requiring E<=A/m",
+      "maximum_demonstrated_gain": "approximately 1.999998 for m=1000000"
+    },
+    {
+      "factor": "residue 52",
+      "classification": "LARGE_BUT_LOCALLY_REDUCIBLE_SLACK",
+      "replacement": "710/171 at the averaged endpoint",
+      "maximum_demonstrated_gain": "approximately 12.524"
+    },
+    {
+      "factor": "weight denominator 5",
+      "classification": "REMOVABLE_ELEMENTARY_SLACK",
+      "replacement": "8/5",
+      "maximum_demonstrated_gain": "25/8"
+    },
+    {
+      "factor": "weighted square 34/theta^2",
+      "classification": "PARTLY_REMOVABLE_SOURCE_SPECIALIZATION_SLACK",
+      "replacement": "exact RZ coefficient times finite log ratio 34 at theta=1/21",
+      "maximum_demonstrated_gain": "approximately 1.675"
+    },
+    {
+      "factor": "detector rational lower",
+      "classification": "SMALL_RATIONALIZATION_SLACK",
+      "replacement": "the current finite package retains 4/147; using 6/pi^2 changes only about 2.7 percent after squaring"
+    },
+    {
+      "factor": "integration area theta^2/2",
+      "classification": "REMOVABLE_ENDPOINT_SLACK",
+      "replacement": "55/18522",
+      "maximum_demonstrated_gain": "55/21"
+    },
+    {
+      "factor": "contour, Lemma 3 and phase 36",
+      "classification": "FINITE_CUTOFF_ONLY",
+      "replacement": "none in this audit",
+      "maximum_demonstrated_gain": "zero for asymptotic C_J; may reduce log(D) cutoff only"
+    },
+    {
+      "factor": "theta^(-6)",
+      "classification": "STRUCTURAL_SCALING_OF_CURRENT_PROOF_ARCHITECTURE",
+      "replacement": "requires a different detector, weighted mean-value, integration geometry or density theorem",
+      "maximum_demonstrated_gain": "not removable by ordinary numerical sharpening"
+    }
+  ],
+  "endpoint_diagnostic_theta_1_over_21": {
+    "d": 186,
+    "c1": "1/24",
+    "near_budget": "exp(-2)",
+    "baseline_CJ": "9287613243090",
+    "finite_safe_tightened_CJ": "11503697604450072/425315",
+    "finite_safe_tightened_CJ_decimal": "27047476821.767567",
+    "CJ_cap_for_exp_minus_2": "0.0585042942822088141208289254868332847292236218980459184841121",
+    "baseline_near_limit": "21484606972311.3770021700815080618468737537480711147959163308",
+    "tightened_near_limit": "62567679542.5046861096203788732475012594119404629459750279724",
+    "baseline_over_budget": "158750966181885.351753399809148135409455638420437551185156449",
+    "tightened_over_budget": "462316094119.482726275378910765971992174173762250954662319436",
+    "theta_power_only_counterfactual_CJ": "85766121",
+    "theta_power_only_counterfactual_over_budget": "1465979925.95701682291439476542742090179738129501847987031535",
+    "counterfactual_is_impossibility_theorem": false,
+    "interpretation": "all verified local tightenings improve the coefficient by about 343 times but leave more than 4.62e11 additional improvement; changing only finite constants is not a credible route"
+  },
+  "proof_boundary": {
+    "proved": [
+      "baseline loss-tree factorization",
+      "elementary denominator upper 8/5",
+      "finite log-ratio upper 34 at theta=1/21",
+      "averaged-scale residue upper 710/171",
+      "exact endpoint integration area lower",
+      "arbitrary absorption fraction m>1 composition",
+      "d=186 PAP coefficient capacity calculation"
+    ],
+    "not_proved": [
+      "global optimality of the tightened coefficient",
+      "impossibility of every rearrangement of Jutila's method",
+      "a replacement density theorem with sufficient constants",
+      "PAP-11 or DEP-R09",
+      "the fixed Sono coefficient or numerical X_cert"
+    ]
+  },
+  "status_after_this_gate": {
+    "cj_loss_tree_factorized": true,
+    "finite_safe_local_tightening_derived": true,
+    "local_tightening_passes_pap_gate": false,
+    "structural_proof_change_required_for_credible_progress": true,
+    "source_replacement_logically_proved_necessary": false,
+    "modern_density_source_comparison_is_next_gate": true,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "threshold_calculator_ready": false,
+    "numerical_x_cert_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false,
+    "new_dependency_required_now": false,
+    "user_compute_required_now": false
+  },
+  "next_gate": "DEP-R09 modern explicit near-one density source comparison: require a structurally different coefficient/exponent package compatible with d<=186 rather than further local constant polishing"
+}

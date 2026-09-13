@@ -2928,4 +2928,319 @@ theorem gallagher_maier_far_power_composition
       mul_le_mul_of_nonneg_right hZ hXTheta
     _ = target := hNormalize
 
+/-! ## Theory 73 — Jutila C_J loss-tree structural audit -/
+
+/- Theory 73, formulas 73.1--73.2: the six displayed loss factors simplify
+   to Theory 70's selected-system coefficient.  The nonzero hypotheses are
+   precisely the divisions used in the identity; no analytic estimate is
+   asserted here. -/
+theorem jutila_cj_baseline_factorization
+    {theta : ℝ} (hTheta : theta ≠ 0) (hOneMinus : 1 - theta ≠ 0) :
+    2 * 52 * 5 * (34 / theta ^ 2) /
+          ((3 / 5 : ℝ) * (1 - theta) * theta) ^ 2 /
+          (theta ^ 2 / 2) =
+      884000 / (9 * (1 - theta) ^ 2 * theta ^ 6) := by
+  field_simp
+  ring
+
+/- Theory 73, formulas 73.2--73.3: exact endpoint detector and coefficient. -/
+theorem jutila_cj_baseline_endpoint :
+    (3 / 5 : ℝ) * (1 - 1 / 21) * (1 / 21) = 4 / 147 ∧
+      884000 / (9 * (1 - (1 / 21 : ℝ)) ^ 2 * (1 / 21 : ℝ) ^ 6) =
+        9287613243090 ∧
+      (9287613243090 : ℝ) = 108290 * 21 ^ 6 := by
+  norm_num
+
+/- Theory 73, formula 73.11: exact specialization of the rational
+   Barban--Vehov coefficient.  The analytic Corollary remains an external
+   source theorem and is not asserted by this equality. -/
+theorem jutila_cj_rz_endpoint_coefficient :
+    (309 / 200 : ℝ) *
+          (2327 / 500 + (34421 / 250) * (1 / 21) +
+            (255149 / 250) * (1 / 21) ^ 2) /
+          ((1 / 21) * (1 + 14 * (1 / 21))) =
+      921495783 / 3500000 := by
+  norm_num
+
+/- Theory 73, formulas 73.12--73.15: once the finite logarithmic ratio
+   has supplied the strict upper 34, the exact endpoint coefficient and
+   denominator factor compose to the displayed preterminal rational. -/
+theorem jutila_cj_weighted_preterminal_endpoint :
+    (34 : ℝ) * (921495783 / 3500000) =
+        15665428311 / 1750000 ∧
+      (8 / 5 : ℝ) * (15665428311 / 1750000) =
+        15665428311 / 1093750 := by
+  norm_num
+
+/- Theory 73, formula 73.10: exact numerical endpoint comparison used after
+   the separate monotonicity argument has reduced the quotient to e/(e-1). -/
+theorem jutila_cj_denominator_limit_lt_eight_fifths :
+    Real.exp 1 / (Real.exp 1 - 1) < (8 / 5 : ℝ) := by
+  have hExp : (8 / 3 : ℝ) < Real.exp 1 :=
+    (by norm_num : (8 / 3 : ℝ) < 2.7182818283).trans Real.exp_one_gt_d9
+  have hDen : 0 < Real.exp 1 - 1 := by
+    linarith [Real.exp_one_gt_two]
+  rw [div_lt_iff₀ hDen]
+  nlinarith
+
+theorem jutila_cj_exp_quarter_lt_four_thirds :
+    Real.exp (1 / 4 : ℝ) < 4 / 3 := by
+  have hExp := Real.exp_bound'
+    (x := (1 / 4 : ℝ)) (by norm_num) (by norm_num)
+    (n := 6) (by norm_num)
+  norm_num [Finset.sum_range_succ, Nat.factorial] at hExp ⊢
+  nlinarith
+
+/- Theory 73, formulas 73.8--73.10: the full finite denominator quotient
+   bound.  This proof uses order properties of exp and exact algebra rather
+   than importing a new analytic source premise. -/
+theorem jutila_cj_denominator_quotient_lt_eight_fifths
+    {rho t : ℝ} (hRho : 4 ≤ rho) (hT : 1 / rho ≤ t) :
+    Real.exp (-t) / (1 - Real.exp (-(rho - 1) * t)) < 8 / 5 := by
+  have hRhoPos : 0 < rho := by linarith
+  have hRhoOnePos : 0 < rho - 1 := by linarith
+  have hAPos : 0 < (1 / rho : ℝ) := one_div_pos.mpr hRhoPos
+  have hTPos : 0 < t := hAPos.trans_le hT
+  have hProdT : 0 < (rho - 1) * t := mul_pos hRhoOnePos hTPos
+  have hProdA : 0 < (rho - 1) * (1 / rho) :=
+    mul_pos hRhoOnePos hAPos
+  have hDenT : 0 < 1 - Real.exp (-(rho - 1) * t) :=
+    sub_pos.mpr (Real.exp_lt_one_iff.mpr (by nlinarith [hProdT]))
+  have hDenA : 0 < 1 - Real.exp (-(rho - 1) * (1 / rho)) :=
+    sub_pos.mpr (Real.exp_lt_one_iff.mpr (by nlinarith [hProdA]))
+  have hNumerator : Real.exp (-t) ≤ Real.exp (-(1 / rho)) :=
+    Real.exp_le_exp.mpr (neg_le_neg hT)
+  have hExponent :
+      -(rho - 1) * t ≤ -(rho - 1) * (1 / rho) :=
+    mul_le_mul_of_nonpos_left hT (by linarith)
+  have hDenOrder :
+      1 - Real.exp (-(rho - 1) * (1 / rho)) ≤
+        1 - Real.exp (-(rho - 1) * t) :=
+    sub_le_sub_left (Real.exp_le_exp.mpr hExponent) 1
+  have hToEndpoint :
+      Real.exp (-t) / (1 - Real.exp (-(rho - 1) * t)) ≤
+        Real.exp (-(1 / rho)) /
+          (1 - Real.exp (-(rho - 1) * (1 / rho))) := by
+    rw [div_le_div_iff₀ hDenT hDenA]
+    calc
+      Real.exp (-t) * (1 - Real.exp (-(rho - 1) * (1 / rho))) ≤
+          Real.exp (-(1 / rho)) *
+            (1 - Real.exp (-(rho - 1) * (1 / rho))) :=
+        mul_le_mul_of_nonneg_right hNumerator hDenA.le
+      _ ≤ Real.exp (-(1 / rho)) *
+            (1 - Real.exp (-(rho - 1) * t)) :=
+        mul_le_mul_of_nonneg_left hDenOrder (Real.exp_nonneg _)
+  let a : ℝ := 1 / rho
+  let e : ℝ := Real.exp 1
+  let u : ℝ := Real.exp a
+  have hAUpper : a ≤ 1 / 4 := by
+    dsimp [a]
+    rw [div_le_iff₀ hRhoPos]
+    nlinarith
+  have hUPos : 0 < u := by
+    dsimp [u]
+    exact Real.exp_pos a
+  have hUOne : 1 ≤ u := by
+    dsimp [u]
+    rw [← Real.exp_zero]
+    exact Real.exp_le_exp.mpr hAPos.le
+  have hUUpper : u < 4 / 3 := by
+    dsimp [u]
+    exact (Real.exp_le_exp.mpr hAUpper).trans_lt
+      jutila_cj_exp_quarter_lt_four_thirds
+  have hELower : (8 / 3 : ℝ) < e := by
+    dsimp [e]
+    exact (by norm_num : (8 / 3 : ℝ) < 2.7182818283).trans
+      Real.exp_one_gt_d9
+  have hEOnePos : 0 < e - 1 := by linarith
+  have hSecondFactor : 0 ≤ e - u - 1 := by linarith
+  have hProduct : 0 ≤ (u - 1) * (e - u - 1) :=
+    mul_nonneg (sub_nonneg.mpr hUOne) hSecondFactor
+  have hCore : e - 1 ≤ u * (e - u) := by
+    nlinarith
+  have hDivCore : (e - 1) / u ≤ e - u := by
+    exact (div_le_iff₀ hUPos).2 (by simpa [mul_comm] using hCore)
+  have hExponentA : -(rho - 1) * a = a - 1 := by
+    dsimp [a]
+    field_simp
+    ring
+  have hLeft : Real.exp (-a) * (e - 1) = (e - 1) / u := by
+    simp [u, Real.exp_neg]
+    ring
+  have hRight : e * (1 - Real.exp (-(rho - 1) * a)) = e - u := by
+    rw [hExponentA, Real.exp_sub]
+    dsimp [e, u]
+    field_simp [Real.exp_ne_zero]
+  have hEndpointCross :
+      Real.exp (-a) * (e - 1) ≤
+        e * (1 - Real.exp (-(rho - 1) * a)) := by
+    calc
+      Real.exp (-a) * (e - 1) = (e - 1) / u := hLeft
+      _ ≤ e - u := hDivCore
+      _ = e * (1 - Real.exp (-(rho - 1) * a)) := hRight.symm
+  have hEndpoint :
+      Real.exp (-a) / (1 - Real.exp (-(rho - 1) * a)) ≤
+        e / (e - 1) := by
+    rw [div_le_div_iff₀ hDenA hEOnePos]
+    exact hEndpointCross
+  calc
+    Real.exp (-t) / (1 - Real.exp (-(rho - 1) * t)) ≤
+        Real.exp (-(1 / rho)) /
+          (1 - Real.exp (-(rho - 1) * (1 / rho))) := hToEndpoint
+    _ = Real.exp (-a) / (1 - Real.exp (-(rho - 1) * a)) := by rfl
+    _ ≤ e / (e - 1) := hEndpoint
+    _ = Real.exp 1 / (Real.exp 1 - 1) := by rfl
+    _ < 8 / 5 := jutila_cj_denominator_limit_lt_eight_fifths
+
+/- Theory 73, formula 73.13: the finite logarithmic ratio is strictly below
+   16/21 once L>=441. -/
+theorem jutila_cj_log_ratio_441
+    {L : ℝ} (hL : 441 ≤ L) :
+    42 * Real.log L / L < 16 / 21 := by
+  have hDomain441 : Real.exp 1 ≤ (441 : ℝ) :=
+    (le_of_lt Real.exp_one_lt_three).trans (by norm_num)
+  have hDomainL : Real.exp 1 ≤ L := hDomain441.trans hL
+  have hRatio := Real.log_div_self_antitoneOn hDomain441 hDomainL hL
+  have hExpEight : (441 : ℝ) < Real.exp 8 := by
+    have hSeries := Real.sum_le_exp_of_nonneg (x := (8 : ℝ)) (by norm_num) 6
+    norm_num [Finset.sum_range_succ] at hSeries ⊢
+    linarith
+  have hLog441 : Real.log (441 : ℝ) < 8 := by
+    rw [Real.log_lt_iff_lt_exp (by norm_num : (0 : ℝ) < 441)]
+    exact hExpEight
+  have hRatio441 : Real.log (441 : ℝ) / 441 < 8 / 441 := by
+    norm_num at hLog441 ⊢
+    linarith
+  have hCombined : Real.log L / L < 8 / 441 := hRatio.trans_lt hRatio441
+  have hScaled := mul_lt_mul_of_pos_left hCombined (by norm_num : (0 : ℝ) < 42)
+  calc
+    42 * Real.log L / L = 42 * (Real.log L / L) := by ring
+    _ < 42 * (8 / 441 : ℝ) := hScaled
+    _ = 16 / 21 := by norm_num
+
+/- Theory 73, formulas 73.16--73.17 and 73.21: exact endpoint height-row
+   and residue arithmetic after the analytic Rankin envelope is supplied. -/
+theorem jutila_cj_residue_endpoint :
+    (280 / 19 : ℝ) * (1 / 21) ^ 2 +
+          (2800 / 57) * (1 / 21) = 2840 / 1197 ∧
+      (7 / 4 : ℝ) * (2840 / 1197) = 710 / 171 := by
+  norm_num
+
+theorem jutila_cj_residue_row_monotone_endpoint
+    {theta : ℝ} (hTheta : 0 ≤ theta) (hUpper : theta ≤ 1 / 21) :
+    (280 / 19 : ℝ) * theta ^ 2 + (2800 / 57) * theta ≤ 2840 / 1197 := by
+  have hProduct : 0 ≤ theta * ((1 / 21 : ℝ) - theta) :=
+    mul_nonneg hTheta (sub_nonneg.mpr hUpper)
+  nlinarith
+
+/- Theory 73, formula 73.18: elementary averaged-scale logarithm relation.
+   The positivity premise excludes the degenerate Q=T=1 denominator. -/
+theorem jutila_cj_averaged_log_ratio_half
+    {q Q T L : ℝ}
+    (hq : 0 < q) (hQ : 1 ≤ Q) (hT : 1 ≤ T)
+    (hqUpper : q ≤ Q) (hL : L = Real.log (Q ^ 2 * T))
+    (hLPos : 0 < L) :
+    Real.log q / L ≤ 1 / 2 := by
+  have hQPos : 0 < Q := lt_of_lt_of_le zero_lt_one hQ
+  have hTPos : 0 < T := lt_of_lt_of_le zero_lt_one hT
+  have hLogqQ : Real.log q ≤ Real.log Q := Real.log_le_log hq hqUpper
+  have hLogT : 0 ≤ Real.log T := Real.log_nonneg hT
+  have hLogScale : Real.log (Q ^ 2 * T) = 2 * Real.log Q + Real.log T := by
+    rw [Real.log_mul (pow_ne_zero 2 hQPos.ne') hTPos.ne', Real.log_pow]
+    norm_num
+  have hTwice : 2 * Real.log q ≤ L := by
+    rw [hL, hLogScale]
+    linarith
+  rw [div_le_iff₀ hLPos]
+  linarith
+
+/- Theory 73, formula 73.20: a six-term Mathlib exponential remainder
+   bound proves the rational averaged-scale envelope. -/
+theorem jutila_cj_exp_endpoint_envelope :
+    Real.exp (23 / 42 : ℝ) * (442 / 441) < 7 / 4 := by
+  have hExp := Real.exp_bound'
+    (x := (23 / 42 : ℝ)) (by norm_num) (by norm_num)
+    (n := 6) (by norm_num)
+  norm_num [Finset.sum_range_succ, Nat.factorial] at hExp ⊢
+  nlinarith
+
+/- Theory 73, formula 73.22: exact endpoint integration-area lower atom. -/
+theorem jutila_cj_area_endpoint :
+    (1 / 21 : ℝ) ^ 2 * (1 / 2 + 7 * (1 / 21)) *
+        (1 + 12 * (1 / 21)) = 55 / 18522 := by
+  norm_num
+
+/- Theory 73, formula 73.23: arbitrary strict absorption margin.  All
+   analytic estimates are explicit premises, so this theorem verifies only
+   the terminal ordered-field implication. -/
+theorem jutila_cj_arbitrary_absorption_terminal
+    {A B E J Y m : ℝ}
+    (hA : 0 < A)
+    (hm : 1 < m) (hE : E ≤ A / m) (hJ : 0 < J)
+    (hInequality : A * J ^ 2 ≤ B * J * Y + E * J ^ 2) :
+    J ≤ (m / (m - 1)) * B * Y / A := by
+  have hmPos : 0 < m := lt_trans zero_lt_one hm
+  have hmSubPos : 0 < m - 1 := sub_pos.mpr hm
+  have hALower : ((m - 1) / m) * A ≤ A - E := by
+    have hScaled : E ≤ A / m := hE
+    rw [div_eq_mul_inv] at hScaled
+    calc
+      ((m - 1) / m) * A = A - A / m := by field_simp
+      _ ≤ A - E := sub_le_sub_left hScaled A
+  have hAbsorbed : (A - E) * J ^ 2 ≤ B * J * Y := by
+    nlinarith
+  have hLowerTimes : (((m - 1) / m) * A) * J ^ 2 ≤ B * J * Y :=
+    le_trans (mul_le_mul_of_nonneg_right hALower (sq_nonneg J)) hAbsorbed
+  have hDenPos : 0 < ((m - 1) / m) * A * J := by positivity
+  have hLowerTimes' :
+      J * (((m - 1) / m) * A * J) ≤ B * J * Y := by
+    calc
+      J * (((m - 1) / m) * A * J) =
+          (((m - 1) / m) * A) * J ^ 2 := by ring
+      _ ≤ B * J * Y := hLowerTimes
+  have hDivide :
+      J ≤ B * J * Y / (((m - 1) / m) * A * J) :=
+    (le_div_iff₀ hDenPos).2 hLowerTimes'
+  calc
+    J ≤ B * J * Y / (((m - 1) / m) * A * J) := hDivide
+    _ = (m / (m - 1)) * B * Y / A := by field_simp
+
+/- Theory 73, formulas 73.4 and 73.14--73.24: exact composition of the
+   tightened endpoint factors with m=10^6.  Analytic premises producing the
+   individual bounds remain separately classified. -/
+theorem jutila_cj_tightened_endpoint_coefficient :
+    (1000000 / 999999 : ℝ) * (710 / 171) * (8 / 5) *
+          (15665428311 / 1750000) /
+          (4 / 147) ^ 2 /
+          (55 / 18522) =
+      11503697604450072 / 425315 := by
+  norm_num
+
+/- Theory 73, formula 73.5: exact improvement factor before its decimal
+   diagnostic is printed. -/
+theorem jutila_cj_exact_improvement_factor :
+    (9287613243090 : ℝ) /
+        (11503697604450072 / 425315) =
+      2304222695775 / 6710379548 := by
+  norm_num
+
+/- Theory 73, formulas 73.4--73.7 and 73.29: exact coarse structural
+   comparisons.  They deliberately avoid treating decimal transcendental
+   diagnostics as directed certificates. -/
+theorem jutila_cj_tightened_still_large :
+    (27000000000 : ℝ) < 11503697604450072 / 425315 := by
+  norm_num
+
+theorem jutila_cj_theta_power_endpoint :
+    ((1 / 21 : ℝ) ^ 6)⁻¹ = 85766121 := by
+  norm_num
+
+/- Theory 73, formula 73.26: exact endpoint exponents entering the
+   unit-C_J near kernel. -/
+theorem jutila_cj_capacity_endpoint_exponents :
+    (1 : ℝ) - 14 * (1 + 12 * (1 / 21)) / 186 = 82 / 93 ∧
+      (82 / 93 : ℝ) * (1 / 24) * 186 / 5 = 1271 / 930 ∧
+      (82 / 93 : ℝ) * 186 / 7 = 164 / 7 := by
+  norm_num
+
 end FGKMTSono

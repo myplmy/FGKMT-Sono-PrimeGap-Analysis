@@ -256,3 +256,20 @@ Theory 72 뒤 inventory는 theory 문서 73개, display 1,311식이며 전체 �
 `PARTIAL_FORMALIZATION=58`, `SOURCE_THEOREM_UNFORMALIZED=62`,
 `NOT_YET_FORMALIZED=1002`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 245개이고
 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 OPEN이다.
+
+2026-09-14 Theory 73 batch는 Theory 72의 selected-system coefficient를 여섯
+loss factor로 exact하게 분해했다. generic baseline identity와 endpoint 정수값,
+\(\rho\ge4,t\ge1/\rho\)의 full exponential denominator quotient \(<8/5\),
+\(L\ge441\) finite log-ratio, averaged \(\log q/L\le1/2\), row monotonicity,
+\(e^{23/42}(442/441)<7/4\), area endpoint, arbitrary absorption terminal과
+tightened rational coefficient를 단일 파일에서 검사한다. Ramaré--Zuniga의 analytic
+Corollary와 Rankin/Euler-product premise는 local axiom으로 넣지 않았고 해당 행은
+source-unformalized 또는 partial/conditional로 유지했다.
+
+Theory 73 뒤 inventory는 theory 문서 74개, display 1,344식이며 전체 상태는
+`KERNEL_PASS=87`, `CONDITIONAL_KERNEL_PASS=51`, `DEFINITION_ONLY=62`,
+`PARTIAL_FORMALIZATION=67`, `SOURCE_THEOREM_UNFORMALIZED=63`,
+`NOT_YET_FORMALIZED=1009`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 264개이고
+금지 proof escape는 0건이다. 이 형식화는 약 343.38배의 local tightening을 확인하지만,
+\(d=186\) PAP budget보다 여전히 약 \(4.623\times10^{11}\)배 크다. PAP-11,
+DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.

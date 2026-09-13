@@ -987,3 +987,29 @@ exceptional/good-modulus transfer, full orthogonality replay,
 이미 실패하므로 66개 root 상태 수와 <code>PAP-11=HARD_BLOCKER</code>,
 DEP-R09·fixed \(2\times10^{-17}\)·\(X_{\rm cert}=\mathrm{OPEN}\)은 유지한다.
 다음 gate는 \(C_J\) loss tree의 구조적 축소 가능성 감사다.
+
+## 42. 2026-09-14 DEP-R09 \(C_J\) loss tree 후속 상태
+
+[theory 73](73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md)은 앞 절에서 처음 실패한
+near coefficient를 exact factor tree로 분해했다.
+
+~~~text
+C_J baseline = 2 * 52 * 5 * (34/theta^2) * cbar^(-2) * (theta^2/2)^(-1)
+C_J(1/21) = 9,287,613,243,090
+C_J finite-safe tightened = 11503697604450072/425315
+local improvement = 343.3818727...
+d=186 exp(-2) cap = 0.05850429428...
+tightened/cap = 4.62316094119e11
+~~~
+
+denominator, averaged residue, weighted source specialization, exact area와 absorption slack의
+국소 개선은 유효하다. 그러나 현 \(\theta^{-6}\) architecture의 scale만 남긴
+counterfactual도 budget보다 약 \(1.466\times10^9\)배 크다. 이는 모든 재배열에 대한
+불가능성 정리는 아니지만, `JL7-CONT`나 Lemma 3 cutoff 상수를 더 줄이는 작업이 현재
+root gate를 닫지 못한다는 판정이다.
+
+따라서 66개 root row의 상태와 <code>PAP-11=HARD_BLOCKER</code>,
+DEP-R09·fixed \(2\times10^{-17}\)·\(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다.
+다음 gate는 \(d\le186\) actual family에 적용되는 modern explicit near-one density source
+또는 detector·weight·integration 구조를 바꾸는 증명의 정량 비교다. 새 source가 cap을
+통과할 전망을 보이기 전에는 threshold calculator와 장시간 prime 계산을 만들지 않는다.

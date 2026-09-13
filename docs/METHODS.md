@@ -1736,3 +1736,44 @@ exceptional/good-modulus transfer, full orthogonality replay와
 fixed \(2\times10^{-17}\), numerical \(X_{\rm cert}\)와 threshold calculator도
 계속 OPEN/NOT READY다. 다음 우선순위는 \(C_J\)의 약 \(10^{14}\)배 loss tree를
 역추적해 d<=186에서 통과 가능한 구조적 개선이 있는지 판정하는 일이다.
+
+## 2026-09-14 DEP-R09 Jutila \(C_J\) loss tree 구조감사
+
+[theory 73](method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md)과
+[review 80](review/80_20260914_DEPR09_CJ_loss_tree_구조감사_타당성검토.md)는 Theory 72의
+selected-system coefficient를 source 식까지 역추적했다. baseline은 정확히
+
+\[
+C_J=2\cdot52\cdot5\cdot\frac{34}{\theta^2}\cdot
+\left\{\frac35(1-\theta)\theta\right\}^{-2}\cdot
+\left(\frac{\theta^2}{2}\right)^{-1}
+=\frac{884000}{9(1-\theta)^2\theta^6}.
+\]
+
+여기에는 Lemma 3, integration area 또는 parity를 두 번 넣은 중복은 없었다. 다만
+같은 source와 actual averaged scale을 보존하면서 denominator를 \(8/5\), residue를
+\(710/171\), area를 \(55/18522\), absorption factor를 \(10^6/(10^6-1)\)로 조일 수 있다.
+그 결과 \(\theta=1/21\)에서
+
+\[
+C_{J,\mathrm{tight}}
+=\frac{11503697604450072}{425315}
+=2.7047476821\ldots\times10^{10},
+\]
+
+즉 약 343.38배 개선된다. 그러나 \(d=186,c_1=1/24\)의 near budget
+\(e^{-2}\)가 허용하는 coefficient는 약 0.0585043뿐이라, tightened coefficient도
+약 \(4.623\times10^{11}\)배 크다. 심지어 현 proof architecture의
+\(\theta^{-6}=21^6\)만 남기는 counterfactual도 budget보다 약
+\(1.466\times10^9\)배 크다. 이는 모든 Jutila형 재배열의 불가능성 정리는 아니지만,
+52·5 같은 국소 상수를 더 다듬는 방향만으로는 목표에 도달하지 못한다는 구조 진단이다.
+
+Lean 단일 파일은 baseline factorization, full denominator quotient \(<8/5\),
+finite log-ratio, averaged \(\log q/L\le1/2\), exponential \(7/4\) envelope,
+residue·area endpoint, arbitrary absorption과 exact coefficient 합성을 금지 proof escape 없이
+검사한다. Ramaré--Zuniga analytic Corollary와 Rankin/Euler-product source premise 자체는
+local axiom으로 넣지 않는다. 그러므로 <code>PAP-11</code>, <code>DEP-R09</code>, fixed
+\(2\times10^{-17}\), numerical \(X_{\rm cert}\)와 threshold calculator는 계속
+OPEN/NOT READY다. 다음 gate는 \(d\le186\)에서 near integral을 실제 budget 아래로 내릴
+수 있는 modern explicit zero-density source 또는 구조적으로 다른 detector·weight·적분
+합성의 source-first 비교다. 이 gate 전에는 장시간 prime 계산을 실행하지 않는다.
