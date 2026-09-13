@@ -11,7 +11,9 @@
 > **후속 상태(2026-09-13):** [Theory 63](63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md)이
 > actual 선택 `R=D^epsilon`, `X=D^(1+12epsilon)`에서 truncation tail을
 > `ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`으로 닫았다. 인쇄된 일반 Lemma 6의
-> uniform tail과 JL5/Mellin/tail common budget, JL6 전체·JL8·root certificate는 계속 OPEN이다.
+> uniform tail은 계속 OPEN이다. [Theory 64](64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md)는
+> damping까지 포함한 common budget을 합쳐 `JL6-ACTUAL`을 parameterized explicit로
+> 닫았지만, printed general JL6·JL8·root certificate는 계속 OPEN이다.
 
 ## 1. 결론
 

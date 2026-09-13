@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila Lemma 6 actual common detector error budget",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_Lemma6_tail_actual_v1.json",
+  "outcome": "JL6_ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT_BUT_PRINTED_GENERAL_JL6_AND_JL8_OPEN",
+  "numerical_pap_package_ready": false,
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "author": "Matti Jutila",
+      "journal": "Mathematica Scandinavica 41 (1977), 45-62",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [50, 51, 52],
+      "statement": "Lemma 6 equations (2.8)-(2.11), proof identity, final coefficient, and actual parameter choice",
+      "classification": "ORIGINAL_TARGET_AND_ACTUAL_PARAMETER_SOURCE"
+    },
+    {
+      "key": "ZUNIGA_ALTERMAN_2022",
+      "title": "Explicit averages of square-free supported functions: to the edge of the convolution method",
+      "author": "Sebastian Zuniga Alterman",
+      "journal": "Colloquium Mathematicum 168 (2022), 1-23",
+      "doi": "10.4064/cm8337-11-2020",
+      "url": "https://doi.org/10.4064/cm8337-11-2020",
+      "audit_copy_locator": "article/Zuniga Alterman 2022 Explicit averages of square-free supported functions.pdf",
+      "audit_copy_sha256": "848a3a10b32f7639b584598bda98b4d9a092d4eacf87f68e9b1364e9f6880495",
+      "audit_copy_bytes": 307611,
+      "page_count": 25,
+      "reading_mode": "NATIVE_TEXT_WITH_ORIGINAL_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [10, 11, 12],
+      "statement": "Corollary 3.4(b), equation (3.16), exact squarefree coprime harmonic sum and 2.554 B_q R^(-1/3) error",
+      "classification": "PEER_REVIEWED_EXPLICIT_JL5_INPUT"
+    },
+    {
+      "key": "ROSSER_SCHOENFELD_1962",
+      "title": "Approximate formulas for some functions of prime numbers",
+      "author": "J. Barkley Rosser and Lowell Schoenfeld",
+      "journal": "Illinois Journal of Mathematics 6 (1962), 64-94",
+      "doi": "10.1215/ijm/1255631807",
+      "url": "https://doi.org/10.1215/ijm/1255631807",
+      "audit_copy_locator": "tmp/pdfs/h1b1a/Rosser_Schoenfeld_1962_Approximate_formulas.pdf",
+      "audit_copy_sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "audit_copy_bytes": 2520753,
+      "page_count": 31,
+      "reading_mode": "SCAN_WITH_TEXT_LOCATOR_AND_RENDERED_ORIGINAL_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [72],
+      "statement": "Theorem 15 equations (3.41)-(3.42), exception-safe upper bound for q/phi(q)",
+      "classification": "PEER_REVIEWED_UNIFORM_NORMALIZATION_INPUT"
+    }
+  ],
+  "source_identity": {
+    "equation": "M+g+E_tail=I",
+    "main_term": "M=exp(-1/X) S_q(R)",
+    "triangle_direction": "abs(g)>=M-abs(I)-abs(E_tail)",
+    "final_source_target": "abs(g)>=(1-theta) C_phi log(R)",
+    "C_phi": "(6/pi^2) phi(q)/q",
+    "newly_separated_loss": "exp(-1/X) damping must receive its own relative budget"
+  },
+  "actual_parameters": {
+    "D": "qT",
+    "q_range": "integer q>=3",
+    "T_range": "T>=1",
+    "theta_range": "0<theta<=1/21",
+    "alpha_range": "alpha>=1-theta",
+    "R": "D^theta",
+    "z1": "D^(1/2+7theta)",
+    "z2": "D^(1/2+8theta)",
+    "X": "D^(1+12theta)",
+    "power_condition_margin": "(1-theta)(1+12theta)-(1+theta)(1+9theta)=theta(1-21theta)>=0",
+    "original_log_condition": "log(D)>=theta^(-2) implies sqrt(log q)<=log R; log R=theta log D<=log D"
+  },
+  "four_part_budget": {
+    "allocations": ["eta_5", "eta_X", "eta_M", "eta_T"],
+    "constraint": "all positive and eta_5+eta_X+eta_M+eta_T<=eta_out<=theta",
+    "jl5": "S_q(R)>=(1-eta_5) C_phi log R",
+    "damping": "exp(-1/X)>=1-eta_X",
+    "mellin": "abs(I)<=eta_M C_phi log R",
+    "tail": "abs(E_tail)<=eta_T C_phi log R",
+    "conclusion": "abs(g)>=(1-eta_out) C_phi log R>=(1-theta) C_phi log R"
+  },
+  "uniform_auxiliary_bounds": {
+    "totient": "for log D>=e, q/phi(q)<=6 log D and 1/C_phi<=pi^2 log D",
+    "totient_small_q": "q=3,...,15 checked exactly; max q/phi(q)=3",
+    "totient_large_q": "Rosser-Schoenfeld Theorem 15 plus e^gamma<3 and 2.50637<3",
+    "B_q_local": "1+(p^(2/3)-1)/(p^(4/3)+1)<=exp(p^(-2/3))",
+    "B_q_global": "B_q<=exp(3(log D/log 2)^(1/3))",
+    "B_q_absorption": "L>=(18/(theta*(log 2)^(1/3)))^(3/2) implies log B_q<=theta L/6"
+  },
+  "common_log_D_cutoff": {
+    "notation": "L=log D, delta=theta/(4(1+theta)), K_M=12 sqrt(6) zeta(1+delta)(2/delta+1)/pi^(3/2)",
+    "components": {
+      "base": "e",
+      "original_log_condition": "theta^(-2)",
+      "B_q_absorption": "(18/(theta*(log 2)^(1/3)))^(3/2)",
+      "JL5_relative": "(6/theta) log((1277/500) pi^2/(theta eta_5))",
+      "damping_relative": "log(1/eta_X)/(1+12theta)",
+      "Mellin_relative": "2 log(pi^2 K_M/(theta eta_M))/(theta(1+9theta))",
+      "tail_linear": "2(1+13theta)",
+      "tail_relative": "sqrt(2 log(4 pi^2/(theta eta_T)))"
+    },
+    "definition": "L_0 is the maximum of all eight displayed components",
+    "optimality": "sufficient and deliberately conservative, not a minimal cutoff"
+  },
+  "diagnostic_equal_split_theta_1_over_100": {
+    "eta_out": "0.01",
+    "each_component_budget": "0.0025",
+    "delta": "0.0024752475247524752475247524752475247524752475247525",
+    "K_M": "1727755.1591850189554667294430789341176161220168606",
+    "L_0": "91726.75443110605661392230608311207892923523812871",
+    "dominant_component": "B_q_absorption",
+    "interpretation": "high-precision diagnostic only; the symbolic implication is the proof and this is not a directed rounded threshold certificate"
+  },
+  "jutila_nodes": [
+    {
+      "id": "JL5",
+      "status": "EXPLICIT_PEER_REVIEWED_SOURCE_REPLACEMENT_WITH_Q_DEPENDENT_CUTOFF"
+    },
+    {
+      "id": "JL6-MELLIN",
+      "status": "ACTUAL_FORM_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "JL6-TAIL-ACTUAL",
+      "status": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "JL6-COMMON-BUDGET",
+      "status": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "JL6-ACTUAL",
+      "status": "ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT"
+    },
+    {
+      "id": "JL6-PRINTED-GENERAL",
+      "status": "OPEN_PRINTED_STATEMENT_REQUIRES_UNIFORM_TAIL_OR_CANCELLATION"
+    },
+    {
+      "id": "JL8",
+      "status": "HARD_BLOCKER",
+      "remaining": "recover a numerical local zero-count multiplier and finite range for the exact square used in the density proof"
+    }
+  ],
+  "lean_scope": {
+    "actual_power_exponent_margin_formalized": true,
+    "damping_product_loss_formalized": true,
+    "four_part_budget_transfer_formalized": true,
+    "B_q_terminal_exponent_absorption_formalized": true,
+    "B_q_product_and_root_cutoff_formalized": false,
+    "published_analytic_theorems_formalized": false,
+    "classification": "SOURCE_ANALYTIC_INPUTS_PLUS_KERNEL_VERIFIED_FINITE_REAL_ALGEBRA"
+  },
+  "next_gate": "JL8: source-first explicit local zero-count multiplier and finite square range",
+  "user_compute_required_now": false,
+  "new_dependency_required_now": false
+}

@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 64,
-  "formula_count": 1119,
-  "tagged_formula_count": 609,
+  "theory_count": 65,
+  "formula_count": 1142,
+  "tagged_formula_count": 632,
   "untagged_formula_count": 510,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "6479daacf248aa4149b9be42986a58442cf93a77b9022cfb4823fd4020208fdd",
+      "source_sha256": "b6638ecafa6230e0c40486606179818b100c075aabb1484906acee1bf6e32b1c",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -489,7 +489,7 @@
     {
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27",
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b",
       "display_formula_count": 12,
       "tagged_formula_count": 12,
       "untagged_formula_count": 0
@@ -497,7 +497,7 @@
     {
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080",
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601",
       "display_formula_count": 10,
       "tagged_formula_count": 10,
       "untagged_formula_count": 0
@@ -505,7 +505,7 @@
     {
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46",
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a",
       "display_formula_count": 26,
       "tagged_formula_count": 13,
       "untagged_formula_count": 13
@@ -513,10 +513,18 @@
     {
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0",
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54",
       "display_formula_count": 15,
       "tagged_formula_count": 13,
       "untagged_formula_count": 2
+    },
+    {
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0",
+      "display_formula_count": 23,
+      "tagged_formula_count": 23,
+      "untagged_formula_count": 0
     }
   ],
   "formulae": [
@@ -11084,631 +11092,861 @@
       "formula_id": "60.1",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 25,
-      "end_line": 30,
+      "start_line": 26,
+      "end_line": 31,
       "tagged": true,
       "latex": "K_{\\rm BV}\n =3.09\\frac{1.084(\\tau+1)+1.301(1+\\tau^2)-0.116}{\\tau-1}\n =\\frac{18884947}{500000}=37.769894.\n\\tag{60.1}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.2",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 68,
-      "end_line": 74,
+      "start_line": 69,
+      "end_line": 75,
       "tagged": true,
       "latex": "\\sum_{n\\le x}a(n)^2\n =\\frac{x}{\\log(z_2/z_1)}\n  +O\\!\\left(\\frac{x}{\\log^2(z_2/z_1)}\\right)\n \\qquad (x\\ge z_2)\n\\tag{60.2}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.3",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 83,
-      "end_line": 88,
+      "start_line": 84,
+      "end_line": 89,
       "tagged": true,
       "latex": "\\sum_{n\\le X}\\frac{a(n)^2}{n^{2\\alpha-1}}\n \\le K_{\\rm BV}(\\tau)X^{2-2\\alpha}\n       \\frac{\\log X}{\\log(z_2/z_1)}\n\\tag{60.3}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.4",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 98,
-      "end_line": 102,
+      "start_line": 99,
+      "end_line": 103,
       "tagged": true,
       "latex": "a_1=\\frac52,\\quad a_2=4,\\quad c=\\frac{11}{2},\\quad\n z_i=D^{a_i},\\quad X=D^c,\\quad x_D=X\\log^2D.\n\\tag{60.4}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.5",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 106,
-      "end_line": 111,
+      "start_line": 107,
+      "end_line": 112,
       "tagged": true,
       "latex": "\\tau=\\frac{a_2}{a_1}=\\frac85,\\qquad\n \\frac{\\log x_D}{\\log(z_2/z_1)}\n =\\frac{11}{3}+\\frac43\\frac{\\log_2D}{\\log D}.\n\\tag{60.5}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.6",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 116,
-      "end_line": 121,
+      "start_line": 117,
+      "end_line": 122,
       "tagged": true,
       "latex": "x_D^{2-2\\alpha}\n =\\exp\\!\\left(11\\lambda+\n      4\\lambda\\frac{\\log_2D}{\\log D}\\right).\n\\tag{60.6}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.7",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 127,
-      "end_line": 130,
+      "start_line": 128,
+      "end_line": 131,
       "tagged": true,
       "latex": "4\\frac{\\log_2D}{\\log D}\\le\\delta\n\\tag{60.7}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.8",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 145,
-      "end_line": 150,
+      "start_line": 146,
+      "end_line": 151,
       "tagged": true,
       "latex": "\\sum_{\\substack{r\\le R\\\\ r\\text{ squarefree}\\\\(r,q)=1}}\\frac1r\n =\\frac6{\\pi^2}\\prod_{p\\mid q}\\left(1+\\frac1p\\right)^{-1}\n  \\log R\\{1+o(1)\\}.\n\\tag{60.8}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.9",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 167,
-      "end_line": 171,
+      "start_line": 168,
+      "end_line": 172,
       "tagged": true,
       "latex": "|g(\\rho,\\chi)|\\ge\n (1-\\varepsilon)\\frac{\\varphi(q)}q\\frac6{\\pi^2}\\log R,\n\\tag{60.9}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.10",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 185,
-      "end_line": 191,
+      "start_line": 186,
+      "end_line": 192,
       "tagged": true,
       "latex": "\\left(\\sum_{j=1}^J|f(s_j,\\chi_j)|\\right)^2\n \\le \\sum_{n=1}^N|a_n|^2b_n^{-1}\n \\sum_{j,k=1}^J\\overline{\\eta_j}\\eta_k\n B(\\overline{s_j}+s_k,\\overline{\\chi_j}\\chi_k)\n\\tag{60.10}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.11",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 202,
-      "end_line": 207,
+      "start_line": 203,
+      "end_line": 208,
       "tagged": true,
       "latex": "\\#\\{\\rho:\\alpha\\le\\Re\\rho\\le1,\n      |\\Im\\rho-T|\\le(1-\\alpha)/2\\}\n \\ll (1-\\alpha)\\log(q(T+1))+1\n\\tag{60.11}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "60.12",
       "theory": "60",
       "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
-      "start_line": 220,
-      "end_line": 224,
+      "start_line": 221,
+      "end_line": 225,
       "tagged": true,
       "latex": "\\sum_{\\chi\\bmod q}N(\\alpha,T,\\chi)\n \\ll_\\varepsilon(qT)^{2-2\\alpha+\\varepsilon}.\n\\tag{60.12}",
-      "source_sha256": "a469cc1de5c7fe714b21afe0f701b4943fa065e57d6e656a83b66adc77995c27"
+      "source_sha256": "0990275021736f62e399a618f5d342a39a828556e92da50f3a0da8a7b44e8d0b"
     },
     {
       "formula_id": "61.1",
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "start_line": 58,
-      "end_line": 67,
+      "start_line": 59,
+      "end_line": 68,
       "tagged": true,
       "latex": "S_q(R):=\n \\sum_{\\substack{r\\le R\\\\(r,q)=1}}\\frac{\\mu^2(r)}r\n =\n c_q\\{\\log R+b_q\\}+\\mathcal E_q(R),\n \\qquad\n |\\mathcal E_q(R)|\n \\le \\frac{(1277/500)\\mathcal B_q}{R^{1/3}}.\n\\tag{61.1}",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080"
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601"
     },
     {
       "formula_id": "61.2",
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "start_line": 71,
-      "end_line": 81,
+      "start_line": 72,
+      "end_line": 82,
       "tagged": true,
       "latex": "c_q=\n \\frac6{\\pi^2}\\frac q{\\kappa(q)}\n =\n \\frac6{\\pi^2}\\prod_{p\\mid q}\\left(1+\\frac1p\\right)^{-1},\n \\qquad\n \\mathcal B_q=\n \\prod_{p\\mid q}\n \\left(1+\\frac{p^{2/3}-1}{p^{4/3}+1}\\right).\n\\tag{61.2}",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080"
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601"
     },
     {
       "formula_id": "61.3",
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "start_line": 85,
-      "end_line": 90,
+      "start_line": 86,
+      "end_line": 91,
       "tagged": true,
       "latex": "b_q=\n \\gamma+\\sum_p\\frac{2\\log p}{p^2-1}\n       +\\sum_{p\\mid q}\\frac{\\log p}{p+1}>0.\n\\tag{61.3}",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080"
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601"
     },
     {
       "formula_id": "61.4",
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "start_line": 94,
-      "end_line": 98,
+      "start_line": 95,
+      "end_line": 99,
       "tagged": true,
       "latex": "S_q(R)\\ge\n c_q\\log R-\\frac{(1277/500)\\mathcal B_q}{R^{1/3}}.\n\\tag{61.4}",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080"
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601"
     },
     {
       "formula_id": "61.5",
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "start_line": 107,
-      "end_line": 116,
+      "start_line": 108,
+      "end_line": 117,
       "tagged": true,
       "latex": "A(q,\\eta):=\n \\frac{(1277/500)\\mathcal B_q}{\\eta c_q}.\n \\qquad\n R^{1/3}\\log R\\ge A(q,\\eta)\n \\Longrightarrow\n \\frac{(1277/500)\\mathcal B_q}{R^{1/3}}\n \\le\\eta c_q\\log R.\n\\tag{61.5}",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080"
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601"
     },
     {
       "formula_id": "61.6",
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "start_line": 120,
-      "end_line": 128,
+      "start_line": 121,
+      "end_line": 129,
       "tagged": true,
       "latex": "R_0(q,\\eta):=\n \\max\\left\\{\n   \\exp\\!\\sqrt{\\log q},\\\n   e,\\\n   A(q,\\eta)^3\n \\right\\}.\n\\tag{61.6}",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080"
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601"
     },
     {
       "formula_id": "61.7",
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "start_line": 134,
-      "end_line": 139,
+      "start_line": 135,
+      "end_line": 140,
       "tagged": true,
       "latex": "R\\ge R_0(q,\\eta)\n \\Longrightarrow\n S_q(R)\\ge(1-\\eta)c_q\\log R.\n\\tag{61.7}",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080"
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601"
     },
     {
       "formula_id": "61.8",
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "start_line": 149,
-      "end_line": 157,
+      "start_line": 150,
+      "end_line": 158,
       "tagged": true,
       "latex": "\\frac{p-1}{p}\\le\\frac p{p+1},\n \\qquad\n c_q\\ge\n \\frac6{\\pi^2}\\prod_{p\\mid q}\\left(1-\\frac1p\\right)\n =\n \\frac6{\\pi^2}\\frac{\\varphi(q)}q.\n\\tag{61.8}",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080"
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601"
     },
     {
       "formula_id": "61.9",
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "start_line": 161,
-      "end_line": 167,
+      "start_line": 162,
+      "end_line": 168,
       "tagged": true,
       "latex": "R\\ge R_0(q,\\eta)\n \\Longrightarrow\n S_q(R)\\ge\n (1-\\eta)\\frac{\\varphi(q)}q\\frac6{\\pi^2}\\log R.\n\\tag{61.9}",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080"
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601"
     },
     {
       "formula_id": "61.10",
       "theory": "61",
       "source_file": "docs/method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md",
-      "start_line": 199,
-      "end_line": 202,
+      "start_line": 200,
+      "end_line": 203,
       "tagged": true,
       "latex": "2.554=\\frac{1277}{500}.\n\\tag{61.10}",
-      "source_sha256": "42d1641d772ff2928c6b1bed40294e26a843fce6d0d682822d9aa7758e2e3080"
+      "source_sha256": "b3162b6991cf9af27bfef8aeb109d05dfe3378aa010bd05ea59f525aedb0c601"
     },
     {
       "formula_id": "T62-U001",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 22,
-      "end_line": 24,
+      "start_line": 24,
+      "end_line": 26,
       "tagged": false,
       "latex": "\\Re w=-\\beta+\\delta,\\qquad 0<\\delta\\le\\frac14",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.13",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 29,
-      "end_line": 34,
+      "start_line": 31,
+      "end_line": 36,
       "tagged": true,
       "latex": "\\boxed{\n |I_{\\delta_\\varepsilon}|\n \\le K_M(\\delta_\\varepsilon)A^{-\\varepsilon/2}}\n\\tag{62.13}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U002",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 38,
-      "end_line": 41,
+      "start_line": 40,
+      "end_line": 43,
       "tagged": false,
       "latex": "A=(qT)^{1/2}Rz_2,\\qquad\n \\delta_\\varepsilon=\\frac{\\varepsilon}{4(1+\\varepsilon)},",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U003",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 43,
-      "end_line": 47,
+      "start_line": 45,
+      "end_line": 49,
       "tagged": false,
       "latex": "K_M(\\delta)=\n \\frac{12\\sqrt6}{\\pi^{3/2}}\n \\zeta(1+\\delta)\\left(\\frac2\\delta+1\\right).",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.1",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 79,
-      "end_line": 89,
+      "start_line": 81,
+      "end_line": 91,
       "tagged": true,
       "latex": "\\begin{aligned}\n &e^{-1/X}\\sum_{r\\le R}'\\frac1r\n +\\sum_{n>z_1}a(n)\\chi(n)e^{-n/X}n^{-\\rho}\n   \\sum_{r\\le R}'\\frac{\\psi_r(n)}r \\\\\n &=\\frac1{2\\pi}\\int_{-\\infty}^{\\infty}\n L(i(t+u),\\chi)\\Gamma(-\\beta+iu)X^{-\\beta+iu}\n \\sum_{r\\le R}'\\frac1r M(i(t+u),\\chi,\\psi_r)\\,du.\n\\end{aligned}\n\\tag{62.1}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.2",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 100,
-      "end_line": 103,
+      "start_line": 102,
+      "end_line": 105,
       "tagged": true,
       "latex": "\\Re w=-\\beta+\\delta\n\\tag{62.2}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U004",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 115,
-      "end_line": 120,
+      "start_line": 117,
+      "end_line": 122,
       "tagged": false,
       "latex": "I_\\delta=\\frac1{2\\pi}\\int_{-\\infty}^{\\infty}\n L(\\delta+i(t+u),\\chi)\\Gamma(-\\beta+\\delta+iu)\n X^{-\\beta+\\delta+iu}\n \\sum_{r\\le R}'\\frac1rM(\\delta+i(t+u),\\chi,\\psi_r)\\,du",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U005",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 129,
-      "end_line": 131,
+      "start_line": 131,
+      "end_line": 133,
       "tagged": false,
       "latex": "f(n)=\\psi(n)=\\mu(n)\\varphi(n),\\qquad \\xi_d=\\lambda_d,",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.3",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 142,
-      "end_line": 146,
+      "start_line": 144,
+      "end_line": 148,
       "tagged": true,
       "latex": "|M(\\delta+iv,\\chi,\\psi_r)|\n \\le z_2\\frac{r^2}{\\varphi(r)}.\n\\tag{62.3}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U006",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 150,
-      "end_line": 152,
+      "start_line": 152,
+      "end_line": 154,
       "tagged": false,
       "latex": "\\frac n{\\varphi(n)}=\\sum_{d\\mid n}\\frac{\\mu^2(d)}{\\varphi(d)}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.4",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 156,
-      "end_line": 164,
+      "start_line": 158,
+      "end_line": 166,
       "tagged": true,
       "latex": "\\begin{aligned}\n \\sum_{n\\le R}\\frac n{\\varphi(n)}\n &\\le R\\prod_p\\left(1+\\frac1{p(p-1)}\\right) \\\\\n &<R\\exp\\left(\\sum_{m=2}^{\\infty}\\frac1{m(m-1)}\\right)\n =eR<3R.\n\\end{aligned}\n\\tag{62.4}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U007",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 168,
-      "end_line": 170,
+      "start_line": 170,
+      "end_line": 172,
       "tagged": false,
       "latex": "\\sum_{r\\le R}'\\frac1r|M(\\delta+iv,\\chi,\\psi_r)|<3Rz_2.",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U008",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 178,
-      "end_line": 181,
+      "start_line": 180,
+      "end_line": 183,
       "tagged": false,
       "latex": "L(s,\\chi)=L(s,\\chi^*)\n \\prod_{\\substack{p\\mid q\\\\p\\nmid f}}(1-\\chi^*(p)p^{-s}).",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.5",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 186,
-      "end_line": 190,
+      "start_line": 188,
+      "end_line": 192,
       "tagged": true,
       "latex": "\\sqrt f\\prod_{\\substack{p\\mid q\\\\p\\nmid f}}(1+p^{-\\delta})\n \\le\\frac4{\\sqrt6}\\sqrt q.\n\\tag{62.5}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.6",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 194,
-      "end_line": 199,
+      "start_line": 196,
+      "end_line": 201,
       "tagged": true,
       "latex": "|L(\\delta+iv,\\chi^*)|\n \\le\\zeta(1+\\delta)\n \\left(\\frac f{2\\pi}|1+\\delta+iv|\\right)^{1/2}.\n\\tag{62.6}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U009",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 203,
-      "end_line": 206,
+      "start_line": 205,
+      "end_line": 208,
       "tagged": false,
       "latex": "|1+\\delta+i(t+u)|\n \\le\\frac94T(1+|u|).",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.7",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 210,
-      "end_line": 214,
+      "start_line": 212,
+      "end_line": 216,
       "tagged": true,
       "latex": "|L(\\delta+i(t+u),\\chi)|\n \\le \\sqrt{\\frac3\\pi}\\zeta(1+\\delta)(qT)^{1/2}(1+|u|)^{1/2}.\n\\tag{62.7}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U010",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 222,
-      "end_line": 225,
+      "start_line": 224,
+      "end_line": 227,
       "tagged": false,
       "latex": "a=-\\beta+\\delta,\\qquad -1+\\delta<a\\le-\\frac14,\n \\qquad 1<a+2\\le\\frac74.",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U011",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 229,
-      "end_line": 232,
+      "start_line": 231,
+      "end_line": 234,
       "tagged": false,
       "latex": "|\\Gamma(a+iu)|=\n \\frac{|\\Gamma(a+2+iu)|}{|a+iu|\\,|a+1+iu|}.",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.8",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 238,
-      "end_line": 245,
+      "start_line": 240,
+      "end_line": 247,
       "tagged": true,
       "latex": "|\\Gamma(a+iu)|\\le\n \\begin{cases}\n  8/\\delta,&|u|\\le1,\\\\\n  2/u^2,&|u|\\ge1.\n \\end{cases}\n\\tag{62.8}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.9",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 249,
-      "end_line": 253,
+      "start_line": 251,
+      "end_line": 255,
       "tagged": true,
       "latex": "\\int_{-\\infty}^{\\infty}(1+|u|)^{1/2}|\\Gamma(a+iu)|\\,du\n \\le8\\sqrt2\\left(\\frac2\\delta+1\\right).\n\\tag{62.9}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.10",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 259,
-      "end_line": 262,
+      "start_line": 261,
+      "end_line": 264,
       "tagged": true,
       "latex": "|I_\\delta|\\le K_M(\\delta)A X^{-\\beta+\\delta},\n\\tag{62.10}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U012",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 264,
-      "end_line": 268,
+      "start_line": 266,
+      "end_line": 270,
       "tagged": false,
       "latex": "K_M(\\delta)=\n \\frac{12\\sqrt6}{\\pi^{3/2}}\\zeta(1+\\delta)\n \\left(\\frac2\\delta+1\\right).",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.11",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 272,
-      "end_line": 275,
+      "start_line": 274,
+      "end_line": 277,
       "tagged": true,
       "latex": "\\delta_\\varepsilon=\\frac{\\varepsilon}{4(1+\\varepsilon)}.\n\\tag{62.11}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T62-U013",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 279,
-      "end_line": 281,
+      "start_line": 281,
+      "end_line": 283,
       "tagged": false,
       "latex": "X^\\alpha\\ge A^{1+\\varepsilon}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "62.12",
       "theory": "62",
       "source_file": "docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md",
-      "start_line": 285,
-      "end_line": 293,
+      "start_line": 287,
+      "end_line": 295,
       "tagged": true,
       "latex": "\\begin{aligned}\n 1-\\frac{(1+\\varepsilon)(\\beta-\\delta_\\varepsilon)}\\alpha\n &\\le-\\varepsilon+\\frac{(1+\\varepsilon)\\delta_\\varepsilon}\\alpha\\\\\n &\\le-\\varepsilon+2(1+\\varepsilon)\\delta_\\varepsilon\n =-\\frac\\varepsilon2.\n\\end{aligned}\n\\tag{62.12}",
-      "source_sha256": "ae3df0f88ad4ea298262139168c4dcec5f7a5304903f4044f4f2aa320057da46"
+      "source_sha256": "694a10e33cad10c0d09663cda4efa99484be73b59d3e514d5d9304680c66ce6a"
     },
     {
       "formula_id": "T63-U001",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 15,
-      "end_line": 17,
+      "start_line": 21,
+      "end_line": 23,
       "tagged": false,
       "latex": "x=X\\{\\log(qT)\\}^2",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "T63-U002",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 22,
-      "end_line": 24,
+      "start_line": 28,
+      "end_line": 30,
       "tagged": false,
       "latex": "D=qT,\\qquad R=D^\\varepsilon,\\qquad X=D^{1+12\\varepsilon}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.10",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 28,
-      "end_line": 35,
+      "start_line": 34,
+      "end_line": 41,
       "tagged": true,
       "latex": "\\boxed{\n |E_{\\rm tail}|\n \\le4\\exp\\!\\left(-L^2+(1+13\\varepsilon)L\\right),\n \\qquad L=\\log D\n }\n\\tag{63.10}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.11",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 39,
-      "end_line": 46,
+      "start_line": 45,
+      "end_line": 52,
       "tagged": true,
       "latex": "\\boxed{\n L\\ge\n \\max\\!\\left\\{2(1+13\\varepsilon),\n \\sqrt{2\\log\\frac4{\\eta_{\\rm tail}}}\\right\\}\n }\n\\tag{63.11}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.1",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 83,
-      "end_line": 89,
+      "start_line": 89,
+      "end_line": 95,
       "tagged": true,
       "latex": "E_{\\rm tail}=\n \\sum_{n>x}a(n)\\chi(n)e^{-n/X}n^{-\\rho}\n \\sum_{r\\le R}'\\frac{\\psi_r(n)}r,\n \\qquad x=X(\\log D)^2,\\quad D=qT.\n\\tag{63.1}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.2",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 98,
-      "end_line": 105,
+      "start_line": 104,
+      "end_line": 111,
       "tagged": true,
       "latex": "|a(n)|\n =\\left|\\sum_{d\\mid n}\\lambda_d\\right|\n \\le\\tau(n)\\le2\\sqrt n,\n \\qquad\n |\\psi_r(n)|\\le(r,n)\\le r.\n\\tag{63.2}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.3",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 110,
-      "end_line": 115,
+      "start_line": 116,
+      "end_line": 121,
       "tagged": true,
       "latex": "|a(n)|n^{-\\beta}\\le2,\n \\qquad\n \\sum_{r\\le R}'\\frac{|\\psi_r(n)|}{r}\\le R.\n\\tag{63.3}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.4",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 124,
-      "end_line": 129,
+      "start_line": 130,
+      "end_line": 135,
       "tagged": true,
       "latex": "\\sum_{n>x}e^{-n/X}\n =\\frac{e^{-N/X}}{1-e^{-1/X}}\n \\le\\frac{e^{-x/X}}{1-e^{-1/X}}.\n\\tag{63.4}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.5",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 133,
-      "end_line": 138,
+      "start_line": 139,
+      "end_line": 144,
       "tagged": true,
       "latex": "\\frac1{1-e^{-1/X}}\n =1+\\frac1{e^{1/X}-1}\n \\le X+1.\n\\tag{63.5}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.6",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 142,
-      "end_line": 147,
+      "start_line": 148,
+      "end_line": 153,
       "tagged": true,
       "latex": "|E_{\\rm tail}|\n \\le2R(X+1)e^{-x/X}\n \\le4RXe^{-(\\log D)^2}.\n\\tag{63.6}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.7",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 155,
-      "end_line": 158,
+      "start_line": 161,
+      "end_line": 164,
       "tagged": true,
       "latex": "R\\le D^r,\\qquad X\\le D^c,\\qquad r,c\\ge0\n\\tag{63.7}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.8",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 162,
-      "end_line": 166,
+      "start_line": 168,
+      "end_line": 172,
       "tagged": true,
       "latex": "|E_{\\rm tail}|\n \\le4\\exp\\{-L^2+(r+c)L\\}.\n\\tag{63.8}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.9",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 172,
-      "end_line": 175,
+      "start_line": 178,
+      "end_line": 181,
       "tagged": true,
       "latex": "4e^{-L^2+(r+c)L}\\le\\eta_{\\rm tail}.\n\\tag{63.9}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.12",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 183,
-      "end_line": 189,
+      "start_line": 189,
+      "end_line": 195,
       "tagged": true,
       "latex": "R=D^\\varepsilon,\\quad\n z_1=D^{1/2+7\\varepsilon},\\quad\n z_2=D^{1/2+8\\varepsilon},\\quad\n X=D^{1+12\\varepsilon}.\n\\tag{63.12}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
     },
     {
       "formula_id": "63.13",
       "theory": "63",
       "source_file": "docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md",
-      "start_line": 193,
-      "end_line": 196,
+      "start_line": 199,
+      "end_line": 202,
       "tagged": true,
       "latex": "\\varepsilon+(1+12\\varepsilon)=1+13\\varepsilon.\n\\tag{63.13}",
-      "source_sha256": "5dd8630f913a8ecbc17f55c32923ca8ef379def06c6e309578024af87131f2d0"
+      "source_sha256": "fc490cfe72c2af08430b2a758a061a3e7a072a657314920972133b7e9f7b7f54"
+    },
+    {
+      "formula_id": "64.1",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 17,
+      "end_line": 22,
+      "tagged": true,
+      "latex": "0<\\theta\\le\\frac1{21},\\qquad\n D=qT,\\quad R=D^\\theta,\\quad\n z_2=D^{1/2+8\\theta},\\quad X=D^{1+12\\theta}\n\\tag{64.1}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.2",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 26,
+      "end_line": 30,
+      "tagged": true,
+      "latex": "\\eta_5+\\eta_X+\\eta_M+\\eta_T\n \\le\\eta_{\\rm out}\\le\\theta\n\\tag{64.2}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.3",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 35,
+      "end_line": 44,
+      "tagged": true,
+      "latex": "\\log D\\ge L_0\n \\Longrightarrow\n |g(\\rho,\\chi)|\n \\ge(1-\\eta_{\\rm out})\n \\frac6{\\pi^2}\\frac{\\varphi(q)}q\\log R\n \\ge(1-\\theta)\n \\frac6{\\pi^2}\\frac{\\varphi(q)}q\\log R .\n\\tag{64.3}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.4",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 72,
+      "end_line": 78,
+      "tagged": true,
+      "latex": "M+g+E_{\\rm tail}=I,\\qquad\n M=e^{-1/X}S_q(R),\n\\qquad\n S_q(R)=\\sum_{\\substack{r\\le R\\\\(r,q)=1}}\\frac{\\mu^2(r)}r .\n\\tag{64.4}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.5",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 82,
+      "end_line": 85,
+      "tagged": true,
+      "latex": "|g|\\ge M-|I|-|E_{\\rm tail}|\n\\tag{64.5}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.6",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 89,
+      "end_line": 92,
+      "tagged": true,
+      "latex": "C_\\varphi:=\\frac6{\\pi^2}\\frac{\\varphi(q)}q\n\\tag{64.6}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.7",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 97,
+      "end_line": 100,
+      "tagged": true,
+      "latex": "S_q(R)\\ge(1-\\eta_5)C_\\varphi\\log R.\n\\tag{64.7}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.8",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 104,
+      "end_line": 111,
+      "tagged": true,
+      "latex": "X^{-1}\\le\\eta_X\n \\Longrightarrow\n e^{-1/X}S_q(R)\n \\ge(1-\\eta_X)(1-\\eta_5)C_\\varphi\\log R\n \\ge(1-\\eta_X-\\eta_5)C_\\varphi\\log R.\n\\tag{64.8}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.9",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 115,
+      "end_line": 119,
+      "tagged": true,
+      "latex": "|I|\\le\\eta_M C_\\varphi\\log R,\\qquad\n |E_{\\rm tail}|\\le\\eta_T C_\\varphi\\log R\n\\tag{64.9}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.10",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 128,
+      "end_line": 131,
+      "tagged": true,
+      "latex": "A=(qT)^{1/2}Rz_2=D^{1+9\\theta}.\n\\tag{64.10}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.11",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 136,
+      "end_line": 143,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n &(1-\\theta)(1+12\\theta)\n -(1+\\theta)(1+9\\theta)\\\\\n &\\qquad=\\theta(1-21\\theta)\\ge0.\n\\end{aligned}\n\\tag{64.11}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.12",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 148,
+      "end_line": 153,
+      "tagged": true,
+      "latex": "\\log D\\ge\\theta^{-2}\n \\Longrightarrow\n \\sqrt{\\log q}\\le\\sqrt{\\log D}\\le\\theta\\log D=\\log R.\n\\tag{64.12}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.13",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 164,
+      "end_line": 169,
+      "tagged": true,
+      "latex": "\\frac q{\\varphi(q)}\n <3\\log\\log q+\\frac3{\\log\\log q}\n \\le6\\log q\\le6L.\n\\tag{64.13}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.14",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 173,
+      "end_line": 178,
+      "tagged": true,
+      "latex": "\\frac1{C_\\varphi}\n =\\frac{\\pi^2}{6}\\frac q{\\varphi(q)}\n \\le\\pi^2L.\n\\tag{64.14}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.15",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 186,
+      "end_line": 191,
+      "tagged": true,
+      "latex": "\\mathcal B_q=\n \\prod_{p\\mid q}\n \\left(1+\\frac{p^{2/3}-1}{p^{4/3}+1}\\right)\n\\tag{64.15}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.16",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 196,
+      "end_line": 202,
+      "tagged": true,
+      "latex": "\\sum_{i=1}^{\\omega}i^{-2/3}\n \\le1+\\int_1^\\omega t^{-2/3}\\,dt\n =3\\omega^{1/3}-2\n \\le3\\omega^{1/3}.\n\\tag{64.16}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.17",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 206,
+      "end_line": 210,
+      "tagged": true,
+      "latex": "\\mathcal B_q\n \\le\\exp\\!\\left(3\\left(\\frac L{\\log2}\\right)^{1/3}\\right).\n\\tag{64.17}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.18",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 214,
+      "end_line": 220,
+      "tagged": true,
+      "latex": "L\\ge L_B(\\theta):=\n \\left(\\frac{18}{\\theta(\\log2)^{1/3}}\\right)^{3/2}\n \\Longrightarrow\n \\log\\mathcal B_q\\le\\frac{\\theta L}{6}.\n\\tag{64.18}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.19",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 229,
+      "end_line": 235,
+      "tagged": true,
+      "latex": "\\frac{(1277/500)\\mathcal B_qR^{-1/3}}\n {C_\\varphi\\log R}\n \\le\\frac{1277\\pi^2}{500\\theta}\n e^{-\\theta L/6}.\n\\tag{64.19}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.20",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 240,
+      "end_line": 255,
+      "tagged": true,
+      "latex": "\\boxed{\n\\begin{aligned}\n L_0=\\max\\Bigg\\{&\n e,\\ \\theta^{-2},\\\n \\left(\\frac{18}{\\theta(\\log2)^{1/3}}\\right)^{3/2},\\\\\n &\\frac6\\theta\\log\\frac{(1277/500)\\pi^2}{\\theta\\eta_5},\\\n \\frac{\\log(1/\\eta_X)}{1+12\\theta},\\\\\n &\\frac{2}{\\theta(1+9\\theta)}\n   \\log\\frac{\\pi^2K_M(\\delta_\\theta)}{\\theta\\eta_M},\\\\\n &2(1+13\\theta),\\\n \\sqrt{2\\log\\frac{4\\pi^2}{\\theta\\eta_T}}\n \\Bigg\\},\n\\end{aligned}}\n\\tag{64.20}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.21",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 257,
+      "end_line": 262,
+      "tagged": true,
+      "latex": "\\delta_\\theta=\\frac{\\theta}{4(1+\\theta)},\\qquad\n K_M(\\delta)=\\frac{12\\sqrt6}{\\pi^{3/2}}\n \\zeta(1+\\delta)\\left(\\frac2\\delta+1\\right).\n\\tag{64.21}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.22",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 273,
+      "end_line": 277,
+      "tagged": true,
+      "latex": "\\delta_\\theta=0.00247524752475\\ldots,\\qquad\n K_M=1\\,727\\,755.159185\\ldots,\n\\tag{64.22}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
+    },
+    {
+      "formula_id": "64.23",
+      "theory": "64",
+      "source_file": "docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md",
+      "start_line": 279,
+      "end_line": 282,
+      "tagged": true,
+      "latex": "L_0=91\\,726.754431106\\ldots\n\\tag{64.23}",
+      "source_sha256": "3e305f5bb238cdb45fe401e4fad7356a5ed9f194a2c62a556c96866c955ccff0"
     }
   ],
   "issues": [],

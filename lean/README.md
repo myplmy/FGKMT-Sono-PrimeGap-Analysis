@@ -117,3 +117,17 @@ inventory는 theory 문서 64개, display 1,119식이며 전체 상태는
 `NOT_YET_FORMALIZED=987`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 143개이고 금지
 proof escape는 0건이다. `JL6-TAIL-ACTUAL`은 문서상 parameterized explicit이지만,
 printed general tail·JL6 common budget/전체·JL8·PAP-11·fixed `2e-17`·`X_cert`는 OPEN이다.
+
+2026-09-13 Theory 64 batch는 Jutila 식 (2.11)의 actual common detector budget을
+추가했다. 원문 identity에서 `exp(-1/X)` 감쇠를 별도 네 번째 loss로 분리하고,
+actual power-condition margin
+`(1-theta)(1+12theta)-(1+theta)(1+9theta)=theta(1-21theta)`,
+damping product, four-part conditional transfer, source coefficient 회복과 terminal
+`B_q` exponent 흡수를 형식화했다. Rosser--Schoenfeld와 Zuniga Alterman source theorem,
+`B_q` product/root cutoff와 Mellin·무한합 analytic proof는 local axiom으로 넣지 않았다.
+inventory는 theory 문서 65개, display 1,142식이며 전체 상태는
+`KERNEL_PASS=42`, `CONDITIONAL_KERNEL_PASS=23`, `DEFINITION_ONLY=20`,
+`PARTIAL_FORMALIZATION=22`, `SOURCE_THEOREM_UNFORMALIZED=36`,
+`NOT_YET_FORMALIZED=994`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 148개,
+금지 proof escape는 0건이다. 문서상 `JL6-ACTUAL`은 parameterized explicit이지만
+printed general JL6·JL8·PAP-11·fixed `2e-17`·`X_cert`는 OPEN이다.

@@ -5,6 +5,11 @@
 - 상세 수학 정본: [Theory 63](../method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md)
 - 판정: **타당 — 실제 Jutila parameter에 한해 명시화; 일반 Lemma와 JL6 전체는 미완**
 
+> **후속 상태(2026-09-13):** [review 71](71_20260913_DEPR09_Jutila_Lemma6_actual_common_budget_타당성검토.md)이
+> `exp(-1/X)` 감쇠를 포함한 네 loss와 공통 cutoff를 합쳐 `JL6-ACTUAL`을
+> parameterized explicit로 닫았다. 아래 common-budget 미완 설명은 작성 당시 snapshot이다.
+> printed general JL6, JL8와 root certificate는 계속 OPEN이다.
+
 ## 1. 사용자가 알아야 할 결과
 
 Jutila 증명은 무한히 이어지는 합을 어느 지점에서 자르고, 뒤에 남은 꼬리를 단순히

@@ -13,8 +13,9 @@
 > 이어 [Theory 62](62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md)가
 > `JL6-MELLIN`을 actual form에서 parameterized explicit로 닫았다. 이어
 > [Theory 63](63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md)이 actual
-> `JL6-TAIL`도 parameterized explicit로 닫았다. printed general tail, JL6 common
-> budget·전체와 `JL8`, root certificate는 계속 OPEN이다.
+> `JL6-TAIL`을 닫았고, [Theory 64](64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md)가
+> 네 loss와 공통 cutoff를 합쳐 `JL6-ACTUAL`도 parameterized explicit로 닫았다.
+> printed general JL6, `JL8`과 root certificate는 계속 OPEN이다.
 
 ## 1. 결론
 

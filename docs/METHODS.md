@@ -1310,3 +1310,62 @@ Theory 63 뒤 Lean inventory는 theory 문서 64개, display 1,119식이다. 전
 `PARTIAL_FORMALIZATION=20`, `SOURCE_THEOREM_UNFORMALIZED=34`,
 `NOT_YET_FORMALIZED=987`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 143개,
 금지 proof escape 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila Lemma 6 actual 공통 오차예산
+
+[theory 64](method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md)와
+[review 71](review/71_20260913_DEPR09_Jutila_Lemma6_actual_common_budget_타당성검토.md)은
+Jutila 식 (2.11)의 exact detector identity를
+
+```text
+M + g + E_tail = I
+M = exp(-1/X) S_q(R)
+```
+
+로 재고정했다. JL5, Mellin, tail 외에도 `exp(-1/X)`가 주항을 줄이는 별도
+damping loss임을 확인했으므로 네 positive budget을 사용한다.
+
+```text
+eta_5 + eta_X + eta_M + eta_T <= eta_out <= theta
+```
+
+actual choice
+
+```text
+D=q*T
+R=D^theta
+z2=D^(1/2+8*theta)
+X=D^(1+12*theta)
+alpha>=1-theta
+0<theta<=1/21
+```
+
+에서는 식 (2.8)의 exponent margin이 `theta*(1-21*theta)>=0`이다.
+Rosser--Schoenfeld Theorem 15와 작은 q exact check로 `log D>=e`에서
+`1/C_phi<=pi^2 log D`를 얻고, Zuniga Alterman의 `B_q`에는
+
+```text
+B_q <= exp(3*(log(D)/log(2))^(1/3))
+```
+
+인 elementary uniform envelope를 적용했다. 이를 Theory 61--63의 component bound와
+합치면 JL5·damping·Mellin·tail을 모두 `C_phi log R` 단위에서 지불하는 여덟 항
+max 형태의 공통 `L_0=log D` cutoff가 생긴다. 따라서
+`JL6-COMMON-BUDGET`과 `JL6-ACTUAL`은
+`ACTUAL_APPLICATION_PARAMETERIZED_EXPLICIT`이다.
+
+`theta=1/100`, 네 loss를 `theta/4`씩 배분한 high-precision 진단은
+`L_0=91726.754431106...`이며 현재 지배항은 거친 `B_q` uniformization이다.
+이 값은 JL6 한 단계의 보수적 충분조건이지 전체 numerical `X_cert`가 아니며,
+directed interval certificate도 아니다.
+
+printed general JL6은 임의 `X`의 uniform tail/cancellation이 없어 OPEN이다. JL8,
+PAP-11, DEP-R09, fixed `2e-17`, numerical `X_cert`도 계속 OPEN이고 threshold
+calculator와 actual prime sweep은 금지한다. 다음 source-first gate는 JL8 local
+zero-count multiplier와 finite square range다.
+
+Theory 64 뒤 Lean inventory는 theory 문서 65개, display 1,142식이다. 전체 상태는
+`KERNEL_PASS=42`, `CONDITIONAL_KERNEL_PASS=23`, `DEFINITION_ONLY=20`,
+`PARTIAL_FORMALIZATION=22`, `SOURCE_THEOREM_UNFORMALIZED=36`,
+`NOT_YET_FORMALIZED=994`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 148개,
+금지 proof escape 0건이다.

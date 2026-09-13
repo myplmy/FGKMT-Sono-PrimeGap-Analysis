@@ -1712,4 +1712,59 @@ theorem jutila_jl6_tail_sufficient_cutoff
     nlinarith
   exact jutila_jl6_tail_budget_transfer hη hL hLinear hQuadratic
 
+/-! ## Theory 64 — DEP-R09 Jutila Lemma 6 actual common budget -/
+
+/- Theory 64, formula 64.11: Jutila's actual p.52 exponents satisfy the
+   original power condition throughout 0 <= theta <= 1/21. -/
+theorem jutila_jl6_actual_power_margin
+    {θ : ℝ} (hθ : 0 ≤ θ) (hθUpper : θ ≤ 1 / 21) :
+    (1 - θ) * (1 + 12 * θ) ≥
+      (1 + θ) * (1 + 9 * θ) := by
+  have hSecond : 0 ≤ 1 - 21 * θ := by
+    nlinarith
+  have hProduct : 0 ≤ θ * (1 - 21 * θ) :=
+    mul_nonneg hθ hSecond
+  nlinarith
+
+/- Theory 64, formula 64.8: multiplying the JL5 and damping factors costs
+   at most the sum of their two nonnegative losses. -/
+theorem jutila_jl6_damping_product_budget
+    {η5 ηX : ℝ} (hη5 : 0 ≤ η5) (hηX : 0 ≤ ηX) :
+    1 - η5 - ηX ≤ (1 - η5) * (1 - ηX) := by
+  nlinarith [mul_nonneg hη5 hηX]
+
+/- Theory 64, formulas 64.3--64.9: once the source identity and all four
+   normalized component bounds are supplied, the final detector coefficient
+   loses no more than the allocated sum.  The analytic premises are explicit
+   arguments rather than project-local axioms. -/
+theorem jutila_jl6_four_part_budget_transfer
+    {η5 ηX ηM ηT ηOut C M IAbs tailAbs gAbs : ℝ}
+    (hC : 0 ≤ C)
+    (hMain : (1 - η5 - ηX) * C ≤ M)
+    (hMellin : IAbs ≤ ηM * C)
+    (hTail : tailAbs ≤ ηT * C)
+    (hTriangle : M - IAbs - tailAbs ≤ gAbs)
+    (hBudget : η5 + ηX + ηM + ηT ≤ ηOut) :
+    (1 - ηOut) * C ≤ gAbs := by
+  have hLoss :
+      (1 - ηOut) * C ≤
+        (1 - η5 - ηX - ηM - ηT) * C := by
+    exact mul_le_mul_of_nonneg_right (by linarith) hC
+  nlinarith
+
+/- Theory 64, formula 64.3: etaOut <= theta recovers Jutila's printed
+   (1-theta) coefficient from the stronger common-budget output. -/
+theorem jutila_jl6_output_recovers_source_coefficient
+    {ηOut θ C : ℝ} (hC : 0 ≤ C) (hOut : ηOut ≤ θ) :
+    (1 - θ) * C ≤ (1 - ηOut) * C := by
+  exact mul_le_mul_of_nonneg_right (by linarith) hC
+
+/- Theory 64, formulas 64.18--64.19: after the elementary B_q exponent is
+   at most theta*L/6, it combines with R^(-1/3) to leave
+   exp(-theta*L/6).  The prime-product and root cutoff are not asserted here. -/
+theorem jutila_jl6_B_exponent_absorption
+    {b θ L : ℝ} (hB : b ≤ θ * L / 6) :
+    b - θ * L / 3 ≤ -θ * L / 6 := by
+  linarith
+
 end FGKMTSono

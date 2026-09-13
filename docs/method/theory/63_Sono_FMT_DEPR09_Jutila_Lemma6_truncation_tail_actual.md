@@ -8,6 +8,12 @@
 - 비목적: 인쇄된 일반 Lemma 6의 uniform tail을 증명했다고 주장하기, JL6 종단 error budget 생략,
   actual prime sweep, threshold calculator, fixed (2\times10^{-17}) 또는 (X_{\rm cert}) 승격
 
+> **후속 상태(2026-09-13):** [Theory 64](64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md)가
+> `exp(-1/X)` 감쇠까지 네 loss로 합치고 공통 `log D` cutoff를 만들어
+> `JL6-COMMON-BUDGET`과 `JL6-ACTUAL`을 parameterized explicit로 닫았다.
+> 이 문서의 common-budget OPEN 판정은 작성 당시 snapshot이다. printed general JL6,
+> JL8, PAP-11, fixed coefficient와 `X_cert`는 계속 OPEN이다.
+
 ## 1. 결론
 
 Jutila 1977 Lemma 6은 식 (2.11)의 무한급수를
