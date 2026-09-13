@@ -7,6 +7,11 @@
 - 판정: `LEMMA4_ACTUAL_UPPER_CALL_EXPLICIT / FULL_DENSITY_PACKAGE_OPEN`
 - 비목적: actual prime sweep, numerical \(X_{\rm cert}\) 계산기, 숨은 상수의 임의 선택
 
+> **후속 상태(2026-09-13):** 이 문서의 `JL5 HARD_BLOCKER` 판정은 당시 snapshot이다.
+> [Theory 61](61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md)이
+> peer-reviewed explicit source로 `JL5`를 \(q\)-의존 cutoff까지 닫았다.
+> `JL6`의 Mellin·tail과 `JL8`, root certificate는 계속 OPEN이다.
+
 ## 1. 결론
 
 Jutila 1977의 Lemma 4--8을 원문과 인용 source 단위로 분해한 결과, Lemma 4의 **실제

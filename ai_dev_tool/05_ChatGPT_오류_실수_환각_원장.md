@@ -1648,6 +1648,44 @@
   raw-safe 입력 또는 backslash 이중화를 사용하고 control-character 검사를 바로 실행한다.
   Lean 식별자에는 예약 문법 기호를 쓰지 않고 단일 파일을 먼저 컴파일한 뒤 전수 원장을 생성한다.
 
+### E108 — JL5 source 감사 중 검색 범위·PDF 해석·hash·patch 입력 오류
+
+- 분류:
+  `SOURCE_AUDIT_AND_TOOLING_DRAFT_ERRORS / ALL_CORRECTED_BEFORE_COMMIT /
+  SCIENTIFIC_RESULT_IMPACT_NONE`.
+- Jutila OCR 파일을 찾으면서 `tmp` 전체에 광범위한 `rg`를 실행해, 과거 임시 시험
+  디렉터리에서 access-denied 메시지를 다수 발생시켰다. 읽기 전용 검색 실패였고 파일·실험
+  프로세스에는 영향이 없었다. 이후 검색을 해당 PDF 감사 폴더와 정본 경로로 제한했다.
+- Zuniga Alterman Theorem 4.6의 \(q\)-factor를 OCR text만 보고 잠시 1로 해석했다.
+  원페이지 렌더링에서 numerator \(1-|f(p)-p^{-\alpha}|p^\alpha\)를 확인해
+  실제 \(\alpha=1,f(p)=1/p\) 특수화가
+  \(\prod_{p\mid q}\sqrt p/(\sqrt p-1)\)임을 바로잡았다. 이 일반 theorem은 primary
+  JL5 cutoff에 사용하지 않았고 잘못 읽은 값은 문서·코드·결과에 남기지 않았다.
+- Ford PDF의 SHA-256을 실제 계산하기 전에 검증되지 않은 임시 문자열로 machine JSON
+  draft에 한 번 넣었다. 곧바로 `Get-FileHash`로 실제
+  `a6e8462f1e76606614e5c2891b419515be408d5f11f0b82915f5c24e05c00e06`을
+  확인해 교정한 뒤 표적시험을 실행했다. page count도 기억에 의존해 134로 넣었다가
+  `pdfinfo`의 129 pages로 교정했다. provenance를 먼저 측정하지 않은 순서 오류다.
+- review 문서를 만드는 첫 `apply_patch` wrapper에서 Markdown triple-backtick을
+  JavaScript template literal 안에 그대로 넣어 parser가 도구 호출 전에 거부했다.
+  파일은 생성되지 않았다. 이후 placeholder 치환 방식으로 재실행했다. METHODS patch에서도
+  같은 입력 오류를 한 번 반복했으며 역시 파일 적용 전 거부됐다.
+- Lean 하위경로에서 검색할 때 이미 `lean`을 workdir로 둔 상태에서 `lean/...`을 다시
+  붙여 한 경로 오류를 냈다. 필요한 Mathlib example은 올바른 상대경로로 다시 읽었다.
+- 변경 파일만이 아니라 저장소의 모든 Markdown을 대상으로 한 추가 제어문자 감사에서
+  과거 이력 문서 `handoff/202609021757_HANDOFF.md`의 byte offset 4,493에 vertical tab
+  (`U+000B`, ordinal 11) 1개가 발견됐다. 이번 작업이 만든 오류가 아니며 현재 수학 결과에도
+  영향이 없다. 기존 핸드오프는 이력 보존 문서이므로 조용히 수정하지 않고 레거시 정리
+  후보로만 기록했다. 이번 변경·신규 Markdown 12개는 strict UTF-8·제어문자 issue 0이다.
+- 마지막 동기화에서 세 파일을 한 `apply_patch` 입력으로 묶는 과정에 hunk 종료 형식을
+  잘못 써 도구가 적용 전에 거부했다. 부분 적용이 없음을 확인하고 파일별 정상 patch로
+  나눠 반영했다. 기존 sandbox 오류나 `git apply` 우회는 사용하지 않았다.
+- 예방:
+  1. PDF 수식은 native/OCR text 해석 뒤 반드시 렌더링 원페이지를 본다.
+  2. provenance hash·bytes는 JSON에 쓰기 전에 먼저 측정한다.
+  3. JavaScript를 감싸는 patch의 Markdown fence와 inline backtick은 placeholder로 바꾼다.
+  4. 검색 전에 현재 workdir와 target 상대경로를 함께 확인한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

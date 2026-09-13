@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila Lemma 5 uniform finite harmonic lower bound",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_Lemma4_8_v1.json",
+  "outcome": "JL5_EXPLICIT_Q_DEPENDENT_CUTOFF_JL6_AND_FULL_DENSITY_PACKAGE_OPEN",
+  "numerical_pap_package_ready": false,
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "source_registry": [
+    {
+      "key": "ZUNIGA_ALTERMAN_2022_SQUAREFREE",
+      "title": "Explicit averages of square-free supported functions: to the edge of the convolution method",
+      "author": "Sebastian Zuniga Alterman",
+      "journal": "Colloquium Mathematicum 168 (2022), 1-23",
+      "doi": "10.4064/cm8337-11-2020",
+      "arxiv": "2003.05887v5",
+      "official_metadata_url": "https://www.impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/168/1/114226/explicit-averages-of-square-free-supported-functions-to-the-edge-of-the-convolution-method",
+      "url": "https://arxiv.org/abs/2003.05887",
+      "audit_copy_locator": "article/Zuniga Alterman 2022 Explicit averages of square-free supported functions.pdf",
+      "audit_copy_sha256": "848a3a10b32f7639b584598bda98b4d9a092d4eacf87f68e9b1364e9f6880495",
+      "audit_copy_bytes": 307611,
+      "page_count": 25,
+      "native_text_bytes": 98661,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [10, 11, 12, 19, 20, 21],
+      "statement": "Corollary 3.4(b), equation (3.16)",
+      "classification": "PEER_REVIEWED_EXPLICIT_DROP_IN_REPLACEMENT_FOR_JL5_HARMONIC_SUM"
+    },
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [49, 50, 51],
+      "statement": "Lemma 5 and its use in Lemma 6",
+      "classification": "ORIGINAL_ASYMPTOTIC_TARGET_AND_DOWNSTREAM_CONTEXT"
+    },
+    {
+      "key": "FORD_2023_SIEVE_NOTES",
+      "title": "Sieve Methods Lecture Notes",
+      "author": "Kevin Ford",
+      "year": 2023,
+      "audit_copy_locator": "tmp/pdfs/h1b1b2b/Ford_Sieve_Methods_Lecture_Notes_2023.pdf",
+      "audit_copy_sha256": "a6e8462f1e76606614e5c2891b419515be408d5f11f0b82915f5c24e05c00e06",
+      "audit_copy_bytes": 944592,
+      "page_count": 129,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [47, 48, 49, 50],
+      "statement": "Theorem 4.4",
+      "classification": "STRUCTURAL_FALLBACK_ONLY_NOT_PRIMARY_JL5_BOUND"
+    }
+  ],
+  "source_corollary": {
+    "sum": "S_q(R)=sum_{r<=R,(r,q)=1} mu(r)^2/r",
+    "main_coefficient": "c_q=(6/pi^2)*(q/kappa(q))=(6/pi^2)*product_{p|q}(1+1/p)^(-1)",
+    "kappa": "kappa(q)=q*product_{p|q}(1+1/p)",
+    "constant_term": "b_q=gamma+sum_p 2log(p)/(p^2-1)+sum_{p|q} log(p)/(p+1)>0",
+    "absolute_error": "|S_q(R)-c_q*(log(R)+b_q)| <= (2.554*B_q)/R^(1/3)",
+    "absolute_error_coefficient_rational": "1277/500",
+    "B_q": "product_{p|q}(1+(p^(2/3)-1)/(p^(4/3)+1))",
+    "range": "every real R>0 and positive integer q",
+    "o_star_interpretation": "absolute value is bounded by the displayed quantity"
+  },
+  "finite_transfer": {
+    "eta_range": "0<eta<=1",
+    "A_q_eta": "(2.554*B_q)/(eta*c_q)",
+    "sufficient_cutoff": "R0(q,eta)=max(exp(sqrt(log q)), e, A_q_eta^3)",
+    "error_budget_implication": "R>=R0 implies (2.554*B_q)/R^(1/3) <= eta*c_q*log R",
+    "lower_bound": "S_q(R)>=(1-eta)*c_q*log R",
+    "jutila_phi_bridge": "c_q>=(6/pi^2)*(phi(q)/q), factorwise because p/(p+1)>=(p-1)/p",
+    "downstream_lower_bound": "S_q(R)>=(1-eta)*(6/pi^2)*(phi(q)/q)*log R",
+    "cutoff_kind": "simple closed sufficient symbolic cutoff, not optimized",
+    "numerical_evaluator_role": "high-precision diagnostic only, not a directed interval certificate"
+  },
+  "fallback_comparison": {
+    "source": "Ford Theorem 4.4 corrected kappa=1 project specialization",
+    "possible_parameters": {
+      "a1_gap": "2/3",
+      "A2_safe": "130",
+      "L_q": "195+log(1+log q)"
+    },
+    "estimated_log10_multiplier": "176.8190345505...",
+    "classification": "VALID_STRUCTURAL_FALLBACK_BUT_FAR_WEAKER_THAN_COROLLARY_3_4_B",
+    "used_for_primary_cutoff": false
+  },
+  "jutila_nodes": [
+    {
+      "id": "JL4-ACTUAL",
+      "status": "ACTUAL_APPLICATION_EXPLICIT_SOURCE_REPLACEMENT"
+    },
+    {
+      "id": "JL5",
+      "status": "EXPLICIT_PEER_REVIEWED_SOURCE_REPLACEMENT_WITH_Q_DEPENDENT_CUTOFF"
+    },
+    {
+      "id": "JL6",
+      "status": "HARD_BLOCKER",
+      "remaining": "explicit Mellin-integral and truncation-tail constants, then common absorption cutoff"
+    },
+    {
+      "id": "JL7",
+      "status": "EXACT_SOURCE_STATEMENT"
+    },
+    {
+      "id": "JL8",
+      "status": "HARD_BLOCKER",
+      "remaining": "explicit local zero-count multiplier preserving the (1-alpha) window factor"
+    }
+  ],
+  "lean_scope": {
+    "source_corollary_formalized": false,
+    "finite_error_transfer_formalized": true,
+    "factorwise_phi_bridge_formalized": true,
+    "finite_product_phi_bridge_formalized": true,
+    "cutoff_real_analysis_formalized": false,
+    "classification": "SOURCE_THEOREM_UNFORMALIZED_PLUS_KERNEL_VERIFIED_FINITE_ALGEBRA"
+  },
+  "next_gate": "JL6a: recover numerical constants for the Mellin integral and truncation tail before composing the detector lower bound",
+  "user_compute_required_now": false,
+  "new_dependency_required_now": false
+}

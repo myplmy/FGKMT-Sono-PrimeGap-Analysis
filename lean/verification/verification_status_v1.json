@@ -599,6 +599,62 @@
       "declarations": []
     },
     {
+      "formula_id": "61.1",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "61.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "61.3",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "61.4",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_jl5_source_lower_transfer"]
+    },
+    {
+      "formula_id": "61.5",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl5_error_budget"]
+    },
+    {
+      "formula_id": "61.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "61.7",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_jl5_relative_lower_transfer"]
+    },
+    {
+      "formula_id": "61.8",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutila_jl5_prime_factor_phi_bridge",
+        "jutila_jl5_finite_product_phi_bridge"
+      ]
+    },
+    {
+      "formula_id": "61.9",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_jl5_downstream_coefficient_transfer"]
+    },
+    {
+      "formula_id": "61.10",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutilaJL5SourceErrorCoefficient",
+        "jutila_jl5_source_error_coefficient_value"
+      ]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

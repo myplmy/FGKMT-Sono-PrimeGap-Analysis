@@ -1427,4 +1427,84 @@ theorem jutila_bv_actual_power_exponent_identity
   field_simp
   ring
 
+/-! ## Theory 61 — DEP-R09 Jutila Lemma 5 finite harmonic lower bound -/
+
+/- Theory 61, formula 61.10: the decimal source error coefficient is stored
+   as an exact rational. -/
+noncomputable def jutilaJL5SourceErrorCoefficient : ℝ := 1277 / 500
+
+theorem jutila_jl5_source_error_coefficient_value :
+    jutilaJL5SourceErrorCoefficient = 2554 / 1000 := by
+  norm_num [jutilaJL5SourceErrorCoefficient]
+
+/- Theory 61, formula 61.4: drop the nonnegative source constant term and
+   retain the adverse sign of the explicit absolute error.  The analytic
+   source identity remains a premise rather than a project-local axiom. -/
+theorem jutila_jl5_source_lower_transfer
+    {S c logR b err E : ℝ}
+    (hc : 0 ≤ c) (hb : 0 ≤ b)
+    (hIdentity : S = c * (logR + b) + err)
+    (hErrorLower : -E ≤ err) :
+    c * logR - E ≤ S := by
+  nlinarith
+
+/- Theory 61, formula 61.5: a lower bound on the cube-root scale together
+   with log R >= 1 pays the requested relative error budget. -/
+theorem jutila_jl5_error_budget
+    {E rootR η c logR : ℝ}
+    (hRoot : 0 < rootR) (hEtaC : 0 < η * c)
+    (hRatio : E / (η * c) ≤ rootR)
+    (hLog : 1 ≤ logR) :
+    E / rootR ≤ η * c * logR := by
+  have hE : E ≤ rootR * (η * c) := (div_le_iff₀ hEtaC).mp hRatio
+  have hFirst : E / rootR ≤ η * c := by
+    apply (div_le_iff₀ hRoot).2
+    nlinarith
+  calc
+    E / rootR ≤ η * c := hFirst
+    _ ≤ η * c * logR := by nlinarith
+
+/- Theory 61, formula 61.7: compose the one-sided source estimate with the
+   relative error budget. -/
+theorem jutila_jl5_relative_lower_transfer
+    {S c logR E η : ℝ}
+    (hLower : c * logR - E ≤ S)
+    (hBudget : E ≤ η * c * logR) :
+    (1 - η) * c * logR ≤ S := by
+  nlinarith
+
+/- Theory 61, formula 61.8: the local prime factor in Jutila's harmonic
+   coefficient dominates the corresponding phi(q)/q factor.  The finite
+   Euler-product induction is kept separate from this local kernel fact. -/
+theorem jutila_jl5_prime_factor_phi_bridge
+    {p : ℝ} (hp : 0 < p) :
+    (p - 1) / p ≤ p / (p + 1) := by
+  have hp1 : 0 < p + 1 := by linarith
+  rw [div_le_div_iff₀ hp hp1]
+  nlinarith
+
+theorem jutila_jl5_finite_product_phi_bridge
+    (s : Finset ℝ) (hTwo : ∀ p ∈ s, 2 ≤ p) :
+    (∏ p ∈ s, (p - 1) / p) ≤
+      ∏ p ∈ s, p / (p + 1) := by
+  refine Finset.prod_le_prod (fun p hp => ?_) (fun p hp => ?_)
+  · have h := hTwo p hp
+    exact div_nonneg (by linarith) (by linarith)
+  · exact jutila_jl5_prime_factor_phi_bridge (by
+      have h := hTwo p hp
+      linarith)
+
+/- Theory 61, formula 61.9: once the finite Euler-product bridge and the
+   JL5 relative lower bound are supplied, transfer to Jutila's weaker
+   phi(q)/q coefficient loses no additional constant. -/
+theorem jutila_jl5_downstream_coefficient_transfer
+    {S η weak c logR : ℝ}
+    (hEta : 0 ≤ 1 - η) (hLog : 0 ≤ logR)
+    (hCoefficient : weak ≤ c)
+    (hJL5 : (1 - η) * c * logR ≤ S) :
+    (1 - η) * weak * logR ≤ S := by
+  have hFirst : (1 - η) * weak ≤ (1 - η) * c :=
+    mul_le_mul_of_nonneg_left hCoefficient hEta
+  exact (mul_le_mul_of_nonneg_right hFirst hLog).trans hJL5
+
 end FGKMTSono

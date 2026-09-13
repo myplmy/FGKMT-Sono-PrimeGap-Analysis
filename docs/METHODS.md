@@ -1185,3 +1185,34 @@ fixed `2e-17`, `X_cert`와 threshold calculator는 계속 OPEN/NOT READY다. The
 `KERNEL_PASS` 2식, `PARTIAL_FORMALIZATION` 1식, `SOURCE_THEOREM_UNFORMALIZED` 7식,
 `DEFINITION_ONLY` 1식, `NOT_YET_FORMALIZED` 1식이다. 전체
 `NOT_YET_FORMALIZED`는 971식이고 금지 proof escape는 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila Lemma 5 유한 조화합 하한
+
+[theory 61](method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md)과
+[review 68](review/68_20260913_DEPR09_Jutila_Lemma5_유한하한_타당성검토.md)은
+Zuniga Alterman 2022 Corollary 3.4(b)를 Jutila Lemma 5의 exact
+squarefree·`(r,q)=1` harmonic sum에 대입한다. source의 모든 \(R>0\), 양의 정수 \(q\)
+명제와 절대오차 `2.554*B_q/R^(1/3)`를 사용하며, source PDF의 native text와 렌더링
+인쇄 pp. 10--12를 대조했다.
+
+`0<eta<=1`에서 다음을 계산 가능한 충분 cutoff로 사용한다.
+
+```text
+c_q = (6/pi^2) product_(p|q) (1+1/p)^(-1)
+A(q,eta) = 2.554 B_q/(eta c_q)
+R0(q,eta) = max(exp(sqrt(log q)), e, A(q,eta)^3)
+```
+
+`R>=R0`이면 `S_q(R)>=(1-eta)c_q log R`이고,
+`c_q>=(6/pi^2)phi(q)/q`이므로 Jutila Lemma 6이 요구하는 더 약한 주항까지 전달된다.
+이로써 `JL5`는
+`EXPLICIT_PEER_REVIEWED_SOURCE_REPLACEMENT_WITH_Q_DEPENDENT_CUTOFF`로 닫는다.
+
+다만 Lemma 6의 Mellin integral과 truncation tail에 남은 두
+`<<_epsilon 1`은 이번 cutoff에 포함되지 않는다. `eta`도 최종 `epsilon`과 아직
+동일시하지 않는다. 따라서 `JL6`, `JL8`, `PAP-11`, DEP-R09, fixed `2e-17`,
+`X_cert`는 계속 OPEN이고 threshold calculator는 NOT READY다. Theory 61의 10식을
+추가한 inventory는 theory 문서 62개, display 1,078식이며 전체 상태는
+`KERNEL_PASS=34`, `CONDITIONAL_KERNEL_PASS=20`, `DEFINITION_ONLY=8`,
+`PARTIAL_FORMALIZATION=10`, `SOURCE_THEOREM_UNFORMALIZED=30`,
+`NOT_YET_FORMALIZED=971`, `PARSE_REVIEW_REQUIRED=5`다. 금지 proof escape는 0건이다.

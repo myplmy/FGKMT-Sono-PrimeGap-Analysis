@@ -2,6 +2,10 @@
 
 - 작성일: 2026-09-13 KST
 - 상세 수식 정본: [Theory 60](../method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md)
+
+> **후속 상태(2026-09-13):** 아래 `JL5 HARD_BLOCKER`는 이 검토 시점의 판정이다.
+> [후속 검토 68](68_20260913_DEPR09_Jutila_Lemma5_유한하한_타당성검토.md)이
+> peer-reviewed explicit source로 `JL5`를 닫았다. `JL6`과 `JL8`은 계속 열려 있다.
 - 기계 원장: [Jutila Lemma 4--8 v1](../method/theory/data/Sono_FMT_DEPR09_Jutila_Lemma4_8_v1.json)
 - 선행 검토: [Branch S 검토](66_20260913_DEPR09_branch_S_정량_transfer_타당성검토.md)
 - 결론: `한 실제 제곱합 호출은 명시화 / 전체 zero-density·PAP는 미완성`
