@@ -1886,6 +1886,36 @@
      UTF-8·제어문자·display delimiter 검사를 수행한다.
   4. optional dependency import보다 표준 exact arithmetic 가능성을 먼저 확인한다.
 
+### E115 — JL7-CONT 초안의 source hash·LaTeX escape·검증 작업경로 실수
+
+- 분류:
+  `PRE_COMMIT_DRAFT_CORRUPTION / SOURCE_HASH_TRANSCRIPTION / CONTROL_CHARACTER /
+  VALIDATION_WORKDIR_ERROR / NO_SCIENTIFIC_RESULT_AFFECTED`.
+- Theory 67용 JSON 첫 초안에서 Jutila PDF SHA-256 문자열 뒤에 임시 메모 조각이 섞였다.
+  source-hash test와 원 PDF 재해시 전에 발견해 정확한
+  `f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5`로 교정했다.
+  잘못된 hash를 provenance PASS나 수학 판정에 사용하지 않았다.
+- JavaScript 일반 문자열로 전달한 Markdown patch에서 `\theta`의 `\t`와 `\bar`의 `\b`가
+  tab·backspace로 해석되는 E107/E114 계열 오류가 다시 생겼다. 두 새 문서의 전수
+  control-character 검사에서 commit 전에 발견했고, `apply_patch`로 교정했다. backslash가
+  조용히 빠진 `qquad` 두 곳도 formula inventory preview에서 발견해 `\qquad`로 복구했다.
+- 점검용 PowerShell 명령 하나는 빈 pipe element ParserError를 냈고, 명시 `$rows` 변수로
+  재실행했다. 또한 저장소 루트에서 Lean generator를 `tools/...`로, `lake build`를 root
+  lakefile 대상으로 잘못 호출해 각각 path/configuration error가 났다. 올바른
+  `lean/tools/...`와 `lean/` working directory에서 재실행해 generator·validator·build·
+  direct Lean check를 모두 PASS했다. 실패 명령의 출력을 성공 증거로 사용하지 않았다.
+- 수학·결과 영향: 없음. actual prime 계산이나 threshold calculator를 실행하지 않았고,
+  초안 오류는 모두 commit·정본 동기화 전 교정됐다. `JL7-CONT` 판정은 교정된 source hash,
+  9개 target test, strict JSON, Lean kernel과 전체 검증만 근거로 한다.
+- 예방:
+  1. 외부 PDF hash는 사람이 재입력하지 말고 `Get-FileHash` 출력과 기계 원장을 test로 연결한다.
+  2. LaTeX patch는 raw-safe 입력을 사용하고 직후 tab·C0 control·backslash 소실 패턴을 함께
+     검사한다. 제어문자 0건만으로 `\qquad` 같은 무효 escape 소실까지 잡힌다고 가정하지 않는다.
+  3. Lean maintenance 명령은 `lean/README.md`의 고정 working directory와 절대 도구 경로를
+     그대로 복사한다. generator 경로와 Lake project root를 별개로 추정하지 않는다.
+  4. 같은 검증 단계의 첫 명령이 실패하면 후속 출력이 있더라도 전체 PASS로 묶지 않고,
+     실패 원인을 기록한 뒤 올바른 경로에서 독립 재실행한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

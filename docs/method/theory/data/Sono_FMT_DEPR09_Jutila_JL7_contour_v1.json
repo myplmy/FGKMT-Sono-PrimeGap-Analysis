@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila JL7-CONT shifted-contour numerical multiplier",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_JL7_terminal_v1.json",
+  "outcome": "JL7_CONTOUR_ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT_REMAINING_TERMINAL_NODES_OPEN",
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "author": "Matti Jutila",
+      "journal": "Mathematica Scandinavica 41 (1977), 45-62",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [48, 52, 53],
+      "statement": "known L-function estimate on p.48 and the definition and bound for I_d(s,chi) on pp.52-53",
+      "classification": "ORIGINAL_TARGET_AND_ACTUAL_PARAMETER_SOURCE"
+    },
+    {
+      "key": "BENNETT_ET_AL_2021",
+      "title": "Counting zeros of Dirichlet L-functions",
+      "authors": [
+        "Michael A. Bennett",
+        "Greg Martin",
+        "Kevin O'Bryant",
+        "Andrew Rechnitzer"
+      ],
+      "journal": "Mathematics of Computation 90 (2021), 1455-1482",
+      "doi": "10.1090/mcom/3599",
+      "arxiv": "2005.02989",
+      "url": "https://doi.org/10.1090/mcom/3599",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jl6a_20260913/Bennett_Martin_OBryant_Rechnitzer_2021_Counting_Zeros.pdf",
+      "audit_copy_sha256": "548414b632579d42839f5c5f5e3581dc3a5f539424fad2e0c9382e6d0bc25fa5",
+      "audit_copy_bytes": 543028,
+      "page_count": 28,
+      "native_text_bytes": 106297,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [1469],
+      "statement": "Lemma 5.6 equation (5.3)",
+      "classification": "PEER_REVIEWED_EXPLICIT_NONPRINCIPAL_VERTICAL_L_BOUND"
+    },
+    {
+      "key": "HASANALIZADE_SHEN_WONG_2022",
+      "title": "Counting zeros of Dedekind zeta functions",
+      "authors": [
+        "Elchin Hasanalizade",
+        "Quanli Shen",
+        "Peng-Jie Wong"
+      ],
+      "journal": "Mathematics of Computation 91 (2022), 277-293",
+      "doi": "10.1090/mcom/3665",
+      "arxiv": "2102.04663",
+      "url": "https://www-math.nsysu.edu.tw/~pjwong/stuff/DedekindZeros.pdf",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jl7_cont_20260913/Hasanalizade_Shen_Wong_2022_Counting_Dedekind_Zeros.pdf",
+      "audit_copy_sha256": "9c515d71913ba13beb2a077bc354c50d41fb79e2f4f12696a801e7704e7b39fa",
+      "audit_copy_bytes": 287402,
+      "page_count": 17,
+      "native_text_bytes": 69594,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [286],
+      "statement": "Proposition 3.8",
+      "classification": "PEER_REVIEWED_EXPLICIT_PRINCIPAL_ZETA_VERTICAL_BOUND"
+    },
+    {
+      "key": "RADEMACHER_1959",
+      "title": "On the Phragmen-Lindelof theorem and some applications",
+      "author": "Hans Rademacher",
+      "journal": "Mathematische Zeitschrift 72 (1959/1960), 192-204",
+      "doi": "10.1007/BF01162949",
+      "url": "https://doi.org/10.1007/BF01162949",
+      "reading_mode": "ORIGINAL_METADATA_WITH_EXACT_THEOREMS_RESTATED_IN_TWO_PEER_REVIEWED_SOURCES",
+      "statement": "Theorems 3 and 4 as restated by Bennett et al. and Hasanalizade-Shen-Wong",
+      "classification": "ORIGINAL_CONVEXITY_SOURCE"
+    },
+    {
+      "key": "NIST_DLMF_GAMMA",
+      "title": "NIST Digital Library of Mathematical Functions",
+      "urls": [
+        "https://dlmf.nist.gov/5.5",
+        "https://dlmf.nist.gov/5.9"
+      ],
+      "reading_mode": "OFFICIAL_WEB_EQUATIONS",
+      "statement": "Gamma recurrence and Euler integral",
+      "classification": "OFFICIAL_REFERENCE_FOR_DIRECT_GAMMA_INTEGRAL_BOUND"
+    }
+  ],
+  "jutila_actual_scope": {
+    "theta_domain": "0<theta<=1/21",
+    "q": "integer q>=3 in Jutila's actual family; each product character may be nonprincipal or principal",
+    "T": "T>=1",
+    "D": "q*T",
+    "s": "s=u+i*v with 0<=u<=2*theta and |v|<=2*T",
+    "contour": "w=-1+theta+i*y",
+    "L_argument": "1+s+w=theta+u+i*(v+y)",
+    "smoothing_scales": "0<M<=N",
+    "target": "|I_d(s,chi)|<=C_CONT(theta)*sqrt(q*T)*(M/d)^(-1+theta)"
+  },
+  "common_finite_bounds": {
+    "imprimitive_euler_factor": "product_{p|q,p not|f}(1+p^(-sigma))<=(4/sqrt(6))*sqrt(q/f), including f=1 principal specialization",
+    "height": "|1+theta+u+i*(v+y)|<=(22/7)*T*(1+|y|)",
+    "rademacher_power": "for B>0 and 0<=a<=1/2, B^a<=1+sqrt(B)",
+    "power_difference": "|(N/d)^w-(M/d)^w|<=2*(M/d)^(-1+theta) when N>=M and Re(w)<0",
+    "gamma_integral": "integral_R sqrt(1+|y|)*|Gamma(-1+theta+i*y)|dy<=8*sqrt(2)*(2/theta+1)"
+  },
+  "nonprincipal_branch": {
+    "source": "Bennett et al. Lemma 5.6 equation (5.3) with eta=theta",
+    "primitive_real_part": "sigma=theta+u",
+    "rademacher_exponent": "(1-u)/2 in [(1-2*theta)/2,1/2]",
+    "coefficient_exact": "4/sqrt(18)+(4/sqrt(6))*sqrt(11/(7*pi))",
+    "coefficient_bound": "strictly less than 9/4",
+    "result": "|L|<(9/4)*zeta(1+theta)*sqrt(q*T)*sqrt(1+|y|)",
+    "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+  },
+  "principal_branch": {
+    "identity": "L(z,chi0)=zeta(z)*product_{p|q}(1-p^(-z))",
+    "source": "Hasanalizade-Shen-Wong Proposition 3.8 with K=Q and eta=theta",
+    "ratio_bound": "|1+z|/|1-z|<=4/3 for 0<Re(z)<=1/7",
+    "coefficient_exact": "(16/sqrt(6))*(1+sqrt(11/(7*pi)))",
+    "coefficient_bound": "strictly less than 12",
+    "result": "|L|<12*zeta(1+theta)*sqrt(q*T)*sqrt(1+|y|)",
+    "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+  },
+  "uniform_composition": {
+    "vertical_L_bound": "|L(theta+u+i*(v+y),chi)|<=12*zeta(1+theta)*sqrt(q*T)*sqrt(1+|y|)",
+    "contour_multiplier": "C_CONT(theta)=(96*sqrt(2)/pi)*zeta(1+theta)*(2/theta+1)",
+    "elementary_zeta_bound": "zeta(1+theta)<=1+1/theta",
+    "elementary_multiplier": "Cbar_CONT(theta)=48*(1+1/theta)*(2/theta+1)",
+    "endpoint_theta_1_over_21_exact_elementary_multiplier": 45408,
+    "endpoint_theta_1_over_21_diagnostic_contour_multiplier": "40102.3459386232106253883850375...",
+    "common_finite_D_cutoff_for_this_node": "none beyond q>=3 and T>=1; downstream Jutila conditions remain separate",
+    "status": "ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+  },
+  "remaining_terminal_nodes": [
+    {
+      "id": "JL7-LEMMA3",
+      "status": "HARD_BLOCKER",
+      "remaining": "explicit absolute h(d;r,r-prime) sum multiplier and endpoint composition"
+    },
+    {
+      "id": "JL7-RES",
+      "status": "HARD_BLOCKER",
+      "remaining": "principal residue, diagonal condition and repeated-character height row sum"
+    },
+    {
+      "id": "JL7-ABSORB",
+      "status": "HARD_BLOCKER",
+      "remaining": "insert all terminal constants and prove a common strict A>E cutoff"
+    },
+    {
+      "id": "JL7-AVERAGED",
+      "status": "HARD_BLOCKER",
+      "remaining": "variable-modulus primitive-character replay of equation (3.7)"
+    }
+  ],
+  "lean_scope": {
+    "source_convexity_theorems_formalized": false,
+    "complex_contour_shift_formalized": false,
+    "gamma_complex_integral_formalized": false,
+    "finite_real_algebra_formalized": true,
+    "principal_ratio_squared_formalized": true,
+    "height_envelope_formalized": true,
+    "coefficient_and_terminal_composition_formalized": true,
+    "classification": "SOURCE_ANALYTIC_INPUTS_UNFORMALIZED_PLUS_KERNEL_VERIFIED_FINITE_ALGEBRA"
+  },
+  "contour_multiplier_explicit": true,
+  "jutila_lemma3_multiplier_explicit": false,
+  "residue_well_spacing_multiplier_explicit": false,
+  "terminal_density_closed": false,
+  "averaged_primitive_density_closed": false,
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "new_dependency_required_now": false,
+  "user_compute_required_now": false,
+  "next_gate": "JL7-LEMMA3: make the absolute h(d;r,r-prime) sum and all r,r-prime,d endpoints numerical before residue and terminal absorption"
+}

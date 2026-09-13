@@ -162,3 +162,18 @@ Theory 66 뒤 inventory는 theory 문서 67개, display 1,183식이며 전체 �
 `PARTIAL_FORMALIZATION=27`, `SOURCE_THEOREM_UNFORMALIZED=43`,
 `NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 177개이고
 금지 proof escape는 0건이다.
+
+2026-09-13 Theory 67 batch는 Jutila p.53 shifted-contour multiplier의 actual finite
+대수를 추가했다. `0<Re z<=1/7`, real height budget, principal ratio의 squared `16/9`,
+`C_NP<9/4`, `C_P<12`, 두 branch의 공통 coefficient 12, power-difference triangle,
+contour coefficient identity, elementary majorant와 `theta=1/21` endpoint `45408`을
+단일 파일에서 검사한다. Bennett et al.·Hasanalizade--Shen--Wong의 Rademacher source,
+complex contour 이동, Gamma improper integral, zeta integral test 전체는 local axiom으로
+가정하지 않고 source-unformalized 또는 partial로 보존한다. 따라서
+`JL7-CONT=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이라는 문서 합성만 지원하며,
+`JL7-LEMMA3/RES/ABSORB/AVERAGED`, terminal density, PAP-11, DEP-R09, fixed `2e-17`,
+`X_cert`는 OPEN이다. Theory 67 뒤 inventory는 theory 문서 68개, display 1,208식이며
+전체 상태는 `KERNEL_PASS=61`, `CONDITIONAL_KERNEL_PASS=31`, `DEFINITION_ONLY=30`,
+`PARTIAL_FORMALIZATION=35`, `SOURCE_THEOREM_UNFORMALIZED=51`,
+`NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 192개이고 금지
+proof escape는 0건이다.

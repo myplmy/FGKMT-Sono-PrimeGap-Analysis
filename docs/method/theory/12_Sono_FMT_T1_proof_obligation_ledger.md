@@ -834,3 +834,26 @@ principal residue·well-spacing multiplier는 숫자가 아니다. 따라서 66�
 상태를 바꾸지 않고 `PAP-11=HARD_BLOCKER`, DEP-R09·fixed coefficient·
 `X_cert=OPEN`을 유지한다. 다음 gate는 `JL7-CONT`의 numerical multiplier를
 선행 source에서 복원하거나 actual 범위에 직접 증명하는 일이다.
+
+## 36. 2026-09-13 DEP-R09 JL7-CONT shifted-contour 후속 상태
+
+[theory 67](67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md)은 위 절의
+첫 gate를 닫았다. 비주지표와 주지표를 서로 다른 peer-reviewed exact source에서 가져오고,
+actual `0<Re z<=1/7`에서 principal ratio를 `4/3` 이하로 보존했다. 따라서
+
+```text
+|L(theta+u+i(v+y),chi)|
+  <= 12*zeta(1+theta)*sqrt(q*T)*sqrt(1+|y|)
+C_CONT(theta)
+  = (96*sqrt(2)/pi)*zeta(1+theta)*(2/theta+1)
+Cbar_CONT(theta)
+  = 48*(1+1/theta)*(2/theta+1)
+```
+
+를 actual 식 (3.6) 범위에서 쓸 수 있다. `theta=1/21`에서 마지막 초등 상계는 정확히
+`45408`이다. 이로써 `JL7-CONT=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이다.
+
+그러나 `JL7-LEMMA3`, `JL7-RES`, `JL7-ABSORB`, `JL7-AVERAGED`는 계속 OPEN이다.
+따라서 66개 root row의 상태와 `PAP-11=HARD_BLOCKER`, DEP-R09·fixed coefficient·
+`X_cert=OPEN`은 바꾸지 않는다. 다음 gate는 `JL7-LEMMA3`의 actual absolute-sum
+multiplier와 support endpoint를 source-first로 복원하는 일이다.

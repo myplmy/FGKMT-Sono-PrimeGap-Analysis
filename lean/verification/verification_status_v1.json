@@ -1153,6 +1153,134 @@
       "declarations": []
     },
     {
+      "formula_id": "T67-U001",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "67.15",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_jl7_contour_coefficient_identity"]
+    },
+    {
+      "formula_id": "T67-U002",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "67.17",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "jutila_jl7_sqrt_two_over_pi_lt_half",
+        "jutila_jl7_elementary_contour_majorant"
+      ]
+    },
+    {
+      "formula_id": "T67-U003",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "T67-U004",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "67.1",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "67.2",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl7_shifted_real_part_range"]
+    },
+    {
+      "formula_id": "T67-U005",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "67.3",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl6_imprimitive_correction_squared_rational"]
+    },
+    {
+      "formula_id": "67.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_vertical_argument_budget"]
+    },
+    {
+      "formula_id": "67.5",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "67.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_nonprincipal_coefficient_lt"]
+    },
+    {
+      "formula_id": "67.7",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl7_nonprincipal_coefficient_lt"]
+    },
+    {
+      "formula_id": "67.8",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "67.9",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "67.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_principal_ratio_squared"]
+    },
+    {
+      "formula_id": "T67-U006",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_principal_coefficient_lt"]
+    },
+    {
+      "formula_id": "67.11",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl7_principal_coefficient_lt"]
+    },
+    {
+      "formula_id": "67.12",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["jutila_jl7_uniform_branch_composition"]
+    },
+    {
+      "formula_id": "67.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_power_difference_triangle"]
+    },
+    {
+      "formula_id": "T67-U007",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "67.14",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl6_gamma_integral_budget_identity"]
+    },
+    {
+      "formula_id": "67.16",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "67.18",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl7_elementary_endpoint"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

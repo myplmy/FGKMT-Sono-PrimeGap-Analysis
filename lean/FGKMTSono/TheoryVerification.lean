@@ -2181,4 +2181,188 @@ theorem jutila_t1_terminal_absorption
   rw [le_div_iff₀ hGap]
   simpa [mul_comm] using hCancelled
 
+/-! ## Theory 67 — DEP-R09 Jutila JL7 shifted-contour multiplier -/
+
+/- Theory 67, formula 67.2: the actual real part on the shifted contour lies
+   in (0,1/7].  This is finite real algebra, not the contour-shift theorem. -/
+theorem jutila_jl7_shifted_real_part_range
+    {θ u : ℝ}
+    (hθ : 0 < θ) (hθUpper : θ ≤ 1 / 21)
+    (hu : 0 ≤ u) (huUpper : u ≤ 2 * θ) :
+    0 < θ + u ∧ θ + u ≤ 1 / 7 := by
+  constructor <;> nlinarith
+
+/- Theory 67, formula 67.4: the real triangle budget behind
+   |1+z| <= (22/7)T(1+|y|).  Complex absolute-value reduction remains in the
+   source/direct proof and is not introduced as a local axiom. -/
+theorem jutila_jl7_vertical_argument_budget
+    {θ T v y : ℝ}
+    (hθ : 0 < θ) (hθUpper : θ ≤ 1 / 21)
+    (hT : 1 ≤ T) (hv : |v| ≤ 2 * T) :
+    1 + 3 * θ + |v + y| ≤ (22 / 7) * T * (1 + |y|) := by
+  have hAbs : |v + y| ≤ |v| + |y| := abs_add_le v y
+  have hy : 0 ≤ |y| := abs_nonneg y
+  have hTnonneg : 0 ≤ T := by linarith
+  have hTy : |y| ≤ T * |y| := by
+    nlinarith [mul_nonneg (sub_nonneg.mpr hT) hy]
+  nlinarith [mul_nonneg hTnonneg hy]
+
+/- Theory 67, formula 67.10: squared principal-character ratio.  Keeping the
+   numerator and denominator together prevents a spurious extra height loss. -/
+theorem jutila_jl7_principal_ratio_squared
+    {σ t : ℝ} (_hσ : 0 ≤ σ) (hσUpper : σ ≤ 1 / 7) :
+    9 * ((1 + σ) ^ 2 + t ^ 2) ≤
+      16 * ((1 - σ) ^ 2 + t ^ 2) := by
+  have hFirst : 0 ≤ 1 - 7 * σ := by nlinarith
+  have hSecond : 0 ≤ 7 - σ := by nlinarith
+  have hProduct : 0 ≤ (1 - 7 * σ) * (7 - σ) :=
+    mul_nonneg hFirst hSecond
+  nlinarith [sq_nonneg t]
+
+/- Auxiliary kernel lemmas for Theory 67 formulas 67.7 and 67.11. -/
+theorem jutila_jl7_sqrt_six_gt_twelve_fifths :
+    (12 : ℝ) / 5 < Real.sqrt 6 := by
+  have hSq : (Real.sqrt (6 : ℝ)) ^ 2 = 6 :=
+    Real.sq_sqrt (by norm_num)
+  have hNonneg : 0 ≤ Real.sqrt (6 : ℝ) := Real.sqrt_nonneg _
+  nlinarith
+
+theorem jutila_jl7_sqrt_eighteen_gt_four :
+    (4 : ℝ) < Real.sqrt 18 := by
+  have hSq : (Real.sqrt (18 : ℝ)) ^ 2 = 18 :=
+    Real.sq_sqrt (by norm_num)
+  have hNonneg : 0 ≤ Real.sqrt (18 : ℝ) := Real.sqrt_nonneg _
+  nlinarith
+
+theorem jutila_jl7_ratio_radicand_lt_nine_sixteenths :
+    (11 : ℝ) / (7 * Real.pi) < 9 / 16 := by
+  have hPi : (3 : ℝ) < Real.pi := Real.pi_gt_three
+  have hDen : 0 < 7 * Real.pi := by positivity
+  rw [div_lt_iff₀ hDen]
+  nlinarith
+
+theorem jutila_jl7_ratio_sqrt_lt_three_fourths :
+    Real.sqrt ((11 : ℝ) / (7 * Real.pi)) < 3 / 4 := by
+  have hInside : 0 ≤ (11 : ℝ) / (7 * Real.pi) := by positivity
+  have hSq : (Real.sqrt ((11 : ℝ) / (7 * Real.pi))) ^ 2 =
+      (11 : ℝ) / (7 * Real.pi) := Real.sq_sqrt hInside
+  have hNonneg : 0 ≤ Real.sqrt ((11 : ℝ) / (7 * Real.pi)) :=
+    Real.sqrt_nonneg _
+  nlinarith [jutila_jl7_ratio_radicand_lt_nine_sixteenths]
+
+/- Theory 67, formula 67.7: exact nonprincipal coefficient is below 9/4. -/
+theorem jutila_jl7_nonprincipal_coefficient_lt :
+    (4 : ℝ) / Real.sqrt 18 +
+        (4 / Real.sqrt 6) * Real.sqrt (11 / (7 * Real.pi)) < 9 / 4 := by
+  have hSqrt18 : 0 < Real.sqrt (18 : ℝ) := Real.sqrt_pos.2 (by norm_num)
+  have hSqrt6 : 0 < Real.sqrt (6 : ℝ) := Real.sqrt_pos.2 (by norm_num)
+  have hFirst : (4 : ℝ) / Real.sqrt 18 < 1 := by
+    rw [div_lt_one hSqrt18]
+    exact jutila_jl7_sqrt_eighteen_gt_four
+  have hFourOverSix : (4 : ℝ) / Real.sqrt 6 < 5 / 3 := by
+    rw [div_lt_iff₀ hSqrt6]
+    nlinarith [jutila_jl7_sqrt_six_gt_twelve_fifths]
+  have hRatioPos : 0 < Real.sqrt ((11 : ℝ) / (7 * Real.pi)) := by positivity
+  have hProduct :
+      (4 / Real.sqrt 6) * Real.sqrt (11 / (7 * Real.pi)) < 5 / 4 := by
+    calc
+      (4 / Real.sqrt 6) * Real.sqrt (11 / (7 * Real.pi)) <
+          (5 / 3) * Real.sqrt (11 / (7 * Real.pi)) :=
+        mul_lt_mul_of_pos_right hFourOverSix hRatioPos
+      _ < (5 / 3) * (3 / 4) :=
+        mul_lt_mul_of_pos_left jutila_jl7_ratio_sqrt_lt_three_fourths
+          (by norm_num)
+      _ = 5 / 4 := by norm_num
+  nlinarith
+
+/- Theory 67, formula 67.11: exact principal coefficient is below 12. -/
+theorem jutila_jl7_principal_coefficient_lt :
+    (16 : ℝ) / Real.sqrt 6 *
+        (1 + Real.sqrt (11 / (7 * Real.pi))) < 12 := by
+  have hSqrt6 : 0 < Real.sqrt (6 : ℝ) := Real.sqrt_pos.2 (by norm_num)
+  have hFirst : (16 : ℝ) / Real.sqrt 6 < 20 / 3 := by
+    rw [div_lt_iff₀ hSqrt6]
+    nlinarith [jutila_jl7_sqrt_six_gt_twelve_fifths]
+  have hSecondPos : 0 < 1 + Real.sqrt ((11 : ℝ) / (7 * Real.pi)) := by
+    positivity
+  have hSecond : 1 + Real.sqrt ((11 : ℝ) / (7 * Real.pi)) < 7 / 4 := by
+    nlinarith [jutila_jl7_ratio_sqrt_lt_three_fourths]
+  calc
+    (16 / Real.sqrt 6) * (1 + Real.sqrt (11 / (7 * Real.pi))) <
+        (20 / 3) * (1 + Real.sqrt (11 / (7 * Real.pi))) :=
+      mul_lt_mul_of_pos_right hFirst hSecondPos
+    _ < (20 / 3) * (7 / 4) :=
+      mul_lt_mul_of_pos_left hSecond (by norm_num)
+    _ < 12 := by norm_num
+
+/- Theory 67, formula 67.12: once one of the two source branch estimates is
+   supplied, the common coefficient 12 is a valid finite envelope. -/
+theorem jutila_jl7_uniform_branch_composition
+    {value zeta scale : ℝ}
+    (hzeta : 0 ≤ zeta) (hscale : 0 ≤ scale)
+    (hBranch : value ≤ (9 / 4) * zeta * scale ∨
+      value ≤ 12 * zeta * scale) :
+    value ≤ 12 * zeta * scale := by
+  rcases hBranch with hBranch | hBranch
+  · have hZS : 0 ≤ zeta * scale := mul_nonneg hzeta hscale
+    have hCoeff : (9 / 4 : ℝ) ≤ 12 := by norm_num
+    exact hBranch.trans (by nlinarith)
+  · exact hBranch
+
+/- Theory 67, formula 67.13: abstract triangle component of the negative-real
+   power difference.  The complex-power modulus identity remains external. -/
+theorem jutila_jl7_power_difference_triangle
+    {small large : ℝ} (hsmall : 0 ≤ small) (hsmallLarge : small ≤ large) :
+    |small - large| ≤ 2 * large := by
+  rw [abs_of_nonpos (sub_nonpos.mpr hsmallLarge)]
+  nlinarith
+
+/- Theory 67, formula 67.15: finite coefficient multiplication after the
+   source L-bound, power bound and Gamma integral have been supplied. -/
+theorem jutila_jl7_contour_coefficient_identity
+    {θ zeta : ℝ} (hθ : θ ≠ 0) :
+    (1 / (2 * Real.pi)) * (12 * zeta) * 2 *
+          (8 * Real.sqrt 2 * (2 / θ + 1)) =
+      (96 * Real.sqrt 2 / Real.pi) * zeta * (2 / θ + 1) := by
+  field_simp [Real.pi_ne_zero, hθ]
+  ring
+
+/- Theory 67, formula 67.17: the elementary calculator majorant. -/
+theorem jutila_jl7_sqrt_two_over_pi_lt_half :
+    Real.sqrt 2 / Real.pi < (1 : ℝ) / 2 := by
+  have hSqrtSq : (Real.sqrt (2 : ℝ)) ^ 2 = 2 :=
+    Real.sq_sqrt (by norm_num)
+  have hSqrtNonneg : 0 ≤ Real.sqrt (2 : ℝ) := Real.sqrt_nonneg _
+  have hSqrtUpper : Real.sqrt (2 : ℝ) < 3 / 2 := by nlinarith
+  have hPi : (3 : ℝ) < Real.pi := Real.pi_gt_three
+  have hPiPos : 0 < Real.pi := Real.pi_pos
+  rw [div_lt_iff₀ hPiPos]
+  nlinarith
+
+theorem jutila_jl7_elementary_contour_majorant
+    {θ zeta : ℝ}
+    (hθ : 0 < θ) (hzeta : 0 ≤ zeta)
+    (hzetaUpper : zeta ≤ 1 + 1 / θ) :
+    (96 * Real.sqrt 2 / Real.pi) * zeta * (2 / θ + 1) ≤
+      48 * (1 + 1 / θ) * (2 / θ + 1) := by
+  have hFront : 96 * Real.sqrt 2 / Real.pi < (48 : ℝ) := by
+    calc
+      96 * Real.sqrt 2 / Real.pi =
+          96 * (Real.sqrt 2 / Real.pi) := by ring
+      _ < 96 * (1 / 2 : ℝ) :=
+        mul_lt_mul_of_pos_left jutila_jl7_sqrt_two_over_pi_lt_half
+          (by norm_num)
+      _ = 48 := by norm_num
+  have hScale : 0 < 2 / θ + 1 := by positivity
+  have hFirst : (96 * Real.sqrt 2 / Real.pi) * zeta ≤ 48 * zeta :=
+    mul_le_mul_of_nonneg_right hFront.le hzeta
+  have hSecond : 48 * zeta ≤ 48 * (1 + 1 / θ) := by nlinarith
+  exact mul_le_mul_of_nonneg_right (hFirst.trans hSecond) hScale.le
+
+/- Theory 67, formula 67.18: exact elementary endpoint value at theta=1/21.
+   The decimal zeta diagnostic is intentionally not claimed here. -/
+theorem jutila_jl7_elementary_endpoint :
+    (48 : ℝ) * (1 + 1 / (1 / 21)) * (2 / (1 / 21) + 1) = 45408 := by
+  norm_num
+
 end FGKMTSono

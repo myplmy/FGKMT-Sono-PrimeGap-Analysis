@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-13 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 67개
-- 전수 단위: Markdown fenced code 밖 display math 1,183개
-- 원래 식번호: 673개, 합성 ID 무번호식: 510개
+- 원문 범위: `docs/method/theory/*.md` 68개
+- 전수 단위: Markdown fenced code 밖 display math 1,208개
+- 원래 식번호: 691개, 합성 ID 무번호식: 517개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,11 +62,11 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 58 |
-| `CONDITIONAL_KERNEL_PASS` | 28 |
-| `DEFINITION_ONLY` | 27 |
-| `PARTIAL_FORMALIZATION` | 27 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 43 |
+| `KERNEL_PASS` | 61 |
+| `CONDITIONAL_KERNEL_PASS` | 31 |
+| `DEFINITION_ONLY` | 30 |
+| `PARTIAL_FORMALIZATION` | 35 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 51 |
 | `NOT_YET_FORMALIZED` | 995 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `9ca7f6083d25593a…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `7618d5548d532e6b…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `8a30a5002e386cf2…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `46c71dd99e4df41c…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -142,8 +142,9 @@
 | 62 | [62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md](../docs/method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md) | `694a10e33cad10c0…` | 26 | 13 | 13 | 13 |
 | 63 | [63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md](../docs/method/theory/63_Sono_FMT_DEPR09_Jutila_Lemma6_truncation_tail_actual.md) | `fc490cfe72c2af08…` | 15 | 13 | 2 | 12 |
 | 64 | [64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md](../docs/method/theory/64_Sono_FMT_DEPR09_Jutila_Lemma6_actual_common_budget.md) | `3e305f5bb238cdb4…` | 23 | 23 | 0 | 16 |
-| 65 | [65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md](../docs/method/theory/65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md) | `cb512a937e90b4f8…` | 21 | 21 | 0 | 20 |
-| 66 | [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | `ca91bd04d6e5a237…` | 20 | 20 | 0 | 20 |
+| 65 | [65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md](../docs/method/theory/65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md) | `eeb93afd56cf2aee…` | 21 | 21 | 0 | 20 |
+| 66 | [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | `0beb062f3fef63a5…` | 20 | 20 | 0 | 20 |
+| 67 | [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | `83b7e020325ae8ab…` | 25 | 18 | 7 | 25 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1337,7 +1338,32 @@
 | 1180 | `66.17` | T66 [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | 217–222 | <code>\frac{4\log L}{L}\le\frac{29}{252} \quad\Longrightarrow\quad E_{\rm total}(\theta,L)\le-\frac{29}{252}\theta. \tag{66.17}</code> | `jutila_t1_off_diagonal_total_margin` | `CONDITIONAL_KERNEL_PASS` | finite log gate premise 아래 total exponent margin을 조건부 커널 검증 |
 | 1181 | `66.18` | T66 [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | 232–237 | <code>\left(\frac{\varphi(q)}q\right)^2J^2L^2 \ll_\theta \left(\frac{\varphi(q)}q\right)^2Jx^{2-2\alpha}L^2+J^2 \tag{66.18}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Jutila p.53 terminal qualitative inequality; hidden multipliers 미형식화 |
 | 1182 | `66.19` | T66 [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | 242–247 | <code>AJ^2\le BJY+EJ^2,\qquad E&lt;A \quad\Longrightarrow\quad (A-E)J\le BY,\qquad J\le\frac{BY}{A-E} \tag{66.19}</code> | `jutila_t1_terminal_absorption` | `KERNEL_PASS` | A-E>0인 fail-closed terminal absorption algebra를 커널 검증 |
-| 1183 | `66.20` | T66 [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | 268–271 | <code>32Q^2\log^2(Q^2T) \tag{66.20}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Ramaré 2016 explicit density의 additive source term; drop-in transfer는 없음 |
+| 1183 | `66.20` | T66 [66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md](../docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md) | 272–275 | <code>32Q^2\log^2(Q^2T) \tag{66.20}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Ramaré 2016 explicit density의 additive source term; drop-in transfer는 없음 |
+| 1184 | `T67-U001` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 15–17 | <code>I_d(s,\chi)\ll_\theta D^{1/2}(M/d)^{-1+\theta}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Jutila p.53 shifted-contour 정성 상계; source complex proof는 Lean 미형식화 |
+| 1185 | `67.15` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 22–27 | <code>\boxed{ &#124;I_d(s,\chi)&#124; \le C_{\rm CONT}(\theta)\sqrt{qT}(M/d)^{-1+\theta}} \tag{67.15}</code> | `jutila_jl7_contour_coefficient_identity` | `CONDITIONAL_KERNEL_PASS` | source L·Gamma·contour premise 이후 exact contour coefficient 곱셈을 조건부 커널 검증 |
+| 1186 | `T67-U002` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 31–35 | <code>C_{\rm CONT}(\theta) =\frac{96\sqrt2}{\pi}\zeta(1+\theta) \left(\frac2\theta+1\right).</code> | — | `DEFINITION_ONLY` | C_CONT(theta)의 계산기용 정의 |
+| 1187 | `67.17` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 39–45 | <code>\boxed{ \overline C_{\rm CONT}(\theta) =48\left(1+\frac1\theta\right) \left(\frac2\theta+1\right)} \tag{67.17}</code> | `jutila_jl7_sqrt_two_over_pi_lt_half; jutila_jl7_elementary_contour_majorant` | `CONDITIONAL_KERNEL_PASS` | zeta integral-test 상계를 premise로 받아 elementary contour majorant를 조건부 커널 검증 |
+| 1188 | `T67-U003` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 71–73 | <code>0&lt;\theta\le\frac1{21},\quad q\ge3,\quad T\ge1,\quad D=qT,</code> | — | `DEFINITION_ONLY` | Jutila 식 (3.6)의 q,T,theta actual 범위 전사 |
+| 1189 | `T67-U004` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 75–77 | <code>s=u+iv,\qquad 0\le u\le2\theta,\qquad &#124;v&#124;\le2T,</code> | — | `DEFINITION_ONLY` | Jutila 식 (3.6)의 s=u+iv actual 범위 전사 |
+| 1190 | `67.1` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 81–87 | <code>I_d(s,\chi)=\frac1{2\pi i} \int_{\Re w=-1+\theta} L(1+s+w,\chi) \left\{(N/d)^w-(M/d)^w\right\}\Gamma(w)\,dw. \tag{67.1}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Jutila shifted-contour 적분 identity; complex contour 이동은 Lean 미형식화 |
+| 1191 | `67.2` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 91–96 | <code>w=-1+\theta+iy,\qquad z=1+s+w=\theta+u+i(v+y),\qquad 0&lt;\Re z\le3\theta\le\frac17. \tag{67.2}</code> | `jutila_jl7_shifted_real_part_range` | `KERNEL_PASS` | actual contour에서 0<Re z<=1/7인 범위 대수를 커널 검증 |
+| 1192 | `T67-U005` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 104–107 | <code>L(z,\chi)=L(z,\chi^*) \prod_{\substack{p\mid q\\p\nmid f}}(1-\chi^*(p)p^{-z}).</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | primitive conductor에서 imprimitive product character로의 Euler-factor identity; Lean 미형식화 |
+| 1193 | `67.3` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 112–116 | <code>\prod_{\substack{p\mid q\\p\nmid f}}(1+p^{-\Re z}) \le\frac4{\sqrt6}\sqrt{\frac qf}. \tag{67.3}</code> | `jutila_jl6_imprimitive_correction_squared_rational` | `PARTIAL_FORMALIZATION` | 4/sqrt(6) 보정의 제곱 유리값만 커널 검증; finite prime-product inequality 전체는 부분형식화 |
+| 1194 | `67.4` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 120–125 | <code>&#124;1+z&#124; \le 1+3\theta+2T+&#124;y&#124; \le\frac{22}{7}T(1+&#124;y&#124;). \tag{67.4}</code> | `jutila_jl7_vertical_argument_budget` | `PARTIAL_FORMALIZATION` | 22/7 real triangle budget은 커널 검증; complex absolute-value reduction은 미형식화 |
+| 1195 | `67.5` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 134–139 | <code>&#124;L(z,\chi^*)&#124; \le\zeta(1+\theta) \left(\frac f{2\pi}&#124;1+z&#124;\right)^{(1-u)/2}. \tag{67.5}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Bennett et al. Lemma 5.6 (5.3) source Rademacher bound; Lean 미형식화 |
+| 1196 | `67.6` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 144–149 | <code>&#124;L(z,\chi)&#124; \le C_{\rm NP}\zeta(1+\theta) \sqrt{qT}\sqrt{1+&#124;y&#124;}, \tag{67.6}</code> | `jutila_jl7_nonprincipal_coefficient_lt` | `PARTIAL_FORMALIZATION` | nonprincipal branch의 coefficient envelope만 커널 검증; analytic source 합성 전체는 부분형식화 |
+| 1197 | `67.7` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 151–156 | <code>C_{\rm NP} =\frac4{\sqrt{18}}+\frac4{\sqrt6}\sqrt{\frac{11}{7\pi}} &lt;\frac94. \tag{67.7}</code> | `jutila_jl7_nonprincipal_coefficient_lt` | `KERNEL_PASS` | C_NP<9/4를 pi·sqrt 유리 상계에서 커널 검증 |
+| 1198 | `67.8` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 164–167 | <code>L(z,\chi_0)=\zeta(z)\prod_{p\mid q}(1-p^{-z}). \tag{67.8}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | principal-character Dirichlet L과 zeta의 Euler-factor identity; Lean 미형식화 |
+| 1199 | `67.9` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 172–178 | <code>&#124;\zeta(z)&#124; \le3\left&#124;\frac{1+z}{1-z}\right&#124; \left(\frac{&#124;1+z&#124;}{2\pi}\right)^{(1-u)/2} \zeta(1+\theta). \tag{67.9}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Hasanalizade--Shen--Wong Proposition 3.8 source zeta bound; Lean 미형식화 |
+| 1200 | `67.10` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 183–190 | <code>\left&#124;\frac{1+z}{1-z}\right&#124;^2 =\frac{(1+\sigma)^2+(\Im z)^2} {(1-\sigma)^2+(\Im z)^2} \le\left(\frac{1+\sigma}{1-\sigma}\right)^2 \le\frac{16}{9}. \tag{67.10}</code> | `jutila_jl7_principal_ratio_squared` | `PARTIAL_FORMALIZATION` | principal ratio의 squared cross-multiplied 16/9 상계를 커널 검증; complex quotient identity는 부분형식화 |
+| 1201 | `T67-U006` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 194–198 | <code>&#124;L(z,\chi_0)&#124; \le C_{\rm P}\zeta(1+\theta) \sqrt{qT}\sqrt{1+&#124;y&#124;},</code> | `jutila_jl7_principal_coefficient_lt` | `PARTIAL_FORMALIZATION` | principal branch coefficient C_P<12는 커널 검증; source analytic 합성 전체는 부분형식화 |
+| 1202 | `67.11` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 200–204 | <code>C_{\rm P}=\frac{16}{\sqrt6} \left(1+\sqrt{\frac{11}{7\pi}}\right)&lt;12. \tag{67.11}</code> | `jutila_jl7_principal_coefficient_lt` | `KERNEL_PASS` | C_P<12를 pi·sqrt 유리 상계에서 커널 검증 |
+| 1203 | `67.12` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 212–217 | <code>\boxed{ &#124;L(\theta+u+i(v+y),\chi)&#124; \le12\zeta(1+\theta)\sqrt{qT}\sqrt{1+&#124;y&#124;}} \tag{67.12}</code> | `jutila_jl7_uniform_branch_composition` | `CONDITIONAL_KERNEL_PASS` | 두 source branch 중 하나를 premise로 받아 공통 coefficient 12 합성을 조건부 커널 검증 |
+| 1204 | `67.13` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 226–231 | <code>\left&#124;(N/d)^w-(M/d)^w\right&#124; \le (N/d)^{-1+\theta}+(M/d)^{-1+\theta} \le2(M/d)^{-1+\theta}. \tag{67.13}</code> | `jutila_jl7_power_difference_triangle` | `PARTIAL_FORMALIZATION` | 비음수 크기의 triangle·monotonicity 합성만 커널 검증; complex-power modulus는 부분형식화 |
+| 1205 | `T67-U007` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 236–242 | <code>&#124;\Gamma(-1+\theta+iy)&#124;\le \begin{cases} 8/\theta,&amp; &#124;y&#124;\le1,\\ 2/y^2,&amp; &#124;y&#124;\ge1. \end{cases}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Gamma recurrence·Euler integral의 pointwise complex bound; Lean 미형식화 |
+| 1206 | `67.14` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 246–251 | <code>\int_{-\infty}^{\infty} \sqrt{1+&#124;y&#124;}\,&#124;\Gamma(-1+\theta+iy)&#124;\,dy \le8\sqrt2\left(\frac2\theta+1\right). \tag{67.14}</code> | `jutila_jl6_gamma_integral_budget_identity` | `PARTIAL_FORMALIZATION` | Gamma split의 finite coefficient identity만 커널 검증; complex improper integral은 부분형식화 |
+| 1207 | `67.16` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 259–265 | <code>\zeta(1+\theta) =\sum_{n\ge1}n^{-1-\theta} \le1+\int_1^\infty t^{-1-\theta}\,dt =1+\frac1\theta. \tag{67.16}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Riemann zeta 급수 integral-test 상계; source/direct proof는 Lean 미형식화 |
+| 1208 | `67.18` | T67 [67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md](../docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md) | 270–275 | <code>C_{\rm CONT}(1/21) \approx40102.3459386232,\qquad \overline C_{\rm CONT}(1/21)=45408. \tag{67.18}</code> | `jutila_jl7_elementary_endpoint` | `PARTIAL_FORMALIZATION` | elementary endpoint 45408은 커널 검증; zeta 포함 decimal은 비구간 수치진단이라 부분형식화 |
 
 ## 9. 발견된 원문·작업 오류
 

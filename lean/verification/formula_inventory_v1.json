@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 67,
-  "formula_count": 1183,
-  "tagged_formula_count": 673,
-  "untagged_formula_count": 510,
+  "theory_count": 68,
+  "formula_count": 1208,
+  "tagged_formula_count": 691,
+  "untagged_formula_count": 517,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "9ca7f6083d25593aa750f7df491117020bda0f47f0f54da2f2225fd828c4a629",
+      "source_sha256": "7618d5548d532e6b2d1d57edf70cfae32ecd27dab1ec89024c8f730f23930881",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e",
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -529,7 +529,7 @@
     {
       "theory": "65",
       "source_file": "docs/method/theory/65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e",
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51",
       "display_formula_count": 21,
       "tagged_formula_count": 21,
       "untagged_formula_count": 0
@@ -537,10 +537,18 @@
     {
       "theory": "66",
       "source_file": "docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0",
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db",
       "display_formula_count": 20,
       "tagged_formula_count": 20,
       "untagged_formula_count": 0
+    },
+    {
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0",
+      "display_formula_count": 25,
+      "tagged_formula_count": 18,
+      "untagged_formula_count": 7
     }
   ],
   "formulae": [
@@ -832,7 +840,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U002",
@@ -842,7 +850,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U003",
@@ -852,7 +860,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U004",
@@ -862,7 +870,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U005",
@@ -872,7 +880,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U006",
@@ -882,7 +890,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U007",
@@ -892,7 +900,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U008",
@@ -902,7 +910,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U009",
@@ -912,7 +920,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U010",
@@ -922,7 +930,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U011",
@@ -932,7 +940,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U012",
@@ -942,7 +950,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U013",
@@ -952,7 +960,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U014",
@@ -962,7 +970,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T12-U015",
@@ -972,7 +980,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "8a30a5002e386cf2ef68f6408b5207e5486c6fdbe243b1ca3927fea777192b7e"
+      "source_sha256": "46c71dd99e4df41cca17f69e099a78cae6182dafb474c3c36fc6dd61445d4872"
     },
     {
       "formula_id": "T13-U001",
@@ -11972,7 +11980,7 @@
       "end_line": 25,
       "tagged": true,
       "latex": "0<r\\le\\frac1{21}\n\\tag{65.1}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.2",
@@ -11982,7 +11990,7 @@
       "end_line": 36,
       "tagged": true,
       "latex": "\\boxed{\n N_{\\square}(r,t_0,\\chi)\n :=\\#\\{\\rho=\\beta+i\\gamma:\n       1-r\\le\\beta\\le1,\\ |\\gamma-t_0|\\le r/2\\}\n <3+r\\log\\!\\bigl(q(1+|t_0|)\\bigr).}\n\\tag{65.2}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.3",
@@ -11992,7 +12000,7 @@
       "end_line": 82,
       "tagged": true,
       "latex": "\\sigma=1+r,\\qquad\n \\sigma_1=\\frac{1+\\sqrt{1+4\\sigma^2}}2,\\qquad\n \\kappa=\\frac{5-\\sqrt5}{10}<\\frac3{10},\n\\tag{65.3}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.4",
@@ -12002,7 +12010,7 @@
       "end_line": 91,
       "tagged": true,
       "latex": "F(s,z)=\\Re\\!\\left(\\frac1{s-z}+\\frac1{s-1+\\bar z}\\right),\n\\qquad\n f(t,\\chi^*)=\\Re\\!\\left{\n \\frac1{\\sqrt5}\\frac{L'}L(\\sigma_1+it,\\chi^*)\n -\\frac{L'}L(\\sigma+it,\\chi^*)\\right}.\n\\tag{65.4}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.5",
@@ -12012,7 +12020,7 @@
       "end_line": 101,
       "tagged": true,
       "latex": "f(t,\\chi^*)=\n \\sum_{n\\ge2}\\Lambda(n)\n \\left(n^{-\\sigma}-\\frac1{\\sqrt5}n^{-\\sigma_1}\\right)\n \\Re\\!\\left(\\chi^*(n)n^{-it}\\right).\n\\tag{65.5}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.6",
@@ -12022,7 +12030,7 @@
       "end_line": 109,
       "tagged": true,
       "latex": "f(t,\\chi^*)\\ge-f(0,\\chi_0).\n\\tag{65.6}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.7",
@@ -12032,7 +12040,7 @@
       "end_line": 117,
       "tagged": true,
       "latex": "f(0,\\chi_0)<\\frac1{\\sigma-1}-0.8973-s(k)<\\frac1r,\n \\qquad s(k)\\ge0,\n\\tag{65.7}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.8",
@@ -12042,7 +12050,7 @@
       "end_line": 130,
       "tagged": true,
       "latex": "\\sum_{\\rho}'\\left{\n F(\\sigma+it_0,\\rho)\n -\\frac1{\\sqrt5}F(\\sigma_1+it_0,\\rho)\\right}\n =\\kappa\\log\\frac{k}{\\pi}+G(t_0)-f(t_0,\\chi^*).\n\\tag{65.8}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.9",
@@ -12052,7 +12060,7 @@
       "end_line": 139,
       "tagged": true,
       "latex": "G(t_0)<\\kappa\\log\\max(1,|t_0|)+\\frac{1959}{5000}.\n\\tag{65.9}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.10",
@@ -12062,7 +12070,7 @@
       "end_line": 148,
       "tagged": true,
       "latex": "\\sum_{\\rho}'(\\cdots)\n <\\frac1r+\\kappa\\log\\!\\bigl(q(1+|t_0|)\\bigr)\n   +\\frac{1959}{5000}\n\\tag{65.10}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.11",
@@ -12072,7 +12080,7 @@
       "end_line": 160,
       "tagged": true,
       "latex": "a:=\\sigma-\\beta\\in[r,2r],\\qquad\n y:=t_0-\\gamma,\\quad |y|\\le r/2.\n\\tag{65.11}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.12",
@@ -12082,7 +12090,7 @@
       "end_line": 167,
       "tagged": true,
       "latex": "\\frac{a}{a^2+y^2}\\ge\\frac8{17r}.\n\\tag{65.12}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.13",
@@ -12092,7 +12100,7 @@
       "end_line": 176,
       "tagged": true,
       "latex": "0<F(\\sigma_1+it_0,\\rho)\n \\le\\frac1{\\sigma_1-\\beta}\n    +\\frac1{\\sigma_1-1+\\beta}<3.\n\\tag{65.13}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.14",
@@ -12102,7 +12110,7 @@
       "end_line": 189,
       "tagged": true,
       "latex": "\\begin{aligned}\n F(\\sigma+it_0,\\rho)-\\frac1{\\sqrt5}F(\\sigma_1+it_0,\\rho)\n &>\\frac1r\\left(\\frac8{17}-\\frac32r\\right)\\\\\n &\\ge\\frac3{8r},\n \\end{aligned}\n \\qquad\n \\frac8{17}-\\frac3{42}-\\frac38=\\frac{23}{952}>0.\n\\tag{65.14}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.15",
@@ -12112,7 +12120,7 @@
       "end_line": 198,
       "tagged": true,
       "latex": "\\frac3{8r}N_{\\square}\n <\\frac1r+\\kappa L+\\frac{1959}{5000},\n \\qquad L=\\log\\!\\bigl(q(1+|t_0|)\\bigr).\n\\tag{65.15}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.16",
@@ -12122,7 +12130,7 @@
       "end_line": 208,
       "tagged": true,
       "latex": "N_{\\square}\n <\\frac83+\\frac{8\\kappa}{3}rL\n   +\\frac83\\frac{1959}{5000}r\n <3+rL.\n\\tag{65.16}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.17",
@@ -12132,7 +12140,7 @@
       "end_line": 215,
       "tagged": true,
       "latex": "3-\\frac83-\\frac83\\frac{1959}{5000}\\frac1{21}>0\n\\tag{65.17}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.18",
@@ -12142,7 +12150,7 @@
       "end_line": 228,
       "tagged": true,
       "latex": "L(s,\\chi)=L(s,\\chi^*)\n \\prod_{\\substack{p\\mid q\\\\p\\nmid k}}\n (1-\\chi^*(p)p^{-s}).\n\\tag{65.18}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.19",
@@ -12152,7 +12160,7 @@
       "end_line": 246,
       "tagged": true,
       "latex": "0<\\theta\\le\\frac1{21},\\qquad\n 0<\\delta\\le\\theta,\\qquad\n \\log D\\ge\\theta^{-2},\\qquad\n r:=\\max(\\delta,\\Delta)\n\\tag{65.19}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.20",
@@ -12162,7 +12170,7 @@
       "end_line": 256,
       "tagged": true,
       "latex": "\\log\\!\\bigl(q(1+|t_0|)\\bigr)\n \\le\\log(q(1+T))\\le\\log(2D).\n\\tag{65.20}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "65.21",
@@ -12172,7 +12180,7 @@
       "end_line": 267,
       "tagged": true,
       "latex": "\\boxed{\n N_{\\rm nonprin}(\\alpha,T,q)\n \\le2J\\{3+r\\log(2D)\\}.}\n\\tag{65.21}",
-      "source_sha256": "cb512a937e90b4f874428d7ee535f6099f2616adbc37a1398be760203e5c296e"
+      "source_sha256": "eeb93afd56cf2aee455b4bdc61b73efe5a01027b0ae192e44514d0483e9d8e51"
     },
     {
       "formula_id": "66.1",
@@ -12182,7 +12190,7 @@
       "end_line": 20,
       "tagged": true,
       "latex": "\\tau=\\frac85,\\qquad K_{\\rm BV}=\\frac{18884947}{500000}=37.769894\n\\tag{66.1}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.2",
@@ -12192,7 +12200,7 @@
       "end_line": 32,
       "tagged": true,
       "latex": "R=D^\\theta,\\qquad\n z_1=D^{1/2+7\\theta},\\qquad\n z_2=D^{1/2+8\\theta},\\qquad\n X=D^{1+12\\theta},\\qquad\n x=X(\\log D)^2\n\\tag{66.2}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.3",
@@ -12202,7 +12210,7 @@
       "end_line": 67,
       "tagged": true,
       "latex": "\\tau_\\theta=\\frac{\\log z_2}{\\log z_1}\n =\\frac{1+16\\theta}{1+14\\theta},\\qquad\n \\tau_\\theta-1=\\frac{2\\theta}{1+14\\theta}.\n\\tag{66.3}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.4",
@@ -12212,7 +12220,7 @@
       "end_line": 79,
       "tagged": true,
       "latex": "\\begin{aligned}\n K_{\\rm BV}(\\theta)\n &=\\frac{309}{200}\\,\n \\frac{\\frac{2327}{500}+\\frac{34421}{250}\\theta+\\frac{255149}{250}\\theta^2}\n      {\\theta(1+14\\theta)}.\n\\end{aligned}\n\\tag{66.4}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.5",
@@ -12222,7 +12230,7 @@
       "end_line": 86,
       "tagged": true,
       "latex": "K_{\\rm BV}(\\theta)<\\frac{13}{\\theta}.\n\\tag{66.5}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.6",
@@ -12232,7 +12240,7 @@
       "end_line": 95,
       "tagged": true,
       "latex": "Q(\\theta)=13(1+14\\theta)-\\frac{309}{200}\\left(\\frac{2327}{500}\n +\\frac{34421}{250}\\theta+\\frac{255149}{250}\\theta^2\\right),\\qquad\n Q(1/21)=\\frac{11334739}{14700000}>0.\n\\tag{66.6}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.7",
@@ -12242,7 +12250,7 @@
       "end_line": 106,
       "tagged": true,
       "latex": "\\frac{\\log x}{\\log(z_2/z_1)}\n =\\frac1\\theta+12+\\frac{2\\log L}{\\theta L}.\n\\tag{66.7}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.8",
@@ -12252,7 +12260,7 @@
       "end_line": 113,
       "tagged": true,
       "latex": "\\frac{\\log x}{\\log(z_2/z_1)}\\le\\frac{18}{7\\theta}.\n\\tag{66.8}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.9",
@@ -12262,7 +12270,7 @@
       "end_line": 121,
       "tagged": true,
       "latex": "\\sum_{n\\le x}\\frac{a(n)^2}{n^{2\\alpha-1}}\n <\\frac{34}{\\theta^2}\\,x^{2-2\\alpha}\n\\tag{66.9}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.10",
@@ -12272,7 +12280,7 @@
       "end_line": 145,
       "tagged": true,
       "latex": "W(n;M,N,x)=\n \\frac{e^{-2n/x}}{e^{-n/N}-e^{-n/M}}.\n\\tag{66.10}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.11",
@@ -12282,7 +12290,7 @@
       "end_line": 161,
       "tagged": true,
       "latex": "0<W(n;M,N,x)<5.\n\\tag{66.11}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.12",
@@ -12292,7 +12300,7 @@
       "end_line": 175,
       "tagged": true,
       "latex": "A_{\\rm int}(\\theta,L)=\\theta^2\\left(\\frac12+7\\theta\\right)\n \\left(1+12\\theta+\\frac{2\\log L}{L}\\right)\n \\ge\\frac{\\theta^2}{2}\\qquad(L\\ge1).\n\\tag{66.12}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.13",
@@ -12302,7 +12310,7 @@
       "end_line": 182,
       "tagged": true,
       "latex": "c_g(\\theta)=(1-\\theta)\\frac6{\\pi^2}\\theta.\n\\tag{66.13}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.14",
@@ -12312,7 +12320,7 @@
       "end_line": 189,
       "tagged": true,
       "latex": "A_{\\rm left}(\\theta,L)=c_g(\\theta)^2A_{\\rm int}(\\theta,L)>0.\n\\tag{66.14}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.15",
@@ -12322,7 +12330,7 @@
       "end_line": 205,
       "tagged": true,
       "latex": "E_0(\\theta)\n =2\\theta(1+12\\theta)+\\frac12\n  -\\left(\\frac12+7\\theta\\right)(1-\\theta)^2+2\\theta\n =-2\\theta+\\frac{75}{2}\\theta^2-7\\theta^3.\n\\tag{66.15}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.16",
@@ -12332,7 +12340,7 @@
       "end_line": 212,
       "tagged": true,
       "latex": "E_0(\\theta)\\le-\\frac{29}{126}\\theta.\n\\tag{66.16}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.17",
@@ -12342,7 +12350,7 @@
       "end_line": 222,
       "tagged": true,
       "latex": "\\frac{4\\log L}{L}\\le\\frac{29}{252}\n \\quad\\Longrightarrow\\quad\n E_{\\rm total}(\\theta,L)\\le-\\frac{29}{252}\\theta.\n\\tag{66.17}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.18",
@@ -12352,7 +12360,7 @@
       "end_line": 237,
       "tagged": true,
       "latex": "\\left(\\frac{\\varphi(q)}q\\right)^2J^2L^2\n \\ll_\\theta\n \\left(\\frac{\\varphi(q)}q\\right)^2Jx^{2-2\\alpha}L^2+J^2\n\\tag{66.18}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.19",
@@ -12362,17 +12370,267 @@
       "end_line": 247,
       "tagged": true,
       "latex": "AJ^2\\le BJY+EJ^2,\\qquad E<A\n \\quad\\Longrightarrow\\quad\n (A-E)J\\le BY,\\qquad J\\le\\frac{BY}{A-E}\n\\tag{66.19}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
     },
     {
       "formula_id": "66.20",
       "theory": "66",
       "source_file": "docs/method/theory/66_Sono_FMT_DEPR09_Jutila_JL7_terminal_parameter_repair.md",
-      "start_line": 268,
-      "end_line": 271,
+      "start_line": 272,
+      "end_line": 275,
       "tagged": true,
       "latex": "32Q^2\\log^2(Q^2T)\n\\tag{66.20}",
-      "source_sha256": "ca91bd04d6e5a237cdb5937e92665cb14f4b70bd25ae579448753940f06e26e0"
+      "source_sha256": "0beb062f3fef63a560ac9339310d26babd3e3eeb0459cb6c9283c7101808d2db"
+    },
+    {
+      "formula_id": "T67-U001",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 15,
+      "end_line": 17,
+      "tagged": false,
+      "latex": "I_d(s,\\chi)\\ll_\\theta D^{1/2}(M/d)^{-1+\\theta}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.15",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 22,
+      "end_line": 27,
+      "tagged": true,
+      "latex": "\\boxed{\n |I_d(s,\\chi)|\n \\le C_{\\rm CONT}(\\theta)\\sqrt{qT}(M/d)^{-1+\\theta}}\n\\tag{67.15}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "T67-U002",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 31,
+      "end_line": 35,
+      "tagged": false,
+      "latex": "C_{\\rm CONT}(\\theta)\n =\\frac{96\\sqrt2}{\\pi}\\zeta(1+\\theta)\n   \\left(\\frac2\\theta+1\\right).",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.17",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 39,
+      "end_line": 45,
+      "tagged": true,
+      "latex": "\\boxed{\n \\overline C_{\\rm CONT}(\\theta)\n =48\\left(1+\\frac1\\theta\\right)\n    \\left(\\frac2\\theta+1\\right)}\n\\tag{67.17}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "T67-U003",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 71,
+      "end_line": 73,
+      "tagged": false,
+      "latex": "0<\\theta\\le\\frac1{21},\\quad q\\ge3,\\quad T\\ge1,\\quad D=qT,",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "T67-U004",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 75,
+      "end_line": 77,
+      "tagged": false,
+      "latex": "s=u+iv,\\qquad 0\\le u\\le2\\theta,\\qquad |v|\\le2T,",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.1",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 81,
+      "end_line": 87,
+      "tagged": true,
+      "latex": "I_d(s,\\chi)=\\frac1{2\\pi i}\n \\int_{\\Re w=-1+\\theta}\n L(1+s+w,\\chi)\n \\left\\{(N/d)^w-(M/d)^w\\right\\}\\Gamma(w)\\,dw.\n\\tag{67.1}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.2",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 91,
+      "end_line": 96,
+      "tagged": true,
+      "latex": "w=-1+\\theta+iy,\\qquad\n z=1+s+w=\\theta+u+i(v+y),\\qquad\n 0<\\Re z\\le3\\theta\\le\\frac17.\n\\tag{67.2}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "T67-U005",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 104,
+      "end_line": 107,
+      "tagged": false,
+      "latex": "L(z,\\chi)=L(z,\\chi^*)\n \\prod_{\\substack{p\\mid q\\\\p\\nmid f}}(1-\\chi^*(p)p^{-z}).",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.3",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 112,
+      "end_line": 116,
+      "tagged": true,
+      "latex": "\\prod_{\\substack{p\\mid q\\\\p\\nmid f}}(1+p^{-\\Re z})\n \\le\\frac4{\\sqrt6}\\sqrt{\\frac qf}.\n\\tag{67.3}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.4",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 120,
+      "end_line": 125,
+      "tagged": true,
+      "latex": "|1+z|\n \\le 1+3\\theta+2T+|y|\n \\le\\frac{22}{7}T(1+|y|).\n\\tag{67.4}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.5",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 134,
+      "end_line": 139,
+      "tagged": true,
+      "latex": "|L(z,\\chi^*)|\n \\le\\zeta(1+\\theta)\n \\left(\\frac f{2\\pi}|1+z|\\right)^{(1-u)/2}.\n\\tag{67.5}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.6",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 144,
+      "end_line": 149,
+      "tagged": true,
+      "latex": "|L(z,\\chi)|\n \\le C_{\\rm NP}\\zeta(1+\\theta)\n       \\sqrt{qT}\\sqrt{1+|y|},\n\\tag{67.6}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.7",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 151,
+      "end_line": 156,
+      "tagged": true,
+      "latex": "C_{\\rm NP}\n =\\frac4{\\sqrt{18}}+\\frac4{\\sqrt6}\\sqrt{\\frac{11}{7\\pi}}\n <\\frac94.\n\\tag{67.7}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.8",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 164,
+      "end_line": 167,
+      "tagged": true,
+      "latex": "L(z,\\chi_0)=\\zeta(z)\\prod_{p\\mid q}(1-p^{-z}).\n\\tag{67.8}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.9",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 172,
+      "end_line": 178,
+      "tagged": true,
+      "latex": "|\\zeta(z)|\n \\le3\\left|\\frac{1+z}{1-z}\\right|\n \\left(\\frac{|1+z|}{2\\pi}\\right)^{(1-u)/2}\n \\zeta(1+\\theta).\n\\tag{67.9}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.10",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 183,
+      "end_line": 190,
+      "tagged": true,
+      "latex": "\\left|\\frac{1+z}{1-z}\\right|^2\n =\\frac{(1+\\sigma)^2+(\\Im z)^2}\n        {(1-\\sigma)^2+(\\Im z)^2}\n \\le\\left(\\frac{1+\\sigma}{1-\\sigma}\\right)^2\n \\le\\frac{16}{9}.\n\\tag{67.10}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "T67-U006",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 194,
+      "end_line": 198,
+      "tagged": false,
+      "latex": "|L(z,\\chi_0)|\n \\le C_{\\rm P}\\zeta(1+\\theta)\n       \\sqrt{qT}\\sqrt{1+|y|},",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.11",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 200,
+      "end_line": 204,
+      "tagged": true,
+      "latex": "C_{\\rm P}=\\frac{16}{\\sqrt6}\n \\left(1+\\sqrt{\\frac{11}{7\\pi}}\\right)<12.\n\\tag{67.11}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.12",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 212,
+      "end_line": 217,
+      "tagged": true,
+      "latex": "\\boxed{\n |L(\\theta+u+i(v+y),\\chi)|\n \\le12\\zeta(1+\\theta)\\sqrt{qT}\\sqrt{1+|y|}}\n\\tag{67.12}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.13",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 226,
+      "end_line": 231,
+      "tagged": true,
+      "latex": "\\left|(N/d)^w-(M/d)^w\\right|\n \\le (N/d)^{-1+\\theta}+(M/d)^{-1+\\theta}\n \\le2(M/d)^{-1+\\theta}.\n\\tag{67.13}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "T67-U007",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 236,
+      "end_line": 242,
+      "tagged": false,
+      "latex": "|\\Gamma(-1+\\theta+iy)|\\le\n \\begin{cases}\n  8/\\theta,& |y|\\le1,\\\\\n  2/y^2,& |y|\\ge1.\n \\end{cases}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.14",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 246,
+      "end_line": 251,
+      "tagged": true,
+      "latex": "\\int_{-\\infty}^{\\infty}\n \\sqrt{1+|y|}\\,|\\Gamma(-1+\\theta+iy)|\\,dy\n \\le8\\sqrt2\\left(\\frac2\\theta+1\\right).\n\\tag{67.14}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.16",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 259,
+      "end_line": 265,
+      "tagged": true,
+      "latex": "\\zeta(1+\\theta)\n =\\sum_{n\\ge1}n^{-1-\\theta}\n \\le1+\\int_1^\\infty t^{-1-\\theta}\\,dt\n =1+\\frac1\\theta.\n\\tag{67.16}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
+    },
+    {
+      "formula_id": "67.18",
+      "theory": "67",
+      "source_file": "docs/method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md",
+      "start_line": 270,
+      "end_line": 275,
+      "tagged": true,
+      "latex": "C_{\\rm CONT}(1/21)\n \\approx40102.3459386232,\\qquad\n \\overline C_{\\rm CONT}(1/21)=45408.\n\\tag{67.18}",
+      "source_sha256": "83b7e020325ae8abb87109af1ead93a42fdfe222dc2c8c14097639cc65263ca0"
     }
   ],
   "issues": [],

@@ -1461,3 +1461,47 @@ Theory 66 뒤 Lean inventory는 theory 문서 67개, display 1,183식이다. 전
 `PARTIAL_FORMALIZATION=27`, `SOURCE_THEOREM_UNFORMALIZED=43`,
 `NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 177개,
 금지 proof escape 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila JL7 shifted-contour multiplier
+
+[theory 67](method/theory/67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md)과
+[review 74](review/74_20260913_DEPR09_Jutila_JL7_shifted_contour_multiplier_타당성검토.md)은
+Jutila printed p.53의 `I_d(s,chi) <<_theta sqrt(D)(M/d)^(-1+theta)`에 숨은
+multiplier를 actual 식 (3.6) 범위에서 수치화한다. 비주지표는 Bennett et al. 2021
+Lemma 5.6 (5.3), 주지표는 Hasanalizade--Shen--Wong 2022 Proposition 3.8을 사용한다.
+actual `0 < Re z <= 1/7`에서 principal ratio를 `4/3` 이하로 보존하면 두 branch를
+
+\[
+ |L(\theta+u+i(v+y),\chi)|
+ \le 12\zeta(1+\theta)\sqrt{qT}\sqrt{1+|y|}
+\]
+
+로 통합할 수 있다. power difference와 Gamma 적분을 합치면
+
+\[
+ C_{\rm CONT}(\theta)=\frac{96\sqrt2}{\pi}\zeta(1+\theta)
+ \left(\frac2\theta+1\right),
+\]
+
+calculator-safe 초등 상계는
+
+\[
+ \overline C_{\rm CONT}(\theta)=48\left(1+\frac1\theta\right)
+ \left(\frac2\theta+1\right)
+\]
+
+이다. `theta=1/21`에서 초등 상계는 정확히 `45408`이다. 이 component에는
+`q>=3`, `T>=1` 외의 새 finite `D` cutoff가 없다.
+
+`JL7-CONT=ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`이지만 contour 이동·Rademacher source·
+complex Gamma integral 전체를 Lean이 독립 증명한 것은 아니다. Lean은 actual 범위,
+principal ratio, 유리 coefficient, branch·terminal coefficient 합성만 proof escape 없이
+검사한다. `JL7-LEMMA3`, `JL7-RES`, `JL7-ABSORB`, `JL7-AVERAGED`와 terminal density,
+PAP-11, DEP-R09, fixed `2e-17`, numerical `X_cert`는 계속 OPEN이고 threshold calculator는
+NOT READY다. 다음 gate는 `JL7-LEMMA3` absolute-sum multiplier의 source-first 복원이다.
+
+Theory 67 뒤 Lean inventory는 theory 문서 68개, display 1,208식이다. 전체 상태는
+`KERNEL_PASS=61`, `CONDITIONAL_KERNEL_PASS=31`, `DEFINITION_ONLY=30`,
+`PARTIAL_FORMALIZATION=35`, `SOURCE_THEOREM_UNFORMALIZED=51`,
+`NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 192개,
+금지 proof escape 0건이다.

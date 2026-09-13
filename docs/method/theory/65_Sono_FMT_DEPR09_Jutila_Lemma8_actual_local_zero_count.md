@@ -315,10 +315,13 @@ square 하나에 포함된다. 또 \(|t_0|\le T\), \(T\ge1\)이면
 > **후속 Theory 66 교정:** 아래 당시 우선순위는 수행됐다. Theory 60의 고정
 > `37.769894`는 p.54 Theorem \(1'\) 전용이므로 식 (3.6)에 넣지 않는다. 식 (3.6)의
 > 올바른 weighted call은 Theory 66의 \(\theta\)-의존 \(34/\theta^2\) 상계를 쓴다.
+>
+> **후속 Theory 67 완료:** 아래 `JL7-CONT` 우선순위도 수행됐다. actual shifted-contour
+> multiplier는 Theory 67의 `C_CONT(theta)`와 초등 상계로 explicit해졌다. 현재 첫
+> 미해결 gate는 `JL7-LEMMA3`이다.
 
-현재 다음 우선순위는 `JL7-CONT`다. 식 (65.21), Theory 64의 detector lower bound와
-Theory 66의 corrected weighted call을 보존한 채, shifted contour의 숨은 numerical
-multiplier·finite cutoff를 source-first로 복원한다.
+이 문서 작성 당시의 `JL7-CONT` next action은 완료됐다. 최신 우선순위와 상태는 위
+Theory 67 후속 메모를 따른다.
 
 ## 9. 참고문헌
 

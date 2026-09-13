@@ -259,6 +259,10 @@ multiplier가 필요하다.
 | `JL7-ABSORB` | 마지막 \(J^2\) 흡수 | “implies (1.7)” | \(q/\varphi(q)\), \(L\), 위 multiplier를 식 (66.19)에 대입 |
 | `JL7-AVERAGED` | 식 (3.7)에서 (1.8) | “easy ... arguing as before” | variable modulus·primitive/principal case를 전부 재실행 |
 
+> **후속 Theory 67:** 위 표의 `JL7-CONT`는
+> [Theory 67](67_Sono_FMT_DEPR09_Jutila_JL7_shifted_contour_multiplier.md)에서
+> `ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT`으로 닫혔다. 나머지 네 행은 계속 OPEN이다.
+
 ## 8. explicit density 선행연구가 바로 대체하지 못하는 이유
 
 source-first 원칙에 따라 Ramaré 2016 Theorem 1.1도 조사했다. 이 정리는
@@ -304,10 +308,8 @@ PAP-11 / DEP-R09 / fixed 2e-17 / X_cert   = OPEN / OPEN / NOT CERTIFIED / OPEN
 threshold calculator                      = NOT READY
 ```
 
-다음 우선순위는 `JL7-CONT`다. 먼저 Jutila가 contour 이동에 사용한 gamma·\(L\)-function
-상계의 선행 source에 numerical multiplier가 있는지 조사한다. 없으면 actual
-\(0<\theta\le1/21\) 범위만 직접 정량화한다. 그 뒤 `JL7-LEMMA3`, `JL7-RES`,
-`JL7-ABSORB`, 마지막으로 averaged 식 (3.7) 순서가 가장 짧다.
+이 문서 작성 당시 다음 우선순위였던 `JL7-CONT`는 Theory 67에서 완료됐다. 최신 순서는
+`JL7-LEMMA3`, `JL7-RES`, `JL7-ABSORB`, 마지막으로 averaged 식 (3.7)이다.
 
 이번 단계에는 장시간 CPU 계산, 새 Python package, actual prime 데이터가 필요하지 않다.
 
