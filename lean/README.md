@@ -67,6 +67,14 @@ local axiom으로 넣지 않는다. 이 batch는 Section 5의 normalization gap�
 PAP-11·fixed `2e-17`·`X_cert`를 인증하지 않는다. Theory 57 뒤 inventory는 1,030식이고,
 새 15식을 모두 분류해 `NOT_YET_FORMALIZED`는 960식으로 유지된다.
 
+2026-09-13 Theory 58 batch는 최신 공개 Sono판과 modern explicit PNT-in-AP·density·
+Deuring--Heilbronn source의 적용성을 감사하고 fixed downstream coefficient의 capacity를
+고정밀 재계산했다. 대체 analytic theorem을 채택하지 않았으므로 새 Lean 선언은 없다.
+16개 display는 source theorem 7식, definition 1식, 아직 Lean으로 형식화하지 않은
+coefficient/interface 진단 8식으로 분류했다. 전체 inventory는 theory 문서 59개,
+1,046식이고 `NOT_YET_FORMALIZED`는 968식이다. source theorem, fixed `2e-17`, PAP-11,
+`X_cert`를 Lean이 증명했다는 뜻이 아니다.
+
 원문 theory를 수정한 뒤에는 생성기와 검증기를 차례로 실행한다. 생성기는 display 수식의
 원문 경로·행·SHA-256을 다시 고정하며, 검증기는 전수 coverage, 선언 연결, 금지된 proof
 escape, toolchain pin을 검사한다. `.lake/`는 로컬 build cache이므로 Git에 포함하지 않는다.

@@ -674,13 +674,13 @@ threshold calculator 또는 실제 threshold 계산 runner를 작성하지 않�
 
 2026-09-02 H1 source tracing은 FMT Theorem 6→FGKMT Theorem 5/6→Maynard Proposition 6.1과
 FGKMT Lemma 7.2의 chain을 추적했다. 2026-09-04 H1a는 unrestricted product core와
-simplex-supported 함수 사이의 concentration 이동을 exact하게 채워 모든 정수 (r\ge36)에서
-(J_r/I_r>\log r/(4r))를 증명했다. (36\le r\le8103)의 8,068개 정수는 60-dps directed interval,
-(r\ge8104)는 해석적 꼬리로 닫았다. 그러나 finite
-(r_0)의 나머지 조건, moment formula implied constants, Hypothesis 1 상수와 공통 시작 (x)는
+simplex-supported 함수 사이의 concentration 이동을 exact하게 채워 모든 정수 \(r\ge36\)에서
+\(J_r/I_r>\log r/(4r)\)를 증명했다. \(36\le r\le8103\)의 8,068개 정수는 60-dps directed interval,
+\(r\ge8104\)는 해석적 꼬리로 닫았다. 그러나 finite
+\(r_0\)의 나머지 조건, moment formula implied constants, Hypothesis 1 상수와 공통 시작 \(x\)는
 인쇄돼 있지 않다.
 판정은 `CONSTRUCTIVE_PATH_EXISTS_IN_PRINCIPLE_BUT_QUANTITATIVE_REPROOF_REQUIRED`이며
-(X_{cert})는 계속 `OPEN`이다. 정본은
+\(X_{\rm cert}\)는 계속 `OPEN`이다. 정본은
 `docs/review/24_20260902_Sono_FMT_H1_good_sieve_weight_recoverability.md`와
 `docs/method/theory/data/Sono_FMT_H1_good_sieve_weight_trace_v1.json`,
 `docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md`다. 2026-09-04 H1b는 Hypothesis 1,
@@ -1106,3 +1106,38 @@ slack을 낙관적으로 1/0으로 놓아도 기존 최종식의 진단값은 �
 SIV-07/08/09, R09–R12, X_cert는 OPEN이다. 다음은 correction·강한 대체 explicit PNT-in-AP
 source 조사 또는 Gallagher–Maier multiplier·cutoff의 정량 재증명이다. 이 repair 전에
 threshold calculator나 R11 coefficient budget으로 넘어가지 않는다.
+
+## 2026-09-13 DEP-R09 explicit PNT-in-AP 대체자료·coefficient capacity 감사
+
+[theory 58](method/theory/58_Sono_FMT_DEPR09_explicit_PNT_AP_replacement_source_audit.md)과
+[review 65](review/65_20260913_DEPR09_explicit_PNT_AP_대체자료_타당성검토.md)는 최신
+Sono arXiv v4·journal판과 현대 explicit PNT-in-AP 후보를 감사했다. 공개 arXiv record와
+journal article page에서 별도 correction/erratum은 식별하지 못했고, 저자 연락은 하지 않았다.
+
+Bennett et al.의 large-modulus cutoff는 `q=u^(1/160)` 경계를 asymptotically 덮지 못한다.
+Bordignon은 polylog modulus, Yamada는 average-over-moduli, Kadiri는 `q<=400000`이므로
+actual pointwise PAP의 drop-in theorem이 아니다. Thorner--Zaman의 uniform PNT-in-AP는
+구조적으로 가장 가까우나 decay constant와 implied multiplier가 numerical하지 않다.
+fully explicit density의 127/198 exponent와 Benli et al.의 explicit Deuring--Heilbronn은
+유용한 component지만 새 density-to-prime-sum transfer, exceptional `B0`,
+principal term, `psi->pi`, 하나의 common cutoff가 필요하다. density exponent를 PAP의
+`D`와 자동으로 동일시하지 않는다.
+
+고정 Sono downstream 식을 80 dps로 독립 재계산하면 `D=160`, `M=160`에서 fixed
+`2e-17`에 필요한 최소 `C_PAP`은 `0.8638312615226712472...`다. 총 허용 상대오차는
+`0.1361687384773287528...`이고, 인쇄된 `exp(-2)`를 제외한 추가 finite-error slack은
+`0.0008334552407160609...`뿐이다. `C_PAP=1`, `M=D`인 낙관 상한에서도 최대 정수
+`D`는 186이며 187에서 목표 아래로 내려간다. 이는 source theorem이나 실제 PAP가 아니라
+현재 downstream coefficient의 필요조건 진단이다.
+
+따라서 주 repair branch는 `D=160`을 유지하며 Gallagher--Jutila--Huxley 또는
+Thorner--Zaman proof의 모든 multiplier·finite cutoff를 복원하는 것이다. fully explicit
+coarse branch는 독립 cross-check와 작은 인증계수 후보로 보존하되, 사용자의 결정 없이
+연구목표 계수를 낮추지 않는다. `PAP-11`, DEP-R09, fixed `2e-17`, `X_cert`는 계속 OPEN이고,
+actual prime sweep과 threshold calculator는 금지한다.
+
+새 theory의 16식은 Lean 전수 inventory에 추가했지만 analytic source를 local axiom으로
+만들지 않았다. 분류는 `SOURCE_THEOREM_UNFORMALIZED` 7식, `DEFINITION_ONLY` 1식,
+`NOT_YET_FORMALIZED` 8식이다. 전체는 theory 문서 59개, display 1,046식이고
+`NOT_YET_FORMALIZED`는 968식이다. coefficient 진단은 fixed FGKMT Python의 독립
+high-precision unittest를 통과했으며 Lean theorem으로 승격하지 않는다.

@@ -1467,6 +1467,80 @@
 - 예방: 사람이 읽는 UTF-8 경로 비교에는 `core.quotePath=false`를 명시하고,
   allowlist 일치 뒤에도 `git diff --cached --check`를 독립 gate로 실행한다.
 
+### E095 — DEP-R09 coefficient 진단에서 float가 먼저 만들어진 고정밀 문자열 오류
+
+- 분류: `DETECTED_BY_NEW_UNIT_TEST / CORRECTED_BEFORE_HANDOFF / GATE_UNCHANGED`.
+- 첫 진단 one-liner에서 target을 `mp.mpf(2) * 10**-17`로 썼다. Python이
+  `10**-17`을 먼저 binary float로 만든 뒤 `mpmath`로 올렸으므로, 최소
+  `C_PAP`와 error slack의 긴 고정밀 문자열 마지막 자릿수들이 정확하지 않았다.
+- 새 fail-closed test는 target을 `mp.mpf(2) * mp.mpf(10) ** -17`로 다시 계산해 이
+  불일치를 2건 발견했다. 원장·Theory 58·review 65를 exact decimal target으로 교정하고
+  표적 test 7/7을 다시 PASS했다.
+- `D=186` PASS, `D=187` FAIL이라는 정수 경계와 연구 판정은 바뀌지 않았다.
+  잘못된 문자열을 검증 통과 또는 theorem 수치로 사용하지 않았다.
+- 같은 source 수집 과정에서 `tmp` 전체를 광범위하게 열거한 읽기 명령이 다른 작업의
+  제한된 임시경로에서 다수 `Access denied`를 출력했다. 필요한 파일은 이미 알려진 exact
+  하위경로에서 다시 확인했고, 권한 오류가 난 경로의 부재나 내용에 관한 판정은 하지 않았다.
+- 예방: 모든 작은 목표값도 문자열에서 직접 `mp.mpf`로 만들고, 문서에 복사하기 전에
+  독립 재계산 test를 먼저 실행한다. `tmp` 검색은 정확한 작업 하위경로로 제한한다.
+
+### E096 — 마감 검증에서 Lean 상대경로 중복과 sandbox 전체시험 오판 위험
+
+- 분류: `VERIFICATION_COMMAND_ERROR / SANDBOX_PERMISSION_ERROR / RESULT_IMPACT_NONE`.
+- `lean/`을 작업 디렉터리로 둔 첫 검증 명령에서 다시 `lean/tools/...`를 지정해
+  `lean/lean/tools/...`를 찾으려 했다. 첫 Python 호출이 즉시 실패했으므로 generator,
+  test, Lean build 어느 것도 그 명령에서 실행되지 않았다. 저장소 루트의 generator·validator와
+  `lean/`의 `lake build`를 분리해 다시 실행했고 각각 PASS했다.
+- 이어 sandbox 안에서 전체 unittest를 실행했을 때 676건 중 82건이 `PermissionError`로
+  끝났다. traceback은 저장소 `tmp/`와 시스템 임시 폴더를 만든 뒤 하위 파일 쓰기·정리를
+  ACL이 거부한 동일 환경 원인이었다. 이를 코드 회귀로 판정하지 않고, 사용자가 승인한
+  sandbox 외부 FGKMT Python에서 같은 suite를 재실행해 676/676 PASS(87.676초)를 확인했다.
+- 예방: 루트 상대경로 도구와 하위 작업 디렉터리 도구를 한 명령에서 혼합하지 않는다.
+  `TemporaryDirectory`를 광범위하게 쓰는 전체 suite는 기존 규약대로 처음부터 승인된 정상
+  로컬 권한에서 실행하고, sandbox 실패 출력은 PASS/FAIL 증거로 사용하지 않는다.
+
+### E097 — 이미 기록한 PowerShell 콜론 보간 오류를 최종 감사에서 반복
+
+- 분류: `REPEATED_VERIFICATION_COMMAND_ERROR / PARSE_TIME_FAILURE / FILE_IMPACT_NONE`.
+- 최종 UTF-8 감사 문자열에 `"UTF8:$f:$message"` 형태를 다시 사용해, 변수 `$f` 바로 뒤의
+  콜론을 PowerShell이 변수명 일부로 해석했다. E091에서 이미 같은 함정을 기록했는데도
+  예방 규칙을 적용하지 못했다. 명령은 parser 단계에서 전체 거부돼 파일 읽기·변경이나
+  부분 검증 결과는 없었다.
+- 모든 진단 문자열을 `('UTF8:{0}:{1}' -f $f,$message)` 형식으로 바꿔 재실행했다.
+  변경·신규 16파일 strict UTF-8/control·수식 delimiter와 local link 1,249건,
+  JSON 3파일, Python 2파일 compile, 금지된 `FGMT` 표기 검사를 issue 0으로 통과했다.
+- 예방: PowerShell 진단 문자열은 변수 보간을 사용하지 않고 `-f`만 사용한다. 이미 원장에
+  있는 예방 규칙은 최종 명령 작성 전에 체크리스트로 먼저 확인한다.
+
+### E098 — JavaScript patch 문자열이 핸드오프의 LaTeX 백슬래시를 소거
+
+- 분류: `DOCUMENT_FORMATTING_ERROR / DETECTED_ON_NEXT_TURN / MATHEMATICAL_STATE_UNCHANGED`.
+- `apply_patch` 입력을 일반 JavaScript 문자열로 만들면서 `\(`와 `\)`의 백슬래시가
+  문자열 해석 단계에서 사라졌다. 그 결과 최신 handoff의 \(X_{\rm cert}\) 세 곳이
+  `(X_{\rm cert})`로 저장됐다. 당시 delimiter 검사는 여는/닫는 표식 개수만 비교해
+  둘 다 0인 상태를 잘못 PASS로 보았다.
+- 다음 작업 착수 전 원문 재독에서 발견해 이중 escape를 명시한 patch로 세 곳을 교정했다.
+  같은 검색에서 METHODS의 오래된 H1a 문단에 남아 있던 \(r\), \(J_r/I_r\),
+  \(X_{\rm cert}\) 표기 6곳도 수학 내용 변경 없이 함께 복구했다.
+- 첫 두 교정 시도는 `String.raw` template 안의 Markdown backtick 때문에 JavaScript parser가
+  실행 전에 거부했다. 세 번째 시도는 백슬래시를 두 개 넣어 여전히 잘못됐고, 실제 파일을
+  다시 읽은 뒤 placeholder를 단일 백슬래시로 치환하는 patch로 최종 교정했다.
+- post-close 작업원장에 이 교정을 설명하는 문장을 추가할 때도 같은 이중 백슬래시가 한 번
+  반복됐다. 즉시 실제 파일을 읽어 확인하고 같은 placeholder 방식으로 단일 표기로 고쳤다.
+- 예방: LaTeX가 포함된 patch는 실제 도구 입력에 백슬래시가 남는지 작은 patch로 먼저
+  확인한다. 단순 delimiter parity 외에 핵심 수식의 기대 literal이 실제로 존재하는지와
+  `(X_{`, `(r\`, `(J_` 같은 탈락 흔적을 별도 검색한다.
+
+### E099 — `rg -q`의 무출력을 실패로 해석한 기대 literal 검사 오류
+
+- 분류: `VERIFICATION_LOGIC_ERROR / FALSE_NEGATIVE / FILE_IMPACT_NONE`.
+- 기대 literal 검사에서 `if (-not (rg -q ...))`를 사용했다. `rg -q`는 일치해도 stdout을
+  출력하지 않으므로 PowerShell 표현식 값은 비어 있었고, 실제 literal이 존재하는데도
+  `MISSING_EXPECTED_XCERT_LITERAL`로 오판했다.
+- `$LASTEXITCODE`를 직접 저장해 다시 검사한 결과 기대 literal은 exit 0, 금지된 중복
+  백슬래시는 exit 1이었다. 표적시험 12/12와 Lean validator도 독립 PASS했다.
+- 예방: `rg -q`·native validator는 출력 문자열의 truthiness가 아니라 종료코드로 판정한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

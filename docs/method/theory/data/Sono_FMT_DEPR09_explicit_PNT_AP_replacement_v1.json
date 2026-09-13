@@ -1,0 +1,256 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 explicit PNT-in-AP replacement-source audit",
+  "predecessor": "Sono_FMT_DEPR09_source_recovery_v1.json",
+  "outcome": "NO_DROP_IN_NUMERICAL_PAP_REPLACEMENT_FOUND",
+  "fixed_2e_minus_17_path_status": "OPEN_PENDING_SHARP_NUMERICAL_PAP_REPAIR",
+  "official_public_correction_identified": false,
+  "author_contact_performed": false,
+  "numerical_pap_package_ready": false,
+  "pap_11_closed": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "reading_policy": {
+    "native_text_first": true,
+    "ocr_used": false,
+    "visual_page_check_completed": true,
+    "public_search_checked_kst": "2026-09-13",
+    "note": "All PDFs had usable native text. The theorem statements, signs, exponents, ranges, and constants used in the audit were compared with rendered source pages."
+  },
+  "target_contract": {
+    "logical_form": "pointwise one-sided lower bound for every required modulus and reduced residue, not an average-over-moduli estimate",
+    "target": "pi(u;q,a)>=C_PAP*u/(phi(q)*log(u))",
+    "modulus_range": "q<=u^(1/D_PAP)",
+    "printed_d_pap": 160,
+    "printed_c_pap": "1-exp(-2)",
+    "required_components": [
+      "principal-character one-sided rate",
+      "nonprincipal contribution with numerical multiplier and cutoff",
+      "one exceptional modulus or prime exclusion uniformly matched to the construction",
+      "psi-to-pi prime-power partial-summation and endpoint correction",
+      "one common numerical u_PAP"
+    ]
+  },
+  "official_version_audit": {
+    "arxiv_id": "2404.06951v4",
+    "last_revised_utc": "2024-06-05",
+    "arxiv_url": "https://arxiv.org/abs/2404.06951v4",
+    "journal_doi": "10.4418/2025.80.2.2",
+    "journal_locator": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+    "journal_sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+    "arxiv_audit_copy_locator": "tmp/pdfs/dep_r09_20260913/Sono_arXiv_2404.06951_latest.pdf",
+    "arxiv_audit_copy_sha256": "18a7fa5adde5a203ba93aa5a75edbf03625605f1532594ed5a4101b2c1ba6634",
+    "relevant_printed_constants_unchanged": true,
+    "public_correction_or_erratum_identified": false,
+    "scope_note": "No correction was identified on the public arXiv record or journal article page as checked on 2026-09-13. This does not assert that no private author explanation exists."
+  },
+  "source_registry": [
+    {
+      "key": "BENNETT_ET_AL_2018",
+      "title": "Explicit Bounds for Primes in Arithmetic Progressions",
+      "arxiv": "1802.00085v3",
+      "url": "https://arxiv.org/abs/1802.00085",
+      "audit_copy_locator": "tmp/pdfs/h1c1a/BennettEtAl2018_Explicit_PAP.pdf",
+      "audit_copy_sha256": "e51f8b8f63486c2259efe076d367504f08dda0fe9e99dc35bf36de544ffc0601",
+      "page_count": 103,
+      "statements": "Theorem 1.1, Corollary 1.8, Corollaries 6.17 and 6.20",
+      "classification": "EXPLICIT_BUT_NOT_UNIFORM_ON_Q_EQ_U_POW_1_OVER_160",
+      "reason": "For q>10^5 the sufficient cutoff contains exp(0.03*sqrt(q)*log(q)^3), which eventually exceeds u on the boundary q=u^(1/160)."
+    },
+    {
+      "key": "BORDIGNON_2021",
+      "title": "Medium-sized values for the Prime Number Theorem for primes in arithmetic progressions",
+      "arxiv": "2101.08610v1",
+      "url": "https://arxiv.org/abs/2101.08610",
+      "audit_copy_locator": "tmp/pdfs/h1c1a/Bordignon2021_Medium_PNTAP.pdf",
+      "audit_copy_sha256": "63051c118ca19e9e723c5fe1769ef53f8c76ea7631ecadc87a08b1a385277805",
+      "page_count": 21,
+      "statements": "Theorems 2 and 3",
+      "classification": "POLYLOG_MODULUS_ONLY",
+      "reason": "The modulus is q<=log(x)^alpha1, with alpha1<2 in the fully explicit exceptional-zero-free statement."
+    },
+    {
+      "key": "YAMADA_2014",
+      "title": "Explicit formulae for primes in arithmetic progressions, II",
+      "arxiv": "1309.5798v3",
+      "url": "https://arxiv.org/abs/1309.5798",
+      "audit_copy_locator": "tmp/pdfs/h1c1a/Yamada2014_Explicit_PAP_II.pdf",
+      "audit_copy_sha256": "0f0ae746b307aaa51115d8e77b03bf7c798acc6e85908ce1833e242d25f4132a",
+      "page_count": 21,
+      "statements": "Theorems 1.1 and 1.2",
+      "classification": "AVERAGED_MODULI_NOT_POINTWISE_PAP",
+      "reason": "The result is an explicit Bombieri-Vinogradov-type sum over moduli, not the required pointwise lower bound for each q and a."
+    },
+    {
+      "key": "KADIRI_2005_2019_REVISION",
+      "title": "Explicit zero-free regions for Dirichlet L-functions",
+      "arxiv": "math/0510570v2",
+      "url": "https://arxiv.org/abs/math/0510570",
+      "audit_copy_locator": "tmp/pdfs/h1c1a/Kadiri2005_Explicit_ZFR.pdf",
+      "audit_copy_sha256": "774e5aa5e5ad96ce263df8ae7b02258cf9bb7ea2e8d6d0300b83b53bde7d8166",
+      "page_count": 23,
+      "statements": "Theorem 1.1",
+      "classification": "FINITE_MODULUS_COMPONENT_ONLY",
+      "reason": "The explicit R=5.60 result is restricted to 3<=q<=400000."
+    },
+    {
+      "key": "THORNER_ZAMAN_REFINEMENTS_PNT_AP",
+      "title": "Refinements to the Prime Number Theorem for Arithmetic Progressions",
+      "arxiv": "2108.10878v2",
+      "doi": "10.1007/s00209-023-03414-3",
+      "url": "https://doi.org/10.1007/s00209-023-03414-3",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_20260913/Thorner_Zaman_Refinements_PNTAP.pdf",
+      "audit_copy_sha256": "588ec896e0820c3620175b25da58850efbefc67b71227acac1d5c3fa4f6b3b09",
+      "page_count": 11,
+      "statements": "Theorems 1.1, 2.1 and 2.3; Section 3.2",
+      "classification": "BEST_STRUCTURAL_REPLACEMENT_CANDIDATE_NUMERICAL_CONSTANTS_NOT_PRINTED",
+      "reason": "The range is structurally strong enough, but the relevant implied multiplier and decay constant are only effectively computable, not numerical."
+    },
+    {
+      "key": "THORNER_ZAMAN_EXPLICIT_BOMBIERI_DENSITY",
+      "title": "An Explicit Version of Bombieri's Log-Free Density Estimate and Sarkozy's Theorem for Shifted Primes",
+      "arxiv": "2208.11123v4",
+      "doi": "10.1515/forum-2023-0091",
+      "url": "https://doi.org/10.1515/forum-2023-0091",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_20260913/Thorner_Zaman_Explicit_Bombieri_LogFree.pdf",
+      "audit_copy_sha256": "64c02753b55698f64625d3c84721303fa61fea7120bca993ffcd907456a104c6",
+      "page_count": 24,
+      "statements": "Theorem 1.2 and Corollary 6.1",
+      "classification": "FULLY_EXPLICIT_DENSITY_COMPONENT_NEW_TRANSFER_REQUIRED",
+      "constants": {
+        "near_one_nonexceptional": "10^88*(10^421*Q^99)^(1-sigma)",
+        "near_one_exceptional_removed": "10^93*min(1,(1-beta1)*log(Q))*(10^466*Q^170)^(1-sigma)",
+        "all_sigma_nonexceptional_exponent": 127,
+        "all_sigma_exceptional_removed_exponent": 198
+      },
+      "reason": "This is a zero-density estimate rather than the required pointwise prime-count theorem; the large prefactors and transfer cutoff must still be propagated."
+    },
+    {
+      "key": "BENLI_GOEL_TWISS_ZAMAN_EXPLICIT_DH",
+      "title": "Explicit Deuring-Heilbronn phenomenon for Dirichlet L-functions",
+      "arxiv": "2410.06082v3",
+      "doi": "10.1090/proc/17450",
+      "url": "https://doi.org/10.1090/proc/17450",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_20260913/Benli_Goel_Twiss_Zaman_Explicit_DH.pdf",
+      "audit_copy_sha256": "711fae4fe58d4a0b44de61a1758c7f5df11b415cf63cf2631a3cc7d198ae2041",
+      "page_count": 15,
+      "statements": "Corollaries 1.1 and 1.2",
+      "classification": "EXPLICIT_EXCEPTIONAL_BRANCH_COMPONENT_NOT_PAP",
+      "constants": {
+        "q_min_exclusive": 400000,
+        "T_min": 4,
+        "effective_c1": 10,
+        "effective_c2": 1,
+        "effective_c3": 107,
+        "effective_c4": "1/16"
+      },
+      "reason": "The effective corollary makes zero repulsion explicit but does not itself give a pointwise PNT-in-AP lower bound or common PAP cutoff."
+    }
+  ],
+  "coefficient_capacity": {
+    "target": "2e-17",
+    "formula": "C^2*(1/3)*(1/4)*exp(4*EulerGamma)/(737280000*log(5)*C_UB*M*(1+1/D)^4*(25*C_UB+20*exp(EulerGamma)*M)), C_UB=8*exp(2*EulerGamma)",
+    "current_common_power_rule": "M=D",
+    "d_160_c_pap_min_80dps": "0.8638312615226712472016653696080424379304128166312518652195064677219080976982928276811",
+    "d_160_total_relative_error_max_80dps": "0.1361687384773287527983346303919575620695871833687481347804935322780919023017071723189",
+    "printed_exp_minus_2_error_80dps": "0.135335283236612691893999494972484403407631545909575881468159",
+    "additional_error_slack_after_exp_minus_2_80dps": "0.0008334552407160609043351354194731586619556374591722533123346596240185282002194823818333",
+    "relative_c_pap_headroom_80dps": "0.0009648357009526760170971714919059066163772598110874917757278651347253659830337143700951",
+    "optimistic_c_pap_one_max_integer_d": 186,
+    "samples": [
+      {
+        "D": 186,
+        "C_PAP": "1",
+        "M": 186,
+        "c_hat_80dps": "0.00000000000000002018454868393271187656195067772278309048238792664277245252905282866427624288754888467",
+        "passes_target": true
+      },
+      {
+        "D": 187,
+        "C_PAP": "1",
+        "M": 187,
+        "c_hat_80dps": "0.00000000000000001998087018637466669034515133496965370390433203781399358626158491889438634271462815862",
+        "passes_target": false
+      },
+      {
+        "D": 198,
+        "C_PAP": "1",
+        "M": 198,
+        "c_hat_80dps": "0.00000000000000001793014955185136394440711471313346192533261032518924449657085868415467582043355986556",
+        "passes_target": false
+      }
+    ],
+    "interpretation": "D<=186 is only a necessary capacity gate under the unchanged downstream formula and M=D. It is not a proof that a PAP theorem exists at D=186. A density exponent is not automatically identical to D."
+  },
+  "repair_branches": [
+    {
+      "id": "BRANCH_S_SHARP",
+      "priority": 1,
+      "goal": "Keep D=160 and recover all numerical multipliers, rates, exceptional handling and cutoff",
+      "fixed_2e_minus_17_compatible_in_principle": true,
+      "status": "OPEN_QUANTITATIVE_REPROOF_REQUIRED"
+    },
+    {
+      "id": "BRANCH_E_FULLY_EXPLICIT_COARSE",
+      "priority": 2,
+      "goal": "Compose fully explicit density and Deuring-Heilbronn components into a new pointwise finite PNT transfer",
+      "fixed_2e_minus_17_compatible_in_principle": "UNKNOWN_AND_UNLIKELY_IF_D_EXCEEDS_186_WITH_UNCHANGED_DOWNSTREAM_CONSTANTS",
+      "status": "OPEN_NEW_TRANSFER_REQUIRED"
+    }
+  ],
+  "obligations": [
+    {
+      "id": "R09-RS01",
+      "name": "latest public Sono correction status",
+      "status": "PUBLIC_SEARCH_COMPLETE_NO_CORRECTION_IDENTIFIED"
+    },
+    {
+      "id": "R09-RS02",
+      "name": "sharp density multiplier and finite range",
+      "status": "OPEN"
+    },
+    {
+      "id": "R09-RS03",
+      "name": "pointwise density-to-prime-sum transfer",
+      "status": "HARD_BLOCKER"
+    },
+    {
+      "id": "R09-RS04",
+      "name": "exceptional branch and actual B0 exclusion",
+      "status": "PARTIAL"
+    },
+    {
+      "id": "R09-RS05",
+      "name": "principal one-sided finite rate",
+      "status": "OPEN"
+    },
+    {
+      "id": "R09-RS06",
+      "name": "psi-to-pi and endpoints",
+      "status": "OPEN"
+    },
+    {
+      "id": "R09-RS07",
+      "name": "one common numerical u_PAP",
+      "status": "HARD_BLOCKER"
+    },
+    {
+      "id": "R09-RS08",
+      "name": "fixed-coefficient capacity algebra",
+      "status": "EXPLICIT_DIAGNOSTIC"
+    }
+  ],
+  "lean_scope": {
+    "new_declarations_added": false,
+    "reason": "No replacement analytic source and no final D or C_PAP package has been adopted. Source applicability and high-precision coefficient diagnostics are kept separate from kernel proof claims.",
+    "proof_escape_allowed": false,
+    "future_kernel_targets_after_source_adoption": [
+      "coefficient monotonicity in the adopted parameter range",
+      "exact rational slack allocation",
+      "D capacity implication used by the final proof DAG"
+    ]
+  },
+  "next_gate": "Quantitatively recover a sharp D=160 pointwise PNT-in-AP transfer, beginning with every implied multiplier and finite cutoff in the Thorner-Zaman or Gallagher-Jutila-Huxley route. Do not build the threshold calculator or run a prime sweep before this gate closes."
+}
