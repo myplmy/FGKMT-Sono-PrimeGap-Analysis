@@ -125,8 +125,8 @@
   82개 `PermissionError`가 나와 무효로 분류했고, 승인된 sandbox 외부 FGKMT Python에서
   같은 전체 suite를 다시 실행해 676/676 PASS(87.676초)를 확인했다.
 - handoff를 포함한 변경·신규 16파일은 strict UTF-8·ASCII control·수식 delimiter 검사를
-  PASS했고 local link 1,249건, JSON 3파일 parse, Python 2파일 compile, 금지된 `FGMT`
-  표기 0건을 확인했다. source hash·fail-closed 상태는 표적 test와 validator로 확인했다.
+  PASS했고 local link 1,249건, JSON 3파일 parse, Python 2파일 compile, 금지된 네 글자
+  프로젝트명 오탈자 0건을 확인했다. source hash·fail-closed 상태는 표적 test와 validator로 확인했다.
   `git diff --check`는 내용 오류 없이 기존 LF→CRLF 안내만 출력했다.
 - 검증 중 `lean/` 작업 디렉터리와 `lean/tools/...` 상대경로를 중복한 첫 명령 실패와
   sandbox 전체시험의 환경 실패를 E096에 기록했다. 두 실패 모두 과학 결과나 정본을

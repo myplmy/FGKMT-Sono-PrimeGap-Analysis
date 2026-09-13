@@ -1367,4 +1367,28 @@ theorem pap_finite_error_with_multiplier
     (abs_le.mp hError).1
   nlinarith
 
+/-! ## Theory 59 — DEP-R09 Branch S fixed-D quantitative transfer audit -/
+
+/- Theory 59, formula 59.5: a numerical decay constant that pays the visible
+   logarithmic multiplier budget is sufficient for the fixed-D exponential
+   diagnostic. This is elementary algebra only; it does not assert that the
+   Thorner--Zaman or Jutila analytic source supplies K, c, or a cutoff. -/
+theorem pap_fixed_d_transfer_gate
+    {K η c D : ℝ}
+    (hK : 0 < K) (hη : 0 < η) (hD : 0 < D)
+    (hBudget : (Real.log K - Real.log η) / D ≤ c) :
+    K * Real.exp (-D * c) ≤ η := by
+  have hBudget' : Real.log K - Real.log η ≤ c * D :=
+    (div_le_iff₀ hD).mp hBudget
+  calc
+    K * Real.exp (-D * c) =
+        Real.exp (Real.log K) * Real.exp (-D * c) := by
+          rw [Real.exp_log hK]
+    _ = Real.exp (Real.log K + (-D * c)) := by
+      rw [← Real.exp_add]
+    _ ≤ Real.exp (Real.log η) := by
+      apply Real.exp_le_exp.mpr
+      nlinarith
+    _ = η := Real.exp_log hη
+
 end FGKMTSono

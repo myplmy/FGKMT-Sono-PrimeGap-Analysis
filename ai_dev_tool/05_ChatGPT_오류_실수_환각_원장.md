@@ -1508,7 +1508,7 @@
   부분 검증 결과는 없었다.
 - 모든 진단 문자열을 `('UTF8:{0}:{1}' -f $f,$message)` 형식으로 바꿔 재실행했다.
   변경·신규 16파일 strict UTF-8/control·수식 delimiter와 local link 1,249건,
-  JSON 3파일, Python 2파일 compile, 금지된 `FGMT` 표기 검사를 issue 0으로 통과했다.
+  JSON 3파일, Python 2파일 compile, 금지된 네 글자 프로젝트명 오탈자 검사를 issue 0으로 통과했다.
 - 예방: PowerShell 진단 문자열은 변수 보간을 사용하지 않고 `-f`만 사용한다. 이미 원장에
   있는 예방 규칙은 최종 명령 작성 전에 체크리스트로 먼저 확인한다.
 
@@ -1540,6 +1540,87 @@
 - `$LASTEXITCODE`를 직접 저장해 다시 검사한 결과 기대 literal은 exit 0, 금지된 중복
   백슬래시는 exit 1이었다. 표적시험 12/12와 Lean validator도 독립 PASS했다.
 - 예방: `rg -q`·native validator는 출력 문자열의 truthiness가 아니라 종료코드로 판정한다.
+
+### E100 — Branch S 탐색 명령에서 이미 알려진 두 오류 패턴 반복
+
+- 분류: `REPEATED_EXPLORATORY_COMMAND_ERROR / CORRECTED_BEFORE_ARTIFACT / RESULT_IMPACT_NONE`.
+- 첫 transfer-gate one-liner에서 E095와 같은 `mp.mpf(2) * 10**-17`을 다시 써 binary float가
+  먼저 생성됐다. 출력 직후 기존 Theory 58 exact decimal과 불일치를 발견하고 target을
+  `mp.mpf(2) * mp.mpf(10) ** -17`로 바꿔 재계산했다. 첫 출력은 문서·JSON에 사용하지 않았고,
+  새 unittest가 모든 저장 수치를 exact-decimal target에서 다시 만든다.
+- Jutila OCR 검색에서 Windows 경로에 shell wildcard를 직접 넣어 E095 당시와 같은 OS error
+  123을 냈다. exact directory와 `rg -g` 방식의 성공 결과만 source 판정에 사용했다.
+- 예방: 수치 one-liner도 E095 체크리스트를 그대로 적용하고, Windows `rg` file selection은
+  경로 wildcard가 아니라 `-g` 또는 PowerShell이 만든 명시적 파일 목록을 쓴다.
+
+### E101 — 상태 문서 줄 범위 출력용 PowerShell 괄호 누락
+
+- 분류: `READ_ONLY_COMMAND_PARSE_ERROR / IMMEDIATE_CORRECTION / FILE_IMPACT_NONE`.
+- 두 문서의 line-number preview를 한 명령으로 만들며 두 번째 `-f ($i,$a[$i])`의 닫는 괄호를
+  빠뜨렸다. PowerShell parser가 명령 전체를 실행 전에 거부해 파일 읽기·변경은 없었다.
+- 괄호를 고친 동일한 read-only 명령으로 필요한 범위를 다시 읽었다.
+- 예방: 복수 loop를 한 줄에 합치지 않고, 짧은 read command도 parser 성공 여부를 먼저 확인한다.
+
+### E102 — Theory 59 수식 patch에서 LaTeX backslash 1자 누락
+
+- 분류: `DOCUMENT_FORMATTING_ERROR / DETECTED_BEFORE_COMMIT / MATHEMATICAL_VALUE_UNCHANGED`.
+- 식 (59.2)의 `\ldots,\qquad`를 JavaScript 일반 문자열 patch에 넣을 때 `qquad` 앞
+  backslash 하나를 누락했다. inventory preview가 `ldots,qquad`로 보인 것을 확인해
+  source line을 읽고 정상 `apply_patch`의 raw 문자열로 교정했다.
+- 수치 문자열과 부등호는 변하지 않았고 첫 상태는 commit하지 않았다. 교정 뒤 inventory를
+  다시 생성·검증한다.
+- 예방: 새 theory의 모든 display는 생성된 inventory preview와 source `repr`을 함께 대조하고,
+  LaTeX patch는 일반 JavaScript 문자열보다 raw patch 문자열을 우선한다.
+
+### E103 — 작업원장 단계 완료시각을 현재보다 미래로 기록
+
+- 분류: `PROVENANCE_TIMESTAMP_ERROR / DETECTED_BEFORE_HANDOFF / RESULT_IMPACT_NONE`.
+- 실제 `Get-Date`가 2026-09-13 10:04 KST인데 단계 2--5에 10:20--12:05를 임시로 적었다.
+  연구 수치와 검증에는 영향이 없지만 작업 순서 provenance가 거짓이 될 수 있어 즉시
+  `10:04 KST 확인 시점까지 완료`라는 관측 범위 표기로 교정했다.
+- 예방: 작업원장의 각 시각은 추정해 쓰지 않고 해당 단계 마감 시 `Get-Date` 관측값 이하인지
+  확인한다. 정확한 분 단위 관측이 없으면 `시각 미기록`으로 남기는 편이 낫다.
+
+### E104 — 전체 회귀시험이 직전 완료기록의 금지 프로젝트명 오탈자를 발견
+
+- 분류: `STALE_VOCABULARY_ERROR / DETECTED_BY_FULL_SUITE / SCIENTIFIC_RESULT_IMPACT_NONE`.
+- Branch S 전체 683시험 중 vocabulary gate 하나가 오류 원장과 직전 완료 작업원장에 남은
+  네 글자 프로젝트명 오탈자 두 건을 발견했다. 둘 다 “금지 표기 검사를 통과했다”는 역사적
+  검증 설명 안의 문자열이었고 수학·코드에는 영향이 없었다.
+- literal을 되풀이하지 않는 `금지된 네 글자 프로젝트명 오탈자` 표현으로 두 문서를 교정한다.
+  이후 vocabulary 표적시험과 전체 suite를 다시 실행한다.
+- 예방: 금지 문자열 검사 결과를 설명할 때도 그 금지 문자열 자체를 다시 쓰지 않는다.
+
+### E105 — Branch S 최종 정적 감사 명령을 세 차례 잘못 설계
+
+- 분류: `VERIFICATION_COMMAND_DESIGN_ERROR / FALSE_POSITIVE_AND_API_MISUSE / FILE_IMPACT_NONE`.
+- 첫 시도는 저장소 루트에서 validator를 import하면서 sibling module 경로를 추가하지 않아
+  `ModuleNotFoundError`로 중단됐다. 두 번째 시도는 허용 제어문자를 문자열
+  `"\\t\\r\\n"`의 문자 집합과 비교해 정상 LF를 모두 문제로 오인했다. 세 번째 시도는
+  오래된 prose와 생성 원장 전체의 LaTeX 표식을 단순 개수로 세어 문맥상 정상인 내용을
+  false positive로 보고했다. 어느 시도도 파일을 변경하지 않았다.
+- `lean/tools`를 import path에 명시하고, 허용 문자는 ordinal `(9, 10, 13)`으로 비교하며,
+  수식 delimiter 검사는 이번에 새로 작성한 문서에만 한정하도록 교정했다. 이 과정에서
+  `validate_local_markdown_links`에 존재하지 않는 두 번째 인자를 한 번 더 전달해
+  `TypeError`가 났고, 함수 정의를 직접 확인한 뒤 단일 path 목록 인자로 수정했다.
+- 최종 교정 명령은 변경 Markdown 12개 strict UTF-8·제어문자 issue 0, local link
+  1,268개, 신규 문서 수식 delimiter issue 0, JSON 3개 parse와 `git diff --check`를
+  통과했다. CRLF 변환 안내는 Git 설정 경고이며 diff 오류가 아니다.
+- 예방: validator를 재사용할 때 먼저 함수 signature를 읽고, broad heuristic 검사는
+  generated/prose 문서에 적용하지 않는다. 검증 명령의 실패도 연구 산출물 실패와 분리해 기록한다.
+
+### E106 — 전체 unittest를 sandbox 안에서 재실행해 권한 오류 82건 유발
+
+- 분류: `KNOWN_ENVIRONMENT_MISUSE / SANDBOX_PERMISSION_FAILURE / CODE_IMPACT_NONE`.
+- 이 저장소의 전체 suite는 `TemporaryDirectory`와 multiprocessing 때문에 정상 로컬 권한에서
+  실행해야 한다는 기존 원장 규칙이 있는데도, session-close 재검증을 sandbox 안에서 먼저
+  실행했다. 683개 중 82개가 같은 계열의 `PermissionError`로 실패했고 연쇄 명령의 Lean build는
+  실행 전 중단됐다. 이는 test assertion 실패나 연구 코드 회귀가 아니다.
+- 사용자의 기존 허가 범위에 따라 동일 전체 suite를 정상 로컬 권한으로 재실행해
+  683/683 PASS(64.077초)를 확인했다. 이어 Lean build를 별도로 실행해 8,765 jobs PASS를
+  다시 확인했다. sandbox 실패 run은 성공 증거로 사용하지 않는다.
+- 예방: 전체 suite 실행 전 오류 원장 E007·작업규약의 실행 권한 항목을 확인하고 첫 시도부터
+  정상 로컬 권한을 사용한다. sandbox 결과와 로컬 결과를 문서에서 서로 바꾸어 쓰지 않는다.
 
 ## 4. 아직 남은 오류 위험
 

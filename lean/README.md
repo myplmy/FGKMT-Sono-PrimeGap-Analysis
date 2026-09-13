@@ -75,6 +75,13 @@ coefficient/interface 진단 8식으로 분류했다. 전체 inventory는 theory
 1,046식이고 `NOT_YET_FORMALIZED`는 968식이다. source theorem, fixed `2e-17`, PAP-11,
 `X_cert`를 Lean이 증명했다는 뜻이 아니다.
 
+2026-09-13 Theory 59 batch는 fixed-D transfer의 순수 대수만 추가했다. 양의
+`K`, `eta`, `D`에서 `(log K-log eta)/D <= c`이면 `K*exp(-D*c)<=eta`인 theorem
+`pap_fixed_d_transfer_gate`가 `KERNEL_PASS`다. Thorner--Zaman·Jutila의 density/PNT theorem과
+그들이 actual numerical `K`, `c`, cutoff를 준다는 명제는 형식화하거나 local axiom으로
+가정하지 않았다. 새 10식 뒤 inventory는 theory 문서 60개, display 1,056식,
+`NOT_YET_FORMALIZED` 970식이며 금지 proof escape는 0건이다. PAP-11과 `X_cert`는 OPEN이다.
+
 원문 theory를 수정한 뒤에는 생성기와 검증기를 차례로 실행한다. 생성기는 display 수식의
 원문 경로·행·SHA-256을 다시 고정하며, 검증기는 전수 coverage, 선언 연결, 금지된 proof
 escape, toolchain pin을 검사한다. `.lake/`는 로컬 build cache이므로 Git에 포함하지 않는다.

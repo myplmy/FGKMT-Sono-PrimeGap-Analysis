@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-13 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 59개
-- 전수 단위: Markdown fenced code 밖 display math 1,046개
-- 원래 식번호: 551개, 합성 ID 무번호식: 495개
+- 원문 범위: `docs/method/theory/*.md` 60개
+- 전수 단위: Markdown fenced code 밖 display math 1,056개
+- 원래 식번호: 561개, 합성 ID 무번호식: 495개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,12 +62,12 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 28 |
+| `KERNEL_PASS` | 29 |
 | `CONDITIONAL_KERNEL_PASS` | 17 |
-| `DEFINITION_ONLY` | 5 |
+| `DEFINITION_ONLY` | 6 |
 | `PARTIAL_FORMALIZATION` | 8 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 15 |
-| `NOT_YET_FORMALIZED` | 968 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 21 |
+| `NOT_YET_FORMALIZED` | 970 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `974389d9746bf686…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `94da2da762cab57f…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -136,6 +136,7 @@
 | 56 | [56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md](../docs/method/theory/56_Sono_FMT_DEPR09_numerical_PAP_source_constant_audit.md) | `268567081765d139…` | 10 | 8 | 2 | 10 |
 | 57 | [57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md](../docs/method/theory/57_Sono_FMT_DEPR09_Gallagher_Maier_McCurley_source_recovery.md) | `e86ba5075b6ac20e…` | 15 | 15 | 0 | 15 |
 | 58 | [58_Sono_FMT_DEPR09_explicit_PNT_AP_replacement_source_audit.md](../docs/method/theory/58_Sono_FMT_DEPR09_explicit_PNT_AP_replacement_source_audit.md) | `862e9df67fefe59d…` | 16 | 16 | 0 | 8 |
+| 59 | [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | `9f993f65137afd93…` | 10 | 10 | 0 | 8 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1193,6 +1194,16 @@
 | 1044 | `58.14` | T58 [58_Sono_FMT_DEPR09_explicit_PNT_AP_replacement_source_audit.md](../docs/method/theory/58_Sono_FMT_DEPR09_explicit_PNT_AP_replacement_source_audit.md) | 264–267 | <code>\widehat c(1,186,186)=2.01845486839327\ldots\times10^{-17}, \tag{58.14}</code> | — | `NOT_YET_FORMALIZED` | 낙관 C_PAP=1, D=186 coefficient 진단; Lean 미형식화 |
 | 1045 | `58.15` | T58 [58_Sono_FMT_DEPR09_explicit_PNT_AP_replacement_source_audit.md](../docs/method/theory/58_Sono_FMT_DEPR09_explicit_PNT_AP_replacement_source_audit.md) | 269–272 | <code>\widehat c(1,187,187)=1.99808701863747\ldots\times10^{-17}. \tag{58.15}</code> | — | `NOT_YET_FORMALIZED` | 낙관 C_PAP=1, D=187 coefficient 진단; Lean 미형식화 |
 | 1046 | `58.16` | T58 [58_Sono_FMT_DEPR09_explicit_PNT_AP_replacement_source_audit.md](../docs/method/theory/58_Sono_FMT_DEPR09_explicit_PNT_AP_replacement_source_audit.md) | 276–279 | <code>\boxed{D\le186} \tag{58.16}</code> | — | `NOT_YET_FORMALIZED` | 현재 downstream 식의 낙관 integer-D capacity 결론; source 채택 전 Lean 미형식화 |
+| 1047 | `59.1` | T59 [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | 45–49 | <code>\pi(u;q,a)\ge C_{\rm PAP}\frac{u}{\varphi(q)\log u},\qquad u\ge u_{\rm PAP},\quad q\le u^{1/160},\quad (a,q)=1,\quad B_0\nmid q. \tag{59.1}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | DEP-R09 Branch S의 fixed-D finite pointwise PAP 목표; analytic source package 없음 |
+| 1048 | `59.2` | T59 [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | 53–58 | <code>C_{\rm PAP}\ge0.863831261522671247201665369608\ldots,\qquad \eta_{\rm tot}:=1-C_{\rm PAP}\le 0.136168738477328752798334630392\ldots . \tag{59.2}</code> | — | `NOT_YET_FORMALIZED` | D=160 coefficient·total-error 고정밀 진단; Lean 미형식화 |
+| 1049 | `59.3` | T59 [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | 83–89 | <code>N_q(\sigma,T)\ll_\varepsilon (qT)^{(12/5+\varepsilon)(1-\sigma)},\qquad N_q^*(\sigma,T)\ll_\varepsilon \nu(qT)(qT)^{(37/5+\varepsilon)(1-\sigma)} \tag{59.3}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Thorner-Zaman Theorem 2.1 density source 진술; multiplier·cutoff 미형식화 |
+| 1050 | `59.4` | T59 [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | 125–128 | <code>E_{\rm tr}(K,c;D):=K\exp(-Dc),\qquad K&gt;0,\ c&gt;0, \tag{59.4}</code> | — | `DEFINITION_ONLY` | 숨은 multiplier를 보존하는 fixed-D transfer 진단 정의 |
+| 1051 | `59.5` | T59 [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | 133–138 | <code>c\ge\frac{\log K-\log\eta}{D} \quad\Longrightarrow\quad K e^{-Dc}\le\eta . \tag{59.5}</code> | `pap_fixed_d_transfer_gate` | `KERNEL_PASS` | positive K, eta, D의 logarithmic budget에서 exponential error 상계를 커널 검증 |
+| 1052 | `59.6` | T59 [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | 147–155 | <code>\begin{array}{c&#124;ccccc} K&amp;1&amp;10&amp;320&amp;10^3&amp;10^6\\ \hline c_{\min}&amp; 0.0124616277388&amp;0.0268527845700&amp;0.0485136339625&amp; 0.0556350982325&amp;0.0988085687261 \end{array} \tag{59.6}</code> | — | `NOT_YET_FORMALIZED` | K별 최소 decay constant 80-dps 진단; Python 재계산 |
+| 1053 | `59.7` | T59 [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | 175–179 | <code>N(\alpha,T,q)\ll_\varepsilon(qT)^{(2+\varepsilon)(1-\alpha)},\qquad N^*(\alpha,T,Q)\ll_\varepsilon(Q^2T)^{(2+\varepsilon)(1-\alpha)} \tag{59.7}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Jutila Theorem 1 density source 진술; epsilon multiplier·cutoff 미형식화 |
+| 1054 | `59.8` | T59 [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | 184–187 | <code>\theta=1-\frac1{c_7} \tag{59.8}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Thorner-Zaman Remark 2.4의 density exponent-to-theta source 관계 |
+| 1055 | `59.9` | T59 [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | 194–198 | <code>N(\lambda)\le10e^{11\lambda} \quad\text{for all }\lambda&gt;0\text{ and sufficiently large }D, \tag{59.9}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Jutila Theorem 1-prime source 진술; sufficiently large D cutoff 미수치 |
+| 1056 | `59.10` | T59 [59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md](../docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md) | 200–205 | <code>\delta_1\ge \frac{(1-6\delta)D^{-(2+\varepsilon)\delta/(1-6\delta)}}{8\log D}, \qquad D\ge D_0(\varepsilon). \tag{59.10}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Jutila Theorem 2 source 진술; D0(epsilon)와 proof multiplier 미수치 |
 
 ## 9. 발견된 원문·작업 오류
 

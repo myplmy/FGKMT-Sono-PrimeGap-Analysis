@@ -1,0 +1,241 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Branch S fixed-D quantitative transfer audit",
+  "predecessor": "Sono_FMT_DEPR09_explicit_PNT_AP_replacement_v1.json",
+  "outcome": "STRUCTURAL_ROUTE_CONFIRMED_NUMERICAL_TRANSFER_NOT_RECOVERED",
+  "numerical_pap_package_ready": false,
+  "pap_11_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "target_contract": {
+    "target": "pi(u;q,a)>=C_PAP*u/(phi(q)*log(u))",
+    "modulus_range": "q<=u^(1/160)",
+    "exceptional_condition": "one actual exceptional prime B0 excluded by B0 not dividing q",
+    "required_c_pap_min_80dps": "0.8638312615226712472016653696080424379304128166312518652195064677219080976982928276811",
+    "total_relative_error_max_80dps": "0.1361687384773287527983346303919575620695871833687481347804935322780919023017071723189",
+    "common_numerical_cutoff_available": false
+  },
+  "source_registry": [
+    {
+      "key": "THORNER_ZAMAN_2021_V2",
+      "title": "Refinements to the Prime Number Theorem for Arithmetic Progressions",
+      "arxiv": "2108.10878v2",
+      "doi": "10.1007/s00209-023-03414-3",
+      "url": "https://arxiv.org/abs/2108.10878",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_20260913/Thorner_Zaman_Refinements_PNTAP.pdf",
+      "audit_copy_sha256": "588ec896e0820c3620175b25da58850efbefc67b71227acac1d5c3fa4f6b3b09",
+      "audit_copy_bytes": 228218,
+      "page_count": 11,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_pages_checked": [4, 5, 8, 10, 11],
+      "statements": "Theorems 1.1, 2.1, 2.3; equations (2.1)-(2.5); proof of Theorem 2.3",
+      "classification": "STRUCTURALLY_COMPATIBLE_NUMERICAL_MULTIPLIERS_AND_CUTOFFS_OPEN"
+    },
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant_native.txt",
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [46, 47, 54, 58, 59, 61],
+      "statements": "Theorems 1, 1-prime, 2 and proof sections 4-7",
+      "classification": "SHARP_STRUCTURAL_SOURCE_QUANTITATIVE_REPROOF_REQUIRED"
+    },
+    {
+      "key": "HUXLEY_1974_75",
+      "title": "Large values of Dirichlet polynomials III",
+      "doi": "10.4064/aa-26-4-435-444",
+      "official_article_url": "https://www.impan.pl/pl/wydawnictwa/czasopisma-i-serie-wydawnicze/acta-arithmetica/all/26/4/100618/large-values-of-dirichlet-polynomials-iii",
+      "official_download_url": "https://www.impan.pl/shop/publication/transaction/download/product/100618",
+      "local_audit_copy_available": false,
+      "access_status": "OFFICIAL_SOURCE_ACCESS_BLOCKED_BY_JAVASCRIPT_PROOF_OF_WORK",
+      "classification": "SOURCE_LEAF_NOT_USED_FOR_NUMERICAL_CLAIM",
+      "note": "An HTML challenge response was detected by header and removed; it was not treated as a PDF. No unofficial mirror was used."
+    }
+  ],
+  "thorner_zaman_proof_dag": [
+    {
+      "id": "TZ-D01",
+      "edge": "Huxley-Jutila unconditional density -> Theorem 2.1 equation (2.1)",
+      "location": "printed page 5",
+      "numerical_status": "HIDDEN_MULTIPLIER_AND_FINITE_RANGE"
+    },
+    {
+      "id": "TZ-D02",
+      "edge": "equation (2.1) plus Jutila Theorem 2 -> exceptional-removed equation (2.2)",
+      "location": "printed page 5",
+      "numerical_status": "HIDDEN_NU_EPSILON_D0_AND_INFLATED_MULTIPLIER"
+    },
+    {
+      "id": "TZ-D03",
+      "edge": "standard explicit formula -> prime-power removal",
+      "location": "printed pages 8-9, equations before (4.2)",
+      "numerical_status": "HIDDEN_BIG_O_AND_CHEBYSHEV_MULTIPLIER"
+    },
+    {
+      "id": "TZ-D04",
+      "edge": "local zero count and Taylor estimates -> equation (4.3)",
+      "location": "printed pages 9-10",
+      "numerical_status": "HIDDEN_MULTIPLIERS_AND_CUTOFFS"
+    },
+    {
+      "id": "TZ-D05",
+      "edge": "dyadic decomposition and partial summation with Theorem 2.1 -> equations (4.4)-(4.6)",
+      "location": "printed pages 10-11",
+      "numerical_status": "HIDDEN_LOG_COUNT_DENSITY_AND_COMPARISON_MULTIPLIERS"
+    },
+    {
+      "id": "TZ-D06",
+      "edge": "Vinogradov-Korobov zero-free region -> equation (2.5) -> Theorem 1.1",
+      "location": "printed page 6",
+      "numerical_status": "EFFECTIVELY_COMPUTABLE_C8_C1_AND_IMPLIED_CONSTANT_NOT_NUMERICAL"
+    }
+  ],
+  "jutila_source_audit": {
+    "theorem_1": {
+      "density_exponent": "2+epsilon",
+      "alpha_range": "4/5<=alpha<=1",
+      "multiplier_status": "HIDDEN_DEPENDING_ON_EPSILON"
+    },
+    "theorem_1_prime": {
+      "printed_bound": "N(lambda)<=10*exp(11*lambda)",
+      "range": "all lambda>0 and D sufficiently large",
+      "cutoff_status": "NOT_NUMERICAL",
+      "proof_dependencies": [
+        "Lemma 4 using S. Graham source listed as to appear",
+        "Lemma 5 asymptotic as R tends to infinity with 1+o(1)",
+        "unnamed O-terms and D sufficiently large"
+      ]
+    },
+    "theorem_2": {
+      "printed_lower_bound": "delta1>=(1-6*delta)*D^(-(2+epsilon)*delta/(1-6*delta))/(8*log(D))",
+      "range": "D>=D0(epsilon)",
+      "cutoff_status": "D0_EPSILON_NOT_NUMERICAL",
+      "proof_gaps_for_certificate": [
+        "epsilon-dependent O-terms",
+        "small parameters chosen so errors are lower order",
+        "sufficiently good lower bound in the special-character branch",
+        "external prior lemmas without assembled common cutoff"
+      ]
+    },
+    "linnik_terminal_branch": "IN_PRINCIPLE_EFFECTIVE_ONLY_DETAILS_OMITTED"
+  },
+  "fixed_d_transfer_gate": {
+    "diagnostic_error_model": "K*exp(-D*c)",
+    "scope": "conditional algebraic diagnostic, not an adopted analytic source theorem",
+    "d": 160,
+    "eta": "0.1361687384773287527983346303919575620695871833687481347804935322780919023017071723189",
+    "sufficient_condition": "c>=(log(K)-log(eta))/D",
+    "lean_declaration": "pap_fixed_d_transfer_gate",
+    "samples": [
+      {
+        "K": "1",
+        "c_min_80dps": "0.0124616277388134980324301131630737029997591058493281276802477"
+      },
+      {
+        "K": "10",
+        "c_min_80dps": "0.0268527845700262835575425597548509792972659901532579587804560"
+      },
+      {
+        "K": "320",
+        "c_min_80dps": "0.0485136339625245744768310635504189970496253693520159354717272",
+        "interpretation": "Only the visible 2*D prefactor in source equation (2.5), not the complete proof multiplier."
+      },
+      {
+        "K": "1000",
+        "c_min_80dps": "0.0556350982324518546077674529384055318922797587611176209808726"
+      },
+      {
+        "K": "1000000",
+        "c_min_80dps": "0.0988085687260902111831047927137373607848004116729071142814975"
+      }
+    ],
+    "fixed_d_asymptotic_observation": "At q=x^(1/D), log(x)/log(q)=D exactly, so a leading K*exp(-c*log(x)/log(q)) factor does not vanish merely by increasing x."
+  },
+  "d_capacity_samples": [
+    {
+      "D": 160,
+      "c_pap_min_80dps": "0.863831261522671247201665369608042437930412816631251865219506",
+      "total_error_max_80dps": "0.136168738477328752798334630391957562069587183368748134780494",
+      "optimistic_c_hat_80dps": "0.000000000000000026802306048049641619137318661524306167784594892557"
+    },
+    {
+      "D": 170,
+      "c_pap_min_80dps": "0.914444170686203276582786838290473358215780275051058598288689",
+      "total_error_max_80dps": "0.0855558293137967234172131617095266417842197249489414017113114",
+      "optimistic_c_hat_80dps": "0.000000000000000023917490170401776121984883591171584679651079161733"
+    },
+    {
+      "D": 180,
+      "c_pap_min_80dps": "0.965053681735202598581923523962090203685062010345711927185024",
+      "total_error_max_80dps": "0.0349463182647974014180764760379097963149379896542880728149765",
+      "optimistic_c_hat_80dps": "0.000000000000000021474697345983984699547640446445181347416877221694"
+    },
+    {
+      "D": 186,
+      "c_pap_min_80dps": "0.995417968922508090839017977660673811276172222964619715429072",
+      "total_error_max_80dps": "0.00458203107749190916098202233932618872382777703538028457092763",
+      "optimistic_c_hat_80dps": "0.000000000000000020184548683932711876561950677722783090482387926643"
+    },
+    {
+      "D": 187,
+      "c_pap_min_80dps": "1.00047858869223017094293744139425963654316070666070369086691",
+      "total_error_max_80dps": "-0.000478588692230170942937441394259636543160706660703690866914861",
+      "optimistic_c_hat_80dps": "0.000000000000000019980870186374666690345151334969653703904332037814"
+    }
+  ],
+  "obligations": [
+    {
+      "id": "RS02-A",
+      "name": "Huxley-Jutila unconditional density multiplier and finite cutoff",
+      "status": "HARD_BLOCKER"
+    },
+    {
+      "id": "RS02-B",
+      "name": "Jutila exceptional density and Deuring-Heilbronn numerical package",
+      "status": "HARD_BLOCKER"
+    },
+    {
+      "id": "RS03",
+      "name": "Thorner-Zaman density-to-prime-sum transfer multiplier and cutoff",
+      "status": "HARD_BLOCKER"
+    },
+    {
+      "id": "RS04",
+      "name": "exceptional lambda and actual B0 one-sided composition",
+      "status": "OPEN"
+    },
+    {
+      "id": "RS05",
+      "name": "principal term and numerical Vinogradov-Korobov decay",
+      "status": "OPEN"
+    },
+    {
+      "id": "RS06",
+      "name": "prime powers, psi-to-pi and endpoints",
+      "status": "OPEN"
+    },
+    {
+      "id": "RS07",
+      "name": "one common numerical u_PAP",
+      "status": "HARD_BLOCKER"
+    },
+    {
+      "id": "RS08",
+      "name": "fixed-D exponential transfer gate",
+      "status": "ELEMENTARY_KERNEL_TARGET_AND_HIGH_PRECISION_DIAGNOSTIC"
+    }
+  ],
+  "next_gate": "Acquire and audit the official Huxley source leaf, then quantify Jutila Lemmas 4-8 and separately rewrite the Thorner-Zaman explicit-formula-to-density transfer with every multiplier and cutoff visible. No threshold calculator or prime sweep before an actual K, c and common u0 pass the coefficient budget."
+}

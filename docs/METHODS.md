@@ -1141,3 +1141,27 @@ actual prime sweep과 threshold calculator는 금지한다.
 `NOT_YET_FORMALIZED` 8식이다. 전체는 theory 문서 59개, display 1,046식이고
 `NOT_YET_FORMALIZED`는 968식이다. coefficient 진단은 fixed FGKMT Python의 독립
 high-precision unittest를 통과했으며 Lean theorem으로 승격하지 않는다.
+
+## 2026-09-13 DEP-R09 Branch S fixed-D 정량 transfer 감사
+
+[theory 59](method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md)와
+[review 66](review/66_20260913_DEPR09_branch_S_정량_transfer_타당성검토.md)은
+Thorner--Zaman의 uniform PNT-in-AP proof를 Theorem 2.1의 Huxley--Jutila density부터
+Theorem 2.3의 explicit formula·prime-power 제거·local zero count·dyadic partial summation과
+Theorem 1.1의 zero-free decay까지 분해했다. 각 단계에는 numerical하지 않은 multiplier 또는
+finite cutoff가 남는다. Jutila 1977 공식 PDF는 native text layer가 사실상 비어 있어 그 경우에만
+OCR을 사용했고, 사용한 theorem·상수·부등호는 렌더링 페이지와 대조했다.
+
+actual boundary `q=x^(1/D)`에서는 `log(x)/log(q)=D`이므로 transfer leading error
+`K exp(-c log(x)/log(q))`는 fixed D에서 `K exp(-Dc)`다. 따라서 x 증가만으로 숨은 K와 c를
+없애지 않는다. D=160, 총 error budget eta에 대해
+`c >= (log K-log eta)/160`이면 `K exp(-160c)<=eta`라는 초등 충분조건은
+Lean `pap_fixed_d_transfer_gate`로 proof escape 없이 검증했다. K=1, 10, 320, 1000,
+1,000,000의 80-dps gate와 D=160/170/180/186/187 capacity 표는 fixed FGKMT Python
+unittest로 독립 재계산한다.
+
+이 Lean 결과는 analytic source가 actual K, c, common cutoff를 준다는 증명이 아니다.
+Huxley 공식 source leaf는 자동 download가 JS proof-of-work에 막혀 수치 주장에 사용하지 않았다.
+`RS02-A/B`, `RS03`, `RS07`은 HARD_BLOCKER이고 `PAP-11`, DEP-R09, fixed `2e-17`,
+`X_cert`는 OPEN이다. Theory 59의 10식을 추가한 inventory는 theory 문서 60개,
+display 1,056식, `NOT_YET_FORMALIZED` 970식이며 금지 proof escape는 0건이다.
