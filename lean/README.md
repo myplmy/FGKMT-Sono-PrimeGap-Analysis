@@ -94,3 +94,14 @@ fixed `2e-17`, `X_cert`는 OPEN이다.
 원문 theory를 수정한 뒤에는 생성기와 검증기를 차례로 실행한다. 생성기는 display 수식의
 원문 경로·행·SHA-256을 다시 고정하며, 검증기는 전수 coverage, 선언 연결, 금지된 proof
 escape, toolchain pin을 검사한다. `.lake/`는 로컬 build cache이므로 Git에 포함하지 않는다.
+
+2026-09-13 Theory 62 batch는 Jutila Lemma 6의 Mellin 적분 component를 추가했다.
+actual `M` local factor, imprimitive correction의 유리부, vertical-line triangle budget,
+Gamma split 계수, `delta=epsilon/[4(1+epsilon)]` 범위와 exponent budget을 형식화했다.
+Mellin inversion·contour 이동·Rademacher convexity·complex Gamma bound는 local axiom으로
+가정하지 않고 source/direct-proof 미형식화 상태로 남겼다. inventory는 theory 문서 63개,
+display 1,104식이며 전체 상태는 `KERNEL_PASS=36`, `CONDITIONAL_KERNEL_PASS=20`,
+`DEFINITION_ONLY=8`, `PARTIAL_FORMALIZATION=17`,
+`SOURCE_THEOREM_UNFORMALIZED=34`, `NOT_YET_FORMALIZED=984`,
+`PARSE_REVIEW_REQUIRED=5`다. 금지 proof escape는 0건이다. `JL6-TAIL`, JL6 전체, JL8,
+PAP-11, fixed `2e-17`, `X_cert`는 OPEN이다.

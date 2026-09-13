@@ -1507,4 +1507,99 @@ theorem jutila_jl5_downstream_coefficient_transfer
     mul_le_mul_of_nonneg_left hCoefficient hEta
   exact (mul_le_mul_of_nonneg_right hFirst hLog).trans hJL5
 
+/-! ## Theory 62 — DEP-R09 Jutila Lemma 6 Mellin integral -/
+
+/- Theory 62, formula 62.3: the two real local-factor inequalities used in
+   the actual M-polynomial bound.  The complex character factors and finite
+   Dirichlet polynomial remain outside this local algebraic statement. -/
+theorem jutila_jl6_local_factor_bounds
+    {p : ℝ} (hp : 2 ≤ p) :
+    p - 1 ≤ p ^ 2 / (p - 1) ∧
+      p + 1 ≤ p ^ 2 / (p - 1) := by
+  have hpDen : 0 < p - 1 := by linarith
+  constructor
+  · apply (le_div_iff₀ hpDen).2
+    nlinarith [sq_nonneg (p - 1)]
+  · apply (le_div_iff₀ hpDen).2
+    nlinarith
+
+/- Theory 62, formula 62.5: the squared rational value behind the exceptional
+   p=2,3 conductor-to-modulus correction 4/sqrt(6).  This does not formalize
+   the external primitive-character factorization. -/
+theorem jutila_jl6_imprimitive_correction_squared_rational :
+    (4 : ℝ) ^ 2 / 6 = 8 / 3 := by
+  norm_num
+
+/- Theory 62, formula 62.7: the real triangle-budget component in
+   |1+delta+i(t+u)| <= (9/4)T(1+|u|).  Complex absolute-value reduction is
+   deliberately not asserted as an axiom. -/
+theorem jutila_jl6_vertical_argument_budget
+    {T δ uAbs : ℝ}
+    (hT : 1 ≤ T) (hδUpper : δ ≤ 1 / 4)
+    (hu : 0 ≤ uAbs) :
+    1 + δ + T + uAbs ≤ (9 / 4) * T * (1 + uAbs) := by
+  have hTu : uAbs ≤ T * uAbs := by
+    nlinarith [mul_nonneg (sub_nonneg.mpr hT) hu]
+  have hTnonneg : 0 ≤ T := by linarith
+  nlinarith [mul_nonneg hTnonneg hu]
+
+/- Theory 62, formula 62.9: exact algebra in the elementary split of the
+   weighted Gamma integral.  The analytic Gamma pointwise bounds themselves
+   remain source/direct-proof statements, not local axioms. -/
+theorem jutila_jl6_gamma_integral_budget_identity
+    {δ rootTwo : ℝ} (hδ : δ ≠ 0) :
+    2 * (8 * rootTwo / δ) + 8 * rootTwo =
+      8 * rootTwo * (2 / δ + 1) := by
+  field_simp
+
+/- Theory 62, formula 62.11: the right-shift chosen for epsilon>0 lies
+   strictly between zero and one quarter. -/
+noncomputable def jutilaJL6ShiftDelta (ε : ℝ) : ℝ :=
+  ε / (4 * (1 + ε))
+
+theorem jutila_jl6_shift_delta_range
+    {ε : ℝ} (hε : 0 < ε) :
+    0 < jutilaJL6ShiftDelta ε ∧
+      jutilaJL6ShiftDelta ε < 1 / 4 := by
+  have hOneEps : 0 < 1 + ε := by linarith
+  have hDen : 0 < 4 * (1 + ε) := mul_pos (by norm_num) hOneEps
+  constructor
+  · exact div_pos hε hDen
+  · rw [jutilaJL6ShiftDelta, div_lt_iff₀ hDen]
+    nlinarith
+
+/- Theory 62, formula 62.12: the finite exponent budget after the source
+   power condition is supplied.  This is real algebra only and does not
+   formalize Mellin inversion, Rademacher's theorem, or real-power transfer. -/
+theorem jutila_jl6_mellin_exponent_budget
+    {ε α β : ℝ}
+    (hε : 0 < ε) (hα : 1 / 2 ≤ α) (hBeta : α ≤ β) :
+    1 - (1 + ε) * (β - jutilaJL6ShiftDelta ε) / α ≤
+      -ε / 2 := by
+  have hαpos : 0 < α := by linarith
+  have hOneEps : 0 < 1 + ε := by linarith
+  have hDeltaIdentity :
+      (1 + ε) * jutilaJL6ShiftDelta ε = ε / 4 := by
+    rw [jutilaJL6ShiftDelta]
+    field_simp [ne_of_gt hOneEps]
+  have hDeltaOverAlpha :
+      (1 + ε) * jutilaJL6ShiftDelta ε / α ≤ ε / 2 := by
+    rw [hDeltaIdentity]
+    apply (div_le_iff₀ hαpos).2
+    nlinarith
+  have hNumerator :
+      (1 + ε) * (α - jutilaJL6ShiftDelta ε) ≤
+        (1 + ε) * (β - jutilaJL6ShiftDelta ε) := by
+    exact mul_le_mul_of_nonneg_left
+      (sub_le_sub_right hBeta _) hOneEps.le
+  calc
+    1 - (1 + ε) * (β - jutilaJL6ShiftDelta ε) / α ≤
+        1 - (1 + ε) * (α - jutilaJL6ShiftDelta ε) / α := by
+          have hDiv := div_le_div_of_nonneg_right hNumerator hαpos.le
+          linarith
+    _ = -ε + (1 + ε) * jutilaJL6ShiftDelta ε / α := by
+      field_simp [ne_of_gt hαpos]
+      ring
+    _ ≤ -ε / 2 := by linarith
+
 end FGKMTSono

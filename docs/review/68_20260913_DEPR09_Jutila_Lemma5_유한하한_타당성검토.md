@@ -6,6 +6,10 @@
   [Theory 61](../method/theory/61_Sono_FMT_DEPR09_Jutila_Lemma5_finite_harmonic_lower_bound.md)
 - 판정: **타당 — JL5만 명시적으로 닫힘; JL6와 전체 PAP는 미완**
 
+> **후속 상태(2026-09-13):** [Review 69](69_20260913_DEPR09_Jutila_Lemma6_Mellin_적분_타당성검토.md)에서
+> JL6의 두 후속 오차 중 Mellin 항은 parameterized explicit로 진전했다. truncation tail과
+> JL6 전체, JL8, PAP/root certificate는 계속 미완이다.
+
 ## 1. 한눈에 보는 결과
 
 이번에는 새 증명을 처음부터 만들 필요가 없었다. 2022년 Colloquium Mathematicum에 출판된

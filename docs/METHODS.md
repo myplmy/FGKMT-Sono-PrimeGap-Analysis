@@ -1216,3 +1216,47 @@ R0(q,eta) = max(exp(sqrt(log q)), e, A(q,eta)^3)
 `KERNEL_PASS=34`, `CONDITIONAL_KERNEL_PASS=20`, `DEFINITION_ONLY=8`,
 `PARTIAL_FORMALIZATION=10`, `SOURCE_THEOREM_UNFORMALIZED=30`,
 `NOT_YET_FORMALIZED=971`, `PARSE_REVIEW_REQUIRED=5`다. 금지 proof escape는 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila Lemma 6 Mellin 적분 명시화
+
+[theory 62](method/theory/62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md)와
+[review 69](review/69_20260913_DEPR09_Jutila_Lemma6_Mellin_적분_타당성검토.md)는
+Jutila 식 (2.11)의 첫 번째 숨은 `<<_epsilon 1`, 즉 Mellin 적분을 별도 node로
+명시화한다. 원문 PDF는 native text layer가 비어 있어 OCR 뒤 인쇄 pp. 48--52를
+원페이지 대조했고, Bennett et al. 2021과 Fiori 2026은 native text와 렌더링 페이지를
+함께 확인했다.
+
+contour는 `Re(w)=-beta+delta`로 옮긴다. `0<delta<=1/4`이면 Gamma pole `w=0`의
+residue는 `L(rho,chi)=0` 때문에 사라지고 `w=-1`은 지나지 않는다. actual
+`f=mu*phi`, Barban--Vehov `lambda_d`에는
+
+```text
+|M(delta+iv,chi,psi_r)| <= z2*r^2/phi(r)
+sum'_(r<=R) r^(-1)|M| < 3*R*z2
+```
+
+를 쓴다. primitive conductor로 내린 뒤 작은 소수 2·3까지 보정하고 Bennett et al.
+Lemma 5.6 (5.3)의 Rademacher bound와 elementary Gamma split을 합성하면
+
+```text
+A = (q*T)^(1/2)*R*z2
+K_M(delta) = 12*sqrt(6)*zeta(1+delta)*(2/delta+1)/pi^(3/2)
+|I_delta| <= K_M(delta)*A*X^(-beta+delta)
+```
+
+다. `delta=epsilon/[4(1+epsilon)]`을 고르고 Jutila (2.8)
+`X^alpha>=A^(1+epsilon)`을 적용하면
+
+```text
+|I_delta| <= K_M(delta)*A^(-epsilon/2)
+```
+
+다. 이 결과는 `JL6-MELLIN=ACTUAL_FORM_PARAMETERIZED_EXPLICIT`이다.
+
+Jutila가 별도로 쓰는 `x=X log(qT)^2` 이후 truncation tail은 이 식에 포함되지 않는다.
+따라서 `JL6-TAIL`, JL6 전체와 JL8은 `HARD_BLOCKER`, `PAP-11`, DEP-R09, fixed
+`2e-17`, `X_cert`는 OPEN이며 threshold calculator는 NOT READY다. Theory 62 뒤 Lean
+inventory는 theory 문서 63개, display 1,104식이다. 전체 상태는
+`KERNEL_PASS=36`, `CONDITIONAL_KERNEL_PASS=20`, `DEFINITION_ONLY=8`,
+`PARTIAL_FORMALIZATION=17`, `SOURCE_THEOREM_UNFORMALIZED=34`,
+`NOT_YET_FORMALIZED=984`, `PARSE_REVIEW_REQUIRED=5`이며 금지 proof escape는 0건이다.

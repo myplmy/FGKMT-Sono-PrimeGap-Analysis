@@ -1,5 +1,10 @@
 # DEP-R09 Jutila Lemma 4--8 정량복원 타당성검토
 
+> **후속 상태(2026-09-13):** Review 68/Theory 61이 `JL5`를 닫았고,
+> [Review 69](69_20260913_DEPR09_Jutila_Lemma6_Mellin_적분_타당성검토.md)와
+> Theory 62가 `JL6-MELLIN`을 parameterized explicit로 닫았다. `JL6-TAIL`, JL6 전체,
+> JL8과 root certificate는 계속 OPEN이다.
+
 - 작성일: 2026-09-13 KST
 - 상세 수식 정본: [Theory 60](../method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md)
 

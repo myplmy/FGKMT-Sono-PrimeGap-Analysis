@@ -655,6 +655,74 @@
       ]
     },
     {
+      "formula_id": "62.1",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "62.2",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "62.3",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl6_local_factor_bounds"]
+    },
+    {
+      "formula_id": "62.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "62.5",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl6_imprimitive_correction_squared_rational"]
+    },
+    {
+      "formula_id": "62.6",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "62.7",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl6_vertical_argument_budget"]
+    },
+    {
+      "formula_id": "62.8",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "62.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_jl6_gamma_integral_budget_identity"]
+    },
+    {
+      "formula_id": "62.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "62.11",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutilaJL6ShiftDelta",
+        "jutila_jl6_shift_delta_range"
+      ]
+    },
+    {
+      "formula_id": "62.12",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl6_mellin_exponent_budget"]
+    },
+    {
+      "formula_id": "62.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

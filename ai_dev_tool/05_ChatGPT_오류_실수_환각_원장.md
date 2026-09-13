@@ -1686,6 +1686,38 @@
   3. JavaScript를 감싸는 patch의 Markdown fence와 inline backtick은 placeholder로 바꾼다.
   4. 검색 전에 현재 workdir와 target 상대경로를 함께 확인한다.
 
+### E109 — JL6a 초안 Lean·검증 명령의 국소 오류
+
+- 분류:
+  `LEAN_DRAFT_AND_COMMAND_WORKDIR_ERROR / DETECTED_BEFORE_COMMIT /
+  SCIENTIFIC_RESULT_IMPACT_NONE`.
+- 첫 Lean compile에서 `hT.zero_le`라는 존재하지 않는 field projection을 사용했고,
+  `field_simp`가 이미 목표를 닫은 뒤 불필요한 `ring`을 실행했으며, delta 정의를 충분히
+  전개하지 않아 식 하나가 남았다. 각각 명시적 `0<=T` 증명, 중복 tactic 제거,
+  `rw [jutilaJL6ShiftDelta]` 뒤 분모 제거로 교정했다. 교정 후 단일 Lean 파일은 exit 0이다.
+- 이어 inventory 생성·검증과 Lean compile을 한 root 명령에 묶으며 `lake`만 저장소 루트에서
+  실행해 경로 오류를 냈다. inventory 생성과 validator는 독립적으로 PASS했지만 그 출력으로
+  Lean 성공을 주장하지 않고, `lean/`을 workdir로 지정해 Lean을 별도 재실행한다.
+- 작업 시작 파일 탐색에서도 직전 파일명을 기억으로 추측해 존재하지 않는 JL5 경로를 한 번
+  읽으려 했다. `rg --files`로 실제 canonical 파일명을 찾은 뒤 진행했으며 파일 영향은 없다.
+- 예방: compile·inventory·validator는 각 도구의 canonical workdir를 명시한 별도 단계로
+  실행하고, 인접 단계 파일명도 먼저 `rg --files`로 확인한다.
+
+### E110 — JL6a 최종 control-character 검사 명령의 PowerShell 변수 구문 재발
+
+- 분류:
+  `VALIDATION_COMMAND_PARSE_ERROR / DETECTED_BEFORE_SCAN / SCIENTIFIC_RESULT_IMPACT_NONE`.
+- 변경 파일의 strict UTF-8·ASCII control-character 검사를 한 번에 실행하는 PowerShell
+  진단 문자열에서 `"CONTROL:$rel:..."`을 사용했다. PowerShell은 변수명 바로 뒤의
+  콜론을 scope 구문처럼 해석하므로 명령 전체를 실행 전에 parser error로 거부했다.
+- 이는 과거 원장에도 기록된 도구 사용 함정인데 재발한 절차상 실수다. `${rel}`로 경계를
+  명시해 즉시 재실행했고, 변경·신규 텍스트 21개에서 strict UTF-8·금지 control character
+  문제 0건, 변경 Markdown local link 1,345개 PASS를 확인했다. 연구 코드·문서·검증값은
+  첫 실패 명령에 의해 변경되지 않았다.
+- 예방: PowerShell interpolated string에서 변수 뒤에 `:`가 오면 항상 `${name}:` 형식을
+  사용한다. 가능하면 이 반복 검사를 독립된 검증 스크립트로 고정해 ad-hoc 문자열 생성을
+  줄인다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

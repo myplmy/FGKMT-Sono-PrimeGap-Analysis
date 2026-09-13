@@ -7,6 +7,10 @@
 - 판정: `JL5 EXPLICIT / JL6 AND ROOT CERTIFICATE OPEN`
 - 비목적: actual prime sweep, threshold calculator, JL6의 숨은 두 오차를 임의 상수로 대체
 
+> **후속 상태(2026-09-13):** [Theory 62](62_Sono_FMT_DEPR09_Jutila_Lemma6_Mellin_integral_explicit.md)가
+> 두 오차 중 Mellin 항을 `ACTUAL_FORM_PARAMETERIZED_EXPLICIT`으로 닫았다.
+> 별도 truncation tail, JL6 전체, JL8과 root certificate는 계속 OPEN이다.
+
 ## 1. 결론
 
 Jutila 1977 Lemma 5의 `1+o(1)`은 더 이상 numerical blocker가 아니다. Zuniga
@@ -217,9 +221,9 @@ cross-check로만 남긴다.
 | `PAP-11` / DEP-R09 | `OPEN` | full density composition 미완 |
 | fixed \(2\times10^{-17}\) / \(X_{\rm cert}\) | `OPEN` | calculator 제작 금지 유지 |
 
-다음 우선순위는 `JL6a`다. 먼저 원문이 인용한 Mellin 변환 source와 Jutila 식 (2.11)의
-두 \(\ll_\varepsilon1\)을 source-first로 분해한다. 적합한 explicit 선행정리가 없을
-때만 직접 contour·tail 상계를 정식화한다.
+이 문서 작성 당시 다음 우선순위였던 `JL6a`의 Mellin 항은 Theory 62에서 진전했다.
+현재 다음 우선순위는 `JL6b` truncation tail의 source-first 명시화와 이후 JL5·Mellin·tail
+공통 error-budget 합성이다.
 
 ## 10. 참고문헌
 

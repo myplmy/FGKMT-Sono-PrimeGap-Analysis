@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila Lemma 6 Mellin integral parameterized explicit bound",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_Lemma5_finite_v1.json",
+  "outcome": "JL6_MELLIN_ACTUAL_FORM_PARAMETERIZED_EXPLICIT_BUT_TRUNCATION_TAIL_AND_ROOT_OPEN",
+  "numerical_pap_package_ready": false,
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "author": "Matti Jutila",
+      "journal": "Mathematica Scandinavica 41 (1977), 45-62",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [48, 49, 50, 51, 52],
+      "statement": "equations (2.1), (2.5)-(2.11), Lemma 6, and actual parameter choice",
+      "classification": "ORIGINAL_TARGET_AND_PARAMETER_SOURCE"
+    },
+    {
+      "key": "BENNETT_ET_AL_2021",
+      "title": "Counting zeros of Dirichlet L-functions",
+      "authors": [
+        "Michael A. Bennett",
+        "Greg Martin",
+        "Kevin O'Bryant",
+        "Andrew Rechnitzer"
+      ],
+      "journal": "Mathematics of Computation 90 (2021), 1455-1482",
+      "doi": "10.1090/mcom/3599",
+      "arxiv": "2005.02989",
+      "url": "https://arxiv.org/abs/2005.02989",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jl6a_20260913/Bennett_Martin_OBryant_Rechnitzer_2021_Counting_Zeros.pdf",
+      "audit_copy_sha256": "548414b632579d42839f5c5f5e3581dc3a5f539424fad2e0c9382e6d0bc25fa5",
+      "audit_copy_bytes": 543028,
+      "page_count": 28,
+      "native_text_bytes": 106297,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [1468, 1469],
+      "statement": "Lemma 5.6, equation (5.3), exact restatement of Rademacher convexity bound",
+      "classification": "PEER_REVIEWED_EXPLICIT_L_FUNCTION_BOUND"
+    },
+    {
+      "key": "RADEMACHER_1959",
+      "title": "On the Phragmen-Lindelof theorem and some applications",
+      "author": "Hans Rademacher",
+      "journal": "Mathematische Zeitschrift 72 (1959), 192-204",
+      "doi": "10.1007/BF01162949",
+      "url": "https://link.springer.com/article/10.1007/BF01162949",
+      "reading_mode": "METADATA_ONLY_ORIGINAL_FULL_TEXT_NOT_PUBLICLY_OBTAINED",
+      "statement": "Theorem 2, as exactly restated and used by Bennett et al. (2021)",
+      "classification": "ORIGINAL_SOURCE_NOT_INDEPENDENTLY_FULL_TEXT_INSPECTED"
+    },
+    {
+      "key": "NIST_DLMF_MELLIN_GAMMA",
+      "title": "NIST Digital Library of Mathematical Functions",
+      "urls": [
+        "https://dlmf.nist.gov/2.5",
+        "https://dlmf.nist.gov/5.5",
+        "https://dlmf.nist.gov/5.9",
+        "https://dlmf.nist.gov/5.11#E9"
+      ],
+      "reading_mode": "OFFICIAL_WEB_EQUATIONS",
+      "statement": "Mellin inversion, Gamma recurrence and integral, and vertical-line decay",
+      "classification": "OFFICIAL_REFERENCE_FOR_DIRECT_CONTOUR_AND_GAMMA_CHECKS"
+    },
+    {
+      "key": "FIORI_2026",
+      "title": "A note on the Phragmen-Lindelof theorem",
+      "author": "Andrew Fiori",
+      "journal": "Journal of Mathematical Analysis and Applications 559 (2026), 130404",
+      "doi": "10.1016/j.jmaa.2026.130404",
+      "arxiv": "2502.13282v3",
+      "url": "https://arxiv.org/abs/2502.13282",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jl6a_20260913/Fiori_2026_Phragmen_Lindelof.pdf",
+      "audit_copy_sha256": "05e6330676bcf73143992da9e0febd7cbdd235b7772129cff58a6c7e0747e06f",
+      "audit_copy_bytes": 496820,
+      "page_count": 11,
+      "native_text_bytes": 38149,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_pages_checked": [1, 6],
+      "statement": "scope of the complex-log Phragmen-Lindelof correction and Rademacher Theorem 2 context",
+      "classification": "MODERN_CORRECTION_SCOPE_CROSS_CHECK"
+    }
+  ],
+  "jutila_original": {
+    "character": "nonprincipal chi modulo q",
+    "zero": "rho=beta+it in R(alpha,T), 1/2<=alpha<=beta<1, |t|<=T",
+    "weights": "f=psi=mu*phi, xi_d=lambda_d from (2.5)-(2.6), |lambda_d|<=1, lambda_d=0 for d>z2",
+    "parameter_conditions": [
+      "T>=1, R>=1, X>=1, epsilon>0",
+      "sqrt(log q)<=log R<<log(qT)",
+      "X^alpha>=((qT)^(1/2) R z2)^(1+epsilon)"
+    ],
+    "finite_cut": "x=X log(qT)^2",
+    "mellin_error": "right hand side of (2.11), separately written <<_epsilon 1",
+    "truncation_error": "tail after cutting the series at x, separately written <<_epsilon 1"
+  },
+  "mellin_derivation": {
+    "shift_line": "Re(w)=-beta+delta, 0<delta<=1/4",
+    "contour_poles": "only Gamma pole w=0 is crossed; its residue vanishes because L(rho,chi)=0; w=-1 is not crossed",
+    "M_bound": "|M(delta+iv,chi,psi_r)|<=z2*r^2/phi(r)",
+    "summed_M_bound": "sum'_{r<=R} r^(-1)|M|<3 R z2",
+    "summed_M_identity": "n/phi(n)=sum_{d|n} mu(d)^2/phi(d)",
+    "euler_product_bound": "product_p(1+1/(p(p-1)))<e<3",
+    "imprimitive_correction": "sqrt(f)*product_{p|q,p not|f}(1+p^(-delta))<=(4/sqrt(6))*sqrt(q)",
+    "primitive_L_bound": "|L(s,chi*)|<=zeta(1+delta)*(f*|s+1|/(2pi))^(1/2) at Re(s)=delta",
+    "vertical_L_bound": "|L(delta+i(t+u),chi)|<=sqrt(3/pi)*zeta(1+delta)*(qT)^(1/2)*(1+|u|)^(1/2)",
+    "gamma_pointwise": [
+      "|Gamma(-beta+delta+iu)|<=8/delta for |u|<=1",
+      "|Gamma(-beta+delta+iu)|<=2/u^2 for |u|>=1"
+    ],
+    "gamma_integral": "integral_R (1+|u|)^(1/2)|Gamma(-beta+delta+iu)| du <= 8 sqrt(2)(2/delta+1)",
+    "A": "A=(qT)^(1/2) R z2",
+    "direct_bound": "|I_delta|<=K_M(delta) A X^(-beta+delta)",
+    "K_M": "12 sqrt(6) zeta(1+delta)(2/delta+1)/pi^(3/2)",
+    "delta_choice": "delta_epsilon=epsilon/(4(1+epsilon))",
+    "exponent_budget": "1-(1+epsilon)(beta-delta_epsilon)/alpha<=-epsilon/2",
+    "transferred_bound": "under Jutila (2.8), |I_delta_epsilon|<=K_M(delta_epsilon) A^(-epsilon/2)"
+  },
+  "fiori_correction_scope": {
+    "warning_target": "ABSOLUTE_VALUE_OF_COMPLEX_LOG_FACTOR",
+    "bound_used_here": "POWER_OF_ABSOLUTE_VALUE_OF_S_PLUS_ONE",
+    "invalidates_bennett_equation_5_3": false,
+    "reason": "Fiori identifies mishandling of |log(Q+s)|; Bennett equation (5.3) uses |s+1| raised to a real power"
+  },
+  "jutila_nodes": [
+    {
+      "id": "JL5",
+      "status": "EXPLICIT_PEER_REVIEWED_SOURCE_REPLACEMENT_WITH_Q_DEPENDENT_CUTOFF"
+    },
+    {
+      "id": "JL6-MELLIN",
+      "status": "ACTUAL_FORM_PARAMETERIZED_EXPLICIT",
+      "scope": "same original power condition (2.8); direct contour and finite constants"
+    },
+    {
+      "id": "JL6-TAIL",
+      "status": "HARD_BLOCKER",
+      "remaining": "explicit tail after cutting both series at x=X log(qT)^2"
+    },
+    {
+      "id": "JL6",
+      "status": "HARD_BLOCKER",
+      "remaining": "JL5/Mellin/tail common error-budget composition and finite qT cutoff"
+    },
+    {
+      "id": "JL8",
+      "status": "HARD_BLOCKER",
+      "remaining": "explicit local zero-count multiplier preserving the (1-alpha) window factor"
+    }
+  ],
+  "lean_scope": {
+    "mellin_inversion_and_contour_formalized": false,
+    "rademacher_convexity_formalized": false,
+    "local_real_algebra_formalized": true,
+    "delta_range_formalized": true,
+    "exponent_budget_formalized": true,
+    "classification": "SOURCE_ANALYTIC_INPUTS_UNFORMALIZED_PLUS_KERNEL_VERIFIED_FINITE_ALGEBRA"
+  },
+  "next_gate": "JL6b: source-first explicit truncation tail and common detector error budget",
+  "user_compute_required_now": false,
+  "new_dependency_required_now": false
+}
