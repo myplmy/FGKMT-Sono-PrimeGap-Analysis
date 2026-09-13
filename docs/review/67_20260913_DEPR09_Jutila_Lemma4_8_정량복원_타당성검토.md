@@ -7,6 +7,10 @@
 > common budget까지 합쳐 `JL6-ACTUAL`을 parameterized explicit로 닫았다.
 > printed general JL6, JL8과 root certificate는 계속 OPEN이다.
 
+> **후속 상태(2026-09-13, JL8):** [Review 72](72_20260913_DEPR09_Jutila_Lemma8_actual_local_zero_count_타당성검토.md)와
+> Theory 65가 actual near-one local count를 McCurley source로 명시화했다. printed general
+> JL8과 Jutila 종단 density·PAP·`X_cert`는 여전히 열려 있다.
+
 - 작성일: 2026-09-13 KST
 - 상세 수식 정본: [Theory 60](../method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md)
 

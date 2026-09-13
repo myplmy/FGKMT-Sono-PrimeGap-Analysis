@@ -131,3 +131,17 @@ inventory는 theory 문서 65개, display 1,142식이며 전체 상태는
 `NOT_YET_FORMALIZED=994`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 148개,
 금지 proof escape는 0건이다. 문서상 `JL6-ACTUAL`은 parameterized explicit이지만
 printed general JL6·JL8·PAP-11·fixed `2e-17`·`X_cert`는 OPEN이다.
+
+2026-09-13 Theory 65 batch는 McCurley의 analytic identity를 local axiom으로 만들지 않고,
+actual JL8 replacement에 필요한 finite kernel·count·strip 대수만 형식화했다.
+`kappa<3/10`, first-pole `8/(17r)`, normalized kernel `3/8`, local
+`N<3+rL` conditional transfer, `max(delta,Delta)<=theta<=1/21`과 even/odd
+`2BJ` 전달이 단일 theory 파일에서 kernel 검사된다. McCurley 식 (5), (13), Lemmas 1--4,
+imprimitive Euler-factor identity는 source theorem 또는 미형식화 direct proof로 남긴다.
+문서상 `JL8-ACTUAL-NEAR-ONE`만 explicit source replacement이며 printed general JL8,
+Jutila terminal density, PAP-11·fixed `2e-17`·`X_cert`는 OPEN이다. Theory 65 뒤
+inventory는 theory 문서 66개, display 1,163식이며 전체 상태는
+`KERNEL_PASS=49`, `CONDITIONAL_KERNEL_PASS=26`, `DEFINITION_ONLY=23`,
+`PARTIAL_FORMALIZATION=24`, `SOURCE_THEOREM_UNFORMALIZED=41`,
+`NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 161개이고
+금지 proof escape는 0건이다.

@@ -1767,4 +1767,185 @@ theorem jutila_jl6_B_exponent_absorption
     b - θ * L / 3 ≤ -θ * L / 6 := by
   linarith
 
+/-! ## Theory 65 — DEP-R09 Jutila Lemma 8 actual local zero count -/
+
+/- Theory 65, formula 65.3: McCurley's exact kappa is strictly below the
+   rational upper 3/10 used in the local-count terminal budget. -/
+noncomputable def jutilaJL8Kappa : ℝ :=
+  (5 - Real.sqrt 5) / 10
+
+theorem jutila_jl8_kappa_lt_three_tenths :
+    jutilaJL8Kappa < 3 / 10 := by
+  have hSqrtPos : 0 < Real.sqrt (5 : ℝ) := Real.sqrt_pos.2 (by norm_num)
+  have hSqrtSquare : (Real.sqrt (5 : ℝ)) ^ 2 = 5 :=
+    Real.sq_sqrt (by norm_num)
+  have hSqrtTwo : 2 < Real.sqrt (5 : ℝ) := by
+    nlinarith
+  rw [jutilaJL8Kappa]
+  norm_num
+  linarith
+
+theorem jutila_jl8_sigma_one_gt_three_halves
+    {sigma : ℝ} (hSigma : 1 < sigma) :
+    3 / 2 < (1 + Real.sqrt (1 + 4 * sigma ^ 2)) / 2 := by
+  have hSigmaSquare : 1 < sigma ^ 2 := by nlinarith
+  have hArgument : 4 < 1 + 4 * sigma ^ 2 := by nlinarith
+  have hArgumentNonneg : 0 ≤ 1 + 4 * sigma ^ 2 := by positivity
+  have hSqrtNonneg : 0 ≤ Real.sqrt (1 + 4 * sigma ^ 2) :=
+    Real.sqrt_nonneg _
+  have hSqrtSquare : (Real.sqrt (1 + 4 * sigma ^ 2)) ^ 2 =
+      1 + 4 * sigma ^ 2 := Real.sq_sqrt hArgumentNonneg
+  have hSqrtTwo : 2 < Real.sqrt (1 + 4 * sigma ^ 2) := by
+    nlinarith
+  linarith
+
+/- Theory 65, formula 65.12: the first pole in F(s,rho) contributes at
+   least 8/(17r) throughout the local square. -/
+theorem jutila_jl8_first_pole_lower
+    {r a y : ℝ}
+    (hr : 0 < r) (haLower : r ≤ a) (haUpper : a ≤ 2 * r)
+    (hy : y ^ 2 ≤ r ^ 2 / 4) :
+    8 / (17 * r) ≤ a / (a ^ 2 + y ^ 2) := by
+  have haPos : 0 < a := lt_of_lt_of_le hr haLower
+  have hDen : 0 < a ^ 2 + y ^ 2 := by
+    nlinarith [sq_pos_of_pos haPos, sq_nonneg y]
+  have hSecond : 0 ≤ 8 * a - r := by
+    nlinarith
+  have hFirst : 0 ≤ 2 * r - a := by
+    linarith
+  have hProduct : 0 ≤ (2 * r - a) * (8 * a - r) :=
+    mul_nonneg hFirst hSecond
+  have hNumerator : 8 * (a ^ 2 + y ^ 2) ≤ 17 * r * a := by
+    nlinarith
+  rw [div_le_div_iff₀ (by positivity : 0 < 17 * r) hDen]
+  simpa [mul_assoc, mul_comm, mul_left_comm] using hNumerator
+
+/- Theory 65, formula 65.13: the two shifted reciprocal components have
+   total real part below 3 on the actual near-one square. -/
+theorem jutila_jl8_shifted_F_coarse_upper
+    {r sigmaOne beta y : ℝ}
+    (hr : 0 < r) (hrUpper : r ≤ 1 / 21)
+    (hSigmaOne : 3 / 2 < sigmaOne)
+    (hBetaLower : 1 - r ≤ beta) (hBetaUpper : beta ≤ 1) :
+    (sigmaOne - beta) /
+          ((sigmaOne - beta) ^ 2 + y ^ 2) +
+        (sigmaOne - 1 + beta) /
+          ((sigmaOne - 1 + beta) ^ 2 + y ^ 2) < 3 := by
+  let d₁ := sigmaOne - beta
+  let d₂ := sigmaOne - 1 + beta
+  have hd₁Half : 1 / 2 < d₁ := by
+    dsimp [d₁]
+    linarith
+  have hd₂One : 1 < d₂ := by
+    dsimp [d₂]
+    linarith
+  have hd₁ : 0 < d₁ := by linarith
+  have hd₂ : 0 < d₂ := by linarith
+  have hsq₁ : 0 < d₁ ^ 2 := sq_pos_of_pos hd₁
+  have hsq₂ : 0 < d₂ ^ 2 := sq_pos_of_pos hd₂
+  have hden₁ : 0 < d₁ ^ 2 + y ^ 2 := by positivity
+  have hden₂ : 0 < d₂ ^ 2 + y ^ 2 := by positivity
+  have hcomp₁ : d₁ / (d₁ ^ 2 + y ^ 2) ≤ 1 / d₁ := by
+    rw [div_le_iff₀ hden₁]
+    field_simp [ne_of_gt hd₁]
+    nlinarith [sq_nonneg y]
+  have hcomp₂ : d₂ / (d₂ ^ 2 + y ^ 2) ≤ 1 / d₂ := by
+    rw [div_le_iff₀ hden₂]
+    field_simp [ne_of_gt hd₂]
+    nlinarith [sq_nonneg y]
+  have hrecip₁ : 1 / d₁ < 2 := by
+    rw [div_lt_iff₀ hd₁]
+    linarith
+  have hrecip₂ : 1 / d₂ < 1 := by
+    rw [div_lt_iff₀ hd₂]
+    linarith
+  change d₁ / (d₁ ^ 2 + y ^ 2) + d₂ / (d₂ ^ 2 + y ^ 2) < 3
+  linarith
+
+/- Theory 65, formula 65.14: after the shifted F term costs at most 3/2,
+   r<=1/21 leaves normalized Stechkin kernel at least 3/8.  The analytic
+   identification of `first` and `cost` is intentionally not axiomatized. -/
+theorem jutila_jl8_normalized_kernel_lower
+    {r first cost : ℝ}
+    (hr : 0 < r) (hrUpper : r ≤ 1 / 21)
+    (hFirst : 8 / 17 ≤ r * first) (hCost : cost ≤ 3 / 2) :
+    3 / 8 ≤ r * (first - cost) := by
+  have hCostScaled : r * cost ≤ r * (3 / 2) :=
+    mul_le_mul_of_nonneg_left hCost hr.le
+  nlinarith
+
+theorem jutila_jl8_kernel_exact_slack :
+    (8 : ℝ) / 17 - 3 / 42 - 3 / 8 = 23 / 952 ∧
+      0 < (23 : ℝ) / 952 := by
+  norm_num
+
+theorem jutila_jl8_kernel_reciprocal_form
+    {r kernel : ℝ} (hr : 0 < r)
+    (hNormalized : 3 / 8 ≤ r * kernel) :
+    3 / (8 * r) ≤ kernel := by
+  apply (div_le_iff₀ (by positivity : 0 < 8 * r)).2
+  nlinarith
+
+/- Theory 65, formulas 65.16--65.17: the source upper sum, once multiplied
+   by r, implies N<3+rL with the printed 0.3918 gamma constant. -/
+theorem jutila_jl8_local_count_transfer
+    {N r L κ : ℝ}
+    (hr : 0 < r) (hrUpper : r ≤ 1 / 21)
+    (hL : 0 ≤ L) (hKappa : κ ≤ 3 / 10)
+    (hCount :
+      3 * N / 8 < 1 + κ * r * L + (1959 / 5000) * r) :
+    N < 3 + r * L := by
+  have hRL : 0 ≤ r * L := mul_nonneg hr.le hL
+  have hKappaTerm : κ * (r * L) ≤ (3 / 10) * (r * L) :=
+    mul_le_mul_of_nonneg_right hKappa hRL
+  have hRemainder :
+      (1959 / 5000) * r ≤ (1959 / 5000) * (1 / 21) := by
+    exact mul_le_mul_of_nonneg_left hrUpper (by norm_num)
+  nlinarith
+
+theorem jutila_jl8_constant_exact_slack :
+    0 <
+      (3 : ℝ) - 8 / 3 -
+        (8 / 3) * (1959 / 5000) * (1 / 21) := by
+  norm_num
+
+/- Theory 65, formula 65.19: the strip radius max(delta,Delta) remains in
+   McCurley's near-one range once Delta<=theta^2. -/
+theorem jutila_jl8_actual_radius_gate
+    {θ δ Δ : ℝ}
+    (hθ : 0 < θ) (hθUpper : θ ≤ 1 / 21)
+    (hδ : δ ≤ θ) (hΔ : Δ ≤ θ ^ 2) :
+    max δ Δ ≤ θ ∧ max δ Δ ≤ 1 / 21 := by
+  have hθOne : θ ≤ 1 := by linarith
+  have hSquare : θ ^ 2 ≤ θ := by
+    nlinarith
+  have hMax : max δ Δ ≤ θ := max_le hδ (hΔ.trans hSquare)
+  exact ⟨hMax, hMax.trans hθUpper⟩
+
+/- Theory 65, formula 65.20: the actual strip centre satisfies the stated
+   height-log envelope. -/
+theorem jutila_jl8_height_log_upper
+    {q T t : ℝ} (hq : 0 < q) (hT : 1 ≤ T) (ht : |t| ≤ T) :
+    Real.log (q * (1 + |t|)) ≤ Real.log (2 * (q * T)) := by
+  have honeAbs : 0 < 1 + |t| := by positivity
+  have hProductPos : 0 < q * (1 + |t|) := mul_pos hq honeAbs
+  have hOnePlus : 1 + |t| ≤ 2 * T := by linarith
+  have hProduct : q * (1 + |t|) ≤ 2 * (q * T) := by
+    calc
+      q * (1 + |t|) ≤ q * (2 * T) :=
+        mul_le_mul_of_nonneg_left hOnePlus hq.le
+      _ = 2 * (q * T) := by ring
+  exact Real.log_le_log hProductPos hProduct
+
+/- Theory 65, formula 65.21: at most two parity systems and a uniform
+   nonnegative local bound B give the final strip-to-J factor 2BJ. -/
+theorem jutila_jl8_even_odd_cell_transfer
+    {N B cells J : ℝ}
+    (hB : 0 ≤ B) (hN : N ≤ B * cells) (hCells : cells ≤ 2 * J) :
+    N ≤ 2 * B * J := by
+  calc
+    N ≤ B * cells := hN
+    _ ≤ B * (2 * J) := mul_le_mul_of_nonneg_left hCells hB
+    _ = 2 * B * J := by ring
+
 end FGKMTSono

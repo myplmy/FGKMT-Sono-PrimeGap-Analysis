@@ -1796,6 +1796,56 @@
      파일 patch 실패로 일반화하지 말고, 정확한 §index.lock§ 오류를 보고한 뒤 승인 범위의
      Git 명령만 외부 권한으로 재실행한다.
 
+### E113 — JL8 감사의 경로·도구 호출·Lean 분수 정규화 오류
+
+- 분류:
+  §TOOLING_AND_DRAFT_PROOF_ERRORS / DETECTED_AND_CORRECTED_BEFORE_COMMIT /
+  SCIENTIFIC_RESULT_IMPACT_NONE§.
+- machine-ledger 파일명을 처음에 잘못 추정했으나 `rg --files`로 실제 이름을 찾아
+  교정했다. 잘못 추정한 경로에 파일을 만들거나 덮어쓰지 않았다.
+- PowerShell `foreach` 출력을 바로 pipe한 첫 조회가 parser error로 끝났고, image helper의
+  `forEach` index를 detail 인자로 잘못 전달한 첫 호출도 거부됐다. 둘 다 읽기 단계에서
+  멈췄으며 source·산출물에는 영향이 없다.
+- 두 명령에 존재하지 않는 작업경로 문자열을 넣어 command 시작 전에 거부됐고, 한
+  `apply_patch` 초안은 잘못된 expected text 때문에 적용 전에 거부됐다. 이후 절대 정본
+  경로와 작은 patch 단위로 교정했다.
+- Lean의 shifted-kernel 상계를 처음 형식화할 때 `rw`가 분수의 실제 정규형과 맞지 않아
+  두 번 compile error가 났다. 분모 양수 아래 `field_simp`로 바꿨고, `sorry`, `admit`,
+  project-local `axiom` 없이 direct Lean check를 PASS했다. 실패 중인 선언을 결과로
+  기록하지 않았다.
+- 한 번은 `lean/`을 cwd로 둔 채 repository-root 상대 Python unittest를 호출해
+  `ModuleNotFoundError`가 났다. 같은 test를 repository root에서 다시 실행해 PASS했고,
+  코드 결함으로 오분류하지 않았다.
+- 후속 `lake build`와 targeted test를 한 command에 묶으면서 같은 cwd 실수를 한 번
+  반복했다. 마지막 command인 build가 exit 0이었다는 이유로 전체를 PASS라 하지 않고,
+  targeted test를 repository root에서 별도로 재실행해 6/6 PASS를 확인했다.
+- 두 차례 tool-orchestration 입력에 우발적인 문자열이 섞여 JavaScript parser가 command
+  시작 전에 거부했다. shell·patch는 실행되지 않았고, 정상 입력으로 다시 호출했다.
+- sandbox 안의 첫 전체 unittest는 `TemporaryDirectory` 생성·정리 권한 때문에 82개
+  `PermissionError`를 냈다. 이를 82개 코드 회귀로 보고하지 않고, 사용자가 사전 허용한
+  정상 로컬 권한에서 같은 733개 test를 재실행해 733/733 PASS를 확인했다.
+- 작업원장 2단계 완료 시각을 파일 timestamp보다 한 시간 뒤인 `15:32`로 잘못 적었다.
+  실제 순서와 file timestamp에 맞는 `14:32`로 교정했다. 과학 내용에는 영향이 없다.
+- `pdftotext`가 MiKTeX log 파일 access warning을 냈지만 native text stdout과 exit 0은
+  유효했다. Jutila는 실제 text layer가 비어 OCR을 locator로만 쓰고 렌더링 페이지와
+  대조했으며, McCurley·Gallagher는 native text 우선 뒤 수식을 렌더링 원문과 대조했다.
+- 첫 JSON 묶음 검사는 PowerShell `ConvertFrom-Json`이 유효한 대소문자 구별 key
+  `Delta`/`delta`를 같은 key로 취급해 오류를 냈는데도, command가 stop-on-error가 아니어서
+  뒤의 `JSON_PASS` 문자열까지 출력했다. 이를 PASS로 기록하지 않았다. ledger key를
+  `strip_height`/`alpha_defect`로 바꾸고 strict parser로 다시 검사한다.
+- 첫 UTF-8 검사에서 두 Git 출력 배열을 중첩 배열로 만들었고, PowerShell이 여러 경로를
+  한 문자열처럼 결합해 `ReadAllText`가 실패했다. 파일 쓰기는 없었다. 배열을 명시적으로
+  평탄화해 변경 text 19파일의 strict UTF-8·control-character 검사를 PASS했다.
+- 예방:
+  1. source·ledger 이름은 추정하지 말고 `rg --files` 결과를 먼저 고정한다.
+  2. PowerShell collection과 JS callback의 암묵 인자를 피하고 명시 loop를 쓴다.
+  3. Lean 분수 증명은 목표 정규형을 compile error context에서 확인한 뒤 양의 분모를
+     명시해 단계별로 곱한다.
+  4. repository import test는 항상 repository root에서 실행한다.
+  5. 큰 다중파일 patch보다 독립적으로 검증 가능한 작은 patch를 사용한다.
+  6. PowerShell JSON 검사는 `-AsHashTable`과 stop-on-error를 쓰고, 가능하면 Python strict
+     parser와 교차검증한다. 오류 뒤의 자체 출력 문자열을 성공 증거로 쓰지 않는다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

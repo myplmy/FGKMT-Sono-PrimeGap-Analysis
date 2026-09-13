@@ -793,3 +793,21 @@ actual filtered common child가 explicit하다는 사실과 broad 일반 P6.1/Hy
 뒤쪽 FMT correlation/failure 및 전체 X_cert가 열려 있다는 사실을 함께 기록한다.
 다음 H1b-DEP는 actual call graph에서 P95 필수 여부와 root node 분리를 감사한다.
 앞 절들의 다음 단계는 당시 snapshot이며 이 절이 현재 상태다.
+
+## 34. 2026-09-13 DEP-R09 JL8 actual local-count 후속 상태
+
+[theory 65](65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md)는 McCurley 1984의
+식 (5), (13), Lemmas 1--4를 actual near-one square에 다시 합성해
+
+```text
+N_square < 3 + r*log(q*(1+abs(t0))),  0<r<=1/21
+```
+
+을 얻었다. Jutila의 strip-to-selected-system 전달은
+`N_nonprin<=2J{3+r log(2qT)}`다. 따라서 Jutila density 재증명의 하위 node
+`JL8-ACTUAL-NEAR-ONE`은 explicit source replacement로 진전했다.
+
+그러나 T1의 root `PAP-08/PAP-11`은 JL7·식 (3.6) terminal multiplier, finite
+log correction, exceptional branch와 Gallagher/Maier 종단 합성을 함께 포함한다. 따라서
+66개 root row의 상태 수는 바꾸지 않고 `PAP-11=HARD_BLOCKER`, DEP-R09·fixed coefficient·
+`X_cert=OPEN`을 유지한다. 다음 gate는 Jutila JL7/(3.6) terminal budget이다.

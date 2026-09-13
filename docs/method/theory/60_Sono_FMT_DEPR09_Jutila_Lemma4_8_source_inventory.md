@@ -17,6 +17,12 @@
 > 네 loss와 공통 cutoff를 합쳐 `JL6-ACTUAL`도 parameterized explicit로 닫았다.
 > printed general JL6, `JL8`과 root certificate는 계속 OPEN이다.
 
+> **후속 상태(2026-09-13, JL8):** [Theory 65](65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md)가
+> McCurley 1984의 식 (5), (13)과 Lemmas 1--4를 직접 합성해 actual near-one square
+> `0<r<=1/21`에서 `N_square<3+r log(q(1+|t0|))`를 얻었다. 따라서
+> `JL8-ACTUAL-NEAR-ONE`은 explicit source replacement로 닫혔다. printed unrestricted
+> JL8, Jutila 식 (3.6) 종단 density, PAP-11·DEP-R09·fixed coefficient·`X_cert`는 OPEN이다.
+
 ## 1. 결론
 
 Jutila 1977의 Lemma 4--8을 원문과 인용 source 단위로 분해한 결과, Lemma 4의 **실제

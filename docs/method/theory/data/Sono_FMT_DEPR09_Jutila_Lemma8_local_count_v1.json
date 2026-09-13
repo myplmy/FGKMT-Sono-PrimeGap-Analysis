@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila Lemma 8 actual local zero count",
+  "predecessor": "Sono_FMT_DEPR09_Jutila_Lemma6_common_budget_v1.json",
+  "outcome": "JL8_ACTUAL_NEAR_ONE_EXPLICIT_SOURCE_REPLACEMENT_TERMINAL_DENSITY_OPEN",
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "doi": "10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [51, 52],
+      "role": "Lemma 8 statement, strip decomposition, even-odd selected systems"
+    },
+    {
+      "key": "MCCURLEY_1984",
+      "title": "Explicit Zero-Free Regions for Dirichlet L-functions",
+      "doi": "10.1016/0022-314X(84)90089-1",
+      "audit_copy_locator": "article/McCurley 1984.pdf",
+      "audit_copy_sha256": "6035c9e290ba4a8bb31ed4afef0e014f49324f33cd978b82450c1bdba204d8ac",
+      "audit_copy_bytes": 908495,
+      "page_count": 26,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [10, 11, 12, 14, 15, 16],
+      "role": "equations (5), (13), Lemmas 1-4 and explicit constants"
+    },
+    {
+      "key": "GALLAGHER_1970",
+      "title": "A Large Sieve Density Estimate near sigma=1",
+      "doi": "10.1007/BF01403187",
+      "audit_copy_locator": "article/gallagher1970.pdf",
+      "audit_copy_sha256": "ecac1c9470521e410ac8731d2f57b77eb364f1fdc0bbd1f71813205afe84adcf",
+      "audit_copy_bytes": 377236,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "role": "structural Linnik disk bound only; multiplier hidden"
+    },
+    {
+      "key": "TURAN_1961",
+      "title": "On a Density Theorem of Yu. V. Linnik",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Turan_1961_Linnik_density.pdf",
+      "audit_copy_sha256": "727ca060e1f6badba083e03efe827ce8b161733fd8444d75971b08a31380efb1",
+      "audit_copy_bytes": 4633802,
+      "page_count": 15,
+      "reading_mode": "NATIVE_TEXT_FORMULAS_GARBLED_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [166],
+      "role": "same square form and effective-constant ancestry; 'about 1/2' not adopted"
+    },
+    {
+      "key": "BENNETT_MARTIN_OBRYANT_RECHNITZER_2021",
+      "title": "Counting Zeros of Dirichlet L-Functions",
+      "arxiv": "2005.02989",
+      "doi": "10.1090/mcom/3599",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jl6a_20260913/Bennett_Martin_OBryant_Rechnitzer_2021_Counting_Zeros.pdf",
+      "audit_copy_sha256": "548414b632579d42839f5c5f5e3581dc3a5f539424fad2e0c9382e6d0bc25fa5",
+      "audit_copy_bytes": 543028,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "role": "explicit global N(T,chi) comparison; not a local-window drop-in"
+    }
+  ],
+  "source_comparison": {
+    "jutila_prachar": "target shape exact, multiplier and finite range hidden",
+    "turan_1961": "target square exact, a2 described only as about 1/2",
+    "gallagher_1970": "disk form r log T, Vinogradov multiplier hidden",
+    "bennett_et_al_2021": "explicit global-height count; endpoint differencing loses radius scaling",
+    "mccurley_1984": "published explicit identity and inequalities compose to an actual near-one replacement"
+  },
+  "actual_local_theorem": {
+    "character_scope": "nonprincipal character modulo q, reduced to its primitive inducing character of conductor k<=q",
+    "radius": "0<r<=1/21",
+    "square": "1-r<=beta<=1 and |gamma-t0|<=r/2",
+    "counting": "multiplicity included",
+    "closed_beta_one_boundary": "no added zero, by the classical nonvanishing of nonprincipal Dirichlet L-functions on Re(s)=1; source theorem not replaced by a local axiom",
+    "envelope": "N_local < 3+r*log(q*(1+|t0|))",
+    "kernel_lower": "F(s,rho)-F(s1,rho)/sqrt(5) >= 3/(8r)",
+    "f_lower": "-f(t0,chi)<1/r using positive coefficients in (5) and Lemma 3",
+    "gamma_upper": "Gamma-term < kappa*log(max(1,|t0|))+0.3918",
+    "kappa": "(5-sqrt(5))/10 < 3/10",
+    "scope": "actual near-one source replacement, not Jutila Lemma 8 for unrestricted alpha"
+  },
+  "actual_strip_transfer": {
+    "D": "q*T",
+    "strip_height": "Delta=1/log(D)",
+    "alpha_defect": "delta=1-alpha",
+    "radius": "max(delta,Delta)",
+    "conditions": "0<theta<=1/21, delta<=theta, log(D)>=theta^(-2)",
+    "radius_conclusion": "radius<=theta<=1/21",
+    "height_log": "log(q*(1+|t0|))<=log(2D) for |t0|<=T and T>=1",
+    "even_odd_transfer": "N(alpha,T,q)<=2*J*(3+radius*log(2D))",
+    "meaning": "J is the larger one of Jutila's two parity-selected well-spaced systems"
+  },
+  "status": {
+    "jl8_actual_near_one": "ACTUAL_APPLICATION_EXPLICIT_SOURCE_REPLACEMENT",
+    "jl8_printed_general": "OPEN",
+    "jutila_terminal_density": "OPEN",
+    "pap_11": "OPEN",
+    "dep_r09": "OPEN",
+    "fixed_2e_minus_17": "NOT_INDEPENDENTLY_CERTIFIED",
+    "x_cert": "OPEN"
+  },
+  "next_gate": "compose JL7 and equation (3.6) through the Jutila Theorem 1-prime terminal multiplier while preserving finite logarithmic corrections",
+  "user_compute_required_now": false,
+  "new_dependency_required_now": false
+}

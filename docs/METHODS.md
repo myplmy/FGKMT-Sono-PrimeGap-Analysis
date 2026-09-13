@@ -1369,3 +1369,50 @@ Theory 64 뒤 Lean inventory는 theory 문서 65개, display 1,142식이다. 전
 `PARTIAL_FORMALIZATION=22`, `SOURCE_THEOREM_UNFORMALIZED=36`,
 `NOT_YET_FORMALIZED=994`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 148개,
 금지 proof escape 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila Lemma 8 actual 국소 영점 개수
+
+[theory 65](method/theory/65_Sono_FMT_DEPR09_Jutila_Lemma8_actual_local_zero_count.md)와
+[review 72](review/72_20260913_DEPR09_Jutila_Lemma8_actual_local_zero_count_타당성검토.md)는
+Jutila Lemma 8의 숨은 local zero-count multiplier를 actual near-one branch에서
+McCurley 1984의 explicit source로 교체한다.
+
+```text
+0 < r <= 1/21
+N_square(r,t0,chi) < 3 + r*log(q*(1+abs(t0)))
+```
+
+증명은 McCurley 식 (5)의 양의 Dirichlet-series coefficient, Lemma 3의
+`-f(t,chi)<1/r`, Lemmas 1--2의 gamma budget `0.3918`, 식 (13)과 Stechkin Lemma 4를
+조합한다. local zero 하나의 normalized kernel은 유리 대수로 최소 `3/8`, 즉 원래
+kernel은 `3/(8r)` 이상이다. imprimitive character의 추가 Euler-factor zero는
+`Re(s)=0`에만 있어 near-one square에는 영향을 주지 않는다.
+
+Jutila의 `Delta=1/log(D)` strip과 source parameter `theta`에는
+
+```text
+0 < theta <= 1/21
+1-alpha <= theta
+log(D) >= theta^(-2)
+r = max(1-alpha, 1/log(D)) <= theta
+```
+
+를 사용한다. even/odd strip split 뒤에는 nonprincipal 영점 전체에
+
+```text
+N_nonprin(alpha,T,q) <= 2*J*(3+r*log(2*D)), D=q*T
+```
+
+를 보존한다. 이 2배와 local factor를 종단 density 계산에서 버리면 안 된다.
+
+상태는 `JL8-ACTUAL-NEAR-ONE=ACTUAL_APPLICATION_EXPLICIT_SOURCE_REPLACEMENT`다.
+printed unrestricted JL8, Jutila 식 (3.6)의 terminal multiplier, PAP-11, DEP-R09,
+fixed `2e-17`, numerical `X_cert`는 OPEN이다. threshold calculator와 actual prime
+sweep 금지는 유지한다. 다음 source-first gate는 JL7·식 (3.6) 종단 multiplier와 finite
+로그 보정의 공통 budget이다.
+
+Theory 65 뒤 Lean inventory는 theory 문서 66개, display 1,163식이다. 전체 상태는
+`KERNEL_PASS=49`, `CONDITIONAL_KERNEL_PASS=26`, `DEFINITION_ONLY=23`,
+`PARTIAL_FORMALIZATION=24`, `SOURCE_THEOREM_UNFORMALIZED=41`,
+`NOT_YET_FORMALIZED=995`, `PARSE_REVIEW_REQUIRED=5`이고 declaration 161개,
+금지 proof escape 0건이다.
