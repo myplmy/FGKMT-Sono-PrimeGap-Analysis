@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-13",
+  "gate": "DEP-R09 Jutila Lemma 4-8 quantitative source inventory",
+  "predecessor": "Sono_FMT_DEPR09_branch_S_transfer_v1.json",
+  "outcome": "LEMMA4_ACTUAL_UPPER_CALL_EXPLICIT_FULL_DENSITY_PACKAGE_OPEN",
+  "numerical_pap_package_ready": false,
+  "pap_11_closed": false,
+  "dep_r09_closed": false,
+  "fixed_2e_minus_17_independently_certified": false,
+  "threshold_calculator_ready": false,
+  "numerical_x_cert_ready": false,
+  "actual_prime_computation_run": false,
+  "source_theorem_local_axiom_used": false,
+  "proof_escape_used": false,
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "title": "On Linnik's constant",
+      "doi": "10.7146/math.scand.a-11701",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "audit_copy_sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "audit_copy_bytes": 1029695,
+      "page_count": 18,
+      "native_text_bytes": 18,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [49, 50, 51, 52, 54],
+      "statements": "Lemmas 4-8, Theorems 1 and 1-prime, equations (2.4)-(3.6)",
+      "classification": "SHARP_STRUCTURAL_SOURCE_QUANTITATIVE_REPROOF_REQUIRED"
+    },
+    {
+      "key": "HUXLEY_1975_III",
+      "title": "Large values of Dirichlet polynomials III",
+      "doi": "10.4064/aa-26-4-435-444",
+      "official_article_url": "https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/26/4/100618/large-values-of-dirichlet-polynomials-iii",
+      "official_download_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/100618?download.pdf",
+      "audit_copy_locator": "article/Huxley 1975 Large values of Dirichlet polynomials III.pdf",
+      "audit_copy_sha256": "cc8b7282c1963687d357829416d5e471e130810e5324709a96319bb7a2a3428f",
+      "audit_copy_bytes": 388706,
+      "page_count": 6,
+      "native_text_bytes": 6,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [435, 438, 439, 442, 443],
+      "classification": "SOURCE_LEAF_AVAILABLE_NUMERICAL_MULTIPLIER_AND_CUTOFF_OPEN"
+    },
+    {
+      "key": "HUXLEY_JUTILA_1977_IV",
+      "title": "Large values of Dirichlet polynomials IV",
+      "doi": "10.4064/aa-32-3-297-312",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jutila_sources_20260913/Huxley_Jutila_1977_Large_values_IV.pdf",
+      "audit_copy_sha256": "f31f3aded564c8fa763a4e9e670ae58e38c4bb6b7412b025f57365e8ecfb65dc",
+      "audit_copy_bytes": 733841,
+      "page_count": 9,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [297, 298, 299],
+      "classification": "SOURCE_AVAILABLE_CONSTANTS_HIDDEN"
+    },
+    {
+      "key": "RAMARE_ZUNIGA_2024_2025",
+      "title": "An L2-bound for the Barban-Vehov weights",
+      "arxiv": "2405.12662v1",
+      "doi": "10.7169/facm/241018-19-5",
+      "url": "https://arxiv.org/abs/2405.12662",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jutila_sources_20260913/Ramare_Zuniga_2024_Barban_Vehov_L2.pdf",
+      "audit_copy_sha256": "79d16666b2126477fa93d8cdf182c8304be6fd7e4edc954475d6bd6b984c2db1",
+      "audit_copy_bytes": 141901,
+      "page_count": 6,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_pages_checked": [1, 5, 6],
+      "statements": "Corollaries 1.2 and 1.3",
+      "classification": "ACTUAL_ONE_SIDED_WEIGHTED_SQUARE_SUM_EXPLICIT_REPLACEMENT"
+    },
+    {
+      "key": "BERKANE_2014",
+      "title": "An explicit estimate for the Barban and Vehov weights",
+      "url": "https://nntdm.net/papers/nntdm-20/NNTDM-20-2-35-43.pdf",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jutila_sources_20260913/Berkane_2014_Explicit_Barban_Vehov.pdf",
+      "audit_copy_sha256": "113abd63a363024f7e38e431e8d9d401927acb3e76f06902cbfe0c16566cf2b8",
+      "audit_copy_bytes": 172890,
+      "page_count": 9,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [35, 36],
+      "classification": "EXPLICIT_TAU2_COMPARISON_NOT_ACTUAL_TAU8_OVER5_DROPIN"
+    },
+    {
+      "key": "ZUNIGA_ALTERMAN_2022",
+      "title": "On a logarithmic sum related to the Selberg sieve",
+      "arxiv": "2005.04280",
+      "doi": "10.4064/aa200712-22-6",
+      "url": "https://arxiv.org/abs/2005.04280",
+      "audit_copy_locator": "tmp/pdfs/dep_r09_jutila_sources_20260913/Zuniga_Alterman_2022_Logarithmic_quadratic_sieve.pdf",
+      "audit_copy_sha256": "f8af6a86e379491aed909c7850f7a3d071fc3d61790d226bff948ce8e91d404b",
+      "audit_copy_bytes": 443216,
+      "page_count": 30,
+      "reading_mode": "NATIVE_TEXT_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_pages_checked": [1, 2, 3],
+      "classification": "EXPLICIT_ONE_PARAMETER_COMPARISON_NOT_ACTUAL_TAU8_OVER5_DROPIN"
+    }
+  ],
+  "actual_bv_specialization": {
+    "source": "Ramaré-Zuniga Alterman Corollary 1.3",
+    "conditions": "X>=z1>=100, z2=z1^tau, tau>1, 1/2<=alpha<=1",
+    "a1": "5/2",
+    "a2": "4",
+    "c": "11/2",
+    "tau": "8/5",
+    "coefficient_rational": "18884947/500000",
+    "coefficient_decimal": "37.769894",
+    "log_ratio_identity": "log(x_D)/log(z2/z1)=11/3+(4/3)*loglog(D)/log(D)",
+    "power_correction_identity": "x_D^(2-2alpha)=exp(11*lambda+4*lambda*loglog(D)/log(D))",
+    "finite_delta_gate": "4*loglog(D)/log(D)<=delta",
+    "jutila_printed_10_exp_11lambda_certified": false,
+    "scope": "actual one-sided weighted square-sum upper call only, not the full Graham-Jutila asymptotic"
+  },
+  "jutila_nodes": [
+    {
+      "id": "JL4-FULL",
+      "name": "Graham-Jutila Lemma 4 full asymptotic",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "remaining": "explicit O multiplier or independent quantitative proof"
+    },
+    {
+      "id": "JL4-ACTUAL",
+      "name": "Jutila equation (3.6) one-sided weighted square-sum upper call",
+      "status": "ACTUAL_APPLICATION_EXPLICIT_SOURCE_REPLACEMENT",
+      "remaining": "retain finite log-squared correction in terminal composition"
+    },
+    {
+      "id": "JL5",
+      "name": "squarefree coprime harmonic lower bound",
+      "status": "HARD_BLOCKER",
+      "remaining": "uniform numerical eta and R0(q,eta)"
+    },
+    {
+      "id": "JL6",
+      "name": "zero-detector lower bound",
+      "status": "HARD_BLOCKER",
+      "remaining": "JL5 plus explicit Mellin-integral and truncation-tail constants"
+    },
+    {
+      "id": "JL7",
+      "name": "modified Halasz inequality",
+      "status": "EXACT_SOURCE_STATEMENT",
+      "remaining": "finite direct proof only if it enters the terminal numerical path"
+    },
+    {
+      "id": "JL8",
+      "name": "local zero count",
+      "status": "HARD_BLOCKER",
+      "remaining": "explicit local constant preserving the (1-alpha) window factor"
+    },
+    {
+      "id": "HJ-LOW",
+      "name": "Huxley-Jutila away-from-one density estimate",
+      "status": "SOURCE_AVAILABLE_CONSTANTS_HIDDEN",
+      "remaining": "epsilon-dependent multiplier and finite cutoff"
+    }
+  ],
+  "proof_dependency_order": [
+    "JL8 local zero count",
+    "JL6 detector lower bound",
+    "JL7 modified Halasz inequality",
+    "JL4-ACTUAL weighted square-sum upper bound",
+    "Jutila equation (3.6)",
+    "Theorem 1-prime terminal density bound"
+  ],
+  "next_gate": "JL5: obtain a uniform finite lower bound for the squarefree coprime harmonic sum before quantifying JL6 and JL8",
+  "user_compute_required_now": false,
+  "new_dependency_required_now": false
+}

@@ -82,6 +82,15 @@ coefficient/interface 진단 8식으로 분류했다. 전체 inventory는 theory
 가정하지 않았다. 새 10식 뒤 inventory는 theory 문서 60개, display 1,056식,
 `NOT_YET_FORMALIZED` 970식이며 금지 proof escape는 0건이다. PAP-11과 `X_cert`는 OPEN이다.
 
+2026-09-13 Theory 60 batch는 Jutila Lemmas 4--8의 source inventory를 추가했다. 공식
+Huxley III 원문을 확보·hash 고정하고, Ramaré--Zuniga Alterman의 explicit Corollary 1.3을
+actual `tau=8/5`에 대입한 coefficient `18884947/500000`과 finite log-ratio 대수를
+`KERNEL_PASS`로 검증했다. finite power correction은 exponent 대수만
+`PARTIAL_FORMALIZATION`이다. 외부 Barban--Vehov·Jutila·Huxley 정리는 local axiom으로
+가정하지 않았다. 새 12식 뒤 inventory는 theory 문서 61개, display 1,068식,
+`NOT_YET_FORMALIZED` 971식이며 금지 proof escape는 0건이다. `JL5/JL6/JL8`, PAP-11,
+fixed `2e-17`, `X_cert`는 OPEN이다.
+
 원문 theory를 수정한 뒤에는 생성기와 검증기를 차례로 실행한다. 생성기는 display 수식의
 원문 경로·행·SHA-256을 다시 고정하며, 검증기는 전수 coverage, 선언 연결, 금지된 proof
 escape, toolchain pin을 검사한다. `.lake/`는 로컬 build cache이므로 Git에 포함하지 않는다.

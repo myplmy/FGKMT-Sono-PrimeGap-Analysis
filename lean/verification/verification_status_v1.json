@@ -535,6 +535,70 @@
       "declarations": []
     },
     {
+      "formula_id": "60.1",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "jutilaBVActualTau",
+        "jutilaBVCorollaryCoefficient",
+        "jutila_bv_actual_coefficient_value"
+      ]
+    },
+    {
+      "formula_id": "60.2",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "60.3",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "60.4",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "60.5",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_bv_actual_log_ratio_identity"]
+    },
+    {
+      "formula_id": "60.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["jutila_bv_actual_power_exponent_identity"]
+    },
+    {
+      "formula_id": "60.7",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "60.8",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "60.9",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "60.10",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "60.11",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "60.12",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

@@ -71,14 +71,21 @@ class DepR09BranchSTransferTests(unittest.TestCase):
             self.assertEqual(native.stat().st_size, 18)
         self.assertEqual(source["rendered_printed_pages_checked"], [46, 47, 54, 58, 59, 61])
 
-    def test_huxley_blocked_download_is_not_promoted_to_source(self):
+    def test_huxley_official_source_is_hash_pinned_but_not_numerical(self):
         source = next(
             row for row in self.ledger["source_registry"] if row["key"] == "HUXLEY_1974_75"
         )
-        self.assertFalse(source["local_audit_copy_available"])
-        self.assertIn("BLOCKED", source["access_status"])
-        self.assertEqual(source["classification"], "SOURCE_LEAF_NOT_USED_FOR_NUMERICAL_CLAIM")
-        self.assertNotIn("audit_copy_sha256", source)
+        self.assertTrue(source["local_audit_copy_available"])
+        self.assertEqual(source["access_status"], "OFFICIAL_SOURCE_ACQUIRED_AND_HASHED")
+        self.assertEqual(
+            source["classification"],
+            "SOURCE_LEAF_AVAILABLE_NUMERICAL_MULTIPLIER_AND_CUTOFF_OPEN",
+        )
+        path = REPO_ROOT / source["audit_copy_locator"]
+        data = path.read_bytes()
+        self.assertEqual(len(data), source["audit_copy_bytes"])
+        self.assertEqual(hashlib.sha256(data).hexdigest(), source["audit_copy_sha256"])
+        self.assertTrue(data.startswith(b"%PDF-"))
 
     def test_fixed_d_transfer_gate_samples_recompute(self):
         gate = self.ledger["fixed_d_transfer_gate"]

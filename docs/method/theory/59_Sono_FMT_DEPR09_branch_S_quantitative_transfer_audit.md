@@ -66,13 +66,17 @@ prime powers, \(\psi\to\pi\), endpoint와 하나의 공통 cutoff를 모두 포�
 |---|---|---|---|
 | Thorner--Zaman, arXiv `2108.10878v2` | native text 우선 | PDF pp. 4, 5, 8, 10, 11 | proof DAG 복원 |
 | Jutila 1977, DOI `10.7146/math.scand.a-11701` | native text 18바이트로 내용 없음 → 300dpi OCR | 인쇄 pp. 46, 47, 54, 58, 59, 61 | 정량화 누락 확인 |
-| Huxley 1974/75, DOI `10.4064/aa-26-4-435-444` | 공식 endpoint 접근 시도 | Anubis JS proof-of-work로 차단 | 수치 주장에 사용 안 함 |
+| Huxley 1974/75, DOI `10.4064/aa-26-4-435-444` | native text 6바이트로 내용 없음 → 300dpi OCR | 인쇄 pp. 435, 438--439, 442--443 | 공식 source leaf 확보, 수치 multiplier·cutoff는 미제공 |
 
 Thorner--Zaman audit copy SHA-256은
 `588ec896e0820c3620175b25da58850efbefc67b71227acac1d5c3fa4f6b3b09`, Jutila 공식
 PDF SHA-256은 `f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5`다.
 Jutila의 OCR은 검색 보조일 뿐 수식 전사의 정본이 아니며, 아래 사용한 theorem·상수·부등호는
-렌더링한 원 페이지와 대조했다.
+렌더링한 원 페이지와 대조했다. 2026-09-13 후속 조사에서 Huxley 공식 CC-BY download
+endpoint를 출판사 HTML에서 확인해 원문을 확보했다. SHA-256은
+`cc8b7282c1963687d357829416d5e471e130810e5324709a96319bb7a2a3428f`이며,
+[Theory 60](60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md)이 Lemma 4--8의
+세부 판정을 잇는다.
 
 ## 4. Thorner--Zaman proof DAG 감사
 
@@ -256,16 +260,17 @@ source density multiplier가 미지이면 최종 coefficient를 계산할 수 �
 
 ## 10. 다음 권장 경로
 
-1. 공식 Huxley PDF를 확보해 Theorem 2.1(2.1)의 source leaf와 수치화 가능한 proof를 확인한다.
-2. Jutila Lemmas 4--8의 선행 source를 정확히 고정하고, 각 `O`와 충분히 큰 조건을 목록화한다.
-3. 동시에 Thorner--Zaman Theorem 2.3의 explicit-formula-to-density 합성만 독립 finite lemma로
+1. **완료:** 공식 Huxley PDF를 확보하고, 원문에도 parameter-dependent implied constant와
+   `sufficiently large` cutoff가 남음을 확인했다.
+2. **부분 완료:** Jutila Lemmas 4--8을 고정하고 Lemma 4 actual upper-call을 explicit source로
+   교체했다. 다음은 Lemma 5의 uniform finite lower bound다.
+3. Thorner--Zaman Theorem 2.3의 explicit-formula-to-density 합성만 독립 finite lemma로
    재작성해, density package에 요구되는 정확한 multiplier interface를 확정한다.
 4. 실제 \(K,c,u_0\)가 생긴 뒤에만 (59.5), (59.2), Theory 58의 coefficient 함수 순서로 검사한다.
 5. 어느 branch도 통과하지 못하면 fixed 계수를 낮추는 별도 연구안과 현 목표를 분리해 사용자와
    논의한다.
 
-현재 단계에는 장시간 CPU 계산이나 새 Python package가 필요하지 않다. Huxley 원문 수동 확보를
-제외하면 사용자 수행절차도 없다.
+현재 단계에는 장시간 CPU 계산이나 새 Python package가 필요하지 않으며 사용자 수행절차도 없다.
 
 ## 11. 엄밀한 현재 판정
 
@@ -273,7 +278,7 @@ source density multiplier가 미지이면 최종 coefficient를 계산할 수 �
 Thorner--Zaman structural range            = COMPATIBLE IN PRINCIPLE
 Thorner--Zaman numerical transfer package  = NOT RECOVERED
 Jutila exponent-2 route                    = STRUCTURALLY PROMISING, NONNUMERICAL
-Huxley official full text                  = AUTOMATED ACCESS BLOCKED, NOT USED
+Huxley official full text                  = ACQUIRED; NUMERICAL CONSTANTS STILL OPEN
 fixed-D limiting multiplier issue          = CONFIRMED
 elementary transfer sufficient condition   = LEAN TARGET
 PAP-11 / DEP-R09                           = HARD_BLOCKER / OPEN

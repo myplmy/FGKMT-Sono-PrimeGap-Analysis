@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 60,
-  "formula_count": 1056,
-  "tagged_formula_count": 561,
+  "theory_count": 61,
+  "formula_count": 1068,
+  "tagged_formula_count": 573,
   "untagged_formula_count": 495,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "94da2da762cab57f86ada27afde9da24da03a84ccae191f557e8808b505b6c69",
+      "source_sha256": "ef7da087978b06c2d4c6eeef7005f4c9f0cf91279aaa403ebcd1379d76fa19b4",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -481,9 +481,17 @@
     {
       "theory": "59",
       "source_file": "docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3",
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2",
       "display_formula_count": 10,
       "tagged_formula_count": 10,
+      "untagged_formula_count": 0
+    },
+    {
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0",
+      "display_formula_count": 12,
+      "tagged_formula_count": 12,
       "untagged_formula_count": 0
     }
   ],
@@ -10956,7 +10964,7 @@
       "end_line": 49,
       "tagged": true,
       "latex": "\\pi(u;q,a)\\ge C_{\\rm PAP}\\frac{u}{\\varphi(q)\\log u},\\qquad\n u\\ge u_{\\rm PAP},\\quad q\\le u^{1/160},\\quad (a,q)=1,\\quad B_0\\nmid q.\n\\tag{59.1}",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3"
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2"
     },
     {
       "formula_id": "59.2",
@@ -10966,87 +10974,207 @@
       "end_line": 58,
       "tagged": true,
       "latex": "C_{\\rm PAP}\\ge0.863831261522671247201665369608\\ldots,\\qquad\n \\eta_{\\rm tot}:=1-C_{\\rm PAP}\\le\n 0.136168738477328752798334630392\\ldots .\n\\tag{59.2}",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3"
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2"
     },
     {
       "formula_id": "59.3",
       "theory": "59",
       "source_file": "docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md",
-      "start_line": 83,
-      "end_line": 89,
+      "start_line": 87,
+      "end_line": 93,
       "tagged": true,
       "latex": "N_q(\\sigma,T)\\ll_\\varepsilon\n (qT)^{(12/5+\\varepsilon)(1-\\sigma)},\\qquad\n N_q^*(\\sigma,T)\\ll_\\varepsilon\n \\nu(qT)(qT)^{(37/5+\\varepsilon)(1-\\sigma)}\n\\tag{59.3}",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3"
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2"
     },
     {
       "formula_id": "59.4",
       "theory": "59",
       "source_file": "docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md",
-      "start_line": 125,
-      "end_line": 128,
+      "start_line": 129,
+      "end_line": 132,
       "tagged": true,
       "latex": "E_{\\rm tr}(K,c;D):=K\\exp(-Dc),\\qquad K>0,\\ c>0,\n\\tag{59.4}",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3"
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2"
     },
     {
       "formula_id": "59.5",
       "theory": "59",
       "source_file": "docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md",
-      "start_line": 133,
-      "end_line": 138,
+      "start_line": 137,
+      "end_line": 142,
       "tagged": true,
       "latex": "c\\ge\\frac{\\log K-\\log\\eta}{D}\n \\quad\\Longrightarrow\\quad\n K e^{-Dc}\\le\\eta .\n\\tag{59.5}",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3"
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2"
     },
     {
       "formula_id": "59.6",
       "theory": "59",
       "source_file": "docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md",
-      "start_line": 147,
-      "end_line": 155,
+      "start_line": 151,
+      "end_line": 159,
       "tagged": true,
       "latex": "\\begin{array}{c|ccccc}\nK&1&10&320&10^3&10^6\\\\ \\hline\nc_{\\min}&\n0.0124616277388&0.0268527845700&0.0485136339625&\n0.0556350982325&0.0988085687261\n\\end{array}\n\\tag{59.6}",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3"
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2"
     },
     {
       "formula_id": "59.7",
       "theory": "59",
       "source_file": "docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md",
-      "start_line": 175,
-      "end_line": 179,
+      "start_line": 179,
+      "end_line": 183,
       "tagged": true,
       "latex": "N(\\alpha,T,q)\\ll_\\varepsilon(qT)^{(2+\\varepsilon)(1-\\alpha)},\\qquad\n N^*(\\alpha,T,Q)\\ll_\\varepsilon(Q^2T)^{(2+\\varepsilon)(1-\\alpha)}\n\\tag{59.7}",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3"
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2"
     },
     {
       "formula_id": "59.8",
       "theory": "59",
       "source_file": "docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md",
-      "start_line": 184,
-      "end_line": 187,
+      "start_line": 188,
+      "end_line": 191,
       "tagged": true,
       "latex": "\\theta=1-\\frac1{c_7}\n\\tag{59.8}",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3"
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2"
     },
     {
       "formula_id": "59.9",
       "theory": "59",
       "source_file": "docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md",
-      "start_line": 194,
-      "end_line": 198,
+      "start_line": 198,
+      "end_line": 202,
       "tagged": true,
       "latex": "N(\\lambda)\\le10e^{11\\lambda}\n \\quad\\text{for all }\\lambda>0\\text{ and sufficiently large }D,\n\\tag{59.9}",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3"
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2"
     },
     {
       "formula_id": "59.10",
       "theory": "59",
       "source_file": "docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md",
-      "start_line": 200,
-      "end_line": 205,
+      "start_line": 204,
+      "end_line": 209,
       "tagged": true,
       "latex": "\\delta_1\\ge\n \\frac{(1-6\\delta)D^{-(2+\\varepsilon)\\delta/(1-6\\delta)}}{8\\log D},\n \\qquad D\\ge D_0(\\varepsilon).\n\\tag{59.10}",
-      "source_sha256": "9f993f65137afd93e02d5c54251b622e89208e7a59e9972007e1c49cab705ee3"
+      "source_sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2"
+    },
+    {
+      "formula_id": "60.1",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 16,
+      "end_line": 21,
+      "tagged": true,
+      "latex": "K_{\\rm BV}\n =3.09\\frac{1.084(\\tau+1)+1.301(1+\\tau^2)-0.116}{\\tau-1}\n =\\frac{18884947}{500000}=37.769894.\n\\tag{60.1}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.2",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 59,
+      "end_line": 65,
+      "tagged": true,
+      "latex": "\\sum_{n\\le x}a(n)^2\n =\\frac{x}{\\log(z_2/z_1)}\n  +O\\!\\left(\\frac{x}{\\log^2(z_2/z_1)}\\right)\n \\qquad (x\\ge z_2)\n\\tag{60.2}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.3",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 74,
+      "end_line": 79,
+      "tagged": true,
+      "latex": "\\sum_{n\\le X}\\frac{a(n)^2}{n^{2\\alpha-1}}\n \\le K_{\\rm BV}(\\tau)X^{2-2\\alpha}\n       \\frac{\\log X}{\\log(z_2/z_1)}\n\\tag{60.3}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.4",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 89,
+      "end_line": 93,
+      "tagged": true,
+      "latex": "a_1=\\frac52,\\quad a_2=4,\\quad c=\\frac{11}{2},\\quad\n z_i=D^{a_i},\\quad X=D^c,\\quad x_D=X\\log^2D.\n\\tag{60.4}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.5",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 97,
+      "end_line": 102,
+      "tagged": true,
+      "latex": "\\tau=\\frac{a_2}{a_1}=\\frac85,\\qquad\n \\frac{\\log x_D}{\\log(z_2/z_1)}\n =\\frac{11}{3}+\\frac43\\frac{\\log_2D}{\\log D}.\n\\tag{60.5}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.6",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 107,
+      "end_line": 112,
+      "tagged": true,
+      "latex": "x_D^{2-2\\alpha}\n =\\exp\\!\\left(11\\lambda+\n      4\\lambda\\frac{\\log_2D}{\\log D}\\right).\n\\tag{60.6}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.7",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 118,
+      "end_line": 121,
+      "tagged": true,
+      "latex": "4\\frac{\\log_2D}{\\log D}\\le\\delta\n\\tag{60.7}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.8",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 136,
+      "end_line": 141,
+      "tagged": true,
+      "latex": "\\sum_{\\substack{r\\le R\\\\ r\\text{ squarefree}\\\\(r,q)=1}}\\frac1r\n =\\frac6{\\pi^2}\\prod_{p\\mid q}\\left(1+\\frac1p\\right)^{-1}\n  \\log R\\{1+o(1)\\}.\n\\tag{60.8}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.9",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 158,
+      "end_line": 162,
+      "tagged": true,
+      "latex": "|g(\\rho,\\chi)|\\ge\n (1-\\varepsilon)\\frac{\\varphi(q)}q\\frac6{\\pi^2}\\log R,\n\\tag{60.9}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.10",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 176,
+      "end_line": 182,
+      "tagged": true,
+      "latex": "\\left(\\sum_{j=1}^J|f(s_j,\\chi_j)|\\right)^2\n \\le \\sum_{n=1}^N|a_n|^2b_n^{-1}\n \\sum_{j,k=1}^J\\overline{\\eta_j}\\eta_k\n B(\\overline{s_j}+s_k,\\overline{\\chi_j}\\chi_k)\n\\tag{60.10}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.11",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 193,
+      "end_line": 198,
+      "tagged": true,
+      "latex": "\\#\\{\\rho:\\alpha\\le\\Re\\rho\\le1,\n      |\\Im\\rho-T|\\le(1-\\alpha)/2\\}\n \\ll (1-\\alpha)\\log(q(T+1))+1\n\\tag{60.11}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
+    },
+    {
+      "formula_id": "60.12",
+      "theory": "60",
+      "source_file": "docs/method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md",
+      "start_line": 211,
+      "end_line": 215,
+      "tagged": true,
+      "latex": "\\sum_{\\chi\\bmod q}N(\\alpha,T,\\chi)\n \\ll_\\varepsilon(qT)^{2-2\\alpha+\\varepsilon}.\n\\tag{60.12}",
+      "source_sha256": "1679590727c5d00fca3eda5a38c5e1e8bbfd7b50cb642b840d24e5a6c955c2b0"
     }
   ],
   "issues": [],

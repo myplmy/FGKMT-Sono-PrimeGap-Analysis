@@ -1161,7 +1161,27 @@ Lean `pap_fixed_d_transfer_gate`로 proof escape 없이 검증했다. K=1, 10, 3
 unittest로 독립 재계산한다.
 
 이 Lean 결과는 analytic source가 actual K, c, common cutoff를 준다는 증명이 아니다.
-Huxley 공식 source leaf는 자동 download가 JS proof-of-work에 막혀 수치 주장에 사용하지 않았다.
+후속 조사에서 Huxley 공식 source leaf는 확보했지만, 원문 자체의 implied constant와 finite
+cutoff가 numerical하지 않아 수치 주장에는 아직 사용하지 않는다.
 `RS02-A/B`, `RS03`, `RS07`은 HARD_BLOCKER이고 `PAP-11`, DEP-R09, fixed `2e-17`,
 `X_cert`는 OPEN이다. Theory 59의 10식을 추가한 inventory는 theory 문서 60개,
 display 1,056식, `NOT_YET_FORMALIZED` 970식이며 금지 proof escape는 0건이다.
+
+## 2026-09-13 DEP-R09 Jutila Lemma 4--8 정량 source inventory
+
+[theory 60](method/theory/60_Sono_FMT_DEPR09_Jutila_Lemma4_8_source_inventory.md)과
+[review 67](review/67_20260913_DEPR09_Jutila_Lemma4_8_정량복원_타당성검토.md)은 Jutila
+Lemmas 4--8의 actual proof call을 분해했다. 공식 Huxley III 원문을 hash 고정했고,
+Ramaré--Zuniga Alterman Corollary 1.3을 actual \(\tau=8/5\)에 대입해 Jutila 식 (3.6)의
+one-sided weighted square-sum upper call을 exact coefficient
+`18884947/500000 = 37.769894`로 명시화했다.
+
+이는 Graham/Jutila Lemma 4의 전체 점근식 복원이 아니다. finite
+`x_D=D^(11/2) log(D)^2`에는 `exp(4 lambda loglog(D)/log(D))` 보정이 남으므로 Jutila의
+인쇄된 `10 exp(11 lambda)`를 그대로 인증하지 않는다. `JL5` harmonic lower bound,
+`JL6` Mellin·tail, `JL8` local zero-count는 HARD_BLOCKER다. 따라서 `PAP-11`, DEP-R09,
+fixed `2e-17`, `X_cert`와 threshold calculator는 계속 OPEN/NOT READY다. Theory 60의
+12식을 추가한 inventory는 theory 문서 61개, display 1,068식이며 상태는
+`KERNEL_PASS` 2식, `PARTIAL_FORMALIZATION` 1식, `SOURCE_THEOREM_UNFORMALIZED` 7식,
+`DEFINITION_ONLY` 1식, `NOT_YET_FORMALIZED` 1식이다. 전체
+`NOT_YET_FORMALIZED`는 971식이고 금지 proof escape는 0건이다.

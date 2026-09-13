@@ -112,24 +112,24 @@ Sono의 마지막 계수도 함께 나빠진다.
 
 권장 순서는 다음과 같다.
 
-1. Huxley 원문을 공식 경로로 확보해 Jutila와 결합된 density proof의 첫 source leaf를 확인한다.
-2. Jutila Lemmas 4--8의 모든 \(O,\ll,o(1)\)을 목록화하고 숫자로 바꿀 수 있는 최신 explicit
-   대체 정리를 찾는다.
+1. **완료:** Huxley 원문을 공식 경로로 확보해 source leaf를 확인했다. 원문에도 수치
+   multiplier·cutoff가 없어 전체 density package는 계속 열린다.
+2. **부분 완료:** Jutila Lemmas 4--8의 \(O,\ll,o(1)\)을 목록화하고 Lemma 4 actual upper-call을
+   최신 explicit 정리로 교체했다. [후속 검토 67](67_20260913_DEPR09_Jutila_Lemma4_8_정량복원_타당성검토.md)을 따른다.
 3. 별도로 Thorner--Zaman Theorem 2.3의 explicit-formula-to-density 변환을 처음부터 수치화한다.
 4. 실제 \(K,c,u_0\)가 나온 뒤에만 \(K e^{-160c}\)와 0.1361687 예산을 비교한다.
 5. 통과하면 principal·exceptional·prime-power 오차를 합쳐 하나의 \(u_{\rm PAP}\)를 만든다.
 
-Huxley 원문을 자동 다운로드하려 했지만 공식 사이트의 JavaScript proof-of-work가 차단했다.
-비공식 mirror는 사용하지 않았다. 사용자가 일반 Windows 웹브라우저에서 공식 페이지의
-`Pobierz zgodnie z CC-BY`를 눌러 PDF를 내려받아 `article/`에 저장해 주면 다음 source 감사를
-더 안전하게 진행할 수 있다.
+2026-09-13 후속 조사에서 출판사 HTML의 실제 CC-BY download endpoint를 찾아 Huxley 원문을
+`article/`에 hash 고정했다. 따라서 과거의 수동 다운로드 요청은 해소됐다. 다만 원문 확보와
+수치정리 완성은 다른 문제이며, 현재 사용자에게 필요한 별도 수행절차는 없다.
 
 ## 8. 계산자원과 예상시간
 
 | 작업 | 예상시간 | 사용자 CPU/RAM 필요 |
 |---|---:|---|
-| Huxley 원문 theorem·proof mapping | 2–6시간 | 없음 |
-| Jutila Lemmas 4–8 source inventory | 1–3일 | 없음 |
+| Huxley 원문 theorem·proof mapping | 완료 | 없음 |
+| Jutila Lemmas 4–8 source inventory | 완료, JL5/6/8 정량화는 후속 | 없음 |
 | T--Z transfer의 수치 재증명 | 수일–수주 가능 | 대부분 짧은 symbolic/high-precision 검산 |
 | finite cutoff 최적화 | source package 완성 뒤 수시간–수일 | 그때 별도 runner 판단 |
 | actual prime sweep | 현재 가치 없음 | 수행 금지 |

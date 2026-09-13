@@ -1622,6 +1622,32 @@
 - 예방: 전체 suite 실행 전 오류 원장 E007·작업규약의 실행 권한 항목을 확인하고 첫 시도부터
   정상 로컬 권한을 사용한다. sandbox 결과와 로컬 결과를 문서에서 서로 바꾸어 쓰지 않는다.
 
+### E107 — Jutila source 감사 중 탐색·patch·Lean 식별자 오류
+
+- 분류: `EXPLORATORY_COMMAND_AND_DRAFT_ERROR / DETECTED_BEFORE_COMMIT / SCIENTIFIC_IMPACT_NONE`.
+- Windows `rg`에 경로 wildcard를 직접 넣어 OS error 123을 한 번 반복했고, 이후 `-g` 필터로
+  교정했다. PowerShell 환경에서 지원되지 않는 `Get-Content -Encoding Byte`도 사용했다가
+  `Format-Hex`와 hash 검사로 대체했다.
+- Graham PDF의 URL을 추측한 요청은 404였고, 공식 DeepBlue metadata를 직접 확인한 뒤 HTML
+  challenge를 PDF로 취급하지 않았다. Huxley는 출판사 HTML에서 실제 CC-BY endpoint를 찾아
+  `%PDF` header·byte 수·SHA-256을 모두 확인했다.
+- 해시 출력용 `foreach` 결과를 괄호 없이 곧바로 pipe에 연결해 PowerShell parser가 명령을
+  실행 전에 거부했다. 배열 변수에 먼저 담는 형태로 재실행했다. 여러 정본을 묶은 첫
+  `apply_patch`도 AGENTS.md 긴 한 줄의 문맥 불일치로 전체 중단됐으며, 부분 적용이 없음을
+  확인하고 파일별 좁은 patch로 교정했다.
+- Lean 보조정리에서 그리스 문자 lambda를 변수명으로 써 parser token과 충돌했다. `lam`으로
+  바꾼 뒤 단일 파일 검증이 exit 0으로 통과했다. 이 실패 상태는 inventory나 commit에
+  반영하지 않았다.
+- 새 review를 JavaScript 일반 문자열 patch로 만들면서 LaTeX의 backslash가 tab·form-feed
+  escape로 해석돼 `tau`, `frac` 표기가 손상됐다. strict UTF-8/control-character 검사가
+  form-feed를 발견했고, 문서 전체를 정상 `apply_patch` 입력으로 재작성해 control issue 0과
+  local link 1,274개를 다시 확인했다. 손상본은 commit하지 않았다.
+- 예방: Windows 검색은 `-g`, byte 확인은 `Format-Hex`·hash를 사용한다. 공식 download URL은
+  추측하지 않고 publisher HTML에서 추출한다. PowerShell 반복 결과는 변수에 담은 뒤 pipe하며,
+  긴 한 줄 정본은 동적 exact-line patch 또는 작은 patch로 나눈다. LaTeX가 있는 patch는
+  raw-safe 입력 또는 backslash 이중화를 사용하고 control-character 검사를 바로 실행한다.
+  Lean 식별자에는 예약 문법 기호를 쓰지 않고 단일 파일을 먼저 컴파일한 뒤 전수 원장을 생성한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

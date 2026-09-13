@@ -1391,4 +1391,40 @@ theorem pap_fixed_d_transfer_gate
       nlinarith
     _ = η := Real.exp_log hη
 
+/-! ## Theory 60 — DEP-R09 Jutila Lemma 4--8 source inventory -/
+
+/- Theory 60, formula 60.1: exact specialization of the explicit
+   Ramaré--Zuniga Alterman coefficient at Jutila's actual tau=8/5.
+   The external analytic corollary itself is not asserted as a local axiom. -/
+noncomputable def jutilaBVActualTau : ℝ := 8 / 5
+
+noncomputable def jutilaBVCorollaryCoefficient (τ : ℝ) : ℝ :=
+  (309 / 100) *
+    ((1084 / 1000) * (τ + 1) +
+      (1301 / 1000) * (1 + τ ^ 2) -
+      116 / 1000) / (τ - 1)
+
+theorem jutila_bv_actual_coefficient_value :
+    jutilaBVCorollaryCoefficient jutilaBVActualTau =
+      18884947 / 500000 := by
+  norm_num [jutilaBVCorollaryCoefficient, jutilaBVActualTau]
+
+/- Theory 60, formula 60.5: rational algebra in the finite logarithmic
+   ratio. Here u represents log(log D)/log D; no logarithmic source theorem
+   is asserted. -/
+theorem jutila_bv_actual_log_ratio_identity (u : ℝ) :
+    ((11 / 2 : ℝ) + 2 * u) / (4 - 5 / 2) =
+      11 / 3 + (4 / 3) * u := by
+  ring
+
+/- Theory 60, formula 60.6: the exponent simplification after the source
+   definitions are supplied. This checks only the algebraic exponent, not the
+   analytic weighted-square-sum corollary or real-power normalization. -/
+theorem jutila_bv_actual_power_exponent_identity
+    {lam L ell : ℝ} (hL : L ≠ 0) :
+    2 * (lam / L) * ((11 / 2) * L + 2 * ell) =
+      11 * lam + 4 * lam * ell / L := by
+  field_simp
+  ring
+
 end FGKMTSono

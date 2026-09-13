@@ -56,12 +56,19 @@
       "key": "HUXLEY_1974_75",
       "title": "Large values of Dirichlet polynomials III",
       "doi": "10.4064/aa-26-4-435-444",
-      "official_article_url": "https://www.impan.pl/pl/wydawnictwa/czasopisma-i-serie-wydawnicze/acta-arithmetica/all/26/4/100618/large-values-of-dirichlet-polynomials-iii",
-      "official_download_url": "https://www.impan.pl/shop/publication/transaction/download/product/100618",
-      "local_audit_copy_available": false,
-      "access_status": "OFFICIAL_SOURCE_ACCESS_BLOCKED_BY_JAVASCRIPT_PROOF_OF_WORK",
-      "classification": "SOURCE_LEAF_NOT_USED_FOR_NUMERICAL_CLAIM",
-      "note": "An HTML challenge response was detected by header and removed; it was not treated as a PDF. No unofficial mirror was used."
+      "official_article_url": "https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/26/4/100618/large-values-of-dirichlet-polynomials-iii",
+      "official_download_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/100618?download.pdf",
+      "audit_copy_locator": "article/Huxley 1975 Large values of Dirichlet polynomials III.pdf",
+      "audit_copy_sha256": "cc8b7282c1963687d357829416d5e471e130810e5324709a96319bb7a2a3428f",
+      "audit_copy_bytes": 388706,
+      "page_count": 6,
+      "native_text_bytes": 6,
+      "reading_mode": "OCR_ONLY_AFTER_NATIVE_TEXT_LAYER_FOUND_EMPTY_WITH_RENDERED_PAGE_COMPARISON",
+      "rendered_printed_pages_checked": [435, 438, 439, 442, 443],
+      "local_audit_copy_available": true,
+      "access_status": "OFFICIAL_SOURCE_ACQUIRED_AND_HASHED",
+      "classification": "SOURCE_LEAF_AVAILABLE_NUMERICAL_MULTIPLIER_AND_CUTOFF_OPEN",
+      "note": "The official CC-BY endpoint was recovered from the publisher page. The paper still leaves parameter-dependent implied constants and a sufficiently-large cutoff nonnumerical."
     }
   ],
   "thorner_zaman_proof_dag": [
@@ -237,5 +244,5 @@
       "status": "ELEMENTARY_KERNEL_TARGET_AND_HIGH_PRECISION_DIAGNOSTIC"
     }
   ],
-  "next_gate": "Acquire and audit the official Huxley source leaf, then quantify Jutila Lemmas 4-8 and separately rewrite the Thorner-Zaman explicit-formula-to-density transfer with every multiplier and cutoff visible. No threshold calculator or prime sweep before an actual K, c and common u0 pass the coefficient budget."
+  "next_gate": "Use the acquired Huxley leaf and Theory 60 inventory to quantify Jutila JL5, JL6 and JL8, then separately rewrite the Thorner-Zaman explicit-formula-to-density transfer with every multiplier and cutoff visible. No threshold calculator or prime sweep before an actual K, c and common u0 pass the coefficient budget."
 }
