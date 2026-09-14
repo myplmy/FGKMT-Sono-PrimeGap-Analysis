@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 FMT construction-law finite-mass audit",
+  "predecessor": "Sono_FMT_DEPR09_Maier_shift_selection_v1.json",
+  "outcome": "PROJECT_COV2_GIVES_PARAMETERIZED_POSITIVE_SIEVE_MASS_UNDER_THE_ACTUAL_TWO_STAGE_LAW_BUT_SAME_LAW_WEIGHTED_CORRELATION_REMAINS_OPEN",
+  "source_registry": [
+    {
+      "key": "FMT_AUTH",
+      "title": "Chains of large gaps between primes",
+      "authors": "Kevin Ford, James Maynard, Terence Tao",
+      "locator": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "arxiv": "1511.04468",
+      "doi": "10.1007/978-3-319-92777-0_1",
+      "printed_locations": "Theorem 3 formula (4.6); Theorems 4--5 formulas (5.1)--(5.8); Section 6 formulas (6.11), (6.14)--(6.23)",
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_ORIGINAL_PDF_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PUBLISHED_QUALITATIVE_TWO_STAGE_RANDOM_CONSTRUCTION"
+    },
+    {
+      "key": "FMT_COMPARE",
+      "title": "Chains of large gaps between primes",
+      "authors": "Kevin Ford, James Maynard, Terence Tao",
+      "locator": "tmp/pdfs/h1c1b1/Ford_Maynard_Tao2018_Chains_of_large_gaps.pdf",
+      "sha256": "4c5709180f4b427eac3525411618534a6d5ab03c1a79d3faeee3318d2ad7ecce",
+      "arxiv": "1511.04468",
+      "doi": "10.1007/978-3-319-92777-0_1",
+      "printed_locations": "Theorems 3--6 and Sections 4--6",
+      "reading_mode": "NATIVE_TEXT_STRUCTURAL_COMPARISON",
+      "classification": "LOCAL_COMPARISON_COPY"
+    },
+    {
+      "key": "THEORY53",
+      "title": "H1b-COV1 full-residue hypergraph interface",
+      "locator": "docs/method/theory/53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md",
+      "sha256": "615c1501a49f422fe22d5838fb5829c255a48a1d4af9da25c3f7aa2158085672",
+      "source_locations": "formulas (53.8), (53.20)--(53.21)",
+      "classification": "PROJECT_FINITE_ANALYTIC_PROOF"
+    },
+    {
+      "key": "THEORY55",
+      "title": "H1b-COV2 post-covering interval and smooth composition",
+      "locator": "docs/method/theory/55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md",
+      "sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df",
+      "source_locations": "formulas (55.17)--(55.21), section 6",
+      "classification": "PROJECT_PARAMETERIZED_EXPLICIT_OUTER_AND_UNIFORM_CONDITIONAL_INNER_FAILURE_BOUNDS"
+    }
+  ],
+  "published_fmt_audit": {
+    "theorem_3": "For each fixed interval, the survivor asymptotic holds with probability 1-o(1); no numerical decay rate or common cutoff is printed.",
+    "theorem_4": "For a fixed hypergraph input it constructs random covering edges with residual asymptotics holding with probability 1-o(1), uniformly in the listed finite set parameters but without a numerical rate.",
+    "theorem_5": "The first-stage residue vector a is good with probability 1-o(1), and Theorem 4 is applied conditionally on each good value of a.",
+    "section_6": "The first-stage a_s are independent uniform residues and independent of preliminary tilde-n_p; the final n_p are jointly conditionally independent given a under formula (6.17).",
+    "hidden_rate_nodes": [
+      "Theorem 3 formula (4.6)",
+      "Theorem 4 residual asymptotic",
+      "Theorem 5 formulas (5.7)--(5.8)",
+      "Lemma 6.3 Markov o(1)",
+      "Lemma 6.4 Markov-Chebyshev o(1) and implied constants"
+    ],
+    "numerical_positive_mass_from_printed_source_alone": false
+  },
+  "actual_joint_law": {
+    "outer_variable": "A=(a_s mod s) over the small-prime set S",
+    "inner_variable": "N-prime=(n-prime_p) output by the conditional hypergraph covering law for the fixed outer A",
+    "joint_factorization": "P(A=a,N-prime=n)=P_A(a) P_(N-prime|A=a)(n)",
+    "final_sieve_and_crt_depend_on": [
+      "outer A",
+      "inner N-prime"
+    ],
+    "preliminary_tilde_n_role": "defines the conditional edge probabilities; it is not by itself the final large-prime residue vector",
+    "correction_to_predecessor": "The candidate omega must encode the joint or sequential pair (A,N-prime), not A alone."
+  },
+  "project_finite_mass": {
+    "outer_failure_upper": "F_out=4800*c/b^5+800*c/b^10+112*k*b^4/a^11+3*K*b^6/a^17",
+    "uniform_conditional_inner_failure_upper": "F_in=K*v_star/t^2",
+    "sieve_success_lower": "(1-F_out)(1-F_in)",
+    "sieve_failure_upper": "F_out+(1-F_out)F_in=1-(1-F_out)(1-F_in)",
+    "assumptions": [
+      "0<=F_out<1",
+      "0<=F_in<1",
+      "the same F_in upper bound holds conditionally for every outer-good A",
+      "the outer and inner laws are the laws used to select the final residue system"
+    ],
+    "independence_required": false,
+    "status": "PROJECT_ACTUAL_INPUTS_PARAMETERIZED_EXPLICIT"
+  },
+  "simultaneous_selection": {
+    "global_same_law_route": {
+      "input": "P(B_corr)<=F_corr under the same joint law of (A,N-prime)",
+      "success_lower": "(1-F_out)(1-F_in)-F_corr",
+      "strict_gate": "F_corr<(1-F_out)(1-F_in)"
+    },
+    "fiberwise_route": {
+      "input": "for each outer-good A, P(B_corr|A)<=F_corr_cond",
+      "strict_gate": "F_in+F_corr_cond<1"
+    },
+    "markov_route": {
+      "input": "nonnegative same-law badness W with E[W]<=mu and failure threshold t>0",
+      "failure_upper": "min(1,mu/t)",
+      "strict_gate": "mu/t<(1-F_out)(1-F_in)"
+    },
+    "current_status": "WEIGHTED_CORRELATION_FAILURE_INPUT_OPEN"
+  },
+  "exact_finite_diagnostic": {
+    "printed_fmt_probability_rates_numerically_explicit": false,
+    "project_cov2_outer_failure_parameterized_explicit": true,
+    "project_cov2_uniform_conditional_inner_failure_parameterized_explicit": true,
+    "project_joint_sieve_good_mass_parameterized_explicit": true,
+    "joint_outcome_includes_outer_a_and_inner_n_prime": true,
+    "independence_required_for_mass_product": false,
+    "weighted_correlation_same_joint_law_failure_bound_available": false,
+    "fiberwise_weighted_correlation_bound_available": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The printed FMT 1-o(1) has been made numerical in full.",
+    "The weighted correlation has a same-law failure bound.",
+    "PAP-11 or DEP-R09 is closed.",
+    "The fixed coefficient 2e-17 is independently certified.",
+    "A numerical X_cert or threshold calculator is ready."
+  ],
+  "next_gate": "Bound the weighted-correlation bad event under the same joint (A,N-prime) construction law, globally or uniformly in each outer-good fiber."
+}

@@ -362,3 +362,22 @@ Theory 78 뒤 inventory는 theory 문서 79개, display 1,439식이며 전체 �
 `PARTIAL_FORMALIZATION=86`, `SOURCE_THEOREM_UNFORMALIZED=82`,
 `NOT_YET_FORMALIZED=1027`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 278개이고
 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-14 Theory 79 batch는 FMT final construction outcome을 first-stage
+\(\mathbf A\)와 conditional hypergraph output \(\mathbf N'\)의 joint pair로 교정했다.
+Theory 53·55의 finite outer/inner failure를 같은 law에서 합치면 sieve-good mass가
+\((1-F_{\rm out})(1-F_{\rm in})\) 이상이라는 probability bookkeeping을 문서·exact
+Python으로 고정했다. Lean은 two-stage failure identity, same-law correlation strict
+slack, crude union implication과 finite outer/fiber selection만 검사한다. full probability
+measure proof, FMT analytic theorem과 weighted-correlation 상계는 local axiom으로 넣지 않았다.
+
+첫 direct compile은 `Finset.card_union_le` implicit 인수 오류 3건을 잡았고 그중 두 곳은
+직전 Theory 78 source에 이미 있었다. 인수를 명시한 뒤 canonical direct compile exit 0을
+확인했다. 이 사건과 과거 PASS 기록의 증거 모순은 오류 원장 E130에 남겼으며, 무출력이나
+session id는 앞으로 PASS로 취급하지 않는다.
+
+Theory 79 뒤 inventory는 theory 문서 80개, display 1,452식이며 전체 상태는
+`KERNEL_PASS=94`, `CONDITIONAL_KERNEL_PASS=60`, `DEFINITION_ONLY=90`,
+`PARTIAL_FORMALIZATION=94`, `SOURCE_THEOREM_UNFORMALIZED=82`,
+`NOT_YET_FORMALIZED=1027`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 283개이고
+금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.

@@ -2549,6 +2549,74 @@
       "declarations": []
     },
     {
+      "formula_id": "79.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "79.2",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "79.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "79.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "79.5",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "79.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "79.7",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_two_stage_failure_identity"]
+    },
+    {
+      "formula_id": "79.8",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "79.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "79.10",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_joint_correlation_budget_positive"]
+    },
+    {
+      "formula_id": "79.11",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_crude_union_gate_implies_product_gate"]
+    },
+    {
+      "formula_id": "79.12",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "dep_r09_two_bad_finsets_leave_candidate",
+        "dep_r09_outer_then_two_inner_bad_finsets_leave_pair"
+      ]
+    },
+    {
+      "formula_id": "79.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

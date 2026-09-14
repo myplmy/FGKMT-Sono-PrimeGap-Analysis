@@ -3441,11 +3441,12 @@ theorem dep_r09_power_regime_zero_free_endpoint_arithmetic :
    one candidate lies outside all three.  This is only finite selection
    logic; it does not assert the analytic bounds on the bad sets. -/
 theorem dep_r09_three_bad_finsets_leave_candidate
-    {α : Type*} [Fintype α] [DecidableEq α]
+    {α : Type*} [Fintype α]
     (B₁ B₂ B₃ : Finset α)
     (hBudget : B₁.card + B₂.card + B₃.card < Fintype.card α) :
     ∃ candidate : α,
       candidate ∉ B₁ ∧ candidate ∉ B₂ ∧ candidate ∉ B₃ := by
+  classical
   by_contra hNoCandidate
   have hCovered : ∀ candidate : α,
       candidate ∈ B₁ ∨ candidate ∈ B₂ ∨ candidate ∈ B₃ := by
@@ -3474,9 +3475,9 @@ theorem dep_r09_three_bad_finsets_leave_candidate
       (B₁ ∪ B₂ ∪ B₃).card ≤ B₁.card + B₂.card + B₃.card := by
     calc
       (B₁ ∪ B₂ ∪ B₃).card ≤ (B₁ ∪ B₂).card + B₃.card :=
-        Finset.card_union_le
+        Finset.card_union_le (B₁ ∪ B₂) B₃
       _ ≤ (B₁.card + B₂.card) + B₃.card :=
-        Nat.add_le_add_right Finset.card_union_le B₃.card
+        Nat.add_le_add_right (Finset.card_union_le B₁ B₂) B₃.card
       _ = B₁.card + B₂.card + B₃.card := rfl
   omega
 
@@ -3487,5 +3488,90 @@ theorem dep_r09_singleton_bad_budget_forces_zero
     (hBudget : b₁ + b₂ + b₃ < 1) :
     b₁ = 0 ∧ b₂ = 0 ∧ b₃ = 0 := by
   omega
+
+/-! ## Theory 79 — DEP-R09 FMT construction-law finite mass audit -/
+
+/- Theory 79, formula 79.7: exact algebra for the two-stage sieve-failure
+   upper bound.  The analytic outer and conditional-inner bounds are inputs;
+   this theorem neither asserts independence nor proves those inputs. -/
+theorem dep_r09_two_stage_failure_identity
+    (fOut fIn : ℝ) :
+    fOut + (1 - fOut) * fIn =
+      1 - (1 - fOut) * (1 - fIn) := by
+  ring
+
+/- Theory 79, formulas 79.9--79.10: a same-law correlation-failure upper
+   bound strictly below the two-stage sieve-good lower bound leaves positive
+   mass.  This is only the terminal real inequality. -/
+theorem dep_r09_joint_correlation_budget_positive
+    {fOut fIn fCorr : ℝ}
+    (hCorr : fCorr < (1 - fOut) * (1 - fIn)) :
+    0 < (1 - fOut) * (1 - fIn) - fCorr :=
+  sub_pos.mpr hCorr
+
+/- Theory 79, formula 79.11: the cruder three-failure union gate implies the
+   product gate when the two sequential failure bounds are nonnegative. -/
+theorem dep_r09_crude_union_gate_implies_product_gate
+    {fOut fIn fCorr : ℝ}
+    (hOutNonneg : 0 ≤ fOut)
+    (hInNonneg : 0 ≤ fIn)
+    (hCrude : fOut + fIn + fCorr < 1) :
+    fCorr < (1 - fOut) * (1 - fIn) := by
+  nlinarith [mul_nonneg hOutNonneg hInNonneg]
+
+/- Theory 79, formula 79.12: inside one finite conditional fiber, if the
+   sum of two bad-set cardinalities is smaller than the candidate fiber, one
+   inner outcome avoids both. -/
+theorem dep_r09_two_bad_finsets_leave_candidate
+    {β : Type*}
+    (Ω BIn BCorr : Finset β)
+    (hBudget : BIn.card + BCorr.card < Ω.card) :
+    ∃ inner ∈ Ω, inner ∉ BIn ∧ inner ∉ BCorr := by
+  classical
+  by_contra hNoCandidate
+  have hCovered : ∀ inner ∈ Ω, inner ∈ BIn ∨ inner ∈ BCorr := by
+    intro inner hInner
+    by_cases hIn : inner ∈ BIn
+    · exact Or.inl hIn
+    by_cases hCorr : inner ∈ BCorr
+    · exact Or.inr hCorr
+    · exact False.elim (hNoCandidate ⟨inner, hInner, hIn, hCorr⟩)
+  have hSubset : Ω ⊆ BIn ∪ BCorr := by
+    intro inner hInner
+    rcases hCovered inner hInner with hIn | hCorr
+    · simp [hIn]
+    · simp [hCorr]
+  have hOmegaCard : Ω.card ≤ (BIn ∪ BCorr).card :=
+    Finset.card_le_card hSubset
+  have hUnionCard :
+      (BIn ∪ BCorr).card ≤ BIn.card + BCorr.card :=
+    Finset.card_union_le BIn BCorr
+  omega
+
+/- Theory 79, formula 79.12: first choose an outer outcome outside the outer
+   bad set, then use the preceding finite lemma in its conditional fiber.
+   No outer/inner independence statement is present. -/
+theorem dep_r09_outer_then_two_inner_bad_finsets_leave_pair
+    {α β : Type*} [Fintype α]
+    (BOut : Finset α)
+    (ΩInner BIn BCorr : α → Finset β)
+    (hOut : BOut.card < Fintype.card α)
+    (hFiber : ∀ outer, outer ∉ BOut →
+      (BIn outer).card + (BCorr outer).card < (ΩInner outer).card) :
+    ∃ outer, outer ∉ BOut ∧
+      ∃ inner ∈ ΩInner outer,
+        inner ∉ BIn outer ∧ inner ∉ BCorr outer := by
+  classical
+  have hOuterBudget :
+      BOut.card + (∅ : Finset α).card + (∅ : Finset α).card <
+        Fintype.card α := by
+    simpa using hOut
+  obtain ⟨outer, hOuter, _, _⟩ :=
+    dep_r09_three_bad_finsets_leave_candidate
+      BOut (∅ : Finset α) (∅ : Finset α) hOuterBudget
+  obtain ⟨inner, hInner, hIn, hCorr⟩ :=
+    dep_r09_two_bad_finsets_leave_candidate
+      (ΩInner outer) (BIn outer) (BCorr outer) (hFiber outer hOuter)
+  exact ⟨outer, hOuter, inner, hInner, hIn, hCorr⟩
 
 end FGKMTSono

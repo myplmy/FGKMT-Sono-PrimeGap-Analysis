@@ -101,6 +101,15 @@ Lean declaration 278개, 금지 proof escape 0건이다. 최신 analytic 정본�
 86이다. PAP-11·DEP-R09·fixed \(2\times10^{-17}\)·\(X_{\rm cert}\)는 계속 OPEN이고,
 threshold calculator·장시간 prime 계산은 NOT READY다.
 
+2026-09-14 FMT construction-law successor는 final outcome을 first-stage
+\(\mathbf A\)와 conditional hypergraph output \(\mathbf N'\)의 joint pair로 교정했다.
+published FMT의 \(1-o(1)\) rate는 비수치지만 project Theory 53·55의 finite bounds는
+sieve-good mass \((1-F_{\rm out})(1-F_{\rm in})\)을 parameterized explicit으로 준다.
+independence는 필요 없다. 남은 최소 gate는 같은 joint law의 weighted-correlation
+failure를 이 mass보다 작게 상계하는 것이다. 최신 analytic 정본은 theory 79·review 87다.
+PAP-11·DEP-R09·fixed \(2\times10^{-17}\)·\(X_{\rm cert}\)는 계속 OPEN이고,
+threshold calculator·장시간 prime 계산은 NOT READY다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는
@@ -548,6 +557,12 @@ Codex의 저장소 스킬 정본 발견 경로는 `.agents/skills/`다. 현재 �
   외부 선행연구의 보장 여부를 보고한 뒤 사용자의 명시적 허가를 받는다. 허가 없이는
   절대 사용하지 않는다. `.lake/` build cache는 commit하지 않는다. inventory·원장 검증과
   `lake build`가 모두 PASS해야 현재 batch를 kernel 검증 완료로 기록한다.
+- 교환·결합법칙 때문에 같은 곱이 다른 syntax tree로 보이는 정리는 최종 proof 경계에서만
+  `simpa only [mul_assoc, mul_left_comm, mul_comm]`, `ring` 또는 `convert`로 정규화한다.
+  선언을 여러 개 누적하기 전에 canonical 단일 파일을 직접 컴파일하고, 사용하지 않는
+  가정은 안정된 source-interface를 보존할 이유가 있을 때만 `_h...` 이름과 주석으로 남긴다.
+- Lean direct compile·`lake build` 같은 비동기 검증은 process/session id를 PASS로 보지 않는다.
+  최종 `exit_code`를 받을 때까지 PENDING이며, handoff와 작업원장에는 종료코드를 적는다.
 - 2026-09-10 기준 Theory 01의 `F(x)`는 `x > exp(exp(exp(1)))`에서 양수이고
   엄격히 증가하며, 양의 end-bounded 정수 plateau의 오른쪽 끝점 minimum도
   proof escape 없이 `KERNEL_PASS`다. `G_end(x)=g_i`의 finite-record 상수성 전체는

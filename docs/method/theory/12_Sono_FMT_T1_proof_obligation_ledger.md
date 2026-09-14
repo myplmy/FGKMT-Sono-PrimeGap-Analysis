@@ -1137,3 +1137,29 @@ candidate가 남는다는 논리만 Lean <code>KERNEL_PASS</code>로 닫았다. 
 fixed \(2\times10^{-17}\), \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다.
 uniform-in-vector correlation source 또는 FMT construction law 위의 공통 numerical
 failure budget 전에는 threshold calculator와 장시간 prime sweep을 시작하지 않는다.
+
+## 48. 2026-09-14 DEP-R09 FMT construction law 유한 성공질량 후속 상태
+
+[theory 79](79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md)은
+Theory 78의 FMT 후보 변수를 source law에 맞게 교정했다. final residue outcome은
+first-stage \(\mathbf A\) 하나가 아니라 conditional hypergraph output
+\(\mathbf N'\)까지 포함한 joint/sequential pair다.
+
+출판된 FMT의 성공률은 여전히 \(1-o(1)\)이고 numerical rate가 없다. 그러나 project
+Theory 53·55는 outer failure \(F_{\rm out}\)과 모든 outer-good \(\mathbf A\)에 대한
+uniform conditional inner failure \(F_{\rm in}\)을 이미 유한식으로 준다. 따라서 같은
+joint law에서
+
+~~~text
+P(sieve-good) >= (1-F_out)(1-F_in)
+~~~
+
+이 parameterized explicit이다. independence는 필요 없다. 이로써 sieve-good positive
+mass 자체는 새 hard blocker가 아니게 됐다.
+
+남은 R09 입력은 같은 \((\mathbf A,\mathbf N')\) law에서 weighted-correlation bad
+event의 failure upper bound다. \(F_{\rm corr}<(1-F_{\rm out})(1-F_{\rm in})\)이면
+simultaneous selection이 가능하지만 현재 \(F_{\rm corr}\)는 OPEN이다. 따라서 66개 root
+row와 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed \(2\times10^{-17}\),
+\(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. threshold calculator와 장시간
+prime sweep도 NOT READY다.

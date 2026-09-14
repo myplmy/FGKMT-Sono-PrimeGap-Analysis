@@ -12,6 +12,16 @@
 - 계속 OPEN: <code>PAP-11</code>, <code>DEP-R09</code>, fixed \(2\times10^{-17}\),
   numerical \(X_{\rm cert}\)
 
+> **Theory 79 successor correction:** FMT의 최종 construction outcome은
+> \(\boldsymbol a\) 하나가 아니라 first-stage \(\mathbf A\)와 conditional
+> hypergraph output \(\mathbf N'\)의 joint/sequential pair다. 출판 원문의
+> \(1-o(1)\) rate는 비수치지만 project Theory 53·55의 finite bounds를 쓰면
+> sieve-good mass 자체는
+> \((1-F_{\rm out})(1-F_{\rm in})\) 이상으로 parameterized explicit이다.
+> same-law weighted-correlation failure bound는 계속 OPEN이다.
+> 정본은 [Theory 79](79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md)와
+> [review 87](../../review/87_20260914_DEPR09_FMT_construction_law_finite_mass_타당성검토.md)이다.
+
 ## 1. 결론
 
 Theory 77의 마지막 제안 중 “Maier Lemma 6의 성질과 weighted correlation이 동시에 좋은

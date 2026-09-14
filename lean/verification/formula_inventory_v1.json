@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 79,
-  "formula_count": 1439,
-  "tagged_formula_count": 909,
+  "theory_count": 80,
+  "formula_count": 1452,
+  "tagged_formula_count": 922,
   "untagged_formula_count": 530,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "2854040db884da85028ea04a8285e7f711c2c4387648cd34e305a188bfc28c95",
+      "source_sha256": "b675f825d6603a854e73e3e4ff3fe066da639a72c0523ceac497091b102e353d",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196",
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -633,7 +633,15 @@
     {
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f",
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7",
+      "display_formula_count": 13,
+      "tagged_formula_count": 13,
+      "untagged_formula_count": 0
+    },
+    {
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3",
       "display_formula_count": 13,
       "tagged_formula_count": 13,
       "untagged_formula_count": 0
@@ -928,7 +936,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U002",
@@ -938,7 +946,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U003",
@@ -948,7 +956,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U004",
@@ -958,7 +966,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U005",
@@ -968,7 +976,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U006",
@@ -978,7 +986,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U007",
@@ -988,7 +996,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U008",
@@ -998,7 +1006,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U009",
@@ -1008,7 +1016,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U010",
@@ -1018,7 +1026,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U011",
@@ -1028,7 +1036,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U012",
@@ -1038,7 +1046,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U013",
@@ -1048,7 +1056,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U014",
@@ -1058,7 +1066,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T12-U015",
@@ -1068,7 +1076,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
+      "source_sha256": "4ce1fb2cfc9f14f086488810e273045524d4c1cdf28927a7f33fcaee8701be41"
     },
     {
       "formula_id": "T13-U001",
@@ -14904,131 +14912,261 @@
       "formula_id": "78.1",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 21,
-      "end_line": 25,
+      "start_line": 31,
+      "end_line": 35,
       "tagged": true,
       "latex": "y\\equiv0\\pmod {P_1P_3},\\qquad\n y\\equiv1\\pmod {P_2}\n\\tag{78.1}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.2",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 29,
-      "end_line": 32,
+      "start_line": 39,
+      "end_line": 42,
       "tagged": true,
       "latex": "\\boxed{\\text{허용되는 }y\\bmod P(x)\\text{는 정확히 하나다.}}\n\\tag{78.2}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.3",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 41,
-      "end_line": 44,
+      "start_line": 51,
+      "end_line": 54,
       "tagged": true,
       "latex": "\\boldsymbol a=(a_p\\bmod p)_{p\\le x,\\ p\\ne B_0}\n\\tag{78.3}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.4",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 60,
-      "end_line": 63,
+      "start_line": 70,
+      "end_line": 73,
       "tagged": true,
       "latex": "P(x)=P_1P_2P_3\n\\tag{78.4}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.5",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 84,
-      "end_line": 89,
+      "start_line": 94,
+      "end_line": 99,
       "tagged": true,
       "latex": "\\mathcal T(\\boldsymbol a)\n =\\{n\\in[y]\\setminus[x]:\n n\\not\\equiv a_p\\pmod p\\ \\text{for all }p\\le x,\\ p\\ne B_0\\}\n\\tag{78.5}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.6",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 93,
-      "end_line": 97,
+      "start_line": 103,
+      "end_line": 107,
       "tagged": true,
       "latex": "m(\\boldsymbol a)\\equiv-a_p\\pmod p\n \\quad(p\\le x,\\ p\\ne B_0)\n\\tag{78.6}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.7",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 117,
-      "end_line": 124,
+      "start_line": 127,
+      "end_line": 134,
       "tagged": true,
       "latex": "\\begin{aligned}\nB_{\\rm sieve}&=\\{\\omega:\\text{global 또는 short-interval sieve 조건 실패}\\},\\\\\nB_{\\rm corr}&=\\{\\omega:\\text{weighted correlation 조건 실패}\\},\\\\\nB_{\\rm extra}&=\\{\\omega:\\text{추가 pair·endpoint 조건 실패}\\}\n\\end{aligned}\n\\tag{78.7}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.8",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 128,
-      "end_line": 131,
+      "start_line": 138,
+      "end_line": 141,
       "tagged": true,
       "latex": "|B_{\\rm sieve}|+|B_{\\rm corr}|+|B_{\\rm extra}|<|\\Omega|\n\\tag{78.8}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.9",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 135,
-      "end_line": 139,
+      "start_line": 145,
+      "end_line": 149,
       "tagged": true,
       "latex": "\\exists\\omega\\in\\Omega,\\quad\n \\omega\\notin B_{\\rm sieve}\\cup B_{\\rm corr}\\cup B_{\\rm extra}.\n\\tag{78.9}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.10",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 146,
-      "end_line": 152,
+      "start_line": 156,
+      "end_line": 162,
       "tagged": true,
       "latex": "\\#\\{\\omega:W(\\omega)\\ge t\\}\n \\le\n \\left\\lfloor\\frac{\\sum_{\\omega\\in\\Omega}W(\\omega)}{t}\\right\\rfloor\n\\qquad(t>0)\n\\tag{78.10}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.11",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 159,
-      "end_line": 162,
+      "start_line": 169,
+      "end_line": 172,
       "tagged": true,
       "latex": "|B_{\\rm sieve}|=|B_{\\rm corr}|=|B_{\\rm extra}|=0\n\\tag{78.11}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.12",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 170,
-      "end_line": 177,
+      "start_line": 180,
+      "end_line": 187,
       "tagged": true,
       "latex": "\\left|\n\\sum_{\\chi\\ne\\chi_0}\nC_\\chi(\\mathcal A_{\\boldsymbol a})Z_\\chi(Y)\n\\right|\n\\le(\\varepsilon-\\delta_0)M_{\\boldsymbol a}Y,\n\\tag{78.12}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
     },
     {
       "formula_id": "78.13",
       "theory": "78",
       "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
-      "start_line": 179,
-      "end_line": 184,
+      "start_line": 189,
+      "end_line": 194,
       "tagged": true,
       "latex": "C_\\chi(\\mathcal A_{\\boldsymbol a})\n=\\sum_{s\\in\\mathcal T(\\boldsymbol a)}\n\\overline{\\chi(m(\\boldsymbol a)+s)}\n\\tag{78.13}",
-      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+      "source_sha256": "f138f56f08406dcae2aba6ef3b7f981c11be338fd716c9c00469fb78695550a7"
+    },
+    {
+      "formula_id": "79.1",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 24,
+      "end_line": 30,
+      "tagged": true,
+      "latex": "\\Pr(\\mathbf A=\\boldsymbol a,\\mathbf N'=\\boldsymbol n)\n =\n \\Pr(\\mathbf A=\\boldsymbol a)\n \\Pr(\\mathbf N'=\\boldsymbol n\\mid\\mathbf A=\\boldsymbol a).\n\\tag{79.1}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.2",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 36,
+      "end_line": 40,
+      "tagged": true,
+      "latex": "\\Pr(S_{\\rm sieve})\\ge\n (1-F_{\\rm out})(1-F_{\\rm in})>0\n\\tag{79.2}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.3",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 60,
+      "end_line": 68,
+      "tagged": true,
+      "latex": "a_p^{\\rm final}=\n \\begin{cases}\n A_p,&p\\in\\mathcal S,\\\\\n N'_p,&p\\in\\mathcal P,\\\\\n 0,&p\\notin\\mathcal S\\cup\\mathcal P\n \\end{cases}\n\\tag{79.3}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.4",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 88,
+      "end_line": 95,
+      "tagged": true,
+      "latex": "F_{\\rm out}=\n \\frac{4800c}{b^5}\n +\\frac{800c}{b^{10}}\n +\\frac{112kb^4}{a^{11}}\n +\\frac{3Kb^6}{a^{17}}.\n\\tag{79.4}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.5",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 99,
+      "end_line": 104,
+      "tagged": true,
+      "latex": "F_{\\rm in}=\\frac{Kv_*}{t^2},\\qquad\n v_*=\\beta_h+2\\alpha_h+\n \\frac{2(1+\\alpha_h)a}{(1-r_0)AhX}\n\\tag{79.5}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.6",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 112,
+      "end_line": 122,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n\\Pr(O\\cap I)\n&=\\sum_{\\boldsymbol a\\in O}\n  \\Pr(\\mathbf A=\\boldsymbol a)\n  \\Pr(I\\mid\\mathbf A=\\boldsymbol a)\\\\\n&\\ge(1-F_{\\rm in})\\Pr(O)\\\\\n&\\ge(1-F_{\\rm out})(1-F_{\\rm in}).\n\\end{aligned}\n\\tag{79.6}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.7",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 126,
+      "end_line": 131,
+      "tagged": true,
+      "latex": "F_{\\rm sieve}\n \\le F_{\\rm out}+(1-F_{\\rm out})F_{\\rm in}\n =1-(1-F_{\\rm out})(1-F_{\\rm in}).\n\\tag{79.7}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.8",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 142,
+      "end_line": 148,
+      "tagged": true,
+      "latex": "C_\\chi(\\mathcal A_{\\boldsymbol a,\\boldsymbol n'})\n =\n \\sum_{s\\in\\mathcal T(\\boldsymbol a,\\boldsymbol n')}\n \\overline{\\chi\\!\\left(m(\\boldsymbol a,\\boldsymbol n')+s\\right)}.\n\\tag{79.8}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.9",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 153,
+      "end_line": 158,
+      "tagged": true,
+      "latex": "\\Pr(S_{\\rm sieve}\\cap B_{\\rm corr}^{\\,c})\n \\ge\n (1-F_{\\rm out})(1-F_{\\rm in})-F_{\\rm corr}.\n\\tag{79.9}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.10",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 162,
+      "end_line": 167,
+      "tagged": true,
+      "latex": "\\boxed{\n F_{\\rm corr}<(1-F_{\\rm out})(1-F_{\\rm in}).\n }\n\\tag{79.10}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.11",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 171,
+      "end_line": 174,
+      "tagged": true,
+      "latex": "F_{\\rm out}+F_{\\rm in}+F_{\\rm corr}<1\n\\tag{79.11}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.12",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 181,
+      "end_line": 184,
+      "tagged": true,
+      "latex": "F_{\\rm in}+F_{\\rm corr}(\\boldsymbol a)<1\n\\tag{79.12}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
+    },
+    {
+      "formula_id": "79.13",
+      "theory": "79",
+      "source_file": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "start_line": 191,
+      "end_line": 195,
+      "tagged": true,
+      "latex": "\\Pr(W\\ge t)\\le\n \\min\\!\\left(1,\\frac{\\mathbb E W}{t}\\right)\n\\tag{79.13}",
+      "source_sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3"
     }
   ],
   "issues": [],

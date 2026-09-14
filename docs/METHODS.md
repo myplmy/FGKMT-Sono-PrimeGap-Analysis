@@ -1986,3 +1986,23 @@ Theory 78 뒤 전수원장은 theory 79개, display 식 1,439개,
 0건이다. <code>PAP-11</code>, DEP-R09, fixed \(2\times10^{-17}\),
 numerical \(X_{\rm cert}\)는 계속 OPEN이며 threshold calculator와 장시간 prime sweep은
 NOT READY다.
+
+## 2026-09-14 DEP-R09 FMT construction law 유한 성공질량 감사
+
+[theory 79](method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md)과
+[review 87](review/87_20260914_DEPR09_FMT_construction_law_finite_mass_타당성검토.md)은
+Theory 78의 평균 후보를 source의 실제 두 단계 law로 교정한다. 최종 FMT residue system은
+first-stage \(\mathbf A\)와 그 값에 조건부로 고른 hypergraph output \(\mathbf N'\)의
+joint outcome이다. preliminary \(\widetilde n_p\)는 edge law를 만드는 보조변수이지
+최종 residue vector 자체가 아니다.
+
+published FMT의 \(1-o(1)\) rate는 numerical하지 않다. 하지만 Theory 53·55의 finite
+\(F_{\rm out}\)과 uniform conditional \(F_{\rm in}\)을 합치면
+\(\Pr(S_{\rm sieve})\ge(1-F_{\rm out})(1-F_{\rm in})\)이다. 이는 independence가 아니라
+conditional-law 합으로 얻는 project parameterized-explicit mass다.
+
+simultaneous-selection의 다음 최소 gate는 같은 joint law에서
+\(F_{\rm corr}<(1-F_{\rm out})(1-F_{\rm in})\)인 weighted-correlation failure bound를
+얻는 것이다. \(\mathbf A\)만 평균내고 \(\mathbf N'\) 의존성을 버리는 식은 충분하지 않다.
+따라서 <code>PAP-11</code>, DEP-R09, fixed \(2\times10^{-17}\), numerical
+\(X_{\rm cert}\)는 계속 OPEN이고 threshold calculator·장시간 prime 계산은 NOT READY다.

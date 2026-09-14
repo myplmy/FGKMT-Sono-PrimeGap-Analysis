@@ -2445,6 +2445,106 @@
     남긴다. 이후 이 세션의 patch는 역따옴표를 데이터로만 취급하는 quoted line array와
     좁은 hunk만 사용한다.
 
+- 2026-09-14 Theory 79 동기화 중 재재발:
+  - 여러 Markdown 파일을 한 번에 갱신하는 `String.raw` patch에 기존 문맥의 Markdown
+    역따옴표를 다시 그대로 넣어 `SyntaxError: Unexpected identifier 'PAP'`가 발생했다.
+    patch parser 전에 중단돼 파일 변경·수학 결과 영향은 없었다.
+  - 직전 세션에서 같은 원인을 기록했는데도 기억에만 의존하고 기계적으로 안전한 transport를
+    강제하지 않은 재발이다.
+  - 강화: Markdown을 포함한 JavaScript raw patch에서는 역따옴표 문자를 직접 쓰지 않는다.
+    반드시 non-backtick placeholder로 payload를 만든 뒤 `replaceAll`로 마지막 한 번만
+    복원하거나, 역따옴표가 없는 좁은 hunk로 분리한다. 한 번 거부된 multi-file patch는
+    같은 크기로 재시도하지 않는다.
+  - 같은 단계의 Lean declaration 수를 282에서 283으로 고치는 두 파일 patch에서도
+    위 규칙을 다시 빠뜨려 `Unexpected identifier 'NOT_YET_FORMALIZED'`가 한 번 더
+    발생했다. 역시 parser 이전 실패로 파일 변경은 없었다. 이후 동일 patch를 placeholder
+    transport로 적용했다. 즉 이번 Theory 79 단계의 E128 재발은 총 2회다.
+
+### E129 — Theory 79 재개 중 exact-path·Windows wildcard 탐색 재발
+
+- 분류:
+  <code>READ_ONLY_PATH_DISCOVERY_RECURRING_ERROR / DETECTED_AND_CORRECTED /
+  NO_REPOSITORY_OR_SCIENTIFIC_IMPACT</code>.
+- 이번 재개에서 다음 read-only 경로 오류가 있었다.
+  1. 실제 경로가 `lean/FGKMTSono/TheoryVerification.lean`인데 과거 구조
+     `lean/PrimeGapFormalization/PrimeGapFormalization/TheoryVerification.lean`을 조회했다.
+  2. `docs/METHODS.md` 대신 루트 `METHODS.md`를 조회했다.
+  3. Theory 55의 정확한 파일명을 확인하기 전에 추정 파일명을 조회했다.
+  4. Windows `rg`에 `docs/method/theory/53_*` 같은 path wildcard를 직접 넘겨
+     OS error 123을 냈고, 바로 뒤 확인에서도 같은 패턴을 한 번 더 썼다.
+  5. 표적 unittest 모듈 목록에 존재하지 않는 `tests.test_verification_ledger`를
+     추정해 넣어 전체 명령을 exit code 1로 만들었다. 이 호출에서 실제로 발견된
+     39개 시험은 모두 통과했지만, 실패한 import를 포함한 명령 전체를 PASS로
+     취급하지 않았다. `rg --files tests`로 정본 모듈명을 확인한 뒤
+     `tests.test_threshold_proof_obligation_ledger`로 교정해 46/46 PASS를 확인했다.
+- 영향: 모두 읽기 전용 명령이 대상 파일을 찾지 못하고 끝났으며 파일, 실행 중 프로세스,
+  source 판정에는 영향이 없다. 이후 `rg --files`와 `Where-Object`로 정확한 경로를 얻어
+  재조회했다.
+- 예방:
+  1. AGENTS·최신 handoff·machine ledger가 주는 canonical locator를 먼저 사용한다.
+  2. 기억한 경로가 정확하지 않으면 `rg --files <narrow-root>`의 출력을 먼저 고정한다.
+  3. Windows에서는 path wildcard를 `rg` positional argument로 넘기지 않고 file list를
+     필터링한 뒤 `-LiteralPath` 또는 exact path만 사용한다.
+  4. 한 번 path miss가 난 이름의 변형을 추측해 연속 호출하지 않는다.
+  5. unittest 모듈명도 경로와 동일하게 `rg --files tests`에서 확인하며, 일부 시험이
+     통과했더라도 import error가 하나라도 있으면 그 호출 전체는 FAIL로 기록한다.
+
+### E130 — Theory 78 Lean PASS 기록과 현재 direct compile의 모순
+
+- 분류:
+  <code>PRIOR_VALIDATION_EVIDENCE_INCONSISTENCY / CURRENT_COMPILE_CAUGHT /
+  PROOF_DRAFT_FIXED / NO_ANALYTIC_CLAIM_PROMOTED</code>.
+- Theory 79 정리를 추가한 뒤 canonical 단일 파일을 direct compile하자
+  `Finset.card_union_le`의 집합 인수를 추론하지 못하는 오류가 세 곳에서 발생했다.
+  한 곳은 새 Theory 79였지만 두 곳은 commit `aaf300c`에 이미 들어 있던 Theory 78
+  코드였다. 해당 commit의 handoff와 완료 원장은 Theory 78 direct compile·`lake build`
+  PASS를 기록하므로 현재 고정 Lean/Mathlib 환경에서 확인된 source와 모순된다.
+- 현재 증거만으로 과거 명령이 실제로 성공했는지 확정할 저장 로그는 없다. 가장 유력한
+  절차 위험은 장시간 `exec_command`가 session id를 반환했는데 최종 exit code까지 poll하지
+  않고 무출력을 PASS로 해석한 경우다. 이는 추론이며 과거 실행의 확정 원인으로 단정하지 않는다.
+- 교정: 세 호출 모두 `Finset.card_union_le B₁ B₂`처럼 finset 인수를 명시했다.
+  그 뒤 canonical direct compile을 끝까지 poll해 exit code 0을 확인했다. theorem statement,
+  failure budget 또는 analytic 판정은 바뀌지 않았다.
+- 예방:
+  1. Lean direct compile·build는 출력이 비어 있다는 이유로 PASS 처리하지 않는다.
+  2. `exec_command`가 `session_id`를 반환하면 `write_stdin`으로 최종 `exit_code`를
+     받을 때까지 해당 검증을 PENDING으로 둔다.
+  3. handoff에는 “명령을 호출했다”가 아니라 최종 exit code와 필요하면 로그 경로를 기록한다.
+  4. Mathlib 정리의 implicit finset 인수는 여러 union이 중첩된 proof에서 명시한다.
+  5. staging 뒤 canonical direct compile과 `lake build`를 다시 실행하며 둘의 종료코드를
+     각각 확보한다.
+
+### E131 — text-integrity 검사기 CLI 추정 오류
+
+- 분류:
+  <code>VALIDATOR_INVOCATION_ERROR / INTEGRATED_GATE_ALREADY_PASS /
+  CORRECTED_WITH_DOCUMENTED_CLI / NO_FILE_OR_SCIENTIFIC_IMPACT</code>.
+- 통합 Lean validator가 242개 정본의 text-integrity issue 0을 이미 보고한 뒤, 별도
+  확인에서 `validate_text_integrity.py --repo-root .`를 호출했다. 이 검사기는
+  `--repo-root` 옵션이 없고 positional path만 받으므로 exit code 2로 끝났다.
+- 교정: `-h`와 source의 `parse_args`를 확인한 뒤 AGENTS, docs, ai_dev_tool,
+  좁은 Lean 경로, source, tests를 positional path로 넘겨 596개 파일·7,621,445 bytes,
+  issue 0, exit code 0을 확인했다.
+- 예방: 로컬 helper의 CLI는 기억이나 이웃 script의 옵션을 복사하지 않고 첫 호출 전에
+  `-h` 또는 `parse_args`를 확인한다. 통합 validator PASS와 별도 helper invocation
+  failure는 별도 증거로 기록한다.
+
+### E132 — 작업원장 후반 단계의 미래 시각 기록
+
+- 분류:
+  <code>PROVENANCE_TIMESTAMP_ERROR / DETECTED_BEFORE_COMMIT /
+  SCIENTIFIC_CONTENT_UNAFFECTED</code>.
+- Theory 79 작업원장의 후반 네 단계에 현재 시스템 시각보다 뒤인
+  `22:24`, `22:38`, `23:04`, `23:22 KST`가 이미 적혀 있었다. 2026-09-14
+  22:22 KST에 `Get-Date`, local time-zone id와 UTC 변환을 함께 대조해 이 세부 시각들이
+  검증 가능한 실제 기록이 아님을 확인했다.
+- 교정: 날짜와 단계 순서는 유지하되 네 heading을
+  `2026-09-14 KST (세부 시각 미확정)`으로 바꿨다. 수식, 파일 변경 순서, 검증 결과와
+  과학 판정은 바꾸지 않았다.
+- 예방: 작업원장 시각은 기억·요약에서 복원하지 않고 각 기록 직전에 시스템 시각을
+  조회한다. 중단 복구 때 정확한 시각 증거가 없으면 시각을 추정해 만들지 말고
+  `세부 시각 미확정`이라고 명시한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.
