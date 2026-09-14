@@ -2312,6 +2312,33 @@
   7. `TemporaryDirectory`가 많은 전체 suite는 첫 실행부터 사용자 허가 범위의 정상 로컬 권한을
      사용하며, sandbox 실패 산출물을 과학·코드 회귀 실패와 구분한다.
 
+### E125 — Theory 77 부동소수 equality와 전체 suite 실행환경 재발
+
+- 분류:
+  <code>PRE_COMMIT_TEST_ORCHESTRATION_ERRORS /
+  DETECTED_AND_CORRECTED / NO_SCIENTIFIC_RESULT_AFFECTED</code>.
+- 새 budget-ratio 시험 첫 초안은 100-dps `mpmath` 결과를 `assertEqual`로 직접 비교했다.
+  수학적으로 같은 두 계산 순서가 마지막 약 (10^{-99}) 자리에서 반올림 차이를 보여 9개 중
+  1개가 실패했다. exact 유리 항등식 시험은 그대로 유지하고 이 transcendental 계산만
+  `mp.almosteq`의 명시적 (10^{-95}) 상대 허용오차로 교정했다. 재실행은 9/9 PASS다.
+- E124에 전체 `TemporaryDirectory` suite는 처음부터 정상 로컬 권한으로 실행하라고 적었는데도
+  이번 첫 전체 suite를 sandbox에서 다시 호출했다. 기존 artifact tests가 OS temp 권한으로
+  오류를 냈으며 이를 회귀 PASS/FAIL로 채택하지 않았다. 실행 중인 FGKMT Python이 없음을
+  read-only 확인한 뒤 허가된 sandbox 외부에서 동일 suite를 재실행해 851/851 PASS,
+  88.798초를 확인했다. 저장소에 새 미추적 temp 산출물은 없었다.
+- 첫 sandbox 전체-suite wrapper도 session id를 출력하지 않아 최종 exit를 직접 회수하지
+  못했다. 관리자 CIM 조회는 access denied였고, 비관리 `Get-Process`의 executable path와
+  start time으로 해당 FGKMT process가 끝났음을 확인한 뒤 외부 재실행했다. 다른 Python
+  프로세스는 중단하지 않았다.
+- 위 문제는 commit 전 교정됐다. character energy identity, source-screen 판정,
+  `PAP-11`·`X_cert` OPEN 상태와 사용자 데이터에는 영향이 없다. `sorry`, `admit`,
+  project-local `axiom`은 사용하지 않았다.
+- 예방:
+  1. `mpmath` transcendental 결과는 exact equality가 아니라 명시적 precision-relative 비교를 쓴다.
+  2. 전체 suite는 E124 규칙대로 첫 실행부터 승인된 정상 로컬 권한으로 실행한다.
+  3. 30초 이상 command는 병렬 wrapper 안에 숨기지 말고 첫 호출부터 반환 객체/session id를
+     직렬로 보존한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

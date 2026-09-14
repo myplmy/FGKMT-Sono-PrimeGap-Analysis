@@ -42,3 +42,13 @@ fixed `2e-17`, `X_cert`는 OPEN이다.
 Lean은 Bennett cutoff no-overlap과 aggregate second-moment의 Cauchy terminal만 검사한다.
 pointwise PNT·character orthogonality·explicit formula·individual-primorial moment theorem은
 local axiom으로 넣지 않았다. PAP-11, DEP-R09, fixed `2e-17`, `X_cert`는 OPEN이다.
+
+2026-09-14 Theory 77 갱신 뒤 전수 inventory는 78개 theory 문서·1,426개 display
+수식·276개 Lean declaration이다. 상태는 `KERNEL_PASS=91`,
+`CONDITIONAL_KERNEL_PASS=58`, `DEFINITION_ONLY=80`,
+`PARTIAL_FORMALIZATION=85`, `SOURCE_THEOREM_UNFORMALIZED=80`,
+`NOT_YET_FORMALIZED=1027`, `PARSE_REVIEW_REQUIRED=5`이며 금지 proof escape는 0건이다.
+Lean은 nonprincipal energy의 실수대수, principal-separated moment terminal, Cauchy scalar
+equality와 power-regime endpoint만 검사한다. finite character orthogonality와 analytic
+variance/correlation theorem은 local axiom으로 넣지 않았다. PAP-11, DEP-R09, fixed
+`2e-17`, `X_cert`는 OPEN이다.

@@ -317,3 +317,16 @@ Theory 76 뒤 inventory는 theory 문서 77개, display 1,406식이며 전체 �
 `PARTIAL_FORMALIZATION=80`, `SOURCE_THEOREM_UNFORMALIZED=75`,
 `NOT_YET_FORMALIZED=1026`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 272개이고
 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-14 Theory 77 batch는 total·principal character energy를 뺀 nonprincipal
+identity, principal-separated moment premise에서 weighted numerator target으로 가는
+terminal, Cauchy aligned-vector scalar equality와 (d=21,186)의 zero-free-line endpoint
+대입을 단일 Lean 파일에서 검사한다. finite character orthogonality와
+Fiorilli--Martin의 analytic implication, 실제 direct weighted-correlation theorem은 local
+axiom으로 넣지 않았다.
+
+Theory 77 뒤 inventory는 theory 문서 78개, display 1,426식이며 전체 상태는
+`KERNEL_PASS=91`, `CONDITIONAL_KERNEL_PASS=58`, `DEFINITION_ONLY=80`,
+`PARTIAL_FORMALIZATION=85`, `SOURCE_THEOREM_UNFORMALIZED=80`,
+`NOT_YET_FORMALIZED=1027`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 276개이고
+금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.

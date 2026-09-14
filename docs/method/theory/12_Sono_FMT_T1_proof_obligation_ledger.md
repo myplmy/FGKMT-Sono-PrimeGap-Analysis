@@ -1091,3 +1091,23 @@ unconditional individual-primorial source는 식별하지 못했다.
 fixed $2\times10^{-17}$, $X_{\rm cert}=\mathrm{OPEN}$은 변경하지 않는다. 다음 R09 gate는
 restricted-residue/individual-primorial variance source 또는 이 missing theorem의 직접
 proof decomposition이다. 이 gate 전 threshold calculator와 장시간 prime sweep은 NOT READY다.
+
+## 46. 2026-09-14 DEP-R09 restricted-residue spectral 후속 상태
+
+[theory 77](77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md)은
+Theory 76이 제안한 character-energy 하위질문을 exact하게 닫았다. (M)개 reduced residues의
+total energy는 항상 (arphi(q)M), 비주지표 energy는 (M(arphi(q)-M))이므로 Maier
+admissible set이라는 구조만으로 unweighted (L^2) total을 줄일 수 없다. aligned-vector
+equality가 있어 total-energy Cauchy 상수도 보편적으로 sharp하다.
+
+따라서 R09의 최소 열린 입력은 full variance보다 약한 direct weighted correlation
+
+~~~text
+abs(sum_(chi != chi0) C_chi(A_y) Z_chi(Y))
+  <= (epsilon-delta0) * M * Y
+~~~
+
+이다. 같은 (y)가 Maier Lemma 6의 survivor 조건도 만족해야 하므로 modulus/y 평균 결과를
+자동 승격하지 않는다. current power regime에서 unconditional fully numerical fixed-primorial
+source는 식별되지 않았다. 66개 root row 수와 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09,
+fixed (2\times10^{-17}), (X_{\rm cert}=\mathrm{OPEN})은 변경하지 않는다.

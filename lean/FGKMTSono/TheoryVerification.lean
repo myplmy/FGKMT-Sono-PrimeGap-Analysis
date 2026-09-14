@@ -3373,4 +3373,65 @@ theorem dep_r09_aggregate_second_moment_terminal
     nlinarith
   exact (abs_le).2 ⟨hLower, hUpper⟩
 
+/-! ## Theory 77 — DEP-R09 restricted-residue variance and spectral audit -/
+
+/- Theory 77, formulas 77.7--77.9: after finite character orthogonality
+   supplies total energy phi*M and the principal character contributes M^2,
+   the nonprincipal energy is exactly M*(phi-M).  The character-theory
+   premise itself is not asserted as a project-local axiom. -/
+theorem dep_r09_nonprincipal_character_energy_identity
+    {phi M : ℝ} :
+    phi * M - M ^ 2 = M * (phi - M) := by
+  ring
+
+/- Theory 77, formulas 77.12--77.13: a principal-separated Cauchy premise
+   and the stated nonprincipal moment budget imply the weighted numerator
+   target.  No analytic estimate for secondMoment is asserted here. -/
+theorem dep_r09_principal_separated_moment_terminal
+    {epsilon delta M phi Y z secondMoment : ℝ}
+    (hDelta : delta ≤ epsilon)
+    (hM : 0 ≤ M)
+    (hY : 0 ≤ Y)
+    (hCauchy : z ^ 2 ≤ M * (phi - M) * secondMoment)
+    (hMoment :
+      secondMoment * (phi - M) ≤
+        (epsilon - delta) ^ 2 * M * Y ^ 2) :
+    |z| ≤ (epsilon - delta) * M * Y := by
+  have hSquare : z ^ 2 ≤ ((epsilon - delta) * M * Y) ^ 2 := by
+    calc
+      z ^ 2 ≤ M * (phi - M) * secondMoment := hCauchy
+      _ = M * (secondMoment * (phi - M)) := by ring
+      _ ≤ M * ((epsilon - delta) ^ 2 * M * Y ^ 2) :=
+        mul_le_mul_of_nonneg_left hMoment hM
+      _ = ((epsilon - delta) * M * Y) ^ 2 := by ring
+  have hRemaining : 0 ≤ epsilon - delta := sub_nonneg.2 hDelta
+  have hTarget : 0 ≤ (epsilon - delta) * M * Y := by
+    exact mul_nonneg (mul_nonneg hRemaining hM) hY
+  have hUpper : z ≤ (epsilon - delta) * M * Y := by
+    by_contra hNot
+    have hStrict : (epsilon - delta) * M * Y < z := lt_of_not_ge hNot
+    nlinarith
+  have hLower : -((epsilon - delta) * M * Y) ≤ z := by
+    by_contra hNot
+    have hStrict : z < -((epsilon - delta) * M * Y) := lt_of_not_ge hNot
+    nlinarith
+  exact (abs_le).2 ⟨hLower, hUpper⟩
+
+/- Theory 77, formulas 77.15--77.16: the scalar equality behind an error
+   vector aligned with the conjugate coefficient vector.  This proves only
+   that an argument using total L2 energy alone cannot improve Cauchy's
+   universal constant; it does not assert alignment for prime errors. -/
+theorem dep_r09_cauchy_alignment_scalar_equality
+    (energy scale : ℝ) :
+    (energy * scale) ^ 2 = energy * (energy * scale ^ 2) := by
+  ring
+
+/- Theory 77, formula 77.17: exact endpoint substitutions delta=1/d in
+   1/2+delta/2.  Fiorilli--Martin Proposition 2.2 is an external analytic
+   source statement and is not formalized by these arithmetic equalities. -/
+theorem dep_r09_power_regime_zero_free_endpoint_arithmetic :
+    (1 / 2 : ℝ) + 1 / (2 * 21) = 11 / 21 ∧
+      (1 / 2 : ℝ) + 1 / (2 * 186) = 187 / 372 := by
+  norm_num
+
 end FGKMTSono

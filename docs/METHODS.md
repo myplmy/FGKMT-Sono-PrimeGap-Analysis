@@ -1900,3 +1900,54 @@ numerical $X_{\rm cert}$는 계속 OPEN이다. 다음 gate는 restricted-residue
 individual-primorial variance source를 찾고, 없으면 위 second-moment inequality를 정확한
 신규 analytic theorem target으로 분해하는 것이다. 그 전에는 threshold calculator나
 장시간 prime sweep을 실행하지 않는다.
+
+## 2026-09-14 DEP-R09 제한 잔여류 분산·spectral optimality 감사
+
+[theory 77](method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md)과
+[review 85](review/85_20260914_DEPR09_restricted_residue_variance_spectral_타당성검토.md)는
+Theory 76의 aggregate second-moment 충분조건을 principal/nonprincipal branch와 실제 Maier
+consumer로 다시 분해한다.
+
+Maier printed p.267 formula (I)는 admissible columns의 total prime mass를 소비하므로
+aggregate replacement가 가능하지만, formula (II)의 close-pair upper bound는 별도 R10
+의무다. (M)개 distinct reduced residues의 exact character orthogonality는
+
+\[
+\sum_\chi |C_\chi|^2=\varphi(q)M,
+\qquad
+\sum_{\chi\ne\chi_0}|C_\chi|^2=M\{\varphi(q)-M\}
+\]
+
+을 준다. 따라서 Maier admissible set의 unweighted total energy를 일반 (M)-set보다
+낮추는 경로는 없다. Principal error가 (|Z_{\chi_0}|\le\delta_0Y)이면 sufficient
+nonprincipal budget은
+
+\[
+\sum_{\chi\ne\chi_0}|Z_\chi(Y)|^2
+\le(\varepsilon-\delta_0)^2
+\frac{MY^2}{\varphi(q)-M}
+\]
+
+이지만, Cauchy equality witness 때문에 두 total (L^2) norm만으로 보편 상수를 더 개선할
+수 없다. 이 full-moment 조건은 충분하지만 과도하게 강하다. 다음 최소 analytic target은
+
+\[
+\left|\sum_{\chi\ne\chi_0}
+C_\chi(\mathcal A_y)Z_\chi(Y)\right|
+\le(\varepsilon-\delta_0)MY
+\]
+
+인 direct weighted correlation이다.
+
+Friedlander--Goldston, Fiorilli--Martin, Vaughan, Maynard 등 peer-reviewed primary source를
+(Y=q^d, 21\le d\le186) 계약으로 대조했으나 unconditional fully numerical fixed-primorial
+drop-in은 식별하지 못했다. 평균 (y) 결과는 Maier Lemma 6이 선택하는 같은 (y)를 보장하지
+않으므로 simultaneous-selection proof가 필요하다. Lean은 energy 실수대수, moment terminal,
+Cauchy scalar equality와 (d=21,186) endpoint만 검사하고 analytic source theorem은
+local axiom으로 넣지 않는다.
+
+따라서 <code>PAP-11</code>, <code>DEP-R09</code>, fixed (2\times10^{-17}), numerical
+(X_{\rm cert})는 계속 OPEN이다. 다음 gate 전 threshold calculator와 장시간 prime sweep은
+NOT READY다. Theory 77 뒤 전수원장은 theory 문서 78개, display 식 1,426개,
+`KERNEL_PASS=91`, `CONDITIONAL_KERNEL_PASS=58`, `NOT_YET_FORMALIZED=1027`, Lean
+declaration 276개, 금지 proof escape 0건이다.

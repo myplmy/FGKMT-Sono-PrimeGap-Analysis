@@ -71,8 +71,22 @@ pointwise branch는 source cutoff가 경계에서 \(d>1257\), 첫 primorial 5105
 theorem은 아직 식별되지 않았다. Theory 76 뒤 inventory는 77개 문서, 1,406식이고
 `KERNEL_PASS=91`, `CONDITIONAL_KERNEL_PASS=56`, `NOT_YET_FORMALIZED=1026`,
 Lean declaration 272개, 금지 proof escape 0건이다. 최신 analytic 정본은
-theory 76·review 84다. PAP-11·DEP-R09·fixed 2e-17·X_cert는 계속 OPEN이며,
-다음 gate는 restricted-residue/individual-primorial variance source 감사다.
+ theory 76·review 84다. PAP-11·DEP-R09·fixed 2e-17·X_cert는 계속 OPEN이며,
+ 다음 gate는 restricted-residue/individual-primorial variance source 감사다.
+
+2026-09-14 restricted-residue variance successor는 Maier formula (I)가 aggregate prime
+mass만 소비하지만 formula (II)는 별도 pair upper bound라는 경계를 고정했다. (M)개
+distinct reduced residues의 total character energy는 항상 (arphi(q)M), 비주지표 energy는
+(M(\varphi(q)-M))이므로 Maier set의 unweighted total energy 감소 아이디어는
+`REJECTED_AS_STATED`다. Cauchy aligned-vector equality도 있어 total (L^2) 정보만으로는
+보편 개선이 없다. fixed-(q) variance·modulus 평균·large-moduli source를 대조했으나 current
+(Y=q^d, 21\le d\le186)의 fully numerical nested-primorial drop-in은 식별되지 않았다.
+다음 최소 gate는 Maier-selected ultra-short character coefficient와 prime-error vector의
+direct weighted correlation 및 Lemma 6을 보존하는 simultaneous good-(y) selection이다.
+Theory 77 뒤 inventory는 78개 문서, 1,426식이고 `KERNEL_PASS=91`,
+`CONDITIONAL_KERNEL_PASS=58`, `NOT_YET_FORMALIZED=1027`, Lean declaration 276개,
+금지 proof escape 0건이다. 최신 analytic 정본은 theory 77·review 85다. PAP-11·DEP-R09·
+fixed 2e-17·X_cert는 계속 OPEN이며 threshold calculator·장시간 prime 계산은 NOT READY다.
 
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은

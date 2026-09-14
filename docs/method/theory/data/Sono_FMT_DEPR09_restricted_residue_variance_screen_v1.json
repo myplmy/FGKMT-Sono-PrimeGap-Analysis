@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 restricted-residue and individual-primorial variance source audit",
+  "predecessor": "Sono_FMT_DEPR09_preabsolute_moment_source_screen_v1.json",
+  "outcome": "NO_NUMERICAL_FIXED_PRIMORIAL_VARIANCE_DROP_IN_TOTAL_CHARACTER_ENERGY_CANNOT_BE_IMPROVED_DIRECT_WEIGHTED_CORRELATION_IS_THE_MINIMAL_OPEN_TARGET",
+  "normalization": {
+    "maier_modulus": "q=P(x)",
+    "outer_prime_scale": "Y=q^d",
+    "current_capacity": "21<=d<=186",
+    "printed_relative_budget": "epsilon=exp(-2)",
+    "maier_residue_set": "A_y={y+s mod q: 1<=s<=U, gcd(y+s,q)=1}",
+    "residue_count": "M=card(A_y)",
+    "principal_error_input": "abs(Z_chi0(Y))<=delta0*Y with 0<=delta0<epsilon"
+  },
+  "source_registry": [
+    {
+      "key": "MAIER1981",
+      "title": "Chains of Large Gaps between Consecutive Primes",
+      "locator": "article/Maier 1981.pdf",
+      "doi": "10.1016/0001-8708(81)90003-7",
+      "sha256": "ca6f2425b850dd5f9d81340d8a4a4c76faf6a947d7486ebf87ff072adbf0a3eb",
+      "printed_pages": "258, 263, 266--268",
+      "statements": "matrix definition, Lemma 6, conclusion formulas (I)--(II)",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "classification": "PRIMARY_PEER_REVIEWED_FORMULA_I_USES_TOTAL_ADMISSIBLE_COLUMN_PRIME_MASS_FORMULA_II_REMAINS_SEPARATE_PAIR_INPUT"
+    },
+    {
+      "key": "FRIEDLANDER_GOLDSTON1996",
+      "title": "Variance of Distribution of Primes in Residue Classes",
+      "doi": "10.1093/qmath/47.3.313",
+      "url": "https://doi.org/10.1093/qmath/47.3.313",
+      "classification": "PRIMARY_PEER_REVIEWED_FIXED_Q_VARIANCE_RELEVANT_BUT_NO_UNCONDITIONAL_FULLY_NUMERICAL_POWER_REGIME_DROP_IN_IDENTIFIED"
+    },
+    {
+      "key": "FIORILLI2013",
+      "title": "The Distribution of the Variance of Primes in Arithmetic Progressions",
+      "arxiv": "1301.5663",
+      "url": "https://arxiv.org/abs/1301.5663",
+      "classification": "PRIMARY_PUBLISHED_CONDITIONAL_MODERATE_Q_DISTRIBUTION_AND_HEURISTIC_NOT_A_NUMERICAL_UNCONDITIONAL_DROP_IN"
+    },
+    {
+      "key": "FIORILLI_MARTIN2023",
+      "title": "Disproving Hooley's Conjecture",
+      "doi": "10.4171/JEMS/1291",
+      "arxiv": "2008.05837",
+      "url": "https://ems.press/journals/jems/articles/8095586",
+      "statements": "Theorems 1.1--1.3 and Proposition 2.2",
+      "classification": "PRIMARY_PEER_REVIEWED_FULL_NATURAL_VARIANCE_FALSE_IN_SMALL_LOGARITHMIC_REGIME_AND_POWER_REGIME_UNIFORM_BOUND_IMPLIES_ZERO_FREE_STRIP"
+    },
+    {
+      "key": "VAUGHAN2001",
+      "title": "On a Variance Associated with the Distribution of General Sequences in Arithmetic Progressions",
+      "doi": "10.1112/S0024611501000081",
+      "classification": "PRIMARY_PEER_REVIEWED_MODULUS_AVERAGE_WRONG_FIXED_PRIMORIAL_QUANTIFIER"
+    },
+    {
+      "key": "MAYNARD2025",
+      "title": "Primes in Arithmetic Progressions to Large Moduli III: Uniform Residue Classes",
+      "arxiv": "2006.08250",
+      "doi": "10.1090/memo/1544",
+      "url": "https://arxiv.org/abs/2006.08250",
+      "classification": "PRIMARY_PEER_REVIEWED_MEAN_VALUE_FOR_MODULI_ABOVE_SQRT_Y_WITH_CONVENIENT_DIVISORS_WRONG_REGIME_AND_QUANTIFIER"
+    },
+    {
+      "key": "MONTGOMERY_VAUGHAN1986",
+      "title": "On the Distribution of Reduced Residues",
+      "doi": "10.2307/1971274",
+      "classification": "PRIMARY_PEER_REVIEWED_REDUCED_RESIDUE_STATISTICS_DO_NOT_CONTROL_CORRELATION_WITH_PRIME_ERROR_FOR_MAIER_SELECTED_Y"
+    }
+  ],
+  "maier_consumer_audit": {
+    "formula_i": "total primes in the full matrix is bounded below by C3*E*q^(D-1)",
+    "formula_i_can_be_replaced_by_an_aggregate_column_mass_theorem": true,
+    "formula_ii": "small prime pairs are bounded separately using Lemma 3 and admissible-column pair counts",
+    "formula_ii_replaced_by_the_variance_redesign": false,
+    "average_over_all_translates_is_automatically_enough": false,
+    "reason": "the selected y must also satisfy Maier Lemma 6; a separate simultaneous-selection argument is required"
+  },
+  "exact_character_algebra": {
+    "coefficient": "C_chi(A)=sum_(a in A) conjugate(chi(a))",
+    "total_energy": "sum_chi abs(C_chi(A))^2=phi(q)*M",
+    "principal_coefficient": "C_chi0(A)=M",
+    "nonprincipal_energy": "sum_(chi!=chi0) abs(C_chi(A))^2=M*(phi(q)-M)",
+    "consequence": "the unweighted L2 energy cannot be smaller for the Maier set than for another M-element reduced-residue set",
+    "cauchy_sharpness": "an arbitrary error vector proportional to conjugate(C_chi(A)) attains equality",
+    "scope": "sharpness is for arguments using only total L2 norms; it does not exclude analytic decorrelation of the actual prime-error vector"
+  },
+  "corrected_sufficient_contract": {
+    "principal_input": "abs(Z_chi0(Y))<=delta0*Y",
+    "nonprincipal_full_moment_budget": "sum_(chi!=chi0) abs(Z_chi(Y))^2<=(epsilon-delta0)^2*M*Y^2/(phi(q)-M)",
+    "direct_weighted_target": "abs(sum_(chi!=chi0) C_chi(A_y)*Z_chi(Y))<=(epsilon-delta0)*M*Y",
+    "interpretation": "the full moment budget is sufficient but stronger than necessary; the direct weighted correlation target is the minimal current analytic input"
+  },
+  "source_screen": {
+    "fixed_q_variance_drop_in_count": 0,
+    "modulus_average_drop_in_count": 0,
+    "fully_numerical_individual_primorial_drop_in_count": 0,
+    "direct_weighted_correlation_drop_in_count": 0,
+    "fiorilli_martin_warning": "a uniform Hooley-sized full variance bound at q approximately Y^delta implies a zero-free half-plane Re(s)>1/2+delta/2",
+    "current_delta_range": "1/186<=delta<=1/21",
+    "warning_scope": "this does not refute the weaker Maier-weighted correlation target"
+  },
+  "exact_algebra_diagnostic": {
+    "toy_phi_q": 92160,
+    "toy_residue_count": 17,
+    "total_character_energy": 1566720,
+    "principal_character_energy": 289,
+    "nonprincipal_character_energy": 1566431,
+    "energy_decomposition_exact": true,
+    "separated_over_legacy_ratio_delta0_zero": "1.0001844958379909488512420910975331821190974897713336878547475120193612102926972",
+    "separated_over_legacy_ratio_delta0_epsilon_over_10": "0.81014944162877266856950609378900187751646896671478028716234548473568258033708475",
+    "cauchy_total_energy_constant_improvable_without_extra_structure": false,
+    "d_min_zero_free_boundary_fraction": "11/21",
+    "d_max_zero_free_boundary_fraction": "187/372",
+    "maier_formula_i_uses_aggregate_prime_mass": true,
+    "maier_formula_ii_remains_independent_pair_bound": true,
+    "fully_numerical_fixed_primorial_variance_drop_in_identified": false,
+    "direct_weighted_correlation_theorem_identified": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "status_after_this_gate": {
+    "maier_formula_i_aggregate_consumer_confirmed": true,
+    "maier_formula_ii_still_requires_separate_pair_bound": true,
+    "unweighted_character_energy_subquestion_closed": true,
+    "unweighted_character_energy_improvement_possible": false,
+    "full_variance_is_sufficient_but_overstrong": true,
+    "fully_numerical_fixed_primorial_variance_source_identified": false,
+    "direct_weighted_correlation_source_identified": false,
+    "all_weighted_or_correlation_proofs_impossible": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "user_compute_required_now": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "next_gate": "Analyze the direct weighted correlation between Maier's ultra-short shifted character sums C_chi(A_y) and the prime-error vector Z_chi(Y), including a simultaneous selection condition preserving Maier Lemma 6; do not replace it by an unproved full natural-variance assumption."
+}

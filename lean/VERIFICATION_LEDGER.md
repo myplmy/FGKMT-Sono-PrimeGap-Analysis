@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-14 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 77개
-- 전수 단위: Markdown fenced code 밖 display math 1,406개
-- 원래 식번호: 876개, 합성 ID 무번호식: 530개
+- 원문 범위: `docs/method/theory/*.md` 78개
+- 전수 단위: Markdown fenced code 밖 display math 1,426개
+- 원래 식번호: 896개, 합성 ID 무번호식: 530개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -63,11 +63,11 @@
 | 상태 | 항목 수 |
 |---|---:|
 | `KERNEL_PASS` | 91 |
-| `CONDITIONAL_KERNEL_PASS` | 56 |
-| `DEFINITION_ONLY` | 73 |
-| `PARTIAL_FORMALIZATION` | 80 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 75 |
-| `NOT_YET_FORMALIZED` | 1,026 |
+| `CONDITIONAL_KERNEL_PASS` | 58 |
+| `DEFINITION_ONLY` | 80 |
+| `PARTIAL_FORMALIZATION` | 85 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 80 |
+| `NOT_YET_FORMALIZED` | 1,027 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `1e9e4ce22a7149b7…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `dbdefe178a42db1d…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `b69167714f4d2ef1…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `505c4030fc514fb6…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -154,6 +154,7 @@
 | 74 | [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | `636bbc4bac58f7f6…` | 18 | 18 | 0 | 12 |
 | 75 | [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | `74bf91c06fadb6e9…` | 19 | 19 | 0 | 10 |
 | 76 | [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | `431cdcc59fd58068…` | 25 | 25 | 0 | 23 |
+| 77 | [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | `0e2c9a2dce6e7ba1…` | 20 | 20 | 0 | 19 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1571,6 +1572,26 @@
 | 1404 | `76.23` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 276–281 | <code>\boxed{ \sum_{\chi\bmod q}&#124;Z_\chi(Y)&#124;^2 \le\varepsilon^2M\frac{Y^2}{\varphi(q)}.} \tag{76.23}</code> | `dep_r09_aggregate_second_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | M-times second-moment budget에서 aggregate error 목표로의 종단 합성을 조건부 커널 검증 |
 | 1405 | `76.24` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 292–296 | <code>\sum_{\chi\bmod q}&#124;Z_\chi(Y)&#124;^2 \le C\varphi(q)Y\log q \tag{76.24}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | 필요한 hypothetical individual-primorial natural-order variance theorem; 현재 source 없음 |
 | 1406 | `76.25` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 300–303 | <code>C\varphi(q)^2\log q\le\varepsilon^2MY. \tag{76.25}</code> | — | `PARTIAL_FORMALIZATION` | hypothetical variance에서 필요한 scale condition으로의 대수; analytic premise 미확보 |
+| 1407 | `77.1` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 24–27 | <code>\boxed{\text{현재 계약에 바로 들어가는 fully numerical source는 식별되지 않았다.}} \tag{77.1}</code> | — | `NOT_YET_FORMALIZED` | restricted-residue variance source-screen 결론; 전역 불가능성 명제가 아님 |
+| 1408 | `77.2` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 43–47 | <code>a_{r,s}=y+s+rq, \qquad 1\le r\le q^{D-1},\quad 1\le s\le U \tag{77.2}</code> | — | `DEFINITION_ONLY` | Maier printed matrix 정의 전사 |
+| 1409 | `77.3` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 52–57 | <code>\mathcal A_y= \{,y+s\pmod q:1\le s\le U,\ (y+s,q)=1,\}, \qquad M=&#124;\mathcal A_y&#124; \tag{77.3}</code> | — | `DEFINITION_ONLY` | Maier admissible residue 집합 정의 전사 |
+| 1410 | `77.4` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 62–65 | <code>&#124;\mathcal P&#124;\ge C_3E q^{D-1}. \tag{77.4}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Maier p.267 formula (I) source lower bound; Lean 독립 proof 없음 |
+| 1411 | `77.5` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 73–77 | <code>\#\{\text{small prime pairs}\} &lt; C_4E^2q^{D-1}/A. \tag{77.5}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Maier p.267 formula (II) source pair upper bound; R10에서 별도 명시화 필요 |
+| 1412 | `77.6` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 88–92 | <code>C_\chi(\mathcal A) :=\sum_{a\in\mathcal A}\overline{\chi(a)} \tag{77.6}</code> | — | `DEFINITION_ONLY` | admissible-set character coefficient 정의 |
+| 1413 | `77.7` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 97–101 | <code>\sum_{\chi\bmod q}&#124;C_\chi(\mathcal A)&#124;^2 =\varphi(q)M. \tag{77.7}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | finite character orthogonality source theorem; Lean 미형식화 |
+| 1414 | `77.8` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 105–108 | <code>&#124;C_{\chi_0}(\mathcal A)&#124;^2=M^2, \tag{77.8}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | principal-character coefficient M의 finite character fact; Lean 미형식화 |
+| 1415 | `77.9` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 110–116 | <code>\boxed{ \sum_{\substack{\chi\bmod q\\\chi\ne\chi_0}} &#124;C_\chi(\mathcal A)&#124;^2 =\varphi(q)M-M^2=M\{\varphi(q)-M\}.} \tag{77.9}</code> | `dep_r09_nonprincipal_character_energy_identity` | `PARTIAL_FORMALIZATION` | total과 principal energy에서 nonprincipal energy를 빼는 실수대수만 커널 검증 |
+| 1416 | `77.10` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 126–130 | <code>E_q(a;Y)=\frac1{\varphi(q)} \sum_{\chi\bmod q}\overline{\chi(a)}Z_\chi(Y) \tag{77.10}</code> | — | `DEFINITION_ONLY` | Theory 76 character explicit-formula normalization 재사용 정의 |
+| 1417 | `77.11` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 134–137 | <code>&#124;Z_{\chi_0}(Y)&#124;\le\delta_0Y \tag{77.11}</code> | — | `DEFINITION_ONLY` | principal relative-error 입력 계약 정의 |
+| 1418 | `77.12` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 141–148 | <code>\left&#124; \sum_{\chi\ne\chi_0}C_\chi(\mathcal A)Z_\chi(Y) \right&#124;^2 \le M\{\varphi(q)-M\} \sum_{\chi\ne\chi_0}&#124;Z_\chi(Y)&#124;^2. \tag{77.12}</code> | `dep_r09_principal_separated_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | nonprincipal Cauchy premise 이후 scalar terminal 합성을 조건부 커널 검증 |
+| 1419 | `77.13` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 152–159 | <code>\boxed{ \sum_{\chi\ne\chi_0}&#124;Z_\chi(Y)&#124;^2 \le (\varepsilon-\delta_0)^2 \frac{M Y^2}{\varphi(q)-M}.} \tag{77.13}</code> | `dep_r09_principal_separated_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | principal-separated moment budget에서 weighted target으로의 합성을 조건부 커널 검증 |
+| 1420 | `77.14` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 163–166 | <code>\frac{\varphi(q)}{\varphi(q)-M}. \tag{77.14}</code> | — | `PARTIAL_FORMALIZATION` | 두 충분 budget의 exact ratio; Python exact/high-precision 검산 |
+| 1421 | `77.15` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 179–183 | <code>Z_\chi=t\,\overline{C_\chi(\mathcal A)} \quad(\chi\ne\chi_0) \tag{77.15}</code> | — | `DEFINITION_ONLY` | Cauchy equality를 만드는 abstract aligned error-vector 정의 |
+| 1422 | `77.16` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 187–192 | <code>t^2\left( \sum_{\chi\ne\chi_0}&#124;C_\chi(\mathcal A)&#124;^2 \right)^2 \tag{77.16}</code> | `dep_r09_cauchy_alignment_scalar_equality` | `PARTIAL_FORMALIZATION` | alignment equality의 scalar 항등식만 커널 검증; actual prime-error alignment 주장이 아님 |
+| 1423 | `77.17` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 218–221 | <code>\Re(s)&gt;\frac12+\frac1{2d} \tag{77.17}</code> | `dep_r09_power_regime_zero_free_endpoint_arithmetic` | `PARTIAL_FORMALIZATION` | Fiorilli--Martin source implication은 미형식화; d=21,186 endpoint 대입만 커널 검증 |
+| 1424 | `77.18` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 232–240 | <code>\boxed{ \left&#124; \sum_{\chi\ne\chi_0} C_\chi(\mathcal A_y)Z_\chi(Y) \right&#124; \le(\varepsilon-\delta_0)MY.} \tag{77.18}</code> | — | `DEFINITION_ONLY` | 현재 필요한 direct weighted-correlation analytic target 정의 |
+| 1425 | `77.19` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 244–248 | <code>C_\chi(\mathcal A_y) =\sum_{1\le s\le U}\overline{\chi(y+s)}. \tag{77.19}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Dirichlet character의 nonunit zero convention에서 오는 shifted-sum identity; Lean 미형식화 |
+| 1426 | `77.20` | T77 [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | 252–256 | <code>U=E x\frac{\log x\,\log_3x}{(\log_2x)^2} =q^{o(1)} \tag{77.20}</code> | — | `PARTIAL_FORMALIZATION` | Maier U 정의와 q^(o(1)) scale; analytic asymptotic 미형식화 |
 
 ## 9. 발견된 원문·작업 오류
 
