@@ -2100,3 +2100,63 @@ Theory 81 뒤 전수원장은 theory 82개, display 식 1,499개, Lean declarati
 금지 proof escape는 0건이다. <code>PAP-11</code>, DEP-R09, fixed
 (2\times10^{-17}), numerical (X_{\rm cert})는 계속 OPEN이다. 새 bounded range가
 없으므로 threshold calculator와 장시간 prime 계산은 NOT READY다.
+
+## 2026-09-15 DEP-R09 outer entropy·convolution second-moment reduction
+
+[theory 82](method/theory/82_Sono_FMT_DEPR09_outer_entropy_convolution_second_moment.md)와
+[review 90](review/90_20260915_DEPR09_outer_entropy_convolution_second_moment_타당성검토.md)은
+Theory 81의 첫 다음 경로를 actual FMT law에서 한 단계 닫았다.
+
+FMT의 outer residue \(A_s\bmod s\), \(s\in\mathcal S\)는 서로 독립인 균등변수이고
+final extension에서도 보존된다. 따라서
+\(Q_{\mathcal S}=\prod_{s\in\mathcal S}s\)라 하면, inner covering output이 outer
+draw에 적응적으로 의존해도 임의의 final CRT shift에
+
+\[
+\Pr(m_\omega=r)\le Q_{\mathcal S}^{-1}
+\]
+
+가 성립한다. final shift 전체가 uniform이거나 outer·inner가 독립이라고 주장하지 않는다.
+
+nonprincipal residue error를 \(e(a;Y)\), character energy를
+\(V=\sum_{\chi\ne\chi_0}|Z_\chi(Y)|^2\), fixed interval 크기를 \(N\)이라 하면 finite
+Parseval과 cyclic convolution Cauchy로
+
+\[
+\sum_{m\bmod q}|R(m)|^2\le\varphi(q)N^2V.
+\]
+
+Theory 81과 같은 \(S_{\rm sieve}\) indicator를 보존해
+
+\[
+\rho_S\le\frac{\varphi(q)N^2}{Q_{\mathcal S}}V
+\]
+
+를 얻었다. 그러므로 새로운 정확한 충분조건은
+
+\[
+V<
+\tau^2p_*
+\frac{Q_{\mathcal S}M_{\min}^2Y^2}{\varphi(q)N^2}.
+\]
+
+Dusart Theorem 5.2는 \(Q_{\mathcal S}\)의 계산 가능한 theta-function 하한을 준다.
+그러나 trivial characterwise certificate는 여전히 대략
+\(\varphi(q)^2/Q_{\mathcal S}\)의 지수적 손실이 남는다. Davenport--Erdos의
+prime-modulus uniform-shift identity, Friedlander--Goldston·Vaughan fixed-modulus
+variance, BDH modulus 평균과 moving-interval 결과 중 actual prescribed primorial에
+fully numerical multiplier·공통 cutoff를 주는 drop-in source는 확인되지 않았다.
+
+exact Python 13개와 Lean direct compile은 통과했다. Lean은 raw-moment 합성과 strict
+terminal gate만 premise를 받아 검증하며 character orthogonality나 analytic prime-error
+energy를 local axiom으로 넣지 않았다.
+
+Theory 82 뒤 전수원장은 theory 83개, display 식 1,528개, Lean declaration 295개다.
+상태는 <code>KERNEL_PASS=94</code>, <code>CONDITIONAL_KERNEL_PASS=69</code>,
+<code>DEFINITION_ONLY=113</code>, <code>PARTIAL_FORMALIZATION=112</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=92</code>,
+<code>NOT_YET_FORMALIZED=1043</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. fully numerical fixed-primorial character-energy
+upper bound, <code>PAP-11</code>, DEP-R09, fixed \(2\times10^{-17}\)와 numerical
+\(X_{\rm cert}\)는 계속 OPEN이다. 새 bounded range가 없으므로 threshold calculator와
+장시간 prime 계산은 NOT READY다.

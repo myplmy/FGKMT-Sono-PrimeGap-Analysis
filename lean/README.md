@@ -423,3 +423,26 @@ Theory 81 뒤 inventory는 theory 문서 82개, display 1,499식이며 전체 �
 <code>NOT_YET_FORMALIZED=1031</code>, <code>PARSE_REVIEW_REQUIRED=5</code>다.
 declaration은 293개이고 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed
 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-15 Theory 82 batch는 FMT outer residue의 uniform law와 final-coordinate
+보존에서 final CRT shift atom cap \(1/Q_{\mathcal S}\)를 얻고, finite Parseval과
+cyclic convolution을 actual final sieve-good raw moment에 합성했다. Lean은
+<code>rawMoment <= shiftEnergy/Q</code>와 convolution energy premise를 결합하는
+terminal 및 strict character-energy gate에서 Theory-81 normalized gate로 가는 실수
+부등식만 검사한다. FMT probability law, finite character orthogonality, 복소수
+convolution Cauchy와 analytic prime-error energy upper는 local axiom으로 넣지 않았다.
+
+canonical direct compile은 exit code 0이었다. 전수 inventory refresh·validation도
+PASS했고 <code>sorry</code>, <code>admit</code>, project-local <code>axiom</code>은
+0건이다.
+독립 전체 build도 <code>Build completed successfully (8765 jobs)</code>,
+exit code 0으로 끝났다.
+
+Theory 82 뒤 inventory는 theory 문서 83개, display 1,528식이며 전체 상태는
+<code>KERNEL_PASS=94</code>, <code>CONDITIONAL_KERNEL_PASS=69</code>,
+<code>DEFINITION_ONLY=113</code>, <code>PARTIAL_FORMALIZATION=112</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=92</code>,
+<code>NOT_YET_FORMALIZED=1043</code>, <code>PARSE_REVIEW_REQUIRED=5</code>다.
+declaration은 295개이고 금지 proof escape는 0건이다. fully numerical
+fixed-primorial character-energy upper, PAP-11, DEP-R09, fixed 2e-17과 X_cert는
+계속 OPEN이다.

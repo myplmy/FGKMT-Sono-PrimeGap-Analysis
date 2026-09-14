@@ -3709,4 +3709,62 @@ theorem dep_r09_character_phase_counterexample_arithmetic :
     |((1 : ℤ) + 0 + 1) - (1 + (-1) + (-1))| > 2 := by
   norm_num
 
+/-! ## Theory 82 — DEP-R09 outer entropy and convolution second moment -/
+
+/- Theory 82, formulas 82.16--82.17: once the event-and-shift atom cap
+   supplies rawMoment <= shiftEnergy/Q and the finite convolution argument
+   supplies shiftEnergy <= phi*N^2*V, division by positive Q preserves the
+   combined raw-moment upper bound.  Neither analytic premise is asserted
+   by this scalar terminal theorem. -/
+theorem dep_r09_outer_entropy_raw_moment_terminal
+    {rawMoment shiftEnergy phi N V Q : ℝ}
+    (hQ : 0 < Q)
+    (hAtom : rawMoment ≤ shiftEnergy / Q)
+    (hEnergy : shiftEnergy ≤ phi * N ^ 2 * V) :
+    rawMoment ≤ phi * N ^ 2 * V / Q := by
+  exact hAtom.trans (div_le_div_of_nonneg_right hEnergy hQ.le)
+
+/- Theory 82, formulas 82.3 and 82.17--82.19: the strict
+   character-energy gate implies the corrected Theory-81 normalized
+   moment gate.  The outer atom cap, finite Parseval/convolution estimate,
+   survivor floor, and analytic estimate for V remain audited premises. -/
+theorem dep_r09_outer_entropy_character_energy_gate
+    {rawMoment V phi N Q minimumSurvivors primeScale tau pStar : ℝ}
+    (hPhi : 0 < phi)
+    (hN : 0 < N)
+    (hQ : 0 < Q)
+    (hMinimum : 0 < minimumSurvivors)
+    (hScale : 0 < primeScale)
+    (hRaw : rawMoment ≤ phi * N ^ 2 * V / Q)
+    (hV :
+      V <
+        tau ^ 2 * pStar * Q * minimumSurvivors ^ 2 * primeScale ^ 2 /
+          (phi * N ^ 2)) :
+    rawMoment / (minimumSurvivors ^ 2 * primeScale ^ 2) <
+      tau ^ 2 * pStar := by
+  have hN2 : 0 < N ^ 2 := sq_pos_of_pos hN
+  have hPhiN2 : 0 < phi * N ^ 2 := mul_pos hPhi hN2
+  have hMinimum2 : 0 < minimumSurvivors ^ 2 :=
+    sq_pos_of_pos hMinimum
+  have hScale2 : 0 < primeScale ^ 2 := sq_pos_of_pos hScale
+  have hDenominator :
+      0 < minimumSurvivors ^ 2 * primeScale ^ 2 :=
+    mul_pos hMinimum2 hScale2
+  have hVScaled :
+      V * (phi * N ^ 2) <
+        tau ^ 2 * pStar * Q * minimumSurvivors ^ 2 * primeScale ^ 2 :=
+    (lt_div_iff₀ hPhiN2).mp hV
+  have hModelStrict :
+      phi * N ^ 2 * V / Q <
+        (tau ^ 2 * pStar) *
+          (minimumSurvivors ^ 2 * primeScale ^ 2) := by
+    apply (div_lt_iff₀ hQ).2
+    simpa only [mul_assoc, mul_left_comm, mul_comm] using hVScaled
+  have hRawStrict :
+      rawMoment <
+        (tau ^ 2 * pStar) *
+          (minimumSurvivors ^ 2 * primeScale ^ 2) :=
+    lt_of_le_of_lt hRaw hModelStrict
+  exact (div_lt_iff₀ hDenominator).2 hRawStrict
+
 end FGKMTSono

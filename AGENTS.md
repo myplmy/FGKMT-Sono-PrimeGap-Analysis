@@ -137,6 +137,19 @@ FGKMT Theorem 3은 nibble 내부 conditional independence만 주며 final global
 actual same-law moment·PAP-11·DEP-R09·fixed (2\times10^{-17})·(X_{\rm cert})는
 계속 OPEN이고 threshold calculator·장시간 prime 계산은 NOT READY다.
 
+2026-09-15 outer-entropy successor는 FMT outer coordinates의 exact uniform law와
+final coordinate 보존으로 \(\Pr(S_{\rm sieve},m_\omega=r)\le1/Q_{\mathcal S}\)를
+얻고, finite Parseval·cyclic convolution을 합쳐
+\(\rho_S\le\varphi(q)N^2V(Y,q)/Q_{\mathcal S}\)로 줄였다. 따라서 새 strict gate는
+\(V<\tau^2p_*Q_{\mathcal S}M_{\min}^2Y^2/(\varphi(q)N^2)\)다. 이는 actual-law
+exact reduction이지만 fully numerical fixed-primorial \(V\) 상계가 없어
+PAP-11·DEP-R09·fixed \(2\times10^{-17}\)·\(X_{\rm cert}\)는 계속 OPEN이다.
+Theory 82 뒤 inventory는 83개 문서, 1,528식이고
+<code>KERNEL_PASS=94</code>, <code>CONDITIONAL_KERNEL_PASS=69</code>,
+<code>NOT_YET_FORMALIZED=1043</code>, Lean declaration 295개, 금지 proof escape
+0건이다. 최신 analytic 정본은 theory 82·review 90이며 threshold calculator·장시간
+prime 계산은 NOT READY다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는
@@ -594,6 +607,10 @@ Codex의 저장소 스킬 정본 발견 경로는 `.agents/skills/`다. 현재 �
   failing command나 diff가 없으면 과거 사건으로만 표시하며, 현재형 재수정 안내를 하지 않는다.
 - Lean direct compile·`lake build` 같은 비동기 검증은 process/session id를 PASS로 보지 않는다.
   최종 `exit_code`를 받을 때까지 PENDING이며, handoff와 작업원장에는 종료코드를 적는다.
+- verification wrapper는 repository root를 workdir로 두고 절대 script 경로
+  `Z:\FGKMT-Sono-PrimeGap-Analysis\lean\tools\refresh_and_validate_verification_ledger.py`를
+  사용하는 한 형식으로 고정한다. workdir를 이미 `lean`으로 둔 상태에서 script 경로에
+  `lean\`을 다시 붙이지 않는다.
 - 2026-09-10 기준 Theory 01의 `F(x)`는 `x > exp(exp(exp(1)))`에서 양수이고
   엄격히 증가하며, 양의 end-bounded 정수 plateau의 오른쪽 끝점 minimum도
   proof escape 없이 `KERNEL_PASS`다. `G_end(x)=g_i`의 finite-record 상수성 전체는

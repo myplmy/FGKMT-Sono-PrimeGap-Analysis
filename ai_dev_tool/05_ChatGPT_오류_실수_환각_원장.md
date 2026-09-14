@@ -2818,6 +2818,205 @@
   각 동기화 파일을 작은 patch로 나눠 적용한다. 여러 파일 patch에서는 기억한 줄바꿈을
   문맥으로 사용하지 않는다.
 
+### E146 — LaTeX가 섞인 locator를 일반 정규식으로 실행
+
+- 분류:
+  <code>READ_ONLY_SEARCH_PATTERN_ERROR / CORRECTED_WITH_FIXED_STRING /
+  FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- DEP-R09 식 locator를 찾는 첫 검색에서 LaTeX backslash와 괄호를 일반 정규식으로
+  넘겨 regex parse가 exit code 1로 끝났다.
+- 영향: 읽기 전용 검색이었고 출력은 source 증거로 사용하지 않았다.
+- 교정·예방: 수식·경로·theorem 이름처럼 정규식 기능이 필요 없는 locator는 처음부터
+  <code>rg -F</code>로 찾는다. 정규식이 정말 필요한 경우에만 pattern을 작은 단위로
+  분리해 먼저 시험한다.
+
+### E147 — Windows wildcard path 오류의 재발
+
+- 분류:
+  <code>READ_ONLY_WINDOWS_PATH_ERROR / REPEATED_KNOWN_PATTERN /
+  CORRECTED / FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- source 후보를 찾는 과정에서 Windows 명령 인수에 wildcard path를 직접 넣어
+  OS error 123이 다시 발생했다.
+- 영향: 파일은 읽거나 쓰지 못한 채 명령만 실패했고 scientific 판정에 쓰지 않았다.
+- 교정·예방: Windows file selection은 <code>rg --files 정확한_상위폴더</code> 출력에
+  두 번째 fixed-string filter를 적용하거나 <code>-g</code>를 사용한다. shell wildcard를
+  path 인수로 직접 전달하지 않는다.
+
+### E148 — 이미 번호가 고정된 theory 파일명을 기억으로 추정
+
+- 분류:
+  <code>READ_ONLY_CANONICAL_PATH_GUESS / REPEATED_E129_E138_PATTERN /
+  CORRECTED / FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- Theory 81·review 89와 Theory 78--80·Theory 49를 읽는 첫 호출에서 실제 파일명을
+  확인하지 않고 suffix를 추정해 file-not-found가 발생했다.
+- 영향: 읽기 전용이며 잘못 추정한 파일 내용은 어떠한 수식·판정에도 사용하지 않았다.
+  바로 <code>rg --files docs</code>의 exact locator로 교정했다.
+- 구조적 예방: 번호를 알고 있어도 filename suffix는 canonical로 간주하지 않는다.
+  새 batch의 첫 read 목록은 <code>rg --files</code>로 한 번 materialize한 exact
+  allowlist에서만 만든다.
+
+### E149 — canonical index·METHODS 위치를 추정
+
+- 분류:
+  <code>READ_ONLY_INDEX_PATH_GUESS / CORRECTED /
+  FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- 존재하지 않는 <code>docs/review/00_문헌_및_타당성검토_색인.md</code>와 repository
+  root의 <code>METHODS.md</code>를 먼저 조회했다. 실제 파일은
+  <code>docs/review/00_문헌_종합_분석.md</code>와 <code>docs/METHODS.md</code>다.
+- 영향: 두 조회만 실패했고 정본 수정은 exact path 확인 뒤 수행했다.
+- 예방: index·METHODS도 다른 파일과 동일하게 <code>rg --files</code> locator를 먼저
+  고정한다. 익숙한 일반명은 이 저장소의 실제 경로를 대체하지 않는다.
+
+### E150 — Friedlander--Goldston PDF 후보 URL이 HTML/404를 반환
+
+- 분류:
+  <code>SOURCE_RETRIEVAL_FAILURE / NO_FALSE_PDF_USE /
+  METADATA_ONLY_FALLBACK / SCIENTIFIC_IMPACT_NONE_FOR_CURRENT_REDUCTION</code>.
+- CiteseerX 후보 URL에서 원문 PDF를 받으려 했으나 Wayback HTML/404가 반환됐고
+  파일은 생성되지 않았다.
+- 영향: 해당 응답을 논문 원문이나 theorem evidence로 사용하지 않았다. 공식 journal
+  metadata와 abstract는 논문의 주제·서지 확인에만 썼고, exact theorem-level
+  drop-in 판정은 확보되지 않은 상태로 남겼다.
+- 예방: 다운로드 뒤 content type·magic bytes·hash를 확인하기 전에는 PDF로 기록하지
+  않는다. 향후 이 논문의 exact theorem을 채택하려면 accessible primary copy를 별도로
+  확보하고 원문 식·양화사·cutoff를 다시 감사한다.
+
+### E151 — 여러 정본을 한 patch로 동기화하며 문맥을 다시 추정
+
+- 분류:
+  <code>APPLY_PATCH_CONTEXT_MISMATCH / REPEATED_E145_PATTERN /
+  ATOMIC_REJECTION / FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- Theory 82 후속 내용을 METHODS, review index, 종합리뷰와 T1 원장에 한 번에 넣으려던
+  첫 patch에서 review index의 실제 줄바꿈을 다르게 추정해 전체 patch가 거부됐다.
+- 영향: apply_patch가 원자적으로 거부해 어느 파일도 부분 변경되지 않았다.
+- 교정: 각 파일의 exact EOF 문맥을 다시 읽고 파일별 작은 patch로 적용했다.
+- 구조적 예방: 서로 다른 정본을 갱신할 때는 multi-file patch로 round trip을 줄이지
+  않는다. 파일별 exact locator 확인 → 단일파일 patch → heading locator 확인 순서를
+  표준으로 삼는다.
+
+### E152 — E147을 기록한 직후 같은 Windows wildcard를 다시 사용
+
+- 분류:
+  <code>READ_ONLY_WINDOWS_WILDCARD_ERROR / IMMEDIATE_RULE_RECURRENCE /
+  USER_DATA_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- Lean 재발방지 문구를 찾는 보조 검색에서 E147을 방금 원장에 기록했음에도
+  <code>ai_dev_tool/*.md</code>를 다시 path 인수로 전달해 OS error 123이 발생했다.
+  같은 호출의 exact <code>AGENTS.md</code> 검색은 정상 동작했다.
+- 영향: 읽기 전용 검색 한 부분만 실패했고 파일·proof·판정에는 영향이 없다.
+- 재발 원인: 규칙을 문장으로 기록하는 것만으로는 즉시 다음 수동 명령의 입력 형식을
+  강제하지 못했다.
+- 강화 예방: PowerShell에서 여러 Markdown을 찾을 때 wildcard path를 작성하지 않는다.
+  먼저 <code>rg --files ai_dev_tool</code>로 후보를 얻고, 필요 파일을 exact
+  <code>-LiteralPath</code>로 읽는다. 이 형식을 벗어난 보조 검색은 생략하며, 같은
+  batch에서 규칙을 새로 기록한 직후에는 관련 명령을 한 번 더 실행하지 않는다.
+
+### E153 — Markdown backtick이 있는 작업원장 patch에 raw template를 재사용
+
+- 분류:
+  <code>PATCH_TRANSPORT_SYNTAX_ERROR / REPEATED_E128_E133_PATTERN /
+  PARSER_REJECTION / FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- 작업원장 상태와 Lean README를 함께 갱신하는 첫 patch에서 기존 문맥의
+  Markdown backtick을 포함한 채 JavaScript raw template를 사용해
+  <code>ReferenceError: done is not defined</code>가 발생했다.
+- 영향: apply_patch 호출 전에 JavaScript parser/evaluator가 거부해 파일 변경은 없었다.
+- 교정: Lean README와 작업원장을 분리하고, backtick을 포함한 patch는 double-quoted
+  line array로 구성해 정상 적용했다.
+- 강화 예방: 기존 문맥이나 새 본문에 backtick이 하나라도 있으면 raw template 사용을
+  금지한다. multi-file patch를 만들지 않고 double-quoted line array의 단일파일 patch만
+  사용한다.
+
+### E154 — Vaughan 공식 PDF가 Cloudflare challenge로 차단
+
+- 분류:
+  <code>SOURCE_RETRIEVAL_FAILURE / NO_FALSE_PDF_USE /
+  USER_SOURCE_REQUEST_REQUIRED_FOR_NEXT_GATE / SCIENTIFIC_IMPACT_NONE_FOR_CURRENT_BATCH</code>.
+- Vaughan 2001 원문을 official Wiley PDF URL에서 받으려 했으나 JavaScript/cookie
+  Cloudflare challenge가 반환되어 명령이 exit code 1로 끝났다. 출력파일은 생성되지
+  않았음을 별도 확인했다.
+- 영향: current Theory 82의 finite reduction에는 영향이 없다. 공식 abstract는 주제와
+  서지 확인에만 사용했고 exact theorem, 상수 또는 cutoff의 증거로 승격하지 않았다.
+- 후속: fixed-q variance proof를 theorem 단위로 감사하려면 사용자가 접근 가능한
+  Vaughan 2001 및 가능하면 Friedlander--Goldston 1996 PDF를 article 폴더에 제공하거나
+  별도 accessible primary mirror를 찾아야 한다.
+
+### E155 — lean 작업폴더에서 lean 경로를 한 번 더 붙인 검증 명령 재발
+
+- 분류:
+  <code>VERIFICATION_PATH_DUPLICATION / REPEATED_KNOWN_ERROR /
+  CORRECTED_BEFORE_FINAL_GATE / SCIENTIFIC_IMPACT_NONE</code>.
+- 최신 종합보고서 작성 뒤 전수 verification wrapper를 실행하면서 workdir를 이미
+  <code>...\lean</code>으로 두고 script path를
+  <code>lean\tools\refresh_and_validate_verification_ledger.py</code>로 넘겼다.
+  그 결과 실제 조회 경로가 <code>...\lean\lean\tools\...</code>가 되어 Python이
+  파일을 찾지 못했고 exit code 1로 끝났다.
+- 영향: wrapper의 generator와 validator는 이 첫 호출에서 시작되지 않았으며, 생성원장,
+  Lean source, 수학 판정과 실험 결과는 변경되지 않았다.
+- 교정: 같은 workdir에서 정확한 상대경로
+  <code>tools\refresh_and_validate_verification_ledger.py</code>로 즉시 다시 실행했다.
+  generator와 validator가 차례로 exit code 0, 전체 wrapper가
+  <code>sequence=generate_then_validate</code>와 <code>status=PASS</code>를 반환했다.
+- 재발 원인: 이전 오류 원장의 “workdir가 lean이면 lean prefix를 다시 붙이지 않는다”는
+  규칙을 명령 조립 전에 대조하지 않았다.
+- 강화 예방: Lean 검증 명령은 둘 중 하나만 사용한다.
+  repository root에서는 <code>lean\tools\...</code>, lean workdir에서는
+  <code>tools\...</code>다. 앞으로 wrapper 호출은 repository root와 절대 script
+  경로를 사용하는 한 가지 형식으로 고정하고, workdir와 script path를 동시에 상대화하지
+  않는다.
+
+### E156 — 완료 작업원장의 checklist 문맥을 추정한 patch 거부
+
+- 분류:
+  <code>APPLY_PATCH_CONTEXT_MISMATCH / REPEATED_E151_PATTERN /
+  ATOMIC_REJECTION / FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- 작업원장의 상태·완료기록·checklist를 한 patch로 바꾸면서 실제 줄의
+  LaTeX \(X_{\rm cert}\) 표기를 code 표기로 잘못 추정해 apply_patch가 전체 patch를
+  거부했다.
+- 영향: 원자적 거부로 첫 patch는 어느 파일도 바꾸지 않았다. exact EOF를 읽은 뒤
+  상태, 완료기록, checklist를 작은 patch로 분리해 정상 적용했다.
+- 강화 예방: 완료 원장 patch도 여러 영역을 한 번에 고치지 않는다. status 한 줄,
+  stage record 삽입, checklist 전환을 각각 exact locator를 읽은 뒤 독립 patch로
+  적용한다.
+
+### E157 — sandbox 내부 Git staging의 index.lock 권한 거부 재현
+
+- 분류:
+  <code>EXPECTED_SANDBOX_PERMISSION_BOUNDARY / REPEATED_E093 /
+  RETRIED_WITH_EXISTING_USER_AUTHORIZATION / CONTENT_IMPACT_NONE</code>.
+- 사용자가 로컬 staging·commit을 승인한 batch의 정확한 21개 파일을 sandbox 안에서
+  먼저 stage하려 했으나 <code>.git/index.lock: Permission denied</code>로 exit code
+  128이 발생했다.
+- 영향: Git index와 작업파일은 첫 호출에서 변경되지 않았다. 같은 exact allowlist만
+  승인된 sandbox 외부 권한으로 다시 실행해 21개 경로가 정상 stage됐음을 확인했다.
+- 예방: 이 저장소에서 승인된 Git index 변경은 E093의 알려진 권한 경계를 기억하고 처음부터
+  exact file allowlist와 필요한 최소 Git prefix로 sandbox 외부 실행한다. 일반 filesystem
+  오류와 source/test 실패로 혼동하지 않는다.
+
+### E158 — cached-diff 완료기록 patch의 bullet 문맥 누락
+
+- 분류:
+  <code>APPLY_PATCH_CONTEXT_MISMATCH / IMMEDIATE_E156_RECURRENCE /
+  ATOMIC_REJECTION / CONTENT_IMPACT_NONE</code>.
+- cached diff PASS를 완료 원장과 handoff에 동기화하는 patch에서 기존
+  <code>다음 단계</code> 줄 앞의 Markdown bullet을 문맥에 빠뜨려 multi-file patch가
+  원자적으로 거부됐다.
+- 영향: 파일 변경은 없었다. 완료 원장의 실제 tail을 이미 읽은 상태였는데도 patch 입력을
+  수동으로 다시 조립하면서 생긴 오류다.
+- 강화 예방: 마감 동기화도 multi-file patch를 금지하고, exact 기존 줄을 복사한
+  단일파일 patch만 적용한다.
+
+### E159 — E153 예방규칙을 어기고 backtick 포함 raw patch를 다시 사용
+
+- 분류:
+  <code>PATCH_TRANSPORT_SYNTAX_ERROR / REPEATED_E153 /
+  PARSER_REJECTION / CONTENT_IMPACT_NONE</code>.
+- E158 뒤 작은 patch로 나누는 과정에서 Markdown backtick이 든 기존 handoff 경로를
+  JavaScript raw template 안에 다시 넣어 <code>SyntaxError</code>가 발생했다.
+- 영향: apply_patch 호출 전에 parser가 거부해 파일 변경은 없었다. 같은 patch를
+  double-quoted line array로 구성해 정상 적용했다.
+- 강화 예방: raw template는 새 본문뿐 아니라 기존 context에도 backtick이 없는 경우에만
+  사용한다. 마감 단계에서는 기본값을 double-quoted line array의 단일파일 patch로
+  고정한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

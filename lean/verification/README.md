@@ -80,3 +80,14 @@ FMT probability theorem, same-law weighted correlation과 numerical X_cert는 lo
 global/conditional strict-gate terminal, raw-moment normalization 대수만 검사한다.
 FMT probability theorem, Markov의 actual analytic 입력, character moment source와
 numerical X_cert는 local axiom으로 넣지 않았고 계속 OPEN이다.
+
+2026-09-15 Theory 82 뒤 전수 inventory는 83개 theory 문서·1,528개 display
+수식·295개 Lean declaration이다. 상태는 <code>KERNEL_PASS=94</code>,
+<code>CONDITIONAL_KERNEL_PASS=69</code>, <code>DEFINITION_ONLY=113</code>,
+<code>PARTIAL_FORMALIZATION=112</code>, <code>SOURCE_THEOREM_UNFORMALIZED=92</code>,
+<code>NOT_YET_FORMALIZED=1043</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이며
+금지 proof escape는 0건이다. Lean은 outer atom·convolution analytic premises를
+받은 raw-moment terminal과 strict normalized gate만 검사한다. FMT probability law,
+finite character orthogonality, complex convolution proof와 numerical
+fixed-primorial character-energy theorem은 local axiom으로 넣지 않았다. PAP-11,
+DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.

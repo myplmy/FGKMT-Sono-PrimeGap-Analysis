@@ -1212,3 +1212,36 @@ bounded-difference 정리는 이 입력을 대신 공급하지 않는다. 따라
 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed (2\times10^{-17}),
 (X_{\rm cert}=\mathrm{OPEN})은 변경하지 않는다. threshold calculator와 장시간 prime
 sweep은 NOT READY다.
+
+## 51. 2026-09-15 DEP-R09 outer entropy·convolution moment 후속 상태
+
+[theory 82](82_Sono_FMT_DEPR09_outer_entropy_convolution_second_moment.md)는 Theory 81의
+direct same-law moment 목표를 actual FMT outer law와 finite Fourier algebra로 축약했다.
+outer coordinates \(A_s\bmod s\)가 독립 균등이고 final system에 보존되므로
+\(Q_{\mathcal S}=\prod_{s\in\mathcal S}s\)에 대해
+
+\[
+\Pr(S_{\rm sieve},m_\omega=r)\le Q_{\mathcal S}^{-1}.
+\]
+
+finite Parseval과 cyclic convolution Cauchy를 합치면
+
+\[
+\rho_S\le\varphi(q)N^2V(Y,q)/Q_{\mathcal S},
+\]
+
+따라서 strict sufficient gate는
+
+\[
+V(Y,q)<
+\tau^2p_*Q_{\mathcal S}M_{\min}^2Y^2/
+\{\varphi(q)N^2\}.
+\]
+
+이 reduction은 exact하지만 좌변에 대한 fully numerical fixed-primorial upper theorem은
+OPEN이다. Dusart theta bound는 \(Q_{\mathcal S}\)만 명시화하고, 확인한
+Davenport--Erdos, Friedlander--Goldston, Vaughan, BDH와 moving-interval source는
+actual modulus·law·cutoff를 동시에 충족하지 않는다. 따라서 66개 root row와
+<code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed \(2\times10^{-17}\),
+\(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. threshold calculator와 장시간
+prime sweep도 NOT READY다.

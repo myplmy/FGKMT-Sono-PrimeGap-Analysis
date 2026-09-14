@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-15",
+  "gate": "DEP-R09 outer entropy and convolution second-moment reduction",
+  "predecessor": "Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_v1.json",
+  "outcome": "ACTUAL_FMT_OUTER_ATOM_CAP_AND_FINITE_CONVOLUTION_REDUCTION_EXACT_BUT_NUMERICAL_CHARACTER_ENERGY_INPUT_OPEN",
+  "source_registry": [
+    {
+      "key": "FMT",
+      "title": "Chains of large gaps between primes",
+      "authors": "Kevin Ford, James Maynard, Terence Tao",
+      "locator": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "printed_locations": "printed pp. 9 and 12; outer A_s uniform independence and final coordinate extension",
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_ORIGINAL_PDF_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PUBLISHED_OUTER_RANDOMIZATION_LAW"
+    },
+    {
+      "key": "DUSART2010",
+      "title": "Estimates of some functions over primes without R.H.",
+      "authors": "Pierre Dusart",
+      "locator": "tmp/pdfs/h1b1a/Dusart2010_Explicit_estimates_over_primes.pdf",
+      "sha256": "3f11eca84613ad00e6a447f99b318d5c3d76e360283efcc6d3eebdda25ff3923",
+      "printed_locations": "printed p. 4, Theorem 5.2, k=1 row",
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_ORIGINAL_PDF_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_EXPLICIT_CHEBYSHEV_THETA_BOUND"
+    },
+    {
+      "key": "DAVENPORT_ERDOS1952",
+      "title": "The distribution of quadratic and higher residues",
+      "authors": "Harold Davenport and Paul Erdos",
+      "locator": "tmp/pdfs/depr09_conditional_moment_20260915/Davenport_Erdos_1952.pdf",
+      "sha256": "f4c330e1d92dc9e8b4b258d0a0c4f4552153579ab74c747828c9ca4787e9a3f2",
+      "printed_locations": "printed p. 253, Lemma 1",
+      "reading_mode": "SCANNED_PAGE_IMAGE_CROSSCHECK",
+      "classification": "PRIMARY_PRIME_MODULUS_UNIFORM_SHIFT_BENCHMARK_NOT_DROP_IN"
+    },
+    {
+      "key": "THEORY76",
+      "title": "DEP-R09 pre-absolute moment and pointwise PNT source audit",
+      "locator": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e",
+      "source_locations": "formulas (76.19)--(76.25)",
+      "classification": "PROJECT_CHARACTER_ERROR_NORMALIZATION_AND_OPEN_VARIANCE_TARGET"
+    },
+    {
+      "key": "THEORY81",
+      "title": "DEP-R09 filtration sensitivity and survivor floor audit",
+      "locator": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf",
+      "source_locations": "formulas (81.3)--(81.10), (81.17), (81.24)--(81.26)",
+      "classification": "PROJECT_SAME_EVENT_DENOMINATOR_AND_MOMENT_GATE"
+    }
+  ],
+  "outer_atom_cap": {
+    "outer_set": "S={prime s: v<s<=z, s!=B0}",
+    "outer_denominator": "Q_S=product_(s in S) s",
+    "source_law": "A_s mod s are mutually independent uniform outer coordinates and remain the final a_s coordinates",
+    "forced_vector": "m_omega=r forces A_s=-r mod s for every s in S",
+    "unconditional_atom_cap": "P(m_omega=r)<=1/Q_S",
+    "event_atom_cap": "P(E and m_omega=r)<=1/Q_S for every event E",
+    "final_shift_uniform_claimed": false,
+    "outer_inner_independence_claimed": false
+  },
+  "finite_reduction": {
+    "nonprincipal_error": "e(a;Y)=phi(q)^(-1) sum_(chi!=chi0) conjugate(chi(a)) Z_chi(Y)",
+    "weighted_error_identity": "R(m)=phi(q) sum_(s in I) e(m+s;Y)",
+    "parseval": "sum_(a mod q) abs(e(a;Y))^2=V(Y,q)/phi(q)",
+    "convolution_energy": "sum_(m mod q) abs(sum_(s in I)e(m+s;Y))^2<=N^2 sum_a abs(e(a;Y))^2",
+    "shift_energy": "sum_m abs(R(m))^2<=phi(q) N^2 V(Y,q)",
+    "same_law_raw_moment": "rho_S<=phi(q) N^2 V(Y,q)/Q_S",
+    "strict_character_energy_gate": "V(Y,q)<tau^2 p_* Q_S M_min^2 Y^2/(phi(q) N^2)"
+  },
+  "outer_product_explicit_envelope": {
+    "identity": "log Q_S=theta(z)-theta(v)-1_(B0 in (v,z]) log B0",
+    "source_bound": "abs(theta(t)-t)<(12323/10000)t/log t for t>=2",
+    "status": "PARAMETERIZED_EXPLICIT",
+    "does_not_bound_character_energy": true
+  },
+  "analytic_source_screen": [
+    {
+      "source": "Davenport--Erdos 1952, Lemma 1",
+      "result": "sum_(x mod p) abs(sum_(n=1)^h chi(x+n))^2=ph-h^2 for a nonprincipal character modulo prime p",
+      "assessment": "EXACT_BENCHMARK_ONLY_PRIME_MODULUS_UNIFORM_SHIFT"
+    },
+    {
+      "source": "Friedlander--Goldston 1996",
+      "doi": "10.1093/qmath/47.3.313",
+      "assessment": "FIXED_MODULUS_VARIANCE_RELEVANT_BUT_NO_VERIFIED_FULLY_NUMERICAL_DROP_IN"
+    },
+    {
+      "source": "Vaughan 2001",
+      "doi": "10.1112/plms/82.3.533",
+      "assessment": "ASYMPTOTIC_VARIANCE_RELEVANT_BUT_NO_VERIFIED_COMMON_FINITE_CUTOFF"
+    },
+    {
+      "source": "Harper 2024",
+      "arxiv": "2412.19644",
+      "assessment": "BDH_TYPE_MODULUS_AVERAGE_DOES_NOT_SELECT_THE_PRESCRIBED_PRIMORIAL"
+    },
+    {
+      "source": "Harper 2022",
+      "arxiv": "2203.09448",
+      "assessment": "PRIME_MODULUS_UNIFORM_MOVING_SHIFT_NOT_THE_ACTUAL_COMPOSITE_ADAPTIVE_FMT_LAW"
+    }
+  ],
+  "scale_diagnostic": {
+    "crude_certificate": "A characterwise trivial squared-sum certificate remains roughly phi(q)^2/Q_S times logarithmic factors above the relaxed gate after using M_min<=N.",
+    "interpretation": "This is failure of the crude upper certificate, not a lower bound on the actual energy.",
+    "promising_target": "A fully numerical fixed-primorial variance-scale bound of order phi(q)Y log q would likely be strong enough in Y=q^d, d>2.",
+    "fully_numerical_fixed_primorial_character_energy_bound_identified": false
+  },
+  "exact_finite_diagnostic": {
+    "outer_atom_cap_exact_under_adaptive_inner_rule": true,
+    "toy_outer_denominator": 6,
+    "toy_maximum_atom": "1/6",
+    "cyclic_convolution_cauchy_exactly_verified": true,
+    "davenport_erdos_prime_modulus_identity_exactly_verified": true,
+    "same_law_raw_moment_reduction_exact": true,
+    "fully_numerical_fixed_primorial_character_energy_bound_identified": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The final FMT CRT shift is uniform modulo q.",
+    "The final inner output is independent of the outer residue vector.",
+    "Davenport--Erdos prime-modulus moving-shift variance is a drop-in theorem for the FMT law.",
+    "A BDH modulus average supplies the prescribed growing primorial.",
+    "The project has proved the required numerical character-energy upper bound.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed.",
+    "A threshold calculator or actual prime computation is ready."
+  ],
+  "source_retrieval_failures": [
+    {
+      "candidate": "Friedlander--Goldston PDF via a CiteseerX URL",
+      "result": "Wayback HTML/404 returned; no PDF file created",
+      "used_as_evidence": false,
+      "scientific_impact": "none for this reduction; exact theorem-level reuse requires an accessible primary copy"
+    },
+    {
+      "candidate": "Vaughan 2001 PDF via the official Wiley URL",
+      "result": "Cloudflare JavaScript challenge returned; no PDF file created",
+      "used_as_evidence": false,
+      "scientific_impact": "none for this reduction; the next theorem-level source audit requires an accessible primary copy"
+    }
+  ],
+  "next_gate": "Prove a fully numerical nonprincipal character-energy bound for the actual fixed primorial and Y=q^d regime that satisfies the strict outer-entropy gate; outer min-entropy alone is insufficient."
+}
