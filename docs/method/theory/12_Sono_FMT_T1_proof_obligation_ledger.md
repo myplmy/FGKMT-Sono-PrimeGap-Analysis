@@ -1163,3 +1163,32 @@ simultaneous selection이 가능하지만 현재 \(F_{\rm corr}\)는 OPEN이다.
 row와 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed \(2\times10^{-17}\),
 \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. threshold calculator와 장시간
 prime sweep도 NOT READY다.
+
+## 49. 2026-09-14 DEP-R09 same-law weighted-correlation tower 후속 상태
+
+[theory 80](80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md)은
+Theory 79의 열린 \(F_{\rm corr}\)를 actual joint law의 normalized second moment로
+분해했다. final CRT-dependent error를 \(R(\omega)\), survivor count를 \(M_\omega\),
+\(\tau=\varepsilon-\delta_0>0\)라 하면 outer-good domain의
+
+~~~text
+W(omega)=abs(R(omega))^2/(M_omega^2*Y^2)
+~~~
+
+에 대한 가장 약한 현재 sufficient input은
+
+~~~text
+E[W] < tau^2*(1-F_out)*(1-F_in)
+~~~
+
+이다. outer-good conditional 또는 uniform-fiber route는
+<code>F_in+mu_f/tau^2&lt;1</code>을 요구한다. raw moment만 쓰면 pointwise
+\(M_\omega\ge M_{\min}>0\)가 별도로 필요하다.
+
+FMT formula (1.1)는 finite tower identity만 주며, FMT Theorem 4·FGKMT Corollary 4의
+fixed-subset cardinality preservation은 final output이 정한 signed/complex CRT weight에
+대한 theorem이 아니다. actual same-law analytic moment source는 식별되지 않았다.
+따라서 66개 root row와 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed
+\(2\times10^{-17}\), \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. 다음 gate는
+final FMT covering filtration에서 이 moment의 one-step 민감도와 numerical concentration
+가능성을 감사하는 것이다. threshold calculator와 장시간 prime sweep은 NOT READY다.

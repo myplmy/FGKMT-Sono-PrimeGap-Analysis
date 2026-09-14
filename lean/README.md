@@ -381,3 +381,18 @@ Theory 79 뒤 inventory는 theory 문서 80개, display 1,452식이며 전체 �
 `PARTIAL_FORMALIZATION=94`, `SOURCE_THEOREM_UNFORMALIZED=82`,
 `NOT_YET_FORMALIZED=1027`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 283개이고
 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-14 Theory 80 batch는 actual FMT joint law의 normalized squared
+weighted-correlation badness와 global/conditional/fiberwise finite gate를 고정했다.
+Lean은 finite tower sum identity, global strict moment gate의 positive terminal,
+conditional product positivity, raw second-moment denominator identity와 positive
+division monotonicity를 검사한다. Markov 확률정리의 actual 적용, FMT analytic law와
+Dirichlet-character moment upper는 premise도 project-local axiom으로 만들지 않았다.
+
+Theory 80 뒤 inventory는 theory 문서 81개, display 1,473식이며 전체 상태는
+<code>KERNEL_PASS=94</code>, <code>CONDITIONAL_KERNEL_PASS=64</code>,
+<code>DEFINITION_ONLY=98</code>, <code>PARTIAL_FORMALIZATION=100</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=85</code>,
+<code>NOT_YET_FORMALIZED=1027</code>, <code>PARSE_REVIEW_REQUIRED=5</code>다.
+declaration은 288개이고 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed
+2e-17과 X_cert는 계속 OPEN이다.

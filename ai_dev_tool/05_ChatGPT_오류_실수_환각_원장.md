@@ -2489,6 +2489,22 @@
   5. unittest 모듈명도 경로와 동일하게 `rg --files tests`에서 확인하며, 일부 시험이
      통과했더라도 import error가 하나라도 있으면 그 호출 전체는 FAIL로 기록한다.
 
+- 2026-09-14 Theory 80 재발:
+  - 정본 exact locator가 이미 있었는데 <code>rg --files tmp article</code>을 실행해
+    접근권한이 없는 다수의 <code>tmp/tmp*</code> 하위 디렉터리에서 OS error 5를 만들었다.
+  - 이어 정본 파일명을 확인하기 전에 존재하지 않는 root <code>METHODS.md</code>와 여러
+    README 후보를 한 번에 조회해 file-not-found 진단을 추가했다.
+  - 완료 감사에서도 작업원장 규약 파일명을 기억으로
+    <code>ai_dev_tool/03_작업원장_작성_지침.md</code>라고 추정해 한 번 더
+    file-not-found를 만들었다. 즉 규칙을 기록한 직후에도 exact-path 확인보다 기억을
+    앞세운 재발이다. <code>rg --files ai_dev_tool</code>의 좁은 목록으로 실제 정본
+    <code>ai_dev_tool/08_작업원장_작성규약_양식.md</code>를 확정한 뒤 읽었다.
+  - 모두 read-only이며 파일·과학 판정 영향은 없다. 이후
+    <code>docs/METHODS.md</code>와 machine-ledger의 exact PDF locator만 사용했다.
+  - 강화: <code>tmp</code>는 broad recursive discovery 금지 root로 취급한다. source
+    registry가 있으면 그 locator 배열만 읽고, index 정본은 먼저
+    <code>rg --files docs | rg METHODS</code>처럼 좁은 목록에서 확정한다.
+
 ### E130 — Theory 78 Lean PASS 기록과 현재 direct compile의 모순
 
 - 분류:
@@ -2513,6 +2529,15 @@
   4. Mathlib 정리의 implicit finset 인수는 여러 union이 중첩된 proof에서 명시한다.
   5. staging 뒤 canonical direct compile과 `lake build`를 다시 실행하며 둘의 종료코드를
      각각 확보한다.
+
+- 2026-09-14 Theory 80 안전하게 포착한 재발 위험:
+  - 첫 direct compile이 30초 경계에서 session으로 전환됐지만 wrapper가 반환 객체의
+    <code>session_id</code>를 출력하지 않아 그 호출의 최종 exit code를 회수할 수 없었다.
+  - 이번에는 무출력을 PASS로 쓰지 않았다. 남은 Lean/Lake 프로세스가 없음을 확인한 뒤
+    반환 객체 전체를 출력하는 같은 명령을 새로 실행하고, 받은 session id를 poll해
+    exit code 0을 확보했다.
+  - 강화: 30초를 넘을 수 있는 compile/build 호출은 처음부터 반환 객체 전체를 출력하며,
+    session id를 모델에 노출하지 않은 호출은 검증 증거로 폐기한다.
 
 ### E131 — text-integrity 검사기 CLI 추정 오류
 
@@ -2544,6 +2569,105 @@
 - 예방: 작업원장 시각은 기억·요약에서 복원하지 않고 각 기록 직전에 시스템 시각을
   조회한다. 중단 복구 때 정확한 시각 증거가 없으면 시각을 추정해 만들지 말고
   `세부 시각 미확정`이라고 명시한다.
+
+- 2026-09-14 Theory 80 재발:
+  - 활성 작업원장의 세 번째 단계가 현재 시스템 시각 23:16보다 뒤인 `23:31 KST`로
+    기록돼 있었다. 중단 요약의 시각을 현재 증거처럼 옮긴 것이 원인이다.
+  - 해당 heading을 `2026-09-14 KST (세부 시각 미확정)`으로 교정했다. 단계 순서·수식·
+    검증 결과는 유지했다.
+  - 강화: handoff나 compaction summary에서 복원한 시각은 `Get-Date`로 확인되지 않으면
+    분 단위 기록에 사용하지 않는다. 완료 직전에는 활성 작업원장의 모든 시각이 현재보다
+    미래인지 자동 검색한다.
+
+### E133 — Theory 80 source-read·Markdown escape 입력 오류
+
+- 분류:
+  <code>READ_ONLY_OVERLOAD_ERROR / PATCH_TEXT_ESCAPE_DAMAGE /
+  DETECTED_BEFORE_CANONICAL_GENERATION / CORRECTED / NO_SCIENTIFIC_IMPACT</code>.
+- source text를 읽는 PowerShell 보조 명령에서
+  <code>$raw.Replace([char]0,'')</code>를 사용해 .NET overload binding 오류가 났다.
+  첫 인수는 char, 둘째 인수는 빈 string이어서 같은 overload로 묶이지 않은 것이 원인이다.
+  파일은 읽기 전용이었고 locator 결과 외에는 아무 상태도 바뀌지 않았다.
+- Theory 80·review 88의 첫 patch를 일반 JavaScript string으로 만들면서
+  <code>\(...\)</code>의 backslash와 식 (80.20)의 <code>\left</code> 하나가
+  JavaScript escape 처리로 소실됐다. formula inventory preflight와 좁은 text scan이 이를
+  정본 생성 전에 잡았고 raw patch로 복원했다. 수학식의 의도된 내용은 바뀌지 않았다.
+- 이 항목을 원장에 넣는 첫 시도에서도 <code>String.raw</code> payload 안의 기존 Markdown
+  backtick 때문에 <code>SyntaxError: Unexpected identifier 'rg'</code>가 발생했다.
+  patch parser 전에 거부되어 파일 변경은 없었지만 E128 예방규칙을 다시 어긴 재발이다.
+- 바로 뒤 Lean README 두 파일 동기화에서도 기존 문맥의 backtick을 보면서
+  <code>String.raw</code>를 다시 선택해 <code>Unexpected identifier 'KERNEL_PASS'</code>가
+  한 번 더 발생했다. parser 전 거부라 변경은 없었으나, 이 batch에서 같은 원인이 두 번
+  반복됐으므로 transport 선택을 사람의 주의에만 맡긴 규칙이 충분하지 않았음을 인정한다.
+- `docs/METHODS.md`를 line-array patch로 갱신하려던 한 호출에서는 hunk 위치 계산값이
+  `NaN`이 되어 apply 단계가 거부됐다. 파일 변경은 없었고 이후 정적 문맥을 직접 지정한
+  patch로 정상 반영했다. 위치 산술을 patch transport에 섞은 것이 원인이다.
+- 완료 감사에서 E129 재발을 원장에 추가하는 첫 line-array patch도 diff의 <code>+</code>를
+  문자열 안이 아니라 JavaScript 단항 연산자로 놓아
+  <code>SyntaxError: Unexpected token '**'</code>로 parser 전에 거부됐다. 파일 변경은
+  없었고 즉시 작은 quoted-line hunk로 교정했다.
+- 이어 AGENTS 예방규칙을 추가하는 첫 patch에서도 연속행의 diff <code>+</code>를 문자열 밖에 두어 <code>NaN</code> hunk가 재발했다. 역시 적용 전 거부됐고, 연속행을 없앤 최소 단일행 patch로 교정했다.
+- 교정·예방:
+  1. PowerShell NUL 제거는 두 string 인수를 쓰는 replace 또는 명시적 정규식 replace만
+     사용한다.
+  2. LaTeX가 있는 patch는 <code>String.raw</code>를 사용하되 payload의 Markdown
+     backtick은 <code>&lt;code&gt;</code>로 바꿔 E128도 함께 피한다.
+  3. 기존 문맥에 backtick이 있으면 raw template를 쓰지 않고 quoted line array로 만든다.
+  4. 새 theory patch 직후 inventory summary와 새 formula tail을 먼저 실행한다.
+  5. inline math는 별도 narrow scan으로 delimiter 소실과 bare
+     <code>\left</code>/<code>\right</code> 짝을 검사한다.
+  6. hunk 위치는 JavaScript 산술로 만들지 않고 apply_patch의 실제 문맥 줄로 고정한다.
+
+### E134 — 전체 unittest의 알려진 샌드박스 임시폴더 오류 재실행
+
+- 분류:
+  <code>VALIDATION_ENVIRONMENT_ERROR / KNOWN_RISK_RECURRED /
+  ESCALATED_RERUN_PASS / NO_CODE_OR_SCIENTIFIC_IMPACT</code>.
+- Theory 80 완료 감사에서 전체 unittest를 제한 샌드박스 안에서 먼저 실행했다.
+  `TemporaryDirectory`와 PowerShell child가 저장소 `tmp` 또는 Windows 임시폴더에
+  쓰지 못해 880개 중 82개가 모두 `PermissionError: [WinError 5]` 계열로 끝났다.
+- 같은 명령을 사용자가 미리 허가한 정상 로컬 권한으로 다시 실행하자
+  `Ran 880 tests in 86.995s`, `OK`, exit code 0이었다. 따라서 첫 실패는 코드 회귀가
+  아니라 실행 권한 차이였고, 첫 호출 결과를 PASS로 사용하지 않았다.
+- 예방: 이 저장소의 전체 unittest처럼 `TemporaryDirectory`, multiprocessing,
+  PowerShell child를 포함한다고 이미 알려진 검증은 처음부터 허가된 정상 로컬 권한으로
+  실행한다. 제한 샌드박스 결과와 정상 로컬 결과는 별도 evidence tier로 기록한다.
+
+### E135 — NUL을 포함한 보조 rg 패턴 오류
+
+- 분류:
+  <code>READ_ONLY_VALIDATION_INVOCATION_ERROR / DEDICATED_VALIDATOR_ALREADY_PASS /
+  CORRECTED / NO_FILE_OR_SCIENTIFIC_IMPACT</code>.
+- Theory 80 최종 좁은 text scan에서 정규식 대안 중 하나로 <code>\x00</code>을 넘겨
+  ripgrep이 NUL pattern은 binary detection 아래 매치할 수 없다며 exit code 1을 냈다.
+  이 호출을 PASS로 쓰지 않았고, 그 전에 전용 text-integrity validator가 595개 파일에서
+  issue 0으로 통과한 상태였다.
+- 교정: exact 파일 다섯 개를 UTF-8 Python으로 읽어 printable damage token과 미래 시각
+  <code>23:31</code>을 검사했고 <code>NARROW_TEXT_SCAN_PASS</code>, exit code 0을
+  확인했다.
+- 예방: NUL·control-character 검사는 일반 검색도구에 넣지 않고
+  <code>lean/tools/validate_text_integrity.py</code>에만 맡긴다. 좁은 보조검색은
+  printable literal token만 사용한다.
+- 이 항목을 기록하는 첫 patch도 기존 문맥의 Markdown 역따옴표를 JavaScript raw
+  template에 넣어 <code>SyntaxError: Unexpected identifier</code>로 적용 전에
+  거부됐다. 기존 문맥을 이 heading 한 줄로 줄이고 code 표기를 HTML로 바꿔 교정했다.
+
+### E136 — Theory 80 Lean 선언 개수와 작업원장 마감 patch 오류
+
+- 분류:
+  <code>DOCUMENTATION_COUNT_MISMATCH / PATCH_HUNK_FORMAT_RECURRED /
+  PRECOMMIT_CORRECTED / NO_PROOF_OR_SCIENTIFIC_IMPACT</code>.
+- 작업원장 초안은 Theory 80 Lean 선언을 4개라고 기록했지만 canonical 단일 파일에는
+  tower identity, global terminal, conditional terminal, denominator identity,
+  raw normalization terminal의 5개가 있다. 전수 generator의 전체 declaration 288과
+  source locator를 대조해 5개로 교정했다.
+- 원장 마감 patch 첫 시도는 unchanged context 줄에 patch 공백 marker를 빠뜨렸고,
+  다음 시도는 원문 bullet의 첫 하이픈을 patch 삭제 marker와 구분하지 않아
+  expected line을 찾지 못했다. 두 호출은 apply_patch가 원자적으로 거부해 파일 변경이
+  없었고, 상태·단계·개수별 최소 hunk로 나눠 교정했다.
+- 예방: 선언 개수는 handoff 요약을 옮기지 않고 canonical source의 theorem locator와
+  generated total을 함께 대조한다. Markdown bullet을 교체할 때 patch marker 뒤 원문
+  하이픈까지 두 문자를 명시하고, unchanged 줄은 반드시 공백 marker를 붙인다.
 
 ## 4. 아직 남은 오류 위험
 

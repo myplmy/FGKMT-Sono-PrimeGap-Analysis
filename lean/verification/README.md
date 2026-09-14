@@ -70,3 +70,13 @@ local axiom으로 넣지 않았다. PAP-11, DEP-R09, fixed 2e-17, X_cert는 OPEN
 Lean은 two-stage failure identity와 finite outer/fiber selection의 논리만 검사한다.
 FMT probability theorem, same-law weighted correlation과 numerical X_cert는 local axiom으로
 넣지 않았고 계속 OPEN이다.
+
+2026-09-14 Theory 80 뒤 전수 inventory는 81개 theory 문서·1,473개 display
+수식·288개 Lean declaration이다. 상태는 <code>KERNEL_PASS=94</code>,
+<code>CONDITIONAL_KERNEL_PASS=64</code>, <code>DEFINITION_ONLY=98</code>,
+<code>PARTIAL_FORMALIZATION=100</code>, <code>SOURCE_THEOREM_UNFORMALIZED=85</code>,
+<code>NOT_YET_FORMALIZED=1027</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이며
+금지 proof escape는 0건이다. Lean은 finite tower sum과 same-law
+global/conditional strict-gate terminal, raw-moment normalization 대수만 검사한다.
+FMT probability theorem, Markov의 actual analytic 입력, character moment source와
+numerical X_cert는 local axiom으로 넣지 않았고 계속 OPEN이다.

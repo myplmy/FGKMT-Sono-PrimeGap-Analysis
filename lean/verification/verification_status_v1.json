@@ -2617,6 +2617,114 @@
       "declarations": []
     },
     {
+      "formula_id": "80.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.4",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.6",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.7",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.8",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_finite_tower_sum_identity"]
+    },
+    {
+      "formula_id": "80.11",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.12",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_global_same_law_moment_terminal"]
+    },
+    {
+      "formula_id": "80.14",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_global_same_law_moment_terminal"]
+    },
+    {
+      "formula_id": "80.15",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.16",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_conditional_same_law_moment_terminal"]
+    },
+    {
+      "formula_id": "80.17",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_conditional_same_law_moment_terminal"]
+    },
+    {
+      "formula_id": "80.18",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.19",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_conditional_same_law_moment_terminal"]
+    },
+    {
+      "formula_id": "80.20",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "80.21",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "dep_r09_raw_moment_denominator_identity",
+        "dep_r09_raw_to_normalized_moment_terminal"
+      ]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

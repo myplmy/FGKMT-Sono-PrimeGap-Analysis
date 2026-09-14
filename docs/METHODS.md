@@ -2006,3 +2006,44 @@ simultaneous-selection의 다음 최소 gate는 같은 joint law에서
 얻는 것이다. \(\mathbf A\)만 평균내고 \(\mathbf N'\) 의존성을 버리는 식은 충분하지 않다.
 따라서 <code>PAP-11</code>, DEP-R09, fixed \(2\times10^{-17}\), numerical
 \(X_{\rm cert}\)는 계속 OPEN이고 threshold calculator·장시간 prime 계산은 NOT READY다.
+
+## 2026-09-14 DEP-R09 동일법칙 weighted-correlation tower 감사
+
+[theory 80](method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md)과
+[review 88](review/88_20260914_DEPR09_same_law_weighted_correlation_tower_타당성검토.md)은
+Theory 79의 다음 gate를 actual final joint law에서 정규화했다. \(P=P(x)/B_0\),
+\(I=[y]\setminus[x]\)이고 final CRT 이동량이 \(m_\omega\)일 때
+Dirichlet character의 nonunit-zero convention으로
+
+\[
+ C_\chi(\omega)=\sum_{s\in I}\overline{\chi(m_\omega+s)}
+\]
+
+가 exact하다. 따라서 coefficient는 outer \(\mathbf A\)뿐 아니라 conditional final
+covering output \(\mathbf N'\)에도 의존한다.
+
+outer-good domain에서 \(W=|R|^2/(M_\omega^2Y^2)\)를 쓰면 finite tower identity와
+Markov 합성으로
+
+\[
+ \mathbb EW<\tau^2(1-F_{\rm out})(1-F_{\rm in})
+\]
+
+이 simultaneous sieve/correlation-good outcome의 global sufficient gate다. outer-good
+conditional 또는 모든 good fiber에 uniform한 대안은
+\(F_{\rm in}+\mu_f/\tau^2<1\)이다. raw second moment를 쓰려면 평균 count가 아니라
+pointwise \(M_\omega\ge M_{\min}>0\)가 필요하다.
+
+FMT formula (1.1)는 tower만 주며, FMT Theorem 4·FGKMT Corollary 4의 fixed-subset
+cardinality 결과는 output-dependent signed/complex CRT weight의 moment theorem이 아니다.
+Maier·Sono는 fixed residue에 pointwise PAP를 쓰므로 이 average route를 공급하지 않는다.
+확인한 source 범위에서 numerical drop-in은 식별되지 않았다. exact Python 9/9와 Lean
+finite-sum·terminal algebra만 검증했으며 analytic character moment는 인증하지 않는다.
+
+Theory 80 뒤 전수원장은 theory 81개, display 식 1,473개, Lean declaration 288개다.
+상태는 <code>KERNEL_PASS=94</code>, <code>CONDITIONAL_KERNEL_PASS=64</code>,
+<code>DEFINITION_ONLY=98</code>, <code>PARTIAL_FORMALIZATION=100</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=85</code>,
+<code>NOT_YET_FORMALIZED=1027</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이며
+금지 proof escape는 0건이다. <code>PAP-11</code>, DEP-R09, fixed
+\(2\times10^{-17}\), numerical \(X_{\rm cert}\)는 계속 OPEN이고 새 bounded range는 없다.

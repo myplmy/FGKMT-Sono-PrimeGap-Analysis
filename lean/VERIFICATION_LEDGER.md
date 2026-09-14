@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-14 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 80개
-- 전수 단위: Markdown fenced code 밖 display math 1,452개
-- 원래 식번호: 922개, 합성 ID 무번호식: 530개
+- 원문 범위: `docs/method/theory/*.md` 81개
+- 전수 단위: Markdown fenced code 밖 display math 1,473개
+- 원래 식번호: 943개, 합성 ID 무번호식: 530개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -63,10 +63,10 @@
 | 상태 | 항목 수 |
 |---|---:|
 | `KERNEL_PASS` | 94 |
-| `CONDITIONAL_KERNEL_PASS` | 60 |
-| `DEFINITION_ONLY` | 90 |
-| `PARTIAL_FORMALIZATION` | 94 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 82 |
+| `CONDITIONAL_KERNEL_PASS` | 64 |
+| `DEFINITION_ONLY` | 98 |
+| `PARTIAL_FORMALIZATION` | 100 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 85 |
 | `NOT_YET_FORMALIZED` | 1,027 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `b675f825d6603a85…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `21e4eb71e1e1e677…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `4ce1fb2cfc9f14f0…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `e9f11c916cedd296…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -157,6 +157,7 @@
 | 77 | [77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md](../docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md) | `d4865fad0d5e0758…` | 20 | 20 | 0 | 19 |
 | 78 | [78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md](../docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md) | `f138f56f08406dca…` | 13 | 13 | 0 | 13 |
 | 79 | [79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md](../docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md) | `7e8a4b9b715cf7a1…` | 13 | 13 | 0 | 13 |
+| 80 | [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | `44a2220744128738…` | 21 | 21 | 0 | 21 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1620,6 +1621,27 @@
 | 1450 | `79.11` | T79 [79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md](../docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md) | 171–174 | <code>F_{\rm out}+F_{\rm in}+F_{\rm corr}&lt;1 \tag{79.11}</code> | `dep_r09_crude_union_gate_implies_product_gate` | `CONDITIONAL_KERNEL_PASS` | 비음수 failure에서 crude union gate가 product gate를 함의하는 조건부 실수대수 |
 | 1451 | `79.12` | T79 [79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md](../docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md) | 181–184 | <code>F_{\rm in}+F_{\rm corr}(\boldsymbol a)&lt;1 \tag{79.12}</code> | `dep_r09_two_bad_finsets_leave_candidate; dep_r09_outer_then_two_inner_bad_finsets_leave_pair` | `PARTIAL_FORMALIZATION` | fiberwise probability 식은 미형식화; 대응 finite outer/fiber selection은 커널 검증 |
 | 1452 | `79.13` | T79 [79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md](../docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md) | 191–195 | <code>\Pr(W\ge t)\le \min\!\left(1,\frac{\mathbb E W}{t}\right) \tag{79.13}</code> | — | `PARTIAL_FORMALIZATION` | Markov probability 식은 exact Fraction 검산; actual badness expectation은 OPEN |
+| 1453 | `80.1` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 20–23 | <code>\omega=(\mathbf A,\mathbf N') \tag{80.1}</code> | — | `DEFINITION_ONLY` | actual final FMT joint outcome 정의 |
+| 1454 | `80.2` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 47–51 | <code>P=\frac{P(x)}{B_0},\qquad I=[y]\setminus[x] \tag{80.2}</code> | — | `DEFINITION_ONLY` | Sono primorial modulus와 fixed offset interval 정의 |
+| 1455 | `80.3` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 55–60 | <code>T_\omega= \{s\in I:(m_\omega+s,P)=1\}, \qquad M_\omega=&#124;T_\omega&#124; \tag{80.3}</code> | — | `DEFINITION_ONLY` | joint outcome별 survivor set과 count 정의 |
+| 1456 | `80.4` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 65–70 | <code>C_\chi(\omega) =\sum_{s\in T_\omega}\overline{\chi(m_\omega+s)} =\sum_{s\in I}\overline{\chi(m_\omega+s)}. \tag{80.4}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | nonunit-zero character convention의 shifted full-interval identity; Lean 미형식화 |
+| 1457 | `80.5` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 77–82 | <code>R(\omega)= \sum_{\substack{\chi\bmod P\\\chi\ne\chi_0}} C_\chi(\omega)Z_\chi(Y) \tag{80.5}</code> | — | `DEFINITION_ONLY` | nonprincipal weighted prime-error observable 정의 |
+| 1458 | `80.6` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 86–89 | <code>\tau=\varepsilon-\delta_0&gt;0 \tag{80.6}</code> | — | `DEFINITION_ONLY` | 남은 positive relative-error budget 정의 |
+| 1459 | `80.7` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 93–96 | <code>&#124;R(\omega)&#124;\le \tau M_\omega Y. \tag{80.7}</code> | — | `DEFINITION_ONLY` | direct weighted-correlation target 정의 |
+| 1460 | `80.8` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 103–110 | <code>W(\omega)= \begin{cases} \displaystyle\frac{&#124;R(\omega)&#124;^2}{M_\omega^2Y^2},&amp;\omega\in O,\\[6pt] 0,&amp;\omega\notin O \end{cases} \tag{80.8}</code> | — | `DEFINITION_ONLY` | outer-good domain의 divide-by-zero-safe normalized squared badness 정의 |
+| 1461 | `80.9` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 115–118 | <code>W(\omega)\le\tau^2 \tag{80.9}</code> | — | `PARTIAL_FORMALIZATION` | normalized target equivalence는 Python 경계검사; character absolute-value Lean proof 대기 |
+| 1462 | `80.10` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 127–141 | <code>\begin{aligned} \mu :=\mathbb E[W] &amp;=\sum_{\boldsymbol a\in O}p_A(\boldsymbol a) \sum_{\boldsymbol n} p_{N\mid A}(\boldsymbol n\mid\boldsymbol a) W(\boldsymbol a,\boldsymbol n)\\ &amp;=\sum_{\boldsymbol a\in O}\sum_{\boldsy…</code> | `dep_r09_finite_tower_sum_identity` | `PARTIAL_FORMALIZATION` | finite tower와 flat joint-atom 합의 대수 identity를 커널 검증 |
+| 1463 | `80.11` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 150–153 | <code>S_{\rm sieve}=(1-F_{\rm out})(1-F_{\rm in}) \tag{80.11}</code> | — | `PARTIAL_FORMALIZATION` | Theory 79의 parameterized sieve-good mass 재사용 |
+| 1464 | `80.12` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 157–161 | <code>\Pr\bigl(O\cap\{W&gt;\tau^2\}\bigr) \le\frac{\mu}{\tau^2}. \tag{80.12}</code> | — | `PARTIAL_FORMALIZATION` | Markov probability input은 analytic premise; exact finite fixture 검산 |
+| 1465 | `80.13` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 165–172 | <code>\Pr\bigl(O\cap I_{\rm good}\cap\{W\le\tau^2\}\bigr) \ge \max\!\left\{0, (1-F_{\rm out})(1-F_{\rm in})-\frac{\mu}{\tau^2} \right\}. \tag{80.13}</code> | `dep_r09_global_same_law_moment_terminal` | `PARTIAL_FORMALIZATION` | global joint-success probability lower는 미형식화; positive terminal만 조건부 커널 검증 |
+| 1466 | `80.14` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 176–181 | <code>\boxed{ \mu&lt;\tau^2(1-F_{\rm out})(1-F_{\rm in}). } \tag{80.14}</code> | `dep_r09_global_same_law_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | global moment strict gate에서 positive terminal mass로 가는 조건부 커널 검증 |
+| 1467 | `80.15` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 189–192 | <code>\mathbb E[W\mid O]\le\mu_O \tag{80.15}</code> | — | `DEFINITION_ONLY` | outer-good conditional moment 정의 |
+| 1468 | `80.16` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 196–202 | <code>\Pr\bigl(O\cap I_{\rm good}\cap\{W\le\tau^2\}\bigr) \ge (1-F_{\rm out}) \max\!\left\{0,1-F_{\rm in}-\frac{\mu_O}{\tau^2}\right\}. \tag{80.16}</code> | `dep_r09_conditional_same_law_moment_terminal` | `PARTIAL_FORMALIZATION` | conditional probability lower는 미형식화; product positivity terminal만 커널 검증 |
+| 1469 | `80.17` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 206–209 | <code>F_{\rm in}+\frac{\mu_O}{\tau^2}&lt;1 \tag{80.17}</code> | `dep_r09_conditional_same_law_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | conditional moment strict gate의 scalar terminal을 커널 검증 |
+| 1470 | `80.18` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 215–218 | <code>\mathbb E[W\mid\mathbf A=\boldsymbol a]\le\mu_f \tag{80.18}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | uniform outer-good-fiber analytic moment target; source theorem 미발견 |
+| 1471 | `80.19` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 222–227 | <code>\boxed{ F_{\rm in}+\frac{\mu_f}{\tau^2}&lt;1 } \tag{80.19}</code> | `dep_r09_conditional_same_law_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | uniform-fiber strict gate의 같은 scalar terminal을 조건부 커널 검증 |
+| 1472 | `80.20` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 236–239 | <code>\mathbb E\!\left[1_O&#124;R(\omega)&#124;^2\right]\le\rho \tag{80.20}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | raw same-law second-moment analytic input; source theorem 미형식화 |
+| 1473 | `80.21` | T80 [80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md](../docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md) | 243–246 | <code>\mu\le\frac{\rho}{M_{\min}^2Y^2} \tag{80.21}</code> | `dep_r09_raw_moment_denominator_identity; dep_r09_raw_to_normalized_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | positive pointwise denominator의 정규화 identity·단조성을 조건부 커널 검증 |
 
 ## 9. 발견된 원문·작업 오류
 

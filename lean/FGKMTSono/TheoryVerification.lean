@@ -3574,4 +3574,80 @@ theorem dep_r09_outer_then_two_inner_bad_finsets_leave_pair
       (ΩInner outer) (BIn outer) (BCorr outer) (hFiber outer hOuter)
   exact ⟨outer, hOuter, inner, hInner, hIn, hCorr⟩
 
+/-! ## Theory 80 — DEP-R09 same-law weighted-correlation tower audit -/
+
+/- Theory 80, formula 80.10: finite conditional-expectation expansion equals
+   the flat joint-atom sum.  The functions are abstract finite weights; this
+   proves no analytic character-sum estimate. -/
+theorem dep_r09_finite_tower_sum_identity
+    {α β : Type*} [Fintype α] [Fintype β]
+    (pA : α → ℝ) (pN : α → β → ℝ) (W : α → β → ℝ) :
+    (∑ outer : α,
+      pA outer * (∑ inner : β, pN outer inner * W outer inner)) =
+      ∑ outer : α, ∑ inner : β,
+        (pA outer * pN outer inner) * W outer inner := by
+  apply Finset.sum_congr rfl
+  intro outer _hOuter
+  rw [Finset.mul_sum]
+  apply Finset.sum_congr rfl
+  intro inner _hInner
+  ring
+
+/- Theory 80, formulas 80.13--80.14: a global outer-good normalized moment
+   below the squared correlation budget times the sieve-good mass leaves
+   positive terminal mass.  Markov and both analytic probability bounds are
+   external premises represented by hLower and hGate. -/
+theorem dep_r09_global_same_law_moment_terminal
+    {fOut fIn mu tau pSuccess : ℝ}
+    (hTau : 0 < tau)
+    (hLower :
+      (1 - fOut) * (1 - fIn) - mu / tau ^ 2 ≤ pSuccess)
+    (hGate :
+      mu < tau ^ 2 * ((1 - fOut) * (1 - fIn))) :
+    0 < pSuccess := by
+  have hTauSq : 0 < tau ^ 2 := sq_pos_of_pos hTau
+  have hRatio : mu / tau ^ 2 < (1 - fOut) * (1 - fIn) := by
+    apply (div_lt_iff₀ hTauSq).2
+    simpa only [mul_assoc, mul_left_comm, mul_comm] using hGate
+  exact lt_of_lt_of_le (sub_pos.mpr hRatio) hLower
+
+/- Theory 80, formulas 80.16--80.17: positive outer mass and the strict
+   conditional moment gate give positive product slack.  The conditional
+   Markov estimate itself is not asserted. -/
+theorem dep_r09_conditional_same_law_moment_terminal
+    {fOut fIn muOuter tau : ℝ}
+    (_hTau : 0 < tau)
+    (hOut : fOut < 1)
+    (hGate : fIn + muOuter / tau ^ 2 < 1) :
+    0 < (1 - fOut) * (1 - fIn - muOuter / tau ^ 2) := by
+  have hOuterMass : 0 < 1 - fOut := by linarith
+  have hConditionalMass : 0 < 1 - fIn - muOuter / tau ^ 2 := by
+    linarith
+  exact mul_pos hOuterMass hConditionalMass
+
+/- Theory 80, formula 80.21: the raw second-moment normalization uses the
+   pointwise survivor floor and prime scale through the exact squared
+   denominator identity. -/
+theorem dep_r09_raw_moment_denominator_identity
+    (rho minimumSurvivors primeScale : ℝ) :
+    rho / (minimumSurvivors ^ 2 * primeScale ^ 2) =
+      rho / (minimumSurvivors * primeScale) ^ 2 := by
+  congr 1
+  ring
+
+/- Theory 80, formula 80.21: division by the strictly positive pointwise
+   survivor-floor denominator preserves a supplied raw second-moment upper
+   bound.  The raw analytic moment and survivor floor remain premises. -/
+theorem dep_r09_raw_to_normalized_moment_terminal
+    {rawMoment rho minimumSurvivors primeScale : ℝ}
+    (hRaw : rawMoment ≤ rho)
+    (hMinimum : 0 < minimumSurvivors)
+    (hScale : 0 < primeScale) :
+    rawMoment / (minimumSurvivors ^ 2 * primeScale ^ 2) ≤
+      rho / (minimumSurvivors ^ 2 * primeScale ^ 2) := by
+  have hDenominator :
+      0 < minimumSurvivors ^ 2 * primeScale ^ 2 :=
+    mul_pos (sq_pos_of_pos hMinimum) (sq_pos_of_pos hScale)
+  exact (div_le_div_iff_of_pos_right hDenominator).2 hRaw
+
 end FGKMTSono

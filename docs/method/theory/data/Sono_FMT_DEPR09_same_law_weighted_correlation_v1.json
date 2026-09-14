@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 same-law weighted-correlation tower audit",
+  "predecessor": "Sono_FMT_DEPR09_FMT_construction_mass_v1.json",
+  "outcome": "FINITE_TOWER_AND_THREE_SUFFICIENT_MOMENT_CONTRACTS_EXPLICIT_BUT_NO_SOURCE_SUPPLIES_THE_ACTUAL_SAME_LAW_MOMENT",
+  "source_registry": [
+    {
+      "key": "FMT",
+      "title": "Chains of large gaps between primes",
+      "authors": "Kevin Ford, James Maynard, Terence Tao",
+      "locator": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "arxiv": "1511.04468",
+      "doi": "10.1007/978-3-319-92777-0_1",
+      "printed_locations": "formula (1.1); Theorems 3--5; Section 6 formula (6.17)",
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_ORIGINAL_PDF_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PUBLISHED_TWO_STAGE_RANDOM_CONSTRUCTION"
+    },
+    {
+      "key": "FGKMT",
+      "title": "Long gaps between primes",
+      "authors": "Kevin Ford, Ben Green, Sergei Konyagin, James Maynard, Terence Tao",
+      "locator": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "doi": "10.1090/jams/876",
+      "printed_locations": "Theorem 3 and Corollary 4, pp. 74--80; Theorems 4--5",
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_ORIGINAL_PDF_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PUBLISHED_HYPERGRAPH_CARDINALITY_PRESERVATION"
+    },
+    {
+      "key": "MAIER",
+      "title": "Chains of large gaps between primes",
+      "authors": "Helmut Maier",
+      "locator": "article/Maier 1981.pdf",
+      "sha256": "ca6f2425b850dd5f9d81340d8a4a4c76faf6a947d7486ebf87ff072adbf0a3eb",
+      "doi": "10.1016/0001-8708(81)90003-7",
+      "printed_locations": "Lemma 2 and matrix argument; formulas (I)--(III)",
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_ORIGINAL_PDF_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PUBLISHED_FIXED_CRT_POINTWISE_PNT_ROUTE"
+    },
+    {
+      "key": "SONO",
+      "title": "An explicit lower bound for gaps between some consecutive primes",
+      "authors": "Kota Sono",
+      "locator": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+      "doi": "10.1007/s40993-024-00569-8",
+      "printed_locations": "Assumption 3.2; Lemma 3.7; formulas (3.14)--(3.22)",
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_ORIGINAL_PDF_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PUBLISHED_FIXED_RESIDUE_POINTWISE_PAP_ROUTE"
+    },
+    {
+      "key": "THEORY77",
+      "title": "DEP-R09 restricted-residue variance spectral optimality audit",
+      "locator": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
+      "sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4",
+      "source_locations": "formulas (77.3)--(77.16)",
+      "classification": "PROJECT_EXACT_CHARACTER_ENERGY_AND_DIRECT_TARGET"
+    },
+    {
+      "key": "THEORY79",
+      "title": "DEP-R09 FMT construction-law finite-mass audit",
+      "locator": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3",
+      "source_locations": "formulas (79.1)--(79.13)",
+      "classification": "PROJECT_PARAMETERIZED_EXPLICIT_SIEVE_MASS"
+    }
+  ],
+  "observable": {
+    "joint_outcome": "omega=(A,N-prime)",
+    "modulus": "P=P(x)/B0",
+    "fixed_offset_interval": "I=[y]\\[x]",
+    "survivor_set": "T_omega={s in I:gcd(m_omega+s,P)=1}",
+    "character_coefficient": "C_chi(omega)=sum_(s in I) conjugate(chi(m_omega+s)), with chi extended by zero on nonunits",
+    "weighted_prime_error": "R_omega=sum_(chi!=chi0) C_chi(omega) Z_chi(Y)",
+    "survivor_count": "M_omega=card(T_omega)",
+    "remaining_relative_budget": "tau=epsilon-delta0>0",
+    "normalized_squared_badness": "W_omega=abs(R_omega)^2/(M_omega^2 Y^2), defined only on an outer-good domain with a certified positive survivor floor",
+    "correlation_good_event": "W_omega<=tau^2"
+  },
+  "finite_contracts": {
+    "tower": "E[1_O W]=sum_(a in O) P_A(a) E[W|A=a]",
+    "global": {
+      "input": "E[1_O W]<=mu",
+      "joint_success_lower": "max(0,(1-F_out)(1-F_in)-mu/tau^2)",
+      "strict_gate": "mu/tau^2<(1-F_out)(1-F_in)"
+    },
+    "conditional_on_outer_good": {
+      "input": "E[W|O]<=mu_O",
+      "joint_success_lower": "(1-F_out)*max(0,1-F_in-mu_O/tau^2)",
+      "strict_gate": "F_in+mu_O/tau^2<1"
+    },
+    "uniform_fiber": {
+      "input": "for every outer-good a, E[W|A=a]<=mu_f",
+      "strict_gate": "F_in+mu_f/tau^2<1",
+      "strength": "stronger than the global or outer-good-conditional mean requirement"
+    },
+    "raw_moment_fallback": {
+      "inputs": "E[1_O abs(R)^2]<=rho, M_omega>=M_min>0 on O, Y>0",
+      "normalized_moment_upper": "mu<=rho/(M_min^2 Y^2)",
+      "warning": "an average survivor count cannot replace the pointwise M_min floor"
+    }
+  },
+  "source_screen": {
+    "fmt_formula_1_1": "Supplies the tower identity for an integrable variable and a countable conditioning variable, but no bound for W.",
+    "fmt_theorem_4": "Preserves cardinality for a fixed subset Q-double-prime; the subset is fixed before the output covering law is drawn and the printed rate is qualitative.",
+    "fgkmt_corollary_4": "Preserves cardinality of fixed Q-double-prime sets and derives from small-set survival probabilities; it does not state concentration for output-dependent signed or complex CRT weights.",
+    "maier_1981": "Uses Gallagher pointwise for each fixed admissible column after the CRT shift has been fixed; it does not average the shift under the FMT law.",
+    "sono": "Uses pointwise PAP for every fixed reduced residue before averaging the independent row variable z; z does not average over the construction-dependent CRT shift m.",
+    "targeted_literature_search": "No drop-in theorem was identified that simultaneously preserves the actual FMT covering success and gives a numerical second moment for the CRT-output-dependent complex character observable. This is a scoped source-screen result, not a proof that no such theorem exists."
+  },
+  "minimal_new_analytic_lemma": {
+    "preferred_global_form": "Under the actual final FMT joint law, give an explicit finite upper bound for E[1_O abs(sum_(chi!=chi0) C_chi(omega)Z_chi(Y))^2/(M_omega^2Y^2)] that is strictly below tau^2(1-F_out)(1-F_in).",
+    "stronger_fiber_form": "Uniformly for every outer-good A=a, give an explicit finite conditional upper bound mu_f with F_in+mu_f/tau^2<1.",
+    "required_scope": [
+      "actual final output N-prime rather than preliminary independent edges",
+      "CRT shift m(A,N-prime)",
+      "exceptional prime B0 and modulus P=P(x)/B0",
+      "endpoint interval [y]\\[x]",
+      "positive pointwise survivor floor or direct normalized observable",
+      "numerical multiplier and common finite cutoff",
+      "the same law used by the finite covering proof"
+    ]
+  },
+  "exact_finite_diagnostic": {
+    "finite_tower_identity_exact": true,
+    "normalized_badness_divide_by_zero_guarded": true,
+    "global_markov_contract_exact": true,
+    "conditional_outer_good_contract_exact": true,
+    "uniform_fiber_contract_exact": true,
+    "fmt_fixed_subset_cardinality_is_drop_in_weighted_theorem": false,
+    "fgkmt_small_set_survival_is_drop_in_weighted_theorem": false,
+    "same_law_analytic_moment_bound_available": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "FMT or FGKMT proves the new weighted moment contract.",
+    "The scoped literature search proves that no relevant theorem exists.",
+    "The project has proved a same-law analytic moment bound.",
+    "PAP-11, DEP-R09, the fixed coefficient 2e-17, or numerical X_cert is closed.",
+    "A threshold calculator or new prime computation is ready."
+  ],
+  "next_gate": "Prove an explicit global outer-good normalized second moment, or a stronger uniform outer-good-fiber moment, for the actual FMT joint law and CRT-dependent character observable."
+}

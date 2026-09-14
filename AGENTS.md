@@ -110,6 +110,19 @@ failure를 이 mass보다 작게 상계하는 것이다. 최신 analytic 정본�
 PAP-11·DEP-R09·fixed \(2\times10^{-17}\)·\(X_{\rm cert}\)는 계속 OPEN이고,
 threshold calculator·장시간 prime 계산은 NOT READY다.
 
+2026-09-14 same-law weighted-correlation successor는 actual final
+\((\mathbf A,\mathbf N')\) law에서 normalized squared badness를 정의하고 finite tower,
+global·outer-good conditional·uniform-fiber 충분조건을 exact하게 분리했다. 가장 약한
+현재 gate는 \(\mathbb EW<\tau^2(1-F_{\rm out})(1-F_{\rm in})\)이다. FMT formula
+(1.1)는 tower만 주며 FMT/FGKMT fixed-subset cardinality theorem은 final output에 따라
+변하는 complex CRT weight의 moment theorem이 아니다. Theory 80 뒤 inventory는
+81개 문서, 1,473식이고 <code>KERNEL_PASS=94</code>,
+<code>CONDITIONAL_KERNEL_PASS=64</code>, <code>NOT_YET_FORMALIZED=1027</code>,
+Lean declaration 288개, 금지 proof escape 0건이다. 최신 analytic 정본은 theory 80·
+review 88이다. actual same-law moment·PAP-11·DEP-R09·fixed
+\(2\times10^{-17}\)·\(X_{\rm cert}\)는 계속 OPEN이고 threshold calculator·장시간
+prime 계산은 NOT READY다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는
@@ -521,6 +534,7 @@ tmp/              읽기/렌더링 임시 파일; 최종 산출물 아님
 - 세 단계 이상, actual artifact 사용, 여러 파일 변경 또는 30분 이상 걸릴 수 있는 작업은
   본작업 전에 `ai_dev_tool/work_ledgers/YYYYMMDDHHmm_<작업명>_WORK_LEDGER.md`를 새로 만든다.
 - 각 큰 단계가 끝날 때 완료 증거, 변경 파일, 검증 명령·결과, 실패와 정확한 다음 재개점을 갱신한다.
+- 작업원장 분 단위 시각은 기록 직전에 Get-Date로 확인하고, 요약에서 복원해 검증할 수 없는 시각은 세부 시각 미확정으로 쓰며, 완료 전 미래 시각이 없는지 점검한다.
 - 대화 압축이나 새 세션 뒤에는 최신 비 `-done` 원장과 최신 handoff를 함께 읽고 첫 미완료 단계부터 재개한다.
 - 요청 산출물·검증·정본 동기화·handoff가 모두 끝난 경우에만 파일명 끝을 `WORK_LEDGER-done.md`로 바꾼다.
 - 실패·보류·사용자 결정 대기는 완료가 아니며, 완료 원장은 사용자 승인 없이 삭제하거나 덮어쓰지 않는다.
@@ -758,8 +772,15 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - `git add .` 또는 `git add -A`를 사용하지 않는다.
 - push, PR, issue, 외부 게시를 사용자의 별도 요청 없이 하지 않는다.
 - raw PDF와 raw dataset을 수정하지 않는다.
+- machine ledger·최신 theory가 exact source locator를 제공하면 그 경로만 읽는다. 특히
+  <code>tmp</code> 전체를 broad recursive search하지 않으며, 경로가 불명확하면 먼저
+  좁은 root의 파일 목록에서 canonical path를 확정한다.
 - PDF는 native text·대응 LaTeX·scan/OCR층을 구분한다. 텍스트/TeX 우선으로 읽고 핵심 식·가정은 원본과 대조한다. 추출 가능 여부만으로 OCR 필요성을 판단하지 않는다. 절차: ai_dev_tool/09_PDF_원문_읽기_대조_규약.md.
+- JavaScript를 거쳐 LaTeX Markdown patch를 만들 때는 backslash가 소실되지 않는 transport를
+  쓰고, Markdown backtick이 포함된 기존 문맥과 raw template를 섞지 않는다. 적용 직후
+  formula inventory와 inline delimiter narrow scan을 실행한다.
 - 결과를 사전에 정한 결론에 맞추지 않는다.
+- 전체 unittest는 TemporaryDirectory, multiprocessing, PowerShell child를 포함하므로 이미 허가된 정상 로컬 권한에서 첫 판정하고, 제한 샌드박스 권한 실패와 실제 코드 회귀를 분리해 기록한다.
 - 필요한 lemma는 먼저 원 논문·교정본·후속 선행증명에서 찾는다. 채택 전에는 가정,
   변수 정규화, 유효범위, 끝점, 오류항과 알려진 정정을 현재 적용과 개별 대조한다.
 - 적합한 선행정리가 없거나 실제 호출로 이어지는 연결부가 빠진 경우에만 그 빈 부분을
