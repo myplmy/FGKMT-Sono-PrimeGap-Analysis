@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-15",
+  "gate": "DEP-R09 fixed-primorial variance source and direct large-sieve barrier audit",
+  "predecessor": "Sono_FMT_DEPR09_outer_entropy_convolution_second_moment_v1.json",
+  "outcome": "NO_FULLY_NUMERICAL_PRESCRIBED_PRIMORIAL_VARIANCE_DROP_IN_AND_RAW_CLASSICAL_LARGE_SIEVE_RHS_CANNOT_CERTIFY_THEORY82_GATE",
+  "normalization": {
+    "modulus": "q=P(x)/B0, a prescribed growing primorial-type modulus",
+    "prime_sum_scale": "Y=q^d",
+    "capacity_range": "21<=d<=186",
+    "character_energy": "V(Y,q)=sum_(chi mod q, chi!=chi0) abs(Z_chi(Y))^2",
+    "theory82_gate": "V<tau^2*p_*Q_S*M_min^2*Y^2/(phi(q)*N^2)",
+    "most_favourable_atom_envelope": "gate/Y^2<=exp(-4)*q/phi(q)",
+    "direct_large_sieve_rhs": "B_LS=(Y+q^2)*sum_(n<=Y)Lambda(n)^2"
+  },
+  "source_registry": [
+    {
+      "key": "MONTGOMERY_VAUGHAN1973",
+      "title": "The large sieve",
+      "authors": "H. L. Montgomery and R. C. Vaughan",
+      "locator": "tmp/source_audit/depr09_fixed_variance_20260915/montgomery_vaughan_1973_large_sieve.pdf",
+      "sha256": "720058876b871e8d1fef22acb285550a227ae9e3b1bedaa042f6d62f3299e8b9",
+      "doi": "10.1112/S0025579300004708",
+      "printed_locations": "printed p. 119, Theorem 1, formulas (1.1)--(1.4)",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_ORIGINAL_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PEER_REVIEWED_AUTHOR_HOSTED_EXACT_ADDITIVE_LARGE_SIEVE_CONSTANT_N_PLUS_DELTA_INVERSE"
+    },
+    {
+      "key": "FRIEDLANDER_GOLDSTON1996",
+      "title": "Variance of distribution of primes in residue classes",
+      "doi": "10.1093/qmath/47.3.313",
+      "classification": "PRIMARY_PEER_REVIEWED_RELEVANT_FIXED_Q_VARIANCE_BUT_NO_VERIFIED_FULLY_NUMERICAL_CURRENT_POWER_REGIME_DROP_IN"
+    },
+    {
+      "key": "VAUGHAN2001",
+      "title": "On a variance associated with the distribution of primes in arithmetic progressions",
+      "doi": "10.1112/plms/82.3.533",
+      "classification": "PRIMARY_PEER_REVIEWED_MODULUS_AVERAGE_NEAR_Y_NOT_PRESCRIBED_Q_EQUALS_Y_TO_ONE_OVER_D"
+    },
+    {
+      "key": "FIORILLI2013",
+      "title": "The distribution of the variance of primes in arithmetic progressions",
+      "locator": "tmp/source_audit/depr09_fixed_variance_20260915/fiorilli_2013.pdf",
+      "sha256": "e30dcdd9b507d65324d47ad71b175f3fb6dab0ae27e2512f19069198d490901e",
+      "arxiv": "1301.5663",
+      "printed_locations": "PDF p. 2, summary of known q ranges",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_ORIGINAL_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PREPRINT_RANGE_SYNTHESIS_NO_ASYMPTOTIC_KNOWN_FOR_Q_BELOW_Y_TO_ONE_HALF"
+    },
+    {
+      "key": "FIORILLI_MARTIN2023",
+      "title": "Disproving Hooley's conjecture",
+      "locator": "tmp/source_audit/depr09_fixed_variance_20260915/fiorilli_martin_2023.pdf",
+      "sha256": "a9274ba7ae98f115cb49b9f3041c2ab071709953d17df011ce5921d58cb491dd",
+      "doi": "10.4171/JEMS/1291",
+      "arxiv": "2008.05837",
+      "printed_locations": "printed pp. 1--4, Theorems 1.1--1.3 and Proposition 2.2",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_ORIGINAL_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PEER_REVIEWED_NATURAL_VARIANCE_IS_DEEP_AND_SMALL_Q_UNIVERSAL_HOOLEY_BOUND_IS_FALSE"
+    },
+    {
+      "key": "ROSSER_SCHOENFELD1962",
+      "title": "Approximate formulas for some functions of prime numbers",
+      "locator": "tmp/pdfs/h1b1a/Rosser_Schoenfeld_1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "printed_locations": "printed p. 72, formulas (3.41)--(3.42)",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_ORIGINAL_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PEER_REVIEWED_EXPLICIT_Q_OVER_PHI_Q_ENVELOPE"
+    },
+    {
+      "key": "DUSART2010",
+      "title": "Estimates of some functions over primes without R.H.",
+      "locator": "tmp/pdfs/h1b1a/Dusart2010_Explicit_estimates_over_primes.pdf",
+      "sha256": "3f11eca84613ad00e6a447f99b318d5c3d76e360283efcc6d3eebdda25ff3923",
+      "arxiv": "1002.0442",
+      "printed_locations": "printed p. 4, Theorem 5.2, k=1 row",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_ORIGINAL_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_EXPLICIT_CHEBYSHEV_THETA_BOUND"
+    },
+    {
+      "key": "THEORY82",
+      "title": "DEP-R09 outer entropy and convolution second-moment reduction",
+      "locator": "docs/method/theory/82_Sono_FMT_DEPR09_outer_entropy_convolution_second_moment.md",
+      "sha256": "73a32b0bd59f7b561d47704358556a71cad2e6ce3cb6ae24b25a18dfbf438a93",
+      "source_locations": "formulas (82.1)--(82.3), (82.17)--(82.25)",
+      "classification": "PROJECT_STRICT_CHARACTER_ENERGY_GATE"
+    }
+  ],
+  "source_range_audit": {
+    "current_delta": "1/d in [1/186,1/21]",
+    "current_q_range": "q=Y^delta is far below Y^(1/2)",
+    "friedlander_goldston_natural_asymptotic": "conditional q>=Y^(1/2+epsilon), not a numerical unconditional drop-in",
+    "vaughan2001": "average over Q/2<q<=Q with Q close to Y; not a prescribed primorial",
+    "fiorilli2013_summary": "no asymptotic known for Q<=Y^(1/2), even conditionally, in the cited variance framework",
+    "fiorilli_martin_warning": "small-q counterexamples do not directly refute the current power regime, but a uniform Hooley bound in q about Y^delta would imply a zero-free half-plane",
+    "fully_numerical_prescribed_primorial_drop_in_count": 0,
+    "absence_claim_scope": "checked corpus and targeted source search only, not all mathematical literature"
+  },
+  "large_sieve_reduction": {
+    "additive_source": "sum_r abs(S(x_r))^2 <= (N+delta^(-1))*sum_n abs(a_n)^2",
+    "farey_spacing": "reduced a/r with r<=q have spacing at least 1/q^2",
+    "primitive_character_step": "Gauss sums and Bessel give the q/phi(q)-weighted primitive-character family",
+    "optimistic_conductor_step": "drop weights r/phi(r)>=1 and ignore imprimitive Euler-factor corrections",
+    "optimistic_rhs": "B_LS=(Y+q^2)S2(Y)",
+    "interpretation": "ignoring nonnegative or unresolved transfer losses makes this the most favourable direct raw certificate, not a theorem about the actual energy"
+  },
+  "elementary_barrier": {
+    "dusart_input": "abs(theta(t)-t)<1.2323*t/log(t) for t>=2",
+    "half_interval": "theta(Y)-theta(Y/2)>Y/4 in the current power regime",
+    "lambda_square_lower": "S2(Y)>Y*(log(Y)-log(2))/4",
+    "large_sieve_rhs_lower": "B_LS/Y^2>(log(Y)-log(2))/4>5*log(q)",
+    "best_possible_gate_upper": "gate/Y^2<=exp(-4)*q/phi(q)",
+    "rosser_schoenfeld_upper": "q/phi(q)<exp(gamma)*log(log(q))+2.50637/log(log(q)) for every q>=3 after using the larger exceptional coefficient globally",
+    "strict_comparison": "5*log(q)>exp(-4)*(exp(gamma)*log(log(q))+2.50637/log(log(q))) for q>=3",
+    "conclusion": "B_LS is strictly above even the most favourable Theory-82 gate throughout q>=3,d>=21"
+  },
+  "exact_finite_diagnostic": {
+    "endpoint_q": 3,
+    "endpoint_d": 21,
+    "dusart_log8_coefficient": "0.26163754981615089376847636128309934286627033437134856038105613610495779067555745",
+    "dusart_log8_coefficient_exceeds_one_quarter": true,
+    "dusart_half_interval_coefficient": "0.41905220105981076894746640202163384283668234922319289819792519164130365993131081",
+    "dusart_coefficient_exceeds_one_quarter": true,
+    "large_sieve_rhs_lower_over_y2": "5.5944277203675895524707294634787158073804503949793708080769752492234966339052734",
+    "exact_best_entropy_gate_upper_over_y2": "0.027473458333101270440577031909861863317868101330213392154399891158875647397171184",
+    "rosser_entropy_gate_upper_over_y2": "0.49117885863418770887727922883934885821396769356741187394986637079476543544164637",
+    "conservative_barrier_margin": "5.103248861733401843593450234639366949166482701411958934127108878428731198463627",
+    "sample_primorial_margins_all_positive": true,
+    "montgomery_vaughan_primary_constant_crosschecked": true,
+    "direct_large_sieve_rhs_can_certify_theory82_gate": false,
+    "actual_character_energy_lower_bound_claimed": false,
+    "fixed_primorial_natural_variance_theorem_identified": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The actual character energy is at least B_LS.",
+    "Every large-sieve or sparse-conductor refinement is impossible.",
+    "The small-q Fiorilli--Martin counterexample directly applies to q=Y^(1/d).",
+    "Modulus-average theorems select the prescribed primorial.",
+    "PAP-11, DEP-R09, the fixed coefficient, or numerical X_cert is closed.",
+    "A threshold calculator or long prime computation is ready."
+  ],
+  "status_after_this_gate": {
+    "fixed_primorial_variance_source_identified": false,
+    "raw_classical_large_sieve_certificate_rejected_for_theory82_gate": true,
+    "shift_entropy_alone_can_repair_raw_large_sieve_certificate": false,
+    "prime_specific_or_sparse_divisor_refinement_still_possible": true,
+    "direct_same_law_weighted_correlation_still_possible": true,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "user_compute_required_now": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "next_gate": "Find or prove a prime-specific or sparse-divisor fixed-primorial bound, or a direct same-law weighted-correlation theorem, that is strictly smaller than the Theory-82 gate; the raw classical large-sieve RHS and shift entropy alone cannot certify it."
+}

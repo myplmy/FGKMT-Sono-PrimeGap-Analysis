@@ -2160,3 +2160,44 @@ Theory 82 뒤 전수원장은 theory 83개, display 식 1,528개, Lean declarati
 upper bound, <code>PAP-11</code>, DEP-R09, fixed \(2\times10^{-17}\)와 numerical
 \(X_{\rm cert}\)는 계속 OPEN이다. 새 bounded range가 없으므로 threshold calculator와
 장시간 prime 계산은 NOT READY다.
+
+## 2026-09-15 DEP-R09 fixed-primorial variance·large-sieve barrier 감사
+
+[theory 83](method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md)과
+[review 92](review/92_20260915_DEPR09_fixed_primorial_variance_large_sieve_barrier_타당성검토.md)은
+Theory 82의 열린 \(V(Y,q)\) input에 고전 large sieve를 직접 넣을 수 있는지
+source-first로 검사했다.
+
+현재 \(Y=q^d\), \(21\le d\le186\)인데, 확인한 Friedlander--Goldston fixed-\(q\)
+variance와 Vaughan modulus-average 결과는 fully numerical prescribed primorial
+drop-in이 아니다. Montgomery--Vaughan 1973 저자 공개 원문 p.119의
+\(N+\delta^{-1}\) constant를 사용하면 direct no-loss certificate RHS는
+
+\[
+B_{\rm LS}=(Y+q^2)\sum_{n\le Y}\Lambda(n)^2.
+\]
+
+Dusart와 Rosser--Schoenfeld의 explicit bounds를 합치면 모든 \(q\ge3,d\ge21\)에서
+
+\[
+\frac{B_{\rm LS}}{Y^2}>5\log q>
+e^{-4}\frac q{\varphi(q)}
+\ge \frac{V_{\rm gate}}{Y^2}.
+\]
+
+따라서 raw classical upper certificate 하나로 Theory 82의 strict gate를 인증할 수
+없다. 이 식은 실제 \(V\)의 하한이 아니며 sparse-divisor, prime-specific variance,
+direct same-law weighted correlation을 배제하지 않는다.
+
+exact Python 9개와 Lean direct compile·전수 ledger validation이 PASS했다. Lean은
+power-range 선형대수, gate factor monotonicity와 \(V=gate\) countermodel만 검사하고
+analytic source theorem을 local axiom으로 넣지 않는다.
+
+Theory 83 뒤 전수원장은 theory 84개, display 식 1,561개, Lean declaration 300개다.
+상태는 <code>KERNEL_PASS=96</code>, <code>CONDITIONAL_KERNEL_PASS=73</code>,
+<code>DEFINITION_ONLY=119</code>, <code>PARTIAL_FORMALIZATION=120</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=98</code>,
+<code>NOT_YET_FORMALIZED=1050</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. <code>PAP-11</code>, DEP-R09, fixed
+\(2\times10^{-17}\), numerical \(X_{\rm cert}\)는 계속 OPEN이며 threshold
+calculator와 장시간 prime 계산은 NOT READY다.

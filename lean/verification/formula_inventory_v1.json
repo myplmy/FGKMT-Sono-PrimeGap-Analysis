@@ -1,18 +1,18 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 83,
-  "formula_count": 1528,
-  "tagged_formula_count": 995,
-  "untagged_formula_count": 533,
+  "theory_count": 84,
+  "formula_count": 1561,
+  "tagged_formula_count": 1025,
+  "untagged_formula_count": 536,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "49a5cbb838122f7ba78017e885604b97a90e3d325ac2837e5828b6ab6859ae0d",
-      "display_formula_count": 0,
+      "source_sha256": "f07d6043e5f71fb3449b9fe4f1774bbdc59c9bb64cb51ed1d01daad4fa6bb172",
+      "display_formula_count": 1,
       "tagged_formula_count": 0,
-      "untagged_formula_count": 0
+      "untagged_formula_count": 1
     },
     {
       "theory": "01",
@@ -105,10 +105,10 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731",
-      "display_formula_count": 18,
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00",
+      "display_formula_count": 20,
       "tagged_formula_count": 0,
-      "untagged_formula_count": 18
+      "untagged_formula_count": 20
     },
     {
       "theory": "13",
@@ -669,9 +669,27 @@
       "display_formula_count": 26,
       "tagged_formula_count": 26,
       "untagged_formula_count": 0
+    },
+    {
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278",
+      "display_formula_count": 30,
+      "tagged_formula_count": 30,
+      "untagged_formula_count": 0
     }
   ],
   "formulae": [
+    {
+      "formula_id": "T00-U001",
+      "theory": "00",
+      "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
+      "start_line": 538,
+      "end_line": 542,
+      "tagged": false,
+      "latex": "(Y+q^2)\\sum_{n\\le Y}\\Lambda(n)^2\n>\ne^{-4}\\frac q{\\varphi(q)}Y^2.",
+      "source_sha256": "f07d6043e5f71fb3449b9fe4f1774bbdc59c9bb64cb51ed1d01daad4fa6bb172"
+    },
     {
       "formula_id": "T01-U001",
       "theory": "01",
@@ -960,7 +978,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U002",
@@ -970,7 +988,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U003",
@@ -980,7 +998,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U004",
@@ -990,7 +1008,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U005",
@@ -1000,7 +1018,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U006",
@@ -1010,7 +1028,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U007",
@@ -1020,7 +1038,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U008",
@@ -1030,7 +1048,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U009",
@@ -1040,7 +1058,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U010",
@@ -1050,7 +1068,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U011",
@@ -1060,7 +1078,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U012",
@@ -1070,7 +1088,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U013",
@@ -1080,7 +1098,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U014",
@@ -1090,7 +1108,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U015",
@@ -1100,7 +1118,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U016",
@@ -1110,7 +1128,7 @@
       "end_line": 1225,
       "tagged": false,
       "latex": "\\Pr(S_{\\rm sieve},m_\\omega=r)\\le Q_{\\mathcal S}^{-1}.",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U017",
@@ -1120,7 +1138,7 @@
       "end_line": 1231,
       "tagged": false,
       "latex": "\\rho_S\\le\\varphi(q)N^2V(Y,q)/Q_{\\mathcal S},",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T12-U018",
@@ -1130,7 +1148,27 @@
       "end_line": 1239,
       "tagged": false,
       "latex": "V(Y,q)<\n\\tau^2p_*Q_{\\mathcal S}M_{\\min}^2Y^2/\n\\{\\varphi(q)N^2\\}.",
-      "source_sha256": "053fc631e1520b66dc8a8818d293bae5a284ef7b661f0b76cc77dfd684590731"
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
+    },
+    {
+      "formula_id": "T12-U019",
+      "theory": "12",
+      "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
+      "start_line": 1260,
+      "end_line": 1262,
+      "tagged": false,
+      "latex": "B_{\\rm LS}=(Y+q^2)\\sum_{n\\le Y}\\Lambda(n)^2",
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
+    },
+    {
+      "formula_id": "T12-U020",
+      "theory": "12",
+      "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
+      "start_line": 1266,
+      "end_line": 1268,
+      "tagged": false,
+      "latex": "B_{\\rm LS}>e^{-4}(q/\\varphi(q))Y^2\\ge V_{\\rm gate}",
+      "source_sha256": "8202caf5651f8408c68bf244d7ea58687ac991647df7261d96d955f2700dcb00"
     },
     {
       "formula_id": "T13-U001",
@@ -15951,6 +15989,306 @@
       "tagged": true,
       "latex": "\\sum_{x\\bmod p}\\left|\\sum_{n=1}^{h}\\chi(x+n)\\right|^2\n =ph-h^2\n \\tag{82.26}",
       "source_sha256": "73a32b0bd59f7b561d47704358556a71cad2e6ce3cb6ae24b25a18dfbf438a93"
+    },
+    {
+      "formula_id": "83.1",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 19,
+      "end_line": 22,
+      "tagged": true,
+      "latex": "q=P(x)/B_0,\\qquad Y=q^d,\\qquad 21\\le d\\le186\n \\tag{83.1}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.2",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 26,
+      "end_line": 33,
+      "tagged": true,
+      "latex": "V(Y,q)\n <\n \\tau^2p_*\n \\frac{Q_{\\mathcal S}M_{\\min}^2Y^2}\n {\\varphi(q)N^2}.\n \\tag{83.2}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.3",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 46,
+      "end_line": 52,
+      "tagged": true,
+      "latex": "B_{\\rm LS}(Y,q)\n :=\n (Y+q^2)\n \\sum_{n\\le Y}\\Lambda(n)^2\n \\tag{83.3}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.4",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 56,
+      "end_line": 62,
+      "tagged": true,
+      "latex": "\\boxed{\n B_{\\rm LS}(Y,q)\n >\n e^{-4}\\frac q{\\varphi(q)}Y^2.}\n \\tag{83.4}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.5",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 67,
+      "end_line": 72,
+      "tagged": true,
+      "latex": "V\\le B_{\\rm LS}\n \\quad\\hbox{하나만으로는}\\quad\n V< V_{\\rm gate}\n \\tag{83.5}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.6",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 81,
+      "end_line": 85,
+      "tagged": true,
+      "latex": "\\delta:=\\frac{\\log q}{\\log Y}=\\frac1d\n \\in\\left[\\frac1{186},\\frac1{21}\\right].\n \\tag{83.6}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.7",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 89,
+      "end_line": 92,
+      "tagged": true,
+      "latex": "q=Y^\\delta\\le Y^{1/21}\\ll Y^{1/2}.\n \\tag{83.7}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.8",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 114,
+      "end_line": 117,
+      "tagged": true,
+      "latex": "\\Re s>\\frac12+\\frac\\delta2\n \\tag{83.8}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.9",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 121,
+      "end_line": 126,
+      "tagged": true,
+      "latex": "d=21:\\ \\frac{11}{21},\n \\qquad\n d=186:\\ \\frac{187}{372}.\n \\tag{83.9}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.10",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 137,
+      "end_line": 143,
+      "tagged": true,
+      "latex": "\\sum_r|S(x_r)|^2\n \\le\n (N+\\delta^{-1})\n \\sum_n|a_n|^2.\n \\tag{83.10}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.11",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 148,
+      "end_line": 154,
+      "tagged": true,
+      "latex": "\\sum_{r\\le Q}\\ \\sum_{\\substack{a\\bmod r\\\\(a,r)=1}}\n \\left|S\\!\\left(\\frac ar\\right)\\right|^2\n \\le\n (N+Q^2)\\sum_n|a_n|^2.\n \\tag{83.11}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.12",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 159,
+      "end_line": 166,
+      "tagged": true,
+      "latex": "\\sum_{r\\le Q}\\frac r{\\varphi(r)}\n \\sum_{\\chi\\bmod r}^{*}\n \\left|\\sum_n a_n\\chi(n)\\right|^2\n \\le\n (N+Q^2)\\sum_n|a_n|^2\n \\tag{83.12}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.13",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 179,
+      "end_line": 183,
+      "tagged": true,
+      "latex": "S_2(Y):=\\sum_{n\\le Y}\\Lambda(n)^2,\n \\qquad L:=\\log Y.\n \\tag{83.13}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.14",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 187,
+      "end_line": 192,
+      "tagged": true,
+      "latex": "|\\vartheta(t)-t|\n <\n \\frac{12323}{10000}\\frac t{\\log t}.\n \\tag{83.14}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.15",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 196,
+      "end_line": 203,
+      "tagged": true,
+      "latex": "\\vartheta(Y)-\\vartheta(Y/2)\n >\n Y\\left\\{\n \\frac12-\\frac aL-\\frac{a}{2(L-\\log2)}\n \\right\\}.\n \\tag{83.15}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.15a",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 208,
+      "end_line": 214,
+      "tagged": true,
+      "latex": "c(8)>\n \\frac12-\\frac{12323}{80000}\n -\\frac{5\\cdot12323}{73\\cdot10000}\n >\\frac14\n \\tag{83.15a}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.16",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 221,
+      "end_line": 224,
+      "tagged": true,
+      "latex": "\\vartheta(Y)-\\vartheta(Y/2)>\\frac Y4.\n \\tag{83.16}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.17",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 229,
+      "end_line": 240,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n S_2(Y)\n &\\ge\n \\sum_{Y/2<p\\le Y}(\\log p)^2\\\\\n &\\ge\n \\log(Y/2)\\{\\vartheta(Y)-\\vartheta(Y/2)\\}\\\\\n &>\n \\frac Y4(L-\\log2).\n \\end{aligned}\n \\tag{83.17}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.18",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 244,
+      "end_line": 249,
+      "tagged": true,
+      "latex": "\\frac{B_{\\rm LS}}{Y^2}\n >\n \\frac{L-\\log2}{4}.\n \\tag{83.18}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.19",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 253,
+      "end_line": 261,
+      "tagged": true,
+      "latex": "\\boxed{\n \\frac{B_{\\rm LS}}{Y^2}\n >\n \\frac{L-\\log2}{4}\n >\n 5t.}\n \\tag{83.19}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.20",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 268,
+      "end_line": 271,
+      "tagged": true,
+      "latex": "\\alpha\\ge\\frac1q.\n \\tag{83.20}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.21",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 276,
+      "end_line": 281,
+      "tagged": true,
+      "latex": "0<\\tau\\le e^{-2},\\qquad\n 0<p_*\\le1,\\qquad\n 0<M_{\\min}\\le N.\n \\tag{83.21}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.22",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 285,
+      "end_line": 291,
+      "tagged": true,
+      "latex": "\\boxed{\n \\frac{V_{\\rm gate}}{Y^2}\n \\le\n e^{-4}\\frac q{\\varphi(q)}.}\n \\tag{83.22}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.23",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 300,
+      "end_line": 306,
+      "tagged": true,
+      "latex": "\\frac q{\\varphi(q)}\n <\n e^\\gamma\\log\\log q+\n \\frac{5}{2\\log\\log q}\n \\tag{83.23}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.24",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 311,
+      "end_line": 318,
+      "tagged": true,
+      "latex": "\\frac q{\\varphi(q)}\n <\n R(t):=\n e^\\gamma\\log t+\\frac{2.50637}{\\log t},\n \\qquad t=\\log q.\n \\tag{83.24}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.25",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 322,
+      "end_line": 325,
+      "tagged": true,
+      "latex": "f(t):=5t-e^{-4}R(t).\n \\tag{83.25}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.26",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 329,
+      "end_line": 336,
+      "tagged": true,
+      "latex": "f'(t)\n =\n 5-\\frac{e^{\\gamma-4}}t+\n \\frac{2.50637e^{-4}}{t(\\log t)^2}>0\n \\qquad(t\\ge\\log3).\n \\tag{83.26}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.27",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 343,
+      "end_line": 346,
+      "tagged": true,
+      "latex": "e^{-4}R(\\log3)<\\frac{53}{50}<5<5\\log3,\n \\tag{83.27}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.28",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 353,
+      "end_line": 363,
+      "tagged": true,
+      "latex": "\\begin{aligned}\n \\frac{B_{\\rm LS}}{Y^2}\n &>5.59442772036758955247\\ldots,\\\\\n e^{-4}R(\\log3)\n &=0.49117885863418770887\\ldots,\\\\\n \\text{margin}\n &>5.10324886173340184359\\ldots\n \\end{aligned}\n \\tag{83.28}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
+    },
+    {
+      "formula_id": "83.29",
+      "theory": "83",
+      "source_file": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "start_line": 372,
+      "end_line": 377,
+      "tagged": true,
+      "latex": "V\\le B\n \\quad\\hbox{이지만}\\quad\n \\neg(V<G)\n \\tag{83.29}",
+      "source_sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278"
     }
   ],
   "issues": [],

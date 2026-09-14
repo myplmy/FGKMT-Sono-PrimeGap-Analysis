@@ -150,6 +150,21 @@ Theory 82 뒤 inventory는 83개 문서, 1,528식이고
 0건이다. 최신 analytic 정본은 theory 82·review 90이며 threshold calculator·장시간
 prime 계산은 NOT READY다.
 
+2026-09-15 fixed-primorial variance successor는 Friedlander--Goldston·Vaughan류
+source range가 현재 <code>q=Y^(1/d), 21&lt;=d&lt;=186</code> prescribed primorial과
+겹치는 fully numerical drop-in을 주지 않음을 확인했다. Montgomery--Vaughan 1973
+원문의 exact additive large-sieve constant를 복원하고 Dusart·Rosser--Schoenfeld와
+합쳐, raw classical large-sieve RHS가 가장 유리한 Theory 82 gate보다 모든
+<code>q&gt;=3,d&gt;=21</code>에서 크므로 그 upper certificate만으로 strict gate를
+인증할 수 없음을 보였다. 이는 실제 character energy의 하한이나 모든 sparse-family
+refinement의 불가능성 정리가 아니다. Theory 83 뒤 inventory는 84개 문서, 1,561식이고
+<code>KERNEL_PASS=96</code>, <code>CONDITIONAL_KERNEL_PASS=73</code>,
+<code>NOT_YET_FORMALIZED=1050</code>, Lean declaration 300개, 금지 proof escape
+0건이다. 최신 analytic 정본은 theory 83·review 92다. prime-specific 또는
+sparse-divisor bound와 direct same-law correlation, PAP-11·DEP-R09·fixed
+<code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고 threshold calculator·장시간
+prime 계산은 NOT READY다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

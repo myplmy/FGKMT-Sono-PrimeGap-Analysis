@@ -1245,3 +1245,33 @@ actual modulus·law·cutoff를 동시에 충족하지 않는다. 따라서 66개
 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed \(2\times10^{-17}\),
 \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. threshold calculator와 장시간
 prime sweep도 NOT READY다.
+
+## 52. 2026-09-15 DEP-R09 fixed-primorial variance·large-sieve barrier 후속 상태
+
+[theory 83](83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md)은
+Theory 82의 \(V(Y,q)\) input에 대한 source range와 가장 직접적인 classical
+large-sieve route를 감사했다.
+
+현재 \(Y=q^d\), \(21\le d\le186\)인데 확인한 individual-\(q\) variance와
+modulus-average theorem 중 actual prescribed primorial에 numerical multiplier와
+finite cutoff까지 주는 drop-in은 식별되지 않았다. Montgomery--Vaughan 1973 원문의
+exact constant에서 출발한 raw RHS
+
+\[
+B_{\rm LS}=(Y+q^2)\sum_{n\le Y}\Lambda(n)^2
+\]
+
+는 Dusart·Rosser--Schoenfeld의 explicit bounds 아래
+
+\[
+B_{\rm LS}>e^{-4}(q/\varphi(q))Y^2\ge V_{\rm gate}
+\]
+
+다. 즉 이 upper certificate만으로 strict Theory-82 gate를 도출할 수 없다.
+actual \(V\)가 크다는 하한이나 sparse-family refinement 불가능성을 뜻하지 않는다.
+
+DEP-R09의 다음 child obligation은 prime-specific/sparse-divisor fixed-primorial
+energy 또는 direct same-law weighted-correlation theorem이다. 66개 root row,
+<code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed \(2\times10^{-17}\),
+\(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. threshold calculator와 장시간
+prime sweep은 NOT READY다.

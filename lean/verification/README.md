@@ -91,3 +91,14 @@ numerical X_cert는 local axiom으로 넣지 않았고 계속 OPEN이다.
 finite character orthogonality, complex convolution proof와 numerical
 fixed-primorial character-energy theorem은 local axiom으로 넣지 않았다. PAP-11,
 DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-15 Theory 83 뒤 전수 inventory는 84개 theory 문서·1,561개 display
+수식·300개 Lean declaration이다. 상태는 <code>KERNEL_PASS=96</code>,
+<code>CONDITIONAL_KERNEL_PASS=73</code>, <code>DEFINITION_ONLY=119</code>,
+<code>PARTIAL_FORMALIZATION=120</code>, <code>SOURCE_THEOREM_UNFORMALIZED=98</code>,
+<code>NOT_YET_FORMALIZED=1050</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이며
+금지 proof escape는 0건이다. Lean은 power-regime scalar margin, best-entropy
+factor monotonicity와 raw upper certificate의 strict-gate countermodel만 검사한다.
+Montgomery--Vaughan·Dusart·Rosser--Schoenfeld analytic source theorem과 actual
+fixed-primorial character energy는 local axiom으로 넣지 않았다. PAP-11,
+DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.

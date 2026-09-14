@@ -2985,6 +2985,156 @@
       "declarations": []
     },
     {
+      "formula_id": "83.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.2",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_outer_entropy_character_energy_gate"]
+    },
+    {
+      "formula_id": "83.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.4",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_large_sieve_rhs_above_gate_terminal"]
+    },
+    {
+      "formula_id": "83.5",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_upper_certificate_above_gate_countermodel"]
+    },
+    {
+      "formula_id": "83.6",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.7",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.8",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.10",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.11",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.12",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.13",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.14",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.15",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.15a",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_dusart_log8_rational_margin"]
+    },
+    {
+      "formula_id": "83.16",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.17",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.18",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.19",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_power_regime_large_sieve_margin"]
+    },
+    {
+      "formula_id": "83.20",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.21",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.22",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_best_entropy_gate_factor_bound"]
+    },
+    {
+      "formula_id": "83.23",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.24",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.25",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.26",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.27",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.28",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "83.29",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_upper_certificate_above_gate_countermodel"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

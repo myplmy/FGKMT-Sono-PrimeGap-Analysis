@@ -3767,4 +3767,76 @@ theorem dep_r09_outer_entropy_character_energy_gate
     lt_of_le_of_lt hRaw hModelStrict
   exact (div_lt_iff₀ hDenominator).2 hRawStrict
 
+/-! ## Theory 83 — fixed-primorial variance and large-sieve barrier -/
+
+/- Theory 83, formula 83.19: the power-regime inequalities L >= 21t and
+   log(2) < t give the strict elementary lower margin
+   5t < (L-log(2))/4.  The identification of L and t with real logarithms
+   and the Dusart input remain source-level premises. -/
+theorem dep_r09_power_regime_large_sieve_margin
+    {t L logTwo : ℝ}
+    (hPower : 21 * t ≤ L)
+    (hLogTwo : logTwo < t) :
+    5 * t < (L - logTwo) / 4 := by
+  linarith
+
+/- Theory 83, formula 83.15a: the rational lower certificate for the
+   Dusart half-interval coefficient at L=8 is strictly above one quarter.
+   Monotonicity of the real-log expression and the source theta theorem are
+   intentionally not asserted here. -/
+theorem dep_r09_dusart_log8_rational_margin :
+    (1 / 2 : ℝ) - 12323 / 80000 - (5 * 12323) / (73 * 10000) > 1 / 4 := by
+  norm_num
+
+/- Theory 83, formula 83.22: multiplying four favourable factor bounds
+   preserves the maximum entropy-gate envelope.  This is only finite real
+   algebra; the actual FMT probability and survivor inputs remain external. -/
+theorem dep_r09_best_entropy_gate_factor_bound
+    {tauSq pStar entropyRatio survivorRatio epsilonSq qOverPhi ySq : ℝ}
+    (hTau0 : 0 ≤ tauSq)
+    (hP0 : 0 ≤ pStar)
+    (hEntropy0 : 0 ≤ entropyRatio)
+    (hSurvivor0 : 0 ≤ survivorRatio)
+    (hY0 : 0 ≤ ySq)
+    (hTau : tauSq ≤ epsilonSq)
+    (hP : pStar ≤ 1)
+    (hEntropy : entropyRatio ≤ qOverPhi)
+    (hSurvivor : survivorRatio ≤ 1) :
+    tauSq * pStar * entropyRatio * survivorRatio * ySq ≤
+      epsilonSq * qOverPhi * ySq := by
+  have hEpsilon0 : 0 ≤ epsilonSq := hTau0.trans hTau
+  have hQOverPhi0 : 0 ≤ qOverPhi := hEntropy0.trans hEntropy
+  calc
+    tauSq * pStar * entropyRatio * survivorRatio * ySq ≤
+        epsilonSq * pStar * entropyRatio * survivorRatio * ySq := by
+      gcongr
+    _ ≤ epsilonSq * 1 * entropyRatio * survivorRatio * ySq := by
+      gcongr
+    _ ≤ epsilonSq * 1 * qOverPhi * survivorRatio * ySq := by
+      gcongr
+    _ ≤ epsilonSq * 1 * qOverPhi * 1 * ySq := by
+      gcongr
+    _ = epsilonSq * qOverPhi * ySq := by
+      ring
+
+/- Theory 83, formulas 83.4 and 83.22: if the sufficient gate is below its
+   best-case envelope while that envelope is below a published certificate
+   RHS, then the gate itself is below that RHS. -/
+theorem dep_r09_large_sieve_rhs_above_gate_terminal
+    {gate envelope rhs : ℝ}
+    (hGate : gate ≤ envelope)
+    (hEnvelope : envelope < rhs) :
+    gate < rhs := by
+  exact lt_of_le_of_lt hGate hEnvelope
+
+/- Theory 83, formula 83.29: an upper certificate V <= rhs with rhs at or
+   above the strict target gate does not logically imply V < gate.  The
+   witness V=gate proves the exact countermodel without asserting anything
+   about the actual prime-error energy. -/
+theorem dep_r09_upper_certificate_above_gate_countermodel
+    {gate rhs : ℝ}
+    (hGateRhs : gate ≤ rhs) :
+    ∃ V : ℝ, V ≤ rhs ∧ ¬ V < gate := by
+  exact ⟨gate, hGateRhs, lt_irrefl gate⟩
+
 end FGKMTSono

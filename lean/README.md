@@ -446,3 +446,21 @@ Theory 82 뒤 inventory는 theory 문서 83개, display 1,528식이며 전체 �
 declaration은 295개이고 금지 proof escape는 0건이다. fully numerical
 fixed-primorial character-energy upper, PAP-11, DEP-R09, fixed 2e-17과 X_cert는
 계속 OPEN이다.
+
+2026-09-15 Theory 83 batch는 prescribed fixed-primorial variance source range와
+raw classical large-sieve certificate를 감사했다. Lean은
+\(L\ge21t,\log2<t\)에서 \(5t<(L-\log2)/4\)인 선형 terminal, nonnegative
+factor별 상계에서 best-entropy gate envelope로 가는 곱셈 단조성, 그리고
+upper RHS가 strict gate 이상이면 \(V=gate\)가 논리적 countermodel이라는 명제를
+단일 파일에서 검사한다. Montgomery--Vaughan large sieve, Dusart theta bound,
+Rosser--Schoenfeld phi bound와 actual character energy는 local axiom으로 넣지 않았다.
+
+canonical direct compile과 전수 inventory refresh·validation은 exit code 0이었다.
+Theory 83 뒤 inventory는 theory 문서 84개, display 1,561식이며 전체 상태는
+<code>KERNEL_PASS=96</code>, <code>CONDITIONAL_KERNEL_PASS=73</code>,
+<code>DEFINITION_ONLY=119</code>, <code>PARTIAL_FORMALIZATION=120</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=98</code>,
+<code>NOT_YET_FORMALIZED=1050</code>, <code>PARSE_REVIEW_REQUIRED=5</code>다.
+declaration은 300개이고 금지 proof escape는 0건이다. raw large-sieve path의
+불충분성만 닫혔고 prime-specific/sparse-divisor energy, PAP-11, DEP-R09,
+fixed 2e-17과 X_cert는 계속 OPEN이다.

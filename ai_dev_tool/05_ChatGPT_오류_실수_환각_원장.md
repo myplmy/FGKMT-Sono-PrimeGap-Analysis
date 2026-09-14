@@ -3017,6 +3017,109 @@
   사용한다. 마감 단계에서는 기본값을 double-quoted line array의 단일파일 patch로
   고정한다.
 
+### E160 — DeepBlue 원문 item page의 Cloudflare 차단
+
+- 분류:
+  <code>SOURCE_RETRIEVAL_FAILURE / NO_FALSE_SOURCE_USE /
+  AUTHOR_COPY_RECOVERED_ELSEWHERE / SCIENTIFIC_IMPACT_NONE</code>.
+- Montgomery--Vaughan 1973 원 논문의 대학 저장소 item page를 받으려 했으나
+  Cloudflare JavaScript challenge 때문에 <code>Invoke-WebRequest</code>가 실패했다.
+  출력 HTML/PDF 파일은 생성되지 않았다.
+- 교정: 검색 결과에서 확인한 R. C. Vaughan의 Penn State 저자 공개 PDF를 직접 받아
+  title·authors·DOI·printed page를 대조하고 SHA-256을 고정했다.
+- 예방: challenge 응답이나 HTML을 PDF로 간주하지 않고, 파일 생성·MIME·PDF metadata와
+  원문 첫 페이지를 모두 확인한 뒤 source registry에 등록한다.
+
+### E161 — Lean 단일파일 경로를 한 차례 잘못 추정
+
+- 분류:
+  <code>READ_PATH_ASSUMPTION / FILE_NOT_FOUND /
+  CORRECTED_BY_RG_FILES / SCIENTIFIC_IMPACT_NONE</code>.
+- 저장소 구조를 다시 확인하기 전에 Lean target을
+  <code>lean/FGKMT/TheoryVerification.lean</code>으로 추정해 읽기 명령이
+  파일 없음으로 끝났다. 실제 정본은
+  <code>lean/FGKMTSono/TheoryVerification.lean</code>이다.
+- 영향: 읽기만 실패했고 파일 변경, Lean 검증 또는 수학 판정에는 영향이 없다.
+- 예방: Lean target·tool path는 AGENTS 기억만으로 조립하지 않고
+  <code>rg --files lean</code> 결과에서 canonical 경로를 먼저 고정한다.
+
+### E162 — PDF text extractor 위치 추정과 정규식 검색 문법 오류
+
+- 분류:
+  <code>TOOL_DISCOVERY_ASSUMPTION / SEARCH_SYNTAX_ERROR /
+  CORRECTED_BEFORE_SOURCE_ADOPTION / SCIENTIFIC_IMPACT_NONE</code>.
+- bundled dependency 폴더에 <code>pdftotext.exe</code>도 있을 것으로 추정했지만
+  해당 bundle에는 필요한 실행파일이 없었다. 또한 source locator를 찾는 두
+  <code>rg</code> 호출에서 복잡한 정규식 escaping을 잘못 조립해 검색이 실패했다.
+- 교정: <code>(Get-Command pdftotext).Source</code>로 설치된 MiKTeX binary를
+  명시적으로 찾고, locator 검색은 literal <code>rg -F</code>로 바꿨다. 추출된 식은
+  rendered original page와 다시 대조한 뒤에만 채택했다.
+- 예방: executable 존재를 먼저 확인하고, 경로·고정문자 검색은 정규식 대신
+  literal mode를 기본값으로 사용한다.
+
+### E163 — Theory 83 패치에서 LaTeX 역슬래시 하나가 form-feed로 변환
+
+- 분류:
+  <code>PATCH_TRANSPORT_CONTROL_CHARACTER /
+  CAUGHT_BY_TEXT_INTEGRITY_GATE / CORRECTED_BEFORE_COMMIT /
+  SCIENTIFIC_IMPACT_NONE</code>.
+- Theory 83의 rational Dusart 식을 추가한 뒤 전수 validator가 210행의
+  <code>U+000C</code>를 잡았다. 의도한 두 번째 <code>\frac</code>의
+  <code>\f</code>가 patch transport에서 form-feed가 된 것이다.
+- 영향: 첫 verification refresh는 generator까지 실행됐지만 validator가 exit code 1로
+  중단했으므로 PASS로 기록하지 않았다. 수학식의 의미와 Python·Lean 계산에는 영향이
+  없고, commit 전 원문 한 글자를 교정했다.
+- 교정·예방: 제어문자를 포함한 exact old line을 작은 단일파일 patch로 교체하고
+  <code>validate_text_integrity.py</code>를 해당 파일에 먼저 실행했다. LaTeX가 많은
+  patch 뒤에는 전수 refresh 전에 표적 text-integrity 검사를 선행한다.
+
+### E164 — 테스트 파일 multi-hunk patch의 문맥 순서 추정 오류
+
+- 분류:
+  <code>APPLY_PATCH_CONTEXT_MISMATCH / ATOMIC_REJECTION /
+  CORRECTED_WITH_EXACT_FILE_READ / CONTENT_IMPACT_NONE</code>.
+- Dusart \(L=8\) boundary test와 invalid-input test를 한 patch에 넣으면서 실제
+  함수 순서와 다른 문맥을 지정해 apply_patch가 전체 변경을 거부했다.
+- 영향: 원자적 거부로 파일은 바뀌지 않았다. 파일의 해당 150행을 다시 읽고 정확한
+  locator로 작은 patch를 적용했으며 이후 9개 표적 테스트가 모두 통과했다.
+- 예방: 서로 떨어진 test block을 고칠 때는 먼저 실제 파일 순서를 읽고, 한 patch에
+  넣더라도 각 hunk의 exact 인접문맥을 복사한다.
+
+### E165 — 외부 Lean 의존성까지 문자 검사하고 local lake 경로를 추정
+
+- 분류:
+  <code>VALIDATION_SCOPE_OVERREACH / EXECUTABLE_PATH_ASSUMPTION /
+  CORRECTED_BEFORE_REPORT / SCIENTIFIC_IMPACT_NONE</code>.
+- 첫 문자 무결성 재검사에서 <code>lean</code> 디렉터리 전체를 넘겨
+  <code>lean/.lake/packages</code> 아래 외부 의존성의 정상 탭 문자를 오류로 잡았다.
+  이어서 Lean 전체 빌드 명령을 <code>.\lake.exe build</code>로 추정해 명령이
+  시작되지 않았다. 실제 설치 경로는
+  <code>C:\Users\Uranus\.elan\bin\lake.exe</code>였다.
+- 영향: 첫 문자 검사는 프로젝트 파일의 결함을 뜻하지 않았고, 첫 빌드 명령은 Lean
+  kernel을 실행하기 전 실패했다. 수식·코드·산출물에는 영향이 없다.
+- 교정: 문자 검사는 추적 대상 340개 파일로 제한해 issue 0을 확인했고,
+  <code>Get-Command lake</code> 뒤 <code>lake build</code>를 실행해
+  8,765 jobs 전체 PASS를 확인했다.
+- 강화 예방: validator에 상위 디렉터리를 넘길 때는 generated dependency·cache의
+  포함 여부를 먼저 확인한다. 실행파일은 저장소에 있을 것이라고 추정하지 않고
+  <code>Get-Command</code> 또는 정본 README 명령으로 경로를 고정한다.
+
+### E166 — 알려진 TemporaryDirectory sandbox 실패를 전체 suite에서 재현
+
+- 분류:
+  <code>KNOWN_ENVIRONMENT_FAILURE_REPEATED / FULL_SUITE_FIRST_RUN_INVALID /
+  CORRECTED_WITH_AUTHORIZED_LOCAL_RUN / SCIENTIFIC_IMPACT_NONE</code>.
+- 오류 원장 5절 8항에 전체 unittest의 <code>TemporaryDirectory</code>·multiprocessing
+  검사는 처음부터 정상 로컬 권한으로 실행하라고 적혀 있었지만, 이번 첫 913-test
+  suite를 sandbox 안에서 실행했다. 82개가 모두 임시 디렉터리 접근 단계의
+  <code>PermissionError</code>로 끝나 그 run은 회귀 판정에 쓸 수 없었다.
+- 교정: 사용자가 이미 허가한 검증 범위와 escalation 절차에 따라 같은 명령을
+  정상 로컬 권한으로 다시 실행했고 913/913 PASS, 80.842초를 확인했다.
+- 영향: 실패 run은 PASS로 세지 않았고 코드·데이터·실험 산출물을 변경하지 않았다.
+- 강화 예방: 이 저장소의 전체 unittest 명령에는 시작 전 체크리스트로
+  <code>normal local permission required</code>를 고정하고, sandbox run은 표적
+  pure-arithmetic test에만 사용한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.
