@@ -2725,6 +2725,136 @@
       ]
     },
     {
+      "formula_id": "81.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.3",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_sieve_good_survivor_floor_positive"]
+    },
+    {
+      "formula_id": "81.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.6",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.7",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_sieve_good_moment_terminal"]
+    },
+    {
+      "formula_id": "81.8",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_sieve_good_moment_terminal"]
+    },
+    {
+      "formula_id": "81.9",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.10",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_sieve_good_raw_normalization_terminal"]
+    },
+    {
+      "formula_id": "81.11",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.12",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.14",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.15",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.16",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_survivor_count_sensitivity_terminal"]
+    },
+    {
+      "formula_id": "81.17",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.18",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_character_phase_counterexample_arithmetic"]
+    },
+    {
+      "formula_id": "81.19",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_character_phase_counterexample_arithmetic"]
+    },
+    {
+      "formula_id": "81.20",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.21",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.22",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.23",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.24",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.25",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "81.26",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

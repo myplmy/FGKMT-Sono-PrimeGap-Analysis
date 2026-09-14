@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 81,
-  "formula_count": 1473,
-  "tagged_formula_count": 943,
+  "theory_count": 82,
+  "formula_count": 1499,
+  "tagged_formula_count": 969,
   "untagged_formula_count": 530,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "21e4eb71e1e1e677082b574e668354ff5d8716fdd686ec8315594459cf57bd09",
+      "source_sha256": "84ec766ebd2cd39d290cc3b053162b096560c6658239a58dec1222af111fd4e3",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4",
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -649,9 +649,17 @@
     {
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f",
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2",
       "display_formula_count": 21,
       "tagged_formula_count": 21,
+      "untagged_formula_count": 0
+    },
+    {
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf",
+      "display_formula_count": 26,
+      "tagged_formula_count": 26,
       "untagged_formula_count": 0
     }
   ],
@@ -944,7 +952,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U002",
@@ -954,7 +962,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U003",
@@ -964,7 +972,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U004",
@@ -974,7 +982,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U005",
@@ -984,7 +992,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U006",
@@ -994,7 +1002,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U007",
@@ -1004,7 +1012,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U008",
@@ -1014,7 +1022,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U009",
@@ -1024,7 +1032,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U010",
@@ -1034,7 +1042,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U011",
@@ -1044,7 +1052,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U012",
@@ -1054,7 +1062,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U013",
@@ -1064,7 +1072,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U014",
@@ -1074,7 +1082,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T12-U015",
@@ -1084,7 +1092,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "e9f11c916cedd296906ccc7ad02031d041d349d4b6382b4bb8e71ff6377a90c4"
+      "source_sha256": "57845a1ca1b6180a90beb2bd746ddf9c71579e2d857e8074d15dfdf0a92aa570"
     },
     {
       "formula_id": "T13-U001",
@@ -15180,211 +15188,471 @@
       "formula_id": "80.1",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 20,
-      "end_line": 23,
+      "start_line": 28,
+      "end_line": 31,
       "tagged": true,
       "latex": "\\omega=(\\mathbf A,\\mathbf N')\n\\tag{80.1}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.2",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 47,
-      "end_line": 51,
+      "start_line": 55,
+      "end_line": 59,
       "tagged": true,
       "latex": "P=\\frac{P(x)}{B_0},\\qquad\n I=[y]\\setminus[x]\n\\tag{80.2}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.3",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 55,
-      "end_line": 60,
+      "start_line": 63,
+      "end_line": 68,
       "tagged": true,
       "latex": "T_\\omega=\n \\{s\\in I:(m_\\omega+s,P)=1\\},\n \\qquad M_\\omega=|T_\\omega|\n\\tag{80.3}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.4",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 65,
-      "end_line": 70,
+      "start_line": 73,
+      "end_line": 78,
       "tagged": true,
       "latex": "C_\\chi(\\omega)\n =\\sum_{s\\in T_\\omega}\\overline{\\chi(m_\\omega+s)}\n =\\sum_{s\\in I}\\overline{\\chi(m_\\omega+s)}.\n\\tag{80.4}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.5",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 77,
-      "end_line": 82,
+      "start_line": 85,
+      "end_line": 90,
       "tagged": true,
       "latex": "R(\\omega)=\n \\sum_{\\substack{\\chi\\bmod P\\\\\\chi\\ne\\chi_0}}\n C_\\chi(\\omega)Z_\\chi(Y)\n\\tag{80.5}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.6",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 86,
-      "end_line": 89,
+      "start_line": 94,
+      "end_line": 97,
       "tagged": true,
       "latex": "\\tau=\\varepsilon-\\delta_0>0\n\\tag{80.6}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.7",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 93,
-      "end_line": 96,
+      "start_line": 101,
+      "end_line": 104,
       "tagged": true,
       "latex": "|R(\\omega)|\\le \\tau M_\\omega Y.\n\\tag{80.7}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.8",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 103,
-      "end_line": 110,
+      "start_line": 113,
+      "end_line": 120,
       "tagged": true,
       "latex": "W(\\omega)=\n \\begin{cases}\n \\displaystyle\\frac{|R(\\omega)|^2}{M_\\omega^2Y^2},&\\omega\\in O,\\\\[6pt]\n 0,&\\omega\\notin O\n \\end{cases}\n\\tag{80.8}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.9",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 115,
-      "end_line": 118,
+      "start_line": 125,
+      "end_line": 128,
       "tagged": true,
       "latex": "W(\\omega)\\le\\tau^2\n\\tag{80.9}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.10",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 127,
-      "end_line": 141,
+      "start_line": 137,
+      "end_line": 151,
       "tagged": true,
       "latex": "\\begin{aligned}\n \\mu\n :=\\mathbb E[W]\n &=\\sum_{\\boldsymbol a\\in O}p_A(\\boldsymbol a)\n   \\sum_{\\boldsymbol n}\n   p_{N\\mid A}(\\boldsymbol n\\mid\\boldsymbol a)\n   W(\\boldsymbol a,\\boldsymbol n)\\\\\n &=\\sum_{\\boldsymbol a\\in O}\\sum_{\\boldsymbol n}\n   p_A(\\boldsymbol a)\n   p_{N\\mid A}(\\boldsymbol n\\mid\\boldsymbol a)\n   W(\\boldsymbol a,\\boldsymbol n).\n \\end{aligned}\n\\tag{80.10}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.11",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 150,
-      "end_line": 153,
+      "start_line": 160,
+      "end_line": 163,
       "tagged": true,
       "latex": "S_{\\rm sieve}=(1-F_{\\rm out})(1-F_{\\rm in})\n\\tag{80.11}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.12",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 157,
-      "end_line": 161,
+      "start_line": 167,
+      "end_line": 171,
       "tagged": true,
       "latex": "\\Pr\\bigl(O\\cap\\{W>\\tau^2\\}\\bigr)\n \\le\\frac{\\mu}{\\tau^2}.\n\\tag{80.12}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.13",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 165,
-      "end_line": 172,
+      "start_line": 175,
+      "end_line": 182,
       "tagged": true,
       "latex": "\\Pr\\bigl(O\\cap I_{\\rm good}\\cap\\{W\\le\\tau^2\\}\\bigr)\n \\ge\n \\max\\!\\left\\{0,\n (1-F_{\\rm out})(1-F_{\\rm in})-\\frac{\\mu}{\\tau^2}\n \\right\\}.\n\\tag{80.13}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.14",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 176,
-      "end_line": 181,
+      "start_line": 186,
+      "end_line": 191,
       "tagged": true,
       "latex": "\\boxed{\n \\mu<\\tau^2(1-F_{\\rm out})(1-F_{\\rm in}).\n }\n\\tag{80.14}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.15",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 189,
-      "end_line": 192,
+      "start_line": 199,
+      "end_line": 202,
       "tagged": true,
       "latex": "\\mathbb E[W\\mid O]\\le\\mu_O\n\\tag{80.15}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.16",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 196,
-      "end_line": 202,
+      "start_line": 206,
+      "end_line": 212,
       "tagged": true,
       "latex": "\\Pr\\bigl(O\\cap I_{\\rm good}\\cap\\{W\\le\\tau^2\\}\\bigr)\n \\ge\n (1-F_{\\rm out})\n \\max\\!\\left\\{0,1-F_{\\rm in}-\\frac{\\mu_O}{\\tau^2}\\right\\}.\n\\tag{80.16}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.17",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 206,
-      "end_line": 209,
+      "start_line": 216,
+      "end_line": 219,
       "tagged": true,
       "latex": "F_{\\rm in}+\\frac{\\mu_O}{\\tau^2}<1\n\\tag{80.17}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.18",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 215,
-      "end_line": 218,
+      "start_line": 225,
+      "end_line": 228,
       "tagged": true,
       "latex": "\\mathbb E[W\\mid\\mathbf A=\\boldsymbol a]\\le\\mu_f\n\\tag{80.18}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.19",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 222,
-      "end_line": 227,
+      "start_line": 232,
+      "end_line": 237,
       "tagged": true,
       "latex": "\\boxed{\n F_{\\rm in}+\\frac{\\mu_f}{\\tau^2}<1\n }\n\\tag{80.19}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.20",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 236,
-      "end_line": 239,
+      "start_line": 246,
+      "end_line": 249,
       "tagged": true,
       "latex": "\\mathbb E\\!\\left[1_O|R(\\omega)|^2\\right]\\le\\rho\n\\tag{80.20}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
     },
     {
       "formula_id": "80.21",
       "theory": "80",
       "source_file": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
-      "start_line": 243,
-      "end_line": 246,
+      "start_line": 253,
+      "end_line": 256,
       "tagged": true,
       "latex": "\\mu\\le\\frac{\\rho}{M_{\\min}^2Y^2}\n\\tag{80.21}",
-      "source_sha256": "44a2220744128738c687f2926d33fe078d2e492e4debd913c61fd56f36cea48f"
+      "source_sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2"
+    },
+    {
+      "formula_id": "81.1",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 44,
+      "end_line": 48,
+      "tagged": true,
+      "latex": "W_{m-1}=V\\setminus\n \\bigcup_{j=1}^{m-1}\\bigcup_{i\\in I_j}e'_i\n \\tag{81.1}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.2",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 67,
+      "end_line": 70,
+      "tagged": true,
+      "latex": "S_{\\rm sieve}=O\\cap I_{\\rm good}\n \\tag{81.2}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.3",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 74,
+      "end_line": 78,
+      "tagged": true,
+      "latex": "\\Pr(S_{\\rm sieve})\\ge\n (1-F_{\\rm out})(1-F_{\\rm in})\n \\tag{81.3}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.4",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 82,
+      "end_line": 88,
+      "tagged": true,
+      "latex": "M_\\omega=|T_\\omega|\n \\ge M_{\\min}:=\n A(1-\\eta)\\frac{X}{\\log X}>0\n \\qquad(\\omega\\in S_{\\rm sieve})\n \\tag{81.4}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.5",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 95,
+      "end_line": 103,
+      "tagged": true,
+      "latex": "W_S(\\omega)=\n \\begin{cases}\n \\displaystyle\\frac{|R(\\omega)|^2}{M_\\omega^2Y^2},\n   &\\omega\\in S_{\\rm sieve},\\\\[6pt]\n 0,&\\omega\\notin S_{\\rm sieve}\n \\end{cases}\n \\tag{81.5}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.6",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 107,
+      "end_line": 110,
+      "tagged": true,
+      "latex": "\\mu_S:=\\mathbb E W_S\n \\tag{81.6}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.7",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 114,
+      "end_line": 121,
+      "tagged": true,
+      "latex": "\\Pr\\!\\left(S_{\\rm sieve}\\cap\\{W_S\\le\\tau^2\\}\\right)\n \\ge\n \\max\\!\\left\\{0,\n (1-F_{\\rm out})(1-F_{\\rm in})-\n \\frac{\\mu_S}{\\tau^2}\\right\\}.\n \\tag{81.7}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.8",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 125,
+      "end_line": 129,
+      "tagged": true,
+      "latex": "\\boxed{\n \\mu_S<\\tau^2(1-F_{\\rm out})(1-F_{\\rm in}).}\n \\tag{81.8}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.9",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 133,
+      "end_line": 137,
+      "tagged": true,
+      "latex": "\\mathbb E\\!\\left[1_{S_{\\rm sieve}}|R(\\omega)|^2\\right]\n \\le\\rho_S\n \\tag{81.9}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.10",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 141,
+      "end_line": 144,
+      "tagged": true,
+      "latex": "\\mu_S\\le\\frac{\\rho_S}{M_{\\min}^2Y^2}\n \\tag{81.10}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.11",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 153,
+      "end_line": 156,
+      "tagged": true,
+      "latex": "m_\\omega\\equiv-a_p\\pmod p\n \\tag{81.11}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.12",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 160,
+      "end_line": 165,
+      "tagged": true,
+      "latex": "s\\not\\equiv a_p\\pmod p\n \\quad\\Longleftrightarrow\\quad\n p\\nmid m_\\omega+s.\n \\tag{81.12}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.13",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 169,
+      "end_line": 174,
+      "tagged": true,
+      "latex": "T_\\omega\n =\\{s\\in I:s\\not\\equiv a_p\\pmod p\\ \\text{for every }p\\mid P\\}\n =\\{s\\in I:(m_\\omega+s,P)=1\\}.\n \\tag{81.13}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.14",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 184,
+      "end_line": 188,
+      "tagged": true,
+      "latex": "m\\equiv m'\\pmod{P/p},\n \\qquad m\\not\\equiv m'\\pmod p\n \\tag{81.14}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.15",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 196,
+      "end_line": 200,
+      "tagged": true,
+      "latex": "|T_m\\triangle T_{m'}|\n \\le2\\left\\lceil\\frac Np\\right\\rceil.\n \\tag{81.15}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.16",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 204,
+      "end_line": 209,
+      "tagged": true,
+      "latex": "\\bigl||T_m|-|T_{m'}|\\bigr|\n \\le|T_m\\triangle T_{m'}|\n \\le2\\left\\lceil\\frac Np\\right\\rceil.\n \\tag{81.16}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.17",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 217,
+      "end_line": 220,
+      "tagged": true,
+      "latex": "C_\\chi(m)=\\sum_{s\\in I}\\overline{\\chi(m+s)}\n \\tag{81.17}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.18",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 235,
+      "end_line": 240,
+      "tagged": true,
+      "latex": "C_\\chi(0)=1-1-1=-1,\n \\qquad\n C_\\chi(13)=1+0+1=2.\n \\tag{81.18}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.19",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 244,
+      "end_line": 248,
+      "tagged": true,
+      "latex": "|C_\\chi(13)-C_\\chi(0)|=3\n >2=2\\left\\lceil\\frac35\\right\\rceil,\n \\tag{81.19}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.20",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 255,
+      "end_line": 258,
+      "tagged": true,
+      "latex": "|C_\\chi(m')-C_\\chi(m)|\\le2N\n \\tag{81.20}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.21",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 262,
+      "end_line": 266,
+      "tagged": true,
+      "latex": "|R(m')-R(m)|\n \\le2N\\sum_{\\chi\\ne\\chi_0}|Z_\\chi(Y)|\n \\tag{81.21}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.22",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 275,
+      "end_line": 280,
+      "tagged": true,
+      "latex": "D_j=\n \\mathbb E[R\\mid\\mathcal F_j]-\n \\mathbb E[R\\mid\\mathcal F_{j-1}]\n \\tag{81.22}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.23",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 284,
+      "end_line": 289,
+      "tagged": true,
+      "latex": "|D_j|\\le b_j,\n \\qquad\n \\sum_j\\mathbb E[D_j^2\\mid\\mathcal F_{j-1}]\\le v\n \\tag{81.23}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.24",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 311,
+      "end_line": 315,
+      "tagged": true,
+      "latex": "f(a)=\\#\\{s\\in I:m'+s\\equiv a\\pmod P\\}\n      -\\#\\{s\\in I:m+s\\equiv a\\pmod P\\}\n \\tag{81.24}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.25",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 319,
+      "end_line": 324,
+      "tagged": true,
+      "latex": "\\sum_{\\chi\\bmod P}\n |C_\\chi(m')-C_\\chi(m)|^2\n =\\varphi(P)\\sum_{a\\in U(P)}|f(a)|^2.\n \\tag{81.25}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
+    },
+    {
+      "formula_id": "81.26",
+      "theory": "81",
+      "source_file": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "start_line": 328,
+      "end_line": 334,
+      "tagged": true,
+      "latex": "|\\Delta R|^2\n \\le\n \\left(\\sum_\\chi|\\Delta C_\\chi|^2\\right)\n \\left(\\sum_\\chi|Z_\\chi(Y)|^2\\right)\n \\tag{81.26}",
+      "source_sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf"
     }
   ],
   "issues": [],

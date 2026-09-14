@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 filtration sensitivity and survivor floor",
+  "predecessor": "Sono_FMT_DEPR09_same_law_weighted_correlation_v1.json",
+  "outcome": "SIEVE_GOOD_DENOMINATOR_FLOOR_ALIGNED_BUT_NAIVE_FINAL_COORDINATE_BOUNDED_DIFFERENCE_REJECTED",
+  "source_registry": [
+    {
+      "key": "FMT",
+      "title": "Chains of large gaps between primes",
+      "authors": "Kevin Ford, James Maynard, Terence Tao",
+      "locator": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "printed_locations": "Theorems 3--5; formula (6.17); printed pp. 9--13",
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_ORIGINAL_PDF_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PUBLISHED_TWO_STAGE_RANDOM_CONSTRUCTION"
+    },
+    {
+      "key": "FGKMT",
+      "title": "Long gaps between primes",
+      "authors": "Kevin Ford, Ben Green, Sergei Konyagin, James Maynard, Terence Tao",
+      "locator": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "printed_locations": "Theorem 3 proof, formulas (5.1), (5.7)--(5.11), (5.9); printed pp. 83--84",
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_ORIGINAL_PDF_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PUBLISHED_SEQUENTIAL_NIBBLE_FILTRATION"
+    },
+    {
+      "key": "THEORY55",
+      "title": "H1b-COV2 post-covering interval and smooth composition",
+      "locator": "docs/method/theory/55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md",
+      "sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df",
+      "source_locations": "formulas (55.17)--(55.21), (55.38)--(55.39)",
+      "classification": "PROJECT_PARAMETERIZED_EXPLICIT_FINAL_SIEVE_GOOD_FLOOR"
+    },
+    {
+      "key": "THEORY79",
+      "title": "DEP-R09 FMT construction-law finite-mass audit",
+      "locator": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3",
+      "source_locations": "formulas (79.1)--(79.13)",
+      "classification": "PROJECT_PARAMETERIZED_EXPLICIT_FINAL_SIEVE_GOOD_MASS"
+    },
+    {
+      "key": "THEORY80",
+      "title": "DEP-R09 same-law weighted-correlation tower audit",
+      "locator": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
+      "sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2",
+      "source_locations": "formulas (80.8)--(80.21) with Theory 81 successor correction",
+      "classification": "PROJECT_FINITE_MOMENT_CONTRACT_WITH_DOMAIN_CORRECTION"
+    }
+  ],
+  "event_domain_correction": {
+    "outer_good_event": "O",
+    "conditional_inner_good_event": "I_good",
+    "final_sieve_good_event": "S_sieve=O intersect I_good",
+    "mass_lower": "P(S_sieve)>=(1-F_out)(1-F_in)",
+    "survivor_floor": "M_omega>=M_min=A(1-eta)X/log X on S_sieve",
+    "correct_normalized_badness": "W_S=1_(S_sieve)*abs(R)^2/(M_omega^2 Y^2), with zero outside S_sieve",
+    "raw_moment_input": "rho_S>=E[1_(S_sieve) abs(R)^2]",
+    "normalized_upper": "mu_S<=rho_S/(M_min^2 Y^2)",
+    "strict_gate": "mu_S<tau^2(1-F_out)(1-F_in)"
+  },
+  "filtration_source_audit": {
+    "fmt_formula_6_17": "The preliminary n_p variables are jointly conditionally independent given A, before the final Theorem 4 covering output is selected.",
+    "fgkmt_theorem_3": "The proof exposes nibble stages I_m. The previous stages determine a partially sifted set W; conditional on fixed W, the current-stage e-prime_i are jointly conditionally independent under the reweighted law (5.9).",
+    "global_product_law": false,
+    "reason": "An early draw changes W and thereby changes every later conditional distribution. Independent random seeds can generate the process, but no small Lipschitz increment for the CRT character observable follows from that representation."
+  },
+  "one_residue_count_sensitivity": {
+    "premises": "P squarefree, p divides P, shifts agree modulo P/p and differ modulo p, I is N consecutive integers",
+    "set_bound": "card(T_m symmetric_difference T_m_prime)<=2 ceil(N/p)",
+    "count_bound": "abs(card(T_m)-card(T_m_prime))<=2 ceil(N/p)",
+    "scope": "survivor membership and denominator only"
+  },
+  "character_phase_counterexample": {
+    "modulus": 65,
+    "changed_prime": 5,
+    "unchanged_prime": 13,
+    "interval_start": 1,
+    "interval_length": 3,
+    "old_shift": 0,
+    "new_shift": 13,
+    "old_character_sum": -1,
+    "new_character_sum": 2,
+    "character_sum_difference": 3,
+    "membership_symmetric_difference": 1,
+    "membership_bound": 2,
+    "exceeds_membership_bound": true
+  },
+  "weighted_observable_sensitivity": {
+    "unconditional_character_coefficient_bound": "abs(Delta C_chi)<=2N",
+    "unconditional_weighted_bound": "abs(Delta R)<=2N sum_(chi!=chi0) abs(Z_chi)",
+    "assessment": "This restores an L1 pointwise-PAP-sized burden and is not a useful bounded-difference certificate.",
+    "parseval_option": "An L2/Parseval reformulation may replace the L1 weight by a spectral second moment, but that is a new analytic input, not a consequence of the covering theorem."
+  },
+  "generic_concentration_source_screen": [
+    {
+      "source": "Freedman 1975",
+      "doi": "10.1214/aop/1176996452",
+      "assessment": "Requires bounded martingale increments and a predictable conditional-variance budget; neither is currently supplied for the CRT weighted observable."
+    },
+    {
+      "source": "Warnke 2016",
+      "arxiv": "1212.5796",
+      "doi": "10.1017/S0963548315000103",
+      "assessment": "Typical bounded differences still requires typical and worst-case Lipschitz coefficients for independent inputs; the FMT filtration audit does not supply them."
+    },
+    {
+      "source": "Kontorovich--Ramanan 2008",
+      "arxiv": "math/0609835",
+      "assessment": "Dependent-sequence concentration requires quantitative mixing coefficients, which are not explicit for the actual FMT output law."
+    },
+    {
+      "source": "Combes 2015",
+      "arxiv": "1511.05240",
+      "assessment": "High-probability bounded differences still requires a bounded-difference property on the typical set."
+    }
+  ],
+  "exact_finite_diagnostic": {
+    "sieve_good_denominator_floor_aligned": true,
+    "final_law_globally_product_independent": false,
+    "within_nibble_conditional_independence_source_verified": true,
+    "one_residue_survivor_count_bound_exact": true,
+    "count_bound_transfers_to_nonprincipal_character_phase": false,
+    "character_phase_counterexample_exact": true,
+    "martingale_increment_bound_available": false,
+    "martingale_conditional_variance_bound_available": false,
+    "same_law_analytic_moment_bound_available": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The final FMT coordinates are globally independent.",
+    "The survivor-count sensitivity bound controls a nonprincipal character coefficient.",
+    "A generic concentration theorem supplies the missing increment or variance constants.",
+    "The project has proved the actual same-law analytic moment.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed.",
+    "A threshold calculator or new prime computation is ready."
+  ],
+  "next_gate": "Prove a same-law conditional second moment or a filtration martingale increment plus conditional-variance theorem for the actual FMT output; do not infer it from survivor-count sensitivity."
+}

@@ -13,6 +13,14 @@
 - 계속 OPEN: <code>PAP-11</code>, <code>DEP-R09</code>, fixed
   \(2\times10^{-17}\), numerical \(X_{\rm cert}\)
 
+> **2026-09-14 Theory 81 successor 보정.** 아래 식 (80.8), (80.20), (80.21)의
+> pointwise survivor floor를 outer-good 사건 \(O\) 전체에 적용하는 것은 실제 Theory 55
+> 출력보다 강하다. 식 (55.38)의 floor는 conditional inner covering까지 성공한
+> \(S_{\rm sieve}=O\cap I_{\rm good}\)에서만 보장된다. 아래 finite probability algebra는
+> 그 추가 floor premise 아래의 조건부 계산으로는 유효하지만, actual 적용에서는
+> [Theory 81](81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md)의
+> \(1_{S_{\rm sieve}}\)-정규화로 읽어야 한다. 이 보정은 analytic moment를 새로 증명하지 않는다.
+
 ## 1. 결론
 
 Theory 79가 복원한 실제 FMT final outcome을
@@ -97,8 +105,10 @@ Theory 77의 prime-error vector를 \(Z_\chi(Y)\)라 쓰고 주지표를 제외�
 
 ## 3. divide-by-zero 없는 normalized badness
 
-\(O\)를 Theory 55의 outer-good event라 한다. \(O\)에서 \(M_\omega\ge M_{\min}>0\)인
-pointwise survivor floor를 함께 인증한다는 조건 아래
+\(O\)를 Theory 55의 outer-good event라 한다. 이 절은 \(O\)에서
+\(M_\omega\ge M_{\min}>0\)인 pointwise survivor floor를 **추가 전제**로 둔 대수를
+기록한다. Theory 81의 source 재감사 결과 actual Theory 55가 주는 floor 영역은
+\(O\)가 아니라 \(S_{\rm sieve}=O\cap I_{\rm good}\)다.
 
 \[
  W(\omega)=
@@ -248,6 +258,10 @@ Theory 79의 sieve-good mass는
 를 쓸 수 있다. 평균 survivor count만으로 분모를 바꾸면 Jensen 방향과 small-\(M_\omega\)
 tail을 놓칠 수 있으므로 허용하지 않는다.
 
+Theory 81은 actual source가 이 \(O\)-전제를 주지 않는다고 판정한다. 실제 재사용 가능한
+형태는 \(\mathbb E[1_{S_{\rm sieve}}|R|^2]\)와
+\(M_{\min}=A(1-\eta)X/\log X\)를 같은 사건에서 묶는 식이다.
+
 ## 8. source 적용성 감사
 
 | source | 실제로 주는 것 | 이번 계약에 충분한가 |
@@ -314,6 +328,7 @@ project-local <code>axiom</code>은 사용하지 않는다.
 | actual outcome·CRT observable | <code>EXACTLY SPECIFIED</code> |
 | finite tower identity | <code>EXACT</code> |
 | global/conditional/fiber sufficient inequalities | <code>EXACT</code> |
+| survivor-floor actual event domain | <code>SUPERSEDED BY THEORY 81</code> |
 | FMT fixed-subset theorem의 drop-in 적용 | <code>REJECTED AS STATED</code> |
 | actual same-law analytic moment | <code>OPEN</code> |
 | <code>PAP-11</code>, <code>DEP-R09</code> | <code>OPEN</code> |
@@ -321,10 +336,10 @@ project-local <code>axiom</code>은 사용하지 않는다.
 | 새 bounded \(X_{\rm cert}\) 범위 | <code>NONE</code> |
 | threshold calculator·장시간 prime 계산 | <code>NOT READY / NOT RUN</code> |
 
-다음 source-first 우선순위는 actual FMT output law의 생성 과정을 단계별 filtration으로
-분해해 식 (80.20)의 martingale 또는 bounded-difference estimate가 가능한지 검사하는 것이다.
-그 과정에서도 CRT phase의 한 residue 변경 민감도와 survivor denominator floor를 먼저
-수치화해야 한다. 이 입력이 없으면 장시간 소수 계산은 analytic 공백을 메우지 못한다.
+이 문서가 제안한 filtration·survivor-floor 감사는 Theory 81에서 수행한다. 그 successor는
+count denominator floor를 최종 sieve-good 사건에 정확히 맞추지만, nonprincipal character
+phase의 one-step increment와 conditional variance는 새 analytic theorem으로 남긴다. 이 입력이
+없으면 장시간 소수 계산은 analytic 공백을 메우지 못한다.
 
 ## 12. 참고문헌
 

@@ -2047,3 +2047,56 @@ Theory 80 뒤 전수원장은 theory 81개, display 식 1,473개, Lean declarati
 <code>NOT_YET_FORMALIZED=1027</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이며
 금지 proof escape는 0건이다. <code>PAP-11</code>, DEP-R09, fixed
 \(2\times10^{-17}\), numerical \(X_{\rm cert}\)는 계속 OPEN이고 새 bounded range는 없다.
+
+## 2026-09-15 DEP-R09 FMT filtration 민감도·survivor floor 감사
+
+[theory 81](method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md)과
+[review 89](review/89_20260915_DEPR09_FMT_filtration_sensitivity_survivor_floor_타당성검토.md)은
+Theory 80의 normalization domain과 martingale 후보를 실제 FMT/FGKMT construction에
+대조했다.
+
+Theory 55 formula (55.38)의 pointwise lower floor는 outer-good (O) 전체가 아니라
+conditional inner covering까지 성공한
+
+\[
+S_{\rm sieve}=O\cap I_{\rm good}
+\]
+
+에서만 쓴다. 따라서 actual normalized variable은
+
+\[
+W_S=1_{S_{\rm sieve}}\frac{|R|^2}{M_\omega^2Y^2},
+\qquad
+M_\omega\ge A(1-\eta)\frac X{\log X}
+\quad\hbox{on }S_{\rm sieve}
+\]
+
+이고 strict sufficient gate는
+
+\[
+\mathbb EW_S<\tau^2(1-F_{\rm out})(1-F_{\rm in})
+\]
+
+이다. raw moment도 (\mathbb E[1_{S_{\rm sieve}}|R|^2])처럼 같은 사건에 제한한다.
+
+FGKMT Theorem 3은 previous partially sifted set을 조건으로 nibble 내부의 joint
+conditional independence를 주지만 final coordinate 전체의 global product law를 주지
+않는다. 한 prime residue 변경은 survivor count를
+(2\lceil N/p\rceil)로 제어한다. 그러나 exact (P=65) fixture에서 nonprincipal
+character 합 변화는 3이고 membership bound는 2이므로 이 count 경계를 weighted phase에
+옮기는 단순 bounded-difference 경로는 기각한다.
+
+다음 analytic gate는 actual final sieve-good law의 direct conditional second moment 또는
+character (L^2) energy를 이용한 nibble별 increment·conditional variance다. exact Python
+11개, Lean direct compile exit 0, 전체 8,765-job build와 전수 ledger validation은 PASS했다.
+Lean은 terminal finite algebra만 검증하며 analytic FMT law나 character moment를 공리로
+넣지 않았다.
+
+Theory 81 뒤 전수원장은 theory 82개, display 식 1,499개, Lean declaration 293개다.
+상태는 <code>KERNEL_PASS=94</code>, <code>CONDITIONAL_KERNEL_PASS=66</code>,
+<code>DEFINITION_ONLY=107</code>, <code>PARTIAL_FORMALIZATION=108</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=88</code>,
+<code>NOT_YET_FORMALIZED=1031</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. <code>PAP-11</code>, DEP-R09, fixed
+(2\times10^{-17}), numerical (X_{\rm cert})는 계속 OPEN이다. 새 bounded range가
+없으므로 threshold calculator와 장시간 prime 계산은 NOT READY다.

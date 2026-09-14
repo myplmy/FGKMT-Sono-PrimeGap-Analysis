@@ -4,6 +4,11 @@
   "gate": "DEP-R09 same-law weighted-correlation tower audit",
   "predecessor": "Sono_FMT_DEPR09_FMT_construction_mass_v1.json",
   "outcome": "FINITE_TOWER_AND_THREE_SUFFICIENT_MOMENT_CONTRACTS_EXPLICIT_BUT_NO_SOURCE_SUPPLIES_THE_ACTUAL_SAME_LAW_MOMENT",
+  "successor_correction": {
+    "theory": "Theory 81",
+    "issue": "The pointwise survivor floor is supplied on S_sieve=O intersect I_good, not on all of O.",
+    "effect": "The finite algebra remains valid after replacing the normalization domain by S_sieve; no analytic moment is proved."
+  },
   "source_registry": [
     {
       "key": "FMT",

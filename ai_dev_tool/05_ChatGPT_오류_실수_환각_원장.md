@@ -2669,6 +2669,155 @@
   generated total을 함께 대조한다. Markdown bullet을 교체할 때 patch marker 뒤 원문
   하이픈까지 두 문자를 명시하고, unchanged 줄은 반드시 공백 marker를 붙인다.
 
+### E137 — 이미 교정된 E117 Lean 사건을 현재 실패처럼 다시 설명
+
+- 분류:
+  <code>STALE_INCIDENT_REPORTED_AS_CURRENT / USER_DETECTED /
+  CANONICAL_PROOF_UNCHANGED / SCIENTIFIC_IMPACT_NONE</code>.
+- 사용자가 다시 제시한 <code>((18/7)*θ)*L</code> 대
+  <code>θ*((18/7)*L)</code> 설명은 새 compile 실패가 아니다. 오류 원장 E117의
+  2026-09-13 첫 compile 사건과 정확히 같고, E117의 2026-09-14 재발성 감사에서도
+  이미 새 오류로 다시 세지 말라고 판정했다.
+- 현재 canonical theorem
+  <code>jutila_jl7_residue_eta_length_coefficient</code>는 commit
+  <code>38f50320</code>부터 교환·결합법칙을 명시한 <code>simpa</code>로 교정돼
+  있으며, 이번 확인 때 해당 Lean 파일에는 tracked diff와 새 failing compile 증거가
+  없었다. 따라서 최근 설명의 “고치고 다시 전체 빌드하겠다”는 현재형 표현이 잘못이다.
+- 같은 batch의 endpoint coefficient에 남은 <code>_hθ</code>는 상계 proof에는
+  쓰이지 않지만 actual source domain과 theorem interface를 보존하려는 표시다. 이를
+  proof에 필요한 가정이나 오류 교정 수단으로 해석하지 않는다.
+- 예방:
+  1. Lean 실패 보고 전 theorem 이름, 현재 source diff, 현재 명령·종료코드·시각을
+     한 묶음으로 확보한다.
+  2. 오류 원장에서 theorem 이름과 핵심 goal 모양을 먼저 검색한다.
+  3. 동일 theorem이 이미 고쳐졌고 current failure evidence가 없으면
+     <code>HISTORICAL_ALREADY_FIXED</code>로만 보고한다.
+  4. 과거 시행착오를 복원한 설명에는 “고치겠다”, “다시 빌드하겠다” 같은 현재·미래형을
+     쓰지 않는다.
+
+### E138 — E137 감사 중 정확한 경로 확인 절차 재위반
+
+- 분류:
+  <code>READ_ONLY_PATH_AND_GLOB_ERROR / REPEATED_E129_PATTERN /
+  FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- Lean 예방 문서가 있는지 찾는 보조 명령에서 존재를 확인하지 않은
+  <code>ai_dev_tool/04_작업_절차_및_사용자_협업_지침.md</code>를 추정했고,
+  Windows <code>rg</code>에 <code>ai_dev_tool/*.md</code> wildcard를 직접 넘겨
+  file-not-found와 OS error 123을 만들었다. 두 실패는 read-only이며 판정 증거로
+  사용하지 않았다. 정확한 canonical 경로인 <code>AGENTS.md</code>,
+  <code>lean/README.md</code>, 오류 원장 E117과 Lean source를 직접 대조했다.
+- 예방: 문서 경로는 먼저 <code>rg --files ai_dev_tool</code>로 확정하고, Windows
+  파일 선택은 directory 인수와 <code>-g '*.md'</code>를 사용한다. 기억한 파일명과
+  shell wildcard를 한 검색에 함께 넣지 않는다.
+
+### E139 — 후속 source 확인에서 금지된 broad tmp 검색 재사용
+
+- 분류:
+  <code>READ_ONLY_SEARCH_SCOPE_RECURRING_ERROR / REPEATED_E121_PATTERN /
+  DETECTED_IMMEDIATELY / FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- E137 감사를 마친 뒤 별도 DEP-R09 source locator를 확인하면서, 이미 machine ledger와
+  선행 theory가 정확한 경로를 제공하는데도 <code>rg --files tmp</code>를 실행했다.
+  보존된 과거 임시 디렉터리의 access-denied 경고가 다수 출력됐다. 명령은 읽기 전용이었고
+  파일·Lean proof·실험 프로세스·과학 판정에는 영향이 없다.
+- 교정: 필요한 source는 정본 문서와 machine ledger에 기록된 exact path allowlist로만
+  다시 조회했다. broad 검색의 출력은 증거로 사용하지 않았다.
+- 예방: <code>tmp</code> 아래 source를 찾을 때는 먼저 정본의 locator와 hash를 읽고,
+  정확한 파일 또는 이미 알려진 좁은 하위 디렉터리만 조회한다. broad tmp 순회가 꼭
+  필요하다면 목적·예외 디렉터리·접근권한을 먼저 별도 정의한다.
+
+### E140 — 선택적 PDF·기호계산 의존성을 확인하기 전에 사용 시도
+
+- 분류:
+  <code>OPTIONAL_DEPENDENCY_ASSUMPTION / READ_ONLY_FAILURES /
+  FALLBACK_AVAILABLE / FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- 별도 DEP-R09 source 감사 중 고정 FGKMT Python에 <code>pypdf</code>와
+  <code>sympy</code>가 있는지 먼저 확인하지 않고 import를 시도해 각각 모듈 없음으로
+  종료됐다. bundled workspace dependency 조회도 응답 없이 지속돼 종료했다.
+- 영향: 모두 읽기 전용 보조 경로였다. 이미 native text 추출본과 표준 라이브러리만으로
+  가능한 exact 계산 경로가 있어 설치·실험·정본 결과에는 영향이 없다.
+- 예방: 선택적 모듈은 짧은 import probe를 먼저 실행하고, 실패하면 설치 요청 전에
+  저장소의 기존 추출물·표준 라이브러리·고정 도구로 대체 가능한지 확인한다. dependency
+  discovery가 장시간 응답하지 않으면 PASS나 설치 필요로 해석하지 않고 중단 상태로 남긴다.
+
+### E141 — ledger validator의 CLI 계약을 읽지 않고 help 지원을 가정
+
+- 분류:
+  <code>VALIDATION_ORDER_AND_CLI_ASSUMPTION / EXPECTED_STALE_INVENTORY_FAILURE /
+  CORRECTED_IMMEDIATELY / FILE_AND_PROOF_IMPACT_NONE</code>.
+- Theory 81 Lean inventory를 갱신하기 전에
+  <code>validate_verification_ledger.py --help</code>를 실행했다. 이 validator는
+  argparse help를 구현하지 않고 바로 검증을 수행하므로, 아직 재생성하지 않은 formula
+  inventory 차이를 <code>AssertionError</code>로 정상 거부했다.
+- 영향: validator가 fail-closed로 멈췄고 파일을 쓰지 않았다. canonical Lean direct compile과
+  전체 build의 exit code 0에는 영향이 없다.
+- 교정: generator의 실제 help만 확인하고, 정해진 순서인 status mapping 갱신 → generator →
+  validator로 실행해 최종 <code>status=PASS</code>를 확인했다.
+- 예방: 저장소 도구에 <code>--help</code>가 있다고 추정하지 않는다. read-only source 또는
+  기존 호출 예시로 CLI를 먼저 확인하고, inventory validator는 반드시 generator 뒤에 실행한다.
+
+### E142 — untracked 새 파일을 제외한 diff check를 최종 PASS처럼 조기 기록
+
+- 분류:
+  <code>VALIDATION_SCOPE_MISMATCH / PRECOMMIT_DETECTED / CORRECTED /
+  FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- Theory 81 마감 전에 실행한 <code>git diff --check</code>는 아직 untracked였던 새 theory
+  파일을 검사하지 않는다. 그런데 작업원장·handoff 초안에 이를 전체 변경의 PASS처럼
+  먼저 기록했다. staging 뒤 <code>git diff --cached --check</code>가 그 새 파일의 후행
+  공백 2곳을 정확히 발견해 exit code 1로 멈췄다.
+- 영향: 두 공백은 수식·코드·Lean proof에 영향을 주지 않았고 commit 전에 제거됐다.
+  최초 tracked-only 호출은 전체 변경 검증 증거로 사용하지 않는다.
+- 교정: 두 줄의 후행 공백을 제거하고 해당 파일을 다시 staging한 뒤 cached diff check를
+  재실행한다. 작업원장·handoff도 검사 범위와 선후관계를 사실대로 고친다.
+- 예방: 새 파일이 있는 batch에서는 staging 전 <code>git diff --check</code>를 참고용으로만
+  취급한다. 명시적 staging 후 <code>git diff --cached --check</code> exit code 0을 최종
+  whitespace gate로 사용하며, 그 전에는 handoff에 전체 PASS라고 적지 않는다.
+
+### E143 — Theory 파일 서식 교정 뒤 generator 없이 validator를 다시 실행
+
+- 분류:
+  <code>REPEATED_E141_SEQUENCE_ERROR / VALIDATOR_FAIL_CLOSED /
+  AUTOMATION_ADDED / FILE_AND_PROOF_IMPACT_NONE</code>.
+- E142의 후행 공백을 제거하면 Theory 81 source byte hash가 달라진다. 그런데 그 직후
+  generator를 다시 실행하지 않고 validator와 cached diff check를 병렬 호출했다.
+  validator는 <code>saved formula inventory differs from current theory sources</code>로
+  exit code 1을 반환했고, cached diff check는 별개로 통과했다.
+- 영향: validator가 stale inventory를 PASS로 승격하지 않고 정상적으로 차단했다.
+  Lean source·수학식·시험 결과에는 영향이 없고, 이 실패 호출은 최종 PASS 증거가 아니다.
+- 교정: generator를 먼저 실행한 뒤 validator를 실행해 다시 PASS를 확인했다.
+- 재발 원인: E141에 순서를 문장으로 기록했지만 두 명령이 여전히 독립 호출이라, theory를
+  아주 작게 다시 고친 뒤 수동 순서를 빠뜨릴 수 있었다.
+- 구조적 예방: 새
+  <code>lean/tools/refresh_and_validate_verification_ledger.py</code>가 generator 성공 뒤에만
+  validator를 실행하도록 묶었다. AGENTS와 Lean README의 표준 최종 명령도 이 wrapper로
+  바꿨다. 이후 theory byte 변경 뒤 current PASS는 wrapper exit code 0으로만 기록한다.
+
+### E144 — 새 오류 항목 추가 뒤 handoff의 닫힌 번호 범위를 갱신하지 않음
+
+- 분류:
+  <code>HANDOFF_RANGE_STALENESS / POSTCOMMIT_DETECTED / AMEND_CORRECTED /
+  SCIENTIFIC_IMPACT_NONE</code>.
+- E142·E143을 추가했지만 handoff의 정본 파일 목록과 다음 재개 지시는 여전히
+  <code>E137--E141</code>이라고 적혀 있었다. post-commit locator 검사에서 발견했다.
+- 영향: 개별 E142·E143 설명은 handoff 본문에 이미 있었고 수학·코드·검증 결과에는 영향이
+  없다. 다만 다음 작업자가 닫힌 번호 범위만 읽으면 두 항목을 누락할 수 있었다.
+- 교정: 두 닫힌 범위를 <code>E137 이후 최신 항목</code>으로 바꾸고 같은 local commit을
+  amend한다.
+- 예방: 마감 중 오류 항목을 추가할 수 있는 handoff에서는 마지막 번호를 조기에 고정하지
+  않는다. 오류 원장 링크는 열린 범위로 쓰고, commit 전후 locator scan으로 개별 항목과
+  요약 범위를 대조한다.
+
+### E145 — E144 동기화용 multi-file patch의 원장 문맥 불일치
+
+- 분류:
+  <code>APPLY_PATCH_CONTEXT_MISMATCH / ATOMIC_REJECTION / CORRECTED /
+  FILE_AND_SCIENTIFIC_IMPACT_NONE</code>.
+- E144를 오류 원장·작업원장·handoff에 한 번에 넣으려던 patch에서 작업원장의 실제 두 줄
+  문맥을 다르게 추정해 <code>apply_patch verification failed</code>가 발생했다.
+- 영향: patch 도구가 전체 요청을 원자적으로 거부해 어느 파일도 부분 변경되지 않았다.
+- 교정·예방: <code>rg -n -C</code>로 세 파일의 exact locator를 다시 확인하고, 오류 원장과
+  각 동기화 파일을 작은 patch로 나눠 적용한다. 여러 파일 patch에서는 기억한 줄바꿈을
+  문맥으로 사용하지 않는다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

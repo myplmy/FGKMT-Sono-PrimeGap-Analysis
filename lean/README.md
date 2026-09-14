@@ -26,9 +26,13 @@ Set-Location -LiteralPath 'Z:\FGKMT-Sono-PrimeGap-Analysis\lean'
 & 'C:\Users\Uranus\.elan\bin\lake.exe' env lean --version
 & 'C:\Users\Uranus\.elan\bin\lake.exe' build
 & 'C:\Users\Uranus\.elan\bin\lake.exe' env lean FGKMTSono\TheoryVerification.lean
-& 'W:\miniforge3\envs\FGKMT\python.exe' tools\generate_verification_ledger.py
-& 'W:\miniforge3\envs\FGKMT\python.exe' tools\validate_verification_ledger.py
+& 'W:\miniforge3\envs\FGKMT\python.exe' tools\refresh_and_validate_verification_ledger.py
 ```
+
+마지막 wrapper는 generator를 먼저 성공시킨 뒤에만 validator를 실행한다. theory Markdown은
+후행 공백을 포함한 byte 변경만으로도 source hash가 바뀌므로, 마지막 theory 수정 뒤에는
+validator를 단독 실행하지 않는다. 두 하위 도구를 진단 목적으로 따로 실행한 결과는 wrapper의
+최종 exit code 0을 대신하지 않는다.
 
 `lake build` 성공만으로 모든 논문 입력이 증명된 것은 아니다. 항목별 독립·조건부·미형식화
 상태는 `VERIFICATION_LEDGER.md`를 정본으로 삼는다. `sorry`, `admit`, project-local `axiom`은
@@ -52,6 +56,9 @@ Lean에서 수학적으로 같은 곱도 parser가 만든 결합형이 다르면
    compile한다. 전체 `lake build`는 그 다음 독립 gate다.
 5. 쓰이지 않는 가정은 제거한다. source domain이나 안정된 interface를 의도적으로 보존할
    때만 `_h...`로 표시하고 그 이유를 주석으로 남긴다.
+6. 실패를 현재 사건으로 보고하기 전에 theorem 이름, 현재 source diff, 이번 compile의
+   종료코드와 시각을 오류 원장에 대조한다. 이미 교정된 동일 theorem에 현재 실패 증거가
+   없으면 역사적 시행착오라고만 기록하고 다시 고치겠다는 현재형 표현을 쓰지 않는다.
 
 이 규칙은 첫 compile 시행착오를 줄이는 절차다. 실제 수식의 타당성은 여전히 theorem
 statement, source premise, Lean kernel 결과를 각각 대조해 판정한다.
@@ -395,4 +402,24 @@ Theory 80 뒤 inventory는 theory 문서 81개, display 1,473식이며 전체 �
 <code>SOURCE_THEOREM_UNFORMALIZED=85</code>,
 <code>NOT_YET_FORMALIZED=1027</code>, <code>PARSE_REVIEW_REQUIRED=5</code>다.
 declaration은 288개이고 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed
+2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-15 Theory 81 batch는 Theory 55 survivor floor의 actual event domain을
+final sieve-good (S_{\rm sieve}=O\cap I_{\rm good})로 교정했다. Lean은 그 floor의
+positive terminal, 같은 사건 raw-moment의 positive-denominator normalization,
+strict moment gate의 positive terminal, symmetric-difference count terminal과
+(P=65) counterexample의 integer arithmetic을 검사한다. FMT probability law,
+Dirichlet-character evaluation 전체, martingale increment·conditional variance와
+analytic second moment는 project-local axiom으로 넣지 않았다.
+
+canonical direct compile은 최종 exit code 0, 독립 전체 build는
+<code>Build completed successfully (8765 jobs)</code>와 exit code 0을 확인했다.
+<code>sorry</code>, <code>admit</code>, project-local <code>axiom</code>은 0건이다.
+
+Theory 81 뒤 inventory는 theory 문서 82개, display 1,499식이며 전체 상태는
+<code>KERNEL_PASS=94</code>, <code>CONDITIONAL_KERNEL_PASS=66</code>,
+<code>DEFINITION_ONLY=107</code>, <code>PARTIAL_FORMALIZATION=108</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=88</code>,
+<code>NOT_YET_FORMALIZED=1031</code>, <code>PARSE_REVIEW_REQUIRED=5</code>다.
+declaration은 293개이고 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed
 2e-17과 X_cert는 계속 OPEN이다.

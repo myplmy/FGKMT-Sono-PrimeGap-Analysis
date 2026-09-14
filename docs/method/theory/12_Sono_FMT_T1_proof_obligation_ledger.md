@@ -1192,3 +1192,23 @@ fixed-subset cardinality preservation은 final output이 정한 signed/complex C
 \(2\times10^{-17}\), \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. 다음 gate는
 final FMT covering filtration에서 이 moment의 one-step 민감도와 numerical concentration
 가능성을 감사하는 것이다. threshold calculator와 장시간 prime sweep은 NOT READY다.
+
+## 50. 2026-09-15 DEP-R09 filtration 민감도·survivor floor 후속 상태
+
+[theory 81](81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md)은
+Theory 80의 denominator premise를 actual Theory 55 event에 맞췄다. pointwise floor는
+outer-good (O) 전체가 아니라 (S_{\rm sieve}=O\cap I_{\rm good})에서 성립한다.
+따라서 raw moment와 normalized badness도 같은 event indicator로 제한한다.
+
+FGKMT Theorem 3의 final covering은 nibble별 conditional product law이며 final residue
+전체의 global product law가 아니다. 한 prime residue 변경에 대한 survivor count 경계
+(2\lceil N/p\rceil)는 exact하지만, (P=65) nonprincipal-character fixture는 character
+합 변화 3이 membership bound 2보다 큼을 보인다. 따라서 이 count 경계를 weighted
+phase의 bounded increment로 옮기는 경로는 기각한다.
+
+현재 새 R09 의무는 actual final sieve-good law의 conditional second moment 또는 nibble별
+Doob increment와 conditional variance의 numerical theorem이다. generic Freedman·typical
+bounded-difference 정리는 이 입력을 대신 공급하지 않는다. 따라서 66개 root row와
+<code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed (2\times10^{-17}),
+(X_{\rm cert}=\mathrm{OPEN})은 변경하지 않는다. threshold calculator와 장시간 prime
+sweep은 NOT READY다.

@@ -123,6 +123,20 @@ review 88이다. actual same-law moment·PAP-11·DEP-R09·fixed
 \(2\times10^{-17}\)·\(X_{\rm cert}\)는 계속 OPEN이고 threshold calculator·장시간
 prime 계산은 NOT READY다.
 
+2026-09-15 filtration·survivor-floor successor는 Theory 80의 denominator
+적용영역을 교정했다. Theory 55의 pointwise floor는 outer-good (O) 전체가 아니라
+final (S_{\rm sieve}=O\cap I_{\rm good})에서만 유효하며, raw moment도 같은 event
+indicator로 제한해야 한다. 한 prime residue 변경은 survivor count를
+(2\lceil N/p\rceil)로 제어하지만, exact (P=65) witness에서 nonprincipal character
+합 변화 3이 membership bound 2를 넘으므로 이 경계를 weighted phase에 옮길 수 없다.
+FGKMT Theorem 3은 nibble 내부 conditional independence만 주며 final global product law를
+주지 않는다. Theory 81 뒤 inventory는 82개 문서, 1,499식이고
+<code>KERNEL_PASS=94</code>, <code>CONDITIONAL_KERNEL_PASS=66</code>,
+<code>NOT_YET_FORMALIZED=1031</code>, Lean declaration 293개, 금지 proof escape 0건이다.
+최신 analytic 정본은 theory 81·review 89다. martingale increment·conditional variance,
+actual same-law moment·PAP-11·DEP-R09·fixed (2\times10^{-17})·(X_{\rm cert})는
+계속 OPEN이고 threshold calculator·장시간 prime 계산은 NOT READY다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는
@@ -575,6 +589,9 @@ Codex의 저장소 스킬 정본 발견 경로는 `.agents/skills/`다. 현재 �
   `simpa only [mul_assoc, mul_left_comm, mul_comm]`, `ring` 또는 `convert`로 정규화한다.
   선언을 여러 개 누적하기 전에 canonical 단일 파일을 직접 컴파일하고, 사용하지 않는
   가정은 안정된 source-interface를 보존할 이유가 있을 때만 `_h...` 이름과 주석으로 남긴다.
+- Lean 실패를 현재 사건으로 사용자에게 보고하기 전에는 theorem 이름, 현재 source diff,
+  이번 명령의 종료코드·시각을 오류 원장과 대조한다. 같은 theorem이 이미 교정됐고 현재
+  failing command나 diff가 없으면 과거 사건으로만 표시하며, 현재형 재수정 안내를 하지 않는다.
 - Lean direct compile·`lake build` 같은 비동기 검증은 process/session id를 PASS로 보지 않는다.
   최종 `exit_code`를 받을 때까지 PENDING이며, handoff와 작업원장에는 종료코드를 적는다.
 - 2026-09-10 기준 Theory 01의 `F(x)`는 `x > exp(exp(exp(1)))`에서 양수이고
@@ -779,6 +796,10 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - JavaScript를 거쳐 LaTeX Markdown patch를 만들 때는 backslash가 소실되지 않는 transport를
   쓰고, Markdown backtick이 포함된 기존 문맥과 raw template를 섞지 않는다. 적용 직후
   formula inventory와 inline delimiter narrow scan을 실행한다.
+- theory Markdown을 공백 하나라도 바꾼 뒤 verification 원장을 검사할 때는 validator를
+  단독 실행하지 않는다. 반드시
+  <code>lean/tools/refresh_and_validate_verification_ledger.py</code>로 generator→validator를
+  한 호출에서 실행하고, 그 최종 exit code만 current ledger PASS로 사용한다.
 - 결과를 사전에 정한 결론에 맞추지 않는다.
 - 전체 unittest는 TemporaryDirectory, multiprocessing, PowerShell child를 포함하므로 이미 허가된 정상 로컬 권한에서 첫 판정하고, 제한 샌드박스 권한 실패와 실제 코드 회귀를 분리해 기록한다.
 - 필요한 lemma는 먼저 원 논문·교정본·후속 선행증명에서 찾는다. 채택 전에는 가정,

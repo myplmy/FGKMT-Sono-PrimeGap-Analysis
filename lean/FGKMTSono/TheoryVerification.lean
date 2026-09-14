@@ -3650,4 +3650,63 @@ theorem dep_r09_raw_to_normalized_moment_terminal
     mul_pos (sq_pos_of_pos hMinimum) (sq_pos_of_pos hScale)
   exact (div_le_div_iff_of_pos_right hDenominator).2 hRaw
 
+/-! ## Theory 81 — DEP-R09 filtration sensitivity and survivor floor -/
+
+/- Theory 81, formula 81.4: the final sieve-good survivor floor is strictly
+   positive once the source parameters A, 1-eta, and X/log X are positive.
+   This theorem proves only the terminal algebra; membership in the final
+   sieve-good event is the audited source premise. -/
+theorem dep_r09_sieve_good_survivor_floor_positive
+    {A eta xOverLogX : ℝ}
+    (hA : 0 < A) (hEta : eta < 1) (hXScale : 0 < xOverLogX) :
+    0 < A * (1 - eta) * xOverLogX := by
+  exact mul_pos (mul_pos hA (sub_pos.mpr hEta)) hXScale
+
+/- Theory 81, formulas 81.9--81.10: a raw second moment restricted to the
+   same final sieve-good event can be normalized by its pointwise floor.
+   The analytic raw-moment estimate remains an external premise. -/
+theorem dep_r09_sieve_good_raw_normalization_terminal
+    {rawMoment rho minimumSurvivors primeScale : ℝ}
+    (hRaw : rawMoment ≤ rho)
+    (hMinimum : 0 < minimumSurvivors)
+    (hScale : 0 < primeScale) :
+    rawMoment / (minimumSurvivors ^ 2 * primeScale ^ 2) ≤
+      rho / (minimumSurvivors ^ 2 * primeScale ^ 2) := by
+  exact dep_r09_raw_to_normalized_moment_terminal hRaw hMinimum hScale
+
+/- Theory 81, formulas 81.7--81.8: the corrected sieve-good normalized
+   moment gate leaves positive mass.  The probability/Markov lower bound is
+   represented by hLower and is not asserted as a new analytic theorem. -/
+theorem dep_r09_sieve_good_moment_terminal
+    {fOut fIn muS tau pSuccess : ℝ}
+    (hTau : 0 < tau)
+    (hLower :
+      (1 - fOut) * (1 - fIn) - muS / tau ^ 2 ≤ pSuccess)
+    (hGate :
+      muS < tau ^ 2 * ((1 - fOut) * (1 - fIn))) :
+    0 < pSuccess := by
+  exact dep_r09_global_same_law_moment_terminal hTau hLower hGate
+
+/- Theory 81, formulas 81.15--81.16: once symmetric-difference containment
+   supplies the two one-sided count inequalities, its cardinality bound
+   controls the absolute survivor-count difference. -/
+theorem dep_r09_survivor_count_sensitivity_terminal
+    {oldCount newCount symmDiff bound : ℝ}
+    (hOldNew : oldCount - newCount ≤ symmDiff)
+    (hNewOld : newCount - oldCount ≤ symmDiff)
+    (hSymm : symmDiff ≤ bound) :
+    |oldCount - newCount| ≤ bound := by
+  have hAbs : |oldCount - newCount| ≤ symmDiff := by
+    rw [abs_le]
+    constructor <;> linarith
+  exact hAbs.trans hSymm
+
+/- Theory 81, formulas 81.18--81.19: exact arithmetic of the P=65 toy
+   witness.  Python separately evaluates the finite Dirichlet-character
+   values; this theorem checks that their two sums differ by 3, exceeding
+   the survivor-membership bound 2. -/
+theorem dep_r09_character_phase_counterexample_arithmetic :
+    |((1 : ℤ) + 0 + 1) - (1 + (-1) + (-1))| > 2 := by
+  norm_num
+
 end FGKMTSono
