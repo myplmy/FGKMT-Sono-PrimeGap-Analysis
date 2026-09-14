@@ -1096,7 +1096,7 @@ proof decomposition이다. 이 gate 전 threshold calculator와 장시간 prime 
 
 [theory 77](77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md)은
 Theory 76이 제안한 character-energy 하위질문을 exact하게 닫았다. (M)개 reduced residues의
-total energy는 항상 (arphi(q)M), 비주지표 energy는 (M(arphi(q)-M))이므로 Maier
+total energy는 항상 (\varphi(q)M), 비주지표 energy는 (M(\varphi(q)-M))이므로 Maier
 admissible set이라는 구조만으로 unweighted (L^2) total을 줄일 수 없다. aligned-vector
 equality가 있어 total-energy Cauchy 상수도 보편적으로 sharp하다.
 
@@ -1111,3 +1111,29 @@ abs(sum_(chi != chi0) C_chi(A_y) Z_chi(Y))
 자동 승격하지 않는다. current power regime에서 unconditional fully numerical fixed-primorial
 source는 식별되지 않았다. 66개 root row 수와 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09,
 fixed (2\times10^{-17}), (X_{\rm cert}=\mathrm{OPEN})은 변경하지 않는다.
+
+## 47. 2026-09-14 DEP-R09 Maier/FMT CRT 이동량 양화사 후속 상태
+
+[theory 78](78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md)은 Theory 77의
+simultaneous-selection 문구를 실제 source quantifier로 고쳤다. Maier 1981 Lemma 6의
+fixed prime partition에서는
+
+~~~text
+y = 0 mod P1*P3
+y = 1 mod P2
+~~~
+
+가 \(y\bmod P(x)\)를 하나로 정하므로 고전 \(y\)-평균 표본공간은 없다. Sono/FMT actual
+proof에서는 sieve residue vector \(\boldsymbol a\)마다 CRT \(m(\boldsymbol a)\)가 하나
+정해지고, FMT proof 내부의 randomized vector family가 평균 후보가 된다.
+
+그러나 현재 정본은 sieve-good event와 direct weighted-correlation-good event가 같은
+vector에서 성립한다는 numerical positive mass를 주지 않는다. finite family
+\(\Omega\)에서 세 bad-set cardinality 합이 \(|\Omega|\)보다 작으면 simultaneous good
+candidate가 남는다는 논리만 Lean <code>KERNEL_PASS</code>로 닫았다. analytic bad-set
+상계는 새 R09 의무다.
+
+따라서 66개 root row와 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09,
+fixed \(2\times10^{-17}\), \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다.
+uniform-in-vector correlation source 또는 FMT construction law 위의 공통 numerical
+failure budget 전에는 threshold calculator와 장시간 prime sweep을 시작하지 않는다.

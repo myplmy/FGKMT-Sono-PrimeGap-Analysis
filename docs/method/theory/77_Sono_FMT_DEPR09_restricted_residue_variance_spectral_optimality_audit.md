@@ -9,6 +9,14 @@
 - 전역 상태: `PAP-11 OPEN`, `DEP-R09 OPEN`, fixed (2\times10^{-17}) 미인증,
   numerical (X_{\rm cert}) `OPEN`
 
+> **2026-09-14 Theory 78 successor 교정:** 아래의 “Maier-selected \(y\)와 동시 선택”
+> 요구는 맞지만, 고전 Maier Lemma 6의 fixed prime partition에서는 CRT residue
+> \(y\bmod P(x)\)가 하나뿐이므로 그 \(y\) 자체를 평균하는 경로는 없다. Sono/FMT 실제
+> proof에서 평균 후보가 되는 변수는 randomized sieve residue vector
+> \(\boldsymbol a\)이고, vector마다 \(m(\boldsymbol a)\)가 하나 정해진다. average route에는
+> sieve-good와 correlation-good의 공통 finite failure budget이 새로 필요하다.
+> 자세한 정본은 [Theory 78](78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md)이다.
+
 ## 1. 질문과 결론
 
 Theory 76은 Maier가 각 admissible column에 pointwise PNT를 쓰지만 마지막 행 선택은
@@ -27,7 +35,7 @@ Theory 76은 Maier가 각 admissible column에 pointwise PNT를 쓰지만 마지
 \]
 
 더 중요한 교정은 두 번째 질문이다. 서로 다른 (M)개 reduced residues로 이루어진
-어떤 집합에도 전체 character energy는 정확히 (arphi(q)M)이다. 따라서 Maier 집합의
+어떤 집합에도 전체 character energy는 정확히 (\varphi(q)M)이다. 따라서 Maier 집합의
 **unweighted total (L^2) energy 자체를 줄이는 경로는 불가능**하다. 남은 최소 목표는
 전체 variance가 아니라, Maier의 짧은 shifted character sum과 실제 prime-error vector의
 직접 상관을 제어하는 정리다.
@@ -164,7 +172,7 @@ Theory 76의 character expansion을
  \tag{77.14}
 \]
 
-Maier 범위에서는 (M)이 (q)보다 subexponential인 반면 (arphi(q))는 (q) 규모이므로
+Maier 범위에서는 (M)이 (q)보다 subexponential인 반면 (\varphi(q))는 (q) 규모이므로
 이 비는 1에 가깝다. 즉 주지표 분리는 논리적으로 정확하지만 missing nonprincipal variance
 theorem을 크게 쉽게 만들지는 않는다. (delta_0>0)이면 남은 budget은
 ((1-\delta_0/\varepsilon)^2)만큼 더 줄어든다.
@@ -259,7 +267,8 @@ full variance 식 (77.13)은 충분하지만 필요조건은 아니다. 실제�
 
 1. (C_\chi(\mathcal A_y))를 weight로 직접 포함한 explicit character-error correlation.
 2. conductor/height별 weight (w_\chi)를 둔 dual weighted moment.
-3. Maier Lemma 6의 survivor 조건을 보존하는 construction-choice 평균과 동시 good-(y) 선택.
+3. Sono/FMT의 randomized sieve-vector construction law에서 survivor 조건과 correlation을
+   동시에 만족하는 vector 선택. 고전 fixed-partition \(y\) 평균은 Theory 78에 따라 제외한다.
 
 세 경로 모두 principal/exceptional character, endpoint, prime powers, (psi\to\pi), formula
 (II)와 공통 finite cutoff를 마지막에 합성해야 한다. 단순히 평균 (y) 하나가 좋다는 사실을
@@ -301,8 +310,8 @@ Lean 단일 정본은 energy 분해와 식 (77.13)의 terminal implication을 pr
 
 다음 우선순위는 식 (77.18)의 direct weighted correlation을 source-first로 분해하는 것이다.
 
-1. Maier-selected (y)의 construction family와 simultaneous-selection quantifier 고정:
-   약 1--2주.
+1. FMT construction-vector family와 simultaneous-selection quantifier 고정:
+   Theory 78에서 완료. 다만 공통 numerical good-mass 상계는 OPEN.
 2. (C_\chi(\mathcal A_y))의 conductor/height별 spectral profile 및 기존 shifted character-sum
    정리 적용성 감사: 약 2--6주.
 3. 기존 정리가 맞으면 numerical specialization과 common cutoff: 약 1--3개월.

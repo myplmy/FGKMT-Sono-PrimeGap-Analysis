@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 Maier/FMT CRT-shift quantifier and simultaneous-selection audit",
+  "predecessor": "Sono_FMT_DEPR09_restricted_residue_variance_screen_v1.json",
+  "outcome": "CLASSICAL_MAIER_FIXED_PARTITION_HAS_ONE_CRT_SHIFT_SONO_FMT_HAS_A_RANDOMIZED_VECTOR_FAMILY_BUT_NO_NUMERICAL_JOINT_GOOD_MASS_DIRECT_UNIFORM_CORRELATION_REMAINS_OPEN",
+  "source_registry": [
+    {
+      "key": "MAIER1981",
+      "title": "Chains of Large Gaps between Consecutive Primes",
+      "locator": "article/Maier 1981.pdf",
+      "doi": "10.1016/0001-8708(81)90003-7",
+      "sha256": "ca6f2425b850dd5f9d81340d8a4a4c76faf6a947d7486ebf87ff072adbf0a3eb",
+      "printed_pages": "263--268, Lemma 6 and formulas (I)--(II)",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "classification": "PRIMARY_PEER_REVIEWED_FIXED_PRIME_PARTITION_DETERMINES_ONE_CRT_RESIDUE_Y_MOD_PX"
+    },
+    {
+      "key": "SONO2025",
+      "title": "An Explicit Lower Bound for Gaps between Some Consecutive Primes",
+      "locator": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+      "printed_pages": "527--530, Proposition 3.1, Lemma 3.7 and proof of Theorem 3.6",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_PRIOR_RENDERED_AUDIT",
+      "classification": "PRIMARY_PEER_REVIEWED_EACH_SIEVE_RESIDUE_VECTOR_DETERMINES_ONE_CRT_M_MOD_P"
+    },
+    {
+      "key": "FMT2018",
+      "title": "Chains of large gaps between primes",
+      "arxiv": "1511.04468",
+      "url": "https://arxiv.org/abs/1511.04468",
+      "source_locations": "Theorem 2, Lemma 3.1, Sections 4--6",
+      "classification": "PRIMARY_PUBLISHED_RANDOMIZED_SIEVE_VECTOR_CONSTRUCTION_BUT_NO_FINITE_NUMERICAL_JOINT_CORRELATION_MASS"
+    }
+  ],
+  "quantifier_audit": {
+    "classical_maier": "for fixed v,w the congruences y=0 mod P1P3 and y=1 mod P2 determine exactly one residue modulo P(x)",
+    "sono_fmt": "a residue vector (a_p mod p) determines exactly one m modulo P by CRT",
+    "important_difference": "FMT proves existence of suitable vectors through randomized construction, so a family exists before the existential output is frozen; however its published numerical package does not include the weighted prime-error correlation or a common finite failure budget",
+    "forbidden_inference": "an average over unrelated y or over an unspecified family cannot be assigned to the one CRT shift used by the sieve construction"
+  },
+  "finite_selection_contract": {
+    "candidate_family": "finite support Omega of construction residue vectors",
+    "bad_sets": [
+      "B_sieve: vectors failing the required global and short-interval survivor bounds",
+      "B_corr: vectors failing the direct weighted prime-error correlation",
+      "B_extra: any additional event needed by a redesigned pair or endpoint transfer"
+    ],
+    "union_bound": "card(B_sieve)+card(B_corr)+card(B_extra)<card(Omega)",
+    "conclusion": "there exists one vector outside all three bad sets",
+    "probability_form": "P(B_sieve)+P(B_corr)+P(B_extra)<1",
+    "markov_form": "card({omega:w(omega)>=t})<=floor(sum_omega w(omega)/t)",
+    "scope": "finite logic only; analytic badness sums and the construction family remain premises"
+  },
+  "route_classification": {
+    "classical_maier_fixed_partition": "SINGLETON_CRT_SHIFT",
+    "classical_average_over_y": "UNAVAILABLE_WITHOUT_A_NEW_ROBUST_CONSTRUCTION_FAMILY",
+    "uniform_correlation_route": "LOGICALLY_SUFFICIENT_WITHOUT_SELECTION_BUT_ANALYTIC_SOURCE_OPEN",
+    "average_correlation_route": "REQUIRES_QUANTIFIED_JOINT_GOOD_MASS_OVER_SONO_FMT_CONSTRUCTION_VECTORS",
+    "fmt_randomized_construction_reuse": "PLAUSIBLE_RESEARCH_ROUTE_NOT_A_DROP_IN_THEOREM",
+    "formula_ii_pair_bound": "STILL_SEPARATE"
+  },
+  "exact_finite_diagnostic": {
+    "classical_fixed_partition_crt_residue_count": 1,
+    "classical_fixed_partition_has_free_y_average": false,
+    "singleton_zero_bad_counts_certified": true,
+    "singleton_one_bad_count_certified": false,
+    "sono_fmt_crt_m_unique_per_residue_vector": true,
+    "sono_fmt_source_uses_randomized_sieve_vectors": true,
+    "numerical_mass_of_jointly_good_vectors_certified": false,
+    "direct_uniform_in_vector_correlation_bypasses_selection": true,
+    "average_correlation_requires_joint_good_family_bound": true,
+    "finite_union_selection_lemma_available": true,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "next_gate": "Audit whether the FMT randomized sieve-vector proof yields a numerical positive-mass good event compatible with a direct weighted correlation average; otherwise seek a uniform-in-vector correlation theorem. Do not start the threshold calculator or an actual prime sweep."
+}

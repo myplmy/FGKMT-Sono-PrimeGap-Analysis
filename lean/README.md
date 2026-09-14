@@ -36,6 +36,26 @@ Set-Location -LiteralPath 'Z:\FGKMT-Sono-PrimeGap-Analysis\lean'
 외부 검증 선행연구를 먼저 감사·보고하고 사용자의 명시적 허가 전에는 절대 도입하지
 않는다.
 
+### 대수 결합형 preflight
+
+Lean에서 수학적으로 같은 곱도 parser가 만든 결합형이 다르면 첫 적용이 실패할 수 있다.
+예를 들어 `((18/7)*θ)*L`과 `θ*((18/7)*L)`은 같은 실수식이지만 정의적 등식은 아니다.
+이 유형은 커널이 즉시 거부하므로 완성 증명으로 전파되지는 않지만, 반복되는 초안 오류를
+줄이기 위해 다음 순서를 사용한다.
+
+1. 스칼라 곱 단조성으로 얻은 부등식은 원래 모양으로 먼저 이름 붙인다.
+2. 목표와 곱 순서만 다르면 경계 한 곳에서만
+   `simpa only [mul_assoc, mul_left_comm, mul_comm]`을 사용한다.
+3. 분수·다항식까지 섞인 경우 `convert ... using 1 <;> ring` 또는 작은 `calc` 등식으로
+   정규화하고, 광범위한 `simp`에 의존하지 않는다.
+4. 새 선언을 연속으로 추가하기 전에 위 direct `lake env lean` 명령으로 단일 파일을
+   compile한다. 전체 `lake build`는 그 다음 독립 gate다.
+5. 쓰이지 않는 가정은 제거한다. source domain이나 안정된 interface를 의도적으로 보존할
+   때만 `_h...`로 표시하고 그 이유를 주석으로 남긴다.
+
+이 규칙은 첫 compile 시행착오를 줄이는 절차다. 실제 수식의 타당성은 여전히 theorem
+statement, source premise, Lean kernel 결과를 각각 대조해 판정한다.
+
 현재 Theory 01에서는 `x > exp(exp(exp(1)))`인 의도한 양의 반복로그 domain의
 `F(x)>0`, strict monotonicity, end-bounded 정수 plateau의 오른쪽 끝점 minimum을
 커널로 검증했다. 이는 finite record의 완전성이나 전체 Sono/FMT 증명,
@@ -329,4 +349,16 @@ Theory 77 뒤 inventory는 theory 문서 78개, display 1,426식이며 전체 �
 `KERNEL_PASS=91`, `CONDITIONAL_KERNEL_PASS=58`, `DEFINITION_ONLY=80`,
 `PARTIAL_FORMALIZATION=85`, `SOURCE_THEOREM_UNFORMALIZED=80`,
 `NOT_YET_FORMALIZED=1027`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 276개이고
+금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-14 Theory 78 batch는 Maier/FMT CRT 이동량의 양화사를 교정하고 finite
+simultaneous-selection 논리만 단일 Lean 파일에서 검사한다. 세 bad finset의 cardinality
+합이 전체 finite family보다 작으면 세 집합 바깥의 candidate가 존재하며, singleton family의
+strict budget은 세 bad count가 모두 0임을 강제한다. Maier CRT uniqueness, FMT randomized
+construction과 analytic weighted-correlation badness 상계는 local axiom으로 넣지 않았다.
+
+Theory 78 뒤 inventory는 theory 문서 79개, display 1,439식이며 전체 상태는
+`KERNEL_PASS=94`, `CONDITIONAL_KERNEL_PASS=58`, `DEFINITION_ONLY=87`,
+`PARTIAL_FORMALIZATION=86`, `SOURCE_THEOREM_UNFORMALIZED=82`,
+`NOT_YET_FORMALIZED=1027`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 278개이고
 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.

@@ -3434,4 +3434,58 @@ theorem dep_r09_power_regime_zero_free_endpoint_arithmetic :
       (1 / 2 : ℝ) + 1 / (2 * 186) = 187 / 372 := by
   norm_num
 
+/-! ## Theory 78 — DEP-R09 Maier/FMT CRT-shift quantifier audit -/
+
+/- Theory 78, formulas 78.8--78.9: if the sum of the cardinalities of
+   three bad sets is strictly smaller than the finite candidate family,
+   one candidate lies outside all three.  This is only finite selection
+   logic; it does not assert the analytic bounds on the bad sets. -/
+theorem dep_r09_three_bad_finsets_leave_candidate
+    {α : Type*} [Fintype α] [DecidableEq α]
+    (B₁ B₂ B₃ : Finset α)
+    (hBudget : B₁.card + B₂.card + B₃.card < Fintype.card α) :
+    ∃ candidate : α,
+      candidate ∉ B₁ ∧ candidate ∉ B₂ ∧ candidate ∉ B₃ := by
+  by_contra hNoCandidate
+  have hCovered : ∀ candidate : α,
+      candidate ∈ B₁ ∨ candidate ∈ B₂ ∨ candidate ∈ B₃ := by
+    intro candidate
+    by_contra hNotCovered
+    have h₁ : candidate ∉ B₁ := by
+      intro hMem
+      exact hNotCovered (Or.inl hMem)
+    have h₂ : candidate ∉ B₂ := by
+      intro hMem
+      exact hNotCovered (Or.inr (Or.inl hMem))
+    have h₃ : candidate ∉ B₃ := by
+      intro hMem
+      exact hNotCovered (Or.inr (Or.inr hMem))
+    exact hNoCandidate ⟨candidate, h₁, h₂, h₃⟩
+  have hSubset : (Finset.univ : Finset α) ⊆ B₁ ∪ B₂ ∪ B₃ := by
+    intro candidate _
+    rcases hCovered candidate with h₁ | h₂ | h₃
+    · simp [h₁]
+    · simp [h₂]
+    · simp [h₃]
+  have hUniverseCard :
+      Fintype.card α ≤ (B₁ ∪ B₂ ∪ B₃).card := by
+    simpa using Finset.card_le_card hSubset
+  have hUnionCard :
+      (B₁ ∪ B₂ ∪ B₃).card ≤ B₁.card + B₂.card + B₃.card := by
+    calc
+      (B₁ ∪ B₂ ∪ B₃).card ≤ (B₁ ∪ B₂).card + B₃.card :=
+        Finset.card_union_le
+      _ ≤ (B₁.card + B₂.card) + B₃.card :=
+        Nat.add_le_add_right Finset.card_union_le B₃.card
+      _ = B₁.card + B₂.card + B₃.card := rfl
+  omega
+
+/- Theory 78, formula 78.11: a singleton candidate family can satisfy the
+   strict cardinal union budget only when every bad-set count is zero. -/
+theorem dep_r09_singleton_bad_budget_forces_zero
+    {b₁ b₂ b₃ : ℕ}
+    (hBudget : b₁ + b₂ + b₃ < 1) :
+    b₁ = 0 ∧ b₂ = 0 ∧ b₃ = 0 := by
+  omega
+
 end FGKMTSono

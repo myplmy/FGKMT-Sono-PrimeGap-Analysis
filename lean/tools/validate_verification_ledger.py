@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 from inventory_theory_formulas import build_inventory
+from validate_text_integrity import validate_text_integrity
 
 
 VALID_STATUSES = {
@@ -201,6 +202,18 @@ def main() -> int:
             lean_root / "verification" / "README.md",
         ]
     )
+    text_integrity = validate_text_integrity(
+        [
+            repo_root / "AGENTS.md",
+            repo_root / "docs" / "METHODS.md",
+            repo_root / "docs" / "method" / "theory",
+            repo_root / "docs" / "review",
+            lean_path,
+            lean_root / "README.md",
+            ledger_path,
+            lean_root / "verification" / "README.md",
+        ]
+    )
 
     counts: dict[str, int] = {}
     for formula_id in inventory_ids:
@@ -219,6 +232,8 @@ def main() -> int:
                 "recovery_count": len(rebuilt_inventory["recoveries"]),
                 "declaration_count": len(declarations),
                 "local_markdown_link_count": local_link_count,
+                "text_integrity_file_count": text_integrity["file_count"],
+                "text_integrity_issue_count": text_integrity["issue_count"],
                 "status_counts": counts,
                 "banned_escape_count": len(banned),
             },

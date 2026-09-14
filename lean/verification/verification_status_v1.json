@@ -2484,6 +2484,71 @@
       "declarations": []
     },
     {
+      "formula_id": "78.1",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "78.2",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "78.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "78.4",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "78.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "78.6",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "78.7",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "78.8",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_three_bad_finsets_leave_candidate"]
+    },
+    {
+      "formula_id": "78.9",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_three_bad_finsets_leave_candidate"]
+    },
+    {
+      "formula_id": "78.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "78.11",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_singleton_bad_budget_forces_zero"]
+    },
+    {
+      "formula_id": "78.12",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "78.13",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

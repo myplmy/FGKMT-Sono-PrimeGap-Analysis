@@ -52,3 +52,12 @@ Lean은 nonprincipal energy의 실수대수, principal-separated moment terminal
 equality와 power-regime endpoint만 검사한다. finite character orthogonality와 analytic
 variance/correlation theorem은 local axiom으로 넣지 않았다. PAP-11, DEP-R09, fixed
 `2e-17`, `X_cert`는 OPEN이다.
+
+2026-09-14 Theory 78 갱신 뒤 전수 inventory는 79개 theory 문서·1,439개 display
+수식·278개 Lean declaration이다. 상태는 `KERNEL_PASS=94`,
+`CONDITIONAL_KERNEL_PASS=58`, `DEFINITION_ONLY=87`,
+`PARTIAL_FORMALIZATION=86`, `SOURCE_THEOREM_UNFORMALIZED=82`,
+`NOT_YET_FORMALIZED=1027`, `PARSE_REVIEW_REQUIRED=5`이며 금지 proof escape는 0건이다.
+Lean은 finite bad-set union selection과 singleton bad-count 결론만 독립 검증한다.
+Maier CRT source, FMT random construction 및 weighted-correlation analytic theorem은
+local axiom으로 넣지 않았다. PAP-11, DEP-R09, fixed 2e-17, X_cert는 OPEN이다.

@@ -87,7 +87,7 @@ good events with probability 1-o(1)
 
 Maynard (8.27)은 (J_r/I_r=(\log r)/(4r)(1+O(1/\log r)))라는 유용한 rate 모양을 주지만,
 그 한 식만 수치화해도 전체 weight construction의 다른 상수는 남는다. 특히 Maynard Proposition
-6.1은 상수가 (	heta,alpha)와 Hypothesis 1의 implied constant에 의존한다고 명시한다. 따라서
+6.1은 상수가 (\theta,\alpha)와 Hypothesis 1의 implied constant에 의존한다고 명시한다. 따라서
 “(c_{I,J}=1/4)만 검산하면 완료”라고 볼 수 없다.
 
 판정은 `EFFECTIVE_IN_PRINCIPLE / NUMERICAL_REPROOF_REQUIRED`다. ChatGPT가 한 번의 세션에서

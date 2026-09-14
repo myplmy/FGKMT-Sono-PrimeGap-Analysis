@@ -1951,3 +1951,38 @@ local axiom으로 넣지 않는다.
 NOT READY다. Theory 77 뒤 전수원장은 theory 문서 78개, display 식 1,426개,
 `KERNEL_PASS=91`, `CONDITIONAL_KERNEL_PASS=58`, `NOT_YET_FORMALIZED=1027`, Lean
 declaration 276개, 금지 proof escape 0건이다.
+
+## 2026-09-14 DEP-R09 Maier/FMT CRT 이동량 양화사 감사
+
+[theory 78](method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md)과
+[review 86](review/86_20260914_DEPR09_Maier_CRT_shift_quantifier_타당성검토.md)은
+Theory 77의 simultaneous-selection 표본공간을 원문 양화사로 교정한다.
+
+Maier 1981 Lemma 6은 fixed \(v,w\)에서
+
+\[
+y\equiv0\pmod{P_1P_3},\qquad y\equiv1\pmod{P_2}
+\]
+
+를 택한다. \(P_1,P_2,P_3\)가 pairwise coprime이므로 \(y\bmod P(x)\)는 정확히 하나다.
+따라서 고전 fixed-partition \(y\) 자체를 평균해 survivor-good과 correlation-good을
+동시에 선택한다는 경로는 사용할 수 없다.
+
+Sono/FMT actual proof에서는 각 sieve residue vector \(\boldsymbol a\)가
+\(\mathcal T(\boldsymbol a)\)와 하나의 CRT \(m(\boldsymbol a)\bmod P\)를 정한다.
+FMT Sections 4--6의 randomized vector construction은 평균 표본공간 후보를 제공하지만,
+현재 finite package에는 sieve-good과 direct weighted-correlation-good의 공통 numerical
+failure mass가 없다. 따라서 vector-uniform correlation theorem 또는 같은 construction
+law에서 bad-event mass의 합이 1보다 작다는 새 정리가 필요하다.
+
+Lean은 세 finite bad-set cardinality의 합이 family 크기보다 작을 때 simultaneous good
+candidate가 남는 union-selection lemma와 singleton bad-count 결론을 project-local axiom,
+<code>sorry</code>, <code>admit</code> 없이 검사했다. analytic bad-set 상계와 CRT·FMT
+source theorem은 인증하지 않는다.
+
+Theory 78 뒤 전수원장은 theory 79개, display 식 1,439개,
+<code>KERNEL_PASS=94</code>, <code>CONDITIONAL_KERNEL_PASS=58</code>,
+<code>NOT_YET_FORMALIZED=1027</code>, Lean declaration 278개, 금지 proof escape
+0건이다. <code>PAP-11</code>, DEP-R09, fixed \(2\times10^{-17}\),
+numerical \(X_{\rm cert}\)는 계속 OPEN이며 threshold calculator와 장시간 prime sweep은
+NOT READY다.

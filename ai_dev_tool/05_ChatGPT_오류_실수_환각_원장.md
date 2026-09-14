@@ -1,6 +1,6 @@
 # FGKMT-Sono ChatGPT 오류·실수·환각 원장
 
-최종 갱신: 2026-09-09 KST
+최종 갱신: 2026-09-14 KST
 
 ## 1. 목적
 
@@ -2002,6 +2002,21 @@
   4. scratch 출력도 정본 식에서 coefficient를 재사용하고, 수작업 재입력값을 판정 근거로
      사용하지 않는다.
   5. 첫 Lean 실패와 patch 거부는 최종 PASS 로그와 분리해 원장에 남긴다.
+- 2026-09-14 재발성 감사:
+  - 사용자가 제시한 `((18/7)*θ)*L` 대 `θ*((18/7)*L)` 설명은 새 실패가 아니라 이 E117의
+    2026-09-13 첫 compile 사건과 정확히 같은 사건이다. 현재 정본은 commit `38f50320`의
+    `jutila_jl7_residue_eta_length_coefficient`에서 교환·결합법칙을 명시한 `simpa`로
+    교정돼 있다. 따라서 이를 새 오류나 수학 오류로 다시 세어서는 안 된다.
+  - 다만 E118·E119·E121에서도 유사한 분수·곱 결합형 초안 실패가 있었으므로, 유형 자체는
+    반복된 것이 맞다. 기존 예방 규칙은 최종 compile gate에는 성공했지만 첫 초안의 반복을
+    충분히 줄이지 못했다.
+  - 강화 규칙: 부등식에 스칼라를 곱한 뒤 목표의 곱 순서가 달라지는 경우, 먼저 얻은
+    부등식을 그대로 `exact`하려 하지 말고 경계 한 곳에서만
+    `simpa only [mul_assoc, mul_left_comm, mul_comm]` 또는 `convert ... using 1 <;> ring`으로
+    정규화한다. 새 선언을 여러 개 쌓기 전에 단일 파일 direct compile을 실행한다.
+  - 사용되지 않는 가정은 원칙적으로 제거한다. source domain이나 안정된 theorem interface를
+    의도적으로 보존해야 할 때만 `_h...`로 표시하고, 왜 보존하는지 주석에 적는다. 밑줄은
+    증명에 필요한 가정이라는 뜻이 아니며 오류 해결책으로 사용하지 않는다.
 
 ### E118 — JL7-ABSORB 수치 허용오차·Lean proof 초안·patch transport 오류
 
@@ -2338,6 +2353,97 @@
   2. 전체 suite는 E124 규칙대로 첫 실행부터 승인된 정상 로컬 권한으로 실행한다.
   3. 30초 이상 command는 병렬 wrapper 안에 숨기지 말고 첫 호출부터 반환 객체/session id를
      직렬로 보존한다.
+- 2026-09-14 재발 기록:
+  - Theory 78 마감 검증에서 위 2번 규칙을 다시 지키지 않고 전체 suite를 sandbox에서 먼저
+    실행했다. 862개 중 82개가 저장소 또는 OS 임시 디렉터리를 만들지 못한
+    <code>PermissionError</code>로 끝났으며, 이를 코드 회귀로 판정하지 않았다.
+  - 사용자에게 이미 허가받은 정상 로컬 권한으로 같은 명령을 다시 실행해 862/862 PASS,
+    82.525초를 확인했다. 따라서 수학·코드 결과에는 영향이 없지만 불필요한 실패 로그와
+    검증 지연을 만든 절차 재발이다.
+  - 강화: 전체 suite 명령은 일반 검증 목록이 아니라 별도의
+    <code>REQUIRES_NORMAL_LOCAL_TEMP_PERMISSION</code> 단계로 표시하고, 표적 단위시험만
+    sandbox에서 실행한다. sandbox 전체-suite 결과는 환경 진단으로만 기록한다.
+
+### E126 — Theory 77 정본에 커밋된 `\varphi` vertical-tab 재발
+
+- 분류:
+  <code>COMMITTED_DOCUMENT_ESCAPE_CORRUPTION / USER_PROMPTED_REAUDIT /
+  MATHEMATICAL_CODE_UNAFFECTED / CANONICAL_PROSE_REPAIR_REQUIRED</code>.
+- 사용자가 E117의 Lean 곱 결합형 사건이 과거 오류와 같은지 질문해 오류 원장을 대조하던 중,
+  Theory 77 출력의 `\varphi`가 세로 탭처럼 보이는 것을 발견했다. byte-level 전수검사 결과
+  commit `2cccf31`이 갱신한 현재 정본 6개 파일에 U+000B가 8개 있었다.
+  - `AGENTS.md`: 1개
+  - `docs/method/theory/00_이론_가설_방법론_색인.md`: 2개
+  - `docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md`: 2개
+  - Theory 77: 2개
+  - review 85: 1개
+- 같은 commit의 `handoff/202609141715_HANDOFF.md`에도 1개가 있었다. 이와 별개로
+  `handoff/202609021757_HANDOFF.md`의 기존 1개는 E108에 이미 기록된 legacy artifact다.
+  기존 handoff를 덮어쓰지 않는 규칙에 따라 두 handoff는 수정하지 않고, 이번 세션의 새
+  timestamp handoff에서 올바른 수식을 다시 기록한다.
+- 원인은 JavaScript 일반 문자열로 만든 `apply_patch` 입력에서 `\v`가 U+000B로 해석된 것이다.
+  E107·E114·E117에서 같은 원인이 이미 발견됐지만 Theory 77 마감에는 changed-file C0 검사를
+  실제 필수 gate로 실행하지 않고 link·JSON·diff 검사만 통과시켰다. 이는 예방 규칙이 문서에만
+  있고 자동 fail-closed gate가 아니었던 절차 실패다.
+- 영향: 손상은 설명 문장의 `\varphi` 표기에 한정된다. JSON, Python exact 계산, Lean theorem,
+  formula inventory의 display 수식과 `X_cert OPEN` 판정은 바뀌지 않는다. 다만 정본 문서의
+  가독성과 출판 가능성을 훼손했으므로 무영향 오탈자로 축소하지 않는다.
+- 교정·예방:
+  1. 위 6개 현재 정본의 U+000B 8개를 `\varphi`로 복구한다.
+  2. `lean/tools/validate_text_integrity.py`를 추가해 tab, vertical-tab, form-feed, backspace,
+     lone carriage-return 등 UTF-8 text 안의 금지 control을 fail-closed로 검출한다.
+  3. Lean 원장 validator가 AGENTS, METHODS, theory, review와 Lean 정본을 항상 이 검사에
+     포함하도록 하고, in-memory negative regression을 둔다.
+  4. 새 handoff·작업원장은 최종 changed-file allowlist로 같은 검사기를 별도 실행한다.
+  5. LaTeX patch는 backslash를 이중화한 일반 문자열 또는 raw-safe transport만 사용하며,
+     적용 직후와 staging 뒤 두 번 검사한다.
+- 자동 validator의 첫 전수 실행은 2026-09-02 commit `e196353d`의
+  `docs/review/23_20260902_Sono_FMT_T1_hard_node_feasibility.md` 90행에 남아 있던 별도
+  U+0009를 추가 검출해 FAIL했다. 원문 문맥상 `(θ,alpha)` 손상임을 확인하고
+  `(\theta,\alpha)`로 복구했다. 이 legacy 정본 손상은 이번 commit 원인과 분리하되,
+  validator 첫 FAIL을 삭제하거나 최초 PASS로 바꿔 기록하지 않는다.
+
+### E127 — Maier 추출본 탐색에서 `tmp` 전수검색 재발
+
+- 분류:
+  <code>READ_ONLY_SEARCH_SCOPE_RECURRING_ERROR / DETECTED_IMMEDIATELY /
+  NO_FILE_OR_PROCESS_IMPACT</code>.
+- Maier native-text 추출본을 찾으면서 E108이 금지한 `rg --files tmp` 전수검색을 다시 실행해,
+  과거 sandbox 임시 디렉터리의 access-denied 경고를 대량 출력했다. 명령은 읽기 전용이었고
+  파일·실험·프로세스를 변경하지 않았으며 필요한 Maier 경로는 출력 말미에서 확인됐다.
+- 교정: 이후 검색 범위를 기존 provenance가 가리키는
+  `tmp/pdfs/dep_r09_sources/`와 정확한 파일명으로 제한했다.
+- 예방: source machine ledger·선행 theory가 이미 locator를 제공하면 그것을 먼저 사용한다.
+  `tmp` 루트 전수검색은 locator가 없고 좁은 하위경로도 식별할 수 없을 때만 최후 수단으로 쓰며,
+  그 경우에도 접근불가 실험 임시폴더를 제외하는 명시적 경로 목록을 만든다.
+
+### E128 — raw JavaScript patch transport와 Markdown code delimiter 충돌
+
+- 분류:
+  <code>TOOL_INPUT_CONSTRUCTION_ERROR / PATCH_NOT_APPLIED / NO_REPOSITORY_DAMAGE /
+  REPEATED_DURING_CURRENT_TURN</code>.
+- Theory 78 및 정본 동기화 patch를 만들면서 JavaScript raw template literal 안에 Markdown
+  code delimiter를 그대로 포함해 template가 중간에 닫혔다. 이 때문에
+  <code>SyntaxError: Unexpected identifier</code>가 여러 번 발생했고 patch는 적용되지 않았다.
+  이후 line-array patch 초안에서는 diff marker를 문자열 안이 아니라 JavaScript 단항
+  연산자로 잘못 써 <code>NaN</code> hunk가 생성된 실패도 한 번 있었다.
+- 영향: 모두 patch parser 이전 또는 hunk 검증 단계에서 거부돼 파일 내용은 바뀌지 않았다.
+  그러나 E107/E114/E126과 같은 “수학 내용이 아니라 transport 표기 때문에 실패” 유형을
+  작업 중 다시 반복했다.
+- 교정·예방:
+  1. LaTeX가 있는 긴 patch는 raw template를 쓰되 Markdown code delimiter 대신
+     <code>&lt;code&gt;</code>를 사용한다.
+  2. 기존 문맥에 Markdown code delimiter가 꼭 필요하면 각 행 전체를 quoted string으로
+     만든 line array를 사용하고, diff의 <code>+</code>/<code>-</code>도 문자열 안에 둔다.
+  3. patch 거부 뒤 같은 입력을 반복하지 않고 원인을 분류한 뒤 더 좁은 hunk로 나눈다.
+  4. 적용 뒤 text-integrity validator와 <code>git diff --check</code>를 모두 실행한다.
+- 2026-09-14 같은 세션 재발:
+  - 작업원장 마감 patch를 <code>String.raw</code> template로 만들면서 기존 문맥의
+    Markdown 역따옴표를 다시 포함해 <code>SyntaxError: Unexpected identifier 'git'</code>가
+    발생했다. patch parser 전에 거부되어 파일 변경은 없었다.
+  - 직전 예방 규칙을 기록하고도 같은 transport를 다시 선택한 절차 실패이므로 별도 재발로
+    남긴다. 이후 이 세션의 patch는 역따옴표를 데이터로만 취급하는 quoted line array와
+    좁은 hunk만 사용한다.
 
 ## 4. 아직 남은 오류 위험
 

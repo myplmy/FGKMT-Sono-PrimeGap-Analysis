@@ -76,7 +76,7 @@ Lean declaration 272개, 금지 proof escape 0건이다. 최신 analytic 정본�
 
 2026-09-14 restricted-residue variance successor는 Maier formula (I)가 aggregate prime
 mass만 소비하지만 formula (II)는 별도 pair upper bound라는 경계를 고정했다. (M)개
-distinct reduced residues의 total character energy는 항상 (arphi(q)M), 비주지표 energy는
+distinct reduced residues의 total character energy는 항상 (\varphi(q)M), 비주지표 energy는
 (M(\varphi(q)-M))이므로 Maier set의 unweighted total energy 감소 아이디어는
 `REJECTED_AS_STATED`다. Cauchy aligned-vector equality도 있어 total (L^2) 정보만으로는
 보편 개선이 없다. fixed-(q) variance·modulus 평균·large-moduli source를 대조했으나 current
@@ -87,6 +87,19 @@ Theory 77 뒤 inventory는 78개 문서, 1,426식이고 `KERNEL_PASS=91`,
 `CONDITIONAL_KERNEL_PASS=58`, `NOT_YET_FORMALIZED=1027`, Lean declaration 276개,
 금지 proof escape 0건이다. 최신 analytic 정본은 theory 77·review 85다. PAP-11·DEP-R09·
 fixed 2e-17·X_cert는 계속 OPEN이며 threshold calculator·장시간 prime 계산은 NOT READY다.
+
+2026-09-14 Maier/FMT shift-quantifier successor는 고전 Maier Lemma 6의 fixed
+\(P_1,P_2,P_3\)에서 CRT \(y\bmod P(x)\)가 정확히 하나임을 확인했다. 따라서 Theory 77의
+“같은 good-\(y\)” 경고는 맞지만 고전 \(y\)들을 평균하는 방식은
+<code>REJECTED_AS_STATED</code>다. Sono/FMT actual proof에서는 randomized sieve residue
+vector \(\boldsymbol a\)가 family 후보이고 vector마다 CRT \(m(\boldsymbol a)\)가 하나
+정해진다. average route에는 sieve-good·correlation-good의 공통 numerical failure mass가
+새로 필요하며, uniform-in-vector direct correlation이면 선택 문제를 우회한다. Theory 78 뒤
+inventory는 79개 문서, 1,439식이고 <code>KERNEL_PASS=94</code>,
+<code>CONDITIONAL_KERNEL_PASS=58</code>, <code>NOT_YET_FORMALIZED=1027</code>,
+Lean declaration 278개, 금지 proof escape 0건이다. 최신 analytic 정본은 theory 78·review
+86이다. PAP-11·DEP-R09·fixed \(2\times10^{-17}\)·\(X_{\rm cert}\)는 계속 OPEN이고,
+threshold calculator·장시간 prime 계산은 NOT READY다.
 
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은

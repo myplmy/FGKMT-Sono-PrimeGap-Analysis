@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 78,
-  "formula_count": 1426,
-  "tagged_formula_count": 896,
+  "theory_count": 79,
+  "formula_count": 1439,
+  "tagged_formula_count": 909,
   "untagged_formula_count": 530,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "dbdefe178a42db1d53ee584eba7043bf80368ecdd6127eb7c0df877f78471bf7",
+      "source_sha256": "2854040db884da85028ea04a8285e7f711c2c4387648cd34e305a188bfc28c95",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd",
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -625,9 +625,17 @@
     {
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841",
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4",
       "display_formula_count": 20,
       "tagged_formula_count": 20,
+      "untagged_formula_count": 0
+    },
+    {
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f",
+      "display_formula_count": 13,
+      "tagged_formula_count": 13,
       "untagged_formula_count": 0
     }
   ],
@@ -920,7 +928,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U002",
@@ -930,7 +938,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U003",
@@ -940,7 +948,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U004",
@@ -950,7 +958,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U005",
@@ -960,7 +968,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U006",
@@ -970,7 +978,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U007",
@@ -980,7 +988,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U008",
@@ -990,7 +998,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U009",
@@ -1000,7 +1008,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U010",
@@ -1010,7 +1018,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U011",
@@ -1020,7 +1028,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U012",
@@ -1030,7 +1038,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U013",
@@ -1040,7 +1048,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U014",
@@ -1050,7 +1058,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T12-U015",
@@ -1060,7 +1068,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "505c4030fc514fb611e80abda0dd15e99d021efda106759d287e0b70c23171bd"
+      "source_sha256": "754430998d9cb71c1dfb05c51b099f43c04aef981734064ac79aa944c2ceb196"
     },
     {
       "formula_id": "T13-U001",
@@ -14696,201 +14704,331 @@
       "formula_id": "77.1",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 24,
-      "end_line": 27,
+      "start_line": 32,
+      "end_line": 35,
       "tagged": true,
       "latex": "\\boxed{\\text{현재 계약에 바로 들어가는 fully numerical source는 식별되지 않았다.}}\n \\tag{77.1}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.2",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 43,
-      "end_line": 47,
+      "start_line": 50,
+      "end_line": 54,
       "tagged": true,
       "latex": "a_{r,s}=y+s+rq,\n \\qquad 1\\le r\\le q^{D-1},\\quad 1\\le s\\le U\n \\tag{77.2}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.3",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 52,
-      "end_line": 57,
+      "start_line": 59,
+      "end_line": 64,
       "tagged": true,
       "latex": "\\mathcal A_y=\n \\{,y+s\\pmod q:1\\le s\\le U,\\ (y+s,q)=1,\\},\n \\qquad M=|\\mathcal A_y|\n \\tag{77.3}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.4",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 62,
-      "end_line": 65,
+      "start_line": 69,
+      "end_line": 72,
       "tagged": true,
       "latex": "|\\mathcal P|\\ge C_3E q^{D-1}.\n \\tag{77.4}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.5",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 73,
-      "end_line": 77,
+      "start_line": 80,
+      "end_line": 84,
       "tagged": true,
       "latex": "\\#\\{\\text{small prime pairs}\\}\n < C_4E^2q^{D-1}/A.\n \\tag{77.5}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.6",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 88,
-      "end_line": 92,
+      "start_line": 95,
+      "end_line": 99,
       "tagged": true,
       "latex": "C_\\chi(\\mathcal A)\n :=\\sum_{a\\in\\mathcal A}\\overline{\\chi(a)}\n \\tag{77.6}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.7",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 97,
-      "end_line": 101,
+      "start_line": 104,
+      "end_line": 108,
       "tagged": true,
       "latex": "\\sum_{\\chi\\bmod q}|C_\\chi(\\mathcal A)|^2\n =\\varphi(q)M.\n \\tag{77.7}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.8",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 105,
-      "end_line": 108,
+      "start_line": 112,
+      "end_line": 115,
       "tagged": true,
       "latex": "|C_{\\chi_0}(\\mathcal A)|^2=M^2,\n \\tag{77.8}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.9",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 110,
-      "end_line": 116,
+      "start_line": 117,
+      "end_line": 123,
       "tagged": true,
       "latex": "\\boxed{\n \\sum_{\\substack{\\chi\\bmod q\\\\\\chi\\ne\\chi_0}}\n |C_\\chi(\\mathcal A)|^2\n =\\varphi(q)M-M^2=M\\{\\varphi(q)-M\\}.}\n \\tag{77.9}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.10",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 126,
-      "end_line": 130,
+      "start_line": 133,
+      "end_line": 137,
       "tagged": true,
       "latex": "E_q(a;Y)=\\frac1{\\varphi(q)}\n \\sum_{\\chi\\bmod q}\\overline{\\chi(a)}Z_\\chi(Y)\n \\tag{77.10}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.11",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 134,
-      "end_line": 137,
+      "start_line": 141,
+      "end_line": 144,
       "tagged": true,
       "latex": "|Z_{\\chi_0}(Y)|\\le\\delta_0Y\n \\tag{77.11}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.12",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 141,
-      "end_line": 148,
+      "start_line": 148,
+      "end_line": 155,
       "tagged": true,
       "latex": "\\left|\n \\sum_{\\chi\\ne\\chi_0}C_\\chi(\\mathcal A)Z_\\chi(Y)\n \\right|^2\n \\le M\\{\\varphi(q)-M\\}\n \\sum_{\\chi\\ne\\chi_0}|Z_\\chi(Y)|^2.\n \\tag{77.12}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.13",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 152,
-      "end_line": 159,
+      "start_line": 159,
+      "end_line": 166,
       "tagged": true,
       "latex": "\\boxed{\n \\sum_{\\chi\\ne\\chi_0}|Z_\\chi(Y)|^2\n \\le\n (\\varepsilon-\\delta_0)^2\n \\frac{M Y^2}{\\varphi(q)-M}.}\n \\tag{77.13}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.14",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 163,
-      "end_line": 166,
+      "start_line": 170,
+      "end_line": 173,
       "tagged": true,
       "latex": "\\frac{\\varphi(q)}{\\varphi(q)-M}.\n \\tag{77.14}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.15",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 179,
-      "end_line": 183,
+      "start_line": 185,
+      "end_line": 189,
       "tagged": true,
       "latex": "Z_\\chi=t\\,\\overline{C_\\chi(\\mathcal A)}\n \\quad(\\chi\\ne\\chi_0)\n \\tag{77.15}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.16",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 187,
-      "end_line": 192,
+      "start_line": 193,
+      "end_line": 198,
       "tagged": true,
       "latex": "t^2\\left(\n \\sum_{\\chi\\ne\\chi_0}|C_\\chi(\\mathcal A)|^2\n \\right)^2\n \\tag{77.16}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.17",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 218,
-      "end_line": 221,
+      "start_line": 224,
+      "end_line": 227,
       "tagged": true,
       "latex": "\\Re(s)>\\frac12+\\frac1{2d}\n \\tag{77.17}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.18",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 232,
-      "end_line": 240,
+      "start_line": 238,
+      "end_line": 246,
       "tagged": true,
       "latex": "\\boxed{\n \\left|\n \\sum_{\\chi\\ne\\chi_0}\n C_\\chi(\\mathcal A_y)Z_\\chi(Y)\n \\right|\n \\le(\\varepsilon-\\delta_0)MY.}\n \\tag{77.18}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.19",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 244,
-      "end_line": 248,
+      "start_line": 250,
+      "end_line": 254,
       "tagged": true,
       "latex": "C_\\chi(\\mathcal A_y)\n =\\sum_{1\\le s\\le U}\\overline{\\chi(y+s)}.\n \\tag{77.19}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
     },
     {
       "formula_id": "77.20",
       "theory": "77",
       "source_file": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
-      "start_line": 252,
-      "end_line": 256,
+      "start_line": 258,
+      "end_line": 262,
       "tagged": true,
       "latex": "U=E x\\frac{\\log x\\,\\log_3x}{(\\log_2x)^2}\n =q^{o(1)}\n \\tag{77.20}",
-      "source_sha256": "0e2c9a2dce6e7ba13a208a219864b015bc4cb6b1c3bfb332def2a8325a717841"
+      "source_sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4"
+    },
+    {
+      "formula_id": "78.1",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 21,
+      "end_line": 25,
+      "tagged": true,
+      "latex": "y\\equiv0\\pmod {P_1P_3},\\qquad\n y\\equiv1\\pmod {P_2}\n\\tag{78.1}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.2",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 29,
+      "end_line": 32,
+      "tagged": true,
+      "latex": "\\boxed{\\text{허용되는 }y\\bmod P(x)\\text{는 정확히 하나다.}}\n\\tag{78.2}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.3",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 41,
+      "end_line": 44,
+      "tagged": true,
+      "latex": "\\boldsymbol a=(a_p\\bmod p)_{p\\le x,\\ p\\ne B_0}\n\\tag{78.3}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.4",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 60,
+      "end_line": 63,
+      "tagged": true,
+      "latex": "P(x)=P_1P_2P_3\n\\tag{78.4}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.5",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 84,
+      "end_line": 89,
+      "tagged": true,
+      "latex": "\\mathcal T(\\boldsymbol a)\n =\\{n\\in[y]\\setminus[x]:\n n\\not\\equiv a_p\\pmod p\\ \\text{for all }p\\le x,\\ p\\ne B_0\\}\n\\tag{78.5}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.6",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 93,
+      "end_line": 97,
+      "tagged": true,
+      "latex": "m(\\boldsymbol a)\\equiv-a_p\\pmod p\n \\quad(p\\le x,\\ p\\ne B_0)\n\\tag{78.6}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.7",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 117,
+      "end_line": 124,
+      "tagged": true,
+      "latex": "\\begin{aligned}\nB_{\\rm sieve}&=\\{\\omega:\\text{global 또는 short-interval sieve 조건 실패}\\},\\\\\nB_{\\rm corr}&=\\{\\omega:\\text{weighted correlation 조건 실패}\\},\\\\\nB_{\\rm extra}&=\\{\\omega:\\text{추가 pair·endpoint 조건 실패}\\}\n\\end{aligned}\n\\tag{78.7}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.8",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 128,
+      "end_line": 131,
+      "tagged": true,
+      "latex": "|B_{\\rm sieve}|+|B_{\\rm corr}|+|B_{\\rm extra}|<|\\Omega|\n\\tag{78.8}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.9",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 135,
+      "end_line": 139,
+      "tagged": true,
+      "latex": "\\exists\\omega\\in\\Omega,\\quad\n \\omega\\notin B_{\\rm sieve}\\cup B_{\\rm corr}\\cup B_{\\rm extra}.\n\\tag{78.9}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.10",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 146,
+      "end_line": 152,
+      "tagged": true,
+      "latex": "\\#\\{\\omega:W(\\omega)\\ge t\\}\n \\le\n \\left\\lfloor\\frac{\\sum_{\\omega\\in\\Omega}W(\\omega)}{t}\\right\\rfloor\n\\qquad(t>0)\n\\tag{78.10}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.11",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 159,
+      "end_line": 162,
+      "tagged": true,
+      "latex": "|B_{\\rm sieve}|=|B_{\\rm corr}|=|B_{\\rm extra}|=0\n\\tag{78.11}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.12",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 170,
+      "end_line": 177,
+      "tagged": true,
+      "latex": "\\left|\n\\sum_{\\chi\\ne\\chi_0}\nC_\\chi(\\mathcal A_{\\boldsymbol a})Z_\\chi(Y)\n\\right|\n\\le(\\varepsilon-\\delta_0)M_{\\boldsymbol a}Y,\n\\tag{78.12}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
+    },
+    {
+      "formula_id": "78.13",
+      "theory": "78",
+      "source_file": "docs/method/theory/78_Sono_FMT_DEPR09_Maier_CRT_shift_quantifier_audit.md",
+      "start_line": 179,
+      "end_line": 184,
+      "tagged": true,
+      "latex": "C_\\chi(\\mathcal A_{\\boldsymbol a})\n=\\sum_{s\\in\\mathcal T(\\boldsymbol a)}\n\\overline{\\chi(m(\\boldsymbol a)+s)}\n\\tag{78.13}",
+      "source_sha256": "d3bcd07a5fa0dffbeaf0b743ccbca1307c2c5ce038b12a34bcb69c4029a7c87f"
     }
   ],
   "issues": [],
