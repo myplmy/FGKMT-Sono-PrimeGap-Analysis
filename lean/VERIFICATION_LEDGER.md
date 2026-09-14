@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-14 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 76개
-- 전수 단위: Markdown fenced code 밖 display math 1,381개
-- 원래 식번호: 851개, 합성 ID 무번호식: 530개
+- 원문 범위: `docs/method/theory/*.md` 77개
+- 전수 단위: Markdown fenced code 밖 display math 1,406개
+- 원래 식번호: 876개, 합성 ID 무번호식: 530개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -63,11 +63,11 @@
 | 상태 | 항목 수 |
 |---|---:|
 | `KERNEL_PASS` | 91 |
-| `CONDITIONAL_KERNEL_PASS` | 53 |
-| `DEFINITION_ONLY` | 67 |
-| `PARTIAL_FORMALIZATION` | 73 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 68 |
-| `NOT_YET_FORMALIZED` | 1,024 |
+| `CONDITIONAL_KERNEL_PASS` | 56 |
+| `DEFINITION_ONLY` | 73 |
+| `PARTIAL_FORMALIZATION` | 80 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 75 |
+| `NOT_YET_FORMALIZED` | 1,026 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `f9619e679b4e39b8…` | 0 | 0 | 0 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `1e9e4ce22a7149b7…` | 0 | 0 | 0 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `d44c0325aab8ea67…` | 15 | 0 | 15 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `b69167714f4d2ef1…` | 15 | 0 | 15 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -153,6 +153,7 @@
 | 73 | [73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md](../docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md) | `9fce155834fdaf35…` | 33 | 29 | 4 | 26 |
 | 74 | [74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md](../docs/method/theory/74_Sono_FMT_DEPR09_modern_explicit_density_source_screen.md) | `636bbc4bac58f7f6…` | 18 | 18 | 0 | 12 |
 | 75 | [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | `74bf91c06fadb6e9…` | 19 | 19 | 0 | 10 |
+| 76 | [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | `431cdcc59fd58068…` | 25 | 25 | 0 | 23 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -1545,6 +1546,31 @@
 | 1379 | `75.17` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 251–254 | <code>\log X\int X^{\alpha-1}N^*(\alpha,T,Q)\,d\alpha \tag{75.17}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Gallagher 식 (30)의 positive zero-count integral 구조; source analytic identity 미형식화 |
 | 1380 | `75.18` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 262–266 | <code>E_q(a)=\frac1{\varphi(q)} \sum_{\chi\bmod q}\overline{\chi(a)}Z_\chi. \tag{75.18}</code> | — | `DEFINITION_ONLY` | pre-absolute-value residue-class zero contribution 정의 |
 | 1381 | `75.19` | T75 [75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md](../docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md) | 270–276 | <code>\sum_{\chi\bmod q}&#124;Z_\chi&#124;^2 \le\frac{\varepsilon^2X^2}{\varphi(q)} \quad\Longrightarrow\quad &#124;E_q(a)&#124;\le\frac{\varepsilon X}{\varphi(q)} \tag{75.19}</code> | `dep_r09_cancellation_second_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | complex Cauchy와 second-moment를 explicit premise로 받은 terminal scale만 조건부 커널 검증 |
+| 1382 | `76.1` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 36–43 | <code>\boxed{ \begin{gathered} \text{explicit L1 / Bennett pointwise drop-in: FAILS CURRENT CONTRACT},\\ \text{aggregate second-moment redesign: LOGICALLY SUFFICIENT BUT SOURCE OPEN}. \end{gathered}} \tag{76.1}</code> | — | `NOT_YET_FORMALIZED` | explicit 후보 실패와 aggregate moment open 경로의 source-screen 판정; 전역 불가능성 명제가 아님 |
+| 1383 | `76.2` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 54–57 | <code>E_q(a;Y):=\psi(Y;q,a)-\frac{Y}{\varphi(q)} \tag{76.2}</code> | — | `DEFINITION_ONLY` | residue-class von Mangoldt error 정의 |
+| 1384 | `76.3` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 61–65 | <code>21\le d\le186,\qquad \varepsilon:=e^{-2}=0.13533528323661269189\ldots . \tag{76.3}</code> | — | `DEFINITION_ONLY` | 현재 coefficient capacity와 near budget 정의 |
+| 1385 | `76.4` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 69–72 | <code>&#124;E_q(a;Y)&#124;\le \varepsilon\frac{Y}{\varphi(q)} \tag{76.4}</code> | — | `DEFINITION_ONLY` | 기존 pointwise PAP 목표 정의 |
+| 1386 | `76.5` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 76–80 | <code>\left&#124;\sum_{a\in\mathcal A}E_q(a;Y)\right&#124; \le \varepsilon M\frac{Y}{\varphi(q)}. \tag{76.5}</code> | — | `DEFINITION_ONLY` | Maier aggregate admissible-column error 목표 정의 |
+| 1387 | `76.6` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 93–98 | <code>\text{각 admissible column에 Lemma 2 적용} \Longrightarrow \#\mathcal P&gt;C_3E q^{D-1}. \tag{76.6}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Maier printed Lemma 2 적용과 최종 aggregate prime count; source analytic proof 미형식화 |
+| 1388 | `76.7` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 116–123 | <code>\sum_{r\le Q}\frac r{\varphi(r)} \sum_{\chi\bmod^{*}r}\max_{y\le x}&#124;\psi(y,\chi)&#124; &lt;c_0\left(4x+2x^{1/2}Q^2+6x^{2/3}Q^{3/2}+5x^{5/6}Q\right) (\log x)^{7/2}, \quad c_0=48.83236\ldots . \tag{76.7}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Akbary--Hambrook Theorem 1.2 source statement; Lean 미형식화 |
+| 1389 | `76.8` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 127–133 | <code>\frac{\mathrm{RHS}_{\rm AH}}x \ge 4c_0(\log x)^{7/2} \ge 612.7196429634\ldots &gt;4527.4198\,e^{-2}qquad(x\ge4). \tag{76.8}</code> | — | `PARTIAL_FORMALIZATION` | published RHS의 positive floor와 120-dps diagnostic; actual error 하한이 아님 |
+| 1390 | `76.9` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 144–151 | <code>\sum_{\substack{r\le Q\\\ell(r)&gt;Q_1}} \max_{2\le y\le x}\max_{(a,r)=1} \left&#124;\psi(y;r,a)-\frac{\psi(y)}{\varphi(r)}\right&#124; &lt;c_1F(x,Q,Q_1)(\log x)^{7/2}, \quad c_1=42.2, \tag{76.9}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Sedunova Theorem 1.2 source statement; Lean 미형식화 |
+| 1391 | `76.10` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 153–157 | <code>F(x,Q,Q_1)=\frac{14x}{Q_1}+4x^{1/2}Q +15x^{2/3}Q^{1/2}+4x^{5/6}\log\frac Q{Q_1}. \tag{76.10}</code> | — | `DEFINITION_ONLY` | Sedunova source의 F(x,Q,Q1) 정의 |
+| 1392 | `76.11` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 161–167 | <code>\frac{\mathrm{RHS}_{\rm Sed}}x \ge14c_1(\log x)^{7/2} \ge1853.2524593466\ldots &gt;13693.7863\,e^{-2}qquad(x\ge4). \tag{76.11}</code> | — | `PARTIAL_FORMALIZATION` | Q1=1 direct certificate floor의 120-dps diagnostic; actual error 하한이 아님 |
+| 1393 | `76.12` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 177–181 | <code>\left&#124;\psi(Y;q,a)-\frac{Y}{\varphi(q)}\right&#124; &lt;c_\psi(q)\frac{Y}{\log Y}qquad(Y\ge x_\psi(q)) \tag{76.12}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Bennett et al. Theorem 1.1 pointwise source statement; Lean 미형식화 |
+| 1394 | `76.13` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 185–190 | <code>c_\psi(q)\le\frac1{160},qquad x_\psi(q)\le \exp\!\left(0.03\sqrt q\,(\log q)^3\right). \tag{76.13}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Bennett large-q source constants와 cutoff; Lean 미형식화 |
+| 1395 | `76.14` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 194–199 | <code>d\log q\ge0.03\sqrt q(\log q)^3 \quad\Longleftrightarrow\quad d\ge0.03\sqrt q(\log q)^2. \tag{76.14}</code> | — | `PARTIAL_FORMALIZATION` | Y=q^d cutoff normalization은 문서 대수와 Python 검산; transcendental source range 미형식화 |
+| 1396 | `76.15` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 203–206 | <code>0.03\sqrt q(\log q)^2\ge900&gt;186\ge d. \tag{76.15}</code> | `dep_r09_bennett_cutoff_capacity_terminal` | `CONDITIONAL_KERNEL_PASS` | normalized cutoff와 sqrt/log lower premises에서 d<=186 모순을 조건부 커널 검증 |
+| 1397 | `76.16` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 212–215 | <code>d_{\rm required}=3702.7410004983\ldots . \tag{76.16}</code> | — | `PARTIAL_FORMALIZATION` | first large-q boundary와 primorial checkpoint의 120-dps cutoff diagnostic |
+| 1398 | `76.17` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 220–224 | <code>\frac{c_\psi(q)Y/\log Y}{Y/\varphi(q)} \le\frac{\varphi(q)}{160d\log q}. \tag{76.17}</code> | — | `PARTIAL_FORMALIZATION` | Bennett error를 PAP relative scale로 옮긴 elementary normalization; Python 검산 |
+| 1399 | `76.18` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 228–233 | <code>\frac{\varphi(q)}{160d\log q} =0.23561859525868\ldots =1.7409990183\ldots e^{-2}. \tag{76.18}</code> | — | `PARTIAL_FORMALIZATION` | q=510510,d=186 checkpoint의 120-dps diagnostic; directed interval certificate 아님 |
+| 1400 | `76.19` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 243–247 | <code>E_q(a;Y)=\frac1{\varphi(q)} \sum_{\chi\bmod q}\overline{\chi(a)}Z_\chi(Y) \tag{76.19}</code> | — | `DEFINITION_ONLY` | character explicit-formula residue error 표현 정의 |
+| 1401 | `76.20` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 251–256 | <code>\sum_{a\in\mathcal A}E_q(a;Y) =\frac1{\varphi(q)}\sum_{\chi\bmod q} C_\chi(\mathcal A)Z_\chi(Y). \tag{76.20}</code> | — | `NOT_YET_FORMALIZED` | admissible residue aggregate character identity; character theory 전체 미형식화 |
+| 1402 | `76.21` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 260–263 | <code>\sum_{\chi\bmod q}&#124;C_\chi(\mathcal A)&#124;^2=\varphi(q)M \tag{76.21}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | finite character orthogonality source theorem; Lean 미형식화 |
+| 1403 | `76.22` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 267–272 | <code>\left&#124;\sum_{a\in\mathcal A}E_q(a;Y)\right&#124;^2 \le\frac{M}{\varphi(q)} \sum_{\chi\bmod q}&#124;Z_\chi(Y)&#124;^2. \tag{76.22}</code> | `dep_r09_aggregate_second_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | aggregate Cauchy premise를 받은 scalar terminal implication을 조건부 커널 검증 |
+| 1404 | `76.23` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 276–281 | <code>\boxed{ \sum_{\chi\bmod q}&#124;Z_\chi(Y)&#124;^2 \le\varepsilon^2M\frac{Y^2}{\varphi(q)}.} \tag{76.23}</code> | `dep_r09_aggregate_second_moment_terminal` | `CONDITIONAL_KERNEL_PASS` | M-times second-moment budget에서 aggregate error 목표로의 종단 합성을 조건부 커널 검증 |
+| 1405 | `76.24` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 292–296 | <code>\sum_{\chi\bmod q}&#124;Z_\chi(Y)&#124;^2 \le C\varphi(q)Y\log q \tag{76.24}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | 필요한 hypothetical individual-primorial natural-order variance theorem; 현재 source 없음 |
+| 1406 | `76.25` | T76 [76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md](../docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md) | 300–303 | <code>C\varphi(q)^2\log q\le\varepsilon^2MY. \tag{76.25}</code> | — | `PARTIAL_FORMALIZATION` | hypothetical variance에서 필요한 scale condition으로의 대수; analytic premise 미확보 |
 
 ## 9. 발견된 원문·작업 오류
 

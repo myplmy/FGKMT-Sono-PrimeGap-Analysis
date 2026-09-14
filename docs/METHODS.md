@@ -1848,3 +1848,55 @@ $N^*$만 남은 뒤에는 phase cancellation을 복구할 수 없다. cancellati
 제어하는 새 theorem이 필요하다. 따라서 <code>PAP-11</code>, <code>DEP-R09</code>,
 fixed $2\times10^{-17}$, numerical $X_{\rm cert}$와 threshold calculator는 계속
 OPEN/NOT READY이며 장시간 prime 계산은 실행하지 않는다.
+
+## 2026-09-14 DEP-R09 사전 절댓값 moment·pointwise PNT source 감사
+
+[theory 76](method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md)과
+[review 84](review/84_20260914_DEPR09_preabsolute_moment_pointwise_PNT_source_타당성검토.md)는
+Theory 75가 남긴 두 갈래를 Maier printed pp.260, 266--268과 공개 fully explicit source에서
+재검사한다. Maier의 인쇄 proof는 admissible column마다 pointwise PNT를 적용하지만,
+downstream row-selection이 소비하는 것은 admissible columns 전체의 total prime lower bound다.
+따라서 일반 평균정리는 drop-in이 아니나 그 fixed residue subset의 aggregate error를 직접
+제어하는 second moment는 column-mass 단계의 충분한 대체 입력이다.
+
+Akbary--Hambrook와 Sedunova의 explicit L1 theorem RHS는 direct relative certificate에
+각각 최소 612.7196, 1853.2524의 양의 floor를 남겨 $e^{-2}$ budget을 통과하지 못한다.
+이는 실제 error 하한이 아니라 해당 상계식의 direct certificate 실패다. Bennett et al.의
+large-$q$ pointwise theorem은 $Y=q^d$에서
+
+\[
+d\ge0.03\sqrt q(\log q)^2
+\]
+
+를 요구한다. $q>10^5$의 경계에서 이미 필요한 $d>1257$, 첫 primorial $q=510510$에서는
+$d>3702$라 current $d\le186$과 source range가 전혀 겹치지 않는다. cutoff를 무시한
+$q=510510,d=186$의 uniform relative error envelope도 0.2356186으로 $e^{-2}$보다
+약 1.741배 크다.
+
+$M$개 admissible residues의 aggregate character error에 Cauchy와 orthogonality를 먼저
+적용하면 충분한 missing input은
+
+\[
+\sum_{\chi\bmod q}|Z_\chi(Y)|^2
+\le \varepsilon^2M\frac{Y^2}{\varphi(q)}
+\]
+
+이다. pointwise budget보다 정확히 $M$배 약하지만, 이를 numerical multiplier·공통 cutoff와
+함께 주는 unconditional individual-primorial source는 이번 감사에서 식별하지 못했다.
+Baker의 few-exception theorem은 pairwise-coprime modulus 조건과 비수치 상수 때문에 nested
+primorial에 바로 적용되지 않고, Friedlander--Goldston variance는 필요한 power-scale fully
+numerical contract로 복원되지 않았다.
+
+Lean은 Bennett normalized cutoff의 조건부 모순과 aggregate moment terminal implication만
+검사한다. 외부 PNT·variance·character orthogonality theorem을 local axiom으로 넣지 않았다.
+Theory 76 뒤 inventory는 theory 문서 77개, display 1,406식이며
+`KERNEL_PASS=91`, `CONDITIONAL_KERNEL_PASS=56`, `DEFINITION_ONLY=73`,
+`PARTIAL_FORMALIZATION=80`, `SOURCE_THEOREM_UNFORMALIZED=75`,
+`NOT_YET_FORMALIZED=1026`, `PARSE_REVIEW_REQUIRED=5`, Lean declaration 272개,
+금지 proof escape 0건이다.
+
+따라서 <code>PAP-11</code>, <code>DEP-R09</code>, fixed $2\times10^{-17}$,
+numerical $X_{\rm cert}$는 계속 OPEN이다. 다음 gate는 restricted-residue 또는
+individual-primorial variance source를 찾고, 없으면 위 second-moment inequality를 정확한
+신규 analytic theorem target으로 분해하는 것이다. 그 전에는 threshold calculator나
+장시간 prime sweep을 실행하지 않는다.

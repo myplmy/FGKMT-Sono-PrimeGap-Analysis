@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 76,
-  "formula_count": 1381,
-  "tagged_formula_count": 851,
+  "theory_count": 77,
+  "formula_count": 1406,
+  "tagged_formula_count": 876,
   "untagged_formula_count": 530,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "f9619e679b4e39b814d3a7c078ff04e59e6ae769c7513be05d3f22c723be6320",
+      "source_sha256": "1e9e4ce22a7149b7ceed45cea65a7525e6f5e88cf15ce6a8bb29d0079e251f9e",
       "display_formula_count": 0,
       "tagged_formula_count": 0,
       "untagged_formula_count": 0
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac",
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641",
       "display_formula_count": 15,
       "tagged_formula_count": 0,
       "untagged_formula_count": 15
@@ -613,6 +613,14 @@
       "display_formula_count": 19,
       "tagged_formula_count": 19,
       "untagged_formula_count": 0
+    },
+    {
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e",
+      "display_formula_count": 25,
+      "tagged_formula_count": 25,
+      "untagged_formula_count": 0
     }
   ],
   "formulae": [
@@ -904,7 +912,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U002",
@@ -914,7 +922,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U003",
@@ -924,7 +932,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U004",
@@ -934,7 +942,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U005",
@@ -944,7 +952,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U006",
@@ -954,7 +962,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U007",
@@ -964,7 +972,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U008",
@@ -974,7 +982,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U009",
@@ -984,7 +992,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U010",
@@ -994,7 +1002,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U011",
@@ -1004,7 +1012,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U012",
@@ -1014,7 +1022,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U013",
@@ -1024,7 +1032,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U014",
@@ -1034,7 +1042,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T12-U015",
@@ -1044,7 +1052,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "d44c0325aab8ea67e20054515c88e35836ca6595fad5f5d28fb3a31369dbb5ac"
+      "source_sha256": "b69167714f4d2ef119240e2619ed4556201c220fbc108b141d5cbd510c01b641"
     },
     {
       "formula_id": "T13-U001",
@@ -14425,6 +14433,256 @@
       "tagged": true,
       "latex": "\\sum_{\\chi\\bmod q}|Z_\\chi|^2\n \\le\\frac{\\varepsilon^2X^2}{\\varphi(q)}\n \\quad\\Longrightarrow\\quad\n |E_q(a)|\\le\\frac{\\varepsilon X}{\\varphi(q)}\n\\tag{75.19}",
       "source_sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606"
+    },
+    {
+      "formula_id": "76.1",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 36,
+      "end_line": 43,
+      "tagged": true,
+      "latex": "\\boxed{\n \\begin{gathered}\n \\text{explicit L1 / Bennett pointwise drop-in: FAILS CURRENT CONTRACT},\\\\\n \\text{aggregate second-moment redesign: LOGICALLY SUFFICIENT BUT SOURCE OPEN}.\n \\end{gathered}}\n\\tag{76.1}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.2",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 54,
+      "end_line": 57,
+      "tagged": true,
+      "latex": "E_q(a;Y):=\\psi(Y;q,a)-\\frac{Y}{\\varphi(q)}\n\\tag{76.2}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.3",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 61,
+      "end_line": 65,
+      "tagged": true,
+      "latex": "21\\le d\\le186,\\qquad\n \\varepsilon:=e^{-2}=0.13533528323661269189\\ldots .\n\\tag{76.3}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.4",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 69,
+      "end_line": 72,
+      "tagged": true,
+      "latex": "|E_q(a;Y)|\\le \\varepsilon\\frac{Y}{\\varphi(q)}\n\\tag{76.4}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.5",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 76,
+      "end_line": 80,
+      "tagged": true,
+      "latex": "\\left|\\sum_{a\\in\\mathcal A}E_q(a;Y)\\right|\n \\le \\varepsilon M\\frac{Y}{\\varphi(q)}.\n\\tag{76.5}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.6",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 93,
+      "end_line": 98,
+      "tagged": true,
+      "latex": "\\text{각 admissible column에 Lemma 2 적용}\n \\Longrightarrow\n \\#\\mathcal P>C_3E q^{D-1}.\n\\tag{76.6}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.7",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 116,
+      "end_line": 123,
+      "tagged": true,
+      "latex": "\\sum_{r\\le Q}\\frac r{\\varphi(r)}\n \\sum_{\\chi\\bmod^{*}r}\\max_{y\\le x}|\\psi(y,\\chi)|\n <c_0\\left(4x+2x^{1/2}Q^2+6x^{2/3}Q^{3/2}+5x^{5/6}Q\\right)\n (\\log x)^{7/2},\n\\quad c_0=48.83236\\ldots .\n\\tag{76.7}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.8",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 127,
+      "end_line": 133,
+      "tagged": true,
+      "latex": "\\frac{\\mathrm{RHS}_{\\rm AH}}x\n \\ge 4c_0(\\log x)^{7/2}\n \\ge 612.7196429634\\ldots\n >4527.4198\\,e^{-2}qquad(x\\ge4).\n\\tag{76.8}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.9",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 144,
+      "end_line": 151,
+      "tagged": true,
+      "latex": "\\sum_{\\substack{r\\le Q\\\\\\ell(r)>Q_1}}\n \\max_{2\\le y\\le x}\\max_{(a,r)=1}\n \\left|\\psi(y;r,a)-\\frac{\\psi(y)}{\\varphi(r)}\\right|\n <c_1F(x,Q,Q_1)(\\log x)^{7/2},\n\\quad c_1=42.2,\n\\tag{76.9}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.10",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 153,
+      "end_line": 157,
+      "tagged": true,
+      "latex": "F(x,Q,Q_1)=\\frac{14x}{Q_1}+4x^{1/2}Q\n +15x^{2/3}Q^{1/2}+4x^{5/6}\\log\\frac Q{Q_1}.\n\\tag{76.10}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.11",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 161,
+      "end_line": 167,
+      "tagged": true,
+      "latex": "\\frac{\\mathrm{RHS}_{\\rm Sed}}x\n \\ge14c_1(\\log x)^{7/2}\n \\ge1853.2524593466\\ldots\n >13693.7863\\,e^{-2}qquad(x\\ge4).\n\\tag{76.11}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.12",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 177,
+      "end_line": 181,
+      "tagged": true,
+      "latex": "\\left|\\psi(Y;q,a)-\\frac{Y}{\\varphi(q)}\\right|\n <c_\\psi(q)\\frac{Y}{\\log Y}qquad(Y\\ge x_\\psi(q))\n\\tag{76.12}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.13",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 185,
+      "end_line": 190,
+      "tagged": true,
+      "latex": "c_\\psi(q)\\le\\frac1{160},qquad\n x_\\psi(q)\\le\n \\exp\\!\\left(0.03\\sqrt q\\,(\\log q)^3\\right).\n\\tag{76.13}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.14",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 194,
+      "end_line": 199,
+      "tagged": true,
+      "latex": "d\\log q\\ge0.03\\sqrt q(\\log q)^3\n \\quad\\Longleftrightarrow\\quad\n d\\ge0.03\\sqrt q(\\log q)^2.\n\\tag{76.14}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.15",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 203,
+      "end_line": 206,
+      "tagged": true,
+      "latex": "0.03\\sqrt q(\\log q)^2\\ge900>186\\ge d.\n\\tag{76.15}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.16",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 212,
+      "end_line": 215,
+      "tagged": true,
+      "latex": "d_{\\rm required}=3702.7410004983\\ldots .\n\\tag{76.16}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.17",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 220,
+      "end_line": 224,
+      "tagged": true,
+      "latex": "\\frac{c_\\psi(q)Y/\\log Y}{Y/\\varphi(q)}\n \\le\\frac{\\varphi(q)}{160d\\log q}.\n\\tag{76.17}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.18",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 228,
+      "end_line": 233,
+      "tagged": true,
+      "latex": "\\frac{\\varphi(q)}{160d\\log q}\n =0.23561859525868\\ldots\n =1.7409990183\\ldots e^{-2}.\n\\tag{76.18}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.19",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 243,
+      "end_line": 247,
+      "tagged": true,
+      "latex": "E_q(a;Y)=\\frac1{\\varphi(q)}\n \\sum_{\\chi\\bmod q}\\overline{\\chi(a)}Z_\\chi(Y)\n\\tag{76.19}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.20",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 251,
+      "end_line": 256,
+      "tagged": true,
+      "latex": "\\sum_{a\\in\\mathcal A}E_q(a;Y)\n =\\frac1{\\varphi(q)}\\sum_{\\chi\\bmod q}\n C_\\chi(\\mathcal A)Z_\\chi(Y).\n\\tag{76.20}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.21",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 260,
+      "end_line": 263,
+      "tagged": true,
+      "latex": "\\sum_{\\chi\\bmod q}|C_\\chi(\\mathcal A)|^2=\\varphi(q)M\n\\tag{76.21}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.22",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 267,
+      "end_line": 272,
+      "tagged": true,
+      "latex": "\\left|\\sum_{a\\in\\mathcal A}E_q(a;Y)\\right|^2\n \\le\\frac{M}{\\varphi(q)}\n \\sum_{\\chi\\bmod q}|Z_\\chi(Y)|^2.\n\\tag{76.22}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.23",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 276,
+      "end_line": 281,
+      "tagged": true,
+      "latex": "\\boxed{\n \\sum_{\\chi\\bmod q}|Z_\\chi(Y)|^2\n \\le\\varepsilon^2M\\frac{Y^2}{\\varphi(q)}.}\n\\tag{76.23}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.24",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 292,
+      "end_line": 296,
+      "tagged": true,
+      "latex": "\\sum_{\\chi\\bmod q}|Z_\\chi(Y)|^2\n \\le C\\varphi(q)Y\\log q\n\\tag{76.24}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
+    },
+    {
+      "formula_id": "76.25",
+      "theory": "76",
+      "source_file": "docs/method/theory/76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md",
+      "start_line": 300,
+      "end_line": 303,
+      "tagged": true,
+      "latex": "C\\varphi(q)^2\\log q\\le\\varepsilon^2MY.\n\\tag{76.25}",
+      "source_sha256": "431cdcc59fd58068d228ff139f8e4cb2dfcf03a10e86b1e5c3ab070f6591f46e"
     }
   ],
   "issues": [],

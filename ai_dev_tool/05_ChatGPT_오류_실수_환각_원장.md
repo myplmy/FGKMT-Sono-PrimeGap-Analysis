@@ -2258,6 +2258,60 @@
      uniform supremum·actual zero-height 정보를 명시한다.
   3. necessary condition의 실패를 전체 proof family의 불가능성으로 이름 붙이지 않는다.
 
+### E124 — Theory 76 PDF 보조도구·공개 mirror·Lean 초안 오류
+
+- 분류:
+  <code>PRE_COMMIT_SOURCE_TOOLING_AND_FORMAL_PROOF_DRAFT_ERRORS /
+  DETECTED_AND_CORRECTED_OR_FAIL_CLOSED / NO_SCIENTIFIC_RESULT_AFFECTED</code>.
+- PDF 렌더 준비에서 Poppler의 boolean option을 PowerShell식
+  <code>-singlefile:$false</code>로 한 번 잘못 호출해 usage만 출력됐다. 해당 명령은 source나
+  산출물을 변경하지 않았고 올바른 페이지별 렌더 명령으로 다시 실행했다.
+- Friedlander--Goldston 1996 PDF의 한 공개 mirror가 논문 대신 Wayback 차단 HTML로
+  redirect됐다. 파일 signature를 확인해 PDF로 저장하지 않았고 빈·가짜 파일도 만들지 않았다.
+  DOI·출판사 metadata와 공개 abstract 범위만 기록했으며 exact formula나 numerical constant는
+  정본으로 승격하지 않았다.
+- local MiKTeX <code>pdftotext</code>가 로그파일 쓰기 권한에 관한 <code>log4cxx</code>
+  경고를 냈다. 이미 생성한 native-text 파일과 렌더 페이지가 있어 source 판독은 그것으로
+  대조했고, 이 경고를 extraction PASS 자체의 근거로 사용하지 않았다.
+- Theory 76 첫 Lean compile에서 <code>mul_le_mul</code>의 비음수 side-condition 순서를
+  잘못 주었고, <code>field_simp</code>가 목표를 닫은 뒤 불필요한 <code>ring</code>을 호출해
+  두 오류가 발생했다. 곱 비교를 두 개의 단조 단계로 분해하고 불필요 tactic을 제거했다.
+  재실행은 exit 0·출력 0이다.
+- 첫 direct Lean wrapper는 30초 timeout 시 session id를 화면에 보존하지 않아 프로세스를
+  read-only로 확인한 뒤 종료를 기다렸다. 두 번째 실행은 반환 객체의 session id를 보존하고
+  최종 exit code를 확인했다. 실행 중인 프로세스를 중단하거나 중복 생성하지 않았다.
+- 새 문서의 LaTeX 탈자 점검에서 lookbehind를 기본 `rg` 엔진으로 한 번 호출해 regex parser
+  오류가 났다. `--pcre2`로 다시 검사했고, 그 과정에서 식 (76.3)의 `\qquad` 앞 역슬래시
+  누락을 찾아 commit 전에 교정했다. 수치·증명 판정에는 영향이 없다.
+- 최종 UTF-8·link 검사 PowerShell의 첫 초안은 문자열 안의 `$f:$i`를 변수명으로 잘못
+  해석했고, 두 번째 초안은 두 native-command 결과를 중첩 배열로 묶어 전체 경로들을 한 문자열로
+  합쳤다. 두 실행은 검증기 자체의 parser/path 오류였으며 PASS로 채택하지 않았다. 명시적 배열
+  누적, `${f}` 보간, `ErrorActionPreference=Stop`을 적용한 세 번째 검사는 변경 20파일 UTF-8·
+  control character, 핵심 Markdown 5파일 local link, `git diff --check`를 모두 PASS했다.
+- 최신 handoff heading을 찾는 읽기 전용 명령에 GNU `rg`에 없는 `-LiteralPath`를 한 번
+  사용해 option 오류가 났다. 파일 본문은 같은 호출의 `Get-Content -LiteralPath`로 정상 읽었으며,
+  이후 경로 인수는 `rg -- <path>` 또는 PowerShell cmdlet을 사용한다.
+- 전체 842-test 첫 실행은 관리 sandbox가 Python `TemporaryDirectory`의 쓰기·정리를 거부해
+  82개 `PermissionError`로 끝났다. 이를 코드 실패로 해석하지 않고 정상 로컬 권한으로 동일 suite를
+  재실행해 842/842 PASS(80.492초)를 확인했다. 첫 실행이 저장소 `tmp`에 남긴 정확히 식별된
+  14개 임시 폴더만 root containment를 검사한 뒤 삭제했으며, 외부 Windows temp는 건드리지 않았다.
+- 위 문제는 모두 commit 전에 발견됐다. Akbary--Hambrook·Sedunova floor, Bennett finite
+  no-overlap, aggregate moment 충분조건, `PAP-11`·`X_cert` OPEN 판정에는 영향이 없다.
+  <code>sorry</code>, <code>admit</code>, project-local <code>axiom</code>은 사용하지 않았다.
+- 예방:
+  1. Poppler option은 설치된 binary의 help에 맞는 독립 flag만 사용한다.
+  2. 다운로드 응답은 MIME·magic bytes·최종 URL을 검사한 뒤 source registry에 넣는다.
+  3. Lean <code>mul_le_mul</code>보다 공통 한 변수를 고정한 두 단계 monotonicity proof를
+     우선 사용하고, <code>field_simp</code> 다음 goal 존재 여부를 확인한다.
+  4. 30초 이상 걸릴 수 있는 Lean 검사는 첫 호출부터 session id와 exit code를 JSON으로
+     보존한다.
+  5. lookaround가 필요한 `rg` 정규식에는 처음부터 `--pcre2`를 명시하고, 새 display 수식은
+     inventory 생성 외에 흔한 LaTeX command 탈자도 별도로 검사한다.
+  6. 여러 native-command 파일 목록은 중첩 `@((...),(...))` 대신 빈 배열에 각각 누적하고,
+     정적 검증 wrapper에는 `ErrorActionPreference=Stop`과 최종 exit code를 강제한다.
+  7. `TemporaryDirectory`가 많은 전체 suite는 첫 실행부터 사용자 허가 범위의 정상 로컬 권한을
+     사용하며, sandbox 실패 산출물을 과학·코드 회귀 실패와 구분한다.
+
 ## 4. 아직 남은 오류 위험
 
 1. P014 restricted LP의 unbounded seed 원인은 아직 증명되지 않았다.

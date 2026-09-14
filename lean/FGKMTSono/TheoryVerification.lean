@@ -3317,4 +3317,60 @@ theorem dep_r09_cancellation_second_moment_terminal
   rw [abs_div, abs_of_pos hPhi]
   exact (div_le_div_iff_of_pos_right hPhi).2 hAbs
 
+/-! ## Theory 76 — DEP-R09 pre-absolute-value moment and pointwise PNT audit -/
+
+/- Theory 76, formula 76.15: once the normalized Bennett large-q cutoff and
+   the elementary lower inputs sqrt(q) ≥ 300 and log(q) ≥ 10 are supplied,
+   it cannot coexist with d ≤ 186.  This does not prove the analytic source
+   cutoff or the logarithm/square-root lower inputs inside Lean. -/
+theorem dep_r09_bennett_cutoff_capacity_terminal
+    {d sqrtQ logQ : ℝ}
+    (hd : d ≤ 186)
+    (hSqrtQ : 300 ≤ sqrtQ)
+    (hLogQ : 10 ≤ logQ)
+    (hCutoff : (3 / 100 : ℝ) * sqrtQ * logQ ^ 2 ≤ d) : False := by
+  have hSqrtQNonneg : 0 ≤ sqrtQ := by linarith
+  have hLogQSquare : (100 : ℝ) ≤ logQ ^ 2 := by nlinarith
+  have hProduct : (30000 : ℝ) ≤ sqrtQ * logQ ^ 2 := by
+    calc
+      (30000 : ℝ) = 300 * 100 := by norm_num
+      _ ≤ sqrtQ * 100 := mul_le_mul_of_nonneg_right hSqrtQ (by norm_num)
+      _ ≤ sqrtQ * logQ ^ 2 :=
+        mul_le_mul_of_nonneg_left hLogQSquare hSqrtQNonneg
+  have hNineHundred : (900 : ℝ) ≤ (3 / 100 : ℝ) * sqrtQ * logQ ^ 2 := by
+    nlinarith
+  linarith
+
+/- Theory 76, formulas 76.22--76.23: an aggregate Cauchy estimate and the
+   M-times-larger second-moment budget imply the desired aggregate residue
+   error.  The character orthogonality and analytic moment estimate are
+   explicit premises, not project-local axioms. -/
+theorem dep_r09_aggregate_second_moment_terminal
+    {phi epsilon Y M z secondMoment : ℝ}
+    (hPhi : 0 < phi)
+    (hEpsilon : 0 ≤ epsilon)
+    (hY : 0 ≤ Y)
+    (hM : 0 ≤ M)
+    (hCauchy : z ^ 2 ≤ (M / phi) * secondMoment)
+    (hSecondMoment : secondMoment ≤ epsilon ^ 2 * M * Y ^ 2 / phi) :
+    |z| ≤ epsilon * M * Y / phi := by
+  have hRatio : 0 ≤ M / phi := div_nonneg hM hPhi.le
+  have hSquare : z ^ 2 ≤ (epsilon * M * Y / phi) ^ 2 := by
+    calc
+      z ^ 2 ≤ (M / phi) * secondMoment := hCauchy
+      _ ≤ (M / phi) * (epsilon ^ 2 * M * Y ^ 2 / phi) :=
+        mul_le_mul_of_nonneg_left hSecondMoment hRatio
+      _ = (epsilon * M * Y / phi) ^ 2 := by
+        field_simp [ne_of_gt hPhi]
+  have hTarget : 0 ≤ epsilon * M * Y / phi := by positivity
+  have hUpper : z ≤ epsilon * M * Y / phi := by
+    by_contra hNot
+    have hStrict : epsilon * M * Y / phi < z := lt_of_not_ge hNot
+    nlinarith
+  have hLower : -(epsilon * M * Y / phi) ≤ z := by
+    by_contra hNot
+    have hStrict : z < -(epsilon * M * Y / phi) := lt_of_not_ge hNot
+    nlinarith
+  exact (abs_le).2 ⟨hLower, hUpper⟩
+
 end FGKMTSono

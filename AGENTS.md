@@ -60,6 +60,20 @@ Theory 75 뒤 inventory는 76개 문서, 1,381식이고 `KERNEL_PASS=91`,
 PAP-11·DEP-R09·fixed 2e-17·X_cert는 계속 OPEN이고 threshold calculator·장시간
 prime 계산은 NOT READY다.
 
+2026-09-14 pre-absolute-value successor는 Maier printed proof가 각 admissible column에
+pointwise PNT를 쓰지만 downstream에서는 그 열들의 총 prime mass만 소비함을 확인했다.
+Akbary--Hambrook·Sedunova explicit L1 RHS는 direct certificate floor부터 각각
+612.7196, 1853.2524로 \(e^{-2}\) budget을 통과하지 못한다. Bennett large-modulus
+pointwise branch는 source cutoff가 경계에서 \(d>1257\), 첫 primorial 510510에서
+\(d>3702\)를 요구해 current \(d\le186\)과 겹치지 않는다. 반면 admissible residue가
+\(M\)개이면 aggregate character second-moment 허용 budget이 pointwise budget보다 정확히
+\(M\)배 커지는 충분조건을 유도했다. 이를 공급할 fully numerical individual-primorial
+theorem은 아직 식별되지 않았다. Theory 76 뒤 inventory는 77개 문서, 1,406식이고
+`KERNEL_PASS=91`, `CONDITIONAL_KERNEL_PASS=56`, `NOT_YET_FORMALIZED=1026`,
+Lean declaration 272개, 금지 proof escape 0건이다. 최신 analytic 정본은
+theory 76·review 84다. PAP-11·DEP-R09·fixed 2e-17·X_cert는 계속 OPEN이며,
+다음 gate는 restricted-residue/individual-primorial variance source 감사다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

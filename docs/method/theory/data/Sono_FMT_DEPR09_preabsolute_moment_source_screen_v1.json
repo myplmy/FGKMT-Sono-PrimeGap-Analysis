@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-14",
+  "gate": "DEP-R09 pre-absolute-value pointwise PNT and admissible-residue moment source screen",
+  "predecessors": [
+    "Sono_FMT_DEPR09_explicit_PNT_AP_replacement_v1.json",
+    "Sono_FMT_DEPR09_Gallagher_Maier_PAP_split_v1.json",
+    "Sono_FMT_DEPR09_transfer_feasibility_v1.json"
+  ],
+  "outcome": "EXPLICIT_L1_AND_BENNETT_POINTWISE_SOURCES_FAIL_CURRENT_PAP_CONTRACT_AGGREGATE_MOMENT_REDESIGN_REMAINS_OPEN",
+  "source_registry": [
+    {
+      "key": "MAIER1981",
+      "title": "Chains of Large Gaps between Consecutive Primes",
+      "locator": "article/Maier 1981.pdf",
+      "doi": "10.1016/0001-8708(81)90003-7",
+      "sha256": "ca6f2425b850dd5f9d81340d8a4a4c76faf6a947d7486ebf87ff072adbf0a3eb",
+      "printed_pages": "260, 266--268",
+      "statements": "Lemmas 1--2 and proof conclusion",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "classification": "PRIMARY_PEER_REVIEWED_PRINTED_POINTWISE_COLUMNS_FINAL_ARGUMENT_USES_AGGREGATE_COUNT"
+    },
+    {
+      "key": "GALLAGHER1970",
+      "title": "A Large Sieve Density Estimate near sigma = 1",
+      "locator": "article/gallagher1970.pdf",
+      "doi": "10.1007/BF01403187",
+      "sha256": "ecac1c9470521e410ac8731d2f57b77eb364f1fdc0bbd1f71813205afe84adcf",
+      "printed_pages": "337--338",
+      "statements": "Theorem 7 and equations (29)--(30)",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "classification": "PRIMARY_PEER_REVIEWED_L1_ABSOLUTE_VALUE_BEFORE_ZERO_DENSITY"
+    },
+    {
+      "key": "AKBARY_HAMBROOK2013",
+      "title": "A Variant of the Bombieri--Vinogradov Theorem with Explicit Constants and Applications",
+      "arxiv": "1309.2730",
+      "url": "https://arxiv.org/abs/1309.2730",
+      "audit_copy_locator": "tmp/pdfs/depr09_preabs_20260914/Akbary_Hambrook_2013.pdf",
+      "retention": "TMP_AUDIT_COPY",
+      "sha256": "797bac5529cfacba249ffe367ca665304fca53f45b0ee17068b9dd13d58da32a",
+      "printed_pages": "2--3",
+      "statements": "Theorems 1.2--1.3 and Corollary 1.4",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "classification": "PRIMARY_PUBLISHED_EXPLICIT_L1_CERTIFICATE_NUMERICALLY_TOO_LARGE_SMALL_FACTOR_VARIANT_NOT_DROP_IN"
+    },
+    {
+      "key": "SEDUNOVA2018",
+      "title": "A Partial Bombieri--Vinogradov Theorem with Explicit Constants",
+      "doi": "10.5802/pmb.24",
+      "url": "https://doi.org/10.5802/pmb.24",
+      "audit_copy_locator": "tmp/pdfs/depr09_preabs_20260914/Sedunova_2017.pdf",
+      "retention": "TMP_AUDIT_COPY",
+      "sha256": "556e559b70765bf8c36052c926d9c586b04b609597f539e4c4e282912accfd60",
+      "printed_pages": "101--103, 107--109",
+      "statements": "Theorem 1.2, Proposition 1.6, and primitive-character induction",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "classification": "PRIMARY_PEER_REVIEWED_EXPLICIT_L1_CERTIFICATE_NUMERICALLY_TOO_LARGE"
+    },
+    {
+      "key": "BENNETT_MARTIN_OBRYANT_RECHNITZER2018",
+      "title": "Explicit Bounds for Primes in Arithmetic Progressions",
+      "arxiv": "1802.00085",
+      "url": "https://arxiv.org/abs/1802.00085",
+      "audit_copy_locator": "tmp/pdfs/depr09_preabs_20260914/Bennett_Martin_OBryant_Rechnitzer_2018.pdf",
+      "retention": "TMP_AUDIT_COPY",
+      "sha256": "e51f8b8f63486c2259efe076d367504f08dda0fe9e99dc35bf36de544ffc0601",
+      "printed_pages": "4--5, 78--79",
+      "statements": "Theorem 1.1 and Corollary 6.17",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_PAGE_COMPARISON",
+      "classification": "PRIMARY_PEER_REVIEWED_POINTWISE_BUT_LARGE_Q_CUTOFF_AND_ERROR_NORMALIZATION_FAIL_CURRENT_CONTRACT"
+    },
+    {
+      "key": "FRIEDLANDER_GOLDSTON1996",
+      "title": "Variance of Distribution of Primes in Residue Classes",
+      "doi": "10.1093/qmath/47.3.313",
+      "url": "https://doi.org/10.1093/qmath/47.3.313",
+      "local_download_status": "FAILED_PUBLIC_MIRROR_REDIRECTED_TO_WAYBACK_NO_FILE_CREATED",
+      "classification": "PRIMARY_PEER_REVIEWED_FIXED_MODULUS_VARIANCE_RELEVANT_BUT_UNCONDITIONAL_RANGE_NOT_MAIER_POWER_SCALE_AND_NO_NUMERICAL_DROP_IN_RECORDED"
+    },
+    {
+      "key": "BAKER2020",
+      "title": "A Theorem of Bombieri--Vinogradov Type with Few Exceptional Moduli",
+      "arxiv": "1905.12488",
+      "doi": "10.4064/aa190527-7-1",
+      "url": "https://arxiv.org/abs/1905.12488",
+      "classification": "PRIMARY_PEER_REVIEWED_STRUCTURAL_SELECTION_CANDIDATE_PAIRWISE_COPRIME_FAMILY_AND_NONNUMERICAL_O_CONSTANT_NOT_DROP_IN"
+    }
+  ],
+  "normalization": {
+    "outer_prime_scale": "Y=q^d in Maier's matrix conclusion",
+    "current_capacity": "21<=d<=186",
+    "printed_target_relative_error": "epsilon=exp(-2)",
+    "pointwise_target": "abs(E_q(a))<=epsilon*Y/phi(q)",
+    "aggregate_target": "abs(sum_(a in A) E_q(a))<=epsilon*M*Y/phi(q)",
+    "admissible_residue_count": "M=card(A)"
+  },
+  "maier_quantifier_reconstruction": {
+    "printed_step": "apply pointwise Gallagher Lemma 2 to every admissible column",
+    "downstream_consumed_fact": "one lower bound for total primes across all admissible columns",
+    "ordinary_average_drop_in": false,
+    "aggregate_subset_redesign_possible_in_principle": true,
+    "endpoint_prime_power_and_exceptional_modulus_repairs_still_required": true
+  },
+  "explicit_source_diagnostics": {
+    "pap_near_budget_exp_minus_2": "0.13533528323661269189399949497248440340763154590957588146815887265407337410148769",
+    "akbary_hambrook_l1_floor_at_x4_relative_to_x": "612.71964296343850677188512435847533742612542979773995751114829888311497711063784",
+    "akbary_floor_over_budget": "4527.4198147736057644632825034967670481679268290752581222516106728889160964353507",
+    "sedunova_l1_floor_at_x4_relative_to_x": "1853.2524593466272662268920213511451696751647059680546204278597992199451781409133",
+    "sedunova_floor_over_budget": "13693.786387593423119653173136962303132889804888692981962300468303921680366124048",
+    "bennett_required_d_just_above_1e5_lower_endpoint": "1257.4555463441085002667112661843059032786913159546776896565043794707915645915603",
+    "bennett_required_d_at_primorial_510510": "3702.7410004983098665333080668245421911279140456601312325254623663362666414337775",
+    "current_d_capacity_endpoint": 186,
+    "bennett_large_q_cutoff_overlaps_capacity": false,
+    "bennett_relative_error_envelope_q510510_d186": "0.2356185952586824849003024154645472050987402749519445567531936157959039398780923",
+    "bennett_relative_error_over_budget_q510510_d186": "1.7409990183176402017155794578955413251108106127972036468215367972266200268166416",
+    "bennett_required_cpsi_q510510_d186": "0.0035898928915189690806595215763012699855095042043755162232429280159495778069739971",
+    "bennett_printed_uniform_cpsi": "0.00625"
+  },
+  "aggregate_second_moment_contract": {
+    "residue_error": "E_q(a)=phi(q)^(-1)*sum_chi conjugate(chi(a))*Z_chi",
+    "orthogonality": "sum_chi abs(sum_(a in A) chi(a))^2=phi(q)*M for distinct reduced residues",
+    "cauchy": "abs(sum_(a in A)E_q(a))^2<=(M/phi(q))*sum_chi abs(Z_chi)^2",
+    "sufficient_budget": "sum_chi abs(Z_chi)^2<=epsilon^2*M*Y^2/phi(q)",
+    "gain_over_pointwise_budget": "factor M",
+    "hypothetical_natural_order": "sum_chi abs(Z_chi)^2<=C*phi(q)*Y*log(q)",
+    "hypothetical_scale_condition": "C*phi(q)^2*log(q)<=epsilon^2*M*Y",
+    "interpretation": "natural-order variance would be scale-compatible for d>2, but no unconditional fully numerical individual-primorial source in the required range was identified"
+  },
+  "status_after_this_gate": {
+    "maier_quantifier_reconstruction_complete": true,
+    "explicit_l1_source_screen_complete": true,
+    "bennett_scale_cutoff_no_overlap_certified_numerically": true,
+    "bennett_error_normalization_screen_complete": true,
+    "aggregate_moment_terminal_condition_derived": true,
+    "aggregate_moment_source_identified": false,
+    "ordinary_bombieri_vinogradov_is_drop_in": false,
+    "all_pre_absolute_value_proofs_impossible": false,
+    "unconditional_numerical_drop_in_found": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "user_compute_required_now": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "lean_scope": {
+    "terminal_formulae_to_formalize": [
+      "aggregate second-moment premise implies aggregate residue error budget",
+      "normalized Bennett cutoff lower inputs force d>186"
+    ],
+    "analytic_source_theorem_fully_formalized": false,
+    "project_local_axiom_allowed": false,
+    "proof_escape_allowed": false
+  },
+  "next_gate": "Audit whether a restricted-residue or individual-primorial variance theorem can supply the aggregate moment contract with explicit constants and cutoff; otherwise formulate this exact missing theorem as a new analytic research target."
+}

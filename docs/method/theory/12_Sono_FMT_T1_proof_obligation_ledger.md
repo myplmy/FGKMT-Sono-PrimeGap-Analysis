@@ -1061,3 +1061,33 @@ explicit second-moment theorem이라는 새 input을 요구한다.
 DEP-R09·fixed $2\times10^{-17}$·$X_{\rm cert}=\mathrm{OPEN}$은 변경하지 않는다.
 threshold calculator와 장시간 prime sweep도 NOT READY다. 다음 gate는 fully numerical
 pointwise PNT 또는 pre-absolute-value uniform moment source audit다.
+
+## 45. 2026-09-14 DEP-R09 pre-absolute moment·pointwise PNT source 상태
+
+[theory 76](76_Sono_FMT_DEPR09_preabsolute_moment_pointwise_PNT_source_audit.md)은
+Maier printed proof가 각 admissible column에 pointwise PNT를 적용하지만 최종 row 선택은
+그 columns의 aggregate prime mass만 소비함을 재확인했다. 따라서 일반 modulus 평균은
+drop-in이 아니나, Maier가 정한 fixed primorial과 residue subset에 대한 aggregate
+second-moment theorem은 R09의 column-mass 단계를 교체할 수 있다.
+
+감사한 fully explicit 후보 중 Akbary--Hambrook와 Sedunova L1 RHS는 direct certificate
+floor가 $e^{-2}$ budget보다 각각 4,527배·13,693배 이상 크다. Bennett et al. pointwise
+theorem의 $q>10^5$ source cutoff는 $Y=q^d$에서
+$d\ge0.03\sqrt q(\log q)^2$를 요구해 경계부터 $d>1257$이고, current
+$d\le186$과 겹치지 않는다. 이는 actual prime error의 하한이나 모든 평균 방법의
+불가능성 명제가 아니다.
+
+$M$개 admissible residues에 필요한 정확한 missing input은
+
+~~~text
+sum_chi |Z_chi(Y)|^2 <= epsilon^2 * M * Y^2 / phi(q)
+~~~
+
+이며 pointwise second-moment budget보다 $M$배 약하다. 그러나 numerical multiplier,
+finite cutoff, exceptional/principal·endpoint·prime-power·psi-to-pi 처리를 포함한
+unconditional individual-primorial source는 식별하지 못했다.
+
+따라서 66개 root row의 상태와 <code>PAP-11=HARD_BLOCKER</code>, DEP-R09,
+fixed $2\times10^{-17}$, $X_{\rm cert}=\mathrm{OPEN}$은 변경하지 않는다. 다음 R09 gate는
+restricted-residue/individual-primorial variance source 또는 이 missing theorem의 직접
+proof decomposition이다. 이 gate 전 threshold calculator와 장시간 prime sweep은 NOT READY다.

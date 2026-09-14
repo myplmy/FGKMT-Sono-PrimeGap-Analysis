@@ -303,3 +303,17 @@ Theory 75 뒤 inventory는 theory 문서 76개, display 1,381식이며 전체 �
 `PARTIAL_FORMALIZATION=73`, `SOURCE_THEOREM_UNFORMALIZED=68`,
 `NOT_YET_FORMALIZED=1024`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 270개이고
 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-14 Theory 76 batch는 Bennett large-modulus pointwise PNT의 source cutoff와
+현재 `d<=186` capacity가 겹치지 않는 elementary terminal, 그리고 Maier admissible
+residue 합에 필요한 character second-moment budget의 Cauchy terminal을 단일 Lean 파일에서
+검사한다. character orthogonality, explicit-formula identity, Akbary--Hambrook·Sedunova·
+Bennett의 analytic theorem 자체는 local axiom으로 넣지 않았다. 두 새 theorem은 모두
+명시적 premise를 받는 `CONDITIONAL_KERNEL_PASS`이며, aggregate 경로를 공급할 fully
+numerical individual-primorial theorem은 아직 식별되지 않았다.
+
+Theory 76 뒤 inventory는 theory 문서 77개, display 1,406식이며 전체 상태는
+`KERNEL_PASS=91`, `CONDITIONAL_KERNEL_PASS=56`, `DEFINITION_ONLY=73`,
+`PARTIAL_FORMALIZATION=80`, `SOURCE_THEOREM_UNFORMALIZED=75`,
+`NOT_YET_FORMALIZED=1026`, `PARSE_REVIEW_REQUIRED=5`다. declaration은 272개이고
+금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed 2e-17과 X_cert는 계속 OPEN이다.

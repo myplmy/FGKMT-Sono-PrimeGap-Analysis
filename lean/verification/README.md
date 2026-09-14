@@ -33,3 +33,12 @@ Lean은 first-slice endpoint rational, pointwise min monotonicity와 explicit
 second-moment premise 이후 Cauchy terminal 대수만 검사한다. density·smooth explicit
 formula·complex moment theorem은 local axiom으로 넣지 않았다. PAP-11, DEP-R09,
 fixed `2e-17`, `X_cert`는 OPEN이다.
+
+2026-09-14 Theory 76 갱신 뒤 전수 inventory는 77개 theory 문서·1,406개 display
+수식·272개 Lean declaration이다. 상태는 `KERNEL_PASS=91`,
+`CONDITIONAL_KERNEL_PASS=56`, `DEFINITION_ONLY=73`,
+`PARTIAL_FORMALIZATION=80`, `SOURCE_THEOREM_UNFORMALIZED=75`,
+`NOT_YET_FORMALIZED=1026`, `PARSE_REVIEW_REQUIRED=5`이며 금지 proof escape는 0건이다.
+Lean은 Bennett cutoff no-overlap과 aggregate second-moment의 Cauchy terminal만 검사한다.
+pointwise PNT·character orthogonality·explicit formula·individual-primorial moment theorem은
+local axiom으로 넣지 않았다. PAP-11, DEP-R09, fixed `2e-17`, `X_cert`는 OPEN이다.
