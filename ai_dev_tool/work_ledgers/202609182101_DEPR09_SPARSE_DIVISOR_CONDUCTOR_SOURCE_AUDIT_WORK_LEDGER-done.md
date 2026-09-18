@@ -62,7 +62,7 @@
 4. **DONE — actual conductor decomposition과 source theorem 범위 대조**
 5. **DONE — analytic 판정 및 theory/review/machine ledger 구현**
 6. **DONE — Python·Lean·문서 정합성 검증**
-7. **IN PROGRESS — 완료 handoff·원장 종료·로컬 commit**
+7. **DONE — 완료 handoff·원장 종료·로컬 commit**
 
 ## 단계별 기록
 
@@ -126,6 +126,16 @@
 - 새 bounded \(X_{\rm cert}\) 범위는 없고 threshold calculator·actual prime 계산은
   NOT READY / NOT RUN이다.
 
+### 2026-09-18 21:36 KST — 로컬 commit·완료 핸드오프
+
+- 검토한 24개 경로만 명시적으로 stage해 local commit
+  <code>2a5db37a7440aec354ea27a032899f62327663c8</code>을 생성했다.
+- WSL Git config는 변경하지 않았다. 기존 저장소 commit과 같은 author identity를
+  해당 commit 명령에만 적용했다.
+- 완료 핸드오프
+  <code>handoff/202609182136_HANDOFF.md</code>를 새 파일로 작성했다.
+- push·PR·issue·외부 게시는 수행하지 않았다.
+
 ## 완료 전 점검
 
 - [x] 승인 범위·금지 범위 고정
@@ -138,5 +148,5 @@
 - [x] WSL AGENTS/skill 최소 패치 및 회귀 위험 확인
 - [x] Python·Lean·verification ledger 검증
 - [x] 새 bounded \(X_{\rm cert}\)·장시간 계산 필요 여부 판정
-- [ ] 최신 완료 handoff·로컬 commit
-- [ ] 완료 시 파일명을 <code>-done.md</code>로 변경
+- [x] 최신 완료 handoff·로컬 commit
+- [x] 완료 시 파일명을 <code>-done.md</code>로 변경
