@@ -165,6 +165,23 @@ sparse-divisor bound와 direct same-law correlation, PAP-11·DEP-R09·fixed
 <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고 threshold calculator·장시간
 prime 계산은 NOT READY다.
 
+2026-09-18 sparse divisor-conductor successor는 character modulo \(q\)를 primitive
+conductor \(r\mid q\)별로 exact partition했다. conductor level 수는 희소하지만
+총 character 수는 여전히 \(\sum_{r\mid q}\varphi^*(r)=\varphi(q)\)다. Baier형
+coefficient-agnostic sparse large sieve는 modulus-density 항을 줄여도 길이 \(Y\) 항을
+보존하고, 이 항 하나가 이미 Theory 82의 최선 gate보다 크므로 generic sparse-certificate
+경로는 닫히지 않는다. 이는 실제 \(V\)의 하한이나 prime-specific·actual-weight
+cancellation의 불가능성 정리가 아니다. 추가된 Friedlander--Goldston 1996 원문은
+확인됐지만 unconditional numerical current-range upper를 주지 않는다. 로컬
+`Montgomery-Vaughan 2001.pdf`는 요청했던 Vaughan variance 논문이 아니라
+*Mean Values of Multiplicative Functions*임을 확인했다. Theory 84 뒤 inventory는
+85개 문서, 1,586식이고 <code>KERNEL_PASS=98</code>,
+<code>CONDITIONAL_KERNEL_PASS=77</code>, <code>NOT_YET_FORMALIZED=1054</code>,
+Lean declaration 302개, 금지 proof escape 0건이다. 최신 analytic 정본은 theory 84·
+review 93이며 prime-specific fixed-primorial upper·actual same-law correlation,
+PAP-11·DEP-R09·fixed <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이다.
+threshold calculator·장시간 prime 계산은 NOT READY다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는
@@ -524,6 +541,21 @@ PowerShell에서는 환경 활성화 여부에 기대지 말고 가능하면 절
 & 'W:\miniforge3\envs\FGKMT\python.exe' -m unittest discover -s tests -v
 ```
 
+Codex가 WSL2에서 실행될 때도 canonical interpreter의 정체는 위 Windows executable이다.
+Linux 시스템 Python으로 바꾸지 말고 다음 bridge 경로로 같은 executable을 호출한다.
+
+```bash
+/mnt/w/miniforge3/envs/FGKMT/python.exe --version
+/mnt/w/miniforge3/envs/FGKMT/python.exe -m pip check
+/mnt/w/miniforge3/envs/FGKMT/python.exe -m unittest discover -s tests -v
+```
+
+WSL preflight에서는 `uname -a`, `WSL_DISTRO_NAME=Ubuntu`, bash, repository cwd
+`/mnt/z/fgkmt-sono-primegap-analysis`를 실제 출력으로 확인한다. 제한 sandbox에서 Windows
+interop가 `UtilBindVsockAnyPort`로 거부되면 정확한 허가 명령만 정상 권한에서 재시도하고,
+시스템 Python이나 다른 Conda 환경으로 우회하지 않는다. repository mount와 Windows
+executable mount의 read/write 상태는 별도로 기록한다.
+
 시스템 Python, Codex 번들 Python, 다른 Conda 환경으로 연구 코드를 실행하지 않는다. PDF 읽기 같은 도구 내부 작업은 예외지만, 연구 산출물과 계산 결과는 반드시 FGKMT 환경에서 재현한다.
 
 확인된 준비 상태(2026-08-22/23):
@@ -626,6 +658,11 @@ Codex의 저장소 스킬 정본 발견 경로는 `.agents/skills/`다. 현재 �
   `Z:\FGKMT-Sono-PrimeGap-Analysis\lean\tools\refresh_and_validate_verification_ledger.py`를
   사용하는 한 형식으로 고정한다. workdir를 이미 `lean`으로 둔 상태에서 script 경로에
   `lean\`을 다시 붙이지 않는다.
+- WSL에서 Lean을 호출할 때는 workdir를 반드시
+  `/mnt/z/fgkmt-sono-primegap-analysis/lean`으로 두고
+  `/mnt/c/Users/Uranus/.elan/bin/lake.exe`를 사용한다. repository root에서 `lake.exe`를
+  호출하면 `lean/lean-toolchain` pin을 찾지 못하고 Elan 기본 toolchain을 선택하거나
+  다운로드할 수 있으므로 금지한다. 버전 확인은 build PASS를 대신하지 않는다.
 - 2026-09-10 기준 Theory 01의 `F(x)`는 `x > exp(exp(exp(1)))`에서 양수이고
   엄격히 증가하며, 양의 end-bounded 정수 plateau의 오른쪽 끝점 minimum도
   proof escape 없이 `KERNEL_PASS`다. `G_end(x)=g_i`의 finite-record 상수성 전체는
@@ -820,6 +857,10 @@ probable-prime 검사는 record completeness의 증거가 아니다. 최신 발�
 - 기존 사용자 파일과 untracked 파일을 임의로 삭제하거나 커밋하지 않는다.
 - `git add .` 또는 `git add -A`를 사용하지 않는다.
 - push, PR, issue, 외부 게시를 사용자의 별도 요청 없이 하지 않는다.
+- WSL의 Windows-mounted checkout에서 raw `git diff`와
+  `git diff --ignore-cr-at-eol`을 함께 확인한다. non-EOL diff가 0이어도 CRLF/mixed 파일을
+  자동 복구하지 않으며, 사용자가 승인한 exact allowlist만 복구한다. commit에는 의미 있는
+  변경 경로만 명시적으로 stage하고 EOL-only 잡음을 섞지 않는다.
 - raw PDF와 raw dataset을 수정하지 않는다.
 - machine ledger·최신 theory가 exact source locator를 제공하면 그 경로만 읽는다. 특히
   <code>tmp</code> 전체를 broad recursive search하지 않으며, 경로가 불명확하면 먼저

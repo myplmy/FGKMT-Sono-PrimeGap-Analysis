@@ -3839,4 +3839,33 @@ theorem dep_r09_upper_certificate_above_gate_countermodel
     ∃ V : ℝ, V ≤ rhs ∧ ¬ V < gate := by
   exact ⟨gate, hGateRhs, lt_irrefl gate⟩
 
+/-! ## Theory 84 — sparse divisor-conductor source audit -/
+
+/- Theory 84, formula 84.20: a nonnegative sparse-modulus contribution
+   cannot reduce the coefficient-agnostic length term.  This is finite real
+   algebra only; the sparse large-sieve source theorem and the Lambda-square
+   lower bound are not asserted here. -/
+theorem dep_r09_sparse_tail_cannot_lower_length_term
+    {Y D S2 : ℝ}
+    (hD : 0 ≤ D)
+    (hS2 : 0 ≤ S2) :
+    Y * S2 ≤ (Y + D) * S2 := by
+  calc
+    Y * S2 ≤ Y * S2 + D * S2 :=
+      le_add_of_nonneg_right (mul_nonneg hD hS2)
+    _ = (Y + D) * S2 := by ring
+
+/- Theory 84, formula 84.21: once the source-derived length term is already
+   strictly above the target gate, adding any nonnegative sparse-modulus
+   term leaves the certificate above that gate.  The analytic inequality
+   gate < Y*S2 remains an explicit premise. -/
+theorem dep_r09_generic_sparse_certificate_above_gate
+    {gate Y D S2 : ℝ}
+    (hD : 0 ≤ D)
+    (hS2 : 0 ≤ S2)
+    (hLength : gate < Y * S2) :
+    gate < (Y + D) * S2 := by
+  exact lt_of_lt_of_le hLength
+    (dep_r09_sparse_tail_cannot_lower_length_term hD hS2)
+
 end FGKMTSono

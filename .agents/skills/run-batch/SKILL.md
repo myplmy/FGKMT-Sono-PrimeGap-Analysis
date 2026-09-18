@@ -12,7 +12,9 @@ description: FGKMT-Sono 실험용 PowerShell 실행기를 작성·수정·검증
 
 ## 규칙
 
-- Python은 W:\miniforge3\envs\FGKMT\python.exe로 고정한다.
+- Python의 runner 내부 정체는 W:\miniforge3\envs\FGKMT\python.exe로 고정한다.
+  WSL의 Codex 진단 호출은 `/mnt/w/miniforge3/envs/FGKMT/python.exe`로 같은 executable을
+  사용하며, runner에 WSL 경로나 Linux Python을 저장하지 않는다.
 - 실제 dataset 취득이나 분석은 명시적 Approved 매개변수 없이 시작할 수 없어야 한다.
 - 실행기 내부에서도 Python CLI의 --approved-by-user 게이트를 통과해야 한다.
 - source commit, analysis limit, run id를 명시적으로 전달하고 출력한다.

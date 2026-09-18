@@ -3135,6 +3135,111 @@
       "declarations": ["dep_r09_upper_certificate_above_gate_countermodel"]
     },
     {
+      "formula_id": "84.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.2",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_outer_entropy_character_energy_gate"]
+    },
+    {
+      "formula_id": "84.3",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_generic_sparse_certificate_above_gate"]
+    },
+    {
+      "formula_id": "84.4",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.5",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.7",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.8",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.9",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.11",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.12",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.13",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_sparse_tail_cannot_lower_length_term"]
+    },
+    {
+      "formula_id": "84.14",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_generic_sparse_certificate_above_gate"]
+    },
+    {
+      "formula_id": "84.15",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.16",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.17",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.18",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.19",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "84.20",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_sparse_tail_cannot_lower_length_term"]
+    },
+    {
+      "formula_id": "84.21",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_generic_sparse_certificate_above_gate"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

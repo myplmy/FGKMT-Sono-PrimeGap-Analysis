@@ -2201,3 +2201,50 @@ Theory 83 뒤 전수원장은 theory 84개, display 식 1,561개, Lean declarati
 금지 proof escape는 0건이다. <code>PAP-11</code>, DEP-R09, fixed
 \(2\times10^{-17}\), numerical \(X_{\rm cert}\)는 계속 OPEN이며 threshold
 calculator와 장시간 prime 계산은 NOT READY다.
+
+## 2026-09-18 DEP-R09 sparse divisor-conductor source 감사
+
+[theory 84](method/theory/84_Sono_FMT_DEPR09_sparse_divisor_conductor_source_audit.md)와
+[review 93](review/93_20260918_DEPR09_sparse_divisor_conductor_source_타당성검토.md)은
+Theory 83 뒤에 남은 sparse conductor 경로를 exact character partition과 source range로
+검사했다.
+
+primitive conductor count를
+
+\[
+\varphi^*(r)=\sum_{e\mid r}\mu(r/e)\varphi(e)
+\]
+
+라 하면
+
+\[
+\sum_{r\mid q}\varphi^*(r)=\varphi(q).
+\]
+
+따라서 conductor level 수가 적다는 사실은 character 총수 감소가 아니다. Baier형
+coefficient-agnostic sparse large sieve는 modulus-density term을 개선해도 길이 \(Y\)
+term을 보존한다. Theory 83의 source-derived lower를 합치면 가장 유리한 certificate도
+
+\[
+\{Y+D(q)\}\sum_{n\le Y}\Lambda(n)^2
+\ge Y\sum_{n\le Y}\Lambda(n)^2>V_{\rm gate}
+\]
+
+이므로 strict Theory-82 gate를 인증하지 못한다. 이는 actual \(V\)의 하한이 아니고,
+prime-specific fixed-primorial cancellation 또는 actual same-law weighted correlation은
+계속 OPEN이다.
+
+사용자가 추가한 Friedlander--Goldston 1996 원문은 확인됐다. GRH 아래 implicit
+fixed-\(q\) upper가 있으나 unconditional fully numerical current-range theorem은 아니다.
+함께 추가된 <code>Montgomery-Vaughan 2001.pdf</code>는 Vaughan의 variance 논문이 아니라
+Montgomery--Vaughan의 *Mean Values of Multiplicative Functions*이며 signed Möbius
+cancellation source다. 요청 Vaughan 2001 variance 전문은 아직 로컬에 없다.
+
+exact Python 10개와 Lean direct compile·전수 ledger refresh/validation이 PASS했다.
+Theory 84 뒤 전수원장은 theory 85개, display 식 1,586개, Lean declaration 302개다.
+상태는 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=77</code>,
+<code>DEFINITION_ONLY=122</code>, <code>PARTIAL_FORMALIZATION=125</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=105</code>,
+<code>NOT_YET_FORMALIZED=1054</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed \(2\times10^{-17}\), numerical
+\(X_{\rm cert}\)는 계속 OPEN이며 새 bounded range는 없다.

@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-18",
+  "gate": "DEP-R09 sparse divisor-conductor source audit",
+  "predecessor": "Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier_v1.json",
+  "outcome": "GENERIC_COEFFICIENT_AGNOSTIC_SPARSE_LARGE_SIEVE_CERTIFICATE_REJECTED_PRIME_SPECIFIC_OR_WEIGHTED_CORRELATION_INPUT_OPEN",
+  "normalization": {
+    "modulus": "q=P(x)/B0, a prescribed squarefree primorial-type modulus",
+    "prime_sum_scale": "Y=q^d",
+    "capacity_range": "21<=d<=186",
+    "character_energy": "V(Y,q)=sum_(chi mod q, chi!=chi0) abs(Z_chi(Y))^2",
+    "theory82_gate": "V<tau^2*p_*Q_S*M_min^2*Y^2/(phi(q)*N^2)",
+    "best_gate_envelope": "gate/Y^2<=exp(-4)*q/phi(q)"
+  },
+  "conductor_decomposition": {
+    "unique_primitive_core": "every character modulo q is induced by exactly one primitive character of conductor r dividing q",
+    "primitive_count": "phi_star(r)=sum_(d|r) mu(r/d)*phi(d)",
+    "partition_identity": "sum_(r|q) phi_star(r)=phi(q)",
+    "squarefree_formula": "phi_star(r)=product_(p|r)(p-2)",
+    "nonprincipal_total": "phi(q)-1",
+    "interpretation": "the conductor levels are sparse, but the partition does not reduce the total number of characters"
+  },
+  "source_registry": [
+    {
+      "key": "MONTGOMERY_VAUGHAN2001_LOCAL",
+      "title": "Mean Values of Multiplicative Functions",
+      "authors": "H. L. Montgomery and R. C. Vaughan",
+      "journal": "Periodica Mathematica Hungarica 43 (1--2), 199--214 (2001)",
+      "locator": "article/Montgomery-Vaughan 2001.pdf",
+      "sha256": "e4d6a5fae3a41b9b50fe34355b0ea098e852bd84384bba7e1e83dbb083af0c9b",
+      "byte_size": 320668,
+      "pdf_pages": 16,
+      "printed_locations": "printed p. 202, Theorem 5; printed pp. 212--214, proof",
+      "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_ORIGINAL_PAGE_CROSSCHECK",
+      "relevant_statement": "sum_(m|n,m<=x) mu(m) is O(x*(log x)^(-1+1/pi)) uniformly for x>=2,n>=1, with an implicit constant",
+      "classification": "PRIMARY_PEER_REVIEWED_SIGNED_MOBIUS_CANCELLATION_NOT_THE_REQUESTED_VAUGHAN_VARIANCE_PAPER_AND_NOT_A_DROP_IN"
+    },
+    {
+      "key": "FRIEDLANDER_GOLDSTON1996_LOCAL",
+      "title": "Variance of Distribution of Primes in Residue Classes",
+      "authors": "J. B. Friedlander and D. A. Goldston",
+      "journal": "Quarterly Journal of Mathematics Oxford (2) 47 (1996), 313--336",
+      "doi": "10.1093/qmath/47.3.313",
+      "locator": "article/friedlander1996.pdf",
+      "sha256": "4981fe4eb38f8788a74082d031063e4dd9e98c63411fbb31d761e346b8a01bd9",
+      "byte_size": 679866,
+      "pdf_pages": 24,
+      "printed_locations": "printed pp. 314--317, (1.5), Theorems 1--2 and Proposition 1; printed pp. 333--335, divisor approximation and conclusion",
+      "reading_mode": "SCAN_WITH_OCR_TEXT_LAYER_THEN_RENDERED_ORIGINAL_PAGE_CROSSCHECK",
+      "relevant_statement": "the fixed-q upper G(x,q)<<x*(log x)^4 is conditional on GRH and has an implicit constant; Theorem 1 is a modulus-average result in the large-Q range, while Theorem 2 is a lower bound",
+      "classification": "PRIMARY_PEER_REVIEWED_RELEVANT_VARIANCE_SOURCE_BUT_NO_UNCONDITIONAL_FULLY_NUMERICAL_CURRENT_POWER_REGIME_UPPER_DROP_IN"
+    },
+    {
+      "key": "VAUGHAN2001_REQUESTED",
+      "title": "On a Variance Associated with the Distribution of Primes in Arithmetic Progressions",
+      "authors": "R. C. Vaughan",
+      "journal": "Proceedings of the London Mathematical Society 82 (3), 533--553 (2001)",
+      "doi": "10.1112/plms/82.3.533",
+      "url": "https://londmathsoc.onlinelibrary.wiley.com/doi/abs/10.1112/plms/82.3.533",
+      "local_full_text_present": false,
+      "classification": "PRIMARY_METADATA_VERIFIED_BUT_REQUESTED_FULL_TEXT_NOT_PRESENT_UNDER_THE_SUPPLIED_FILENAME"
+    },
+    {
+      "key": "BAIER2005_SPARSE_LARGE_SIEVE",
+      "title": "On the Large Sieve with Sparse Sets of Moduli",
+      "authors": "Stephan Baier",
+      "arxiv": "math/0512228v1",
+      "url": "https://arxiv.org/html/math/0512228v1",
+      "source_locations": "Theorem 2, equation (6), and the discussion immediately following it",
+      "relevant_statement": "the sparse-modulus estimate retains an N*Z term and improves the modulus-density contribution in its source assumptions and range",
+      "classification": "PRIMARY_PREPRINT_GENERIC_SPARSE_MODULUS_LARGE_SIEVE_RETAINS_UNAVOIDABLE_LENGTH_TERM"
+    },
+    {
+      "key": "THEORY83",
+      "title": "DEP-R09 fixed-primorial variance and large-sieve barrier audit",
+      "locator": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278",
+      "source_locations": "formulas (83.17)--(83.24)",
+      "classification": "PROJECT_EXPLICIT_LENGTH_MASS_LOWER_AND_BEST_GATE_UPPER"
+    }
+  ],
+  "source_range_audit": {
+    "current_q_range": "q=Y^(1/d)<=Y^(1/21)",
+    "friedlander_goldston_fixed_q_upper": "conditional on GRH with an implicit constant and cutoff; not an unconditional numerical certificate",
+    "friedlander_goldston_theorem1": "large-Q modulus average, not one prescribed q=Y^(1/d)",
+    "friedlander_goldston_theorem2": "lower bound, so it cannot supply the required upper certificate",
+    "montgomery_vaughan_local_pdf": "a multiplicative-functions paper whose Theorem 5 controls a signed truncated Moebius divisor sum with an implicit constant",
+    "requested_vaughan_variance_full_text": "not present in the two newly supplied files",
+    "baier_sparse_modulus_theorem": "generic coefficient-agnostic sparse large sieve; its length term remains and its stated improvement regime is not the present small-Q regime",
+    "fully_numerical_unconditional_current_regime_drop_in_count": 0,
+    "absence_claim_scope": "checked local primary sources and the targeted sparse-large-sieve source only, not all mathematical literature"
+  },
+  "generic_sparse_barrier": {
+    "template": "B_sparse=(Y+D(q))*S2(Y), D(q)>=0",
+    "length_term": "B_sparse>=Y*S2(Y)",
+    "theory83_lower": "S2(Y)/Y>(log(Y)-log(2))/4>5*log(q)",
+    "best_gate_upper": "gate/Y^2<=exp(-4)*q/phi(q)<5*log(q)",
+    "strict_conclusion": "B_sparse>gate throughout q>=3,d>=21",
+    "universal_extremizer": "for any retained frequency alpha0, a_n=exp(-2*pi*i*n*alpha0) has sampled square N^2 and coefficient energy N, forcing a universal coefficient at least N",
+    "scope": "rejects the generic coefficient-agnostic certificate only; it is not a lower bound for actual V"
+  },
+  "exact_finite_diagnostic": {
+    "sample_conductor_partitions_all_exact": true,
+    "sample_nonprincipal_totals_all_phi_minus_one": true,
+    "squarefree_product_formula_all_exact": true,
+    "positive_conductor_levels": {
+      "3": 2,
+      "30": 4,
+      "210": 8,
+      "2310": 16,
+      "30030": 32,
+      "510510": 64
+    },
+    "total_character_counts": {
+      "3": 2,
+      "30": 8,
+      "210": 48,
+      "2310": 480,
+      "30030": 5760,
+      "510510": 92160
+    },
+    "generic_sparse_length_term_margins_all_positive": true,
+    "one_frequency_extremizer_requires_length_term": true,
+    "signed_cancellation_does_not_bound_l1_witness": true,
+    "montgomery_vaughan_2001_pdf_is_requested_vaughan_variance_paper": false,
+    "friedlander_goldston_1996_pdf_identity_verified": true,
+    "generic_sparse_large_sieve_can_certify_theory82_gate": false,
+    "prime_specific_bound_identified": false,
+    "direct_same_law_correlation_theorem_identified": false,
+    "actual_character_energy_lower_bound_claimed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The actual character energy V is at least the generic sparse certificate RHS.",
+    "Every sparse-divisor or conductor-sensitive theorem is impossible.",
+    "The signed Moebius estimate in Montgomery--Vaughan 2001 controls the absolute-square character energy.",
+    "The conditional GRH upper in Friedlander--Goldston is an unconditional numerical certificate.",
+    "The supplied Montgomery--Vaughan PDF is Vaughan's requested 2001 variance paper.",
+    "PAP-11, DEP-R09, the fixed coefficient, or numerical X_cert is closed.",
+    "A threshold calculator or long prime computation is ready."
+  ],
+  "status_after_this_gate": {
+    "divisor_conductor_partition_exact": true,
+    "generic_sparse_large_sieve_certificate_rejected_for_theory82_gate": true,
+    "prime_specific_fixed_primorial_bound_still_possible": true,
+    "direct_same_law_weighted_correlation_still_possible": true,
+    "requested_vaughan2001_full_text_present": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "user_compute_required_now": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "next_gate": "Obtain a fully numerical unconditional prime-specific fixed-primorial bound or an actual same-law weighted-correlation theorem; the number of divisor-conductor levels and a generic sparse large sieve are insufficient because the unavoidable length term already exceeds the Theory-82 gate."
+}

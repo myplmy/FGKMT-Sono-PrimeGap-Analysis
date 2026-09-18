@@ -10,11 +10,15 @@ description: 로컬 test_plan 체크리스트나 사용자가 지정한 PR/Issue
 ## 절차
 
 1. AGENTS.md, 대상 계획서, 관련 구현을 읽는다.
-2. 자동 검증은 W:\miniforge3\envs\FGKMT\python.exe와 프로젝트에 명시된 명령으로 수행한다.
+2. 자동 검증은 canonical W:\miniforge3\envs\FGKMT\python.exe와 프로젝트에 명시된
+   명령으로 수행한다. WSL에서는 `/mnt/w/miniforge3/envs/FGKMT/python.exe`로 같은
+   executable을 호출하고 시스템 Python으로 대체하지 않는다.
 3. 합성 데이터·단위 테스트는 승인 전에 가능하지만, 원본 dataset 취득과 실제 분석은 사용자 승인 전 실행하지 않는다.
 4. 명령, 종료 코드, 핵심 출력을 증거로 남긴다.
 5. 통과한 항목만 체크한다. 미실행, 환경 차단, 판정 불가를 PASS로 바꾸지 않는다.
 6. PR/Issue 본문이나 외부 상태 변경은 사용자가 명시적으로 요청하고 승인한 경우에만 수행한다.
+7. WSL checkout에서는 raw diff와 `--ignore-cr-at-eol` diff를 분리하고, EOL-only
+   변경을 검증 대상의 의미 있는 변경이나 PASS 근거로 세지 않는다.
 
 ## 보고
 
@@ -22,4 +26,3 @@ description: 로컬 test_plan 체크리스트나 사용자가 지정한 PR/Issue
 - 실행한 정확한 명령과 Python 경로
 - 실패 또는 미실행 이유
 - 실제 실험 승인과 추가 사용자 확인이 필요한 항목
-

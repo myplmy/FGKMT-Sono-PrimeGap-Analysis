@@ -29,6 +29,21 @@ Set-Location -LiteralPath 'Z:\FGKMT-Sono-PrimeGap-Analysis\lean'
 & 'W:\miniforge3\envs\FGKMT\python.exe' tools\refresh_and_validate_verification_ledger.py
 ```
 
+Codex가 WSL2에서 실행될 때는 repository root가 아니라 Lean project directory를
+workdir로 고정하고 같은 Windows executable을 bridge 경로로 호출한다.
+
+```bash
+cd /mnt/z/fgkmt-sono-primegap-analysis/lean
+/mnt/c/Users/Uranus/.elan/bin/lake.exe env lean --version
+/mnt/c/Users/Uranus/.elan/bin/lake.exe build
+/mnt/c/Users/Uranus/.elan/bin/lake.exe env lean FGKMTSono/TheoryVerification.lean
+/mnt/w/miniforge3/envs/FGKMT/python.exe tools/refresh_and_validate_verification_ledger.py
+```
+
+repository root에서 `lake.exe`를 실행하면 이 디렉터리의 `lean-toolchain`을 찾지 못해
+Elan 기본 toolchain을 선택하거나 새 toolchain 다운로드를 시도할 수 있다. 따라서 WSL에서도
+항상 위 `lean/` cwd를 먼저 고정하며, interop sandbox 거부를 다른 Lean/Python으로 우회하지 않는다.
+
 마지막 wrapper는 generator를 먼저 성공시킨 뒤에만 validator를 실행한다. theory Markdown은
 후행 공백을 포함한 byte 변경만으로도 source hash가 바뀌므로, 마지막 theory 수정 뒤에는
 validator를 단독 실행하지 않는다. 두 하위 도구를 진단 목적으로 따로 실행한 결과는 wrapper의
@@ -463,4 +478,20 @@ Theory 83 뒤 inventory는 theory 문서 84개, display 1,561식이며 전체 �
 <code>NOT_YET_FORMALIZED=1050</code>, <code>PARSE_REVIEW_REQUIRED=5</code>다.
 declaration은 300개이고 금지 proof escape는 0건이다. raw large-sieve path의
 불충분성만 닫혔고 prime-specific/sparse-divisor energy, PAP-11, DEP-R09,
+fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-18 Theory 84 batch는 primitive conductor partition과 generic sparse-modulus
+certificate의 경계를 분리했다. Lean은 nonnegative sparse tail이 length term을 줄이지
+못한다는 단조성과, source-derived \(gate<Y S_2\) premise 뒤 strict barrier로 가는
+terminal만 검사한다. character induction, Baier sparse large sieve,
+Montgomery--Vaughan·Friedlander--Goldston source theorem은 local axiom으로 넣지 않았다.
+
+canonical direct compile과 전수 inventory refresh·validation은 exit code 0이었다.
+Theory 84 뒤 inventory는 theory 문서 85개, display 1,586식이며 전체 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=77</code>,
+<code>DEFINITION_ONLY=122</code>, <code>PARTIAL_FORMALIZATION=125</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=105</code>,
+<code>NOT_YET_FORMALIZED=1054</code>, <code>PARSE_REVIEW_REQUIRED=5</code>다.
+declaration은 302개이고 금지 proof escape는 0건이다. generic sparse certificate의
+불충분성만 닫혔고 prime-specific/actual-weight correlation, PAP-11, DEP-R09,
 fixed 2e-17과 X_cert는 계속 OPEN이다.

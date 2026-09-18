@@ -18,7 +18,9 @@ description: FGKMT-Sono 실제 maximal-gap dataset 취득이나 분석을 시작
 ## 게이트
 
 1. 사용자에게 목적·정의·범위·방법을 설명했고 명시적 실행 허가를 받았는가.
-2. Python이 정확히 W:\miniforge3\envs\FGKMT\python.exe인가.
+2. Python의 canonical 정체가 정확히 W:\miniforge3\envs\FGKMT\python.exe인가.
+   WSL에서는 `/mnt/w/miniforge3/envs/FGKMT/python.exe`로 같은 Windows executable을
+   호출하며 시스템 Python으로 대체하지 않는가.
 3. log_k가 밑 k 로그가 아니라 k회 반복 자연로그이며 독립 테스트를 통과했는가.
 4. canonical 경계가 오직 p_(n+1) <= x인가.
 5. 원천이 primegap-list-project/prime-gap-list의 pin한 40자리 commit과 allgaps.sql인가.
@@ -31,6 +33,7 @@ description: FGKMT-Sono 실제 maximal-gap dataset 취득이나 분석을 시작
 12. interval minimum, running minimum, record jump, Sono ratio, Wolf 비교의 정의가 문서와 코드에서 일치하는가.
 13. 입력·코드·환경 hash와 버전이 기록되는가.
 14. 기존 raw/validated/result 경로를 덮어쓰지 않는가.
+15. WSL 실행이면 Linux/WSL2·Ubuntu·bash·repository cwd와 Windows interop를 실제
+    출력으로 확인했고, sandbox 거부를 다른 Python으로 우회하지 않는가.
 
 하나라도 핵심 게이트가 실패하면 BLOCKED로 보고하고 실제 실행을 시작하지 않는다. 모두 통과하면 READY, 승인 자체가 없으면 WAITING_FOR_USER_APPROVAL로 보고한다.
-

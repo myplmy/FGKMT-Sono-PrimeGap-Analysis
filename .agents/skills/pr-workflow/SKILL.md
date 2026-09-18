@@ -11,6 +11,8 @@ description: 사용자가 명시적으로 요청한 경우 이 저장소의 브�
 
 1. git status, 현재 branch, remote, base 후보를 다시 확인한다.
 2. 사용자 변경과 이번 작업 변경을 분리한다.
+   WSL의 Windows-mounted checkout이면 raw diff와 `git diff --ignore-cr-at-eol`을 함께
+   확인하고, 승인되지 않은 EOL-only 복구나 normalization을 하지 않는다.
 3. git add . 또는 git add -A를 쓰지 않고 검토한 명시 경로만 stage한다.
 4. raw dataset, validated dataset, 결과 산출물, 비밀정보, `ai_dev_tool/project_reference/project_static.json`의 `excludedPaths`를 포함하지 않는다.
 5. 관련 테스트와 문서 정합성 검사를 수행한다.
@@ -19,4 +21,3 @@ description: 사용자가 명시적으로 요청한 경우 이 저장소의 브�
 8. 충돌, 실패, 보호 규칙을 우회하지 않는다.
 
 검증 결과에는 실제 실행과 미실행을 분리해 적고, 본 실험이 승인되지 않았다면 그 사실을 명시한다.
-
