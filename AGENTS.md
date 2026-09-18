@@ -182,6 +182,21 @@ review 93이며 prime-specific fixed-primorial upper·actual same-law correlatio
 PAP-11·DEP-R09·fixed <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이다.
 threshold calculator·장시간 prime 계산은 NOT READY다.
 
+2026-09-18 Vaughan 2001 variance successor는 정확한 요청 원문
+<code>article/vaughan2001.pdf</code>를 21쪽·hash·rendered page로 확인했다. Vaughan
+residue variance와 Theory 82 nonprincipal energy는
+<code>V_proj=phi(q)V_Vau-|psi(Y,chi0)-Y|^2</code>로 exact하게 연결된다. 그러나
+Theorem 1은 fixed-A에서 <code>Q&gt;=Y(log Y)^(-A)</code>인 dyadic modulus moment이고
+current <code>q=Y^(1/d), 21&lt;=d&lt;=186</code> growing family를 덮지 않는다.
+Theorem 2는 GRH·<code>Q&gt;=Y^(3/4+epsilon)</code> branch이며 Theorem 3도 fixed-primorial
+energy upper가 아니다. source constants·cutoff는 implicit이다. 최신 analytic 정본은
+theory 85·review 94다. Theory 85 뒤 inventory는 86개 문서, 1,605식이고
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=81</code>,
+<code>NOT_YET_FORMALIZED=1055</code>, Lean declaration 305개, 금지 proof escape 0건이다.
+prime-specific fixed-primorial upper·actual same-law correlation, PAP-11·DEP-R09·fixed
+<code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이며 threshold calculator·장시간
+prime 계산은 NOT READY다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

@@ -3868,4 +3868,49 @@ theorem dep_r09_generic_sparse_certificate_above_gate
   exact lt_of_lt_of_le hLength
     (dep_r09_sparse_tail_cannot_lower_length_term hD hS2)
 
+/-! ## Theory 85 — Vaughan 2001 variance source audit -/
+
+/- Theory 85, formulas 85.1 and 85.6: once finite character Parseval and the
+   centering calculation supply
+     characterEnergy + principalError = phi * vaughanVariance,
+   the nonnegative principal error can only lower the nonprincipal character
+   energy.  The character identity and Vaughan's analytic theorem remain
+   source-level premises. -/
+theorem dep_r09_vaughan_character_energy_upper
+    {characterEnergy principalError phi vaughanVariance : ℝ}
+    (hIdentity :
+      characterEnergy + principalError = phi * vaughanVariance)
+    (hPrincipal : 0 ≤ principalError) :
+    characterEnergy ≤ phi * vaughanVariance := by
+  linarith
+
+/- Theory 85, formula 85.7: the exact variance bridge transfers a strict
+   Vaughan-variance upper into the strict Theory-82 character-energy gate.
+   This theorem verifies only the terminal algebra and does not assert the
+   missing analytic variance estimate. -/
+theorem dep_r09_vaughan_variance_gate_transfer
+    {characterEnergy principalError phi vaughanVariance gate : ℝ}
+    (hPhi : 0 < phi)
+    (hIdentity :
+      characterEnergy + principalError = phi * vaughanVariance)
+    (hPrincipal : 0 ≤ principalError)
+    (hVariance : vaughanVariance < gate / phi) :
+    characterEnergy < gate := by
+  have hEnergy : characterEnergy ≤ phi * vaughanVariance :=
+    dep_r09_vaughan_character_energy_upper hIdentity hPrincipal
+  have hScaled : phi * vaughanVariance < gate := by
+    exact (lt_div_iff₀ hPhi).mp hVariance
+  exact hEnergy.trans_lt hScaled
+
+/- Theory 85, formula 85.18: every current power exponent delta <= 1/21
+   lies strictly below Vaughan Theorem 2's GRH threshold 3/4 + epsilon for
+   epsilon >= 0.  Identifying delta with 1/d is kept as an audited source
+   normalization rather than asserted here. -/
+theorem dep_r09_vaughan_grh_power_range_mismatch
+    {delta epsilon : ℝ}
+    (hDelta : delta ≤ 1 / 21)
+    (hEpsilon : 0 ≤ epsilon) :
+    delta < 3 / 4 + epsilon := by
+  linarith
+
 end FGKMTSono

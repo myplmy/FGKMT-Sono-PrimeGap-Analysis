@@ -495,3 +495,19 @@ Theory 84 뒤 inventory는 theory 문서 85개, display 1,586식이며 전체 �
 declaration은 302개이고 금지 proof escape는 0건이다. generic sparse certificate의
 불충분성만 닫혔고 prime-specific/actual-weight correlation, PAP-11, DEP-R09,
 fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+2026-09-18 Theory 85 batch는 Vaughan residue variance와 project nonprincipal
+character energy의 centering bridge를 추가했다. Lean은 source identity를 premise로
+받은 뒤 nonnegative principal correction을 버리는 terminal, strict Theory-82 gate
+transfer와 current exponent \(1/21<3/4+\varepsilon\)만 검사한다. finite character
+Parseval과 Vaughan Theorems 1--3은 local axiom으로 넣지 않았다.
+
+canonical direct compile과 full build, 전수 inventory refresh·validation은 exit code
+0이었다. Theory 85 뒤 inventory는 theory 문서 86개, display 1,605식이며 전체 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=81</code>,
+<code>DEFINITION_ONLY=126</code>, <code>PARTIAL_FORMALIZATION=128</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=112</code>,
+<code>NOT_YET_FORMALIZED=1055</code>, <code>PARSE_REVIEW_REQUIRED=5</code>다.
+declaration은 305개이고 금지 proof escape는 0건이다. analytic source range mismatch와
+implicit constant 때문에 prime-specific upper, PAP-11, DEP-R09, fixed 2e-17과
+X_cert는 계속 OPEN이다.

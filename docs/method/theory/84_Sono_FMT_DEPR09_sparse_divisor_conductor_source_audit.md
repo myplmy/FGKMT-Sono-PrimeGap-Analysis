@@ -1,5 +1,13 @@
 # Theory 84 — DEP-R09 sparse divisor-conductor source 감사
 
+> **2026-09-18 successor note.** 이 문서의
+> <code>REQUESTED_VAUGHAN_FULL_TEXT_MISSING</code>은 당시 supplied-file snapshot이다.
+> 이후 <code>article/vaughan2001.pdf</code>로 정확한 원문이 추가되어 page-level 감사가
+> 완료됐다. 현재 판정은
+> [Theory 85](85_Sono_FMT_DEPR09_Vaughan2001_variance_source_audit.md)와
+> [review 94](../../review/94_20260918_DEPR09_Vaughan2001_variance_source_타당성검토.md)를
+> 따른다.
+
 - 상태:
   <code>GENERIC_SPARSE_LARGE_SIEVE_CERTIFICATE_REJECTED /
   PRIME_SPECIFIC_OR_WEIGHTED_CORRELATION_OPEN /

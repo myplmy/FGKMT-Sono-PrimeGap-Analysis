@@ -1307,3 +1307,34 @@ Möbius cancellation 논문이다.
 66개 root row, <code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed
 \(2\times10^{-17}\), \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. 새 bounded range가
 없으므로 threshold calculator와 장시간 prime sweep은 NOT READY다.
+
+## 54. 2026-09-18 DEP-R09 Vaughan 2001 variance 원문 후속 상태
+
+[theory 85](85_Sono_FMT_DEPR09_Vaughan2001_variance_source_audit.md)는 Theory 84에서
+누락됐던 정확한 R. C. Vaughan 2001 PLMS 원문을 page-level로 감사했다.
+
+Vaughan residue variance와 Theory 82의 nonprincipal character energy 사이에는
+
+~~~text
+V_{\rm proj}(Y,q)+|\psi(Y,\chi_0)-Y|^2
+=\varphi(q)V_{\rm Vau}(Y,q)
+~~~
+
+라는 exact bridge가 있다. 따라서 numerical individual-\(q\) Vaughan variance upper가
+있다면 Theory 82 gate로 전이할 수 있다.
+
+그러나 source Theorem 1은 \(Q/2<q\le Q\)의 dyadic moment이고 fixed \(A\)에서
+\(Q\ge Y(\log Y)^{-A}\)를 요구한다. current \(Y=q^d\), \(d\ge21\) growing family는
+한 fixed \(A\)로 이 범위에 들어가지 않는다. Theorem 2는 GRH conditional이고
+\(Q\ge Y^{3/4+\varepsilon}\)라 current exponent와 겹치지 않는다. Theorem 3의 partial
+singular series도 prescribed-primorial energy upper가 아니며 source multipliers와 cutoff는
+implicit이다.
+
+따라서 requested-source completeness와 exact finite bridge만 닫혔다. 66개 root row,
+<code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed \(2\times10^{-17}\),
+\(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. threshold calculator와 장시간
+prime sweep은 계속 NOT READY다.
+
+Theory 85 뒤 전수원장은 theory 86개, display 식 1,605개, Lean declaration 305개,
+금지 proof escape 0건이다. 이는 source theorem을 형식화해 blocker를 닫았다는 뜻이
+아니라 centering·strict-gate·power-range terminal의 검증 범위를 고정한 것이다.

@@ -3240,6 +3240,101 @@
       "declarations": ["dep_r09_generic_sparse_certificate_above_gate"]
     },
     {
+      "formula_id": "85.1",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_vaughan_character_energy_upper"]
+    },
+    {
+      "formula_id": "85.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.5",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.6",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_vaughan_character_energy_upper"]
+    },
+    {
+      "formula_id": "85.7",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_vaughan_variance_gate_transfer"]
+    },
+    {
+      "formula_id": "85.8",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.9",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.10",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.11",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.12",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.14",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.15",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.16",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.17",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "85.18",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_vaughan_grh_power_range_mismatch"]
+    },
+    {
+      "formula_id": "85.19",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

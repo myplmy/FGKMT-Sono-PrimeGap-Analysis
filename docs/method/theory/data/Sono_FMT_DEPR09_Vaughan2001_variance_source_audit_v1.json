@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-18",
+  "gate": "DEP-R09 Vaughan 2001 variance source audit",
+  "predecessor": "Sono_FMT_DEPR09_sparse_divisor_conductor_source_audit_v1.json",
+  "outcome": "EXACT_VARIANCE_TO_CHARACTER_ENERGY_BRIDGE_BUT_SOURCE_RANGE_AND_NUMERICAL_CONSTANTS_NOT_A_CURRENT_DROP_IN",
+  "normalization": {
+    "project_modulus": "q=P(x)/B0, one prescribed growing squarefree primorial-type modulus",
+    "project_prime_sum_scale": "Y=q^d",
+    "project_capacity_range": "21<=d<=186",
+    "project_character_energy": "V_proj(Y,q)=sum_(chi mod q, chi!=chi0) abs(Z_chi(Y))^2",
+    "theory82_gate": "V_proj<tau^2*p_*Q_S*M_min^2*Y^2/(phi(q)*N^2)",
+    "vaughan_variance": "V_Vau(Y,q)=sum_(a mod q,(a,q)=1) abs(psi(Y;q,a)-Y/phi(q))^2"
+  },
+  "local_primary_source": {
+    "key": "VAUGHAN2001_VARIANCE_LOCAL",
+    "title": "On a Variance Associated with the Distribution of Primes in Arithmetic Progressions",
+    "author": "R. C. Vaughan",
+    "journal": "Proceedings of the London Mathematical Society (3) 82 (2001), 533--553",
+    "doi": "10.1112/plms/82.3.533",
+    "locator": "article/vaughan2001.pdf",
+    "sha256": "d5bc8d92c1204b09233c507b83ee185e35a54186122da1c906df87bbcb9d3ecc",
+    "byte_size": 180481,
+    "pdf_version": "1.2",
+    "pdf_pages": 21,
+    "text_layer": "NATIVE_TEXT",
+    "image_inventory": "NO_RASTER_IMAGES",
+    "reading_mode": "NATIVE_TEXT_FIRST_THEN_RENDERED_ORIGINAL_PAGE_CROSSCHECK",
+    "verified_locations": "printed p. 533 equations (1.1)--(1.3); pp. 534--535 equations (1.9), (1.14)--(1.20), Theorems 1--2; p. 536 Theorem 3 and implied-constant convention",
+    "classification": "PRIMARY_PEER_REVIEWED_REQUESTED_FULL_TEXT_VERIFIED"
+  },
+  "exact_variance_bridge": {
+    "reduced_residue_total": "S(Y,q)=sum_(a mod q,(a,q)=1) psi(Y;q,a)=psi(Y,chi0)",
+    "centering_identity": "V_Vau=sum_a abs(psi_a-S/phi(q))^2+abs(S-Y)^2/phi(q)",
+    "finite_parseval": "V_proj=phi(q)*sum_a abs(psi_a-S/phi(q))^2",
+    "exact_bridge": "V_proj=phi(q)*V_Vau-abs(S-Y)^2",
+    "upper_bridge": "V_proj<=phi(q)*V_Vau",
+    "scope": "exact finite algebra plus standard finite character Parseval; no analytic prime estimate is inferred"
+  },
+  "source_statement_audit": {
+    "theorem1": {
+      "locator": "printed p. 535, Theorem 1",
+      "object": "M_k(Y,Q)=sum_(Q/2<q<=Q) abs(V_Vau(Y,q)-U(Y,q))^k",
+      "range": "Y*(log Y)^(-A)<=Q<=Y for fixed A>0",
+      "bound": "O_k(Q*Y^k*F(Y/Q)^k)+O_(k,A)(Q*Y^k*(log Y)^(-A))",
+      "f_bound": "F(y)<<y^(-1/2)*exp(-c*(log(2y))^(3/5)/(loglog(3y))^(1/5))",
+      "numerical_status": "implicit O constants, implicit positive c, and no project-ready finite cutoff"
+    },
+    "theorem2": {
+      "locator": "printed p. 535, Theorem 2",
+      "assumption": "Generalised Riemann Hypothesis",
+      "range": "Y^(3/4+epsilon)<=Q<=Y, epsilon>0, integer k>=2",
+      "bound": "O_k(Q*Y^k*F(Y/Q)^k)+O_(k,epsilon)(Q*Y^k*(Y/Q)^k*Y^(epsilon-1/2))",
+      "f_bound": "F(y)<<y^(epsilon-7/12)",
+      "numerical_status": "conditional and implicit"
+    },
+    "theorem3": {
+      "locator": "printed p. 536, Theorem 3, equations (1.20)--(1.24)",
+      "object": "partial singular series S_q(y)",
+      "relevance": "prime-specific structure inside the modulus-moment proof",
+      "drop_in_status": "not a prescribed-primorial character-energy upper; error uses implicit O constant and implicit positive c"
+    }
+  },
+  "source_range_audit": {
+    "current_modulus_exponent": "q=Y^(1/d), so 1/d<=1/21",
+    "theorem1_at_current_scale": "q>=Y/(log Y)^A is equivalent to A>=(d-1)log(q)/log(d log(q)); the required A diverges along the growing primorial family for every fixed d>=2",
+    "theorem1_verdict": "no one fixed-A source theorem covers the growing current family; it is also a dyadic modulus moment rather than an individual prescribed-q theorem",
+    "theorem2_exponent_comparison": "1/d<=1/21<3/4+epsilon",
+    "theorem2_verdict": "range disjoint from the current power regime and conditional on GRH",
+    "individual_extraction": "for q in a covered dyadic block, one may bound a single abs(V_Vau-U) by M_k^(1/k), but the paper's source range, implicit constants, and cutoff remain",
+    "fully_numerical_unconditional_current_regime_drop_in_count": 0,
+    "absence_claim_scope": "this is a page-level audit of Vaughan 2001, not an impossibility result for every prime-specific or weighted-correlation argument"
+  },
+  "exact_finite_diagnostic": {
+    "vaughan_2001_pdf_identity_verified": true,
+    "vaughan_2001_pdf_page_count_verified": true,
+    "exact_centering_decomposition_samples_all_pass": true,
+    "exact_character_energy_upper_bridge_samples_all_pass": true,
+    "current_power_exponents_all_below_three_quarters": true,
+    "theorem1_is_dyadic_modulus_moment": true,
+    "theorem1_fixed_a_covers_growing_current_family": false,
+    "theorem2_requires_grh": true,
+    "theorem2_range_overlaps_current_power_regime": false,
+    "theorem3_is_fixed_primorial_character_energy_upper": false,
+    "fully_numerical_unconditional_current_regime_drop_in_identified": false,
+    "prime_specific_fixed_primorial_bound_identified": false,
+    "direct_same_law_correlation_theorem_identified": false,
+    "actual_character_energy_lower_bound_claimed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "Vaughan 2001 gives an individual prescribed-primorial variance upper in the current q=Y^(1/d) range.",
+    "The implicit constants or sufficiently-large thresholds in Vaughan 2001 have been made numerical.",
+    "The exact centering bridge supplies the missing analytic upper by itself.",
+    "The GRH branch has been adopted as an unconditional project result.",
+    "The actual character energy has a new lower bound.",
+    "PAP-11, DEP-R09, the fixed coefficient, or numerical X_cert is closed.",
+    "A threshold calculator or actual prime computation is ready."
+  ],
+  "status_after_this_gate": {
+    "requested_vaughan2001_full_text_present": true,
+    "source_identity_and_page_locators_verified": true,
+    "variance_to_character_energy_bridge_exact": true,
+    "vaughan2001_current_regime_drop_in": false,
+    "prime_specific_fixed_primorial_bound_still_possible": true,
+    "direct_same_law_weighted_correlation_still_possible": true,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "user_compute_required_now": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "next_gate": "Obtain a fully numerical unconditional prime-specific upper for the prescribed growing primorial, or control the actual same-law weighted correlation directly; Vaughan 2001 supplies neither in the current q=Y^(1/d), 21<=d<=186 regime."
+}

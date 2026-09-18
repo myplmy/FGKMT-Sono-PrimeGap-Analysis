@@ -2248,3 +2248,43 @@ Theory 84 뒤 전수원장은 theory 85개, display 식 1,586개, Lean declarati
 <code>NOT_YET_FORMALIZED=1054</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. PAP-11, DEP-R09, fixed \(2\times10^{-17}\), numerical
 \(X_{\rm cert}\)는 계속 OPEN이며 새 bounded range는 없다.
+
+## 2026-09-18 DEP-R09 Vaughan 2001 variance 원문 감사
+
+[theory 85](method/theory/85_Sono_FMT_DEPR09_Vaughan2001_variance_source_audit.md)와
+[review 94](review/94_20260918_DEPR09_Vaughan2001_variance_source_타당성검토.md)은
+새로 추가된 정확한 R. C. Vaughan 2001 PLMS 원문을 Theory 82 normalization과
+page-level로 대조했다.
+
+Vaughan의 residue variance를 \(V_{\rm Vau}\), Theory 82 nonprincipal energy를
+\(V_{\rm proj}\)라 하면 finite centering과 character Parseval은
+
+\[
+V_{\rm proj}(Y,q)
+=\varphi(q)V_{\rm Vau}(Y,q)-|\psi(Y,\chi_0)-Y|^2
+\le\varphi(q)V_{\rm Vau}(Y,q)
+\]
+
+를 준다. 이 bridge는 exact하다. 따라서 적절한 individual-\(q\) variance upper가
+있다면 Theory 82 gate로 옮길 수 있다.
+
+그러나 Vaughan Theorem 1은 \(Q/2<q\le Q\)의 modulus moment이고 fixed \(A>0\)에서
+\(Q\ge Y(\log Y)^{-A}\)를 요구한다. \(Y=q^d,Q=q\)에서는 필요한
+\(A\ge(d-1)\log q/\log(d\log q)\)가 growing family를 따라 발산한다. Theorem 2는
+GRH conditional이고 \(Q\ge Y^{3/4+\varepsilon}\)라 current
+\(q=Y^{1/d},d\ge21\) 범위와 겹치지 않는다. Theorem 3의 partial singular series도
+prescribed-primorial energy upper가 아니며 source constants·cutoff는 implicit이다.
+
+따라서 requested-source completeness와 exact bridge는 닫혔지만 fully numerical
+unconditional current-regime upper는 식별되지 않았다. PAP-11, DEP-R09, fixed
+\(2\times10^{-17}\), numerical \(X_{\rm cert}\)는 계속 OPEN이고 threshold
+calculator·actual prime 계산은 NOT READY / NOT RUN이다.
+
+Theory 83--85 Python 회귀시험 28개, Lean direct compile과 full build, 전수 ledger
+refresh/validation이 모두 exit 0이었다. Theory 85 뒤 전수원장은 theory 86개,
+display 식 1,605개, Lean declaration 305개다. 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=81</code>,
+<code>DEFINITION_ONLY=126</code>, <code>PARTIAL_FORMALIZATION=128</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=112</code>,
+<code>NOT_YET_FORMALIZED=1055</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.
