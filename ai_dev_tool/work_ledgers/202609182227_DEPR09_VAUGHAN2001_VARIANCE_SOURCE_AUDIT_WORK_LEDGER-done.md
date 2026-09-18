@@ -42,7 +42,7 @@
 3. **DONE — Theory 82 normalization과 exact centering reduction 구현**
 4. **DONE — successor theory/review/machine ledger 작성**
 5. **DONE — Python·Lean·전수 verification 검증**
-6. **IN PROGRESS — 정본 동기화·완료 handoff·로컬 commit**
+6. **DONE — 정본 동기화·완료 handoff·로컬 commit**
 
 ## 단계별 기록
 
@@ -77,3 +77,24 @@
   정상 LaTeX <code>\varepsilon</code>로 교정한 뒤 text-integrity issue 0으로 재검증했다.
 - actual prime/dataset 실험, package 설치, threshold calculator, 장시간 계산은 실행하지
   않았다. 새 bounded <code>X_cert</code> 범위도 없다.
+
+### 2026-09-18 22:47 KST — 로컬 commit·완료 핸드오프
+
+- 검토한 19개 경로만 명시적으로 stage해 local commit
+  <code>985b2f78470021d2afb1bd2a54742c51f11a705e</code>을 생성했다.
+- WSL Git global/local config는 변경하지 않고 기존 저장소와 같은 author identity를
+  commit 명령에만 적용했다.
+- 완료 핸드오프 <code>handoff/202609182247_HANDOFF.md</code>를 새 파일로 작성했다.
+- push·PR·issue·외부 게시는 수행하지 않았다.
+
+## 완료 점검
+
+- [x] 새 PDF identity·hash·blob·page count 확인
+- [x] native text와 rendered source page 대조
+- [x] exact centering·Parseval bridge와 principal correction 고정
+- [x] Theorems 1--3 object·range·assumption·implicit constant 분리
+- [x] current prescribed-primorial range와의 불일치 검증
+- [x] Python·Lean·전수 verification regression PASS
+- [x] actual 실험·설치·threshold·장시간 계산 미실행 확인
+- [x] 새 bounded <code>X_cert</code> 없음 확인
+- [x] 정본·원장·핸드오프·local commit 완료
