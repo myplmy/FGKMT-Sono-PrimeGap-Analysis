@@ -3899,7 +3899,7 @@ theorem dep_r09_vaughan_variance_gate_transfer
   have hEnergy : characterEnergy ≤ phi * vaughanVariance :=
     dep_r09_vaughan_character_energy_upper hIdentity hPrincipal
   have hScaled : phi * vaughanVariance < gate := by
-    exact (lt_div_iff₀ hPhi).mp hVariance
+    simpa only [mul_comm] using (lt_div_iff₀ hPhi).mp hVariance
   exact hEnergy.trans_lt hScaled
 
 /- Theory 85, formula 85.18: every current power exponent delta <= 1/21
@@ -3912,5 +3912,54 @@ theorem dep_r09_vaughan_grh_power_range_mismatch
     (hEpsilon : 0 ≤ epsilon) :
     delta < 3 / 4 + epsilon := by
   linarith
+
+/-! ## Theory 86 — same-law outer-fiber minimax audit -/
+
+/- Theory 86, formulas 86.17--86.19: once the actual-law probability
+   argument gives rawMoment <= fiberEnergy/Q and disjoint support gives
+   fiberEnergy <= fullEnergy, the new fiber route refines the Theory-82
+   full-energy route.  The probability and support premises are not asserted
+   by this scalar terminal theorem. -/
+theorem dep_r09_outer_fiber_refines_full_energy
+    {rawMoment fiberEnergy fullEnergy Q : ℝ}
+    (hQ : 0 < Q)
+    (hRaw : rawMoment ≤ fiberEnergy / Q)
+    (hFiber : fiberEnergy ≤ fullEnergy) :
+    rawMoment ≤ fullEnergy / Q := by
+  exact hRaw.trans (div_le_div_of_nonneg_right hFiber hQ.le)
+
+/- Theory 86, formulas 86.4 and 86.15--86.16: a strict upper for the
+   support-restricted outer-fiber energy implies the corrected Theory-81
+   normalized moment gate.  The actual analytic fiber estimate remains an
+   explicit premise. -/
+theorem dep_r09_outer_fiber_strict_gate
+    {rawMoment fiberEnergy Q minimumSurvivors primeScale tau pStar : ℝ}
+    (hQ : 0 < Q)
+    (hMinimum : 0 < minimumSurvivors)
+    (hScale : 0 < primeScale)
+    (hRaw : rawMoment ≤ fiberEnergy / Q)
+    (hFiber :
+      fiberEnergy <
+        tau ^ 2 * pStar * Q * minimumSurvivors ^ 2 * primeScale ^ 2) :
+    rawMoment / (minimumSurvivors ^ 2 * primeScale ^ 2) <
+      tau ^ 2 * pStar := by
+  have hMinimum2 : 0 < minimumSurvivors ^ 2 :=
+    sq_pos_of_pos hMinimum
+  have hScale2 : 0 < primeScale ^ 2 := sq_pos_of_pos hScale
+  have hDenominator :
+      0 < minimumSurvivors ^ 2 * primeScale ^ 2 :=
+    mul_pos hMinimum2 hScale2
+  have hFiberDiv :
+      fiberEnergy / Q <
+        (tau ^ 2 * pStar) *
+          (minimumSurvivors ^ 2 * primeScale ^ 2) := by
+    apply (div_lt_iff₀ hQ).2
+    simpa only [mul_assoc, mul_left_comm, mul_comm] using hFiber
+  have hRawStrict :
+      rawMoment <
+        (tau ^ 2 * pStar) *
+          (minimumSurvivors ^ 2 * primeScale ^ 2) :=
+    lt_of_le_of_lt hRaw hFiberDiv
+  exact (div_lt_iff₀ hDenominator).2 hRawStrict
 
 end FGKMTSono

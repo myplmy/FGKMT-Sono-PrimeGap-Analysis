@@ -2288,3 +2288,64 @@ display 식 1,605개, Lean declaration 305개다. 상태는
 <code>SOURCE_THEOREM_UNFORMALIZED=112</code>,
 <code>NOT_YET_FORMALIZED=1055</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+## 2026-09-19 DEP-R09 actual same-law outer-fiber minimax 감사
+
+[theory 86](method/theory/86_Sono_FMT_DEPR09_same_law_outer_fiber_minimax_audit.md)과
+[review 95](review/95_20260919_DEPR09_same_law_outer_fiber_minimax_타당성검토.md)은
+Theory 85 뒤 최우선 과제였던 actual same-law route를 outer conditional support까지
+내려가 다시 감사했다.
+
+FMT outer vector \(\mathbf A\)는 \(Q_{\cal S}\)개 값에 정확히 균등하다. fixed
+\(\mathbf A=\boldsymbol a\)에서 final conditional output이 만들 수 있는 CRT shift
+support를 \({\cal M}(\boldsymbol a)\)라 하고
+
+\[
+{\cal H}_{\rm FMT}(R)
+:=\sum_{\boldsymbol a}
+\max_{m\in{\cal M}(\boldsymbol a)}|R(m)|^2
+\]
+
+로 두면, actual sieve-good indicator와 adaptive inner law를 그대로 보존해
+
+\[
+\rho_S
+=\mathbb E[1_{S_{\rm sieve}}|R(m_\omega)|^2]
+\le {\cal H}_{\rm FMT}(R)/Q_{\cal S}.
+\]
+
+서로 다른 outer vector의 shift support는 disjoint하므로
+
+\[
+{\cal H}_{\rm FMT}(R)
+\le\sum_{m\bmod q}|R(m)|^2
+\le\varphi(q)N^2V(Y,q).
+\]
+
+따라서 새 direct sufficient condition은
+
+\[
+{\cal H}_{\rm FMT}(R)
+<\tau^2p_*Q_{\cal S}M_{\min}^2Y^2.
+\]
+
+각 fiber에서 maximizer를 결정론적으로 고르는 abstract conditional law는 첫 상계를
+equality로 만든다. 그러므로 outer uniform marginal, conditional support와 row mass
+upper 1만으로는 더 작은 보편 envelope가 나오지 않는다. 이 minimax witness는 actual
+FMT conditional law가 worst case라는 주장이 아니다. 실제 개선에는 final-law
+conditional weights, weighted martingale input 또는 prime-specific fiber cancellation이
+추가로 필요하다.
+
+exact Python toy에서는 \(Q_{\cal S}=6\), inner modulus 5에서
+\({\cal H}=154<324\), sharp raw moment \(77/3\)을 확인했다. 이는 actual prime 계산이
+아니다. PAP-11, DEP-R09, fixed \(2\times10^{-17}\), numerical \(X_{\rm cert}\)는
+계속 OPEN이고 threshold calculator·actual prime 계산은 NOT READY / NOT RUN이다.
+
+same-law Theory 80--82·86 canonical Python 회귀시험 44개, Lean direct compile과
+full build, 전수 ledger refresh/validation이 모두 exit 0이었다. Theory 86 뒤
+전수원장은 theory 87개, display 식 1,630개, Lean declaration 307개다. 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=83</code>,
+<code>DEFINITION_ONLY=130</code>, <code>PARTIAL_FORMALIZATION=131</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=116</code>,
+<code>NOT_YET_FORMALIZED=1067</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

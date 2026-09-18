@@ -197,6 +197,23 @@ prime-specific fixed-primorial upper·actual same-law correlation, PAP-11·DEP-R
 <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이며 threshold calculator·장시간
 prime 계산은 NOT READY다.
 
+2026-09-19 same-law outer-fiber successor는 actual FMT final law에서 각 outer vector의
+conditional shift support \({\cal M}(\boldsymbol a)\)를 보존하고
+\({\cal H}_{\rm FMT}(R)=\sum_{\boldsymbol a}\max_{m\in{\cal M}(\boldsymbol a)}
+|R(m)|^2\)를 정의했다. exact하게
+\(\rho_S\le{\cal H}_{\rm FMT}(R)/Q_{\cal S}\le
+\varphi(q)N^2V(Y,q)/Q_{\cal S}\)이고, 새 direct gate는
+\({\cal H}_{\rm FMT}(R)<\tau^2p_*Q_{\cal S}M_{\min}^2Y^2\)다.
+fiber별 deterministic maximizer가 abstract equality를 만들므로 outer uniformity와
+support만으로는 더 작은 universal envelope가 나오지 않는다. actual FMT law가 그
+worst case라는 뜻은 아니며 conditional weights·prime-specific fiber cancellation은
+OPEN이다. 최신 analytic 정본은 theory 86·review 95다. PAP-11·DEP-R09·fixed
+<code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고 threshold calculator·actual
+prime 계산은 NOT READY다.
+Theory 86 뒤 inventory는 87개 theory 문서, 1,630식, Lean declaration 307개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=83</code>,
+<code>NOT_YET_FORMALIZED=1067</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

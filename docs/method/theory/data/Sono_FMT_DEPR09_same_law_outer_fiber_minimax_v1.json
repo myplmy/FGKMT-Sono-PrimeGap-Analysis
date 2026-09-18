@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-19",
+  "gate": "DEP-R09 same-law outer-fiber minimax audit",
+  "predecessor": "Sono_FMT_DEPR09_Vaughan2001_variance_source_audit_v1.json",
+  "outcome": "ACTUAL_FMT_RAW_MOMENT_REDUCED_TO_SUPPORT_RESTRICTED_OUTER_FIBER_MAXIMUM_BUT_THE_REQUIRED_ANALYTIC_FIBER_BOUND_REMAINS_OPEN",
+  "source_registry": [
+    {
+      "key": "FMT",
+      "title": "Chains of large gaps between primes",
+      "authors": "Kevin Ford, James Maynard, Terence Tao",
+      "locator": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "printed_locations": "printed pp. 9 and 11--14; final coordinate extension, conditional covering output, and independent uniform outer A_s coordinates",
+      "reading_mode": "NATIVE_TEXT_FIRST_WITH_ORIGINAL_PDF_PAGE_CROSSCHECK",
+      "classification": "PRIMARY_PUBLISHED_TWO_STAGE_RANDOM_CONSTRUCTION"
+    },
+    {
+      "key": "THEORY79",
+      "title": "DEP-R09 FMT construction-law finite-mass audit",
+      "locator": "docs/method/theory/79_Sono_FMT_DEPR09_FMT_construction_law_finite_mass_audit.md",
+      "sha256": "7e8a4b9b715cf7a1ee34c3ace0f3be30c7e7851d0bb86c4fbfe88ad9ec9b57a3",
+      "source_locations": "formulas (79.1)--(79.3), (79.6)--(79.10)",
+      "classification": "PROJECT_ACTUAL_JOINT_LAW_AND_SIEVE_GOOD_MASS"
+    },
+    {
+      "key": "THEORY81",
+      "title": "DEP-R09 filtration sensitivity and survivor-floor audit",
+      "locator": "docs/method/theory/81_Sono_FMT_DEPR09_filtration_sensitivity_survivor_floor_audit.md",
+      "sha256": "65c5164398c797fc369fd545dad437db0611822cc305acc6968869ead8c25eaf",
+      "source_locations": "formulas (81.2)--(81.10)",
+      "classification": "PROJECT_SAME_EVENT_NORMALIZATION_AND_STRICT_GATE"
+    },
+    {
+      "key": "THEORY82",
+      "title": "DEP-R09 outer entropy and convolution second-moment reduction",
+      "locator": "docs/method/theory/82_Sono_FMT_DEPR09_outer_entropy_convolution_second_moment.md",
+      "sha256": "73a32b0bd59f7b561d47704358556a71cad2e6ce3cb6ae24b25a18dfbf438a93",
+      "source_locations": "formulas (82.1)--(82.3), (82.15)--(82.19)",
+      "classification": "PROJECT_OUTER_ATOM_CAP_AND_FULL_RESIDUE_ENERGY_BOUND"
+    }
+  ],
+  "actual_law": {
+    "outer_space": "A=product_(s in S) Z/sZ with card(A)=Q_S",
+    "outer_marginal": "P(A=a)=1/Q_S for every outer vector a",
+    "conditional_final_output": "N-prime has an arbitrary source-defined conditional law given A=a",
+    "conditional_shift_support": "M(a)={m(a,n): n lies in the conditional essential support of N-prime given A=a}",
+    "event_subprobability": "lambda_a(m)=P(S_sieve and m_omega=m | A=a), with sum_m lambda_a(m)<=1",
+    "disjointness": "M(a) and M(a-prime) are disjoint for distinct outer vectors because m mod s=-a_s fixes a uniquely"
+  },
+  "exact_reduction": {
+    "observable": "E(m)=abs(R(m))^2>=0",
+    "support_restricted_fiber_energy": "H_FMT(R)=sum_(a in A) max_(m in M(a)) E(m)",
+    "same_law_raw_moment": "rho_S=(1/Q_S) sum_a sum_(m in M(a)) lambda_a(m) E(m)",
+    "outer_fiber_upper": "rho_S<=H_FMT(R)/Q_S",
+    "full_energy_comparison": "H_FMT(R)<=sum_(m mod q) E(m)<=phi(q)N^2 V(Y,q)",
+    "strict_direct_gate": "H_FMT(R)<tau^2 p_* Q_S M_min^2 Y^2",
+    "relation_to_theory82": "The Theory-82 character-energy gate implies the new direct fiber gate, but the converse need not hold."
+  },
+  "minimax_scope": {
+    "sharp_statement": "For any finite nonempty fibers and nonnegative E, choosing one maximizer deterministically in every fiber and taking the event always true attains H/|A|.",
+    "what_is_optimal": "No smaller universal envelope follows from the uniform outer marginal plus conditional support and row-mass-at-most-one alone.",
+    "not_claimed": "The actual published FMT conditional law attains this worst case, or its additional probabilities and dependencies cannot improve the bound."
+  },
+  "source_applicability": {
+    "fmt_outer_coordinates": "Printed p. 12 chooses A_s uniformly and independently; the final extension keeps those coordinates.",
+    "fmt_conditional_output": "Printed p. 11 applies the covering theorem separately on each good outer fiber and may choose an arbitrary fallback on bad fibers.",
+    "preliminary_product_law": "Formula (6.17) is conditional on A and precedes the final covering output; it is not promoted to global independence of the final N-prime.",
+    "fixed_subset_theorems": "FMT Theorem 4 and FGKMT Corollary 4 control subsets fixed before the covering output, not the output-dependent complex CRT observable.",
+    "consequence": "A new conditional-weight, martingale, or prime-specific fiber theorem is still required to beat the support maximum for the actual law."
+  },
+  "exact_finite_diagnostic": {
+    "fmt_outer_uniformity_and_coordinate_preservation_source_verified": true,
+    "outer_uniform_event_subprobability_reduction_exact": true,
+    "support_restricted_outer_fiber_envelope_exact": true,
+    "adaptive_deterministic_selector_attains_abstract_envelope": true,
+    "outer_fiber_energy_not_above_full_support_energy": true,
+    "toy_outer_denominator": 6,
+    "toy_inner_denominator": 5,
+    "toy_outer_fiber_energy": "154",
+    "toy_full_support_energy": "324",
+    "toy_sharp_raw_moment": "77/3",
+    "toy_fiber_bound_strictly_below_full_energy_bound": true,
+    "actual_fmt_law_attains_the_abstract_envelope_claimed": false,
+    "actual_fiber_energy_analytic_upper_identified": false,
+    "final_nibble_weighted_concentration_theorem_identified": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The actual FMT final law attains the abstract maximizing selector.",
+    "FMT or FGKMT supplies a numerical upper for the support-restricted fiber energy.",
+    "The fiber reduction is an analytic prime-error estimate.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed.",
+    "A threshold calculator or actual prime computation is ready."
+  ],
+  "next_gate": "Bound the support-restricted outer-fiber energy for the actual prime-error observable using final-law conditional weights or prime-specific structure; outer uniformity and support alone cannot improve its universal maximum envelope."
+}

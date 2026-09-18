@@ -1338,3 +1338,37 @@ prime sweep은 계속 NOT READY다.
 Theory 85 뒤 전수원장은 theory 86개, display 식 1,605개, Lean declaration 305개,
 금지 proof escape 0건이다. 이는 source theorem을 형식화해 blocker를 닫았다는 뜻이
 아니라 centering·strict-gate·power-range terminal의 검증 범위를 고정한 것이다.
+
+## 55. 2026-09-19 DEP-R09 actual same-law outer-fiber 후속 상태
+
+[theory 86](86_Sono_FMT_DEPR09_same_law_outer_fiber_minimax_audit.md)은 actual FMT joint
+law의 raw moment를 conditional support 위의 outer-fiber maximum energy로 줄였다.
+
+\[
+{\cal H}_{\rm FMT}(R)
+:=\sum_{\boldsymbol a}
+\max_{m\in{\cal M}(\boldsymbol a)}|R(m)|^2,
+\qquad
+\rho_S\le {\cal H}_{\rm FMT}(R)/Q_{\cal S}.
+\]
+
+따라서 direct strict child gate는
+
+\[
+{\cal H}_{\rm FMT}(R)
+<\tau^2p_*Q_{\cal S}M_{\min}^2Y^2.
+\]
+
+서로 다른 outer support가 disjoint하므로 이 target은 Theory 82 full residue energy
+이하이다. 그러나 outer uniform marginal과 support만으로는 fiber별 deterministic
+maximizer가 equality를 만들 수 있어 더 작은 universal envelope를 얻지 못한다.
+actual FMT conditional weight 또는 prime-specific support cancellation의 numerical
+input은 계속 OPEN이다.
+
+따라서 66개 root row, <code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed
+\(2\times10^{-17}\), \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. 새 bounded
+range가 없으므로 threshold calculator와 장시간 prime sweep은 NOT READY다.
+
+Theory 86 뒤 전수원장은 theory 87개, display 식 1,630개, Lean declaration 307개,
+금지 proof escape 0건이다. 이는 actual \({\cal H}_{\rm FMT}\) upper가 형식화됐다는
+뜻이 아니라, 그 upper를 premise로 받는 strict terminal의 검증 범위를 고정한 것이다.

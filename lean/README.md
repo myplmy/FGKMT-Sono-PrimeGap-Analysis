@@ -511,3 +511,27 @@ canonical direct compile과 full build, 전수 inventory refresh·validation은 
 declaration은 305개이고 금지 proof escape는 0건이다. analytic source range mismatch와
 implicit constant 때문에 prime-specific upper, PAP-11, DEP-R09, fixed 2e-17과
 X_cert는 계속 OPEN이다.
+
+2026-09-19 Theory 86 batch는 actual same-law raw moment와 support-restricted
+outer-fiber maximum energy의 exact reduction을 추가했다. Lean은
+<code>rawMoment <= fiberEnergy/Q</code>와 <code>fiberEnergy <= fullEnergy</code>를
+합성하는 refinement terminal, 그리고 strict fiber-energy gate에서 Theory-81
+normalized moment gate로 가는 실수 부등식만 검사한다. FMT conditional probability,
+finite argmax, character orthogonality와 analytic prime-error fiber upper는 local
+axiom으로 넣지 않았다.
+
+Python exact fixture는 modulo 30의 여섯 outer fiber와 다섯 inner point에서
+fiber energy 154, full energy 324, abstract maximizing selector의 raw moment
+77/3을 검사한다. 이것은 actual prime computation이 아니다. PAP-11, DEP-R09,
+fixed 2e-17과 X_cert는 계속 OPEN이다.
+
+fresh direct compile은 먼저 Theory 85의 기존 곱 순서
+<code>vaughanVariance * phi</code>와 goal <code>phi * vaughanVariance</code> 차이를
+fail-closed로 검출했다. 해당 terminal에 <code>mul_comm</code>을 명시한 뒤 direct
+compile과 full build가 exit 0이었다. Theory 86 뒤 inventory는 theory 문서 87개,
+display 식 1,630개, declaration 307개다. 전체 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=83</code>,
+<code>DEFINITION_ONLY=130</code>, <code>PARTIAL_FORMALIZATION=131</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=116</code>,
+<code>NOT_YET_FORMALIZED=1067</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.
