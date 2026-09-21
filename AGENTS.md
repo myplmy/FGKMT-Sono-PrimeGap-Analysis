@@ -214,6 +214,24 @@ Theory 86 뒤 inventory는 87개 theory 문서, 1,630식, Lean declaration 307�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=83</code>,
 <code>NOT_YET_FORMALIZED=1067</code>, 금지 proof escape 0건이다.
 
+2026-09-22 final-law conditional-weight successor는 FGKMT proof formula (5.9)의
+reweighted witness law에서 nonempty output edge atom
+\(\omega_*=2\kappa^{-2k}X^{-3/5}\)를 복원했다. covering-good whole-set outcome은
+최소 \(K_*=\lceil\{1-(1+t)\rho\}M_*/(2k)\rceil\)개의 nonempty edge를 강제하고,
+Theory 53 full-residue lift로
+\(\Pr(S_{\rm sieve},m_\omega=r)\le Q_{\cal S}^{-1}\omega_*^{K_*}\)다.
+따라서 \(Q_{\rm eff}=Q_{\cal S}\omega_*^{-K_*}\)인 improved same-law gate가
+생긴다. 그러나 guaranteed \(\log Q_{\rm eff}<X/100\)이고 full primorial은
+\(\log\mathfrak q>49X/50\)이므로 raw classical large-sieve certificate는 새 gate도
+닫지 못한다. 이는 stronger empty-output tail·actual nonempty concentration·local
+character phase argument를 배제하지 않는다. 최신 analytic 정본은 theory 87·review
+96이다. actual same-law moment·PAP-11·DEP-R09·fixed <code>2e-17</code>·
+<code>X_cert</code>는 계속 OPEN이고 threshold calculator·actual prime 계산은
+NOT READY다.
+Theory 87 뒤 inventory는 88개 theory 문서, 1,675식, Lean declaration 315개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=89</code>,
+<code>NOT_YET_FORMALIZED=1080</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

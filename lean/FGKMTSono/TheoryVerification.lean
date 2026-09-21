@@ -3962,4 +3962,110 @@ theorem dep_r09_outer_fiber_strict_gate
     lt_of_le_of_lt hRaw hFiberDiv
   exact (div_lt_iff₀ hDenominator).2 hRawStrict
 
+/-! ## Theory 87 — final-law conditional-weight source audit -/
+
+/- Theory 87, formulas 87.14--87.15: once formula (5.9), the normalizer
+   floor, and the survival-product floor supply the first atom inequality,
+   the original nonempty-edge sparsity transfers monotonically to the
+   reweighted atom cap.  The probability-law premises remain external. -/
+theorem dep_r09_reweighted_nonempty_atom_cap
+    {selectedAtom originalAtom sparsity kappaInv : ℝ}
+    (hKappa : 0 ≤ kappaInv)
+    (hSelected : selectedAtom ≤ 2 * kappaInv * originalAtom)
+    (hOriginal : originalAtom ≤ sparsity) :
+    selectedAtom ≤ 2 * kappaInv * sparsity := by
+  exact hSelected.trans (mul_le_mul_of_nonneg_left hOriginal
+    (mul_nonneg (by norm_num) hKappa))
+
+/- Theory 87, formulas 87.21--87.22: if K edges of size at most edgeCap
+   cover at least coveredMass vertices, division by the positive cap gives
+   the real-valued nonempty-edge floor.  Integer ceiling is left to the
+   finite counting layer. -/
+theorem dep_r09_coverage_forces_nonempty_count
+    {coveredMass nonemptyCount edgeCap : ℝ}
+    (hEdgeCap : 0 < edgeCap)
+    (hCovered : coveredMass ≤ nonemptyCount * edgeCap) :
+    coveredMass / edgeCap ≤ nonemptyCount := by
+  exact (div_le_iff₀ hEdgeCap).2 hCovered
+
+/- Theory 87, formula 87.23: the project bounds t <= 1/32 and
+   rho <= 1/5 leave at least the exact covered fraction 127/160. -/
+theorem dep_r09_covering_good_fraction_lower
+    {t rho : ℝ}
+    (hT0 : 0 ≤ t)
+    (hT : t ≤ 1 / 32)
+    (hRho0 : 0 ≤ rho)
+    (hRho : rho ≤ 1 / 5) :
+    127 / 160 ≤ 1 - (1 + t) * rho := by
+  have hOneT0 : 0 ≤ 1 + t := by linarith
+  have hOneT : 1 + t ≤ 33 / 32 := by linarith
+  have hProduct :
+      (1 + t) * rho ≤ (33 / 32 : ℝ) * (1 / 5) := by
+    calc
+      (1 + t) * rho ≤ (33 / 32 : ℝ) * rho :=
+        mul_le_mul_of_nonneg_right hOneT hRho0
+      _ ≤ (33 / 32 : ℝ) * (1 / 5) :=
+        mul_le_mul_of_nonneg_left hRho (by norm_num)
+  linarith
+
+/- Theory 87, formulas 87.24--87.26: an event-shift atom cap multiplied by
+   the full residue energy transfers monotonically to the character-energy
+   raw-moment upper.  Neither analytic premise is asserted here. -/
+theorem dep_r09_conditional_weight_raw_moment_terminal
+    {rawMoment atomCap fullEnergy phi N V : ℝ}
+    (hAtom : 0 ≤ atomCap)
+    (hRaw : rawMoment ≤ atomCap * fullEnergy)
+    (hFull : fullEnergy ≤ phi * N ^ 2 * V) :
+    rawMoment ≤ atomCap * (phi * N ^ 2 * V) := by
+  exact hRaw.trans (mul_le_mul_of_nonneg_left hFull hAtom)
+
+/- Theory 87, formulas 87.7 and 87.26--87.27: the effective atom
+   denominator uses exactly the same scalar terminal as Theory 82 after Q
+   is replaced by Q_eff. -/
+theorem dep_r09_conditional_weight_strict_gate
+    {rawMoment V phi N Qeff minimumSurvivors primeScale tau pStar : ℝ}
+    (hPhi : 0 < phi)
+    (hN : 0 < N)
+    (hQeff : 0 < Qeff)
+    (hMinimum : 0 < minimumSurvivors)
+    (hScale : 0 < primeScale)
+    (hRaw : rawMoment ≤ phi * N ^ 2 * V / Qeff)
+    (hV :
+      V <
+        tau ^ 2 * pStar * Qeff * minimumSurvivors ^ 2 * primeScale ^ 2 /
+          (phi * N ^ 2)) :
+    rawMoment / (minimumSurvivors ^ 2 * primeScale ^ 2) <
+      tau ^ 2 * pStar := by
+  exact dep_r09_outer_entropy_character_energy_gate
+    hPhi hN hQeff hMinimum hScale hRaw hV
+
+/- Theory 87, formula 87.35: exact rational arithmetic for the guaranteed
+   effective-entropy log coefficient. -/
+theorem dep_r09_effective_entropy_coefficient_margin :
+    (21 / 16000 : ℝ) + 237 / 1536000 + 3 / 500 < 1 / 100 := by
+  norm_num
+
+/- Theory 87, formulas 87.35--87.37: the two source-derived log
+   coefficient bounds imply that the guaranteed effective atom denominator
+   is below the full primorial modulus. -/
+theorem dep_r09_effective_entropy_below_primorial
+    {logQeff logModulus X : ℝ}
+    (hX : 0 < X)
+    (hEffective : logQeff < X / 100)
+    (hModulus : 49 * X / 50 < logModulus) :
+    logQeff < logModulus := by
+  linarith
+
+/- Theory 87, formulas 87.39--87.41: if the new gate is below the
+   effective envelope, that envelope is below the full-uniform envelope,
+   and the raw large-sieve certificate is above the latter, then the
+   certificate remains above the new strict gate. -/
+theorem dep_r09_conditional_weight_large_sieve_barrier
+    {gate effectiveEnvelope uniformEnvelope rhs : ℝ}
+    (hGate : gate ≤ effectiveEnvelope)
+    (hEffective : effectiveEnvelope ≤ uniformEnvelope)
+    (hUniform : uniformEnvelope < rhs) :
+    gate < rhs := by
+  exact lt_of_le_of_lt (hGate.trans hEffective) hUniform
+
 end FGKMTSono

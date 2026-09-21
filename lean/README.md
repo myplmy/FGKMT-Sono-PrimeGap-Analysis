@@ -535,3 +535,18 @@ display 식 1,630개, declaration 307개다. 전체 상태는
 <code>SOURCE_THEOREM_UNFORMALIZED=116</code>,
 <code>NOT_YET_FORMALIZED=1067</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+2026-09-22 Theory 87 batch는 FGKMT proof-law nonempty atom cap, covering-forced
+nonempty-count floor와 effective-entropy hierarchy를 추가했다. Lean은 source
+probability premises를 인수로 받은 atom monotonicity, coverage/count division,
+raw-moment 합성, strict gate, rational entropy coefficient와 large-sieve barrier
+terminal만 검사한다. formula (5.9) probability construction, ceil count, real-log
+theta bounds와 actual character energy는 local axiom으로 넣지 않았다.
+
+canonical direct compile과 full build는 exit 0이었다. Theory 87 뒤 inventory는
+theory 문서 88개, display 식 1,675개, declaration 315개다. 전체 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=89</code>,
+<code>DEFINITION_ONLY=135</code>, <code>PARTIAL_FORMALIZATION=141</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=127</code>,
+<code>NOT_YET_FORMALIZED=1080</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

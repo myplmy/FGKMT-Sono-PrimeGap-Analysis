@@ -2349,3 +2349,60 @@ full build, 전수 ledger refresh/validation이 모두 exit 0이었다. Theory 8
 <code>SOURCE_THEOREM_UNFORMALIZED=116</code>,
 <code>NOT_YET_FORMALIZED=1067</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+## 2026-09-22 DEP-R09 final-law conditional-weight source 감사
+
+[theory 87](method/theory/87_Sono_FMT_DEPR09_final_law_conditional_weight_audit.md)과
+[review 96](review/96_20260922_DEPR09_final_law_conditional_weight_타당성검토.md)은
+Theory 86 뒤 첫 우선순위였던 actual final-law conditional weights를 FGKMT proof
+construction까지 내려가 감사했다.
+
+FGKMT formula (5.9)의 reweighted law는 complete previous-stage history \(W\)를
+조건으로 같은 nibble 좌표를 독립 생성한다. Theory 54의 \(X_i(W)\ge1/2\),
+Theory 53의 edge cap과 actual sparsity를 합치면 nonempty output edge atom은
+
+\[
+\omega_*=2\kappa^{-2k}X^{-3/5}<1
+\]
+
+이하이다. global final-coordinate independence는 사용하지 않고, stage별 conditional
+product와 chain rule만 쓴다.
+
+covering-good whole-set outcome은 적어도
+
+\[
+K_*=
+\left\lceil
+\frac{\{1-(1+t)\rho\}M_*}{2k}
+\right\rceil
+\]
+
+개의 nonempty edge를 강제한다. Theory 53의 nonempty full-residue edge가 residue를
+유일하게 정하고 empty edge는 residue 0으로 lift되므로
+
+\[
+\Pr(S_{\rm sieve},m_\omega=r)
+\le Q_{\cal S}^{-1}\omega_*^{K_*}.
+\]
+
+따라서 \(Q_{\rm eff}=Q_{\cal S}\omega_*^{-K_*}\)만큼 Theory 82 gate가 완화된다.
+그러나 source가 무조건 보장하는 최소 count만 사용하면
+
+\[
+\log Q_{\rm eff}<X/100<49X/50<\log\mathfrak q.
+\]
+
+즉 guaranteed effective entropy는 full primorial보다 작고, Theory 83의 raw
+classical large-sieve certificate는 새 gate보다도 계속 크다. 이는 actual character
+energy의 하한이나 stronger actual-law tail·phase argument의 불가능성 정리가 아니다.
+PAP-11, DEP-R09, fixed \(2\times10^{-17}\), numerical \(X_{\rm cert}\)는 계속
+OPEN이고 threshold calculator·actual prime 계산은 NOT READY / NOT RUN이다.
+
+Theory 53--55·83·86--87 canonical Python 회귀시험 116개, Lean direct compile과
+full build, 전수 ledger refresh/validation이 모두 exit 0이었다. Theory 87 뒤
+전수원장은 theory 88개, display 식 1,675개, Lean declaration 315개다. 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=89</code>,
+<code>DEFINITION_ONLY=135</code>, <code>PARTIAL_FORMALIZATION=141</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=127</code>,
+<code>NOT_YET_FORMALIZED=1080</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

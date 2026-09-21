@@ -1372,3 +1372,34 @@ range가 없으므로 threshold calculator와 장시간 prime sweep은 NOT READY
 Theory 86 뒤 전수원장은 theory 87개, display 식 1,630개, Lean declaration 307개,
 금지 proof escape 0건이다. 이는 actual \({\cal H}_{\rm FMT}\) upper가 형식화됐다는
 뜻이 아니라, 그 upper를 premise로 받는 strict terminal의 검증 범위를 고정한 것이다.
+
+## 56. 2026-09-22 DEP-R09 final-law conditional-weight 후속 상태
+
+[theory 87](87_Sono_FMT_DEPR09_final_law_conditional_weight_audit.md)은 FGKMT proof
+formula (5.9)의 witness law를 선택해 nonempty final residue atom을
+
+\[
+\omega_*=2\kappa^{-2k}X^{-3/5}
+\]
+
+로 묶었다. covering-good whole-set outcome이 최소 \(K_*\)개의 nonempty edge를
+강제하므로
+
+\[
+\Pr(S_{\rm sieve},m_\omega=r)
+\le Q_{\cal S}^{-1}\omega_*^{K_*}.
+\]
+
+이로써 same-law gate는 \(Q_{\rm eff}=Q_{\cal S}\omega_*^{-K_*}\)만큼 완화된다.
+그러나 project child에서 guaranteed \(\log Q_{\rm eff}<X/100\)이고
+\(\log\mathfrak q>49X/50\)이므로 raw classical large-sieve certificate는 이 gate도
+닫지 못한다.
+
+따라서 66개 root row, <code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed
+\(2\times10^{-17}\), \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. empty-output
+tail·local phase transform·prime-specific fiber upper는 후속 OPEN이고 threshold
+calculator와 장시간 prime sweep은 NOT READY다.
+
+Theory 87 뒤 전수원장은 theory 88개, display 식 1,675개, Lean declaration 315개,
+금지 proof escape 0건이다. 이 증거는 proof-law atom과 scalar barrier terminal의
+범위를 고정하며 actual same-law moment 자체를 닫지 않는다.

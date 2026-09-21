@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-22",
+  "gate": "DEP-R09 final-law conditional-weight source audit",
+  "predecessor": "Sono_FMT_DEPR09_same_law_outer_fiber_minimax_v1.json",
+  "outcome": "PROOF_LAW_NONEMPTY_ATOM_CAP_AND_SUCCESS_FORCED_ENTROPY_EXPLICIT_BUT_GUARANTEED_EFFECTIVE_ENTROPY_REMAINS_SUBPRIMORIAL",
+  "source_registry": [
+    {
+      "key": "FGKMT",
+      "title": "Long gaps between primes",
+      "authors": "Kevin Ford, Ben Green, Sergei Konyagin, James Maynard, Terence Tao",
+      "locator": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "printed_locations": "printed pp. 76--89; Theorem 3 (4.1)--(4.11), proof formulas (5.7)--(5.11)",
+      "classification": "PRIMARY_PUBLISHED_PROOF_CONSTRUCTED_CONDITIONAL_EDGE_LAW"
+    },
+    {
+      "key": "FMT",
+      "title": "Chains of large gaps between primes",
+      "authors": "Kevin Ford, James Maynard, Terence Tao",
+      "locator": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "printed_locations": "printed pp. 9--14; conditional covering application and final residue extension",
+      "classification": "PRIMARY_PUBLISHED_APPLICATION"
+    },
+    {
+      "key": "THEORY53",
+      "title": "H1b-COV1 full-residue hypergraph interface",
+      "locator": "docs/method/theory/53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md",
+      "sha256": "615c1501a49f422fe22d5838fb5829c255a48a1d4af9da25c3f7aa2158085672",
+      "source_locations": "formulas (53.2), (53.9)--(53.18), (53.22)--(53.23)",
+      "classification": "PROJECT_FULL_RESIDUE_CAP_AND_LIFT"
+    },
+    {
+      "key": "THEORY54",
+      "title": "H1b-COV1a explicit covering constant",
+      "locator": "docs/method/theory/54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md",
+      "sha256": "4e9d3608f91e7eece383a79aa367077319958a13f0c5ab6ea208d52f04d1f06b",
+      "source_locations": "formulas (54.8)--(54.11), (54.29)",
+      "classification": "PROJECT_EXPLICIT_PROOF_LAW_NORMALIZER"
+    },
+    {
+      "key": "THEORY55",
+      "title": "H1b-COV2 post-covering interval and smooth composition",
+      "locator": "docs/method/theory/55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md",
+      "sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df",
+      "source_locations": "formulas (55.14)--(55.21), whole-set covering-good event",
+      "classification": "PROJECT_SUCCESS_EVENT_AND_SURVIVOR_BOUND"
+    },
+    {
+      "key": "THEORY83",
+      "title": "DEP-R09 fixed-primorial variance and large-sieve barrier",
+      "locator": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278",
+      "source_locations": "formulas (83.2)--(83.5), (83.19)--(83.24)",
+      "classification": "PROJECT_GENERIC_CERTIFICATE_BARRIER"
+    },
+    {
+      "key": "THEORY86",
+      "title": "DEP-R09 actual same-law outer-fiber minimax audit",
+      "locator": "docs/method/theory/86_Sono_FMT_DEPR09_same_law_outer_fiber_minimax_audit.md",
+      "sha256": "67a8096c8e478da5dba9b387f1d44c1a3d8d5d756cab63b68d242d0a612e3504",
+      "source_locations": "formulas (86.1)--(86.19)",
+      "classification": "PROJECT_OUTER_FIBER_TARGET"
+    }
+  ],
+  "proof_law_atom_cap": {
+    "normalizer": "X_i(W)=sum_E mu_i(E) 1_(E subset W)/P_(j-1)(E)",
+    "good_event_floor": "X_i(W)>=1/2",
+    "conditional_law": "P(e_i-prime=E|W)=mu_i(E)1_(E subset W)/(X_i(W)P_(j-1)(E))",
+    "survival_product_floor": "P_(j-1)(E)>=kappa^(r_hg)",
+    "actual_nonempty_original_atom": "mu_i(E)<=P(v in e_i)<=X^(-3/5) for any v in nonempty E",
+    "nonempty_output_atom_cap": "omega_*=2*kappa^(-2k)*X^(-3/5)",
+    "scope": "conditional on the complete previous-stage history; coordinates in one stage are conditionally independent",
+    "not_assumed": "global independence of all final coordinates"
+  },
+  "success_forced_nonempty_count": {
+    "retained_vertex_floor": "M_*=(X/a)(79*c*b-2/b)",
+    "whole_set_survivor_upper": "Z<=(1+t)*rho*M on the inner-good event",
+    "covered_fraction": "gamma=1-(1+t)rho>=127/160 because m>=1, rho=5^(-m), t<=1/32",
+    "edge_size_cap": "r_hg=2k",
+    "minimum_nonempty_edges": "K_*=ceil(gamma*M_*/(2k))"
+  },
+  "same_law_atom_and_gate": {
+    "conditional_vector_atom": "P(output edge vector | A=a)<=omega_*^K for K nonempty coordinates",
+    "edge_to_residue": "nonempty full-residue edge determines its residue; empty output uses residue 0",
+    "event_shift_atom": "P(S_sieve and m_omega=r)<=omega_*^(K_*)/Q_S",
+    "effective_atom_denominator": "Q_eff=Q_S*omega_*^(-K_*)",
+    "raw_moment": "rho_S<=(phi(q)N^2/Q_eff)V(Y,q)",
+    "strict_character_energy_gate": "V<tau^2*p_*Q_eff*M_min^2*Y^2/(phi(q)N^2)"
+  },
+  "effective_entropy_audit": {
+    "coordinate_cap_is_strict": "omega_*<=2*t^(12*10^(m+2)-1)<=2*t^11999<1",
+    "outer_log_upper": "log Q_S<21*X*log(b)/(80*b)",
+    "minimum_count_gain_upper": "K_*log(1/omega_*)<237*c*X*b/(10*k)+3*a/5",
+    "elementary_child_bounds": "log(b)/b<1/200, c<1/153600, b/k<=1, a/X<=1/100",
+    "effective_log_upper": "log Q_eff<(3823/512000)X<X/100",
+    "full_primorial_log_lower": "log(P(X)/B0)>(49/50)X",
+    "conclusion": "Q_eff<q; the guaranteed proof-law entropy is subprimorial"
+  },
+  "large_sieve_comparison": {
+    "new_gate_envelope": "V_gate,new/Y^2<=exp(-4)Q_eff/phi(q)",
+    "theory83_source_lower": "B_LS/Y^2>exp(-4)q/phi(q)",
+    "result": "B_LS>V_gate,new because Q_eff<q",
+    "meaning": "This upper certificate remains too coarse; it is not a lower bound for the actual character energy."
+  },
+  "exact_finite_diagnostic": {
+    "fgkmt_formula_5_9_proof_law_source_verified": true,
+    "formula_5_9_is_conditional_product_not_global_independence": true,
+    "nonempty_edge_atom_cap_exact": true,
+    "full_residue_nonempty_edge_determines_unique_residue": true,
+    "empty_edge_uses_zero_residue_rule": true,
+    "covering_success_forces_nonempty_edge_floor": true,
+    "same_law_event_shift_atom_cap_exact": true,
+    "toy_reweighted_nonempty_atom": "2/9",
+    "toy_nonempty_atom_cap": "1/3",
+    "toy_minimum_nonempty_edges": 4,
+    "toy_vector_atom_probability": "1/675",
+    "toy_vector_atom_cap": "1/81",
+    "toy_event_shift_atom_cap": "1/486",
+    "toy_effective_atom_denominator": "486",
+    "effective_entropy_log_coefficient_upper": "3823/512000",
+    "effective_entropy_log_coefficient_below_one_hundredth": true,
+    "full_primorial_log_coefficient_lower": "49/50",
+    "guaranteed_effective_entropy_is_subprimorial": true,
+    "generic_large_sieve_certificate_can_close_new_gate": false,
+    "stronger_actual_nonempty_tail_or_phase_cancellation_ruled_out": false,
+    "actual_same_law_analytic_moment_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "All final residue coordinates are globally independent.",
+    "The empty-output probability has a useful uniform upper bound.",
+    "The actual number of nonempty coordinates equals its guaranteed minimum.",
+    "No stronger conditional-weight or character-phase argument can work.",
+    "The actual character energy is at least the new gate.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Use more than the guaranteed minimum nonempty-coordinate count: obtain a numerical tail for empty outputs, a local character-phase transform under the reweighted law, or a prime-specific fiber bound; the extracted minimum-count atom cap does not close the generic large-sieve route."
+}
