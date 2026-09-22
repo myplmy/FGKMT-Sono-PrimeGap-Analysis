@@ -4068,4 +4068,54 @@ theorem dep_r09_conditional_weight_large_sieve_barrier
     gate < rhs := by
   exact lt_of_le_of_lt (hGate.trans hEffective) hUniform
 
+/-! ## Theory 88 — empty-output and randomized-support capacity audit -/
+
+/- Theory 88, formulas 88.4--88.5 and 88.11: once finite support counting
+   supplies eventMass <= supportSize * maximumAtom, division by positive
+   support size gives the event pigeonhole lower atom. -/
+theorem dep_r09_event_atom_pigeonhole_terminal
+    {eventMass supportSize maximumAtom : ℝ}
+    (hSupport : 0 < supportSize)
+    (hMass : eventMass ≤ supportSize * maximumAtom) :
+    eventMass / supportSize ≤ maximumAtom := by
+  apply (div_le_iff₀ hSupport).2
+  simpa only [mul_comm] using hMass
+
+/- Theory 88, formulas 88.6 and 88.12: the same finite support inequality
+   bounds the success-mass divided by any valid event atom cap. -/
+theorem dep_r09_event_entropy_factor_le_support
+    {pStar atomCap supportSize : ℝ}
+    (hAtom : 0 < atomCap)
+    (hMass : pStar ≤ supportSize * atomCap) :
+    pStar / atomCap ≤ supportSize := by
+  exact (div_le_iff₀ hAtom).2 hMass
+
+/- Theory 88, formula 88.19: exact rational arithmetic for the outer plus
+   dyadic-inner support coefficient. -/
+theorem dep_r09_randomized_support_coefficient :
+    (21 / 16000 : ℝ) + 1003 / 2000 = 1609 / 3200 ∧
+      (1609 / 3200 : ℝ) < 51 / 100 := by
+  norm_num
+
+/- Theory 88, formulas 88.19--88.21: the source-derived support and full
+   primorial log bounds imply strict support separation. -/
+theorem dep_r09_randomized_support_below_primorial
+    {logSupport logModulus X : ℝ}
+    (hX : 0 < X)
+    (hSupport : logSupport < 51 * X / 100)
+    (hModulus : 49 * X / 50 < logModulus) :
+    logSupport < logModulus := by
+  linarith
+
+/- Theory 88, formulas 88.24--88.26: a gate bounded by the actual support
+   envelope remains below the full-primorial uniform envelope and hence
+   below the raw large-sieve certificate. -/
+theorem dep_r09_support_capacity_large_sieve_barrier
+    {gate supportEnvelope fullEnvelope rhs : ℝ}
+    (hGate : gate ≤ supportEnvelope)
+    (hSupport : supportEnvelope < fullEnvelope)
+    (hFull : fullEnvelope < rhs) :
+    gate < rhs := by
+  exact lt_of_le_of_lt hGate (lt_trans hSupport hFull)
+
 end FGKMTSono

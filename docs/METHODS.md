@@ -2406,3 +2406,57 @@ full build, 전수 ledger refresh/validation이 모두 exit 0이었다. Theory 8
 <code>SOURCE_THEOREM_UNFORMALIZED=127</code>,
 <code>NOT_YET_FORMALIZED=1080</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+## 2026-09-22 DEP-R09 empty-output·randomized-support capacity 감사
+
+[theory 88](method/theory/88_Sono_FMT_DEPR09_empty_output_support_capacity_audit.md)과
+[review 97](review/97_20260922_DEPR09_empty_output_support_capacity_타당성검토.md)은
+Theory 87이 다음 gate로 남긴 empty-output/nonempty-count tail을 감사했다.
+
+checked formula (5.9) input은 original empty mass와 bad-normalizer branch 때문에
+모든 coordinate/history에 공통인 strict empty atom upper를 주지 않는다. 그러나
+current final residue extension의 support ceiling이 더 강한 결론을 준다.
+
+\[
+H_{\rm res}
+:=Q_{\cal S}\prod_{p\in P'}p
+\]
+
+라 하면 \({\cal S}\)와 \(P'\subset(X/2,X]\) 밖의 coordinate는 residue 0으로
+고정되므로 final shift support는 \(H_{\rm res}\) 이하이다. sieve-good event mass
+\(p_*\)를 support atom에 나누면 어떤 max-atom upper \(\alpha\)도
+
+\[
+\frac{p_*}{\alpha}\le H_{\rm res}
+\]
+
+를 만족한다.
+
+Theory 47의 dyadic prime count와 outer theta upper는
+
+\[
+\log H_{\rm res}
+<
+\left(\frac{21}{16000}+\frac{1003}{2000}\right)X
+=\frac{1609}{3200}X
+<\frac{51}{100}X.
+\]
+
+full primorial은 \(\log\mathfrak q>49X/50\)이다. 따라서 even ideal empty-tail
+information은 atom-cap × full-energy architecture를 full primorial 규모로 만들지
+못하며 raw classical large-sieve certificate는 새 gate보다도 계속 크다.
+
+이것은 actual character energy의 하한이나 local phase cancellation의 불가능성
+정리가 아니다. 다음 gate는 formula (5.9)의 reweighted local character transform
+또는 동등한 direct phase-correlation theorem이다. PAP-11, DEP-R09, fixed
+\(2\times10^{-17}\), numerical \(X_{\rm cert}\)는 계속 OPEN이고 threshold
+calculator·actual prime 계산은 NOT READY / NOT RUN이다.
+
+Theory 47·53--55·83·86--88 canonical Python 회귀시험 143개, Lean direct compile과
+full build, 전수 ledger refresh/validation이 모두 exit 0이었다. Theory 88 뒤
+전수원장은 theory 89개, display 식 1,705개, Lean declaration 320개다. 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=94</code>,
+<code>DEFINITION_ONLY=138</code>, <code>PARTIAL_FORMALIZATION=146</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=135</code>,
+<code>NOT_YET_FORMALIZED=1089</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

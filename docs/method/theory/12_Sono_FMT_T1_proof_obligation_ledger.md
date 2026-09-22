@@ -1403,3 +1403,29 @@ calculator와 장시간 prime sweep은 NOT READY다.
 Theory 87 뒤 전수원장은 theory 88개, display 식 1,675개, Lean declaration 315개,
 금지 proof escape 0건이다. 이 증거는 proof-law atom과 scalar barrier terminal의
 범위를 고정하며 actual same-law moment 자체를 닫지 않는다.
+
+## 57. 2026-09-22 DEP-R09 empty-output·support-capacity 후속 상태
+
+[theory 88](88_Sono_FMT_DEPR09_empty_output_support_capacity_audit.md)은 current
+final residue coordinate support를
+
+\[
+H_{\rm res}=Q_{\cal S}\prod_{p\in P'}p
+\]
+
+로 상계했다. sieve-good mass를 보존한 pigeonhole로 any atom cap \(\alpha\)는
+\(p_*/\alpha\le H_{\rm res}\)를 만족한다.
+
+Theory 47 dyadic count와 outer theta bound를 합치면
+\(\log H_{\rm res}<51X/100\), full primorial은
+\(\log\mathfrak q>49X/50\)이다. 따라서 empty-output tail만 강화하는 방식은
+atom-cap × full-energy × raw-LS route를 닫지 못한다.
+
+66개 root row, <code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed
+\(2\times10^{-17}\), \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. local
+character phase·direct correlation은 후속 OPEN이고 threshold calculator와 장시간
+prime sweep은 NOT READY다.
+
+Theory 88 뒤 전수원장은 theory 89개, display 식 1,705개, Lean declaration 320개,
+금지 proof escape 0건이다. support-capacity terminal은 empty-tail architecture의
+범위만 닫고 actual same-law moment는 닫지 않는다.

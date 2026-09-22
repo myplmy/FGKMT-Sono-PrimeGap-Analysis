@@ -550,3 +550,17 @@ theory 문서 88개, display 식 1,675개, declaration 315개다. 전체 상태�
 <code>SOURCE_THEOREM_UNFORMALIZED=127</code>,
 <code>NOT_YET_FORMALIZED=1080</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+2026-09-22 Theory 88 batch는 final randomized-coordinate support와 success-event
+pigeonhole capacity를 추가했다. Lean은 event mass/support/max-atom premise의 division,
+support coefficient rational arithmetic, support/full-primorial log hierarchy와
+large-sieve barrier terminal만 검사한다. CRT support enumeration, dyadic prime-count
+source theorem, theta theorem과 local character phase는 local axiom으로 넣지 않았다.
+
+canonical direct compile과 full build는 exit 0이었다. Theory 88 뒤 inventory는
+theory 문서 89개, display 식 1,705개, declaration 320개다. 전체 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=94</code>,
+<code>DEFINITION_ONLY=138</code>, <code>PARTIAL_FORMALIZATION=146</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=135</code>,
+<code>NOT_YET_FORMALIZED=1089</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

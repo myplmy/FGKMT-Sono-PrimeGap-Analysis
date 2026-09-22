@@ -232,6 +232,21 @@ Theory 87 뒤 inventory는 88개 theory 문서, 1,675식, Lean declaration 315�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=89</code>,
 <code>NOT_YET_FORMALIZED=1080</code>, 금지 proof escape 0건이다.
 
+2026-09-22 empty-output·support-capacity successor는 current final residue에서
+randomized coordinate가 outer \({\cal S}\)와 inner \(P'\subset(X/2,X]\)뿐임을
+사용해 \(H_{\rm res}=Q_{\cal S}\prod_{p\in P'}p\)를 support upper로 고정했다.
+sieve-good mass를 보존하면 any event atom cap \(\alpha\)에
+\(p_*/\alpha\le H_{\rm res}\)이고,
+\(\log H_{\rm res}<51X/100<49X/50<\log\mathfrak q\)다.
+따라서 any empty-output tail도 atom-cap × full-energy × raw classical large-sieve
+route를 닫지 못한다. local character phase·direct correlation은 배제하지 않는다.
+최신 analytic 정본은 theory 88·review 97이다. actual same-law moment·PAP-11·
+DEP-R09·fixed <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고 threshold
+calculator·actual prime 계산은 NOT READY다.
+Theory 88 뒤 inventory는 89개 theory 문서, 1,705식, Lean declaration 320개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=94</code>,
+<code>NOT_YET_FORMALIZED=1089</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

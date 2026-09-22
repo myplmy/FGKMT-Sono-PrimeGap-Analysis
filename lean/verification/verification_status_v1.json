@@ -3648,6 +3648,136 @@
       "declarations": ["dep_r09_conditional_weight_large_sieve_barrier"]
     },
     {
+      "formula_id": "88.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.2",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.4",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.5",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_event_atom_pigeonhole_terminal"]
+    },
+    {
+      "formula_id": "88.6",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_event_entropy_factor_le_support"]
+    },
+    {
+      "formula_id": "88.7",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_randomized_support_below_primorial"]
+    },
+    {
+      "formula_id": "88.8",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.9",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.10",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.11",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_event_atom_pigeonhole_terminal"]
+    },
+    {
+      "formula_id": "88.12",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_event_entropy_factor_le_support"]
+    },
+    {
+      "formula_id": "88.13",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.14",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.15",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.16",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.17",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.18",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.19",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_randomized_support_coefficient"]
+    },
+    {
+      "formula_id": "88.20",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.21",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_randomized_support_below_primorial"]
+    },
+    {
+      "formula_id": "88.22",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_conditional_weight_raw_moment_terminal"]
+    },
+    {
+      "formula_id": "88.23",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.24",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_support_capacity_large_sieve_barrier"]
+    },
+    {
+      "formula_id": "88.25",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "88.26",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_support_capacity_large_sieve_barrier"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

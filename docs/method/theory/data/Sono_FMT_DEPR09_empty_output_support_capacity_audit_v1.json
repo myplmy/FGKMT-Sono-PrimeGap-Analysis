@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-22",
+  "gate": "DEP-R09 empty-output and randomized-support capacity audit",
+  "predecessor": "Sono_FMT_DEPR09_final_law_conditional_weight_audit_v1.json",
+  "outcome": "RANDOMIZED_RESIDUE_SUPPORT_STRICTLY_SUBPRIMORIAL_SO_EMPTY_TAIL_CANNOT_RESCUE_ATOM_TIMES_FULL_ENERGY_LARGE_SIEVE_ROUTE",
+  "source_registry": [
+    {
+      "key": "FMT",
+      "title": "Chains of large gaps between primes",
+      "authors": "Kevin Ford, James Maynard, Terence Tao",
+      "locator": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "printed_locations": "printed p. 9 final extension and pp. 11--14 construction",
+      "classification": "PRIMARY_FINAL_RESIDUE_COORDINATE_SUPPORT"
+    },
+    {
+      "key": "FGKMT",
+      "title": "Long gaps between primes",
+      "authors": "Kevin Ford, Ben Green, Sergei Konyagin, James Maynard, Terence Tao",
+      "locator": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "printed_locations": "printed pp. 76--89; proof-law context",
+      "classification": "PRIMARY_COVERING_LAW_CONTEXT"
+    },
+    {
+      "key": "THEORY47",
+      "title": "H1b-NORM common weight probability normalization",
+      "locator": "docs/method/theory/47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md",
+      "sha256": "3c5566ca5e84109fbb402e7cb68afdccfcc8838a1cd014c3e11223bb6d3bbd5f",
+      "source_locations": "formula (47.13) dyadic prime count",
+      "classification": "PROJECT_INNER_COORDINATE_COUNT"
+    },
+    {
+      "key": "THEORY53",
+      "title": "H1b-COV1 full-residue hypergraph interface",
+      "locator": "docs/method/theory/53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md",
+      "sha256": "615c1501a49f422fe22d5838fb5829c255a48a1d4af9da25c3f7aa2158085672",
+      "source_locations": "formula (53.22) nonempty residue lift and empty-to-zero rule",
+      "classification": "PROJECT_FINAL_INNER_RESIDUE_SUPPORT"
+    },
+    {
+      "key": "THEORY82",
+      "title": "DEP-R09 outer entropy and convolution second moment",
+      "locator": "docs/method/theory/82_Sono_FMT_DEPR09_outer_entropy_convolution_second_moment.md",
+      "sha256": "73a32b0bd59f7b561d47704358556a71cad2e6ce3cb6ae24b25a18dfbf438a93",
+      "source_locations": "formulas (82.15)--(82.19)",
+      "classification": "PROJECT_ATOM_TIMES_FULL_ENERGY_ARCHITECTURE"
+    },
+    {
+      "key": "THEORY83",
+      "title": "DEP-R09 fixed-primorial variance and large-sieve barrier",
+      "locator": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278",
+      "source_locations": "formulas (83.19)--(83.24)",
+      "classification": "PROJECT_GENERIC_LARGE_SIEVE_BARRIER"
+    },
+    {
+      "key": "THEORY87",
+      "title": "DEP-R09 final-law conditional-weight source audit",
+      "locator": "docs/method/theory/87_Sono_FMT_DEPR09_final_law_conditional_weight_audit.md",
+      "sha256": "a34407861ef43ff0c85fec66e7c3008b3f71d7d635e37a16df1a2c24cabcf29d",
+      "source_locations": "formulas (87.2)--(87.8), open empty-output tail",
+      "classification": "PROJECT_PREDECESSOR_CONDITIONAL_ATOM_AUDIT"
+    }
+  ],
+  "final_residue_support": {
+    "outer_coordinates": "A_s mod s for s in S, at most Q_S=product_(s in S)s values",
+    "inner_coordinates": "n_p-prime mod p for p in P-prime subset (X/2,X], at most Q_P=product_(p in P-prime)p values",
+    "fixed_coordinates": "a_p=0 for every p<=X outside S union P-prime",
+    "support_capacity": "H_res=Q_S*Q_P",
+    "actual_support_relation": "card(supp(m_omega))<=H_res"
+  },
+  "event_pigeonhole": {
+    "success_mass": "P(S_sieve)>=p_*",
+    "support_atoms": "sum_r P(S_sieve and m_omega=r)>=p_* over at most H_res shifts",
+    "maximum_joint_atom_lower": "max_r P(S_sieve and m_omega=r)>=p_*/H_res",
+    "atom_cap_constraint": "any uniform event atom cap alpha must satisfy alpha>=p_*/H_res",
+    "best_entropy_factor": "p_*/alpha<=H_res",
+    "importance": "The success mass p_* cannot be discarded when comparing atom caps."
+  },
+  "explicit_scale": {
+    "outer_log_upper": "log Q_S<21X/16000",
+    "dyadic_prime_count": "card(P-prime)<=((1+3/a)X)/(2a)<=1003X/(2000a)",
+    "inner_log_upper": "log Q_P<=a*card(P-prime)<=1003X/2000",
+    "support_log_upper": "log H_res<(1609/3200)X<(51/100)X",
+    "full_primorial_log_lower": "log(P(X)/B0)>(49/50)X",
+    "conclusion": "H_res<q"
+  },
+  "large_sieve_architecture": {
+    "generic_raw_step": "rho_S<=alpha*sum_r abs(R(r))^2<=alpha*phi(q)N^2V",
+    "strict_gate_factor": "p_*/alpha<=H_res",
+    "best_gate_envelope": "V_gate,support/Y^2<=exp(-4)H_res/phi(q)",
+    "theory83_certificate": "B_LS/Y^2>exp(-4)q/phi(q)",
+    "result": "B_LS>V_gate,support because H_res<q",
+    "scope": "Rejects empty-tail improvements inside atom-cap times full-energy architecture only."
+  },
+  "empty_output_source_audit": {
+    "bad_normalizer_branch": "formula (5.9) construction sets the coordinate empty when F_i(W) fails",
+    "good_branch_empty_mass": "depends on the original empty-edge mass mu_i(empty)",
+    "uniform_empty_atom_upper_below_one": "not supplied by the checked source inputs",
+    "tail_relevance": "Even an ideal tail making every inner coordinate nonempty cannot exceed H_res, so it cannot rescue the generic architecture."
+  },
+  "exact_finite_diagnostic": {
+    "fmt_only_s_and_p_coordinates_randomized_source_verified": true,
+    "outside_coordinates_fixed_zero_source_verified": true,
+    "finite_support_pigeonhole_exact": true,
+    "event_success_mass_retained_in_entropy_factor": true,
+    "toy_outer_support": 6,
+    "toy_inner_support": 35,
+    "toy_total_support": 210,
+    "toy_event_mass": "3/5",
+    "toy_minimum_event_atom": "1/350",
+    "toy_best_entropy_factor": "210",
+    "outer_log_coefficient_upper": "21/16000",
+    "inner_log_coefficient_upper": "1003/2000",
+    "total_support_log_coefficient_upper": "1609/3200",
+    "total_support_log_coefficient_below_fifty_one_hundredths": true,
+    "full_primorial_log_coefficient_lower": "49/50",
+    "randomized_support_is_strictly_subprimorial": true,
+    "any_empty_output_tail_can_rescue_atom_full_energy_large_sieve_route": false,
+    "local_character_phase_cancellation_ruled_out": false,
+    "actual_empty_output_numerical_tail_identified": false,
+    "actual_same_law_analytic_moment_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "A numerical empty-output tail was proved.",
+    "Every randomized coordinate is uniform or independent.",
+    "The actual character energy is large.",
+    "Local character-phase cancellation or direct correlation is impossible.",
+    "Every possible large-sieve refinement is impossible.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Audit the reweighted local Dirichlet-character transform or another direct phase-correlation mechanism; support cardinality proves that no empty-output tail alone can close the atom-cap times full-energy large-sieve architecture."
+}
