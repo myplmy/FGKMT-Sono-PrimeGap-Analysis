@@ -3903,6 +3903,141 @@
       "declarations": ["dep_r09_blind_energy_strict_gate"]
     },
     {
+      "formula_id": "90.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.4",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_lifted_prime_power_decomposition"]
+    },
+    {
+      "formula_id": "90.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.6",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.7",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.8",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.9",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_fixed_modulus_exponent_endpoint"]
+    },
+    {
+      "formula_id": "90.11",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.12",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.13",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.14",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_blind_quarter_budget_terminal"]
+    },
+    {
+      "formula_id": "90.15",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_imprimitive_correction_absorption"]
+    },
+    {
+      "formula_id": "90.16",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.17",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.18",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.19",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_fixed_modulus_exponent_endpoint"]
+    },
+    {
+      "formula_id": "90.20",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.21",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_bennett_fixed_modulus_no_overlap"]
+    },
+    {
+      "formula_id": "90.22",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.23",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.24",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.25",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_vaughan_variance_gate_transfer"]
+    },
+    {
+      "formula_id": "90.26",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "90.27",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

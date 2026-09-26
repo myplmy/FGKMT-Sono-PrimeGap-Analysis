@@ -578,3 +578,17 @@ theory 문서 90개, display 식 1,733개, declaration 324개다. 전체 상태�
 <code>SOURCE_THEOREM_UNFORMALIZED=144</code>,
 <code>NOT_YET_FORMALIZED=1097</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+2026-09-27 Theory 90 batch는 lifted/native prime-power decomposition,
+imprimitive correction quarter budget과 fixed-modulus exponent range를 추가했다.
+Lean은 finite sum bookkeeping, energy-budget terminal, denominator-cleared correction
+gate와 \(19530/47<416<900\) 산술만 검사한다. actual character energy와
+Vaughan·Bennett·Friedlander--Goldston theorem은 local axiom으로 넣지 않았다.
+
+canonical direct compile과 full build는 exit 0이었다. Theory 90 뒤 inventory는
+theory 문서 91개, display 식 1,763개, declaration 329개다. 전체 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=102</code>,
+<code>DEFINITION_ONLY=150</code>, <code>PARTIAL_FORMALIZATION=151</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=151</code>,
+<code>NOT_YET_FORMALIZED=1106</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

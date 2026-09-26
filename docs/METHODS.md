@@ -2516,3 +2516,52 @@ Theory 89 뒤 전수원장은 theory 90개, display 식 1,733개, Lean declarati
 <code>SOURCE_THEOREM_UNFORMALIZED=144</code>,
 <code>NOT_YET_FORMALIZED=1097</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+## 2026-09-27 DEP-R09 blind fixed-modulus·imprimitive correction 환원
+
+[theory 90](method/theory/90_Sono_FMT_DEPR09_blind_fixed_modulus_reduction.md)과
+[review 99](review/99_20260927_DEPR09_blind_fixed_modulus_타당성검토.md)은
+Theory 89 blind family의 prime-error normalization을 native modulus \(f\)로 내렸다.
+
+nonprincipal \(\psi\bmod f\)와 lifted
+\(\widetilde\psi=\psi\otimes\chi_{0,h}\)에 대해
+
+\[
+Z_{\widetilde\psi}^{(\mathfrak q)}(U)
+=Z_\psi^{(f)}(U)
+-\sum_{p\mid h}\sum_{p^j\le U}(\log p)\psi(p)^j.
+\]
+
+correction은 character별 \(\omega(h)\log U\) 이하이고
+
+\[
+V_{\rm blind}^{(\mathfrak q)}
+\le(1+\eta)V_f
++(1+\eta^{-1})\{\varphi(f)-1\}\omega(h)^2(\log U)^2.
+\]
+
+\(\eta=1\) quarter-budget으로 correction을 explicit secondary gate로 분리했다.
+즉 imprimitive lift가 아니라 native \(V_f\) theorem이 analytic core blocker다.
+
+\[
+21\le d_f=\frac{\log U}{\log f}<416
+\]
+
+인데 Bennett source cutoff는 modulus \(>10^5\) branch에서 coarse exponent 900부터
+요구한다. Vaughan fixed-\(A\) range와 GRH large-\(Q\) theorem,
+Friedlander--Goldston GRH implicit upper도 unconditional numerical drop-in이 아니다.
+raw classical large sieve 역시 native quarter-gate보다 큰 certificate다.
+
+따라서 blind fixed-modulus normalization은 닫혔지만 native character-energy upper와
+direct weighted correlation은 OPEN이다. PAP-11, DEP-R09, fixed
+\(2\times10^{-17}\), numerical \(X_{\rm cert}\)는 계속 OPEN이고 threshold
+calculator·actual prime 계산은 NOT READY / NOT RUN이다.
+
+Theory 76·83·85·89--90 canonical Python 회귀시험 48개, Lean direct compile과
+full build, 전수 ledger refresh/validation이 모두 exit 0이었다. Theory 90 뒤
+전수원장은 theory 91개, display 식 1,763개, Lean declaration 329개다. 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=102</code>,
+<code>DEFINITION_ONLY=150</code>, <code>PARTIAL_FORMALIZATION=151</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=151</code>,
+<code>NOT_YET_FORMALIZED=1106</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

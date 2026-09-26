@@ -4173,4 +4173,54 @@ theorem dep_r09_fixed_modulus_log_gap
     47 * X / 100 < logFixed := by
   linarith
 
+/-! ## Theory 90 — blind fixed-modulus and imprimitive correction -/
+
+/- Theory 90, formula 90.4: finite bookkeeping terminal for native,
+   removed-prime-power, and lifted character sums. -/
+theorem dep_r09_lifted_prime_power_decomposition
+    {native lifted removed : ℝ}
+    (h : native = lifted + removed) :
+    lifted = native - removed := by
+  linarith
+
+/- Theory 90, formulas 90.8 and 90.14: with eta=1, strict quarter
+   budgets for native and correction energy imply the blind target after
+   the two-factor transfer. -/
+theorem dep_r09_blind_quarter_budget_terminal
+    {blind native correction target : ℝ}
+    (hBlind : blind ≤ 2 * native + 2 * correction)
+    (hNative : native < target / 4)
+    (hCorrection : correction < target / 4) :
+    blind < target := by
+  linarith
+
+/- Theory 90, formulas 90.13--90.15: the denominator-cleared strict
+   correction condition implies the quarter-target condition. -/
+theorem dep_r09_imprimitive_correction_absorption
+    {phi M correctionSq tau primeScale : ℝ}
+    (hGap : 0 < phi - M)
+    (hCondition :
+      4 * correctionSq * (phi - M) <
+        tau ^ 2 * M * primeScale ^ 2) :
+    correctionSq <
+      (tau ^ 2 * M * primeScale ^ 2 / (phi - M)) / 4 := by
+  have hDiv :
+      4 * correctionSq <
+        tau ^ 2 * M * primeScale ^ 2 / (phi - M) := by
+    exact (lt_div_iff₀ hGap).2 hCondition
+  linarith
+
+/- Theory 90, formula 90.10: exact endpoint arithmetic for d=186. -/
+theorem dep_r09_fixed_modulus_exponent_endpoint :
+    (19530 / 47 : ℝ) < 416 := by
+  norm_num
+
+/- Theory 90, formulas 90.20--90.21: any effective exponent below 416
+   is strictly below the coarse Bennett cutoff requirement 900. -/
+theorem dep_r09_bennett_fixed_modulus_no_overlap
+    {dFixed : ℝ}
+    (hFixed : dFixed < 416) :
+    dFixed < 900 := by
+  linarith
+
 end FGKMTSono

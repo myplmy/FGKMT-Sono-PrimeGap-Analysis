@@ -264,6 +264,20 @@ Theory 89 뒤 inventory는 90개 theory 문서, 1,733식, Lean declaration 324�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=97</code>,
 <code>NOT_YET_FORMALIZED=1097</code>, 금지 proof escape 0건이다.
 
+2026-09-27 blind fixed-modulus successor는
+\(Z_{\widetilde\psi}^{(\mathfrak q)}=Z_\psi^{(f)}-D_{\psi,h}\),
+\(|D_{\psi,h}|\le\omega(h)\log U\)로 lifted error를 native modulus와 explicit
+prime-power correction으로 환원했다. correction은 parameterized quarter-budget으로
+분리되고 native \(V_f\)가 core blocker다. effective exponent는
+\(21\le d_f<19530/47<416\)이며 Bennett cutoff 900, Vaughan fixed-\(A\) range,
+Friedlander--Goldston GRH implicit upper 중 unconditional numerical drop-in은 없다.
+최신 analytic 정본은 theory 90·review 99다. blind correlation·PAP-11·DEP-R09·
+fixed <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고 threshold
+calculator·actual prime 계산은 NOT READY다.
+Theory 90 뒤 inventory는 91개 theory 문서, 1,763식, Lean declaration 329개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=102</code>,
+<code>NOT_YET_FORMALIZED=1106</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

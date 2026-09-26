@@ -1451,3 +1451,24 @@ calculator와 장시간 prime sweep은 NOT READY다.
 Theory 89 뒤 전수원장은 theory 90개, display 식 1,733개, Lean declaration 324개,
 금지 proof escape 0건이다. blind coefficient energy identity는 exact하지만
 blind prime-error correlation은 계속 OPEN이다.
+
+## 59. 2026-09-27 DEP-R09 blind fixed-modulus 후속 상태
+
+[theory 90](90_Sono_FMT_DEPR09_blind_fixed_modulus_reduction.md)은
+
+\[
+Z_{\widetilde\psi}^{(\mathfrak q)}
+=Z_\psi^{(f)}-D_{\psi,h},
+\qquad |D_{\psi,h}|\le\omega(h)\log U
+\]
+
+를 exact하게 고정했다. correction absorption은 parameterized explicit이고
+native \(V_f\)가 실제 blocker다. effective exponent는 \(21\le d_f<416\)이지만
+checked unconditional numerical source range는 겹치지 않는다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
+않는다. threshold calculator와 장시간 prime sweep은 NOT READY다.
+
+Theory 90 뒤 전수원장은 theory 91개, display 식 1,763개, Lean declaration 329개,
+금지 proof escape 0건이다. imprimitive correction은 explicit하지만 native energy는
+계속 analytic OPEN이다.
