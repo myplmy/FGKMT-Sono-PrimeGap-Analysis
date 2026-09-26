@@ -592,3 +592,41 @@ theory 문서 91개, display 식 1,763개, declaration 329개다. 전체 상태�
 <code>SOURCE_THEOREM_UNFORMALIZED=151</code>,
 <code>NOT_YET_FORMALIZED=1106</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+2026-09-27 Theory 91 batch는 complex-weighted survivor second moment,
+entrywise pair-error의 \(\ell_1\)-to-\(\ell_2\) loss, common-shock sharpness witness와
+project \(\beta\rho M_V>1\) terminal을 추가했다. Lean은 moment expansion·probability
+bounds를 premise로 받은 scalar 합성, nonnegative multiplier transfer와 exact rational
+arithmetic만 검사한다. finite complex probability identity, FGKMT source law와
+Gould--Kelly theorem은 local axiom으로 넣지 않았다.
+
+Python exact fixture 8건은 Gaussian rational weights의 moment expansion과 finite
+common-shock probability table을 검사한다. actual prime data나 large hypergraph는
+만들지 않았다.
+
+canonical direct compile과 전수 inventory refresh·validation은 exit 0이었다. Theory 91
+뒤 inventory는 theory 문서 92개, display 식 1,788개, declaration 333개다. 전체 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=105</code>,
+<code>DEFINITION_ONLY=156</code>, <code>PARTIAL_FORMALIZATION=155</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=153</code>,
+<code>NOT_YET_FORMALIZED=1116</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. full build와 broad Python regression은 최종 commit 전
+재검증한다.
+
+2026-09-27 Theory 92 batch는 Brun--Titchmarsh exponent endpoint, real blind
+discrepancy pointwise envelope, normalized weighted-moment terminal,
+\(\Gamma_M-\beta\) finite-size identity와 strict success-scale gate를 추가했다.
+Lean은 analytic source bounds와 moment expansion을 premise로 받은 scalar 결론만
+검사한다. finite Dirichlet-character orthogonality, Montgomery--Vaughan Theorem 2,
+Rosser--Schoenfeld theta theorem과 sparse centered mean은 local axiom으로 넣지 않았다.
+
+Python exact fixture 11건은 modulo 5 character table을 Gaussian rational로 전수하고
+inverse transform·Parseval·selected mean과 rational normalization을 검사한다. actual
+prime data나 threshold는 계산하지 않았다. direct compile과 전수 inventory
+refresh·validation은 PASS했다. Theory 92 뒤 inventory는 theory 문서 93개, display 식
+1,814개, declaration 338개다. 전체 상태는 <code>KERNEL_PASS=98</code>,
+<code>CONDITIONAL_KERNEL_PASS=109</code>, <code>DEFINITION_ONLY=163</code>,
+<code>PARTIAL_FORMALIZATION=158</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=158</code>,
+<code>NOT_YET_FORMALIZED=1123</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. full build는 최종 commit 전에 재검증한다.

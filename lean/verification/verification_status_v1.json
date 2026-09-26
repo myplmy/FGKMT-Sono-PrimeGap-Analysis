@@ -4038,6 +4038,241 @@
       "declarations": []
     },
     {
+      "formula_id": "91.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.3",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.4",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.5",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_weighted_survivor_moment_terminal", "dep_r09_pair_error_l1_to_l2"]
+    },
+    {
+      "formula_id": "91.6",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_project_pair_spectral_loss_terminal"]
+    },
+    {
+      "formula_id": "91.7",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.8",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.9",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_pair_error_l1_to_l2"]
+    },
+    {
+      "formula_id": "91.11",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.12",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_common_shock_pair_error_witness"]
+    },
+    {
+      "formula_id": "91.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_common_shock_pair_error_witness"]
+    },
+    {
+      "formula_id": "91.14",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_common_shock_pair_error_witness"]
+    },
+    {
+      "formula_id": "91.15",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.16",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.17",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.18",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.19",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_project_pair_spectral_loss_terminal"]
+    },
+    {
+      "formula_id": "91.20",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.21",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "91.22",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.4",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.5",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_blind_residue_pointwise_envelope"]
+    },
+    {
+      "formula_id": "92.7",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_blind_normalized_moment_terminal"]
+    },
+    {
+      "formula_id": "92.8",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.9",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.10",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.11",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.12",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_brun_titchmarsh_exponent_21_endpoint"]
+    },
+    {
+      "formula_id": "92.14",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.15",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.16",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.17",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.18",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_blind_residue_pointwise_envelope"]
+    },
+    {
+      "formula_id": "92.19",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.20",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.21",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_blind_normalized_moment_terminal"]
+    },
+    {
+      "formula_id": "92.22",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_normalized_pair_factor_correction"]
+    },
+    {
+      "formula_id": "92.23",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "92.24",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_blind_success_scale_gate"]
+    },
+    {
+      "formula_id": "92.25",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

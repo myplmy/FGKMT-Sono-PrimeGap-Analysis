@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-27",
+  "gate": "DEP-R09 complex-weighted survivor moment and weighted nibble audit",
+  "predecessor": "Sono_FMT_DEPR09_blind_fixed_modulus_reduction_v1.json",
+  "outcome": "EXACT_WEIGHTED_SECOND_MOMENT_INTERFACE_BUT_ENTRYWISE_PAIR_ERROR_HAS_SHARP_BETA_M_LOSS_AND_NO_WEIGHTED_NIBBLE_DROP_IN",
+  "source_registry": [
+    {
+      "key": "GOULD_KELLY2025",
+      "title": "Advancing the Rodl Nibble: New bounds on matchings and the list chromatic index of hypergraphs",
+      "locator": "tmp/pdfs/depr09_weighted_nibble_20260927/Gould_Kelly_2025_advancing_rodl_nibble.pdf",
+      "sha256": "cad7ce8d7b2e7fc5562431d4178c5dcdf50be13d5b5b048ff5013e4970db653c",
+      "printed_locations": "Theorem 1.4 and Section 1.3",
+      "classification": "PRIMARY_WEIGHTED_PSEUDORANDOM_MATCHING_NOT_DROP_IN"
+    },
+    {
+      "key": "FGKMT",
+      "title": "Long gaps between primes",
+      "locator": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "printed_locations": "Theorem 3 formula (4.10), one/two-point survival",
+      "classification": "PRIMARY_CURRENT_COVERING_MOMENTS"
+    },
+    {
+      "key": "THEORY53",
+      "title": "H1b-COV1 full-residue hypergraph interface",
+      "locator": "docs/method/theory/53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md",
+      "sha256": "615c1501a49f422fe22d5838fb5829c255a48a1d4af9da25c3f7aa2158085672",
+      "source_locations": "formulas (53.19)--(53.21)",
+      "classification": "PROJECT_EXPLICIT_ONE_TWO_POINT_ERRORS"
+    },
+    {
+      "key": "THEORY54",
+      "title": "H1b-COV1a explicit covering constant",
+      "locator": "docs/method/theory/54_Sono_FMT_H1bCOV1a_explicit_covering_constant.md",
+      "sha256": "4e9d3608f91e7eece383a79aa367077319958a13f0c5ab6ea208d52f04d1f06b",
+      "source_locations": "all-parameter proof law and explicit C0",
+      "classification": "PROJECT_CURRENT_NONUNIFORM_INDEXED_COVERING_LAW"
+    },
+    {
+      "key": "THEORY89",
+      "title": "DEP-R09 reweighted local character-transform audit",
+      "locator": "docs/method/theory/89_Sono_FMT_DEPR09_reweighted_local_character_transform_audit.md",
+      "sha256": "edde7e7df04372a30e3b01cfe6627af910b4658dbfb38ffad5345961e990b692",
+      "source_locations": "blind character weights and energy",
+      "classification": "PROJECT_COMPLEX_WEIGHT_TARGET"
+    },
+    {
+      "key": "THEORY90",
+      "title": "DEP-R09 blind fixed-modulus reduction",
+      "locator": "docs/method/theory/90_Sono_FMT_DEPR09_blind_fixed_modulus_reduction.md",
+      "sha256": "b696985d65f1cc7b6fb067398588c15564478f576bc9c41b5ad79908c0414a74",
+      "source_locations": "native blind energy target",
+      "classification": "PROJECT_BLIND_ANALYTIC_INPUT"
+    }
+  ],
+  "weighted_second_moment": {
+    "weights": "fixed complex b_v on a pre-covering vertex set of size M",
+    "survival_indicators": "X_v in {0,1}",
+    "single_contract": "P(X_v=1)<=rho(1+alpha)",
+    "pair_contract": "abs(P(X_v=X_w=1)-rho^2)<=beta*rho^2 for v!=w",
+    "exact_expansion": "E abs(sum_v b_v X_v)^2=sum_v P_v abs(b_v)^2+sum_(v!=w)P_vw b_v conjugate(b_w)",
+    "entrywise_upper": "rho^2 abs(sum b)^2+((1+alpha)rho-rho^2+beta*rho^2(M-1))*sum abs(b)^2",
+    "loss": "beta*rho^2(M-1) is the worst-case spectral loss from entrywise pair errors"
+  },
+  "sharpness_fixture": {
+    "law": "a fair latent coin selects iid Bernoulli(1/8) or iid Bernoulli(3/8)",
+    "M": 4,
+    "rho": "1/4",
+    "pair_probability": "5/64",
+    "relative_pair_error": "1/4",
+    "weights": "all one",
+    "observed_second_moment": "31/16",
+    "entrywise_certificate": "31/16",
+    "excess_over_independent_baseline": "3/16",
+    "conclusion": "The beta*M scaling cannot be removed using only the stated entrywise one/two-point data."
+  },
+  "project_scale": {
+    "alpha": "(1+epsilon_h)exp(xi)-1",
+    "beta": "(1+epsilon_h)exp(2xi)-1",
+    "xi": "3^m/b",
+    "lower": "beta>=2xi>=6/b",
+    "vertex_floor": "M>78*c*X*b/a",
+    "spectral_loss": "beta*M>468*c*X/a and beta*rho*M>468*c*X/(a*b)>1 on the existing child range",
+    "meaning": "The available entrywise pair certificate is not a small covariance-operator bound."
+  },
+  "gould_kelly_applicability": {
+    "theorem": "Theorem 1.4 pseudorandom hypergraph matching",
+    "hypergraph": "uniform nearly D-regular hypergraph with codegree sequence",
+    "weights": "preselected nonnegative vertex functions satisfying P1--P3",
+    "conclusion": "existence of a matching with weighted leftover bounds",
+    "constants": "asymptotic hierarchy, not numerical multiplier and finite cutoff",
+    "current_law": "indexed variable-size random edge families, conditional covering output, same-law probability moment",
+    "complex_phase": "not directly handled; splitting into nonnegative parts does not repair law/regularity/quantitative mismatch",
+    "drop_in": false,
+    "construction_redesign_possible": true,
+    "construction_redesign_requires_separate_approval": true
+  },
+  "exact_finite_diagnostic": {
+    "arbitrary_complex_weight_second_moment_exact": true,
+    "entrywise_pair_error_upper_exact": true,
+    "beta_times_support_loss_is_unavoidable_from_entrywise_data": true,
+    "toy_count": 4,
+    "toy_rho": "1/4",
+    "toy_pair_probability": "5/64",
+    "toy_relative_pair_error": "1/4",
+    "toy_observed_second_moment": "31/16",
+    "toy_certificate_upper": "31/16",
+    "toy_pair_covariance_excess": "3/16",
+    "project_beta_times_vertex_count_exceeds_one": true,
+    "project_beta_rho_vertex_count_exceeds_one": true,
+    "gould_kelly_primary_pdf_verified": true,
+    "gould_kelly_uniform_nearly_regular_matching_theorem": true,
+    "gould_kelly_handles_current_indexed_variable_edge_covering_law": false,
+    "gould_kelly_weights_are_nonnegative_preselected": true,
+    "gould_kelly_supplies_numerical_constants_and_failure_rate": false,
+    "applicable_weighted_nibble_drop_in_identified": false,
+    "blind_weighted_moment_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The actual covariance operator has large norm.",
+    "Gould--Kelly cannot inspire a redesigned construction.",
+    "All weighted nibble theorems are inapplicable.",
+    "The blind prime-error weights saturate the common-shock counterexample.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Obtain a numerical covariance-operator or direct event-energy correlation theorem for the actual nonuniform indexed covering law; fixed one/two-point entrywise errors and current weighted matching theorems do not supply the required blind complex moment."
+}

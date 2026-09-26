@@ -2565,3 +2565,98 @@ full build, 전수 ledger refresh/validation이 모두 exit 0이었다. Theory 9
 <code>SOURCE_THEOREM_UNFORMALIZED=151</code>,
 <code>NOT_YET_FORMALIZED=1106</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+## 2026-09-27 DEP-R09 complex-weighted survivor moment 감사
+
+[theory 91](method/theory/91_Sono_FMT_DEPR09_weighted_survivor_moment_audit.md)과
+[review 100](review/100_20260927_DEPR09_weighted_survivor_moment_타당성검토.md)은
+blind direct-correlation route가 요구하는 actual-law weighted moment를 one/two-point
+입력까지 환원했다.
+
+fixed complex weights \(b_v\), survival indicators \(X_v\), reference survival rate
+\(\rho\)에 대해
+
+\[
+\mathbb E\left|\sum_v b_vX_v\right|^2
+=\sum_vp_v|b_v|^2+
+\sum_{v\ne w}p_{vw}b_v\overline{b_w}.
+\]
+
+\(p_v\le(1+\alpha)\rho\)와
+\(|p_{vw}-\rho^2|\le\beta\rho^2\)만 사용하면
+
+\[
+\mathbb E\left|\sum_vb_vX_v\right|^2
+\le\rho^2\left|\sum_vb_v\right|^2+
+\{(1+\alpha)\rho-\rho^2+\beta\rho^2(M_V-1)\}
+\sum_v|b_v|^2.
+\]
+
+common-shock finite probability law는 pair-error term의 \(\beta M_V\) scaling을
+exact하게 달성한다. 따라서 이 loss는 current entrywise input만으로 없앨 수 없다.
+Theory 53 parameter에서는 \(\beta\ge6/b\), \(\rho\ge1/b\),
+\(M_V>78cXb/a\)여서
+
+\[
+\beta\rho M_V>\frac{468cX}{ab}>1.
+\]
+
+이는 actual covariance lower가 아니라 certificate의 한계다. blind prime-error
+weight \(B(v)\)에 적용하려면 deterministic
+\(|\sum_vB(v)|^2\)와 \(\sum_v|B(v)|^2\), 또는 formula (5.9)의 stronger covariance
+operator theorem이 필요하다.
+
+선행연구로 Gould--Kelly 2025 weighted Rödl-nibble theorem을 원문 대조했다. 이 정리는
+nearly regular uniform hypergraph matching의 existence와 nonnegative weight family를
+다루므로 variable-size indexed covering의 actual law·complex weights·finite numerical
+failure probability에 drop-in할 수 없다. 이를 쓰기 위한 construction redesign은
+이번 normalization 범위에서 수행하지 않았다.
+
+canonical Python exact 시험 8건, Lean direct compile, 전수 ledger refresh/validation이
+통과했다. Theory 91 뒤 전수원장은 theory 92개, display 식 1,788개, Lean declaration
+333개다. 상태는 <code>KERNEL_PASS=98</code>,
+<code>CONDITIONAL_KERNEL_PASS=105</code>, <code>DEFINITION_ONLY=156</code>,
+<code>PARTIAL_FORMALIZATION=155</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=153</code>,
+<code>NOT_YET_FORMALIZED=1116</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. PAP-11·DEP-R09·fixed \(2\times10^{-17}\)·numerical
+\(X_{\rm cert}\)는 계속 OPEN이며 threshold calculator·actual prime 계산은
+NOT READY / NOT RUN이다.
+
+## 2026-09-27 DEP-R09 blind residue-discrepancy 환원
+
+[theory 92](method/theory/92_Sono_FMT_DEPR09_blind_residue_discrepancy_reduction.md)와
+[review 101](review/101_20260927_DEPR09_blind_residue_discrepancy_타당성검토.md)은
+Theory 91 이후의 blind weight를 residue space에서 직접 정규화했다.
+
+Lifted residue mass를 \(A_h(v;U)\), principal total을 \(S_h(U)\)라 하면 finite
+character orthogonality는
+\(B_h(v)=\varphi(f)A_h(v;U)-S_h(U)\)를 준다. 따라서 blind weights는 real이다.
+
+Montgomery--Vaughan 1973 Theorem 2의 exact coefficient
+\(2d_f/(d_f-1)\le21/10\), elementary
+\(\psi(U)-\theta(U)\le\sqrt U\log U\), Rosser--Schoenfeld theta upper를 합쳐
+existing child에서 \(|B_h(v)|<11U/5\)를 얻었다. source PDF hash는 Theory 83에서
+고정한 값과 일치한다.
+
+Theory 91 moment를 \((\rho MU)^2\)로 정규화하면 pair contribution은
+\(\Gamma_M=(1+\alpha)/(\rho M)-1/M+\beta(M-1)/M\)이고
+\(\Gamma_M\to\beta\)다. 따라서 inner pair dimension loss는 pointwise envelope와
+success scale을 함께 쓸 때 흡수 가능한 scalar gate로 바뀐다.
+
+새 최소 analytic input은 selected sparse set에 대한
+\(D_V=\varphi(f)\sum_{v\in V}A_h(v;U)-MS_h(U)\)의 numerical centered bound다.
+current source는 이 signed mean을 작은 relative error로 주지 않는다. 이는 full energy
+장벽과 covariance dimension 장벽 사이의 불필요한 loss를 제거한 큰 구조 진전이지만
+아직 bounded \(X_{\rm cert}\) range는 아니다.
+
+Python exact fixture 11건과 Lean direct compile, 전수 ledger refresh/validation이
+PASS했다. Theory 92 뒤 전수원장은 theory 93개, display 식 1,814개, Lean declaration
+338개다. 상태는 <code>KERNEL_PASS=98</code>,
+<code>CONDITIONAL_KERNEL_PASS=109</code>, <code>DEFINITION_ONLY=163</code>,
+<code>PARTIAL_FORMALIZATION=158</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=158</code>,
+<code>NOT_YET_FORMALIZED=1123</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. full regression·build는 최종 handoff 전에 다시
+확정한다. threshold calculator·actual prime 계산·패키지 설치·GRH branch는 실행하지
+않았다.

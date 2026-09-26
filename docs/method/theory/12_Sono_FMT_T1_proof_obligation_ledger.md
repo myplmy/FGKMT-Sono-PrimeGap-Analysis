@@ -1472,3 +1472,49 @@ checked unconditional numerical source range는 겹치지 않는다.
 Theory 90 뒤 전수원장은 theory 91개, display 식 1,763개, Lean declaration 329개,
 금지 proof escape 0건이다. imprimitive correction은 explicit하지만 native energy는
 계속 analytic OPEN이다.
+
+## 60. 2026-09-27 DEP-R09 weighted survivor-moment 후속 상태
+
+[theory 91](91_Sono_FMT_DEPR09_weighted_survivor_moment_audit.md)은 current
+one/two-point survival input이 arbitrary complex weights에 주는 exact certificate를
+고정했다.
+
+\[
+\mathbb E\left|\sum_vb_vX_v\right|^2
+\le\rho^2\left|\sum_vb_v\right|^2+
+\{(1+\alpha)\rho-\rho^2+\beta\rho^2(M_V-1)\}
+\sum_v|b_v|^2.
+\]
+
+finite common-shock model이 \(\beta M_V\) scaling을 exact하게 달성하고, project
+parameter에서는 \(\beta\rho M_V>468cX/(ab)>1\)이다. 따라서 current entrywise
+pair theorem은 blind complex weights에 대한 small covariance certificate가 아니다.
+actual covariance lower는 주장하지 않는다.
+
+Gould--Kelly weighted matching theorem은 current variable-size indexed covering의
+actual numerical law가 아니므로 drop-in하지 않는다. 다음 root input은 blind
+prime-error mean/L2 theorem 또는 formula (5.9)의 covariance-operator theorem이다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
+않는다. threshold calculator와 장시간 prime sweep은 NOT READY다.
+
+Theory 91 뒤 전수원장은 theory 92개, display 식 1,788개, Lean declaration 333개,
+금지 proof escape 0건이다. weighted scalar terminals는 검증됐지만 actual same-law
+moment는 계속 analytic OPEN이다.
+
+## 61. 2026-09-27 DEP-R09 blind residue-discrepancy 후속 상태
+
+[theory 92](92_Sono_FMT_DEPR09_blind_residue_discrepancy_reduction.md)은 blind weight를
+real discrepancy \(B_h(v)=\varphi(f)A_h(v;U)-S_h(U)\)로 exact하게 역변환했다.
+Montgomery--Vaughan Brun--Titchmarsh와 prime-power correction은
+\(|B_h(v)|<11U/5\)를 준다.
+
+Theory 91 pair certificate를 success scale로 나누면 finite factor는
+\((1+\alpha)/(\rho M)-1/M+\beta(M-1)/M\)이고 large-\(M\) limit는 \(\beta\)다.
+따라서 pair dimension obstruction은 제거됐다. 남은 root input은 sparse selected-residue
+centered mean의 uniform numerical bound다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
+않는다. threshold calculator와 장시간 prime sweep은 NOT READY다. Theory 92 뒤
+전수원장은 theory 93개, display 식 1,814개, Lean declaration 338개, 금지 proof
+escape 0건이다.

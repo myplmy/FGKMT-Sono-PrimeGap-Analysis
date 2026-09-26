@@ -4223,4 +4223,116 @@ theorem dep_r09_bennett_fixed_modulus_no_overlap
     dFixed < 900 := by
   linarith
 
+/-! ## Theory 91 — complex-weighted survivor moments -/
+
+/- Theory 91, formulas 91.8--91.11: once the diagonal and entrywise
+   off-diagonal estimates are supplied, the weighted second-moment
+   certificate follows by scalar addition. -/
+theorem dep_r09_weighted_survivor_moment_terminal
+    {moment ideal diagonal offDiagonal diagonalUpper offUpper : ℝ}
+    (hExpand : moment ≤ ideal + diagonal + offDiagonal)
+    (hDiagonal : diagonal ≤ diagonalUpper)
+    (hOff : offDiagonal ≤ offUpper) :
+    moment ≤ ideal + diagonalUpper + offUpper := by
+  linarith
+
+/- Theory 91, formulas 91.10--91.11: the l1-to-l2 bound transfers an
+   entrywise pair-error term to the beta*rho^2*(M-1) spectral certificate. -/
+theorem dep_r09_pair_error_l1_to_l2
+    {l1Sq l2 M beta rho offDiagonal : ℝ}
+    (hBeta : 0 ≤ beta)
+    (hL1 : l1Sq ≤ M * l2)
+    (hOff :
+      offDiagonal ≤ beta * rho ^ 2 * (l1Sq - l2)) :
+    offDiagonal ≤ beta * rho ^ 2 * (M - 1) * l2 := by
+  have hFactor : 0 ≤ beta * rho ^ 2 :=
+    mul_nonneg hBeta (sq_nonneg rho)
+  have hDifference : l1Sq - l2 ≤ (M - 1) * l2 := by
+    nlinarith
+  have hScaled := mul_le_mul_of_nonneg_left hDifference hFactor
+  exact hOff.trans (by simpa only [mul_assoc] using hScaled)
+
+/- Theory 91, formulas 91.12--91.14: exact arithmetic of the four-variable
+   common-shock countermodel.  Python independently enumerates the full
+   finite law. -/
+theorem dep_r09_common_shock_pair_error_witness :
+    let rho : ℝ := 1 / 4
+    let pair : ℝ := 5 / 64
+    let beta : ℝ := 1 / 4
+    pair = (1 + beta) * rho ^ 2 ∧
+      (31 / 16 : ℝ) - 7 / 4 =
+        beta * rho ^ 2 * 4 * 3 := by
+  norm_num
+
+/- Theory 91, formula 91.19: once the project analytic inputs provide the
+   displayed lower certificate, its strict failure of smallness is immediate. -/
+theorem dep_r09_project_pair_spectral_loss_terminal
+    {beta rho M lower : ℝ}
+    (hProduct : lower ≤ beta * rho * M)
+    (hLower : 1 < lower) :
+    1 < beta * rho * M := by
+  exact hLower.trans_le hProduct
+
+/-! ## Theory 92 — blind residue discrepancy and pointwise envelope -/
+
+/- Theory 92, formula 92.13: endpoint arithmetic for the explicit
+   Montgomery--Vaughan Brun--Titchmarsh coefficient. -/
+theorem dep_r09_brun_titchmarsh_exponent_21_endpoint :
+    (2 * 21 / (21 - 1) : ℝ) = 21 / 10 := by
+  norm_num
+
+/- Theory 92, formulas 92.18--92.19: if the progression and principal
+   masses are nonnegative and lie under the audited envelopes, their real
+   blind discrepancy has the 11/5 pointwise bound. -/
+theorem dep_r09_blind_residue_pointwise_envelope
+    {progression principal primeScale : ℝ}
+    (hScale : 0 ≤ primeScale)
+    (hProgressionNonnegative : 0 ≤ progression)
+    (hPrincipalNonnegative : 0 ≤ principal)
+    (hProgression : progression ≤ 11 * primeScale / 5)
+    (hPrincipal : principal ≤ 11 * primeScale / 10) :
+    |progression - principal| ≤ 11 * primeScale / 5 := by
+  rw [abs_le]
+  constructor <;> linarith
+
+/- Theory 92, formulas 92.7--92.8 and 92.20--92.21: after the mean and
+   pointwise-L2 inputs have been supplied, the normalized certificate is an
+   exact scalar rearrangement. -/
+theorem dep_r09_blind_normalized_moment_terminal
+    {moment rho meanRatio vertexCount primeScale pointwise gamma : ℝ}
+    (hMoment :
+      moment ≤
+        rho ^ 2 * meanRatio ^ 2 * vertexCount ^ 2 * primeScale ^ 2 +
+        pointwise ^ 2 *
+          (rho ^ 2 * vertexCount * gamma) * vertexCount * primeScale ^ 2) :
+    moment ≤
+      rho ^ 2 * vertexCount ^ 2 * primeScale ^ 2 *
+        (meanRatio ^ 2 + pointwise ^ 2 * gamma) := by
+  nlinarith
+
+/- Theory 92, formula 92.22: exact finite-size correction showing that
+   Gamma_M approaches beta rather than beta*rho*M. -/
+theorem dep_r09_normalized_pair_factor_correction
+    {gamma alpha beta rho vertexCount : ℝ}
+    (hRho : rho ≠ 0)
+    (hCount : vertexCount ≠ 0)
+    (hGamma :
+      gamma =
+        (1 + alpha) / (rho * vertexCount) - 1 / vertexCount +
+          beta * (vertexCount - 1) / vertexCount) :
+    gamma - beta =
+      ((1 + alpha) / rho - 1 - beta) / vertexCount := by
+  field_simp [hRho, hCount] at hGamma ⊢
+  nlinarith
+
+/- Theory 92, formula 92.24: a strict normalized certificate implies the
+   strict raw-moment target once the positive success scale is restored. -/
+theorem dep_r09_blind_success_scale_gate
+    {rawMoment scale certificate target : ℝ}
+    (hScale : 0 < scale)
+    (hRaw : rawMoment ≤ scale * certificate)
+    (hGate : certificate < target) :
+    rawMoment < scale * target := by
+  exact hRaw.trans_lt (mul_lt_mul_of_pos_left hGate hScale)
+
 end FGKMTSono

@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-27",
+  "gate": "DEP-R09 blind residue discrepancy and pointwise envelope reduction",
+  "predecessor": "Sono_FMT_DEPR09_weighted_survivor_moment_audit_v1.json",
+  "outcome": "BLIND_WEIGHT_IS_REAL_SPARSE_RESIDUE_DISCREPANCY_AND_POINTWISE_ENVELOPE_REMOVES_BETA_RHO_M_OBSTRUCTION_BUT_CENTERED_MEAN_REMAINS_OPEN",
+  "source_registry": [
+    {
+      "key": "MONTGOMERY_VAUGHAN1973",
+      "title": "The large sieve",
+      "authors": "H. L. Montgomery and R. C. Vaughan",
+      "locator": "tmp/pdfs/depr09_blind_residue_20260927/Montgomery_Vaughan_1973_large_sieve.pdf",
+      "sha256": "720058876b871e8d1fef22acb285550a227ae9e3b1bedaa042f6d62f3299e8b9",
+      "printed_locations": "printed p. 121, Theorem 2, formula (1.10)",
+      "classification": "PRIMARY_PEER_REVIEWED_AUTHOR_COPY_FULLY_EXPLICIT_BRUN_TITCHMARSH_UPPER"
+    },
+    {
+      "key": "THEORY55",
+      "title": "H1b-COV2 post-covering interval smooth composition",
+      "locator": "docs/method/theory/55_Sono_FMT_H1bCOV2_post_covering_interval_smooth_composition.md",
+      "sha256": "cb49fc3d37fd42fa9b6da6317209fe2afbc221f42753fb22a17e8f32ee3a34df",
+      "source_locations": "Rosser--Schoenfeld theta(t)<1.01624t<21t/20 input",
+      "classification": "PROJECT_VERIFIED_EXPLICIT_PRINCIPAL_THETA_UPPER"
+    },
+    {
+      "key": "THEORY83",
+      "title": "DEP-R09 fixed-primorial variance and large-sieve barrier",
+      "locator": "docs/method/theory/83_Sono_FMT_DEPR09_fixed_primorial_variance_large_sieve_barrier.md",
+      "sha256": "94a30c3a6cb9d3126ef4bf1f9e4ab7801f4b6ae85532cf1e6874d6fa3d43b278",
+      "source_locations": "Montgomery--Vaughan source provenance and full-energy boundary",
+      "classification": "PROJECT_PREDECESSOR_FULL_RESIDUE_ENERGY_ROUTE"
+    },
+    {
+      "key": "THEORY89",
+      "title": "DEP-R09 reweighted local character-transform audit",
+      "locator": "docs/method/theory/89_Sono_FMT_DEPR09_reweighted_local_character_transform_audit.md",
+      "sha256": "edde7e7df04372a30e3b01cfe6627af910b4658dbfb38ffad5345961e990b692",
+      "source_locations": "blind characters and coefficient transform",
+      "classification": "PROJECT_BLIND_CHARACTER_INTERFACE"
+    },
+    {
+      "key": "THEORY90",
+      "title": "DEP-R09 blind fixed-modulus reduction",
+      "locator": "docs/method/theory/90_Sono_FMT_DEPR09_blind_fixed_modulus_reduction.md",
+      "sha256": "b696985d65f1cc7b6fb067398588c15564478f576bc9c41b5ad79908c0414a74",
+      "source_locations": "lifted character sums and effective exponent 21<=d_f<416",
+      "classification": "PROJECT_FIXED_MODULUS_NORMALIZATION"
+    },
+    {
+      "key": "THEORY91",
+      "title": "DEP-R09 complex-weighted survivor moment audit",
+      "locator": "docs/method/theory/91_Sono_FMT_DEPR09_weighted_survivor_moment_audit.md",
+      "sha256": "7645ae8cce869c976f71eb89b0d557b4e80ffba0822f929f98fcb0698dd21773",
+      "source_locations": "formula (91.5) entrywise weighted second-moment certificate",
+      "classification": "PROJECT_WEIGHTED_MOMENT_PREDECESSOR"
+    }
+  ],
+  "inverse_transform": {
+    "native_lifted_residue_mass": "A_h(v;U)=sum_(n<=U,n=v mod f,(n,h)=1) Lambda(n)",
+    "principal_total": "S_h(U)=sum_((n,fh)=1,n<=U) Lambda(n)",
+    "blind_weight": "B_h(v)=sum_(psi mod f,psi!=psi0) conjugate(psi(v))*Z_(psi tensor chi0_h)(U)",
+    "identity": "B_h(v)=phi(f)A_h(v;U)-S_h(U)",
+    "reality": "B_h(v) is real",
+    "selected_mean": "sum_(v in V)B_h(v)=phi(f)sum_(v in V)A_h(v;U)-abs(V)S_h(U)",
+    "full_parseval": "sum_(v mod f,reduced)abs(B_h(v))^2=phi(f)V_blind(U)"
+  },
+  "pointwise_envelope": {
+    "mv1973": "pi(U;f,v)<2U/(phi(f)log(U/f)) for U>f",
+    "prime_coefficient": "2*d_f/(d_f-1)<=21/10 for d_f>=21",
+    "prime_power_elementary": "psi(U)-theta(U)<=sqrt(U)log(U)",
+    "progression_correction_gate": "phi(f)log(U)/sqrt(U)<=1/10",
+    "principal_correction_gate": "log(U)/sqrt(U)<=1/20",
+    "progression_upper": "phi(f)A_h(v;U)<11U/5",
+    "principal_upper": "S_h(U)<11U/10",
+    "blind_weight_upper": "abs(B_h(v))<11U/5",
+    "meaning": "fully explicit pointwise magnitude only; not a centered PNT or sparse-set mean bound"
+  },
+  "normalized_moment": {
+    "vertex_count": "M=abs(V)",
+    "mean_ratio": "abs(sum_(v in V)B_h(v))<=delta*M*U",
+    "pointwise_ratio": "abs(B_h(v))<=L*U with L=11/5",
+    "pair_factor": "Gamma_M=(1+alpha)/(rho*M)-1/M+beta*(M-1)/M",
+    "certificate": "E abs(sum_v B_h(v)X_v)^2/(rho*M*U)^2<=delta^2+L^2*Gamma_M",
+    "success_floor": "M_omega>=lambda*rho*M on the successful inner event",
+    "strict_gate": "delta^2+(121/25)Gamma_M<tau_blind^2*p_in*lambda^2",
+    "asymptotic_pair_term": "Gamma_M tends to beta, not beta*rho*M",
+    "remaining_core": "uniform numerical delta bound on the construction-dependent sparse prime residue set"
+  },
+  "exact_finite_diagnostic": {
+    "finite_character_inverse_transform_exact": true,
+    "blind_weights_are_real_residue_discrepancies": true,
+    "full_residue_parseval_exact": true,
+    "selected_subset_mean_identity_exact": true,
+    "mv1973_primary_pdf_hash_verified": true,
+    "mv1973_theorem2_fully_explicit": true,
+    "effective_exponent_21_prime_coefficient": "21/10",
+    "progression_pointwise_envelope": "11/5",
+    "principal_pointwise_envelope": "11/10",
+    "blind_pointwise_envelope": "11/5",
+    "normalized_pair_factor": "5049/1000000",
+    "normalized_pair_factor_minus_beta": "4049/1000000",
+    "pair_dimension_loss_reduces_to_beta_at_large_vertex_count": true,
+    "sparse_selected_residue_mean_numerically_small": false,
+    "blind_same_law_moment_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The sparse selected-residue mean discrepancy is small.",
+    "Brun--Titchmarsh supplies a centered asymptotic or a lower bound.",
+    "The beta*rho*M operator diagnostic in Theory 91 was arithmetically wrong.",
+    "The actual covering covariance is saturated by the entrywise certificate.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Prove a fully numerical centered discrepancy bound for the construction-dependent sparse prime residue set, uniformly on the required outer-good fibers; one-sided Brun--Titchmarsh and full residue variance do not supply this mean bound."
+}

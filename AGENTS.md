@@ -278,6 +278,40 @@ Theory 90 뒤 inventory는 91개 theory 문서, 1,763식, Lean declaration 329�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=102</code>,
 <code>NOT_YET_FORMALIZED=1106</code>, 금지 proof escape 0건이다.
 
+2026-09-27 weighted survivor-moment successor는 actual covering law의 fixed complex
+weighted second moment를 one/two-point probabilities로 exact하게 전개했다. entrywise
+pair error \(\beta\)만 쓰면 \(\beta\rho^2(M_V-1)\sum|b_v|^2\) loss가 생기고,
+finite common-shock law가 이 \(\beta M_V\) scaling을 exact하게 달성한다. current
+FGKMT parameter에서는 \(\beta\rho M_V>468cX/(ab)>1\)이므로 available pair theorem은
+small covariance-operator certificate가 아니다. actual covariance lower는 아니다.
+Gould--Kelly 2025 weighted nibble theorem은 uniform nearly-regular matching·nonnegative
+weights·qualitative hierarchy를 다루므로 current variable-size indexed covering의
+actual numerical law에 drop-in하지 않는다. 최신 analytic 정본은 theory 91·review
+100이다. 다음 gate는 blind prime-error mean/L2 theorem 또는 actual-law covariance
+operator theorem이다. PAP-11·DEP-R09·fixed <code>2e-17</code>·<code>X_cert</code>는
+계속 OPEN이고 threshold calculator·actual prime 계산은 NOT READY다.
+Theory 91 뒤 inventory는 92개 theory 문서, 1,788식, Lean declaration 333개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=105</code>,
+<code>NOT_YET_FORMALIZED=1116</code>, 금지 proof escape 0건이다.
+
+2026-09-27 blind residue-discrepancy successor는 blind character weight를 exact real
+discrepancy \(B_h(v)=\varphi(f)A_h(v;U)-S_h(U)\)로 역변환했다.
+Montgomery--Vaughan 1973 Theorem 2와 elementary prime-power correction으로 current
+\(d_f\ge21\)에서 \(|B_h(v)|<11U/5\)다. 이를 Theory 91 weighted moment와 success
+scale에 합치면 pair factor는
+\(\Gamma_M=(1+\alpha)/(\rho M)-1/M+\beta(M-1)/M\to\beta\)이므로
+\(\beta\rho M\) dimension obstruction은 제거된다. 남은 최소 gate는 outer-sieved
+prime vertex set의 centered mean
+\(\varphi(f)\sum_{v\in V}A_h(v;U)-|V|S_h(U)\)에 대한 fully numerical uniform
+bound다. 이는 shifted prime-pair형 sparse discrepancy이며 checked one-sided
+Brun--Titchmarsh·full variance source로 닫히지 않는다. 최신 analytic 정본은 theory
+92·review 101이다. 큰 구조 진전이므로 이 batch 검증·handoff·local commit 뒤 사용자에게
+보고하고 일시 중단한다. PAP-11·DEP-R09·fixed <code>2e-17</code>·
+<code>X_cert</code>는 계속 OPEN이고 threshold calculator·actual prime 계산은 NOT READY다.
+Theory 92 뒤 inventory는 93개 theory 문서, 1,814식, Lean declaration 338개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=109</code>,
+<code>NOT_YET_FORMALIZED=1123</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는
