@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-27",
+  "gate": "DEP-R09 reweighted local Dirichlet-character transform audit",
+  "predecessor": "Sono_FMT_DEPR09_empty_output_support_capacity_audit_v1.json",
+  "outcome": "EXACT_LOCAL_TRANSFORM_BUT_ATOM_CAP_HAS_NO_FOURIER_SAVING_AND_BLIND_CHARACTER_ENERGY_REMAINS",
+  "source_registry": [
+    {
+      "key": "GKM2020",
+      "title": "Sieve weights and their smoothings",
+      "authors": "Andrew Granville, Dimitris Koukoulopoulos, James Maynard",
+      "locator": "tmp/pdfs/depr09_local_character_20260927/Granville_Koukoulopoulos_Maynard_2020_sieve_weights.pdf",
+      "sha256": "67feecce65ced4250aa046d6e0c36300744eb84358d21d53409a512d1649e34d",
+      "printed_locations": "printed pp. 10--11 Theorem 1.5; Sections 11--12",
+      "classification": "PRIMARY_CHARACTER_TWISTED_TRUNCATED_MOBIUS_MOMENT_NOT_DROP_IN"
+    },
+    {
+      "key": "FGKMT",
+      "title": "Long gaps between primes",
+      "authors": "Kevin Ford, Ben Green, Sergei Konyagin, James Maynard, Terence Tao",
+      "locator": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "printed_locations": "printed pp. 83--89, proof formula (5.9)",
+      "classification": "PRIMARY_REWEIGHTED_CONDITIONAL_LAW"
+    },
+    {
+      "key": "FMT",
+      "title": "Chains of large gaps between primes",
+      "authors": "Kevin Ford, James Maynard, Terence Tao",
+      "locator": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "printed_locations": "printed pp. 9--14, final residue extension",
+      "classification": "PRIMARY_APPLICATION"
+    },
+    {
+      "key": "THEORY47",
+      "title": "H1b-NORM common weight probability normalization",
+      "locator": "docs/method/theory/47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md",
+      "sha256": "3c5566ca5e84109fbb402e7cb68afdccfcc8838a1cd014c3e11223bb6d3bbd5f",
+      "source_locations": "formulas (47.1)--(47.3), multidimensional growing-k weight",
+      "classification": "PROJECT_PRELIMINARY_MAYNARD_LAW"
+    },
+    {
+      "key": "THEORY53",
+      "title": "H1b-COV1 full-residue hypergraph interface",
+      "locator": "docs/method/theory/53_Sono_FMT_H1bCOV1_full_residue_hypergraph_interface.md",
+      "sha256": "615c1501a49f422fe22d5838fb5829c255a48a1d4af9da25c3f7aa2158085672",
+      "source_locations": "formula (53.22), residue lift",
+      "classification": "PROJECT_LOCAL_RESIDUE_MAP"
+    },
+    {
+      "key": "THEORY77",
+      "title": "DEP-R09 restricted-residue variance spectral optimality audit",
+      "locator": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
+      "sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4",
+      "source_locations": "formulas (77.6)--(77.18)",
+      "classification": "PROJECT_CHARACTER_ENERGY_AND_DIRECT_CORRELATION_TARGET"
+    },
+    {
+      "key": "THEORY80",
+      "title": "DEP-R09 same-law weighted-correlation tower audit",
+      "locator": "docs/method/theory/80_Sono_FMT_DEPR09_same_law_weighted_correlation_tower_audit.md",
+      "sha256": "80308b07ec9a1d71cd2f64120810829460362e1f7d6106c9fc58b7b00afbf1a2",
+      "source_locations": "formulas (80.1)--(80.7)",
+      "classification": "PROJECT_GLOBAL_CHARACTER_OBSERVABLE"
+    },
+    {
+      "key": "THEORY88",
+      "title": "DEP-R09 empty-output and randomized-support capacity audit",
+      "locator": "docs/method/theory/88_Sono_FMT_DEPR09_empty_output_support_capacity_audit.md",
+      "sha256": "4edfa93728997bb1d7c6d86dd30925c2aa497bce0d5b9aeca79de237b1da874b",
+      "source_locations": "formulas (88.1)--(88.8), randomized/fixed modulus split",
+      "classification": "PROJECT_RANDOMIZED_SUPPORT_SPLIT"
+    }
+  ],
+  "exact_local_transform": {
+    "residue_map": "a_i(E)=the unique residue represented by nonempty full-residue edge E; a_i(empty)=0",
+    "local_transform": "L_(i,W,u)(xi)=sum_E P(e_i-prime=E|W) conjugate(xi(u-a_i(E)))",
+    "good_history_formula": "L=(1/X_i(W))*sum_E mu_i(E)1_(E subset W)conjugate(xi(u-a_i(E)))/P_(j-1)(E)",
+    "bad_history_formula": "L=conjugate(xi(u)) because e_i-prime=empty and a_i=0",
+    "stage_product": "conditional on W, expectation of the product over i in I_j equals the product of local transforms",
+    "global_warning": "future transforms depend on the previous output through W; no global product law"
+  },
+  "atom_cap_counterexample": {
+    "prime": 11,
+    "character": "quadratic character modulo 11",
+    "offset": 0,
+    "distribution": "uniform on {a: chi(-a)=1}",
+    "support_size": 5,
+    "maximum_atom": "1/5",
+    "transform": "1",
+    "conclusion": "A small coordinate atom cap alone gives no uniform nonprincipal Fourier saving."
+  },
+  "blind_character_family": {
+    "randomized_modulus": "h=Q_S*product_(p in P-prime)p",
+    "fixed_modulus": "f=q/h",
+    "coprimality": "gcd(f,h)=1",
+    "fixed_shift": "m_omega=0 mod f for every outcome",
+    "family": "B={psi mod f tensor principal mod h}",
+    "family_size": "phi(f)",
+    "coefficient": "C_(psi tensor principal_h)(omega)=sum_(s in T_omega) conjugate(psi(s))",
+    "interval_distinctness": "card(I)<X^2<f because log f>47X/100",
+    "total_energy": "sum_(psi mod f) abs(C_psi)^2=phi(f)M_omega",
+    "principal_energy": "M_omega^2",
+    "nonprincipal_energy": "M_omega*(phi(f)-M_omega)",
+    "consequence": "Randomized-coordinate local transforms cannot reduce the total unweighted coefficient energy of this blind family."
+  },
+  "blind_sufficient_gate": {
+    "blind_prime_error_energy": "V_blind(Y)=sum_(psi mod f, psi nonprincipal) abs(Z_(psi tensor principal_h)(Y))^2",
+    "cauchy": "abs(R_blind(omega))^2<=M_omega*(phi(f)-M_omega)*V_blind(Y)",
+    "pointwise_sufficient_condition": "V_blind(Y)<tau_blind^2*M_omega*Y^2/(phi(f)-M_omega)",
+    "status": "ANALYTIC_INPUT_OPEN",
+    "warning": "Cauchy is only sufficient and actual prime-error alignment is not asserted."
+  },
+  "literature_applicability": {
+    "gkm_theorem_1_5_object": "2k-th moments of one truncated Mobius divisor sum twisted by a real character",
+    "actual_object": "multidimensional Maynard square weight, full-residue edge projection, and FGKMT formula (5.9) reweighting",
+    "dimension": "GKM implied constants depend on fixed k; project k grows with X and is at least 10^200",
+    "exceptional_range": "GKM part (c) requires exp((log q)^C)<=R<=exp(1/(1-beta)); actual local q is p asymptotic to X and sieve R asymptotic to X^(1/9)",
+    "other_maynard_large_moduli_results": "prime progression averages, not the local hypergraph residue transform",
+    "drop_in": false,
+    "screen_scope": "Scoped primary-source screen, not a global literature nonexistence claim."
+  },
+  "exact_finite_diagnostic": {
+    "exact_conditional_local_transform_defined": true,
+    "stage_product_requires_only_conditional_independence": true,
+    "atom_cap_implies_uniform_fourier_saving": false,
+    "level_set_prime": 11,
+    "level_set_support_size": 5,
+    "level_set_max_atom": "1/5",
+    "level_set_transform": "1",
+    "randomized_modulus_and_fixed_modulus_coprime": true,
+    "fixed_coordinates_force_shift_zero_mod_fixed_part": true,
+    "blind_family_size_is_phi_fixed": true,
+    "blind_total_coefficient_energy_exact": true,
+    "blind_nonprincipal_coefficient_energy_exact": true,
+    "toy_phi_fixed": 4,
+    "toy_survivor_count": 3,
+    "toy_total_energy": 12,
+    "toy_principal_energy": 9,
+    "toy_nonprincipal_energy": 3,
+    "fixed_modulus_log_coefficient_lower": "47/100",
+    "fixed_modulus_exponentially_larger_than_offset_interval": true,
+    "gkm_primary_pdf_verified": true,
+    "gkm_theorem_is_actual_multidimensional_reweighted_transform": false,
+    "gkm_constants_uniform_in_growing_dimension": false,
+    "applicable_numerical_local_transform_theorem_identified": false,
+    "blind_prime_error_correlation_closed": false,
+    "actual_same_law_analytic_moment_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "fixed_2e_minus_17_independently_certified": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "No local character-transform theorem exists in the literature.",
+    "The actual local transform has modulus one.",
+    "Blind coefficient energy forces large weighted prime error.",
+    "Local transforms are useless for characters nonprincipal on randomized coordinates.",
+    "Prime-specific blind-family correlation is impossible.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Control the blind-family prime-error correlation or prove a prime-specific fixed-modulus upper for the fixed-coordinate modulus; randomized-coordinate local transforms alone cannot close the full same-law moment."
+}

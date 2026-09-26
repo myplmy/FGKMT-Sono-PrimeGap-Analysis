@@ -4118,4 +4118,59 @@ theorem dep_r09_support_capacity_large_sieve_barrier
     gate < rhs := by
   exact lt_of_le_of_lt hGate (lt_trans hSupport hFull)
 
+/-! ## Theory 89 — reweighted local character-transform audit -/
+
+/- Theory 89, formula 89.13: exact scalar arithmetic of the quadratic
+   level-set counterexample.  Python separately verifies the five Legendre
+   values modulo 11; this theorem checks that five atoms of mass 1/5 can
+   have transform one. -/
+theorem dep_r09_atom_cap_fourier_counterexample_arithmetic :
+    (1 / 5 : ℝ) * 1 + 1 / 5 + 1 / 5 + 1 / 5 + 1 / 5 = 1 := by
+  norm_num
+
+/- Theory 89, formulas 89.8--89.9: after finite character orthogonality
+   supplies total energy phi*M and the principal coefficient supplies M^2,
+   the nonprincipal energy is M*(phi-M). -/
+theorem dep_r09_blind_nonprincipal_energy_terminal
+    {phi M totalEnergy principalEnergy : ℝ}
+    (hTotal : totalEnergy = phi * M)
+    (hPrincipal : principalEnergy = M ^ 2) :
+    totalEnergy - principalEnergy = M * (phi - M) := by
+  rw [hTotal, hPrincipal]
+  ring
+
+/- Theory 89, formulas 89.24--89.25: a strict blind prime-error energy
+   upper implies the allocated weighted-error square target.  Character
+   orthogonality and the analytic V_blind estimate remain premises. -/
+theorem dep_r09_blind_energy_strict_gate
+    {errorSq M phi V tau primeScale : ℝ}
+    (hM : 0 < M)
+    (hGap : 0 < phi - M)
+    (hError : errorSq ≤ M * (phi - M) * V)
+    (hV : V < tau ^ 2 * M * primeScale ^ 2 / (phi - M)) :
+    errorSq < tau ^ 2 * M ^ 2 * primeScale ^ 2 := by
+  have hScaled :
+      (phi - M) * V < tau ^ 2 * M * primeScale ^ 2 := by
+    simpa only [mul_comm] using (lt_div_iff₀ hGap).mp hV
+  have hMultiplied :
+      M * ((phi - M) * V) <
+        M * (tau ^ 2 * M * primeScale ^ 2) :=
+    mul_lt_mul_of_pos_left hScaled hM
+  have hModel :
+      M * (phi - M) * V <
+        tau ^ 2 * M ^ 2 * primeScale ^ 2 := by
+    simpa only [pow_two, mul_assoc, mul_left_comm, mul_comm] using hMultiplied
+  exact hError.trans_lt hModel
+
+/- Theory 89, formula 89.17: subtracting the randomized-support log upper
+   from the full-primorial log lower leaves the exact 47/100 fixed-modulus
+   coefficient. -/
+theorem dep_r09_fixed_modulus_log_gap
+    {logFixed logModulus logRandomized X : ℝ}
+    (hSplit : logFixed = logModulus - logRandomized)
+    (hModulus : 49 * X / 50 < logModulus)
+    (hRandomized : logRandomized < 51 * X / 100) :
+    47 * X / 100 < logFixed := by
+  linarith
+
 end FGKMTSono

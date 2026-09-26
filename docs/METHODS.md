@@ -2460,3 +2460,59 @@ full build, 전수 ledger refresh/validation이 모두 exit 0이었다. Theory 8
 <code>SOURCE_THEOREM_UNFORMALIZED=135</code>,
 <code>NOT_YET_FORMALIZED=1089</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+## 2026-09-27 DEP-R09 reweighted local Dirichlet-character transform 감사
+
+[theory 89](method/theory/89_Sono_FMT_DEPR09_reweighted_local_character_transform_audit.md)과
+[review 98](review/98_20260927_DEPR09_local_character_transform_타당성검토.md)은
+Theory 88 뒤 최우선 과제였던 local phase route를 감사했다.
+
+fixed stage history \(W\)에서 formula (5.9)를 local phase에 대입하면
+
+\[
+{\cal L}_{p,W,u}(\xi)
+=
+\frac1{X_p(W)}
+\sum_E
+\frac{\mu_p(E)1_{\{E\subset W\}}}{P_{j-1}(E)}
+\overline{\xi(u-a_p(E))}
+\]
+
+인 exact transform이 나온다. same stage에서는 conditional product가 성립하지만
+future stage law는 이전 output이 만든 \(W\)에 의존하므로 global product는 아니다.
+
+atom cap만으로 phase saving은 나오지 않는다. quadratic character modulo 11의 한
+level set에 uniform law를 두면 max atom은 \(1/5\)이나 transform은 정확히 1이다.
+
+더 근본적으로 \(\mathfrak q=fh\)에서 randomized coordinates에 principal component를
+붙인 blind family가 남는다. \(m_\omega=0\bmod f\)이고 final survivor count를
+\(M_\omega\)라 하면
+
+\[
+\sum_{\psi\ne\psi_0}
+|C_{\psi\otimes\chi_{0,h}}(\omega)|^2
+=M_\omega\{\varphi(f)-M_\omega\}.
+\]
+
+이는 outcome별 identity다. local nonprincipal transforms가 nonblind family를
+개선하더라도 blind family의 prime-error correlation은 별도 입력으로 남는다.
+
+선행문헌을 먼저 조사해 Granville--Koukoulopoulos--Maynard의 character-twisted
+sieve-weight moment를 원문 대조했지만, 단일 truncated Möbius divisor sum,
+fixed dimension과 \(e^{(\log q)^C}\le R\) range여서 current growing-dimensional
+Maynard square weight·hypergraph reweighting에 적용되지 않는다.
+
+다음 gate는 blind-family fixed-modulus prime-error upper 또는 direct weighted
+correlation이다. PAP-11, DEP-R09, fixed \(2\times10^{-17}\), numerical
+\(X_{\rm cert}\)는 계속 OPEN이고 threshold calculator·actual prime 계산은
+NOT READY / NOT RUN이다.
+
+Theory 47·53--54·77·80·88--89 canonical Python 회귀시험 138개, Lean direct
+compile과 full build, 전수 ledger refresh/validation이 모두 exit 0이었다.
+Theory 89 뒤 전수원장은 theory 90개, display 식 1,733개, Lean declaration
+324개다. 상태는 <code>KERNEL_PASS=98</code>,
+<code>CONDITIONAL_KERNEL_PASS=97</code>, <code>DEFINITION_ONLY=143</code>,
+<code>PARTIAL_FORMALIZATION=149</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=144</code>,
+<code>NOT_YET_FORMALIZED=1097</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

@@ -247,6 +247,23 @@ Theory 88 뒤 inventory는 89개 theory 문서, 1,705식, Lean declaration 320�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=94</code>,
 <code>NOT_YET_FORMALIZED=1089</code>, 금지 proof escape 0건이다.
 
+2026-09-27 reweighted local character-transform successor는 FGKMT formula (5.9)의
+stage-history conditional transform을 exact하게 고정했다. atom cap alone은 Fourier
+saving을 주지 않으며 quadratic level-set finite witness는 max atom \(1/5\)에서
+transform 1을 달성한다. randomized modulus \(h\), fixed modulus
+\(f=\mathfrak q/h\)에서 blind family
+\(\{\psi\bmod f\otimes\chi_{0,h}\}\)가 남고 outcome마다
+\(\sum_{\psi\ne\psi_0}|C_{\widetilde\psi}|^2
+=M_\omega(\varphi(f)-M_\omega)\)다. GKM character-twisted sieve theorem은 단일
+truncated divisor sum·fixed dimension·다른 range라 actual growing-\(k\)
+multidimensional reweighted law의 drop-in이 아니다. 최신 analytic 정본은
+theory 89·review 98이다. blind prime-error correlation·actual same-law moment·
+PAP-11·DEP-R09·fixed <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고
+threshold calculator·actual prime 계산은 NOT READY다.
+Theory 89 뒤 inventory는 90개 theory 문서, 1,733식, Lean declaration 324개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=97</code>,
+<code>NOT_YET_FORMALIZED=1097</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

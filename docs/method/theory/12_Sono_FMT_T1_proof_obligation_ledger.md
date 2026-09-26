@@ -1429,3 +1429,25 @@ prime sweep은 NOT READY다.
 Theory 88 뒤 전수원장은 theory 89개, display 식 1,705개, Lean declaration 320개,
 금지 proof escape 0건이다. support-capacity terminal은 empty-tail architecture의
 범위만 닫고 actual same-law moment는 닫지 않는다.
+
+## 58. 2026-09-27 DEP-R09 local character-transform 후속 상태
+
+[theory 89](89_Sono_FMT_DEPR09_reweighted_local_character_transform_audit.md)은
+formula (5.9)의 exact local transform과 fixed-coordinate blind family를 분리했다.
+
+\[
+\sum_{\substack{\psi\bmod f\\\psi\ne\psi_0}}
+|C_{\psi\otimes\chi_{0,h}}(\omega)|^2
+=M_\omega\{\varphi(f)-M_\omega\}.
+\]
+
+따라서 randomized-coordinate transform saving만으로 full same-law moment를 닫을 수
+없다. blind-family prime-error correlation 또는 fixed-modulus upper가 별도 필요하다.
+
+66개 root row, <code>PAP-11=HARD_BLOCKER</code>, DEP-R09, fixed
+\(2\times10^{-17}\), \(X_{\rm cert}=\mathrm{OPEN}\)은 변경하지 않는다. threshold
+calculator와 장시간 prime sweep은 NOT READY다.
+
+Theory 89 뒤 전수원장은 theory 90개, display 식 1,733개, Lean declaration 324개,
+금지 proof escape 0건이다. blind coefficient energy identity는 exact하지만
+blind prime-error correlation은 계속 OPEN이다.
