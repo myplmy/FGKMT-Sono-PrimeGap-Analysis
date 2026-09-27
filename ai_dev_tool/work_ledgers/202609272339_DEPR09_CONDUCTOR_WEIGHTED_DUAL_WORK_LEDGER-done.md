@@ -38,7 +38,7 @@
 4. **DONE — separate-L2 normalized certificate barrier**
 5. **DONE — low/high conductor source range 판정**
 6. **DONE — Theory 95·review 104·Python·Lean·verification**
-7. **IN PROGRESS — local commit·다음 weighted-correlation source 감사 연결**
+7. **DONE — local commit 준비·다음 weighted-correlation source 감사 연결**
 
 ## source provenance
 
@@ -68,8 +68,12 @@
   forbidden proof escape 0.
 - actual prime/dataset 계산, package 설치, threshold calculator, conditional branch,
   push/PR은 수행하지 않았다.
+- full Python 1,039 tests는 기존 PowerShell 5.1
+  <code>test_windows_powershell_51_preserves_quote_sensitive_argv</code> 한 건만 같은
+  <code>$LASTEXITCODE</code> undefined로 FAIL했다. 이번 diff에 관련 파일은 없다.
 
 ## 완료 판정
 
 - Theory 95 batch는 local commit으로 보존하고, direct joint weighted-product source
   audit을 새 ledger에서 계속한다.
+- 완료 handoff에서 다음 source-first 재개점을 고정한다.
