@@ -4474,4 +4474,53 @@ theorem dep_r09_one_sided_pair_upper_countermodel
   · simpa using hUpper
   · norm_num
 
+/-! ## Theory 95 — conductor-weighted character dual audit -/
+
+/- Theory 95, formulas 95.4--95.5: once finite character orthogonality and
+   unique conductor induction provide the two displayed representations, their
+   equality is bookkeeping. -/
+theorem dep_r09_character_conductor_dual_bookkeeping
+    {characterSum conductorSum centeredPrime : ℝ}
+    (hCharacter : centeredPrime = characterSum)
+    (hConductor : characterSum = conductorSum) :
+    centeredPrime = conductorSum := by
+  linarith
+
+/- Theory 95, formulas 95.7--95.8: total all-character energy minus the
+   principal square leaves N*(phi-N). -/
+theorem dep_r09_conductor_coefficient_energy_terminal
+    {total principal phi count : ℝ}
+    (hTotal : total = phi * count)
+    (hPrincipal : principal = count ^ 2) :
+    total - principal = count * (phi - count) := by
+  rw [hTotal, hPrincipal]
+  ring
+
+/- Theory 95, formulas 95.10--95.11: exact normalization of the optimistic
+   separate-L2 Cauchy certificate. -/
+theorem dep_r09_separate_l2_normalized_square
+    {phi count primeScale : ℝ}
+    (hCount : count ≠ 0)
+    (hScale : primeScale ≠ 0) :
+    (count * (phi - count) * primeScale ^ 2) /
+        (count ^ 2 * primeScale ^ 2) =
+      (phi - count) / count := by
+  field_simp [hCount, hScale]
+
+/- Theory 95, formulas 95.17--95.18: if phi exceeds twice the selected
+   count, even the multiplier-one normalized separate-L2 certificate exceeds
+   one. -/
+theorem dep_r09_separate_l2_certificate_exceeds_one
+    {phi count : ℝ}
+    (hCount : 0 < count)
+    (hPhi : 2 * count < phi) :
+    1 < (phi - count) / count := by
+  exact (lt_div_iff₀ hCount).2 (by linarith)
+
+/- Theory 95, formula 95.14: the project large-prime exponent d_f>=21 is
+   safely beyond the sample source choice 2+epsilon with epsilon=1. -/
+theorem dep_r09_prime_supported_large_sieve_exponent_margin :
+    (2 + 1 : ℝ) < 21 := by
+  norm_num
+
 end FGKMTSono

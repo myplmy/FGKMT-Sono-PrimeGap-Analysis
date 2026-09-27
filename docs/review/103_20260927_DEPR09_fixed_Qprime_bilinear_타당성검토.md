@@ -7,6 +7,10 @@
   CORRECTION_ENVELOPES_VALID /
   R10_NON_DROP_IN_VALID</code>
 
+> **Successor:** review 104/Theory 95는 centered form을 primitive conductor별
+> weighted product로 dualize하고 separate-L2 certificate의 \(\varphi(f)/N\) 장벽을
+> 고정했다. 최신 root gate는 direct joint correlation이다.
+
 ## 1. 검토 결론
 
 Theory 94의 판정은 타당하다.

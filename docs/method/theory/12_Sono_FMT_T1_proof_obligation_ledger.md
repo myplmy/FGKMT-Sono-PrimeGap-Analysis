@@ -1549,3 +1549,17 @@ estimate다.
 66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
 않는다. Theory 94 뒤 전수원장은 theory 95개, display 식 1,861개, Lean declaration
 349개, 금지 proof escape 0건이다. calculator와 actual prime sweep은 NOT READY다.
+
+## 64. 2026-09-27 DEP-R09 conductor-weighted dual 후속 상태
+
+[theory 95](95_Sono_FMT_DEPR09_conductor_weighted_character_dual.md)은 centered prime
+core를 primitive conductor별 \(C_{\chi^*}(Q')Z_{\chi^*}(X,U)\) product로 exact하게
+분해했다.
+
+Large-prime prime-supported L2 source는 range상 적용 가능하지만 separate Cauchy가
+\(N(\varphi(f)-N)\) coefficient energy를 지불해 gate를 닫지 못한다. 다음 root input은
+joint signed weighted product theorem이다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
+않는다. Theory 95 뒤 전수원장은 theory 96개, display 식 1,883개, Lean declaration
+354개, 금지 proof escape 0건이다.

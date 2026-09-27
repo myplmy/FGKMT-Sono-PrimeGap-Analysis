@@ -2716,3 +2716,27 @@ PASS했다. Theory 94 뒤 전수원장은 theory 95개, display 식 1,861개, Le
 <code>SOURCE_THEOREM_UNFORMALIZED=166</code>,
 <code>NOT_YET_FORMALIZED=1134</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. threshold calculator·actual prime 계산은 NOT READY다.
+
+## 2026-09-27 DEP-R09 conductor-weighted character dual 감사
+
+[theory 95](method/theory/95_Sono_FMT_DEPR09_conductor_weighted_character_dual.md)와
+[review 104](review/104_20260927_DEPR09_conductor_weighted_dual_타당성검토.md)은
+Theory 94 prime core를 nonprincipal character와 primitive conductor별로 exact
+dualize했다.
+
+Small-prime coefficient energy의 conductor partition은 exact Möbius inversion이며 전체
+energy는 \(N(\varphi(f)-N)\)이다. Schlage--Puchta Theorem 2는 current large-prime
+length/exponent를 덮지만 implicit source multiplier를 갖고 small-prime full-modulus
+축은 range 밖이다.
+
+Separate L2+Cauchy는 optimistic source multiplier one에서도 normalized square
+\((\varphi(f)-N)/N>1\)을 남긴다. 필요한 analytic object는 conductor별 signed
+\(\sum C_\chi(Q')Z_\chi(X,U)\) 자체다.
+
+Python exact fixture 11건, Lean direct compile과 verification validation이 PASS했다.
+Theory 95 뒤 전수원장은 theory 96개, display 식 1,883개, Lean declaration 354개다.
+상태는 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=121</code>,
+<code>DEFINITION_ONLY=185</code>, <code>PARTIAL_FORMALIZATION=165</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=173</code>,
+<code>NOT_YET_FORMALIZED=1136</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. calculator·actual prime 계산은 NOT READY다.

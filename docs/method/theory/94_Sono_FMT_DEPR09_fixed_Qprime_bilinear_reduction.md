@@ -15,6 +15,11 @@
   계산, threshold calculator, PAP-11, DEP-R09, fixed \(2\times10^{-17}\), numerical
   \(X_{\rm cert}\)를 이번 단계에서 인증하는 것.
 
+> **2026-09-27 successor:** [Theory 95](95_Sono_FMT_DEPR09_conductor_weighted_character_dual.md)는
+> centered binary-prime form을 primitive conductor별 weighted character product로
+> exact dualize했다. Separate prime-supported L2는 quantitatively too coarse이며 최신
+> gate는 식 (95.22)의 direct signed product다.
+
 ## 1. 결론
 
 Theory 93처럼 \(Q'\)는 \((X,Y]\)의 \(N\)개 prime vertices이고

@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-27",
+  "gate": "DEP-R09 conductor-weighted character dual audit",
+  "predecessor": "Sono_FMT_DEPR09_fixed_qprime_bilinear_v1.json",
+  "outcome": "EXACT_CONDUCTOR_DUAL_BUT_SEPARATE_PRIME_SUPPORTED_L2_REINTRODUCES_PHI_OVER_N_AND_DOES_NOT_CLOSE_WEIGHTED_PRODUCT",
+  "source_registry": [
+    {
+      "key": "SCHLAGE_PUCHTA2011",
+      "title": "Primes in short arithmetic progressions",
+      "locator": "tmp/pdfs/depr09_character_dual_20260927/Schlage_Puchta_2011_primes_short_AP.pdf",
+      "sha256": "51af128d287a021305412213b3828439dddd70a6bed8266134fac6d95b6705ac",
+      "printed_locations": "Theorems 2--3 and Corollaries 4--5",
+      "classification": "PRIMARY_PRIME_SUPPORTED_LARGE_SIEVE_IMPLICIT_CONSTANTS"
+    },
+    {
+      "key": "THEORY84",
+      "title": "DEP-R09 sparse divisor-conductor source audit",
+      "locator": "docs/method/theory/84_Sono_FMT_DEPR09_sparse_divisor_conductor_source_audit.md",
+      "sha256": "3efcaa94de11b3f2b6870da612d346dbcf619238ffbab71837e834dfbe0706b9",
+      "source_locations": "formulas (84.4)--(84.14)",
+      "classification": "PROJECT_CONDUCTOR_PARTITION_AND_GENERIC_LENGTH_TERM_BOUNDARY"
+    },
+    {
+      "key": "THEORY94",
+      "title": "DEP-R09 fixed-Q-prime bilinear reduction",
+      "locator": "docs/method/theory/94_Sono_FMT_DEPR09_fixed_Qprime_bilinear_reduction.md",
+      "sha256": "260629bf8482c54e278c787f864240f2df9943852fd7d3722133cf8835df4b22",
+      "source_locations": "formulas (94.1)--(94.14)",
+      "classification": "PROJECT_CENTERED_BINARY_PRIME_INPUT"
+    },
+    {
+      "key": "FGKMT",
+      "title": "Long gaps between primes",
+      "locator": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "printed_locations": "construction context",
+      "classification": "PRIMARY_CONSTRUCTION_CONTEXT"
+    }
+  ],
+  "character_dual": {
+    "kernel_identity": "K_f(p,q)=sum_(chi mod f,chi!=chi0)chi(p)*conjugate(chi(q))",
+    "small_coefficient": "C_chi(Qprime)=sum_(q in Qprime)conjugate(chi(q))",
+    "large_prime_error": "Z_chi(X,U)=sum_(X<p<=U,prime)log(p)*chi(p)",
+    "exact_dual": "C_f=sum_(chi mod f,chi!=chi0)C_chi(Qprime)*Z_chi(X,U)",
+    "induction": "every chi mod f has a unique primitive core chi_star mod r|f",
+    "no_imprimitive_correction": "all p,q>X are coprime to f, so induced and primitive values agree",
+    "conductor_dual": "C_f=sum_(r|f,r>1)sum_(chi_star mod r,primitive)C_chi_star*Z_chi_star"
+  },
+  "coefficient_energy": {
+    "level": "A_r=sum_(chi_star mod r,primitive)abs(C_chi_star)^2",
+    "primitive_orthogonality": "A_r=sum_(d|r)mu(r/d)*phi(d)*sum_(a mod d)N_d(a)^2",
+    "total": "sum_(r|f,r>1)A_r=N*(phi(f)-N)",
+    "meaning": "conductor partition is exact but does not reduce total coefficient energy"
+  },
+  "separate_l2": {
+    "large_prime_energy": "V_P=sum_(r|f,r>1)sum_primitive abs(Z_chi_star)^2",
+    "cauchy": "abs(C_f)^2<=N*(phi(f)-N)*V_P",
+    "schlage_puchta_theorem2": "for U>f^(2+epsilon), V_P<=C_epsilon*U/log(U)*sum_(X<p<=U)log(p)^2<=Cprime_epsilon*U^2",
+    "normalized_square": "abs(C_f)^2/(N*U)^2<=Cprime_epsilon*(phi(f)-N)/N",
+    "optimistic_floor": "even replacing the implicit source multiplier by one gives (phi(f)-N)/N>1 because phi(f)>2N in the project range",
+    "certificate_status": "CANNOT_CERTIFY_SMALL_CENTERED_GATE"
+  },
+  "range_screen": {
+    "large_axis": "U=f^d_f with d_f>=21 satisfies U>f^(2+epsilon), e.g. epsilon=1",
+    "small_axis": "Y<f, so Theorem 2 cannot be applied to the Qprime coefficient family with Q=f",
+    "single_character": "Corollary 5 is nontrivial for prime length x>r^(3/4) in the cubefree case, covering only r<Y^(4/3) on the small axis",
+    "constants": "Theorems 2--3 have epsilon/k-dependent implicit constants and no current finite cutoff package",
+    "remaining": "high-conductor small-prime coefficients and the signed cross-axis correlation"
+  },
+  "exact_finite_diagnostic": {
+    "primitive_energy_partition_exact": true,
+    "nonprincipal_energy_identity_exact": true,
+    "sample_modulus": 30,
+    "sample_selected_count": 3,
+    "sample_level_energies": {
+      "1": 9,
+      "2": 0,
+      "3": 1,
+      "5": 3,
+      "6": 0,
+      "10": 0,
+      "15": 11,
+      "30": 0
+    },
+    "sample_total_nonprincipal_energy": 15,
+    "optimistic_separate_l2_normalized_square": "5/3",
+    "optimistic_separate_l2_exceeds_one": true,
+    "schlage_puchta_primary_pdf_verified": true,
+    "large_prime_axis_source_range_holds": true,
+    "small_prime_full_modulus_source_range_holds": false,
+    "source_constants_fully_numerical": false,
+    "separate_l2_certificate_closes_gate": false,
+    "weighted_character_product_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The actual weighted character product is large.",
+    "Prime-supported large sieve theorems are false or useless.",
+    "All conductor-sensitive weighted inequalities are impossible.",
+    "The Schlage-Puchta implicit constant equals one.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Control the signed weighted product sum directly, preserving the correlation between the small-prime coefficient and the large-prime character error; separate L2 estimates are quantitatively too coarse."
+}

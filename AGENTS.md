@@ -343,6 +343,20 @@ Theory 94 뒤 inventory는 95개 theory 문서, 1,861식, Lean declaration 349�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=116</code>,
 <code>NOT_YET_FORMALIZED=1134</code>, 금지 proof escape 0건이다.
 
+2026-09-27 conductor-weighted character dual successor는 centered binary-prime core를
+nonprincipal character와 unique primitive conductor별
+\(C_{\chi^*}(Q')Z_{\chi^*}(X,U)\) product로 exact하게 분해했다. Conductor-level
+small-prime coefficient energy의 합은 여전히 \(N(\varphi(f)-N)\)이다.
+Schlage--Puchta prime-supported large sieve는 large-prime axis range를 덮지만 implicit
+multiplier를 갖고, separate Cauchy는 optimistic multiplier one에서도 normalized square
+\((\varphi(f)-N)/N>1\)을 남긴다. small-prime full-modulus axis는 source range 밖이다.
+최신 analytic 정본은 theory 95·review 104이며 다음 gate는 두 prime character sums의
+joint signed weighted product다. PAP-11·DEP-R09·fixed <code>2e-17</code>·
+<code>X_cert</code>는 계속 OPEN이고 calculator·actual prime 계산은 NOT READY다.
+Theory 95 뒤 inventory는 96개 theory 문서, 1,883식, Lean declaration 354개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=121</code>,
+<code>NOT_YET_FORMALIZED=1136</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는
