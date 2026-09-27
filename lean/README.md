@@ -691,3 +691,19 @@ declaration 360개다. 전체 상태는 <code>KERNEL_PASS=98</code>,
 <code>PARTIAL_FORMALIZATION=166</code>, <code>SOURCE_THEOREM_UNFORMALIZED=177</code>,
 <code>NOT_YET_FORMALIZED=1139</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+2026-09-28 Theory 97 batch는 endpoint subtraction triangle, prime-count half-scale
+terminal, normalized endpoint Linf cross multiplier \(21/5\), Abel project composition과
+exact rational fixture를 추가했다. Lean은 Rosser--Schoenfeld prime-count theorem,
+finite residue L1 sum, Thorner--Zaman PNT-in-AP나 exceptional-zero removal을 local
+axiom으로 넣지 않았다.
+
+Python exact fixture 12건은 centered rational residue vector의 L1 envelope,
+L1-by-Linfinity cross bound, source-range exponent와 endpoint/project multipliers를
+검사한다. actual prime data나 threshold는 계산하지 않았다. direct compile과 inventory
+validation은 PASS했다. Theory 97 뒤 inventory는 theory 문서 98개, display 식 1,927개,
+declaration 365개다. 전체 상태는 <code>KERNEL_PASS=98</code>,
+<code>CONDITIONAL_KERNEL_PASS=129</code>, <code>DEFINITION_ONLY=197</code>,
+<code>PARTIAL_FORMALIZATION=167</code>, <code>SOURCE_THEOREM_UNFORMALIZED=184</code>,
+<code>NOT_YET_FORMALIZED=1147</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

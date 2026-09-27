@@ -4587,4 +4587,62 @@ theorem dep_r09_cross_scale_multiplier_fixture :
     (2 + 1 / 100 : ℝ) = 201 / 100 := by
   norm_num
 
+/-! ## Theory 97 — prescribed-modulus endpoint L-infinity transfer -/
+
+/- Theory 97, formula 97.3: the lower-endpoint subtraction is controlled by
+   the two endpoint absolute errors. -/
+theorem dep_r09_endpoint_interval_error_split
+    (endpointError lowerEndpointError : ℝ) :
+    |endpointError - lowerEndpointError| ≤
+      |endpointError| + |lowerEndpointError| := by
+  exact abs_sub endpointError lowerEndpointError
+
+/- Theory 97, formula 97.8: once the explicit prime-count source supplies
+   pi(Y)>=Y/log(Y) and pi(X)<=Y/(2log(Y)), the interval count keeps at least
+   half of the Y/log(Y) scale. -/
+theorem dep_r09_prime_count_half_scale
+    {piUpper piLower yOverLogY : ℝ}
+    (hUpper : yOverLogY ≤ piUpper)
+    (hLower : piLower ≤ yOverLogY / 2) :
+    yOverLogY / 2 ≤ piUpper - piLower := by
+  linarith
+
+/- Theory 97, formulas 97.10--97.12: the centered L1-by-Linfinity cross
+   envelope and the source-backed short-side ratio 21/10 compose to 21/5. -/
+theorem dep_r09_endpoint_linf_cross_multiplier
+    {crossRatio massRatio epsilon : ℝ}
+    (hCross : crossRatio ≤ 2 * massRatio * epsilon)
+    (hMass : massRatio ≤ 21 / 10)
+    (hEpsilon : 0 ≤ epsilon) :
+    crossRatio ≤ (21 / 5) * epsilon := by
+  have hTwice : 2 * massRatio ≤ 2 * (21 / 10 : ℝ) := by
+    linarith
+  calc
+    crossRatio ≤ 2 * massRatio * epsilon := hCross
+    _ ≤ (2 * (21 / 10 : ℝ)) * epsilon :=
+      mul_le_mul_of_nonneg_right hTwice hEpsilon
+    _ = (21 / 5 : ℝ) * epsilon := by ring
+
+/- Theory 97, formula 97.13: the endpoint multiplier composes with the
+   Theory-96 Abel factor after the log-log ratio is bounded by b/a. -/
+theorem dep_r09_endpoint_linf_project_transfer
+    {delta epsilon ratio bOverA : ℝ}
+    (hEpsilon : 0 ≤ epsilon)
+    (hDelta : delta ≤ (21 / 5) * epsilon * (2 + ratio))
+    (hRatio : ratio ≤ bOverA) :
+    delta ≤ (21 / 5) * epsilon * (2 + bOverA) := by
+  have hCoefficient : 0 ≤ (21 / 5 : ℝ) * epsilon := by positivity
+  have hMonotone :
+      (21 / 5 : ℝ) * epsilon * (2 + ratio) ≤
+        (21 / 5 : ℝ) * epsilon * (2 + bOverA) :=
+    mul_le_mul_of_nonneg_left (by linarith) hCoefficient
+  exact hDelta.trans hMonotone
+
+/- Theory 97, formulas 97.12--97.13: exact rational diagnostic used by the
+   Python fixture epsilon_U=1/1000, epsilon_0=1/100000, b/a=1/100. -/
+theorem dep_r09_endpoint_linf_multiplier_fixture :
+    (21 / 5 : ℝ) * (1 / 1000 + 1 / 100000) * (2 + 1 / 100) =
+      426321 / 50000000 := by
+  norm_num
+
 end FGKMTSono

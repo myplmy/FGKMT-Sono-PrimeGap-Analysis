@@ -371,6 +371,23 @@ Theory 96 뒤 inventory는 97개 theory 문서, 1,902식, Lean declaration 360�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=125</code>,
 <code>NOT_YET_FORMALIZED=1139</code>, 금지 proof escape 0건이다.
 
+2026-09-28 prescribed-modulus endpoint-Linf successor는 mixed covariance theorem보다
+약한 충분경로를 찾았다. Centered small-scale residue mass의 exact L1 upper와 single
+large endpoint residue error의 Linf를 결합하고, Rosser--Schoenfeld prime count와 project
+scale을 쓰면
+\(\kappa=(21/5)(\epsilon_\infty+\epsilon_0)\)이고
+\(\delta_{\rm bin}\le(21/5)(\epsilon_\infty+\epsilon_0)(2+b/a)\)다.
+Lower endpoint \(\epsilon_0\)는 parameterized explicit이다. Vaughan 1998 I·II는
+Criterion-U와 large-Q cumulative variance, Harper 2024는 square-root 위 dyadic average라
+current fixed \(f\) drop-in이 아니다. Thorner--Zaman은 single endpoint 구조 후보지만
+centered two-sided multiplier·exceptional removal·common cutoff가 미수치다. 최신 analytic
+정본은 theory 97·review 106이며 다음 gate는 fully numerical centered fixed-modulus
+endpoint bound다. PAP-11·DEP-R09·fixed <code>2e-17</code>·<code>X_cert</code>는 계속
+OPEN이고 calculator·actual prime 계산은 NOT READY다.
+Theory 97 뒤 inventory는 98개 theory 문서, 1,927식, Lean declaration 365개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=129</code>,
+<code>NOT_YET_FORMALIZED=1147</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

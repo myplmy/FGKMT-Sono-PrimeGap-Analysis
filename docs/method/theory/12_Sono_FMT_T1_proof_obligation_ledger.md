@@ -1576,3 +1576,19 @@ upper가 아니라 combined signed sequence의 mixed covariance main/error theor
 66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
 않는다. Theory 96 뒤 전수원장은 theory 97개, display 식 1,902개, Lean declaration
 360개, 금지 proof escape 0건이다.
+
+## 66. 2026-09-28 DEP-R09 endpoint Linf transfer 후속 상태
+
+[theory 97](97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md)은 mixed
+covariance의 sufficient input을 single large endpoint centered residue error로 줄였다.
+
+정확한 sufficient transfer는
+\(\delta_{\rm bin}\le(21/5)(\epsilon_\infty+\epsilon_0)(2+b/a)\)이고,
+\(\epsilon_0\le U^{-20/21}\log X+21X/(20U)\)다.
+
+Vaughan 1998 I·II와 Harper 2024는 fixed \(f\) drop-in이 아니며, Thorner--Zaman의
+numerical centered endpoint multiplier·exceptional removal·common cutoff는 OPEN이다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
+않는다. Theory 97 뒤 전수원장은 theory 98개, display 식 1,927개, Lean declaration
+365개, 금지 proof escape 0건이다.

@@ -15,6 +15,11 @@
   asymptotic을 prescribed \(f\) theorem으로 바꾸거나, actual 계산, threshold calculator,
   conditional branch, PAP-11, DEP-R09, numerical \(X_{\rm cert}\)를 닫는 것.
 
+> **2026-09-28 successor:** [Theory 97](97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md)은
+> short-side centered \(L^1\)와 single large endpoint \(L^\infty\)를 결합해 식 (96.9)의
+> 충분조건을 fully numerical centered endpoint PNT 하나로 줄였다. Transfer multiplier는
+> \(21/5\)이고 endpoint analytic input은 계속 OPEN이다.
+
 ## 1. 결론
 
 Prime-supported character theta sum을

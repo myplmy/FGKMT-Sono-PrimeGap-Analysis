@@ -7,6 +7,10 @@
   TRANSFER_MULTIPLIER_VALID /
   SOURCE_DROP_IN_NOT_IDENTIFIED</code>
 
+> **Successor:** [Theory 97](../method/theory/97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md)과
+> [review 106](106_20260928_DEPR09_endpoint_Linf_transfer_타당성검토.md)은 mixed
+> covariance의 sufficient input을 single endpoint centered \(L^\infty\) error로 줄였다.
+
 ## 1. 검토 결론
 
 Theory 96의 환원은 타당하다.

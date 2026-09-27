@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-28",
+  "gate": "DEP-R09 prescribed-modulus centered endpoint L-infinity transfer",
+  "predecessor": "Sono_FMT_DEPR09_cross_scale_covariance_v1.json",
+  "outcome": "SINGLE_ENDPOINT_LINFINITY_SUFFICIENT_TRANSFER_EXACT_BUT_NUMERICAL_CENTERED_PNT_INPUT_OPEN",
+  "source_registry": [
+    {
+      "key": "THEORY47",
+      "title": "H1b-NORM common weight and fixed-X normalization",
+      "locator": "docs/method/theory/47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md",
+      "sha256": "3c5566ca5e84109fbb402e7cb68afdccfcc8838a1cd014c3e11223bb6d3bbd5f",
+      "source_locations": "formulas (47.1), (47.6), and Rosser--Schoenfeld input in section 5",
+      "classification": "PROJECT_SMALL_SCALE_PARAMETER_AND_PRIME_COUNT_INPUT"
+    },
+    {
+      "key": "THEORY96",
+      "title": "DEP-R09 cross-scale covariance and Abel interface",
+      "locator": "docs/method/theory/96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md",
+      "sha256": "33998027710c59d055a222772b5dbac3f50d02ebac3303235416a5e00c28928f",
+      "source_locations": "formulas (96.5)--(96.12)",
+      "classification": "PROJECT_CROSS_COVARIANCE_PREDECESSOR"
+    },
+    {
+      "key": "VAUGHAN1998I",
+      "title": "On a variance associated with the distribution of general sequences in arithmetic progressions I",
+      "locator": "tmp/pdfs/depr09_cross_scale_20260928/Vaughan_general_variance_I.pdf",
+      "sha256": "250d417a0f832d551aa52ef6c8d36dd4ab9a7db42798bd83587c31af670f2050",
+      "printed_locations": "equations (1.1)--(1.9), Theorem 1, 12 pages",
+      "classification": "PRIMARY_CUMULATIVE_MODULUS_VARIANCE_WITH_CRITERION_U_NOT_FIXED_ENDPOINT"
+    },
+    {
+      "key": "VAUGHAN1998II",
+      "title": "On a variance associated with the distribution of general sequences in arithmetic progressions II",
+      "locator": "tmp/pdfs/depr09_cross_scale_20260928/Vaughan_general_variance_II.pdf",
+      "sha256": "4e6eb755dcf5a8e67f698770169a8f81c2571f54b54645ff950c1a5296f3f015",
+      "printed_locations": "equations (1.3)--(1.9), Theorems 1--2, 18 pages",
+      "classification": "PRIMARY_CUMULATIVE_MODULUS_VARIANCE_WITH_CRITERION_U_NOT_FIXED_ENDPOINT"
+    },
+    {
+      "key": "HARPER2024",
+      "title": "Simple Barban--Davenport--Halberstam type asymptotics for general sequences",
+      "locator": "tmp/pdfs/depr09_cross_scale_20260928/Harper_2024_general_BDH.pdf",
+      "sha256": "be7c989b3a3626ba1d956a65a8eb2235be1097ba891a88ebed0ea7dea16d1c04",
+      "printed_locations": "Progressions and Non-concentration conditions, Theorems 1--2",
+      "classification": "PRIMARY_DYADIC_MODULUS_AVERAGE_ABOVE_SQUARE_ROOT_NOT_CURRENT_FIXED_MODULUS"
+    },
+    {
+      "key": "THORNER_ZAMAN",
+      "title": "Refinements to the Prime Number Theorem for Arithmetic Progressions",
+      "locator": "tmp/pdfs/dep_r09_20260913/Thorner_Zaman_Refinements_PNTAP.pdf",
+      "sha256": "588ec896e0820c3620175b25da58850efbefc67b71227acac1d5c3fa4f6b3b09",
+      "printed_locations": "Theorems 1.1, 2.1, 2.3 and proof of Theorem 2.3",
+      "classification": "PRIMARY_POINTWISE_STRUCTURAL_ROUTE_WITH_UNPRINTED_NUMERICAL_MULTIPLIER_AND_CUTOFF"
+    },
+    {
+      "key": "ROSSER_SCHOENFELD",
+      "title": "Approximate formulas for some functions of prime numbers",
+      "locator": "tmp/pdfs/h1c1b1a1/Rosser_Schoenfeld1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "printed_locations": "printed p.69 Theorem 1, equations (3.1)--(3.2)",
+      "classification": "PRIMARY_EXPLICIT_PRIME_COUNT_NORMALIZATION_INPUT"
+    }
+  ],
+  "source_range_screen": {
+    "current_scale": "U=f^d_f with d_f>=21, hence modulus exponent 1/d_f<=1/21",
+    "Vaughan1998I": "Theorem 1 assumes uniform Criterion-U equation (1.6) and sums q<=Q with x^(2/3)<=Q<=x; Q=f is outside the range, while a larger Q loses the prescribed-f scale and retains the strong prior hypothesis.",
+    "Vaughan1998II": "Theorems 1--2 assume uniform equation (1.4), mean square (1.5), and Q>sqrt(x)log(2x) for a q<=Q cumulative variance; Q=f is outside the range.",
+    "Harper2024": "Theorems 1--2 sum Q/2<q<=Q and require sqrt(2x)<Q<=x, so no allowed dyadic block contains f<=U^(1/21).",
+    "Thorner_Zaman": "Pointwise PNT can supply the endpoint norm structurally, but the implied multiplier, decay constant, exceptional branch, and common numerical cutoff remain unresolved in the fixed exponent range.",
+    "drop_in": false
+  },
+  "endpoint_linf_interface": {
+    "endpoint_norm": "epsilon_infinity(U,f)=phi(f)/U*max_a^* abs(E_f(U;a))",
+    "lower_endpoint_correction": "epsilon_0=(phi(f)log(X)+theta_f(X))/U <= U^(-20/21)log(X)+(21/20)X/U",
+    "interval_norm": "phi(f)/U*max_a^* abs(E_f(U;a)-E_f(X;a)) <= epsilon_infinity+epsilon_0",
+    "short_side_l1": "sum_a^* abs(E_f(t;a)) <= 2 theta_f(t)",
+    "cross_envelope": "abs(K_f(t;X,U)) <= 2 theta_f(t) U (epsilon_infinity+epsilon_0)"
+  },
+  "small_scale_normalization": {
+    "project_inputs": "B0<=X, f>Y>=8X, log(Y)<2log(X), log(X)>=30",
+    "prime_count": "N=pi(Y)-pi(X)>Y/(2log(Y))",
+    "theta": "theta_f(t)<(21/20)t for X<=t<=Y",
+    "monotonicity": "t/log(t)<=Y/log(Y)",
+    "ratio": "theta_f(t)/(N log(t))<21/10"
+  },
+  "sufficient_transfer": {
+    "cross_kappa": "kappa=(21/5)(epsilon_infinity+epsilon_0)",
+    "uniform_cross_input": "abs(K_f(t;X,U))<=kappa*N*U*log(t)",
+    "project_gate": "delta_bin<=(21/5)(epsilon_infinity+epsilon_0)(2+b/a)",
+    "meaning": "Only a centered pointwise error at the single large endpoint U remains analytic; no mixed-covariance theorem is required for this sufficient route."
+  },
+  "exact_finite_diagnostic": {
+    "centered_l1_envelope_exact": true,
+    "linf_cross_envelope_exact": true,
+    "sample_cross": "44",
+    "sample_cross_envelope": "120",
+    "prime_count_half_lower_fixture": "14",
+    "small_scale_mass_ratio_upper": "21/10",
+    "endpoint_interval_epsilon_fixture": "101/100000",
+    "endpoint_linf_kappa_fixture": "2121/500000",
+    "project_delta_fixture": "426321/50000000",
+    "current_modulus_exponent": "1/21",
+    "vaughan_i_primary_pdf_verified": true,
+    "vaughan_ii_primary_pdf_verified": true,
+    "vaughan_i_is_prescribed_fixed_modulus_theorem": false,
+    "vaughan_ii_is_prescribed_fixed_modulus_theorem": false,
+    "harper_dyadic_range_contains_current_modulus": false,
+    "thorner_zaman_fully_numerical_centered_endpoint_bound": false,
+    "centered_endpoint_linf_gate_closed": false,
+    "cross_scale_covariance_gate_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The centered endpoint error epsilon_infinity is numerically small.",
+    "A one-sided PAP lower bound is sufficient for the centered two-sided endpoint norm.",
+    "A cumulative or dyadic modulus variance theorem implies the required prescribed-f cancellation with the project scale.",
+    "The Thorner--Zaman implied constants have been recovered.",
+    "No other literature or direct dispersion proof can close the endpoint gate.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Prove a fully numerical centered fixed-modulus endpoint bound epsilon_infinity(U,f) small enough for the 21/5 endpoint transfer, including exceptional-modulus removal and one common cutoff."
+}

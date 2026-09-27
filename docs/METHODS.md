@@ -2765,3 +2765,33 @@ Theory 96 뒤 전수원장은 theory 97개, display 식 1,902개, Lean declarati
 <code>SOURCE_THEOREM_UNFORMALIZED=177</code>,
 <code>NOT_YET_FORMALIZED=1139</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. calculator·actual prime 계산은 NOT READY다.
+
+## 2026-09-28 DEP-R09 prescribed-modulus endpoint Linf transfer
+
+[theory 97](method/theory/97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md)과
+[review 106](review/106_20260928_DEPR09_endpoint_Linf_transfer_타당성검토.md)은
+Theory 96 mixed covariance를 single large endpoint의 centered residue Linf error로
+충분히 제어하는 직접 경로를 고정했다.
+
+Nonnegative residue mass를 center한 L1 norm은 total mass의 두 배 이하이다. Project의
+prime-count normalization은 \(\vartheta_f(t)/(N\log t)<21/10\)을 주므로 endpoint
+error에서 cross covariance로의 multiplier는 \(21/5\)다. Abel까지 합치면
+
+\[
+\delta_{\rm bin}\le\frac{21}{5}
+(\epsilon_\infty+\epsilon_0)\left(2+\frac ba\right).
+\]
+
+Lower endpoint correction \(\epsilon_0\)는 parameterized explicit이다. Vaughan 1998
+I·II, Harper 2024는 current fixed modulus와 quantifier/range가 맞지 않고,
+Thorner--Zaman의 pointwise route는 numerical centered multiplier·exceptional removal·
+common cutoff가 남는다.
+
+Python exact fixture 12건과 verification ledger validation이 PASS했다. Theory 97 뒤
+전수원장은 theory 98개, display 식 1,927개, Lean declaration 365개다. 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=129</code>,
+<code>DEFINITION_ONLY=197</code>, <code>PARTIAL_FORMALIZATION=167</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=184</code>,
+<code>NOT_YET_FORMALIZED=1147</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. numerical endpoint theorem 전에는 calculator·actual
+prime 계산은 NOT READY다.
