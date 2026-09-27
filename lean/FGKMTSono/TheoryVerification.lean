@@ -4523,4 +4523,68 @@ theorem dep_r09_prime_supported_large_sieve_exponent_margin :
     (2 + 1 : ℝ) < 21 := by
   norm_num
 
+/-! ## Theory 96 — cross-scale covariance and Abel interface -/
+
+/- Theory 96, formulas 96.3--96.6: once the endpoint-safe Abel identity is
+   supplied characterwise, finite linearity gives the same three-term identity
+   for the weighted product. -/
+theorem dep_r09_cross_scale_abel_bookkeeping
+    {weightedProduct upperEndpoint lowerEndpoint integralTerm : ℝ}
+    (hAbel :
+      weightedProduct = upperEndpoint - lowerEndpoint + integralTerm) :
+    weightedProduct + lowerEndpoint = upperEndpoint + integralTerm := by
+  linarith
+
+/- Theory 96, formulas 96.8 and 96.16: character and residue
+   cross-covariance representations agree once orthogonality supplies the
+   equality premise. -/
+theorem dep_r09_character_residue_cross_covariance_terminal
+    {characterCross residueCross : ℝ}
+    (hCross : characterCross = residueCross) :
+    characterCross - residueCross = 0 := by
+  linarith
+
+/- Theory 96, formulas 96.17--96.18: real polarization identity. -/
+theorem dep_r09_cross_covariance_polarization
+    {combinedEnergy smallEnergy largeEnergy cross : ℝ}
+    (hCombined :
+      combinedEnergy = smallEnergy + largeEnergy + 2 * cross) :
+    combinedEnergy - smallEnergy - largeEnergy = 2 * cross := by
+  linarith
+
+/- Theory 96, formulas 96.9--96.10 and 96.19: two endpoint costs and the
+   logarithmic integral cost compose into scale*(2+ratio). -/
+theorem dep_r09_cross_scale_abel_transfer
+    {absoluteProduct upperCost lowerCost integralCost scale ratio : ℝ}
+    (hAbsolute : absoluteProduct ≤ upperCost + lowerCost + integralCost)
+    (hUpper : upperCost ≤ scale)
+    (hLower : lowerCost ≤ scale)
+    (hIntegral : integralCost ≤ scale * ratio) :
+    absoluteProduct ≤ scale * (2 + ratio) := by
+  calc
+    absoluteProduct ≤ upperCost + lowerCost + integralCost := hAbsolute
+    _ ≤ scale + scale + scale * ratio := by linarith
+    _ = scale * (2 + ratio) := by ring
+
+/- Theory 96, formulas 96.11--96.12: replacing the log-log ratio by b/a
+   preserves the upper bound when kappa and the scale are nonnegative. -/
+theorem dep_r09_cross_scale_project_multiplier
+    {absoluteProduct scale kappa ratio bOverA : ℝ}
+    (hScale : 0 ≤ scale)
+    (hKappa : 0 ≤ kappa)
+    (hProduct : absoluteProduct ≤ scale * kappa * (2 + ratio))
+    (hRatio : ratio ≤ bOverA) :
+    absoluteProduct ≤ scale * kappa * (2 + bOverA) := by
+  have hFactor : 0 ≤ scale * kappa := mul_nonneg hScale hKappa
+  have hMonotone :
+      scale * kappa * (2 + ratio) ≤
+        scale * kappa * (2 + bOverA) :=
+    mul_le_mul_of_nonneg_left (by linarith) hFactor
+  exact hProduct.trans hMonotone
+
+/- Theory 96, formula 96.12: rational fixture for b/a=1/100. -/
+theorem dep_r09_cross_scale_multiplier_fixture :
+    (2 + 1 / 100 : ℝ) = 201 / 100 := by
+  norm_num
+
 end FGKMTSono

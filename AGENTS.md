@@ -357,6 +357,20 @@ Theory 95 뒤 inventory는 96개 theory 문서, 1,883식, Lean declaration 354�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=121</code>,
 <code>NOT_YET_FORMALIZED=1136</code>, 금지 proof escape 0건이다.
 
+2026-09-28 cross-scale covariance·Abel successor는 unweighted small-prime coefficient를
+endpoint-safe Abel identity로 바꾸고 direct weighted product를 prescribed \(f\)의
+small-scale/large-interval residue-error covariance로 exact 환원했다. Uniform
+\(|{\cal K}_f(t;X,U)|\le\kappa NU\log t\) input의 project transfer multiplier는
+\(2+b/a\)다. Vaughan 2001은 one-scale modulus average, Harper 2024는 general-sequence
+dyadic modulus average이고 fixed primorial mixed covariance theorem은 아니다.
+Thorner--Zaman pointwise route의 numerical multiplier·common cutoff도 계속 OPEN이다.
+최신 analytic 정본은 theory 96·review 105이며 다음 gate는 prescribed-modulus uniform
+cross-covariance bound다. PAP-11·DEP-R09·fixed <code>2e-17</code>·
+<code>X_cert</code>는 계속 OPEN이고 calculator·actual prime 계산은 NOT READY다.
+Theory 96 뒤 inventory는 97개 theory 문서, 1,902식, Lean declaration 360개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=125</code>,
+<code>NOT_YET_FORMALIZED=1139</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

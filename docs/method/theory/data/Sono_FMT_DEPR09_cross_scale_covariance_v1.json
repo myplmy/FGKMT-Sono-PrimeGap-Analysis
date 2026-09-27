@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-28",
+  "gate": "DEP-R09 cross-scale covariance Abel interface",
+  "predecessor": "Sono_FMT_DEPR09_conductor_weighted_dual_v1.json",
+  "outcome": "ABEL_AND_CROSS_COVARIANCE_INTERFACES_EXACT_BUT_NO_FULLY_NUMERICAL_PRESCRIBED_MODULUS_MIXED_MOMENT_SOURCE",
+  "source_registry": [
+    {
+      "key": "THEORY95",
+      "title": "DEP-R09 conductor-weighted character dual audit",
+      "locator": "docs/method/theory/95_Sono_FMT_DEPR09_conductor_weighted_character_dual.md",
+      "sha256": "b49330d85c8a7255c487ebe2296b8783c69f18f600ffbc75d7a1a88daaf3f6c1",
+      "source_locations": "formulas (95.3)--(95.5) and (95.22)",
+      "classification": "PROJECT_WEIGHTED_PRODUCT_INPUT"
+    },
+    {
+      "key": "VAUGHAN2001",
+      "title": "On a variance associated with the distribution of primes in arithmetic progressions",
+      "locator": "article/vaughan2001.pdf",
+      "sha256": "d5bc8d92c1204b09233c507b83ee185e35a54186122da1c906df87bbcb9d3ecc",
+      "printed_locations": "Theorems 1--3",
+      "classification": "PRIMARY_ONE_SCALE_MODULUS_AVERAGE_VARIANCE_NOT_FIXED_MIXED_MOMENT"
+    },
+    {
+      "key": "THEORY85",
+      "title": "DEP-R09 Vaughan 2001 variance source audit",
+      "locator": "docs/method/theory/85_Sono_FMT_DEPR09_Vaughan2001_variance_source_audit.md",
+      "sha256": "e379581b2ff47d6c6a58921edeb7205d5dd264bf9a74d8ad1eeae0a37a24070d",
+      "source_locations": "variance-to-character bridge and source range",
+      "classification": "PROJECT_SOURCE_APPLICABILITY_PREDECESSOR"
+    },
+    {
+      "key": "HARPER2024",
+      "title": "Simple Barban--Davenport--Halberstam type asymptotics for general sequences",
+      "locator": "tmp/pdfs/depr09_cross_scale_20260928/Harper_2024_general_BDH.pdf",
+      "sha256": "be7c989b3a3626ba1d956a65a8eb2235be1097ba891a88ebed0ea7dea16d1c04",
+      "printed_locations": "Introduction and Theorems 1--2",
+      "classification": "PRIMARY_GENERAL_SEQUENCE_MODULUS_AVERAGE_NOT_PRESCRIBED_FIXED_MODULUS"
+    },
+    {
+      "key": "THEORY59",
+      "title": "DEP-R09 Branch S quantitative transfer audit",
+      "locator": "docs/method/theory/59_Sono_FMT_DEPR09_branch_S_quantitative_transfer_audit.md",
+      "sha256": "6fbbcbaca4358606c4384954eb15aa9df53a288f8616053d75ec997df25a92e2",
+      "source_locations": "Thorner--Zaman multiplier and cutoff boundary",
+      "classification": "PROJECT_POINTWISE_PNT_FALLBACK_BOUNDARY"
+    }
+  ],
+  "abel_interface": {
+    "small_theta": "Theta_chi(t)=sum_(p<=t,prime)log(p)*chi(p)",
+    "unweighted_coefficient": "C_chi(Qprime)=sum_(X<q<=Y,prime)conjugate(chi(q))",
+    "identity": "C_chi=Theta_conjchi(Y)/log(Y)-Theta_conjchi(X)/log(X)+integral_X^Y Theta_conjchi(t)/(t*log(t)^2)dt",
+    "endpoint": "half-open (X,Y], plus-sign integral, active B0<=X so no small-interval atom"
+  },
+  "cross_covariance": {
+    "large_prime_error": "Z_chi(X,U)=Theta_chi(U)-Theta_chi(X)",
+    "character_cross": "K_f(t;X,U)=sum_(chi mod f,chi!=chi0)Theta_conjchi(t)*Z_chi(X,U)",
+    "weighted_product": "C_f=K_f(Y)/log(Y)-K_f(X)/log(X)+integral_X^Y K_f(t)/(t*log(t)^2)dt",
+    "residue_error": "E_f(t,a)=theta(t;f,a)-theta_f(t)/phi(f)",
+    "residue_cross": "K_f(t;X,U)=phi(f)*sum_a E_f(t,a)*(E_f(U,a)-E_f(X,a))",
+    "polarization": "2*K_f=V(E_t+E_(X,U))-V(E_t)-V(E_(X,U))"
+  },
+  "sufficient_gate": {
+    "uniform_cross_input": "abs(K_f(t;X,U))<=kappa*N*U*log(t) for X<=t<=Y",
+    "abel_transfer": "abs(C_f)/(N*U)<=kappa*(2+log(log(Y)/log(X)))",
+    "project_scale": "Y<X*log(X) gives log(log(Y)/log(X))<=b/a",
+    "project_gate": "delta_bin<=kappa*(2+b/a)",
+    "meaning": "a fully numerical uniform cross-covariance bound directly closes the binary-prime core"
+  },
+  "source_screen": {
+    "Vaughan2001": "one-scale dyadic modulus moment; no prescribed-f mixed covariance theorem and source constants are implicit",
+    "Harper2024": "general-sequence variance averaged over Q/2<q<=Q, chiefly Q above square-root scale; not a single prescribed f theorem",
+    "polarization": "would require a fixed-f variance theorem for the combined signed prime sequence, which checked sources do not provide",
+    "Thorner_Zaman": "pointwise PNT would imply the covariance gate, but the previously audited multiplier and common finite cutoff remain unnamed",
+    "drop_in": false
+  },
+  "exact_finite_diagnostic": {
+    "finite_abel_identity_exact": true,
+    "residue_character_cross_identity_exact": true,
+    "polarization_identity_exact": true,
+    "sample_residue_cross": "36",
+    "sample_character_cross_real": "36",
+    "sample_character_cross_imag": "0",
+    "project_transfer_factor_at_b_over_a_1_over_100": "201/100",
+    "vaughan2001_primary_pdf_verified": true,
+    "harper2024_primary_pdf_verified": true,
+    "vaughan_source_is_mixed_fixed_modulus_theorem": false,
+    "harper_source_is_prescribed_fixed_modulus_theorem": false,
+    "thorner_zaman_fully_numerical_current_cutoff": false,
+    "cross_scale_covariance_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The cross-scale covariance is large.",
+    "Polarization plus separate variance upper proves cancellation.",
+    "Vaughan or Harper lacks mathematical relevance outside the current contract.",
+    "Thorner--Zaman cannot be made numerical by a future proof extraction.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Prove a fully numerical uniform bound for the prescribed-modulus cross-scale covariance K_f(t;X,U), or equivalently for the variance of the associated combined signed prime sequence."
+}

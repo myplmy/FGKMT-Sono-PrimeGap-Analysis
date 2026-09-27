@@ -1563,3 +1563,16 @@ joint signed weighted product theorem이다.
 66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
 않는다. Theory 95 뒤 전수원장은 theory 96개, display 식 1,883개, Lean declaration
 354개, 금지 proof escape 0건이다.
+
+## 65. 2026-09-28 DEP-R09 cross-scale covariance 후속 상태
+
+[theory 96](96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md)은 direct
+weighted product를 small scale \(t\)와 large interval \((X,U]\)의 fixed-modulus
+cross-covariance로 exact하게 환원했다.
+
+Required uniform input의 Abel transfer multiplier는 \(2+b/a\)다. Separate variance
+upper가 아니라 combined signed sequence의 mixed covariance main/error theorem이 필요하다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
+않는다. Theory 96 뒤 전수원장은 theory 97개, display 식 1,902개, Lean declaration
+360개, 금지 proof escape 0건이다.

@@ -2740,3 +2740,28 @@ Theory 95 뒤 전수원장은 theory 96개, display 식 1,883개, Lean declarati
 <code>SOURCE_THEOREM_UNFORMALIZED=173</code>,
 <code>NOT_YET_FORMALIZED=1136</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. calculator·actual prime 계산은 NOT READY다.
+
+## 2026-09-28 DEP-R09 cross-scale covariance·Abel interface
+
+[theory 96](method/theory/96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md)과
+[review 105](review/105_20260928_DEPR09_cross_scale_covariance_타당성검토.md)은
+Theory 95 direct weighted product를 cross-scale mixed covariance로 exact하게 바꿨다.
+
+Unweighted small-prime coefficient에는 endpoint-safe Abel identity를 적용했고,
+character orthogonality로 mixed term을 residue error covariance로 옮겼다. Polarization은
+이를 combined signed prime sequence variance로 표현한다.
+
+Uniform covariance input \(\kappa NU\log t\)의 project transfer multiplier는
+\(2+b/a\)다. 이는 future theorem의 required norm을 고정하지만 analytic theorem 자체는
+아니다.
+
+Vaughan 2001, Harper 2024와 기존 Thorner--Zaman audit을 대조했으나 prescribed
+primorial mixed covariance의 unconditional fully numerical drop-in은 식별되지 않았다.
+
+Python exact fixture 10건, Lean direct compile과 verification validation이 PASS했다.
+Theory 96 뒤 전수원장은 theory 97개, display 식 1,902개, Lean declaration 360개다.
+상태는 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=125</code>,
+<code>DEFINITION_ONLY=192</code>, <code>PARTIAL_FORMALIZATION=166</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=177</code>,
+<code>NOT_YET_FORMALIZED=1139</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. calculator·actual prime 계산은 NOT READY다.

@@ -7,6 +7,10 @@
   PRIME_LARGE_SIEVE_SCOPE_VALID /
   SEPARATE_L2_REJECTION_VALID</code>
 
+> **Successor:** review 105/Theory 96은 direct product를 cross-scale residue covariance로
+> exact하게 바꾸고 Abel multiplier \(2+b/a\)를 고정했다. 최신 root gate는 prescribed
+> fixed-modulus mixed covariance다.
+
 ## 1. 검토 결론
 
 Theory 95의 판정은 타당하다.

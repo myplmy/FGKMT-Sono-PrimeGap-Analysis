@@ -677,3 +677,17 @@ declaration 354개다. 전체 상태는 <code>KERNEL_PASS=98</code>,
 <code>PARTIAL_FORMALIZATION=165</code>, <code>SOURCE_THEOREM_UNFORMALIZED=173</code>,
 <code>NOT_YET_FORMALIZED=1136</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+2026-09-28 Theory 96 batch는 Abel bookkeeping, character/residue covariance terminal,
+real polarization, endpoint/integral transfer와 project multiplier를 추가했다. Lean은
+Stieltjes integration, character orthogonality와 external variance theorem을 local
+axiom으로 넣지 않았다.
+
+Python exact fixture 10건은 finite Abel identity, modulo-5 Gaussian-rational mixed
+covariance, polarization과 transfer factor를 검사한다. direct compile과 inventory
+validation은 PASS했다. Theory 96 뒤 inventory는 theory 문서 97개, display 식 1,902개,
+declaration 360개다. 전체 상태는 <code>KERNEL_PASS=98</code>,
+<code>CONDITIONAL_KERNEL_PASS=125</code>, <code>DEFINITION_ONLY=192</code>,
+<code>PARTIAL_FORMALIZATION=166</code>, <code>SOURCE_THEOREM_UNFORMALIZED=177</code>,
+<code>NOT_YET_FORMALIZED=1139</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

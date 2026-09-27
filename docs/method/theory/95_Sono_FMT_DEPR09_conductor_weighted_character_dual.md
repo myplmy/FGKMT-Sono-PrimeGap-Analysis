@@ -15,6 +15,11 @@
   실패를 actual weighted product의 하한으로 바꾸거나, actual 계산, threshold
   calculator, conditional branch, PAP-11, DEP-R09, numerical \(X_{\rm cert}\)를 닫는 것.
 
+> **2026-09-28 successor:** [Theory 96](96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md)는
+> direct weighted product를 endpoint-safe Abel transform과 prescribed-modulus
+> cross-scale covariance로 exact 환원했다. 최신 sufficient gate는 식 (96.9)이고 project
+> transfer multiplier는 \(2+b/a\)다.
+
 ## 1. 결론
 
 Theory 94의 prime core는
@@ -69,7 +74,7 @@ Reduced primes \(p,q\)에 finite character orthogonality를 적용하면
 Conductor-level small-prime coefficient energy를
 
 \[
- A_r:=\sum_{chi^*\bmod r}^{*}|C_{\chi^*}(Q')|^2
+ A_r:=\sum_{\chi^*\bmod r}^{*}|C_{\chi^*}(Q')|^2
  \tag{95.6}
 \]
 

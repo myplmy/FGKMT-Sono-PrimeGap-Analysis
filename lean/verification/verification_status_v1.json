@@ -4618,6 +4618,101 @@
       "declarations": []
     },
     {
+      "formula_id": "96.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.3",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.4",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.6",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_cross_scale_abel_bookkeeping"]
+    },
+    {
+      "formula_id": "96.7",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.8",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.9",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.10",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_cross_scale_abel_transfer"]
+    },
+    {
+      "formula_id": "96.11",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.12",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_cross_scale_project_multiplier", "dep_r09_cross_scale_multiplier_fixture"]
+    },
+    {
+      "formula_id": "96.13",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.14",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.15",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.16",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_character_residue_cross_covariance_terminal"]
+    },
+    {
+      "formula_id": "96.17",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "96.18",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_cross_covariance_polarization"]
+    },
+    {
+      "formula_id": "96.19",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []
