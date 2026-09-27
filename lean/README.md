@@ -630,3 +630,20 @@ refresh·validation은 PASS했다. Theory 92 뒤 inventory는 theory 문서 93�
 <code>SOURCE_THEOREM_UNFORMALIZED=158</code>,
 <code>NOT_YET_FORMALIZED=1123</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. full build는 최종 commit 전에 재검증한다.
+
+2026-09-27 Theory 93 batch는 outer fixed-mean persistence, weighted variance component
+합성, adaptive deletion numerator, selected-mean cross multiplication, union mass와
+\(b=2000\) selected-count positivity terminal을 추가했다. Lean은 finite probability
+source와 L∞ bounds를 premise로 받은 scalar 결론만 검사한다. FGKMT/FMT outer law,
+Chebyshev probability theorem과 modern AP sources를 local axiom으로 넣지 않았다.
+
+Python exact fixture 11건은 signed weights의 finite probability table, common-shock
+pair error, normalized variance, worst-case deletion과 union mass를 검사한다. actual
+prime data나 threshold는 계산하지 않았다. direct compile과 전수 inventory
+refresh·validation은 PASS했다. Theory 93 뒤 inventory는 theory 문서 94개, display 식
+1,839개, declaration 344개다. 전체 상태는 <code>KERNEL_PASS=98</code>,
+<code>CONDITIONAL_KERNEL_PASS=112</code>, <code>DEFINITION_ONLY=171</code>,
+<code>PARTIAL_FORMALIZATION=162</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=163</code>,
+<code>NOT_YET_FORMALIZED=1128</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. full build는 최종 commit 전에 재검증한다.

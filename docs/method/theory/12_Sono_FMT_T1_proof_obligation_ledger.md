@@ -1518,3 +1518,20 @@ centered mean의 uniform numerical bound다.
 않는다. threshold calculator와 장시간 prime sweep은 NOT READY다. Theory 92 뒤
 전수원장은 theory 93개, display 식 1,814개, Lean declaration 338개, 금지 proof
 escape 0건이다.
+
+## 62. 2026-09-27 DEP-R09 outer-law sparse mean 후속 상태
+
+[theory 93](93_Sono_FMT_DEPR09_outer_law_sparse_centered_mean_reduction.md)은 outer
+weighted fluctuation과 adaptive exceptional deletion을 explicit하게 분리했다.
+Expectation은 \(\sigma D_Q\)이므로 outer randomness alone은 fixed mean을 제거하지
+않는다.
+
+Construction-dependent \(D_V\)는 fixed
+\(D_Q=\varphi(f)\sum_{q\in Q'}A_h(q;U)-|Q'|S_h(U)\)와 parameterized fluctuation,
+\(O(b^{-2})\) deletion으로 환원됐다. 다음 root input은 이 shifted prime-pair형 fixed
+mean의 unconditional numerical bound다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
+않는다. threshold calculator와 장시간 prime sweep은 NOT READY다. Theory 93 뒤
+전수원장은 theory 94개, display 식 1,839개, Lean declaration 344개, 금지 proof
+escape 0건이다.

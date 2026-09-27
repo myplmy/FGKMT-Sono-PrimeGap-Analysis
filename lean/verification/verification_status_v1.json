@@ -4273,6 +4273,131 @@
       "declarations": []
     },
     {
+      "formula_id": "93.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.3",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.4",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.5",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_outer_fixed_mean_persistence"]
+    },
+    {
+      "formula_id": "93.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_outer_variance_component_upper"]
+    },
+    {
+      "formula_id": "93.7",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.8",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.9",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.10",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_outer_adaptive_deletion_numerator", "dep_r09_outer_selected_mean_cross_multiply"]
+    },
+    {
+      "formula_id": "93.11",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.12",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.13",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_outer_fixed_mean_persistence"]
+    },
+    {
+      "formula_id": "93.14",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.15",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.16",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.17",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.18",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.19",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.20",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.21",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_outer_selected_scale_b2000_positive"]
+    },
+    {
+      "formula_id": "93.22",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_outer_adaptive_deletion_numerator", "dep_r09_outer_selected_mean_cross_multiply"]
+    },
+    {
+      "formula_id": "93.23",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "93.24",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_outer_union_mass_terminal"]
+    },
+    {
+      "formula_id": "93.25",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

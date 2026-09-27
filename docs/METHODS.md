@@ -2660,3 +2660,34 @@ PASS했다. Theory 92 뒤 전수원장은 theory 93개, display 식 1,814개, Le
 금지 proof escape는 0건이다. full regression·build는 최종 handoff 전에 다시
 확정한다. threshold calculator·actual prime 계산·패키지 설치·GRH branch는 실행하지
 않았다.
+
+## 2026-09-27 DEP-R09 outer-law sparse centered-mean 환원
+
+[theory 93](method/theory/93_Sono_FMT_DEPR09_outer_law_sparse_centered_mean_reduction.md)과
+[review 102](review/102_20260927_DEPR09_outer_law_sparse_mean_타당성검토.md)은
+Theory 92의 selected mean을 actual outer probability law에서 다시 감사했다.
+
+Fixed \(Q'\) weights \(B_q\)와 survival indicators \(I_q\)에 대해
+\(E\sum B_qI_q=\sigma\sum B_q\)다. pair relative error \(2a^{-17}\)와
+\(|B_q|<11U/5\)를 합치면 outer weighted fluctuation은 explicit이다.
+
+Theory 53 exceptional set은 outcome-dependent이므로 fixed-subset theorem을 적용하지
+않고, count-good event와 L∞ worst-case deletion을 사용했다. 이로써 selected mean은
+deterministic fixed-\(Q'\) mean \(D_Q\)와 fluctuation \(t\), deletion
+\(O(b^{-2})\)로 exact하게 분리된다.
+
+Maynard I/III와 Stadlmann의 modulus averages·absolute log savings,
+Klurman--Mangerel--Teräväinen의 bounded multiplicative/typical-modulus theorem,
+Leung의 conditional moment theorem은 current fixed \(D_Q\)의 fully numerical
+relative upper에 drop-in하지 않는다.
+
+Python exact fixture 11건과 Lean direct compile, 전수 ledger refresh/validation이
+PASS했다. Theory 93 뒤 전수원장은 theory 94개, display 식 1,839개, Lean declaration
+344개다. 상태는 <code>KERNEL_PASS=98</code>,
+<code>CONDITIONAL_KERNEL_PASS=112</code>, <code>DEFINITION_ONLY=171</code>,
+<code>PARTIAL_FORMALIZATION=162</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=163</code>,
+<code>NOT_YET_FORMALIZED=1128</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. full build·broad regression은 final handoff 전에
+재검증한다. threshold calculator·actual prime 계산·package 설치·GRH branch는
+실행하지 않았다.

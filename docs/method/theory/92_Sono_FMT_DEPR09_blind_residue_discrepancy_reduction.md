@@ -15,6 +15,11 @@
   threshold calculator, PAP-11, DEP-R09, fixed \(2\times10^{-17}\), numerical
   \(X_{\rm cert}\)를 이번 단계에서 인증하는 것.
 
+> **2026-09-27 successor:** [Theory 93](93_Sono_FMT_DEPR09_outer_law_sparse_centered_mean_reduction.md)은
+> outer weighted fluctuation과 outcome-dependent deletion을 explicit하게 흡수해 이
+> 문서의 construction-dependent \(D_V\)를 deterministic fixed-\(Q'\) mean \(D_Q\)로
+> 환원했다. 최신 analytic gate는 식 (93.11)이다.
+
 ## 1. 결론
 
 Theory 89--90처럼

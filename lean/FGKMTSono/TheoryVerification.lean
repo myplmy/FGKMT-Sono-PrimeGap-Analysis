@@ -4335,4 +4335,95 @@ theorem dep_r09_blind_success_scale_gate
     rawMoment < scale * target := by
   exact hRaw.trans_lt (mul_lt_mul_of_pos_left hGate hScale)
 
+/-! ## Theory 93 — outer-law sparse centered-mean reduction -/
+
+/- Theory 93, formulas 93.4--93.5 and 93.13: the outer law preserves the
+   deterministic fixed-Q' mean, up to the exact survival factor sigma. -/
+theorem dep_r09_outer_fixed_mean_persistence
+    {expectation sigma fixedMean : ℝ}
+    (hExpectation : expectation = sigma * fixedMean) :
+    expectation - sigma * fixedMean = 0 := by
+  linarith
+
+/- Theory 93, formulas 93.6--93.7 and 93.14--93.16: once the one/two-point
+   covariance expansion and the two L-infinity component bounds are supplied,
+   their nonnegative coefficients compose without losing another dimension. -/
+theorem dep_r09_outer_variance_component_upper
+    {variance diagonal offDiagonal diagonalUpper offUpper
+      diagonalCoefficient offCoefficient : ℝ}
+    (hDiagonalCoefficient : 0 ≤ diagonalCoefficient)
+    (hOffCoefficient : 0 ≤ offCoefficient)
+    (hVariance :
+      variance ≤
+        diagonalCoefficient * diagonal + offCoefficient * offDiagonal)
+    (hDiagonal : diagonal ≤ diagonalUpper)
+    (hOff : offDiagonal ≤ offUpper) :
+    variance ≤
+      diagonalCoefficient * diagonalUpper + offCoefficient * offUpper := by
+  have hDiagonalScaled :=
+    mul_le_mul_of_nonneg_left hDiagonal hDiagonalCoefficient
+  have hOffScaled := mul_le_mul_of_nonneg_left hOff hOffCoefficient
+  linarith
+
+/- Theory 93, formulas 93.10 and 93.21--93.22: the random weighted sum and
+   worst-case adaptive deletion costs combine into the displayed numerator. -/
+theorem dep_r09_outer_adaptive_deletion_numerator
+    {selectedAbs outerAbs deletedAbs scale fixedMeanRatio fluctuationRatio
+      pointwise deletionFraction countError : ℝ}
+    (hSelected : selectedAbs ≤ outerAbs + deletedAbs)
+    (hOuter :
+      outerAbs ≤ scale * (fixedMeanRatio + fluctuationRatio))
+    (hDeleted :
+      deletedAbs ≤ scale * pointwise * deletionFraction * (1 + countError)) :
+    selectedAbs ≤
+      scale *
+        (fixedMeanRatio + fluctuationRatio +
+          pointwise * deletionFraction * (1 + countError)) := by
+  calc
+    selectedAbs ≤ outerAbs + deletedAbs := hSelected
+    _ ≤ scale * (fixedMeanRatio + fluctuationRatio) +
+          scale * pointwise * deletionFraction * (1 + countError) := by
+      linarith
+    _ = scale *
+          (fixedMeanRatio + fluctuationRatio +
+            pointwise * deletionFraction * (1 + countError)) := by
+      ring
+
+/- Theory 93, formulas 93.10 and 93.21: denominator-cleared selected-mean
+   transfer from the numerator upper and selected-count lower. -/
+theorem dep_r09_outer_selected_mean_cross_multiply
+    {selectedAbs count scale numerator lambda : ℝ}
+    (hNumerator : 0 ≤ numerator)
+    (hLambda : 0 ≤ lambda)
+    (hSelected : selectedAbs ≤ scale * numerator)
+    (hCount : scale * lambda ≤ count) :
+    selectedAbs * lambda ≤ count * numerator := by
+  have hLeft :
+      selectedAbs * lambda ≤ (scale * numerator) * lambda :=
+    mul_le_mul_of_nonneg_right hSelected hLambda
+  have hRight :
+      (scale * lambda) * numerator ≤ count * numerator :=
+    mul_le_mul_of_nonneg_right hCount hNumerator
+  calc
+    selectedAbs * lambda ≤ (scale * numerator) * lambda := hLeft
+    _ = (scale * lambda) * numerator := by ring
+    _ ≤ count * numerator := hRight
+
+/- Theory 93, formula 93.24: no independence is needed to subtract three
+   failure masses from one. -/
+theorem dep_r09_outer_union_mass_terminal
+    {success prepFailure countFailure weightFailure : ℝ}
+    (hSuccess :
+      1 - prepFailure - countFailure - weightFailure ≤ success) :
+    1 - prepFailure - countFailure - weightFailure ≤ success := by
+  exact hSuccess
+
+/- Theory 93, formulas 93.8 and 93.21: the recorded endpoint b=2000 leaves
+   a strictly positive selected-count scale. -/
+theorem dep_r09_outer_selected_scale_b2000_positive :
+    0 <
+      (1 - (8000 : ℝ) / 2000 ^ 2) *
+        (1 - 1 / 2000 ^ 3) := by
+  norm_num
+
 end FGKMTSono

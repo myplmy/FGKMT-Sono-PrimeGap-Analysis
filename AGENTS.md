@@ -312,6 +312,23 @@ Theory 92 뒤 inventory는 93개 theory 문서, 1,814식, Lean declaration 338�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=109</code>,
 <code>NOT_YET_FORMALIZED=1123</code>, 금지 proof escape 0건이다.
 
+2026-09-27 outer-law sparse centered-mean successor는 Theory 49 single·pair law를
+deterministic real blind weights에 적용해 outer weighted fluctuation을 explicit하게
+상계했다. Theory 53의 outcome-dependent exceptional deletion은 independence 없이
+\((11/5)U|E|\) worst-case cost로 보존했다. 따라서 construction-dependent \(D_V\)는
+fixed \(D_Q=\varphi(f)\sum_{q\in Q'}A_h(q;U)-|Q'|S_h(U)\), weighted fluctuation과
+\(O(b^{-2})\) deletion으로 환원된다. expectation은 정확히 \(\sigma D_Q\)여서 outer
+randomness만으로 fixed mean은 사라지지 않는다. Maynard I/III, Stadlmann,
+Klurman--Mangerel--Teräväinen, Leung 원문 중 current prescribed primorial·growing
+prime-residue relative mean에 대한 unconditional numerical drop-in은 식별되지 않았다.
+최신 analytic 정본은 theory 93·review 102다. 다음 gate는 fixed \(Q'\) shifted
+prime-pair discrepancy의 pre-absolute-value dispersion이다. PAP-11·DEP-R09·fixed
+<code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고 threshold calculator·actual
+prime 계산은 NOT READY다.
+Theory 93 뒤 inventory는 94개 theory 문서, 1,839식, Lean declaration 344개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=112</code>,
+<code>NOT_YET_FORMALIZED=1128</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

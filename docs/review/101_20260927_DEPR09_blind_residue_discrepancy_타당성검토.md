@@ -7,6 +7,10 @@
   SUCCESS_SCALE_NORMALIZATION_VALID /
   SPARSE_MEAN_REMAINS_OPEN</code>
 
+> **Successor:** review 102/Theory 93은 outer law와 adaptive deletion을 감사해
+> construction-dependent selected mean을 fixed-\(Q'\) mean으로 더 축약했다. 아래
+> pointwise·success-scale 판정은 유지되며 최신 root gate는 Theory 93 식 (93.11)이다.
+
 ## 1. 검토 결론
 
 Theory 92의 핵심 판정은 타당하다.
