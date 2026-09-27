@@ -174,7 +174,7 @@
 | 94 | [94_Sono_FMT_DEPR09_fixed_Qprime_bilinear_reduction.md](../docs/method/theory/94_Sono_FMT_DEPR09_fixed_Qprime_bilinear_reduction.md) | `260629bf8482c54e…` | 22 | 22 | 0 | 16 |
 | 95 | [95_Sono_FMT_DEPR09_conductor_weighted_character_dual.md](../docs/method/theory/95_Sono_FMT_DEPR09_conductor_weighted_character_dual.md) | `b49330d85c8a7255…` | 22 | 22 | 0 | 20 |
 | 96 | [96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md](../docs/method/theory/96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md) | `33998027710c59d0…` | 19 | 19 | 0 | 16 |
-| 97 | [97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md](../docs/method/theory/97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md) | `e5c541bb9e2fdd38…` | 25 | 25 | 0 | 17 |
+| 97 | [97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md](../docs/method/theory/97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md) | `3e97c17c2eab5347…` | 25 | 25 | 0 | 17 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 

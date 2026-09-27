@@ -785,7 +785,7 @@
     {
       "theory": "97",
       "source_file": "docs/method/theory/97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75",
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab",
       "display_formula_count": 25,
       "tagged_formula_count": 25,
       "untagged_formula_count": 0
@@ -19820,7 +19820,7 @@
       "end_line": 29,
       "tagged": true,
       "latex": "\\boxed{\n \\epsilon_\\infty(U,f):=\n \\frac{\\varphi(f)}U\n \\max_{a\\bmod f}^{*}|E_f(U;a)|}\n \\tag{97.1}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.2",
@@ -19830,7 +19830,7 @@
       "end_line": 38,
       "tagged": true,
       "latex": "\\boxed{\n \\epsilon_0(X,U,f):=\n \\frac{\\varphi(f)\\log X+\\vartheta_f(X)}U.}\n \\tag{97.2}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.3",
@@ -19840,7 +19840,7 @@
       "end_line": 48,
       "tagged": true,
       "latex": "\\frac{\\varphi(f)}U\n \\max_a^*|E_f(U;a)-E_f(X;a)|\n \\le \\epsilon_\\infty(U,f)+\\epsilon_0(X,U,f).\n \\tag{97.3}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.4",
@@ -19850,7 +19850,7 @@
       "end_line": 56,
       "tagged": true,
       "latex": "\\boxed{\n \\sum_a^*|E_f(t;a)|\\le2\\vartheta_f(t).}\n \\tag{97.4}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.5",
@@ -19860,7 +19860,7 @@
       "end_line": 66,
       "tagged": true,
       "latex": "\\boxed{\n |{\\cal K}_f(t;X,U)|\n \\le2\\vartheta_f(t)U\n \\{\\epsilon_\\infty(U,f)+\\epsilon_0(X,U,f)\\}.}\n \\tag{97.5}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.6",
@@ -19870,7 +19870,7 @@
       "end_line": 74,
       "tagged": true,
       "latex": "B_0\\le X,\\quad f>Y\\ge8X,\\quad\n \\log Y<2\\log X,\\quad \\log X\\ge30\n \\tag{97.6}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.7",
@@ -19880,7 +19880,7 @@
       "end_line": 81,
       "tagged": true,
       "latex": "N=\\pi(Y)-\\pi(X).\n \\tag{97.7}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.8",
@@ -19890,7 +19890,7 @@
       "end_line": 88,
       "tagged": true,
       "latex": "\\boxed{N>\\frac{Y}{2\\log Y}}\n \\tag{97.8}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.9",
@@ -19900,7 +19900,7 @@
       "end_line": 97,
       "tagged": true,
       "latex": "\\vartheta_f(t)\\le\\pi(t)\\log t\n <t\\left(1+\\frac3{2\\log t}\\right)\n \\le\\frac{21}{20}t.\n \\tag{97.9}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.10",
@@ -19910,7 +19910,7 @@
       "end_line": 106,
       "tagged": true,
       "latex": "\\boxed{\n \\frac{\\vartheta_f(t)}{N\\log t}<\\frac{21}{10}\n \\qquad(X\\le t\\le Y).}\n \\tag{97.10}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.11",
@@ -19920,7 +19920,7 @@
       "end_line": 117,
       "tagged": true,
       "latex": "\\boxed{\n |{\\cal K}_f(t;X,U)|\n <\\frac{21}{5}\n \\{\\epsilon_\\infty(U,f)+\\epsilon_0(X,U,f)\\}\n NU\\log t.}\n \\tag{97.11}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.12",
@@ -19930,7 +19930,7 @@
       "end_line": 126,
       "tagged": true,
       "latex": "\\boxed{\n \\kappa=\\frac{21}{5}\n \\{\\epsilon_\\infty(U,f)+\\epsilon_0(X,U,f)\\}.}\n \\tag{97.12}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.13",
@@ -19940,7 +19940,7 @@
       "end_line": 137,
       "tagged": true,
       "latex": "\\boxed{\n \\delta_{\\rm bin}\n \\le\\frac{21}{5}\n \\{\\epsilon_\\infty(U,f)+\\epsilon_0(X,U,f)\\}\n \\left(2+\\frac ba\\right).}\n \\tag{97.13}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.14",
@@ -19950,7 +19950,7 @@
       "end_line": 152,
       "tagged": true,
       "latex": "|E_f(X;a)|\n \\le\\vartheta(X;f,a)+\\frac{\\vartheta_f(X)}{\\varphi(f)}\n \\le\\log X+\\frac{\\vartheta_f(X)}{\\varphi(f)}.\n \\tag{97.14}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.15",
@@ -19960,7 +19960,7 @@
       "end_line": 161,
       "tagged": true,
       "latex": "\\boxed{\n \\epsilon_0(X,U,f)\n \\le U^{-20/21}\\log X+\\frac{21X}{20U}.}\n \\tag{97.15}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.16",
@@ -19970,7 +19970,7 @@
       "end_line": 177,
       "tagged": true,
       "latex": "\\sum_a^*|A_a-\\mu|\n \\le\\sum_a^*(A_a+\\mu)\n =2\\vartheta_f(t).\n \\tag{97.16}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.17",
@@ -19980,7 +19980,7 @@
       "end_line": 195,
       "tagged": true,
       "latex": "\\pi(s)>\\frac{s}{\\log s}\\left(1+\\frac1{2\\log s}\\right)\n \\quad(s\\ge59),\\qquad\n \\pi(s)<\\frac{s}{\\log s}\\left(1+\\frac3{2\\log s}\\right)\n \\quad(s>1)\n \\tag{97.17}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.18",
@@ -19990,7 +19990,7 @@
       "end_line": 203,
       "tagged": true,
       "latex": "\\frac{2X}{\\log X}\n \\le\\frac{Y}{2\\log Y}\n \\tag{97.18}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.19",
@@ -20000,7 +20000,7 @@
       "end_line": 221,
       "tagged": true,
       "latex": "A(x;q,a)=E(q,a)\\frac{\\Phi(x)}{\\varphi(q)}\n +O\\!\\left(\\frac{\\Phi(x)}{\\Psi(x)}\\right)\n \\tag{97.19}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.20",
@@ -20010,7 +20010,7 @@
       "end_line": 228,
       "tagged": true,
       "latex": "x^{2/3}\\le Q\\le x\n \\tag{97.20}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.21",
@@ -20020,7 +20020,7 @@
       "end_line": 247,
       "tagged": true,
       "latex": "A(x;q,a)=xf(q,(q,a))+O\\!\\left(\\frac{x}{\\Psi(x)}\\right),\n \\qquad \\sum_{n\\le x}a_n^2\\ll x\n \\tag{97.21}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.22",
@@ -20030,7 +20030,7 @@
       "end_line": 254,
       "tagged": true,
       "latex": "Q>\\sqrt{x}\\log(2x)\n \\tag{97.22}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.23",
@@ -20040,7 +20040,7 @@
       "end_line": 280,
       "tagged": true,
       "latex": "V({\\cal A},x,Q)=\n \\sum_{Q/2<q\\le Q}\\sum_{a=1}^q\n |A(x;q,a)-\\operatorname{Aver}({\\cal A},x;q,(a,q))|^2,\n \\qquad \\sqrt{2x}<Q\\le x.\n \\tag{97.23}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.24",
@@ -20050,7 +20050,7 @@
       "end_line": 307,
       "tagged": true,
       "latex": "\\epsilon_\\infty(U,f)\n \\le K\\exp(-c d_f)+R(U,f)\n \\tag{97.24}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     },
     {
       "formula_id": "97.25",
@@ -20060,7 +20060,7 @@
       "end_line": 355,
       "tagged": true,
       "latex": "\\boxed{\n \\frac{\\varphi(f)}U\n \\max_{a\\bmod f}^{*}\n \\left|\\vartheta(U;f,a)-\\frac{\\vartheta_f(U)}{\\varphi(f)}\\right|\n \\le\\epsilon_{\\rm EP}(X)}\n \\tag{97.25}",
-      "source_sha256": "e5c541bb9e2fdd3871f892cda23a64f5bcfddcfbb9c7bd679120b2d639775d75"
+      "source_sha256": "3e97c17c2eab5347d4ca57ed151a26377b62e58f80fff67a4b2f58abcd8063ab"
     }
   ],
   "issues": [],
