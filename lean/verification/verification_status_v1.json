@@ -5023,6 +5023,76 @@
       "declarations": []
     },
     {
+      "formula_id": "100.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "100.2",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "100.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "100.4",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "100.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "100.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_sharp_density_detector_kappa_endpoint"]
+    },
+    {
+      "formula_id": "100.7",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "100.8",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "100.9",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "100.10",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_sharp_density_tight_decay_below_nine"]
+    },
+    {
+      "formula_id": "100.11",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_sharp_density_tight_floor"]
+    },
+    {
+      "formula_id": "100.12",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "100.13",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_sharp_density_counterfactual_decay_below_nine"]
+    },
+    {
+      "formula_id": "100.14",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_sharp_density_theta_power_floor"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

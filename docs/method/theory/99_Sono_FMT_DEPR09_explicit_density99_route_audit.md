@@ -14,6 +14,11 @@
   density·stronger VK·다른 full-interval proof의 불가능성을 주장하거나, actual 계산,
   threshold calculator, PAP-11, DEP-R09, numerical \(X_{\rm cert}\)를 닫는 것.
 
+> **2026-09-28 successor:** [Theory 100](100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md)은
+> Theory 71 sharp near-one package도 PAP outer costs 제거 뒤 density core \(>10^6\),
+> \(\omega^{-6}\)-only counterfactual \(>4000\)임을 보였다. 다음 gate는 structural
+> detector/cancellation proof다.
+
 ## 1. 결론
 
 Thorner--Zaman의 fully explicit density Theorem 1.2는 \(Q\ge3\),

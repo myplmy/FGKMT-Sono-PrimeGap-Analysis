@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-28",
+  "gate": "DEP-R09 sharp near-one density fixed-f audit",
+  "predecessor": "Sono_FMT_DEPR09_explicit_density99_route_v1.json",
+  "outcome": "CURRENT_THETA_MINUS_SIX_DENSITY_PACKAGE_FAILS_ENDPOINT_GATE_EVEN_AFTER_PAP_OUTER_LOSSES_REMOVED",
+  "source_registry": [
+    {
+      "key": "THEORY71",
+      "title": "Jutila JL7 averaged primitive replay",
+      "locator": "docs/method/theory/71_Sono_FMT_DEPR09_Jutila_JL7_averaged_primitive_replay.md",
+      "sha256": "49e7ff91c52830bb0eb72f83bc75be02f62c469371884b1a332ff958e31f82e2",
+      "source_locations": "formulas (71.1)--(71.3), (71.20)--(71.23)",
+      "classification": "PROJECT_PARAMETERIZED_EXPLICIT_NEAR_ONE_DENSITY"
+    },
+    {
+      "key": "THEORY73",
+      "title": "Jutila C_J loss-tree structural audit",
+      "locator": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2",
+      "source_locations": "formulas (73.1)--(73.7) and (73.29)",
+      "classification": "PROJECT_TIGHTENED_DENSITY_COEFFICIENT"
+    },
+    {
+      "key": "THEORY99",
+      "title": "Explicit density-exponent-99 route audit",
+      "locator": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
+      "sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c",
+      "source_locations": "route boundary and fixed-f endpoint contract",
+      "classification": "PROJECT_PREDECESSOR_ROUTE_REJECTION"
+    },
+    {
+      "key": "TZ_PNT",
+      "title": "Refinements to the Prime Number Theorem for Arithmetic Progressions",
+      "locator": "tmp/pdfs/dep_r09_20260913/Thorner_Zaman_Refinements_PNTAP.pdf",
+      "sha256": "588ec896e0820c3620175b25da58850efbefc67b71227acac1d5c3fa4f6b3b09",
+      "printed_locations": "Theorem 2.3 density-to-PNT interface",
+      "classification": "PRIMARY_POINTWISE_TRANSFER_SOURCE"
+    }
+  ],
+  "fixed_f_specialization": {
+    "parameters": "Q=f, T=f^5, D=Q^2*T=f^7, L=log(D)",
+    "window": "0<1-alpha<=omega<=1/21",
+    "density": "N_np^*(alpha,T,Q)<=2*C_J(omega)*x^(2(1-alpha))*(3+r*log(2D))",
+    "detector_x": "x=D^(1+12omega)*L^2",
+    "prime_scale": "U=f^d_f",
+    "kappa": "14*(1+12omega)",
+    "lambda": "1-kappa/d_f",
+    "positive_decay": "d_f>kappa; at omega=1/21 this requires d_f>22"
+  },
+  "optimistic_density_core": {
+    "zero_free": "c_M=1/9.645908801",
+    "near_decay": "exp(-c_M*(d_f-kappa)/5)",
+    "current_favorable_endpoint": "d_f<416 and kappa>=14 imply c_M*(d_f-kappa)/5<c_M*402/5<9",
+    "tightened_coefficient": "C_J_tight=11503697604450072/425315",
+    "tightened_floor": "C_J_tight/3^9=3834565868150024/2790491715>10^6",
+    "pap_costs_removed": "principal branch, Maier selection, psi-to-pi, centered factor 2, 8/lambda prefactor, far branch, and finite cutoff costs are all omitted in this optimistic floor",
+    "interpretation": "The current parameterized explicit density coefficient alone remains too large for a small endpoint certificate."
+  },
+  "theta_power_counterfactual": {
+    "architecture": "retain only omega^-6 and set every dimensionless loss to one",
+    "coefficient_floor": "omega^-6>=21^6",
+    "decay_floor": "exp(-c_M*(d_f-kappa)/5)>exp(-9)>3^-9",
+    "combined_floor": "21^6/3^9=117649/27>4000",
+    "scope_caution": "This diagnoses the current theta^-6 architecture and is not an impossibility theorem for a redesigned detector or cancellation argument."
+  },
+  "exact_finite_diagnostic": {
+    "theory71_source_hash_verified": true,
+    "theory73_source_hash_verified": true,
+    "fixed_family_parameters": "Q=f,T=f^5,D=f^7",
+    "detector_window": "1/21",
+    "detector_kappa_at_one_over_21": "22",
+    "positive_decay_requires_d_f_above_22": true,
+    "current_d_f_upper": "416",
+    "explicit_zero_free_constant": "1000000000/9645908801",
+    "favorable_decay_exponent_upper": "80400000000/9645908801",
+    "favorable_decay_exponent_below_9": true,
+    "tightened_density_coefficient": "11503697604450072/425315",
+    "tightened_core_floor": "3834565868150024/2790491715",
+    "tightened_core_floor_exceeds_one_million": true,
+    "theta_power_counterfactual_floor": "117649/27",
+    "theta_power_counterfactual_floor_exceeds_4000": true,
+    "pap_outer_losses_removed_in_floor": true,
+    "current_sharp_density_certificate_closes_endpoint_gate": false,
+    "actual_endpoint_error_lower_proved": false,
+    "structural_reproof_or_new_density_still_possible": true,
+    "centered_endpoint_gate_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_or_zero_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The actual centered endpoint error exceeds one million or four thousand.",
+    "The theta^-6 power is mathematically unavoidable in every proof.",
+    "A fixed-modulus direct detector cannot improve the averaged coefficient.",
+    "Pre-sup cancellation or a new sharp density theorem cannot close the gate.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Change the theta^-6 detector architecture, preserve pre-sup cancellation, or identify a new sharp fixed-modulus density theorem; ordinary PAP-loss removal within the current Theory-71 package is insufficient."
+}

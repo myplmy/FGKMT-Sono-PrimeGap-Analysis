@@ -4734,4 +4734,41 @@ theorem dep_r09_density99_optimistic_floor :
     (49 : ℝ) < 98703 / 2000 := by
   constructor <;> norm_num
 
+/-! ## Theory 100 — sharp near-one density fixed-f audit -/
+
+/- Theory 100, formulas 100.5--100.6: fixed-f specialization at the maximal
+   allowed near-one window. -/
+theorem dep_r09_sharp_density_detector_kappa_endpoint :
+    (14 : ℝ) * (1 + 12 * (1 / 21)) = 22 := by
+  norm_num
+
+/- Theory 100, formulas 100.10--100.11: the most favorable current decay
+   exponent at omega=1/21 remains below nine. -/
+theorem dep_r09_sharp_density_tight_decay_below_nine :
+    (1000000000 / 9645908801 : ℝ) * 394 / 5 < 9 := by
+  norm_num
+
+/- Theory 100, formula 100.11: exact tightened-coefficient floor after every
+   positive PAP outer factor is discarded. -/
+theorem dep_r09_sharp_density_tight_floor :
+    (11503697604450072 / 425315 : ℝ) / (3 ^ 9) =
+      3834565868150024 / 2790491715 ∧
+    (1000000 : ℝ) < 3834565868150024 / 2790491715 := by
+  constructor <;> norm_num
+
+/- Theory 100, formula 100.13: even kappa>=14 and d_f<416 leave the favorable
+   standard-zero-free exponent below nine. -/
+theorem dep_r09_sharp_density_counterfactual_decay_below_nine :
+    (1000000000 / 9645908801 : ℝ) * 402 / 5 =
+      80400000000 / 9645908801 ∧
+    (80400000000 / 9645908801 : ℝ) < 9 := by
+  constructor <;> norm_num
+
+/- Theory 100, formula 100.14: theta^-6 alone still leaves a certificate
+   factor above four thousand after the optimistic exp(-9)>3^-9 replacement. -/
+theorem dep_r09_sharp_density_theta_power_floor :
+    (21 : ℝ) ^ 6 / (3 ^ 9) = 117649 / 27 ∧
+    (4000 : ℝ) < 117649 / 27 := by
+  constructor <;> norm_num
+
 end FGKMTSono

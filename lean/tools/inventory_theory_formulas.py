@@ -16,7 +16,7 @@ from pathlib import Path
 
 
 TAG_RE = re.compile(r"\\tag\{([^}]+)\}")
-THEORY_RE = re.compile(r"^(\d{2})_")
+THEORY_RE = re.compile(r"^(\d{2,})_")
 
 
 @dataclass(frozen=True)
@@ -33,6 +33,15 @@ class Formula:
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def theory_document_sort_key(path: Path) -> tuple[int, int, str]:
+    """Keep numbered theory documents in numeric order, including 100+."""
+
+    match = THEORY_RE.match(path.name)
+    if match:
+        return (0, int(match.group(1)), path.name)
+    return (1, 0, path.name)
 
 
 def normalized_latex(lines: list[str]) -> str:
@@ -145,7 +154,7 @@ def extract_blocks(
 
 def build_inventory(repo_root: Path) -> dict[str, object]:
     theory_dir = repo_root / "docs" / "method" / "theory"
-    documents = sorted(theory_dir.glob("*.md"), key=lambda p: p.name)
+    documents = sorted(theory_dir.glob("*.md"), key=theory_document_sort_key)
     theories: list[dict[str, object]] = []
     formulae: list[Formula] = []
     issues: list[str] = []

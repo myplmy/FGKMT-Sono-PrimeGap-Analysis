@@ -2770,6 +2770,37 @@ Python exact fixture 9건과 verification ledger validation이 PASS했다. Theor
 금지 proof escape는 0건이다. 이는 route rejection이지 actual error lower나
 mathematical impossibility가 아니다.
 
+## 2026-09-28 DEP-R09 sharp near-one density fixed-f audit
+
+[theory 100](method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md)과
+[review 109](review/109_20260928_DEPR09_sharp_density_fixed_f_타당성검토.md)은
+Theory 61--73 sharp near-one package에서 endpoint에 불필요한 PAP 후단 비용을 제거했다.
+
+Fixed family specialization은 \(Q=f,T=f^5,\mathcal D=f^7\)이고
+\(\omega=1/21\)에서 \(\kappa=22\)다. Theory 73 tightened coefficient만 남기고
+모든 outer prefactor를 1로 내려도 current range의 density core는
+
+\[
+\frac{3834565868150024}{2790491715}>10^6
+\]
+
+이다. 모든 dimensionless factor를 1로 두고 \(\omega^{-6}\)만 남긴 counterfactual도
+
+\[
+\frac{21^6}{3^9}=\frac{117649}{27}>4000
+\]
+
+이다. 따라서 ordinary PAP loss removal은 불충분하고 detector power 구조 또는 pre-sup
+cancellation이 필요하다.
+
+Python exact fixture 8건과 verification ledger validation이 PASS했다. Theory 100 뒤
+전수원장은 theory 101개, display 식 1,978개, Lean declaration 381개다. 상태는
+<code>KERNEL_PASS=102</code>, <code>CONDITIONAL_KERNEL_PASS=132</code>,
+<code>DEFINITION_ONLY=211</code>, <code>PARTIAL_FORMALIZATION=177</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=196</code>,
+<code>NOT_YET_FORMALIZED=1155</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. Actual error lower나 universal impossibility는 주장하지 않는다.
+
 ## 2026-09-28 DEP-R09 cross-scale covariance·Abel interface
 
 [theory 96](method/theory/96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md)과

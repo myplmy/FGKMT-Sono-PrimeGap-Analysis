@@ -7,6 +7,10 @@
   RANGE_OVERLAP_VALID /
   DIRECT_CERTIFICATE_REJECTION_VALID</code>
 
+> **Successor:** [Theory 100](../method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md)과
+> [review 109](109_20260928_DEPR09_sharp_density_fixed_f_타당성검토.md)은 sharp near-one
+> package의 PAP outer losses를 제거해도 current density core가 불충분함을 확인했다.
+
 ## 1. 검토 결론
 
 Theory 99의 route-specific 판정은 타당하다.

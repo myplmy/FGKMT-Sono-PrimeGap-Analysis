@@ -738,3 +738,22 @@ direct compile과 inventory validation은 PASS했다. Theory 99 뒤 inventory는
 <code>SOURCE_THEOREM_UNFORMALIZED=193</code>,
 <code>NOT_YET_FORMALIZED=1154</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+2026-09-28 Theory 100 batch는 fixed-f detector specialization, tightened-density decay,
+PAP-cost-free coefficient floor와 theta^-6 counterfactual floor를 추가했다. Lean은
+Jutila/Ramaré--Zuniga density theorem과 real exponential inequalities를 local axiom으로
+넣지 않았다.
+
+Python exact fixture 8건은 kappa=22, favorable decay exponent <9, tightened floor
+>10^6과 \(21^6/3^9=117649/27>4000\)을 검사한다. actual prime/zero 계산은 하지 않았다.
+direct compile과 inventory validation은 PASS했다. Theory 100 뒤 inventory는 theory 문서
+101개, display 식 1,978개, declaration 381개다. 전체 상태는
+<code>KERNEL_PASS=102</code>, <code>CONDITIONAL_KERNEL_PASS=132</code>,
+<code>DEFINITION_ONLY=211</code>, <code>PARTIAL_FORMALIZATION=177</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=196</code>,
+<code>NOT_YET_FORMALIZED=1155</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.
+
+Theory 번호 100부터도 기존 ordinal을 보존하도록 inventory document regex를 2자리 이상으로
+확장하고 파일을 theory 번호의 정수값으로 정렬한다. 전용 regression은 09, 10, 99, 100,
+101의 순서를 검사한다.

@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 100,
-  "formula_count": 1964,
-  "tagged_formula_count": 1402,
+  "theory_count": 101,
+  "formula_count": 1978,
+  "tagged_formula_count": 1416,
   "untagged_formula_count": 562,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc",
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4",
       "display_formula_count": 16,
       "tagged_formula_count": 0,
       "untagged_formula_count": 16
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f",
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839",
       "display_formula_count": 30,
       "tagged_formula_count": 0,
       "untagged_formula_count": 30
@@ -801,9 +801,17 @@
     {
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc",
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c",
       "display_formula_count": 16,
       "tagged_formula_count": 16,
+      "untagged_formula_count": 0
+    },
+    {
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4",
+      "display_formula_count": 14,
+      "tagged_formula_count": 14,
       "untagged_formula_count": 0
     }
   ],
@@ -816,7 +824,7 @@
       "end_line": 558,
       "tagged": false,
       "latex": "(Y+q^2)\\sum_{n\\le Y}\\Lambda(n)^2\n>\ne^{-4}\\frac q{\\varphi(q)}Y^2.",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U002",
@@ -826,7 +834,7 @@
       "end_line": 584,
       "tagged": false,
       "latex": "\\varphi^*(r)=\\prod_{p\\mid r}(p-2),\\qquad\n\\sum_{r\\mid q}\\varphi^*(r)=\\varphi(q).",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U003",
@@ -836,7 +844,7 @@
       "end_line": 591,
       "tagged": false,
       "latex": "\\{Y+D(q)\\}S_2(Y)\\ge YS_2(Y)>V_{\\rm gate},",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U004",
@@ -846,7 +854,7 @@
       "end_line": 648,
       "tagged": false,
       "latex": "\\rho_S\\le\\frac{{\\cal H}_{\\rm FMT}(R)}{Q_{\\cal S}}\n\\le\\frac1{Q_{\\cal S}}\\sum_{m\\bmod q}|R(m)|^2\n\\le\\frac{\\varphi(q)N^2}{Q_{\\cal S}}V(Y,q).",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U005",
@@ -856,7 +864,7 @@
       "end_line": 655,
       "tagged": false,
       "latex": "{\\cal H}_{\\rm FMT}(R)\n<\\tau^2p_*Q_{\\cal S}M_{\\min}^2Y^2.",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U006",
@@ -866,7 +874,7 @@
       "end_line": 680,
       "tagged": false,
       "latex": "\\omega_*=2\\kappa^{-2k}X^{-3/5},\\qquad\nK_*=\\left\\lceil\\frac{\\{1-(1+t)\\rho\\}M_*}{2k}\\right\\rceil,",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U007",
@@ -876,7 +884,7 @@
       "end_line": 685,
       "tagged": false,
       "latex": "\\Pr(S_{\\rm sieve},m_\\omega=r)\n\\le\\frac{\\omega_*^{K_*}}{Q_{\\cal S}}.",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U008",
@@ -886,7 +894,7 @@
       "end_line": 715,
       "tagged": false,
       "latex": "H_{\\rm res}\n=Q_{\\cal S}\\prod_{p\\in P'}p,\\qquad\n\\#\\operatorname{supp}(m_\\omega)\\le H_{\\rm res}.",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U009",
@@ -896,7 +904,7 @@
       "end_line": 721,
       "tagged": false,
       "latex": "\\frac{p_*}{\\alpha}\\le H_{\\rm res}",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U010",
@@ -906,7 +914,7 @@
       "end_line": 728,
       "tagged": false,
       "latex": "\\log H_{\\rm res}<\\frac{51}{100}X\n<\\frac{49}{50}X<\\log\\mathfrak q.",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U011",
@@ -916,7 +924,7 @@
       "end_line": 757,
       "tagged": false,
       "latex": "C_{\\psi\\otimes\\chi_{0,h}}(\\omega)\n=\\sum_{s\\in T_\\omega}\\overline{\\psi(s)}.",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U012",
@@ -926,7 +934,7 @@
       "end_line": 765,
       "tagged": false,
       "latex": "\\sum_{\\substack{\\psi\\bmod f\\\\\\psi\\ne\\psi_0}}\n|C_{\\psi\\otimes\\chi_{0,h}}(\\omega)|^2\n=M_\\omega\\{\\varphi(f)-M_\\omega\\}.",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U013",
@@ -936,7 +944,7 @@
       "end_line": 794,
       "tagged": false,
       "latex": "Z_{\\widetilde\\psi}^{(\\mathfrak q)}(U)\n=Z_\\psi^{(f)}(U)-D_{\\psi,h}(U),\n\\qquad\n|D_{\\psi,h}(U)|\\le\\omega(h)\\log U.",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U014",
@@ -946,7 +954,7 @@
       "end_line": 804,
       "tagged": false,
       "latex": "21\\le d_f<\\frac{105}{47}d\\le\\frac{19530}{47}<416.",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U015",
@@ -956,7 +964,7 @@
       "end_line": 830,
       "tagged": false,
       "latex": "p_v\\le(1+\\alpha)\\rho,\\qquad\n|p_{vw}-\\rho^2|\\le\\beta\\rho^2",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T00-U016",
@@ -966,7 +974,7 @@
       "end_line": 839,
       "tagged": false,
       "latex": "\\mathbb E\\left|\\sum_vb_vX_v\\right|^2\n\\le \\rho^2\\left|\\sum_vb_v\\right|^2+\n\\{(1+\\alpha)\\rho-\\rho^2+\\beta\\rho^2(M_V-1)\\}\n\\sum_v|b_v|^2.",
-      "source_sha256": "7b45e6ac6b1f4fe5a3800d9b73d50c8f11f4ab67fe9a440aefa8998767ed22cc"
+      "source_sha256": "05d9bd15a758f44315f1e281d10f32ade25a359d3e92d9b7c4342a5888680fd4"
     },
     {
       "formula_id": "T01-U001",
@@ -1256,7 +1264,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U002",
@@ -1266,7 +1274,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U003",
@@ -1276,7 +1284,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U004",
@@ -1286,7 +1294,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U005",
@@ -1296,7 +1304,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U006",
@@ -1306,7 +1314,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U007",
@@ -1316,7 +1324,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U008",
@@ -1326,7 +1334,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U009",
@@ -1336,7 +1344,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U010",
@@ -1346,7 +1354,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U011",
@@ -1356,7 +1364,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U012",
@@ -1366,7 +1374,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U013",
@@ -1376,7 +1384,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U014",
@@ -1386,7 +1394,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U015",
@@ -1396,7 +1404,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U016",
@@ -1406,7 +1414,7 @@
       "end_line": 1225,
       "tagged": false,
       "latex": "\\Pr(S_{\\rm sieve},m_\\omega=r)\\le Q_{\\mathcal S}^{-1}.",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U017",
@@ -1416,7 +1424,7 @@
       "end_line": 1231,
       "tagged": false,
       "latex": "\\rho_S\\le\\varphi(q)N^2V(Y,q)/Q_{\\mathcal S},",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U018",
@@ -1426,7 +1434,7 @@
       "end_line": 1239,
       "tagged": false,
       "latex": "V(Y,q)<\n\\tau^2p_*Q_{\\mathcal S}M_{\\min}^2Y^2/\n\\{\\varphi(q)N^2\\}.",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U019",
@@ -1436,7 +1444,7 @@
       "end_line": 1262,
       "tagged": false,
       "latex": "B_{\\rm LS}=(Y+q^2)\\sum_{n\\le Y}\\Lambda(n)^2",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U020",
@@ -1446,7 +1454,7 @@
       "end_line": 1268,
       "tagged": false,
       "latex": "B_{\\rm LS}>e^{-4}(q/\\varphi(q))Y^2\\ge V_{\\rm gate}",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U021",
@@ -1456,7 +1464,7 @@
       "end_line": 1288,
       "tagged": false,
       "latex": "\\sum_{r\\mid q}\\varphi^*(r)=\\varphi(q).",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U022",
@@ -1466,7 +1474,7 @@
       "end_line": 1296,
       "tagged": false,
       "latex": "Y\\sum_{n\\le Y}\\Lambda(n)^2>V_{\\rm gate}.",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U023",
@@ -1476,7 +1484,7 @@
       "end_line": 1353,
       "tagged": false,
       "latex": "{\\cal H}_{\\rm FMT}(R)\n:=\\sum_{\\boldsymbol a}\n\\max_{m\\in{\\cal M}(\\boldsymbol a)}|R(m)|^2,\n\\qquad\n\\rho_S\\le {\\cal H}_{\\rm FMT}(R)/Q_{\\cal S}.",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U024",
@@ -1486,7 +1494,7 @@
       "end_line": 1360,
       "tagged": false,
       "latex": "{\\cal H}_{\\rm FMT}(R)\n<\\tau^2p_*Q_{\\cal S}M_{\\min}^2Y^2.",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U025",
@@ -1496,7 +1504,7 @@
       "end_line": 1383,
       "tagged": false,
       "latex": "\\omega_*=2\\kappa^{-2k}X^{-3/5}",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U026",
@@ -1506,7 +1514,7 @@
       "end_line": 1391,
       "tagged": false,
       "latex": "\\Pr(S_{\\rm sieve},m_\\omega=r)\n\\le Q_{\\cal S}^{-1}\\omega_*^{K_*}.",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U027",
@@ -1516,7 +1524,7 @@
       "end_line": 1414,
       "tagged": false,
       "latex": "H_{\\rm res}=Q_{\\cal S}\\prod_{p\\in P'}p",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U028",
@@ -1526,7 +1534,7 @@
       "end_line": 1442,
       "tagged": false,
       "latex": "\\sum_{\\substack{\\psi\\bmod f\\\\\\psi\\ne\\psi_0}}\n|C_{\\psi\\otimes\\chi_{0,h}}(\\omega)|^2\n=M_\\omega\\{\\varphi(f)-M_\\omega\\}.",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U029",
@@ -1536,7 +1544,7 @@
       "end_line": 1463,
       "tagged": false,
       "latex": "Z_{\\widetilde\\psi}^{(\\mathfrak q)}\n=Z_\\psi^{(f)}-D_{\\psi,h},\n\\qquad |D_{\\psi,h}|\\le\\omega(h)\\log U",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T12-U030",
@@ -1546,7 +1554,7 @@
       "end_line": 1487,
       "tagged": false,
       "latex": "\\mathbb E\\left|\\sum_vb_vX_v\\right|^2\n\\le\\rho^2\\left|\\sum_vb_v\\right|^2+\n\\{(1+\\alpha)\\rho-\\rho^2+\\beta\\rho^2(M_V-1)\\}\n\\sum_v|b_v|^2.",
-      "source_sha256": "94926040efb961169209b92804fb4a12557e9ed23a3168344ff04e199f75a16f"
+      "source_sha256": "60d8e8a0bae8d45c9a5ea6039d619d5c0557a0c4df92d01895cedfa13b5fc839"
     },
     {
       "formula_id": "T13-U001",
@@ -20292,161 +20300,301 @@
       "formula_id": "99.1",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 22,
-      "end_line": 27,
+      "start_line": 27,
+      "end_line": 32,
       "tagged": true,
       "latex": "\\boxed{\n N(\\sigma,Q)\n \\le10^{88}\\left(10^{421}Q^{99}\\right)^{1-\\sigma}.}\n \\tag{99.1}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.2",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 34,
-      "end_line": 40,
+      "start_line": 39,
+      "end_line": 45,
       "tagged": true,
       "latex": "\\boxed{\n N_f(\\sigma,T)\n \\le10^{88}\n \\left(10^{421}(fT)^{99}\\right)^{1-\\sigma}.}\n \\tag{99.2}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.3",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 46,
-      "end_line": 49,
+      "start_line": 51,
+      "end_line": 54,
       "tagged": true,
       "latex": "c_7=99,qquad \\theta=1-\\frac1{99}=\\frac{98}{99}.\n \\tag{99.3}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.4",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 53,
-      "end_line": 58,
+      "start_line": 58,
+      "end_line": 63,
       "tagged": true,
       "latex": "\\sigma_0=\\theta+\\varepsilon-\\varepsilon\\theta\n =\\frac{98}{99}+\\frac{\\varepsilon}{99}\n >\\frac{98}{99}>\\frac{39}{40},\n \\tag{99.4}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.5",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 65,
-      "end_line": 69,
+      "start_line": 70,
+      "end_line": 74,
       "tagged": true,
       "latex": "\\boxed{\n 0<\\varepsilon\\le\\frac1{99}-\\frac1{d_f}.}\n \\tag{99.5}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.6",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 73,
-      "end_line": 78,
+      "start_line": 78,
+      "end_line": 83,
       "tagged": true,
       "latex": "\\boxed{\n 0<\\varepsilon<\\frac1{99}-\\frac1{416}\n =\\frac{317}{41184}.}\n \\tag{99.6}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.7",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 85,
-      "end_line": 89,
+      "start_line": 90,
+      "end_line": 94,
       "tagged": true,
       "latex": "c_M:=\\frac1{9.645908801}\n =\\frac{10^9}{9645908801}\n \\tag{99.7}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.8",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 93,
-      "end_line": 96,
+      "start_line": 98,
+      "end_line": 101,
       "tagged": true,
       "latex": "\\delta_M(t):=\\frac{c_M}{\\log(ft)}\n \\tag{99.8}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.9",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 104,
-      "end_line": 109,
+      "start_line": 109,
+      "end_line": 114,
       "tagged": true,
       "latex": "S_{99}:=\n \\sup_{e\\le t\\le U^{(1-\\theta)(1-\\varepsilon)}/f}\n \\frac{U^{-\\varepsilon^2\\delta_M(t)}}{\\sqrt t}\n \\tag{99.9}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.10",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 113,
-      "end_line": 117,
+      "start_line": 118,
+      "end_line": 122,
       "tagged": true,
       "latex": "\\frac{1-\\varepsilon}{99}-\\frac1{d_f}\n \\ge\\frac{98}{99}\\varepsilon>0\n \\tag{99.10}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.11",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 121,
-      "end_line": 127,
+      "start_line": 126,
+      "end_line": 132,
       "tagged": true,
       "latex": "S_{99}\\ge\n \\frac1{\\sqrt e}\n \\exp\\left\\{-\\varepsilon^2c_Md_f\n \\frac{\\log f}{\\log f+1}\\right\\}.\n \\tag{99.11}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.12",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 131,
-      "end_line": 139,
+      "start_line": 136,
+      "end_line": 144,
       "tagged": true,
       "latex": "\\boxed{\n \\varepsilon^2c_Md_f\n <\\left(\\frac{317}{41184}\\right)^2\n \\frac{10^9}{9645908801}\\,416\n =\\frac{3140281250000}{1229014178061813}\n <\\frac3{1000}.}\n \\tag{99.12}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.13",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 143,
-      "end_line": 147,
+      "start_line": 148,
+      "end_line": 152,
       "tagged": true,
       "latex": "\\boxed{\n S_{99}>\\frac{997}{2000}.}\n \\tag{99.13}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.14",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 152,
-      "end_line": 158,
+      "start_line": 157,
+      "end_line": 163,
       "tagged": true,
       "latex": "\\boxed{\n d_fS_{99}>\n 99\\frac{997}{2000}\n =\\frac{98703}{2000}>49.}\n \\tag{99.14}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.15",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 185,
-      "end_line": 188,
+      "start_line": 190,
+      "end_line": 193,
       "tagged": true,
       "latex": "\\frac{U}{\\varphi(f)}\\ge U^{1-1/d_f}.\n \\tag{99.15}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
     },
     {
       "formula_id": "99.16",
       "theory": "99",
       "source_file": "docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md",
-      "start_line": 201,
-      "end_line": 206,
+      "start_line": 206,
+      "end_line": 211,
       "tagged": true,
       "latex": "\\varepsilon^2\\delta_M(e)\\log U\n =\\varepsilon^2c_Md_f\\frac{\\log f}{\\log f+1}\n <\\varepsilon^2c_Md_f.\n \\tag{99.16}",
-      "source_sha256": "a4358a7cb5f0166bae6e5b8ee89db3e56512142db47344964c9ea7293a0640fc"
+      "source_sha256": "6713d1f59005ee7444556ffdbc5fa0936ce9f9a70600bd58a1c76604a5fc5a9c"
+    },
+    {
+      "formula_id": "100.1",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 22,
+      "end_line": 26,
+      "tagged": true,
+      "latex": "Q=f,\\qquad T=f^5,\\qquad\n \\mathcal D=Q^2T=f^7,qquad L=\\log\\mathcal D\n \\tag{100.1}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.2",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 33,
+      "end_line": 39,
+      "tagged": true,
+      "latex": "\\boxed{\n N^*_{\\rm np}(\\alpha,T,Q)\n \\le2C_J(\\omega)x^{2(1-\\alpha)}\n \\{3+r\\log(2\\mathcal D)\\},}\n \\tag{100.2}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.3",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 41,
+      "end_line": 45,
+      "tagged": true,
+      "latex": "x=\\mathcal D^{1+12\\omega}L^2,qquad\n r=\\max\\{1-\\alpha,L^{-1}\\}.\n \\tag{100.3}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.4",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 49,
+      "end_line": 52,
+      "tagged": true,
+      "latex": "C_J(\\omega)=\\frac{884000}{9(1-\\omega)^2\\omega^6}.\n \\tag{100.4}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.5",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 56,
+      "end_line": 61,
+      "tagged": true,
+      "latex": "\\kappa(\\omega):=14(1+12\\omega),\n \\qquad\n \\lambda(\\omega,d_f):=1-\\frac{\\kappa(\\omega)}{d_f}.\n \\tag{100.5}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.6",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 65,
+      "end_line": 71,
+      "tagged": true,
+      "latex": "\\boxed{\n \\omega=\\frac1{21},\\qquad\n \\kappa=22,qquad\n \\lambda=1-\\frac{22}{d_f}.}\n \\tag{100.6}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.7",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 78,
+      "end_line": 82,
+      "tagged": true,
+      "latex": "c_M:=\\frac1{9.645908801}\n =\\frac{10^9}{9645908801}\n \\tag{100.7}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.8",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 86,
+      "end_line": 90,
+      "tagged": true,
+      "latex": "\\exp\\left\\{-\\lambda\\frac{c_Md_f}{5}\\right\\}\n =\\exp\\left\\{-\\frac{c_M(d_f-22)}5\\right\\}.\n \\tag{100.8}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.9",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 94,
+      "end_line": 100,
+      "tagged": true,
+      "latex": "\\boxed{\n C_{J,{\\rm tight}}\n =\\frac{11503697604450072}{425315}\n =27047476821.7675\\ldots .}\n \\tag{100.9}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.10",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 104,
+      "end_line": 108,
+      "tagged": true,
+      "latex": "\\frac{c_M(d_f-22)}5\n <\\frac{c_M\\,394}{5}<9.\n \\tag{100.10}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.11",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 112,
+      "end_line": 120,
+      "tagged": true,
+      "latex": "\\boxed{\n C_{J,{\\rm tight}}\n e^{-c_M(d_f-22)/5}\n >\\frac{C_{J,{\\rm tight}}}{3^9}\n =\\frac{3834565868150024}{2790491715}\n >10^6.}\n \\tag{100.11}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.12",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 129,
+      "end_line": 132,
+      "tagged": true,
+      "latex": "\\omega^{-6}\\ge21^6.\n \\tag{100.12}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.13",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 136,
+      "end_line": 141,
+      "tagged": true,
+      "latex": "\\frac{c_M(d_f-\\kappa)}5\n <\\frac{c_M\\,402}{5}\n =\\frac{80400000000}{9645908801}<9.\n \\tag{100.13}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
+    },
+    {
+      "formula_id": "100.14",
+      "theory": "100",
+      "source_file": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "start_line": 145,
+      "end_line": 151,
+      "tagged": true,
+      "latex": "\\boxed{\n \\omega^{-6}e^{-c_M(d_f-\\kappa)/5}\n >\\frac{21^6}{3^9}\n =\\frac{117649}{27}>4000.}\n \\tag{100.14}",
+      "source_sha256": "9987d6137cc09aaef6729dcf4b761e62392de61219bc8158ef1a8886a8935de4"
     }
   ],
   "issues": [],

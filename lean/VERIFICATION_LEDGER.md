@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-14 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 100개
-- 전수 단위: Markdown fenced code 밖 display math 1,964개
-- 원래 식번호: 1,402개, 합성 ID 무번호식: 562개
+- 원문 범위: `docs/method/theory/*.md` 101개
+- 전수 단위: Markdown fenced code 밖 display math 1,978개
+- 원래 식번호: 1,416개, 합성 ID 무번호식: 562개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,12 +62,12 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 100 |
+| `KERNEL_PASS` | 102 |
 | `CONDITIONAL_KERNEL_PASS` | 132 |
-| `DEFINITION_ONLY` | 206 |
-| `PARTIAL_FORMALIZATION` | 174 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 193 |
-| `NOT_YET_FORMALIZED` | 1,154 |
+| `DEFINITION_ONLY` | 211 |
+| `PARTIAL_FORMALIZATION` | 177 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 196 |
+| `NOT_YET_FORMALIZED` | 1,155 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `7b45e6ac6b1f4fe5…` | 16 | 0 | 16 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `05d9bd15a758f443…` | 16 | 0 | 16 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `94926040efb96116…` | 30 | 0 | 30 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `60d8e8a0bae8d45c…` | 30 | 0 | 30 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -176,7 +176,8 @@
 | 96 | [96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md](../docs/method/theory/96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md) | `33998027710c59d0…` | 19 | 19 | 0 | 16 |
 | 97 | [97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md](../docs/method/theory/97_Sono_FMT_DEPR09_prescribed_modulus_endpoint_Linf_transfer.md) | `46efb0fe9348fa63…` | 25 | 25 | 0 | 17 |
 | 98 | [98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md](../docs/method/theory/98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md) | `700658abd82c590b…` | 21 | 21 | 0 | 19 |
-| 99 | [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | `a4358a7cb5f0166b…` | 16 | 16 | 0 | 11 |
+| 99 | [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | `6713d1f59005ee74…` | 16 | 16 | 0 | 11 |
+| 100 | [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | `9987d6137cc09aae…` | 14 | 14 | 0 | 13 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -2136,22 +2137,36 @@
 | 1946 | `98.19` | T98 [98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md](../docs/method/theory/98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md) | 253–257 | <code>e_a:=\vartheta(U;f,a)-\frac{U}{\varphi(f)},qquad \bar e:=\frac1{\varphi(f)}\sum_b^*e_b \tag{98.19}</code> | — | `DEFINITION_ONLY` | common-main residue error와 mean error 정의 |
 | 1947 | `98.20` | T98 [98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md](../docs/method/theory/98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md) | 261–265 | <code>&#124;e_a&#124;\le R_{\rm TZ}\frac{U}{\varphi(f)},qquad &#124;\bar e&#124;\le R_{\rm TZ}\frac{U}{\varphi(f)}. \tag{98.20}</code> | — | `NOT_YET_FORMALIZED` | pointwise error에서 mean error upper; Lean finite-sum proof 대기 |
 | 1948 | `98.21` | T98 [98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md](../docs/method/theory/98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md) | 269–274 | <code>\frac{\varphi(f)}U&#124;E_f(U;a)&#124; \le\frac{\varphi(f)}U(&#124;e_a&#124;+&#124;\bar e&#124;) \le2R_{\rm TZ}, \tag{98.21}</code> | `dep_r09_tz_common_main_to_centered` | `CONDITIONAL_KERNEL_PASS` | centered triangle factor 2를 조건부 커널 검증 |
-| 1949 | `99.1` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 22–27 | <code>\boxed{ N(\sigma,Q) \le10^{88}\left(10^{421}Q^{99}\right)^{1-\sigma}.} \tag{99.1}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Thorner--Zaman explicit density Theorem 1.2 source statement |
-| 1950 | `99.2` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 34–40 | <code>\boxed{ N_f(\sigma,T) \le10^{88} \left(10^{421}(fT)^{99}\right)^{1-\sigma}.} \tag{99.2}</code> | — | `NOT_YET_FORMALIZED` | fixed conductor-height family를 explicit modulus-height box에 포함하는 source transfer |
-| 1951 | `99.3` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 46–49 | <code>c_7=99,qquad \theta=1-\frac1{99}=\frac{98}{99}. \tag{99.3}</code> | — | `DEFINITION_ONLY` | density exponent 99와 theta=98/99 정의 |
-| 1952 | `99.4` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 53–58 | <code>\sigma_0=\theta+\varepsilon-\varepsilon\theta =\frac{98}{99}+\frac{\varepsilon}{99} &gt;\frac{98}{99}&gt;\frac{39}{40}, \tag{99.4}</code> | `dep_r09_density99_sigma_range` | `PARTIAL_FORMALIZATION` | proof sigma lower의 rational endpoint 98/99>39/40을 부분 커널 검증 |
-| 1953 | `99.5` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 65–69 | <code>\boxed{ 0&lt;\varepsilon\le\frac1{99}-\frac1{d_f}.} \tag{99.5}</code> | — | `DEFINITION_ONLY` | full-interval main-size sufficient epsilon range 정의 |
-| 1954 | `99.6` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 73–78 | <code>\boxed{ 0&lt;\varepsilon&lt;\frac1{99}-\frac1{416} =\frac{317}{41184}.} \tag{99.6}</code> | `dep_r09_density99_epsilon_ceiling` | `PARTIAL_FORMALIZATION` | d_f<416의 epsilon ceiling exact rational을 부분 커널 검증 |
-| 1955 | `99.7` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 85–89 | <code>c_M:=\frac1{9.645908801} =\frac{10^9}{9645908801} \tag{99.7}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | explicit McCurley zero-free constant source 정의 |
-| 1956 | `99.8` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 93–96 | <code>\delta_M(t):=\frac{c_M}{\log(ft)} \tag{99.8}</code> | — | `DEFINITION_ONLY` | available standard zero-free width 정의 |
-| 1957 | `99.9` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 104–109 | <code>S_{99}:= \sup_{e\le t\le U^{(1-\theta)(1-\varepsilon)}/f} \frac{U^{-\varepsilon^2\delta_M(t)}}{\sqrt t} \tag{99.9}</code> | — | `DEFINITION_ONLY` | Theorem 2.3 direct sup certificate 정의 |
-| 1958 | `99.10` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 113–117 | <code>\frac{1-\varepsilon}{99}-\frac1{d_f} \ge\frac{98}{99}\varepsilon&gt;0 \tag{99.10}</code> | `dep_r09_density99_sup_interval_margin` | `PARTIAL_FORMALIZATION` | source range endpoint 대입 뒤 positive sup-interval margin identity를 부분 커널 검증 |
-| 1959 | `99.11` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 121–127 | <code>S_{99}\ge \frac1{\sqrt e} \exp\left\{-\varepsilon^2c_Md_f \frac{\log f}{\log f+1}\right\}. \tag{99.11}</code> | — | `NOT_YET_FORMALIZED` | t=e에서 sup lower; exp와 Euler constant inequalities Lean 미형식화 |
-| 1960 | `99.12` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 131–139 | <code>\boxed{ \varepsilon^2c_Md_f &lt;\left(\frac{317}{41184}\right)^2 \frac{10^9}{9645908801}\,416 =\frac{3140281250000}{1229014178061813} &lt;\frac3{1000}.} \tag{99.12}</code> | `dep_r09_density99_decay_exponent_upper` | `KERNEL_PASS` | current envelope의 decay exponent exact rational과 <3/1000을 커널 검증 |
-| 1961 | `99.13` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 143–147 | <code>\boxed{ S_{99}&gt;\frac{997}{2000}.} \tag{99.13}</code> | — | `NOT_YET_FORMALIZED` | exp(-x)>1-x와 e<4 source calculus 합성; Lean 대기 |
-| 1962 | `99.14` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 152–158 | <code>\boxed{ d_fS_{99}&gt; 99\frac{997}{2000} =\frac{98703}{2000}&gt;49.} \tag{99.14}</code> | `dep_r09_density99_optimistic_floor` | `KERNEL_PASS` | optimistic multiplier-one floor의 exact rational과 >49를 커널 검증 |
-| 1963 | `99.15` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 185–188 | <code>\frac{U}{\varphi(f)}\ge U^{1-1/d_f}. \tag{99.15}</code> | — | `NOT_YET_FORMALIZED` | phi(f)<=f에서 full-interval main-size lower; Lean arithmetic-function proof 대기 |
-| 1964 | `99.16` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 201–206 | <code>\varepsilon^2\delta_M(e)\log U =\varepsilon^2c_Md_f\frac{\log f}{\log f+1} &lt;\varepsilon^2c_Md_f. \tag{99.16}</code> | — | `NOT_YET_FORMALIZED` | t=e decay exponent 전개; real log identity Lean 대기 |
+| 1949 | `99.1` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 27–32 | <code>\boxed{ N(\sigma,Q) \le10^{88}\left(10^{421}Q^{99}\right)^{1-\sigma}.} \tag{99.1}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Thorner--Zaman explicit density Theorem 1.2 source statement |
+| 1950 | `99.2` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 39–45 | <code>\boxed{ N_f(\sigma,T) \le10^{88} \left(10^{421}(fT)^{99}\right)^{1-\sigma}.} \tag{99.2}</code> | — | `NOT_YET_FORMALIZED` | fixed conductor-height family를 explicit modulus-height box에 포함하는 source transfer |
+| 1951 | `99.3` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 51–54 | <code>c_7=99,qquad \theta=1-\frac1{99}=\frac{98}{99}. \tag{99.3}</code> | — | `DEFINITION_ONLY` | density exponent 99와 theta=98/99 정의 |
+| 1952 | `99.4` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 58–63 | <code>\sigma_0=\theta+\varepsilon-\varepsilon\theta =\frac{98}{99}+\frac{\varepsilon}{99} &gt;\frac{98}{99}&gt;\frac{39}{40}, \tag{99.4}</code> | `dep_r09_density99_sigma_range` | `PARTIAL_FORMALIZATION` | proof sigma lower의 rational endpoint 98/99>39/40을 부분 커널 검증 |
+| 1953 | `99.5` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 70–74 | <code>\boxed{ 0&lt;\varepsilon\le\frac1{99}-\frac1{d_f}.} \tag{99.5}</code> | — | `DEFINITION_ONLY` | full-interval main-size sufficient epsilon range 정의 |
+| 1954 | `99.6` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 78–83 | <code>\boxed{ 0&lt;\varepsilon&lt;\frac1{99}-\frac1{416} =\frac{317}{41184}.} \tag{99.6}</code> | `dep_r09_density99_epsilon_ceiling` | `PARTIAL_FORMALIZATION` | d_f<416의 epsilon ceiling exact rational을 부분 커널 검증 |
+| 1955 | `99.7` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 90–94 | <code>c_M:=\frac1{9.645908801} =\frac{10^9}{9645908801} \tag{99.7}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | explicit McCurley zero-free constant source 정의 |
+| 1956 | `99.8` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 98–101 | <code>\delta_M(t):=\frac{c_M}{\log(ft)} \tag{99.8}</code> | — | `DEFINITION_ONLY` | available standard zero-free width 정의 |
+| 1957 | `99.9` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 109–114 | <code>S_{99}:= \sup_{e\le t\le U^{(1-\theta)(1-\varepsilon)}/f} \frac{U^{-\varepsilon^2\delta_M(t)}}{\sqrt t} \tag{99.9}</code> | — | `DEFINITION_ONLY` | Theorem 2.3 direct sup certificate 정의 |
+| 1958 | `99.10` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 118–122 | <code>\frac{1-\varepsilon}{99}-\frac1{d_f} \ge\frac{98}{99}\varepsilon&gt;0 \tag{99.10}</code> | `dep_r09_density99_sup_interval_margin` | `PARTIAL_FORMALIZATION` | source range endpoint 대입 뒤 positive sup-interval margin identity를 부분 커널 검증 |
+| 1959 | `99.11` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 126–132 | <code>S_{99}\ge \frac1{\sqrt e} \exp\left\{-\varepsilon^2c_Md_f \frac{\log f}{\log f+1}\right\}. \tag{99.11}</code> | — | `NOT_YET_FORMALIZED` | t=e에서 sup lower; exp와 Euler constant inequalities Lean 미형식화 |
+| 1960 | `99.12` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 136–144 | <code>\boxed{ \varepsilon^2c_Md_f &lt;\left(\frac{317}{41184}\right)^2 \frac{10^9}{9645908801}\,416 =\frac{3140281250000}{1229014178061813} &lt;\frac3{1000}.} \tag{99.12}</code> | `dep_r09_density99_decay_exponent_upper` | `KERNEL_PASS` | current envelope의 decay exponent exact rational과 <3/1000을 커널 검증 |
+| 1961 | `99.13` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 148–152 | <code>\boxed{ S_{99}&gt;\frac{997}{2000}.} \tag{99.13}</code> | — | `NOT_YET_FORMALIZED` | exp(-x)>1-x와 e<4 source calculus 합성; Lean 대기 |
+| 1962 | `99.14` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 157–163 | <code>\boxed{ d_fS_{99}&gt; 99\frac{997}{2000} =\frac{98703}{2000}&gt;49.} \tag{99.14}</code> | `dep_r09_density99_optimistic_floor` | `KERNEL_PASS` | optimistic multiplier-one floor의 exact rational과 >49를 커널 검증 |
+| 1963 | `99.15` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 190–193 | <code>\frac{U}{\varphi(f)}\ge U^{1-1/d_f}. \tag{99.15}</code> | — | `NOT_YET_FORMALIZED` | phi(f)<=f에서 full-interval main-size lower; Lean arithmetic-function proof 대기 |
+| 1964 | `99.16` | T99 [99_Sono_FMT_DEPR09_explicit_density99_route_audit.md](../docs/method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md) | 206–211 | <code>\varepsilon^2\delta_M(e)\log U =\varepsilon^2c_Md_f\frac{\log f}{\log f+1} &lt;\varepsilon^2c_Md_f. \tag{99.16}</code> | — | `NOT_YET_FORMALIZED` | t=e decay exponent 전개; real log identity Lean 대기 |
+| 1965 | `100.1` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 22–26 | <code>Q=f,\qquad T=f^5,\qquad \mathcal D=Q^2T=f^7,qquad L=\log\mathcal D \tag{100.1}</code> | — | `DEFINITION_ONLY` | fixed-f source parameters Q=f,T=f^5,D=f^7 정의 |
+| 1966 | `100.2` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 33–39 | <code>\boxed{ N^*_{\rm np}(\alpha,T,Q) \le2C_J(\omega)x^{2(1-\alpha)} \{3+r\log(2\mathcal D)\},} \tag{100.2}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Theory 71 primitive near-one averaged density source statement |
+| 1967 | `100.3` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 41–45 | <code>x=\mathcal D^{1+12\omega}L^2,qquad r=\max\{1-\alpha,L^{-1}\}. \tag{100.3}</code> | — | `DEFINITION_ONLY` | Theory 71 detector scale와 local-width 정의 |
+| 1968 | `100.4` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 49–52 | <code>C_J(\omega)=\frac{884000}{9(1-\omega)^2\omega^6}. \tag{100.4}</code> | — | `DEFINITION_ONLY` | baseline C_J density coefficient 정의 |
+| 1969 | `100.5` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 56–61 | <code>\kappa(\omega):=14(1+12\omega), \qquad \lambda(\omega,d_f):=1-\frac{\kappa(\omega)}{d_f}. \tag{100.5}</code> | — | `DEFINITION_ONLY` | fixed-f prime scale의 kappa와 lambda 정의 |
+| 1970 | `100.6` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 65–71 | <code>\boxed{ \omega=\frac1{21},\qquad \kappa=22,qquad \lambda=1-\frac{22}{d_f}.} \tag{100.6}</code> | `dep_r09_sharp_density_detector_kappa_endpoint` | `PARTIAL_FORMALIZATION` | omega=1/21에서 kappa=22 exact rational을 부분 커널 검증 |
+| 1971 | `100.7` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 78–82 | <code>c_M:=\frac1{9.645908801} =\frac{10^9}{9645908801} \tag{100.7}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | explicit McCurley zero-free source constant 정의 |
+| 1972 | `100.8` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 86–90 | <code>\exp\left\{-\lambda\frac{c_Md_f}{5}\right\} =\exp\left\{-\frac{c_M(d_f-22)}5\right\}. \tag{100.8}</code> | — | `NOT_YET_FORMALIZED` | near-integral favorable decay shape; analytic source transfer 미형식화 |
+| 1973 | `100.9` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 94–100 | <code>\boxed{ C_{J,{\rm tight}} =\frac{11503697604450072}{425315} =27047476821.7675\ldots .} \tag{100.9}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Theory 73 finite-safe tightened coefficient source value |
+| 1974 | `100.10` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 104–108 | <code>\frac{c_M(d_f-22)}5 &lt;\frac{c_M\,394}{5}&lt;9. \tag{100.10}</code> | `dep_r09_sharp_density_tight_decay_below_nine` | `KERNEL_PASS` | d_f<416의 tightened decay exponent <9를 커널 검증 |
+| 1975 | `100.11` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 112–120 | <code>\boxed{ C_{J,{\rm tight}} e^{-c_M(d_f-22)/5} &gt;\frac{C_{J,{\rm tight}}}{3^9} =\frac{3834565868150024}{2790491715} &gt;10^6.} \tag{100.11}</code> | `dep_r09_sharp_density_tight_floor` | `PARTIAL_FORMALIZATION` | tightened coefficient/3^9 rational floor는 커널 검증; exp(-x)>3^-9는 Lean 대기 |
+| 1976 | `100.12` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 129–132 | <code>\omega^{-6}\ge21^6. \tag{100.12}</code> | — | `DEFINITION_ONLY` | theta^-6 architecture coefficient floor 정의 |
+| 1977 | `100.13` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 136–141 | <code>\frac{c_M(d_f-\kappa)}5 &lt;\frac{c_M\,402}{5} =\frac{80400000000}{9645908801}&lt;9. \tag{100.13}</code> | `dep_r09_sharp_density_counterfactual_decay_below_nine` | `KERNEL_PASS` | kappa>=14 counterfactual decay exponent rational과 <9를 커널 검증 |
+| 1978 | `100.14` | T100 [100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md](../docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md) | 145–151 | <code>\boxed{ \omega^{-6}e^{-c_M(d_f-\kappa)/5} &gt;\frac{21^6}{3^9} =\frac{117649}{27}&gt;4000.} \tag{100.14}</code> | `dep_r09_sharp_density_theta_power_floor` | `PARTIAL_FORMALIZATION` | 21^6/3^9 exact floor와 >4000은 커널 검증; exp source inequality는 부분형식화 |
 
 ## 9. 발견된 원문·작업 오류
 
