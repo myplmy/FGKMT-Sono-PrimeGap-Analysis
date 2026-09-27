@@ -1592,3 +1592,17 @@ numerical centered endpoint multiplier·exceptional removal·common cutoff는 OP
 66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
 않는다. Theory 97 뒤 전수원장은 theory 98개, display 식 1,927개, Lean declaration
 365개, 금지 proof escape 0건이다.
+
+## 67. 2026-09-28 DEP-R09 TZ full-interval centered 후속 상태
+
+[theory 98](98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md)은 actual \(B_0\)
+conductor exclusion에서 relative zero-free constant \(47/2520\)을 얻고
+Thorner--Zaman \(\lambda=1,\theta=7/12\) branch와 full-interval range를 연결했다.
+
+Pointwise common-main relative error가 \(R_{\rm TZ}\)이면 centered endpoint error는
+\(2R_{\rm TZ}\) 이하이다. 남은 root는 \(K_{\rm TZ},c_{\rm TZ}\), common cutoff의
+numerical recovery다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
+않는다. Theory 98 뒤 전수원장은 theory 99개, display 식 1,948개, Lean declaration
+371개, 금지 proof escape 0건이다.

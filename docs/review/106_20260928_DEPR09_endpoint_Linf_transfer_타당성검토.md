@@ -7,6 +7,10 @@
   SINGLE_ENDPOINT_TRANSFER_VALID /
   NUMERICAL_ENDPOINT_PNT_NOT_ESTABLISHED</code>
 
+> **Successor:** [Theory 98](../method/theory/98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md)과
+> [review 107](107_20260928_DEPR09_TZ_full_interval_centered_타당성검토.md)은 actual
+> \(B_0\) exceptional handling, full-interval range와 centered factor 2를 닫았다.
+
 ## 1. 검토 결론
 
 Theory 97의 환원은 타당하다.

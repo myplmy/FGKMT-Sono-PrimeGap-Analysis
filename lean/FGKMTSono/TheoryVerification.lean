@@ -4645,4 +4645,56 @@ theorem dep_r09_endpoint_linf_multiplier_fixture :
       426321 / 50000000 := by
   norm_num
 
+/-! ## Theory 98 — Thorner--Zaman full-interval centered transfer -/
+
+/- Theory 98, formulas 98.3--98.5: the direct t=0 zero-free constant and
+   project log ratio give c2=47/2520. -/
+theorem dep_r09_tz_relative_zero_free_constant :
+    (1 / 24 : ℝ) * (47 / 100) / (21 / 20) = 47 / 2520 := by
+  norm_num
+
+/- Theory 98, formula 98.7: the project exponent d_f>=21 covers the printed
+   full-interval source exponent 12. -/
+theorem dep_r09_tz_full_interval_exponent_range :
+    (12 : ℝ) < 21 := by
+  norm_num
+
+/- Theory 98, formula 98.17: a mean-zero real exceptional character pattern
+   survives residue centering rather than cancelling pointwise. -/
+theorem dep_r09_tz_exceptional_pattern_survives_centering
+    (secondary : ℝ) :
+    (1 - secondary) - ((1 - secondary) + (1 + secondary)) / 2 =
+      -secondary := by
+  ring
+
+/- Theory 98, formulas 98.19--98.21: two common-main pointwise errors bound
+   the centered residue error. -/
+theorem dep_r09_tz_common_main_to_centered
+    {pointError meanError sourceScale : ℝ}
+    (hPoint : |pointError| ≤ sourceScale)
+    (hMean : |meanError| ≤ sourceScale) :
+    |pointError - meanError| ≤ 2 * sourceScale := by
+  calc
+    |pointError - meanError| ≤ |pointError| + |meanError| :=
+      abs_sub pointError meanError
+    _ ≤ sourceScale + sourceScale := add_le_add hPoint hMean
+    _ = 2 * sourceScale := by ring
+
+/- Theory 98, formulas 98.12--98.13: the source relative error factor two
+   composes with the Theory-97 endpoint multiplier. -/
+theorem dep_r09_tz_endpoint_kappa_transfer
+    {kappa centeredError sourceError lowerCorrection : ℝ}
+    (hKappa :
+      kappa ≤ (21 / 5) * (centeredError + lowerCorrection))
+    (hCentered : centeredError ≤ 2 * sourceError) :
+    kappa ≤ (21 / 5) * (2 * sourceError + lowerCorrection) := by
+  linarith
+
+/- Theory 98, formula 98.13: exact rational fixture shared with the Python
+   diagnostic R_TZ=1/1000, epsilon_0=1/100000, b/a=1/100. -/
+theorem dep_r09_tz_project_multiplier_fixture :
+    (21 / 5 : ℝ) * (2 * (1 / 1000) + 1 / 100000) * (2 + 1 / 100) =
+      848421 / 50000000 := by
+  norm_num
+
 end FGKMTSono

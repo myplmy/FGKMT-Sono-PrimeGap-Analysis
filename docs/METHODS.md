@@ -2795,3 +2795,33 @@ Python exact fixture 12건과 verification ledger validation이 PASS했다. Theo
 <code>NOT_YET_FORMALIZED=1147</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. numerical endpoint theorem 전에는 calculator·actual
 prime 계산은 NOT READY다.
+
+## 2026-09-28 DEP-R09 Thorner--Zaman full-interval centered transfer
+
+[theory 98](method/theory/98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md)과
+[review 107](review/107_20260928_DEPR09_TZ_full_interval_centered_타당성검토.md)은
+Theory 97 endpoint input의 exceptional branch와 source range를 실제 construction에
+맞춰 닫았다.
+
+Actual \(B_0=B_{P(X)}\) 때문에 \(f\)의 primitive conductors는 nonexceptional이다.
+Sono Proposition 5.3의 direct \(t=0\) constant와 project log bounds를 합치면
+
+\[
+c_2=\frac1{24}\frac{47}{105}=\frac{47}{2520}.
+\]
+
+따라서 Thorner--Zaman Remark 1.3의 \(\lambda=1,\theta=7/12\) branch를 쓸 수 있다.
+Current \(d_f\ge21\)은 full-interval \(U\ge f^{12}\) range를 덮고, source pointwise
+relative error \(R_{\rm TZ}\)는 \(\epsilon_\infty\le2R_{\rm TZ}\)로 exact 전달된다.
+
+Official source TeX는 Theorem 2.3 proof가 \(h\le x-1\)만 처리하고 \(h=x\)는 별도
+Corollary 1.4임을 확인시켰다. Short-interval loss는 불필요하지만 Corollary의 implied
+multiplier, decay constant와 common cutoff는 numerical하게 인쇄되지 않았다.
+
+Python exact fixture 12건과 verification ledger validation이 PASS했다. Theory 98 뒤
+전수원장은 theory 99개, display 식 1,948개, Lean declaration 371개다. 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=132</code>,
+<code>DEFINITION_ONLY=202</code>, <code>PARTIAL_FORMALIZATION=171</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=191</code>,
+<code>NOT_YET_FORMALIZED=1149</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. calculator·actual prime 계산은 NOT READY다.

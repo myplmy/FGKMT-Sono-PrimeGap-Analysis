@@ -4838,6 +4838,111 @@
       "declarations": []
     },
     {
+      "formula_id": "98.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.2",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.3",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_tz_relative_zero_free_constant"]
+    },
+    {
+      "formula_id": "98.5",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_tz_relative_zero_free_constant"]
+    },
+    {
+      "formula_id": "98.6",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.7",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_tz_full_interval_exponent_range"]
+    },
+    {
+      "formula_id": "98.8",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.9",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.10",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.11",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.12",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_tz_common_main_to_centered"]
+    },
+    {
+      "formula_id": "98.13",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_tz_endpoint_kappa_transfer", "dep_r09_tz_project_multiplier_fixture"]
+    },
+    {
+      "formula_id": "98.14",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.15",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.16",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.17",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_tz_exceptional_pattern_survives_centering"]
+    },
+    {
+      "formula_id": "98.18",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.19",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.20",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "98.21",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_tz_common_main_to_centered"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

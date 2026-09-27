@@ -707,3 +707,19 @@ declaration 365개다. 전체 상태는 <code>KERNEL_PASS=98</code>,
 <code>PARTIAL_FORMALIZATION=167</code>, <code>SOURCE_THEOREM_UNFORMALIZED=184</code>,
 <code>NOT_YET_FORMALIZED=1147</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+2026-09-28 Theory 98 batch는 actual B0 relative zero-free rational constant,
+full-interval exponent range, exceptional pattern counterterminal, common-main centering과
+Theory-97 endpoint multiplier 합성을 추가했다. Lean은 Sono/FMT zero-free theorem,
+Thorner--Zaman PNT, Huxley--Jutila density와 Vinogradov--Korobov region을 local axiom으로
+넣지 않았다.
+
+Python exact fixture 12건은 \(47/2520\), \(21\ge12\), centered factor 2, exceptional
+character pattern과 project multiplier를 검사한다. actual prime/zero 계산은 하지 않았다.
+direct compile과 inventory validation은 PASS했다. Theory 98 뒤 inventory는 theory 문서
+99개, display 식 1,948개, declaration 371개다. 전체 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=132</code>,
+<code>DEFINITION_ONLY=202</code>, <code>PARTIAL_FORMALIZATION=171</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=191</code>,
+<code>NOT_YET_FORMALIZED=1149</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

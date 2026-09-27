@@ -388,6 +388,21 @@ Theory 97 뒤 inventory는 98개 theory 문서, 1,927식, Lean declaration 365�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=129</code>,
 <code>NOT_YET_FORMALIZED=1147</code>, 금지 proof escape 0건이다.
 
+2026-09-28 Thorner--Zaman full-interval centered successor는 actual
+\(B_0=B_{P(X)}\), \(f\mid P(X)/B_0\)를 Sono Proposition 5.3의 direct \(t=0\)
+zero-free bound와 합성했다. \(\log f/\log P(X)>47/105\)이므로 relative constant
+\(c_2=47/2520\)이고, Thorner--Zaman Remark 1.3의 \(\lambda=1,\theta=7/12\)
+branch가 structural하게 적용된다. Full-interval Corollary 1.4의 \(U\ge f^{12}\)는
+current \(d_f\ge21\)로 닫히며, common-main pointwise error에서 centered endpoint
+error로의 factor는 exact 2다. 그러나 source의 \(K_{\rm TZ},c_{\rm TZ}\), common
+cutoff는 미인쇄다. 최신 analytic 정본은 theory 98·review 107이며 다음 gate는
+nonexceptional full-interval PNT의 fully numerical multiplier·decay·cutoff 복원이다.
+PAP-11·DEP-R09·fixed <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고
+calculator·actual prime 계산은 NOT READY다.
+Theory 98 뒤 inventory는 99개 theory 문서, 1,948식, Lean declaration 371개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=132</code>,
+<code>NOT_YET_FORMALIZED=1149</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

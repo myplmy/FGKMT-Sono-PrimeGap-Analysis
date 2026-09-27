@@ -16,6 +16,11 @@
   actual 계산, threshold calculator, conditional branch, PAP-11, DEP-R09, numerical
   \(X_{\rm cert}\)를 닫는 것.
 
+> **2026-09-28 successor:** [Theory 98](98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md)은
+> actual \(B_0\)에서 relative zero-free constant \(47/2520\)을 얻고 full-interval
+> \(\lambda=1\) branch와 centered factor 2를 고정했다. Numerical source
+> \(K_{\rm TZ},c_{\rm TZ},U_{\rm TZ}\)는 계속 OPEN이다.
+
 ## 1. 결론
 
 Theory 96의 residue error를 그대로 쓰고 large endpoint의 centered norm을
