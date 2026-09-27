@@ -7,6 +7,10 @@
   FULL_INTERVAL_CENTERING_VALID /
   NUMERICAL_SOURCE_CONSTANTS_NOT_RECOVERED</code>
 
+> **Successor:** [Theory 99](../method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md)과
+> [review 108](108_20260928_DEPR09_explicit_density99_route_타당성검토.md)은 fully
+> explicit exponent-99 direct certificate를 route-specific하게 기각했다.
+
 ## 1. 검토 결론
 
 Theory 98의 structural 합성은 타당하다.

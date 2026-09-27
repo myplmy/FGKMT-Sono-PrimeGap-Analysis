@@ -2741,6 +2741,35 @@ Theory 95 뒤 전수원장은 theory 96개, display 식 1,883개, Lean declarati
 <code>NOT_YET_FORMALIZED=1136</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. calculator·actual prime 계산은 NOT READY다.
 
+## 2026-09-28 DEP-R09 explicit density-exponent-99 route audit
+
+[theory 99](method/theory/99_Sono_FMT_DEPR09_explicit_density99_route_audit.md)과
+[review 108](review/108_20260928_DEPR09_explicit_density99_route_타당성검토.md)은
+fully explicit density Theorem 1.2를 fixed modulus endpoint에 대입했다.
+
+Fixed \(f,T\) zeros는 \(Q=\max(f,T,3)\) modulus-height box의 subset이고 proof의
+\(\sigma_0>98/99>39/40\)라 source range는 맞는다. Positive epsilon margin은
+\(d_f>99\)에서 생겨 current \(d_f<416\)과 겹친다.
+
+그러나 \(\varepsilon<317/41184\)이고 explicit standard zero-free region에서
+
+\[
+\varepsilon^2c_Md_f<3/1000.
+\]
+
+Theorem 2.3 sup의 \(t=e\) 항은 multiplier one 진단에서도
+\(d_fS>98703/2000>49\)를 강제한다. Source의 큰 constants를 무시해도 direct
+certificate는 small centered endpoint error를 인증하지 못한다.
+
+Python exact fixture 9건과 verification ledger validation이 PASS했다. Theory 99 뒤
+전수원장은 theory 100개, display 식 1,964개, Lean declaration 376개다. 상태는
+<code>KERNEL_PASS=100</code>, <code>CONDITIONAL_KERNEL_PASS=132</code>,
+<code>DEFINITION_ONLY=206</code>, <code>PARTIAL_FORMALIZATION=174</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=193</code>,
+<code>NOT_YET_FORMALIZED=1154</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. 이는 route rejection이지 actual error lower나
+mathematical impossibility가 아니다.
+
 ## 2026-09-28 DEP-R09 cross-scale covariance·Abel interface
 
 [theory 96](method/theory/96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md)과

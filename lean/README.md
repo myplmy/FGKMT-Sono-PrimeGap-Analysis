@@ -723,3 +723,18 @@ direct compile과 inventory validation은 PASS했다. Theory 98 뒤 inventory는
 <code>SOURCE_THEOREM_UNFORMALIZED=191</code>,
 <code>NOT_YET_FORMALIZED=1149</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다.
+
+2026-09-28 Theory 99 batch는 explicit density exponent-99 sigma range, epsilon ceiling,
+sup interval margin, standard-zero-free decay exponent와 optimistic certificate floor를
+추가했다. Lean은 explicit density/PNT theorem과 real exp inequalities를 local axiom으로
+넣지 않았다.
+
+Python exact fixture 9건은 \(98/99>39/40\), \(317/41184\), decay exponent
+\(<3/1000\)와 \(98703/2000>49\)를 검사한다. actual prime/zero 계산은 하지 않았다.
+direct compile과 inventory validation은 PASS했다. Theory 99 뒤 inventory는 theory 문서
+100개, display 식 1,964개, declaration 376개다. 전체 상태는
+<code>KERNEL_PASS=100</code>, <code>CONDITIONAL_KERNEL_PASS=132</code>,
+<code>DEFINITION_ONLY=206</code>, <code>PARTIAL_FORMALIZATION=174</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=193</code>,
+<code>NOT_YET_FORMALIZED=1154</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

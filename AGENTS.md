@@ -403,6 +403,20 @@ Theory 98 뒤 inventory는 99개 theory 문서, 1,948식, Lean declaration 371�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=132</code>,
 <code>NOT_YET_FORMALIZED=1149</code>, 금지 proof escape 0건이다.
 
+2026-09-28 explicit density-99 successor는 fully explicit Thorner--Zaman Theorem 1.2를
+fixed \(f,T\) family에 안전하게 제한했다. Exponent 99는 \(\theta=98/99\)이고 current
+range와는 \(99<d_f<416\)에서 겹치지만, 허용 \(\varepsilon<317/41184\)다. Explicit
+McCurley zero-free constant를 사용하면 Theorem 2.3 sup의 \(t=e\) 항 때문에 source
+\(10^{88},10^{421}\) 비용과 unresolved multiplier를 모두 1로 낙관해도 첫 relative
+factor가 \(98703/2000>49\)다. 이는 actual endpoint error의 하한이 아니라 explicit-99
+direct black-box certificate의 불충분성이다. 최신 analytic 정본은 theory 99·review
+108이며 다음 gate는 sharp nonexceptional \(12/5\) density의 Theory 61--71 부품을
+fixed-\(f\) full-interval norm에 재특수화하는 것이다. PAP-11·DEP-R09·fixed
+<code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고 calculator·actual 계산은
+NOT READY다. Theory 99 뒤 inventory는 100개 theory 문서, 1,964식, Lean declaration
+376개다. <code>KERNEL_PASS=100</code>, <code>CONDITIONAL_KERNEL_PASS=132</code>,
+<code>NOT_YET_FORMALIZED=1154</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

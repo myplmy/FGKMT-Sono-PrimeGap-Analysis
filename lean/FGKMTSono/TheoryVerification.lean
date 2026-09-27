@@ -4697,4 +4697,41 @@ theorem dep_r09_tz_project_multiplier_fixture :
       848421 / 50000000 := by
   norm_num
 
+/-! ## Theory 99 — explicit density-exponent-99 route audit -/
+
+/- Theory 99, formulas 99.3--99.4: the exponent-99 proof line lies inside
+   the printed sigma>=39/40 range. -/
+theorem dep_r09_density99_sigma_range :
+    (39 / 40 : ℝ) < 98 / 99 := by
+  norm_num
+
+/- Theory 99, formulas 99.5--99.6: the largest possible epsilon in the
+   current d_f<416 envelope. -/
+theorem dep_r09_density99_epsilon_ceiling :
+    (1 / 99 : ℝ) - 1 / 416 = 317 / 41184 := by
+  norm_num
+
+/- Theory 99, formula 99.10: the source range margin makes the supremum
+   interval nonempty after a finite cutoff. -/
+theorem dep_r09_density99_sup_interval_margin (epsilon : ℝ) :
+    (1 - epsilon) / 99 - (1 / 99 - epsilon) =
+      (98 / 99) * epsilon := by
+  ring
+
+/- Theory 99, formula 99.12: exact rational upper for the available
+   standard-zero-free decay exponent over the current parameter envelope. -/
+theorem dep_r09_density99_decay_exponent_upper :
+    ((317 / 41184 : ℝ) ^ 2) * (1000000000 / 9645908801) * 416 =
+      3140281250000 / 1229014178061813 ∧
+    (3140281250000 / 1229014178061813 : ℝ) < 3 / 1000 := by
+  constructor <;> norm_num
+
+/- Theory 99, formulas 99.13--99.14: the rational part of the optimistic
+   multiplier-one certificate floor.  The exp/e source inequalities remain
+   external analytic premises. -/
+theorem dep_r09_density99_optimistic_floor :
+    (99 : ℝ) * (997 / 2000) = 98703 / 2000 ∧
+    (49 : ℝ) < 98703 / 2000 := by
+  constructor <;> norm_num
+
 end FGKMTSono

@@ -15,6 +15,11 @@
   미인증 \(3c_{\rm ZFR}\) normalization을 재사용하거나, actual 계산, threshold
   calculator, conditional branch, PAP-11, DEP-R09, numerical \(X_{\rm cert}\)를 닫는 것.
 
+> **2026-09-28 successor:** [Theory 99](99_Sono_FMT_DEPR09_explicit_density99_route_audit.md)은
+> fully explicit exponent 99가 current range와 겹치지만 direct Theorem 2.3
+> certificate는 multiplier-one 낙관치에서도 factor \(>49\)임을 보였다. 다음 gate는
+> sharp \(12/5\) density numericalization이다.
+
 ## 1. 결론
 
 Full primorial을 \(P(X)=\prod_{p\le X}p\), actual exceptional-prime deletion을

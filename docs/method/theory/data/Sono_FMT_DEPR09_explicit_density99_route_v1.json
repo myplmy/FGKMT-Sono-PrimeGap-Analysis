@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-28",
+  "gate": "DEP-R09 explicit density-exponent-99 route audit",
+  "predecessor": "Sono_FMT_DEPR09_TZ_full_interval_centered_v1.json",
+  "outcome": "EXPLICIT_DENSITY99_RANGE_OVERLAPS_BUT_DIRECT_THEOREM23_CERTIFICATE_FAILS_EVEN_AT_MULTIPLIER_ONE",
+  "source_registry": [
+    {
+      "key": "THEORY58",
+      "title": "DEP-R09 explicit PNT-AP replacement source audit",
+      "locator": "docs/method/theory/58_Sono_FMT_DEPR09_explicit_PNT_AP_replacement_source_audit.md",
+      "sha256": "862e9df67fefe59d02674e9d800d439dcca331acac5cf50fb1dd5c1bf4c269fe",
+      "source_locations": "formulas (58.7)--(58.8) and source applicability",
+      "classification": "PROJECT_EXPLICIT_DENSITY_PREDECESSOR"
+    },
+    {
+      "key": "THEORY90",
+      "title": "DEP-R09 blind fixed-modulus reduction",
+      "locator": "docs/method/theory/90_Sono_FMT_DEPR09_blind_fixed_modulus_reduction.md",
+      "sha256": "b696985d65f1cc7b6fb067398588c15564478f576bc9c41b5ad79908c0414a74",
+      "source_locations": "effective exponent 21<=d_f<416",
+      "classification": "PROJECT_EFFECTIVE_EXPONENT_RANGE"
+    },
+    {
+      "key": "THEORY98",
+      "title": "DEP-R09 Thorner--Zaman full-interval centered transfer",
+      "locator": "docs/method/theory/98_Sono_FMT_DEPR09_TZ_full_interval_centered_transfer.md",
+      "sha256": "700658abd82c590bab47fbfdb4536ad392b3bd280dfdc3792c48ac881429f6b9",
+      "source_locations": "formulas (98.5)--(98.13)",
+      "classification": "PROJECT_FULL_INTERVAL_CENTERED_PREDECESSOR"
+    },
+    {
+      "key": "TZ_EXPLICIT_DENSITY",
+      "title": "An Explicit Version of Bombieri's Log-Free Density Estimate and Sarkozy's Theorem for Shifted Primes",
+      "locator": "tmp/pdfs/dep_r09_20260913/Thorner_Zaman_Explicit_Bombieri_LogFree.pdf",
+      "sha256": "64c02753b55698f64625d3c84721303fa61fea7120bca993ffcd907456a104c6",
+      "printed_locations": "Theorem 1.2, Corollary 6.1, Lemma 2.3",
+      "classification": "PRIMARY_FULLY_EXPLICIT_DENSITY99_SOURCE"
+    },
+    {
+      "key": "TZ_PNT",
+      "title": "Refinements to the Prime Number Theorem for Arithmetic Progressions",
+      "locator": "tmp/pdfs/dep_r09_20260913/Thorner_Zaman_Refinements_PNTAP.pdf",
+      "sha256": "588ec896e0820c3620175b25da58850efbefc67b71227acac1d5c3fa4f6b3b09",
+      "printed_locations": "Theorem 2.3 and Remark 2.4",
+      "classification": "PRIMARY_DENSITY_TO_POINTWISE_TRANSFER_SOURCE"
+    }
+  ],
+  "fixed_family_density_transfer": {
+    "source": "N(sigma,Q)<=10^88*(10^421*Q^99)^(1-sigma) for Q>=3 and sigma>=39/40",
+    "box_choice": "Q=max(f,T,3)",
+    "subset_direction": "zeros of characters modulo f up to height T are a subset of the primitive modulus-height box after induction to conductors r|f",
+    "fixed_family_upper": "N_f(sigma,T)<=10^88*(10^421*(fT)^99)^(1-sigma)",
+    "proof_sigma": "theta+epsilon-epsilon*theta with theta=98/99, hence above 98/99>39/40"
+  },
+  "range_and_decay": {
+    "density_exponent": 99,
+    "theta": "98/99",
+    "full_interval_sufficient_range": "0<epsilon<=1/99-1/d_f",
+    "positive_margin": "d_f>99",
+    "current_overlap": "99<d_f<416",
+    "epsilon_ceiling": "317/41184",
+    "explicit_zero_free_constant": "c_M=1/9.645908801=1000000000/9645908801",
+    "decay_exponent_upper": "epsilon^2*c_M*d_f<3/1000"
+  },
+  "optimistic_certificate_floor": {
+    "theorem23_first_factor": "d_f*sup_{e<=t<=...} U^(-epsilon^2*delta(t))/sqrt(t)",
+    "endpoint": "evaluate the supremum at t=e",
+    "elementary_bounds": "exp(-x)>1-x>997/1000 for x<3/1000, and 1/sqrt(e)>1/2",
+    "floor": "d_f*997/2000>99*997/2000=98703/2000>49",
+    "interpretation": "Even setting the unresolved outer multiplier to one, this direct explicit-density-99 Theorem-2.3 certificate cannot prove a small relative endpoint error.",
+    "scope_caution": "This is not a lower bound for the actual prime error and does not exclude a sharper density theorem, a stronger zero-free region, or a different full-interval proof."
+  },
+  "exact_finite_diagnostic": {
+    "primary_pdf_verified": true,
+    "theorem_12_sigma_floor": "39/40",
+    "theorem_12_density_exponent": 99,
+    "theorem_12_absolute_multiplier": "10^88",
+    "theorem_12_base_multiplier": "10^421",
+    "fixed_family_is_subset_of_modulus_height_box": true,
+    "proof_sigma_floor_above_39_over_40": true,
+    "positive_range_requires_d_f_above_99": true,
+    "current_range_overlaps_density99": true,
+    "epsilon_ceiling_at_d_f_416": "317/41184",
+    "explicit_zero_free_constant": "1000000000/9645908801",
+    "decay_exponent_upper_at_current_range": "3140281250000/1229014178061813",
+    "decay_exponent_upper_below_3_over_1000": true,
+    "optimistic_sup_factor_floor": "98703/2000",
+    "optimistic_sup_factor_floor_exceeds_49": true,
+    "multiplier_one_direct_certificate_closes_endpoint_gate": false,
+    "density99_direct_black_box_route_closed": false,
+    "sharp_density_12_over_5_numerical": false,
+    "centered_endpoint_gate_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_or_zero_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The actual centered endpoint error is larger than 49.",
+    "The explicit density theorem is false or mathematically irrelevant.",
+    "All uses of exponent 99 or 127 are impossible.",
+    "The sharp exponent-12/5 route cannot be made numerical.",
+    "A stronger explicit Vinogradov--Korobov region or a different full-interval proof cannot work.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Numericalize the sharp nonexceptional exponent-12/5 density route or supply a structurally different full-interval proof; do not use the explicit exponent-99 theorem as a direct small-error certificate."
+}

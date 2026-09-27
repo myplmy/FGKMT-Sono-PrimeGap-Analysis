@@ -4943,6 +4943,86 @@
       "declarations": ["dep_r09_tz_common_main_to_centered"]
     },
     {
+      "formula_id": "99.1",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "99.2",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "99.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "99.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_density99_sigma_range"]
+    },
+    {
+      "formula_id": "99.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "99.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_density99_epsilon_ceiling"]
+    },
+    {
+      "formula_id": "99.7",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "99.8",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "99.9",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "99.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_density99_sup_interval_margin"]
+    },
+    {
+      "formula_id": "99.11",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "99.12",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_density99_decay_exponent_upper"]
+    },
+    {
+      "formula_id": "99.13",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "99.14",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_density99_optimistic_floor"]
+    },
+    {
+      "formula_id": "99.15",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "99.16",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []
