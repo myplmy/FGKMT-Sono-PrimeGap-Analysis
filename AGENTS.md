@@ -329,6 +329,20 @@ Theory 93 뒤 inventory는 94개 theory 문서, 1,839식, Lean declaration 344�
 <code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=112</code>,
 <code>NOT_YET_FORMALIZED=1128</code>, 금지 proof escape 0건이다.
 
+2026-09-27 fixed-Q-prime bilinear successor는 fixed \(D_Q\)를 mean-zero residue
+kernel에서 prime과 higher prime powers로 exact하게 분해했다. Analytic core는
+\({\cal C}_f=\varphi(f){\cal P}_f-N\{\vartheta(U)-\vartheta(X)\}\)이고 B0·prime-power
+corrections는 parameterized explicit이다. Sono/R10의 Selberg theorem은 original
+pair-collision 목적의 one-sided upper이며, current 여러 shift에 합치려면
+determinant·singular-factor·weight·finite error가 새로 필요하다. 이 비용을 닫아도 upper
+alone은 centered main-term cancellation을 인증하지 않는다. 최신 analytic 정본은 theory
+94·review 103이며 다음 gate는 character/dispersion two-sided signed estimate다.
+PAP-11·DEP-R09·fixed <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고 threshold
+calculator·actual prime 계산은 NOT READY다.
+Theory 94 뒤 inventory는 95개 theory 문서, 1,861식, Lean declaration 349개다.
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=116</code>,
+<code>NOT_YET_FORMALIZED=1134</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

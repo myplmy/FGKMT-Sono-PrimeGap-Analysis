@@ -4398,6 +4398,116 @@
       "declarations": []
     },
     {
+      "formula_id": "94.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.3",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_centered_residue_kernel_full_sum"]
+    },
+    {
+      "formula_id": "94.5",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_fixed_mean_prime_power_split"]
+    },
+    {
+      "formula_id": "94.6",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.7",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.8",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_centered_binary_prime_bookkeeping"]
+    },
+    {
+      "formula_id": "94.9",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.10",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.11",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_centered_binary_prime_bookkeeping"]
+    },
+    {
+      "formula_id": "94.12",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.13",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.14",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.15",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.16",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.17",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.18",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.19",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_fixed_mean_relative_correction_transfer"]
+    },
+    {
+      "formula_id": "94.20",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.21",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "94.22",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_one_sided_pair_upper_countermodel"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

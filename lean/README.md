@@ -631,6 +631,22 @@ refresh·validation은 PASS했다. Theory 92 뒤 inventory는 theory 문서 93�
 <code>NOT_YET_FORMALIZED=1123</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. full build는 최종 commit 전에 재검증한다.
 
+2026-09-27 Theory 94 batch는 full-residue centered-kernel arithmetic,
+prime/prime-power split, binary-prime+B0 bookkeeping, relative correction transfer와
+one-sided-upper countermodel을 추가했다. Lean은 finite sum/source identities를 premise로
+받은 scalar terminal만 검사한다. Von Mangoldt support, character orthogonality와
+Halberstam--Richert/Sono upper theorem을 local axiom으로 넣지 않았다.
+
+Python exact fixture 12건은 original/kernel mean, disjoint split, unique residue
+reindexing, correction envelope와 upper-only logical boundary를 검사한다. direct compile과
+전수 inventory validation은 PASS했다. Theory 94 뒤 inventory는 theory 문서 95개,
+display 식 1,861개, declaration 349개다. 전체 상태는
+<code>KERNEL_PASS=98</code>, <code>CONDITIONAL_KERNEL_PASS=116</code>,
+<code>DEFINITION_ONLY=178</code>, <code>PARTIAL_FORMALIZATION=164</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=166</code>,
+<code>NOT_YET_FORMALIZED=1134</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.
+
 2026-09-27 Theory 93 batch는 outer fixed-mean persistence, weighted variance component
 합성, adaptive deletion numerator, selected-mean cross multiplication, union mass와
 \(b=2000\) selected-count positivity terminal을 추가했다. Lean은 finite probability

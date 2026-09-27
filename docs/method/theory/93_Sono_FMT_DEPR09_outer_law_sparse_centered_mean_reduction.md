@@ -15,6 +15,10 @@
   threshold calculator, PAP-11, DEP-R09, fixed \(2\times10^{-17}\), numerical
   \(X_{\rm cert}\)를 이번 단계에서 인증하는 것.
 
+> **2026-09-27 successor:** [Theory 94](94_Sono_FMT_DEPR09_fixed_Qprime_bilinear_reduction.md)는
+> fixed \(D_Q\)를 centered binary-prime form과 B0·higher-prime-power corrections로
+> exact하게 분해했다. Corrections는 explicit이고 최신 analytic gate는 식 (94.14)다.
+
 ## 1. 결론
 
 고정 prime vertex set을
@@ -34,10 +38,10 @@
 로 둔다. Theory 49는 exact하게
 
 \[
- \Pr(I_q=1)=\sigma,qquad
+ \Pr(I_q=1)=\sigma,\qquad
  \left|\Pr(I_q=I_r=1)-\sigma^2\right|
- \le\epsilon\sigma^2,quad
- \epsilon:=2a^{-17}quad(q\ne r)
+ \le\epsilon\sigma^2,\quad
+ \epsilon:=2a^{-17}\quad(q\ne r)
  \tag{93.3}
 \]
 
@@ -46,7 +50,7 @@
 Theory 92의 deterministic real weight를 \(B_q:=B_h(q)\)라 하고
 
 \[
- D_Q:=\sum_{q\in Q'}B_q,qquad
+ D_Q:=\sum_{q\in Q'}B_q,\qquad
  W(\mathbf A):=\sum_{q\in Q'}B_qI_q(\mathbf A)
  \tag{93.4}
 \]
@@ -87,9 +91,9 @@ Theory 53의 preparation event에서
 \(V=V_0\setminus E(\mathbf A)\)이고
 
 \[
- \bigl||V_0|-\sigma N\bigr|\le\eta\sigma N,qquad
- \eta:=b^{-3},qquad
- |E|\le r_E|V_0|,quad r_E:=\frac{8000}{b^2}.
+ \bigl||V_0|-\sigma N\bigr|\le\eta\sigma N,\qquad
+ \eta:=b^{-3},\qquad
+ |E|\le r_E|V_0|,\quad r_E:=\frac{8000}{b^2}.
  \tag{93.8}
 \]
 
@@ -187,7 +191,7 @@ ordered off-diagonal에 triangle inequality와 식 (93.3)을 적용하면
 \(|B_q|\le LU\)에서
 
 \[
- \sum_qB_q^2\le L^2NU^2,qquad
+ \sum_qB_q^2\le L^2NU^2,\qquad
  \left(\sum_q|B_q|\right)^2-\sum_qB_q^2
  \le L^2N(N-1)U^2.
  \tag{93.16}
@@ -241,7 +245,7 @@ fixed \(t>0\)에서 이는 existing child scale에 매우 작지만, 이번 단�
 Theory 51 whole-interval count-good event은
 
 \[
- \bigl||V_0|-\sigma N\bigr|\le\eta\sigma N,qquad
+ \bigl||V_0|-\sigma N\bigr|\le\eta\sigma N,\qquad
  \Pr(\text{count fail})\le\frac{3b^6}{a^{17}}.
  \tag{93.20}
 \]

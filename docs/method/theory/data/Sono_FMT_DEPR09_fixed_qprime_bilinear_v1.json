@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-27",
+  "gate": "DEP-R09 fixed-Q-prime pre-absolute-value bilinear reduction",
+  "predecessor": "Sono_FMT_DEPR09_outer_law_sparse_mean_v1.json",
+  "outcome": "FIXED_MEAN_EXACTLY_SPLIT_INTO_CENTERED_BINARY_PRIME_FORM_AND_EXPLICIT_CORRECTIONS_BUT_ONE_SIDED_R10_CANNOT_CLOSE_SIGNED_GATE",
+  "source_registry": [
+    {
+      "key": "SONO2025",
+      "title": "An explicit lower bound for large gaps between some consecutive primes",
+      "locator": "article/AN EXPLICIT LOWER BOUND FOR LARGE GAPS BETWEENSOME CONSECUTIVE PRIMES.pdf",
+      "sha256": "a45f84f5fe99e16534773005287d4ca5538f58d86793184f4d28fad1c9c67302",
+      "printed_locations": "Assumption 3.4, Section 4, Theorem 4.1 and formulas (4.1)--(4.7)",
+      "classification": "PRIMARY_PEER_REVIEWED_ONE_SIDED_TWO_LINEAR_FORM_UPPER"
+    },
+    {
+      "key": "THEORY77",
+      "title": "DEP-R09 restricted-residue variance spectral audit",
+      "locator": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
+      "sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4",
+      "source_locations": "formulas (77.4)--(77.5), aggregate mass versus pair upper boundary",
+      "classification": "PROJECT_PREDECESSOR_R10_SEPARATION"
+    },
+    {
+      "key": "THEORY93",
+      "title": "DEP-R09 outer-law sparse centered-mean reduction",
+      "locator": "docs/method/theory/93_Sono_FMT_DEPR09_outer_law_sparse_centered_mean_reduction.md",
+      "sha256": "b6c80ec6dddb63ccce1010d3dc37314d6755849fa6143c990c6c8851f9c1faa7",
+      "source_locations": "formulas (93.11) and (93.25)",
+      "classification": "PROJECT_FIXED_QPRIME_MEAN_INPUT"
+    },
+    {
+      "key": "FGKMT",
+      "title": "Long gaps between primes",
+      "locator": "article/LONG GAPS BETWEEN PRIMES.pdf",
+      "sha256": "c31229ef40c9646dfc99bde7c059a9a0fd35e7be71b5836de9df06c01d921ac8",
+      "printed_locations": "published prime-gap construction and source probability law",
+      "classification": "PRIMARY_CONSTRUCTION_CONTEXT"
+    }
+  ],
+  "centered_kernel": {
+    "kernel": "K_f(n,q)=phi(f)*1_(n congruent q mod f)-1",
+    "summed_kernel": "H_Q(n)=sum_(q in Qprime)K_f(n,q)=phi(f)*1_([n]_f in Qprime)-N",
+    "exact_fixed_mean": "D_Q=sum_(n<=U,(n,fh)=1)Lambda(n)*H_Q(n)",
+    "mean_zero_full_residue_property": "sum_(q mod f,reduced)K_f(n,q)=0 for every reduced n",
+    "meaning": "D_Q is a pre-absolute-value covariance between the prime-selected residue mask and principal-centered von Mangoldt mass"
+  },
+  "prime_split": {
+    "prime_weight": "Lambda_P(n)=log(n) for prime n and zero otherwise",
+    "prime_power_weight": "Lambda_ge2=Lambda-Lambda_P",
+    "exact_split": "D_Q=B_Q+E_pp",
+    "centered_binary_prime_form": "B_Q=sum_(q in Qprime)sum_(p<=U,p not dividing fh,prime)log(p)*K_f(p,q)",
+    "b0_split": "B_Q=B_Q_gtX-iota_B*N*log(B0)",
+    "positive_pair_reindex": "P_f=sum_(q in Qprime)sum_(ell>=0,q+ell*f<=U,prime)log(q+ell*f)",
+    "centered_reindex": "B_Q_gtX=phi(f)*P_f-N*(theta(U)-theta(X))",
+    "prime_power_correction": "E_pp=sum_(r^j<=U,j>=2,r not dividing fh)log(r)*H_Q(r^j)"
+  },
+  "correction_envelope": {
+    "kernel_envelope": "abs(H_Q(n))<=max(N,phi(f)-N)<=phi(f) when N<=phi(f)",
+    "prime_power_mass": "sum_(r^j<=U,j>=2)log(r)<=sqrt(U)*log(U)",
+    "relative_prime_power": "abs(E_pp)/(N*U)<=phi(f)*log(U)/(N*sqrt(U))",
+    "b0_relative": "iota_B*log(B0)/U<=log(X)/U",
+    "project_range": "phi(f)<=f<=U^(1/21); corrections are parameterized explicit and decay, but no final coefficient allocation is made"
+  },
+  "r10_boundary": {
+    "sono_object": "count z such that P*z+a and P*z+b are both prime",
+    "sono_output": "one-sided upper with C_UB=8*exp(2*gamma)*(1+o(1))",
+    "current_object": "centered sum phi(f)*P_f-N*(theta(U)-theta(X)) over many shifts ell*f",
+    "missing": "matching lower/main-term estimate and cancellation before absolute values",
+    "logical_countermodel": "pair mass zero satisfies every nonnegative one-sided upper but has relative centered absolute error one",
+    "additional_applicability_work": "summing Theorem 4.1 over ell requires determinant/singular-factor averages and explicit error constants",
+    "direct_drop_in": false
+  },
+  "exact_finite_diagnostic": {
+    "centered_kernel_identity_exact": true,
+    "prime_prime_power_split_exact": true,
+    "positive_pair_reindex_exact": true,
+    "prime_power_envelope_exact": true,
+    "signed_fixture_prime_component": "14",
+    "signed_fixture_prime_power_component": "-48",
+    "signed_fixture_total": "-34",
+    "upper_only_countermodel_holds": true,
+    "upper_only_relative_error": "1",
+    "sono_upper_bound_source_verified": true,
+    "sono_upper_bound_is_one_sided": true,
+    "r10_direct_drop_in_for_centered_mean": false,
+    "b0_and_prime_power_corrections_parameterized_explicit": true,
+    "centered_binary_prime_gate_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The centered binary-prime form is small.",
+    "Sono Assumption UB is false or useless for its original purpose.",
+    "An upper-bound sieve can provide a parity-sensitive lower bound.",
+    "All dispersion or asymptotic-sieve approaches are impossible.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Prove a two-sided pre-absolute-value estimate for the centered binary-prime form; the existing R10/Selberg upper controls only the positive pair mass and cannot certify cancellation against its main term."
+}

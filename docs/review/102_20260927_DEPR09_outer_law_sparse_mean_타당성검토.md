@@ -7,6 +7,10 @@
   FIXED_QPRIME_REDUCTION_VALID /
   ANALYTIC_MEAN_OPEN</code>
 
+> **Successor:** review 103/Theory 94는 fixed mean을 centered binary-prime form과
+> explicit corrections로 더 분리했다. 아래 outer-law 판정은 유지되며 최신 root gate는
+> Theory 94 식 (94.14)다.
+
 ## 1. 검토 결론
 
 Theory 93의 환원은 타당하다.

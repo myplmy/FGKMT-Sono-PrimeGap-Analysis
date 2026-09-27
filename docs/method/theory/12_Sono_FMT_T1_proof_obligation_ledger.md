@@ -1535,3 +1535,17 @@ mean의 unconditional numerical bound다.
 않는다. threshold calculator와 장시간 prime sweep은 NOT READY다. Theory 93 뒤
 전수원장은 theory 94개, display 식 1,839개, Lean declaration 344개, 금지 proof
 escape 0건이다.
+
+## 63. 2026-09-27 DEP-R09 fixed-Q-prime bilinear 후속 상태
+
+[theory 94](94_Sono_FMT_DEPR09_fixed_Qprime_bilinear_reduction.md)은 fixed \(D_Q\)를
+centered binary-prime form과 B0·higher-prime-power corrections로 exact하게 분해했다.
+Corrections는 parameterized explicit이며 analytic core가 아니다.
+
+R10/Selberg upper는 positive pair count만 제어하고 centered main-term cancellation을
+제공하지 않는다. 다음 root input은 character/dispersion에 의한 two-sided signed
+estimate다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
+않는다. Theory 94 뒤 전수원장은 theory 95개, display 식 1,861개, Lean declaration
+349개, 금지 proof escape 0건이다. calculator와 actual prime sweep은 NOT READY다.

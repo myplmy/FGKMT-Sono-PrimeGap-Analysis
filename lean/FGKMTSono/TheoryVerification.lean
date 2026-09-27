@@ -4426,4 +4426,52 @@ theorem dep_r09_outer_selected_scale_b2000_positive :
         (1 - 1 / 2000 ^ 3) := by
   norm_num
 
+/-! ## Theory 94 — fixed-Q' pre-absolute-value bilinear reduction -/
+
+/- Theory 94, formulas 94.1--94.4: one congruent reduced residue contributes
+   phi-1 and the other phi-1 residues contribute -1, so the full kernel has
+   exact mean zero. -/
+theorem dep_r09_centered_residue_kernel_full_sum
+    {phi : ℝ} :
+    (phi - 1) + (phi - 1) * (-1) = 0 := by
+  ring
+
+/- Theory 94, formulas 94.5--94.7: the disjoint prime and higher-prime-power
+   components add back to the original fixed mean. -/
+theorem dep_r09_fixed_mean_prime_power_split
+    {fixedMean primePart primePowerPart : ℝ}
+    (hSplit : fixedMean = primePart + primePowerPart) :
+    fixedMean - primePart = primePowerPart := by
+  linarith
+
+/- Theory 94, formulas 94.8--94.11: after the B0 atom and positive pair mass
+   identities are supplied, the centered binary-prime form is scalar
+   bookkeeping. -/
+theorem dep_r09_centered_binary_prime_bookkeeping
+    {fixedPrime centeredPrime b0 phi pairMass count principalPrime : ℝ}
+    (hB0 : fixedPrime = centeredPrime - b0)
+    (hCentered : centeredPrime = phi * pairMass - count * principalPrime) :
+    fixedPrime = phi * pairMass - count * principalPrime - b0 := by
+  linarith
+
+/- Theory 94, formulas 94.12--94.19: three nonnegative relative component
+   bounds compose into the downstream fixed-mean ratio. -/
+theorem dep_r09_fixed_mean_relative_correction_transfer
+    {fixedRatio binaryRatio b0Ratio primePowerRatio : ℝ}
+    (hFixed : fixedRatio ≤ binaryRatio + b0Ratio + primePowerRatio) :
+    fixedRatio - binaryRatio ≤ b0Ratio + primePowerRatio := by
+  linarith
+
+/- Theory 94, formulas 94.21--94.22: even an arbitrarily large nonnegative
+   one-sided multiplier permits zero pair mass, whose centered relative error
+   is exactly one. -/
+theorem dep_r09_one_sided_pair_upper_countermodel
+    {upperMultiplier : ℝ}
+    (hUpper : 0 ≤ upperMultiplier) :
+    (0 : ℝ) ≤ upperMultiplier * 1 ∧
+      |(0 : ℝ) - 1| / 1 = 1 := by
+  constructor
+  · simpa using hUpper
+  · norm_num
+
 end FGKMTSono

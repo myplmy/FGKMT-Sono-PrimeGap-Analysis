@@ -2691,3 +2691,28 @@ PASS했다. Theory 93 뒤 전수원장은 theory 94개, display 식 1,839개, Le
 금지 proof escape는 0건이다. full build·broad regression은 final handoff 전에
 재검증한다. threshold calculator·actual prime 계산·package 설치·GRH branch는
 실행하지 않았다.
+
+## 2026-09-27 DEP-R09 fixed-Q-prime bilinear 환원
+
+[theory 94](method/theory/94_Sono_FMT_DEPR09_fixed_Qprime_bilinear_reduction.md)과
+[review 103](review/103_20260927_DEPR09_fixed_Qprime_bilinear_타당성검토.md)은 fixed
+\(D_Q\)를 mean-zero kernel에서 prime/prime-power로 exact하게 분리했다.
+
+Prime core는
+\({\cal C}_f=\varphi(f){\cal P}_f-N\{\vartheta(U)-\vartheta(X)\}\)이고,
+\({\cal P}_f\)는 \(q\in Q'\), \(q+\ell f\) prime인 weighted pair mass다.
+Higher-prime-power와 active B0 correction은 current exponent range에서 explicit하게
+감쇠한다.
+
+Sono Assumption UB/Theorem 4.1은 one-sided upper이고 current shifts에 uniform하게
+합치려면 determinant·singular-factor·weight·finite error를 새로 감사해야 한다. 더
+근본적으로 one-sided upper는 signed centered form을 작게 만들지 않는다.
+
+Python exact fixture 12건, Lean direct compile과 전수 ledger refresh/validation이
+PASS했다. Theory 94 뒤 전수원장은 theory 95개, display 식 1,861개, Lean declaration
+349개다. 상태는 <code>KERNEL_PASS=98</code>,
+<code>CONDITIONAL_KERNEL_PASS=116</code>, <code>DEFINITION_ONLY=178</code>,
+<code>PARTIAL_FORMALIZATION=164</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=166</code>,
+<code>NOT_YET_FORMALIZED=1134</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다. threshold calculator·actual prime 계산은 NOT READY다.
