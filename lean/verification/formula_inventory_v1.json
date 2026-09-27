@@ -777,7 +777,7 @@
     {
       "theory": "96",
       "source_file": "docs/method/theory/96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2",
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2",
       "display_formula_count": 19,
       "tagged_formula_count": 19,
       "untagged_formula_count": 0
@@ -19622,7 +19622,7 @@
       "end_line": 26,
       "tagged": true,
       "latex": "\\Theta_\\chi(t):=\n \\sum_{\\substack{p\\le t\\\\p\\ \\mathrm{prime}}}(\\log p)\\chi(p)\n \\tag{96.1}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.2",
@@ -19632,7 +19632,7 @@
       "end_line": 34,
       "tagged": true,
       "latex": "C_\\chi(Q')=\n \\sum_{X<q\\le Y}\\overline{\\chi(q)}.\n \\tag{96.2}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.3",
@@ -19642,7 +19642,7 @@
       "end_line": 46,
       "tagged": true,
       "latex": "\\boxed{\n C_\\chi(Q')\n =\\frac{\\Theta_{\\bar\\chi}(Y)}{\\log Y}\n -\\frac{\\Theta_{\\bar\\chi}(X)}{\\log X}\n +\\int_X^Y\n \\frac{\\Theta_{\\bar\\chi}(t)}{t(\\log t)^2}\\,dt.}\n \\tag{96.3}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.4",
@@ -19652,7 +19652,7 @@
       "end_line": 53,
       "tagged": true,
       "latex": "Z_\\chi(X,U)=\\Theta_\\chi(U)-\\Theta_\\chi(X).\n \\tag{96.4}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.5",
@@ -19662,7 +19662,7 @@
       "end_line": 62,
       "tagged": true,
       "latex": "{\\cal K}_f(t;X,U):=\n \\sum_{\\substack{\\chi\\bmod f\\\\\\chi\\ne\\chi_0}}\n \\Theta_{\\bar\\chi}(t)Z_\\chi(X,U)\n \\tag{96.5}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.6",
@@ -19672,7 +19672,7 @@
       "end_line": 74,
       "tagged": true,
       "latex": "\\boxed{\n {\\cal C}_f\n =\\frac{{\\cal K}_f(Y;X,U)}{\\log Y}\n -\\frac{{\\cal K}_f(X;X,U)}{\\log X}\n +\\int_X^Y\n \\frac{{\\cal K}_f(t;X,U)}{t(\\log t)^2}\\,dt.}\n \\tag{96.6}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.7",
@@ -19682,7 +19682,7 @@
       "end_line": 85,
       "tagged": true,
       "latex": "E_f(t;a):=\n \\vartheta(t;f,a)-\\frac{\\vartheta_f(t)}{\\varphi(f)},\n \\qquad\n \\vartheta_f(t):=\n \\sum_{\\substack{p\\le t\\\\p\\nmid f}}\\log p\n \\tag{96.7}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.8",
@@ -19692,7 +19692,7 @@
       "end_line": 96,
       "tagged": true,
       "latex": "\\boxed{\n {\\cal K}_f(t;X,U)\n =\\varphi(f)\n \\sum_{a\\bmod f}^{*}\n E_f(t;a)\\{E_f(U;a)-E_f(X;a)\\}.}\n \\tag{96.8}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.9",
@@ -19702,7 +19702,7 @@
       "end_line": 109,
       "tagged": true,
       "latex": "\\boxed{\n |{\\cal K}_f(t;X,U)|\n \\le\\kappa NU\\log t\n \\qquad(X\\le t\\le Y).}\n \\tag{96.9}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.10",
@@ -19712,7 +19712,7 @@
       "end_line": 119,
       "tagged": true,
       "latex": "\\boxed{\n \\frac{|{\\cal C}_f|}{NU}\n \\le\\kappa\n \\left\\{2+\\log\\frac{\\log Y}{\\log X}\\right\\}.}\n \\tag{96.10}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.11",
@@ -19721,8 +19721,8 @@
       "start_line": 123,
       "end_line": 129,
       "tagged": true,
-      "latex": "\\log Y<a+b,qquad\n \\log\\frac{\\log Y}{\\log X}\n <\\log\\left(1+\\frac ba\\right)\n \\le\\frac ba.\n \\tag{96.11}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "latex": "\\log Y<a+b,\\qquad\n \\log\\frac{\\log Y}{\\log X}\n <\\log\\left(1+\\frac ba\\right)\n \\le\\frac ba.\n \\tag{96.11}",
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.12",
@@ -19732,7 +19732,7 @@
       "end_line": 138,
       "tagged": true,
       "latex": "\\boxed{\n \\delta_{\\rm bin}\n \\le\\kappa\\left(2+\\frac ba\\right).}\n \\tag{96.12}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.13",
@@ -19742,7 +19742,7 @@
       "end_line": 151,
       "tagged": true,
       "latex": "g'(t)=-\\frac1{t(\\log t)^2}.\n \\tag{96.13}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.14",
@@ -19752,7 +19752,7 @@
       "end_line": 160,
       "tagged": true,
       "latex": "\\int_{(X,Y]}g(t)\\,d\\Theta_{\\bar\\chi}(t)\n =g(Y)\\Theta_{\\bar\\chi}(Y)-g(X)\\Theta_{\\bar\\chi}(X)\n -\\int_X^Yg'(t)\\Theta_{\\bar\\chi}(t)\\,dt.\n \\tag{96.14}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.15",
@@ -19762,7 +19762,7 @@
       "end_line": 177,
       "tagged": true,
       "latex": "E_f(t;a)\n =\\frac1{\\varphi(f)}\n \\sum_{\\substack{\\chi\\bmod f\\\\\\chi\\ne\\chi_0}}\n \\overline{\\chi(a)}\\Theta_\\chi(t).\n \\tag{96.15}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.16",
@@ -19772,7 +19772,7 @@
       "end_line": 193,
       "tagged": true,
       "latex": "\\begin{aligned}\n \\varphi(f)\\sum_a^*E_f(t;a)\n \\{E_f(U;a)-E_f(X;a)\\}\n &={1\\over\\varphi(f)}\n \\sum_{\\chi,\\psi\\ne\\chi_0}\n \\Theta_\\chi(t)Z_\\psi(X,U)\n \\sum_a^*\\overline{\\chi(a)\\psi(a)}\\\\\n &=\\sum_{\\chi\\ne\\chi_0}\n \\Theta_{\\bar\\chi}(t)Z_\\chi(X,U).\n \\end{aligned}\n \\tag{96.16}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.17",
@@ -19782,7 +19782,7 @@
       "end_line": 205,
       "tagged": true,
       "latex": "\\|E\\|_f^2:=\\varphi(f)\\sum_a^*E(a)^2\n \\tag{96.17}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.18",
@@ -19792,7 +19792,7 @@
       "end_line": 216,
       "tagged": true,
       "latex": "\\boxed{\n 2{\\cal K}_f(t;X,U)\n =\\|E_t+E_{(X,U]}\\|_f^2\n -\\|E_t\\|_f^2\n -\\|E_{(X,U]}\\|_f^2.}\n \\tag{96.18}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     },
     {
       "formula_id": "96.19",
@@ -19802,7 +19802,7 @@
       "end_line": 231,
       "tagged": true,
       "latex": "\\int_X^Y\\frac{\\kappa NU\\log t}{t(\\log t)^2}\\,dt\n =\\kappa NU\\log\\frac{\\log Y}{\\log X}.\n \\tag{96.19}",
-      "source_sha256": "a1df9e1e3b156dff628f211be9eecd77a3fa5ec82fb5e5dcdc3f4a5018263ac2"
+      "source_sha256": "fb9a969377c8f57a231cccb928b50e886ab1dba6eba086c89c38f07ba2e587a2"
     }
   ],
   "issues": [],

@@ -121,7 +121,7 @@ fixed-modulus **cross-covariance**다.
 Project notation \(a=\log X\), \(b=\log a\)와 \(Y<Xa\)에서
 
 \[
- \log Y<a+b,qquad
+ \log Y<a+b,\qquad
  \log\frac{\log Y}{\log X}
  <\log\left(1+\frac ba\right)
  \le\frac ba.
