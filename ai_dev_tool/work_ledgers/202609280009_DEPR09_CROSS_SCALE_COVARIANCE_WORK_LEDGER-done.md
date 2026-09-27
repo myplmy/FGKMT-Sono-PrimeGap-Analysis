@@ -63,8 +63,12 @@
   forbidden proof escape 0.
 - actual prime/dataset 계산, package 설치, threshold calculator, conditional branch,
   push/PR은 수행하지 않았다.
+- full Python 1,049 tests는 기존 PowerShell 5.1
+  <code>test_windows_powershell_51_preserves_quote_sensitive_argv</code> 한 건만 같은
+  <code>$LASTEXITCODE</code> undefined로 FAIL했다. 이번 diff에 관련 파일은 없다.
 
 ## 완료 판정
 
 - Theory 96 batch는 local commit으로 보존하고, 식 (96.9)의 direct prescribed-modulus
   covariance proof/source audit을 다음 batch에서 계속한다.
+- 최신 session handoff에서 검증 증거와 다음 source/proof 순서를 고정한다.
