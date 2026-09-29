@@ -15,6 +15,10 @@
   \(\omega^{-6}\) 구조가 모든 증명에서 불가피하다고 주장하거나, construction redesign,
   actual 계산, threshold calculator, PAP-11, DEP-R09, numerical \(X_{\rm cert}\)를 닫는 것.
 
+> **2026-09-29 successor:** [Theory 101](101_Sono_FMT_DEPR09_presup_joint_angle_source_audit.md)은
+> density sup 이전 signed target과 joint-angle budget을 고정하고 recent source를 감사했다.
+> Magnitude/support-only source는 alignment witness 때문에 insufficient하다.
+
 ## 1. 결론
 
 Theory 71의 averaged primitive family를 fixed endpoint에

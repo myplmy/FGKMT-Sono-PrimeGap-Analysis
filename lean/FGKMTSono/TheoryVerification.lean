@@ -4771,4 +4771,41 @@ theorem dep_r09_sharp_density_theta_power_floor :
     (4000 : ℝ) < 117649 / 27 := by
   constructor <;> norm_num
 
+/-! ## Theory 101 — pre-sup joint-angle source audit -/
+
+/- Theory 101, formulas 101.7--101.8: a real two-coordinate subspace already
+   attains the phase-blind triangle envelope. -/
+theorem dep_r09_presup_phase_alignment_fixture :
+    (2 : ℝ) * 5 + (-3) * (-7) = |(2 : ℝ)| * 5 + |(-3 : ℝ)| * 7 := by
+  norm_num
+
+/- Theory 101, formulas 101.16--101.17: identical packet magnitudes can also
+   cancel exactly, so magnitude data alone do not determine the correlation. -/
+theorem dep_r09_presup_same_magnitude_cancellation_fixture :
+    (1 : ℝ) * 1 + 1 * (-1) = 0 ∧
+    |(1 : ℝ)| * 1 + |(1 : ℝ)| * 1 = 2 := by
+  constructor <;> norm_num
+
+/- Theory 101, formulas 101.13--101.14: once a joint squared-angle bound is
+   supplied, it cancels the coefficient-energy ratio exactly. -/
+theorem dep_r09_presup_joint_angle_budget
+    {gammaSq deltaSq count phi : ℝ}
+    (hCount : 0 < count)
+    (hGap : 0 < phi - count)
+    (hGamma : gammaSq < deltaSq * count / (phi - count)) :
+    gammaSq * (phi - count) / count < deltaSq := by
+  have hRatio : 0 < (phi - count) / count := div_pos hGap hCount
+  calc
+    gammaSq * (phi - count) / count =
+        gammaSq * ((phi - count) / count) := by ring
+    _ < (deltaSq * count / (phi - count)) *
+        ((phi - count) / count) :=
+      mul_lt_mul_of_pos_right hGamma hRatio
+    _ = deltaSq := by field_simp
+
+/- Theory 101, formula 101.15: exact rational angle-budget fixture. -/
+theorem dep_r09_presup_joint_angle_fixture :
+    ((1 / 100 : ℝ) ^ 2) * 3 / (30 - 3) = 1 / 90000 := by
+  norm_num
+
 end FGKMTSono

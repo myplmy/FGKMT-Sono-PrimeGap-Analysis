@@ -432,6 +432,23 @@ fixed-modulus proof다. PAP-11·DEP-R09·fixed <code>2e-17</code>·<code>X_cert<
 <code>CONDITIONAL_KERNEL_PASS=132</code>, <code>NOT_YET_FORMALIZED=1155</code>,
 금지 proof escape 0건이다.
 
+2026-09-29 pre-sup joint-angle successor는 explicit formula의 characterwise absolute
+value 이전 target을
+\({\cal Z}_{f,T}=\sum_{\chi\ne\chi_0}C_\chi(Q')\mathfrak Z_\chi(X,U;T)\)로
+고정했다. Individual magnitudes나 separate norms에만 의존하는 premise class에서는
+phase alignment가 triangle/Cauchy upper를 exact하게 달성하므로 actual joint angle을
+제어하는 새 theorem이 필요하다. 2026-09 신규 Ramaré Parseval weighted-sieve 두 편,
+Motohashi character moment, Zheng simultaneous-AP dispersion, Szabó/Heath--Brown
+bounded-order real-part theorem을 감사했으나 support-only, additive Fourier,
+auxiliary-modulus average, well-factorable modulus average 또는 bounded-order single
+character라는 object/quantifier mismatch가 남았다. 최신 analytic 정본은 theory 101·
+review 110이며 다음 gate는 fixed-\(f\) explicit formula를 absolute value 전에 직접
+재작성한 weighted zero-packet lemma다. PAP-11·DEP-R09·fixed <code>2e-17</code>·
+<code>X_cert</code>는 계속 OPEN이고 calculator·actual 계산은 NOT READY다.
+Theory 101 뒤 inventory는 102개 theory 문서, 1,998식, Lean declaration 385개다.
+<code>KERNEL_PASS=103</code>, <code>CONDITIONAL_KERNEL_PASS=133</code>,
+<code>NOT_YET_FORMALIZED=1157</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

@@ -7,6 +7,10 @@
   PAP_OUTER_LOSS_REMOVAL_VALID /
   CURRENT_DENSITY_ARCHITECTURE_INSUFFICIENT</code>
 
+> **Successor:** [Theory 101](../method/theory/101_Sono_FMT_DEPR09_presup_joint_angle_source_audit.md)과
+> [review 110](110_20260929_DEPR09_presup_joint_angle_타당성검토.md)은 pre-sup signed
+> target과 phase-blind source barrier를 고정했다.
+
 ## 1. 검토 결론
 
 Theory 100의 route-specific 판정은 타당하다.

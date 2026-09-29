@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-09-29",
+  "gate": "DEP-R09 pre-sup joint-angle source audit",
+  "predecessor": "Sono_FMT_DEPR09_sharp_density_fixed_f_v1.json",
+  "outcome": "PHASE_BLIND_SOURCES_CANNOT_CONTROL_JOINT_ANGLE_AND_NO_NUMERICAL_PRESCRIBED_F_DROP_IN_IDENTIFIED",
+  "source_registry": [
+    {
+      "key": "THEORY75",
+      "title": "Hybrid smoothing and cancellation transfer feasibility",
+      "locator": "docs/method/theory/75_Sono_FMT_DEPR09_hybrid_smoothing_cancellation_transfer_feasibility.md",
+      "sha256": "74bf91c06fadb6e9b3e7624fed5d7a34afcfb323c81d99c79ae6196046356606",
+      "source_locations": "formulas (75.17)--(75.19)",
+      "classification": "PROJECT_PRE_ABSOLUTE_VALUE_BOUNDARY"
+    },
+    {
+      "key": "THEORY77",
+      "title": "Restricted-residue variance and spectral optimality audit",
+      "locator": "docs/method/theory/77_Sono_FMT_DEPR09_restricted_residue_variance_spectral_optimality_audit.md",
+      "sha256": "d4865fad0d5e0758f2e862dac94a185f729ccc50208d38ed3314a283718550a4",
+      "source_locations": "formulas (77.12)--(77.18)",
+      "classification": "PROJECT_SEPARATE_L2_SHARPNESS_PREDECESSOR"
+    },
+    {
+      "key": "THEORY95",
+      "title": "Conductor-weighted character dual audit",
+      "locator": "docs/method/theory/95_Sono_FMT_DEPR09_conductor_weighted_character_dual.md",
+      "sha256": "b49330d85c8a7255c487ebe2296b8783c69f18f600ffbc75d7a1a88daaf3f6c1",
+      "source_locations": "formulas (95.21)--(95.22)",
+      "classification": "PROJECT_DIRECT_WEIGHTED_PRODUCT_TARGET"
+    },
+    {
+      "key": "RAMARE_WEIGHTED",
+      "title": "The weighted large sieve through Parseval",
+      "locator": "tmp/pdfs/depr09_presup_20260929/Ramare_weighted_large_sieve_Parseval_2609.25885.pdf",
+      "sha256": "62b6972d6341b0e29d181c5c8804729c891fc88fbbf72509744c99ac8a260deb",
+      "printed_locations": "Theorem 1.3 and complex-sequence remark",
+      "classification": "PRIMARY_SUPPORT_ONLY_L2_SIEVE_NOT_JOINT_CHARACTER_ANGLE"
+    },
+    {
+      "key": "RAMARE_REGULAR",
+      "title": "The large sieve through Parseval, Large sifted sets are regular",
+      "locator": "tmp/pdfs/depr09_presup_20260929/Ramare_large_sieve_regular_2609.25879.pdf",
+      "sha256": "0a862acd884b98495aaedf0ff4c9da16e2f3c22ea5d79071cbd0b08a49664925",
+      "printed_locations": "localized weighted sieve, nearby-value theorem and AP corollary",
+      "classification": "PRIMARY_CONDITIONAL_ADDITIVE_FOURIER_REGULARITY_NOT_MULTIPLICATIVE_TARGET"
+    },
+    {
+      "key": "MOTOHASHI",
+      "title": "On Some Improvements of the Brun--Titchmarsh Theorem IV",
+      "locator": "tmp/pdfs/depr09_presup_20260929/Motohashi_Brun_Titchmarsh_IV_1201.3134.pdf",
+      "sha256": "22b54c923e51527e82ec0d73c4e02678f45f432014bf77f896bf0409e0c4cfb3",
+      "printed_locations": "equations (1.2), (1.6), and (2.5)",
+      "classification": "PRIMARY_AUXILIARY_MODULUS_SQUARE_OR_L1_MOMENT_NOT_PRESCRIBED_WEIGHTED_PRODUCT"
+    },
+    {
+      "key": "ZHENG",
+      "title": "Primes in simultaneous arithmetic progressions",
+      "locator": "tmp/pdfs/depr09_presup_20260929/Zheng_simultaneous_AP_2512.22798.pdf",
+      "sha256": "4c0c262be45a5e9aef81d7dc6934638dbaf8bbfe66840f9c4d8eba42fead1d3f",
+      "printed_locations": "Theorems 1.1--1.2 and well-factorable definition",
+      "classification": "PRIMARY_TWO_MODULUS_MEAN_VALUE_NOT_PRESCRIBED_PRIMORIAL"
+    },
+    {
+      "key": "SZABO",
+      "title": "On the existence of products of primes in arithmetic progressions",
+      "locator": "tmp/pdfs/depr09_presup_20260929/Szabo_products_primes_AP_2208.05762.pdf",
+      "sha256": "d9bc96528dd2bdea75981b51b93958cf5ded3c85e9fd50c5840ee5985a28941f",
+      "printed_locations": "Proposition 6 and proof",
+      "classification": "PRIMARY_BOUNDED_ORDER_SINGLE_CHARACTER_REAL_PART_NOT_ALL_CHARACTER_JOINT_BOUND"
+    }
+  ],
+  "pre_sup_interface": {
+    "small_coefficient": "C_chi(Qprime)=sum_(q in Qprime) conjugate(chi(q))",
+    "zero_packet": "Zfrak_chi(X,U;T)=sum_(rho_chi,abs(gamma)<=T)' (U^rho-X^rho)/rho",
+    "joint_target": "Zcal_(f,T)=sum_(chi!=chi0) C_chi(Qprime)*Zfrak_chi(X,U;T)",
+    "explicit_formula_shape": "Ccal_f=-Zcal_(f,T)+principal/exceptional/prime-power/truncation corrections",
+    "required_statement": "abs(Zcal_(f,T)) plus explicit corrections <= delta_bin*N*U"
+  },
+  "phase_blind_barrier": {
+    "magnitude_input": "abs(Zfrak_chi)<=M_chi",
+    "triangle_certificate": "abs(sum C_chi*Zfrak_chi)<=sum abs(C_chi)*M_chi",
+    "sharpness": "choose Zfrak_chi=M_chi*conjugate(C_chi)/abs(C_chi) for nonzero C_chi",
+    "same_magnitudes_can_cancel": "two coefficients (1,1) and packets (1,-1) give zero, while aligned packets (1,1) give two",
+    "consequence": "Any premise invariant under independent packet phase rotations cannot by itself prove a smaller universal joint-correlation factor."
+  },
+  "angle_interface": {
+    "definition": "Gamma=abs(sum C_chi*Z_chi)/(sqrt(sum abs(C_chi)^2)*sqrt(sum abs(Z_chi)^2))",
+    "range": "0<=Gamma<=1",
+    "coefficient_energy": "sum abs(C_chi)^2=N*(phi(f)-N)",
+    "optimistic_prime_error_energy": "sum abs(Z_chi)^2<=U^2",
+    "normalized_terminal": "abs(Ccal_f)/(N*U)<=Gamma*sqrt((phi(f)-N)/N)",
+    "required_squared_angle": "Gamma^2<delta_bin^2*N/(phi(f)-N)",
+    "fixture": "delta_bin=1/100,N=3,phi=30 gives Gamma^2<1/90000"
+  },
+  "source_screen": {
+    "Ramare_weighted": "The theorem depends on support and an L2 norm; the stated complex extension passes through absolute values and does not couple the two character vectors.",
+    "Ramare_regular": "The output concerns additive Fourier frequencies near zero and assumes a near-Brun--Titchmarsh-saturation lower count; no multiplicative-character joint theorem is stated.",
+    "Motohashi": "Theorems sum absolute squares or absolute values over auxiliary primitive moduli and retain o(1)/unnamed effective constants; they do not contain C_chi(Qprime) at one prescribed f.",
+    "Zheng": "The signed theorem averages q and a well-factorable d for fixed residues a1,a2; it does not isolate the prescribed growing primorial or the variable prime-residue mask Qprime, and constants are implicit.",
+    "Szabo": "The weighted real-part estimate is for one nontrivial character of bounded order and has o(1); current conductor family has unbounded orders and needs a simultaneous C_chi-weighted bound.",
+    "drop_in": false
+  },
+  "exact_finite_diagnostic": {
+    "ramare_weighted_pdf_verified": true,
+    "ramare_regularity_pdf_verified": true,
+    "motohashi_pdf_verified": true,
+    "zheng_pdf_verified": true,
+    "szabo_pdf_verified": true,
+    "aligned_phase_triangle_is_exact": true,
+    "aligned_correlation_fixture": "31",
+    "cancellation_fixture_same_magnitudes": true,
+    "aligned_squared_angle": "1",
+    "required_squared_angle_fixture": "1/90000",
+    "support_only_source_controls_joint_angle": false,
+    "ramare_weighted_sieve_is_direct_joint_character_theorem": false,
+    "ramare_regularity_is_multiplicative_character_theorem": false,
+    "motohashi_is_prescribed_f_weighted_product_theorem": false,
+    "zheng_is_prescribed_primorial_theorem": false,
+    "szabo_covers_all_character_orders_numerically": false,
+    "applicable_numerical_joint_angle_source_identified": false,
+    "pre_sup_joint_correlation_closed": false,
+    "centered_endpoint_gate_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_or_zero_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "Actual zero packets can be independently phase-aligned with the small-prime coefficients.",
+    "The actual joint angle is large.",
+    "The audited papers are mathematically irrelevant outside the current contract.",
+    "No future pre-sup cancellation theorem or fixed-modulus dispersion proof can exist.",
+    "The recent Ramaré preprints are peer reviewed.",
+    "PAP-11, DEP-R09, fixed 2e-17, or numerical X_cert is closed."
+  ],
+  "next_gate": "Audit the fixed-modulus explicit formula before characterwise absolute values for a direct signed zero-packet theorem, or prove a new joint angle/covariance lemma; support-only and separate-norm inputs are insufficient."
+}

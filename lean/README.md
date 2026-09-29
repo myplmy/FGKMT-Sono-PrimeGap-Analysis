@@ -757,3 +757,17 @@ direct compile과 inventory validation은 PASS했다. Theory 100 뒤 inventory�
 Theory 번호 100부터도 기존 ordinal을 보존하도록 inventory document regex를 2자리 이상으로
 확장하고 파일을 theory 번호의 정수값으로 정렬한다. 전용 regression은 09, 10, 99, 100,
 101의 순서를 검사한다.
+
+2026-09-29 Theory 101 batch는 phase-alignment/cancellation witnesses, joint-angle budget과
+rational fixture를 추가했다. Lean은 explicit formula와 external weighted-sieve·dispersion
+theorem을 local axiom으로 넣지 않았다.
+
+Python exact fixture 9건은 phase-blind triangle equality, same-magnitude cancellation,
+squared angle과 \(1/90000\) fixture를 검사한다. actual prime/zero 계산은 하지 않았다.
+direct compile과 inventory validation은 PASS했다. Theory 101 뒤 inventory는 theory 문서
+102개, display 식 1,998개, declaration 385개다. 전체 상태는
+<code>KERNEL_PASS=103</code>, <code>CONDITIONAL_KERNEL_PASS=133</code>,
+<code>DEFINITION_ONLY=219</code>, <code>PARTIAL_FORMALIZATION=179</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=202</code>,
+<code>NOT_YET_FORMALIZED=1157</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.

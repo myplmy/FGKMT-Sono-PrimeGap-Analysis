@@ -2801,6 +2801,35 @@ Python exact fixture 8건과 verification ledger validation이 PASS했다. Theor
 <code>NOT_YET_FORMALIZED=1155</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. Actual error lower나 universal impossibility는 주장하지 않는다.
 
+## 2026-09-29 DEP-R09 pre-sup joint-angle source audit
+
+[theory 101](method/theory/101_Sono_FMT_DEPR09_presup_joint_angle_source_audit.md)과
+[review 110](review/110_20260929_DEPR09_presup_joint_angle_타당성검토.md)은
+Theory 100 뒤 필요한 structural input을 exact vector norm으로 고정했다.
+
+Explicit formula before characterwise absolute values의 target은
+
+\[
+{\cal Z}_{f,T}=\sum_{\chi\ne\chi_0}
+C_\chi(Q')\mathfrak Z_\chi(X,U;T).
+\]
+
+Packet magnitudes나 separate \(L^2\) norms만 쓰는 premises에는 exact alignment witness가
+있다. Conditional optimistic energy 아래에도 required angle은
+\(\Gamma_f^2<\delta_{\rm bin}^2N/(\varphi(f)-N)\)이어야 한다.
+
+Ramaré 2026 두 preprint, Motohashi, Zheng와 Szabó를 source-first로 대조했지만 current
+prescribed \(f\) joint angle을 numerical하게 주는 drop-in은 식별하지 못했다. 이는 전
+문헌 부재나 actual cancellation 부재를 뜻하지 않는다.
+
+Python exact fixture 9건과 verification ledger validation이 PASS했다. Theory 101 뒤
+전수원장은 theory 102개, display 식 1,998개, Lean declaration 385개다. 상태는
+<code>KERNEL_PASS=103</code>, <code>CONDITIONAL_KERNEL_PASS=133</code>,
+<code>DEFINITION_ONLY=219</code>, <code>PARTIAL_FORMALIZATION=179</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=202</code>,
+<code>NOT_YET_FORMALIZED=1157</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
+금지 proof escape는 0건이다.
+
 ## 2026-09-28 DEP-R09 cross-scale covariance·Abel interface
 
 [theory 96](method/theory/96_Sono_FMT_DEPR09_cross_scale_covariance_Abel_interface.md)과

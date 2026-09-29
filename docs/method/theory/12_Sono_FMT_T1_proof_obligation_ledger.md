@@ -1632,3 +1632,17 @@ cancellation 또는 detector architecture 변경이다.
 66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
 않는다. Theory 100 뒤 전수원장은 theory 101개, display 식 1,978개, Lean declaration
 381개, 금지 proof escape 0건이다.
+
+## 70. 2026-09-29 DEP-R09 pre-sup joint-angle 후속 상태
+
+[theory 101](101_Sono_FMT_DEPR09_presup_joint_angle_source_audit.md)은 signed zero-packet
+target과 required joint-angle budget을 고정했다.
+
+Phase-blind magnitudes와 separate norms만으로는 sharp alignment witness 때문에 joint
+saving이 나오지 않는다. Checked recent weighted-sieve·dispersion sources에도 prescribed
+\(f\) numerical joint theorem은 없었다. 다음 root는 absolute value 이전 weighted
+zero-packet lemma다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
+않는다. Theory 101 뒤 전수원장은 theory 102개, display 식 1,998개, Lean declaration
+385개, 금지 proof escape 0건이다.

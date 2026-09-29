@@ -5093,6 +5093,106 @@
       "declarations": ["dep_r09_sharp_density_theta_power_floor"]
     },
     {
+      "formula_id": "101.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.2",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.4",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.6",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.7",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.8",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_presup_phase_alignment_fixture"]
+    },
+    {
+      "formula_id": "101.9",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.10",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.11",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.12",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.13",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.14",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_presup_joint_angle_budget"]
+    },
+    {
+      "formula_id": "101.15",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_presup_joint_angle_fixture"]
+    },
+    {
+      "formula_id": "101.16",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.17",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_presup_same_magnitude_cancellation_fixture"]
+    },
+    {
+      "formula_id": "101.18",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.19",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "101.20",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []
