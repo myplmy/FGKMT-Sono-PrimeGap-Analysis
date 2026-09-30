@@ -4808,4 +4808,206 @@ theorem dep_r09_presup_joint_angle_fixture :
     ((1 / 100 : ℝ) ^ 2) * 3 / (30 - 3) = 1 / 90000 := by
   norm_num
 
+/-! ## Theory 102 — common-height centered explicit-formula replay -/
+
+/- Theory 102, formulas 102.1--102.2: the projection acts on the full finite
+   reduced-residue space; no distribution theorem is a premise here. -/
+noncomputable def dep_r09_residueMask
+    {ι : Type*} [Fintype ι] [DecidableEq ι] (selected : Finset ι) (a : ι) : ℝ :=
+  (Fintype.card ι : ℝ) * (if a ∈ selected then 1 else 0) - selected.card
+
+theorem dep_r09_residueMask_sum_zero
+    {ι : Type*} [Fintype ι] [DecidableEq ι] (selected : Finset ι) :
+    (∑ a : ι, dep_r09_residueMask selected a) = 0 := by
+  classical
+  have hIndicator :
+      (∑ a : ι, (if a ∈ selected then (1 : ℝ) else 0)) = selected.card := by
+    rw [← Finset.sum_filter]
+    simp
+  simp only [dep_r09_residueMask, Finset.sum_sub_distrib,
+    ← Finset.mul_sum, Finset.sum_const, Finset.card_univ, nsmul_eq_mul]
+  rw [hIndicator]
+  ring
+
+theorem dep_r09_residueMask_complex_sum_zero
+    {ι : Type*} [Fintype ι] [DecidableEq ι] (selected : Finset ι) :
+    (∑ a : ι, (dep_r09_residueMask selected a : ℂ)) = 0 := by
+  have h := congrArg (fun x : ℝ => (x : ℂ))
+    (dep_r09_residueMask_sum_zero selected)
+  push_cast at h
+  exact h
+
+/- Theory 102, formula 102.8: every residue-constant channel, including the
+   principal-character pole and zero packet, is annihilated exactly. -/
+theorem dep_r09_residueMask_constant_channel
+    {ι : Type*} [Fintype ι] [DecidableEq ι] (selected : Finset ι) (packet : ℂ) :
+    (∑ a : ι, (dep_r09_residueMask selected a : ℂ) * packet) = 0 := by
+  rw [← Finset.sum_mul, dep_r09_residueMask_complex_sum_zero, zero_mul]
+
+/- Theory 102, formula 102.11: exact L1 norm, proved for every finite mask
+   including the empty and full masks. -/
+theorem dep_r09_residueMask_l1
+    {ι : Type*} [Fintype ι] [DecidableEq ι] (selected : Finset ι) :
+    (∑ a : ι, |dep_r09_residueMask selected a|) =
+      2 * (selected.card : ℝ) * ((Fintype.card ι : ℝ) - selected.card) := by
+  classical
+  have hCard : (selected.card : ℝ) ≤ (Fintype.card ι : ℝ) := by
+    exact_mod_cast Finset.card_le_univ selected
+  have hPoint (a : ι) :
+      |dep_r09_residueMask selected a| =
+        (if a ∈ selected then
+          (Fintype.card ι : ℝ) - 2 * selected.card else 0) + selected.card := by
+    by_cases ha : a ∈ selected
+    · simp only [dep_r09_residueMask, ha, ite_true, mul_one,
+        abs_of_nonneg (sub_nonneg.mpr hCard)]
+      ring
+    · simp [dep_r09_residueMask, ha]
+  have hIndicator :
+      (∑ a : ι, (if a ∈ selected then
+        (Fintype.card ι : ℝ) - 2 * selected.card else 0)) =
+      (selected.card : ℝ) * ((Fintype.card ι : ℝ) - 2 * selected.card) := by
+    rw [← Finset.sum_filter]
+    simp [nsmul_eq_mul]
+    ring
+  calc
+    (∑ a : ι, |dep_r09_residueMask selected a|) =
+        ∑ a : ι, ((if a ∈ selected then
+          (Fintype.card ι : ℝ) - 2 * selected.card else 0) + selected.card) := by
+      apply Finset.sum_congr rfl
+      intro a _
+      exact hPoint a
+    _ = (∑ a : ι, (if a ∈ selected then
+        (Fintype.card ι : ℝ) - 2 * selected.card else 0)) +
+        (Fintype.card ι : ℝ) * selected.card := by
+      rw [Finset.sum_add_distrib]
+      simp [nsmul_eq_mul]
+    _ = 2 * (selected.card : ℝ) *
+        ((Fintype.card ι : ℝ) - selected.card) := by
+      rw [hIndicator]
+      ring
+
+/- Theory 102, formula 102.12: uniform complex residue remainders have the
+   exact projection coefficient 2*N*(phi-N), rather than a character L1 cost. -/
+theorem dep_r09_residueMask_remainder_bound
+    {ι : Type*} [Fintype ι] [DecidableEq ι] (selected : Finset ι)
+    (errors : ι → ℂ) {budget : ℝ}
+    (hErrors : ∀ a, ‖errors a‖ ≤ budget) :
+    ‖∑ a : ι, (dep_r09_residueMask selected a : ℂ) * errors a‖ ≤
+      2 * (selected.card : ℝ) * ((Fintype.card ι : ℝ) - selected.card) * budget := by
+  calc
+    ‖∑ a : ι, (dep_r09_residueMask selected a : ℂ) * errors a‖ ≤
+        ∑ a : ι, ‖(dep_r09_residueMask selected a : ℂ) * errors a‖ :=
+      norm_sum_le _ _
+    _ = ∑ a : ι, |dep_r09_residueMask selected a| * ‖errors a‖ := by
+      simp [Complex.norm_real, Real.norm_eq_abs]
+    _ ≤ ∑ a : ι, |dep_r09_residueMask selected a| * budget := by
+      apply Finset.sum_le_sum
+      intro a _
+      exact mul_le_mul_of_nonneg_left (hErrors a) (abs_nonneg _)
+    _ = (∑ a : ι, |dep_r09_residueMask selected a|) * budget := by
+      rw [Finset.sum_mul]
+    _ = 2 * (selected.card : ℝ) *
+        ((Fintype.card ι : ℝ) - selected.card) * budget := by
+      rw [dep_r09_residueMask_l1]
+
+theorem dep_r09_residueMask_interval_remainder_bound
+    {ι : Type*} [Fintype ι] [DecidableEq ι] (selected : Finset ι)
+    (upperErrors lowerErrors : ι → ℂ) {upperBudget lowerBudget : ℝ}
+    (hUpper : ∀ a, ‖upperErrors a‖ ≤ upperBudget)
+    (hLower : ∀ a, ‖lowerErrors a‖ ≤ lowerBudget) :
+    ‖∑ a : ι, (dep_r09_residueMask selected a : ℂ) *
+      (upperErrors a - lowerErrors a)‖ ≤
+      2 * (selected.card : ℝ) * ((Fintype.card ι : ℝ) - selected.card) *
+        (upperBudget + lowerBudget) := by
+  apply dep_r09_residueMask_remainder_bound
+  intro a
+  exact (norm_sub_le (upperErrors a) (lowerErrors a)).trans
+    (add_le_add (hUpper a) (hLower a))
+
+/- Theory 102, formula 102.6: the low-height regularizer is subtracted once
+   at each endpoint with the same character convention and common T. -/
+theorem dep_r09_common_height_regularizer_cancel (upper lower regularizer : ℂ) :
+    (upper - regularizer) - (lower - regularizer) = upper - lower := by
+  ring
+
+/- Theory 102, formula 102.7: finite replay of both endpoint source formulas.
+   The endpoint analytic identities are explicit premises; the common
+   regularizer, finite sum exchange, orientation and sign are all proved. -/
+theorem dep_r09_common_height_weighted_replay
+    {ι κ : Type*} [Fintype ι] [Fintype κ]
+    (weights : ι → ℂ) (inverse : ι → κ → ℂ)
+    (upperPackets lowerPackets regularizers : κ → ℂ)
+    (upperMass lowerMass upperErrors lowerErrors : ι → ℂ)
+    (upperCommon lowerCommon : ℂ)
+    (hUpper : ∀ a, upperMass a = upperCommon -
+      (∑ j : κ, inverse a j * (upperPackets j - regularizers j)) + upperErrors a)
+    (hLower : ∀ a, lowerMass a = lowerCommon -
+      (∑ j : κ, inverse a j * (lowerPackets j - regularizers j)) + lowerErrors a) :
+    (∑ a : ι, weights a * (upperMass a - lowerMass a)) =
+      (∑ a : ι, weights a) * (upperCommon - lowerCommon) -
+      (∑ j : κ, (∑ a : ι, weights a * inverse a j) *
+        (upperPackets j - lowerPackets j)) +
+      (∑ a : ι, weights a * (upperErrors a - lowerErrors a)) := by
+  have hDelta (a : ι) :
+      upperMass a - lowerMass a = (upperCommon - lowerCommon) -
+        (∑ j : κ, inverse a j * (upperPackets j - lowerPackets j)) +
+        (upperErrors a - lowerErrors a) := by
+    have hSum :
+        (∑ j : κ, inverse a j * (upperPackets j - regularizers j)) -
+        (∑ j : κ, inverse a j * (lowerPackets j - regularizers j)) =
+        ∑ j : κ, inverse a j * (upperPackets j - lowerPackets j) := by
+      rw [← Finset.sum_sub_distrib]
+      apply Finset.sum_congr rfl
+      intro j _
+      ring
+    calc
+      upperMass a - lowerMass a = (upperCommon - lowerCommon) -
+          ((∑ j : κ, inverse a j * (upperPackets j - regularizers j)) -
+           (∑ j : κ, inverse a j * (lowerPackets j - regularizers j))) +
+          (upperErrors a - lowerErrors a) := by
+        rw [hUpper a, hLower a]
+        ring
+      _ = _ := by rw [hSum]
+  have hExchange :
+      (∑ a : ι, weights a *
+        (∑ j : κ, inverse a j * (upperPackets j - lowerPackets j))) =
+      ∑ j : κ, (∑ a : ι, weights a * inverse a j) *
+        (upperPackets j - lowerPackets j) := by
+    simp_rw [Finset.mul_sum]
+    rw [Finset.sum_comm]
+    apply Finset.sum_congr rfl
+    intro j _
+    rw [Finset.sum_mul]
+    apply Finset.sum_congr rfl
+    intro a _
+    ring
+  calc
+    (∑ a : ι, weights a * (upperMass a - lowerMass a)) =
+        (∑ a : ι, weights a * (upperCommon - lowerCommon)) -
+        (∑ a : ι, weights a *
+          (∑ j : κ, inverse a j * (upperPackets j - lowerPackets j))) +
+        (∑ a : ι, weights a * (upperErrors a - lowerErrors a)) := by
+      rw [← Finset.sum_sub_distrib, ← Finset.sum_add_distrib]
+      apply Finset.sum_congr rfl
+      intro a _
+      rw [hDelta a]
+      ring
+    _ = _ := by rw [hExchange, ← Finset.sum_mul]
+
+/- Theory 102, formulas 102.17 and 102.20: rational coefficient and height
+   specialization. They do not instantiate actual X,f,U or any cutoff. -/
+theorem dep_r09_common_height_coefficients :
+    (4 : ℝ) * (416 ^ 2 + (3 + 3 / 2) * 416 + 1) = 699716 ∧
+    (2 : ℝ) * (2 + 3 / 2) * (1 + 12 / 21) = 11 ∧
+    (2 : ℝ) * (2 + 5) * (1 + 12 / 21) = 22 := by
+  constructor
+  · norm_num
+  constructor <;> norm_num
+
+/- Theory 102 source-convention witness: the congruence for the prime-power
+   contribution is on p^k, not on the base prime p. -/
+theorem dep_r09_prime_power_congruence_witness :
+    (2 : ℕ) ^ 2 % 5 = 4 ∧ (2 : ℕ) % 5 = 2 := by
+  constructor <;> norm_num
+
 end FGKMTSono

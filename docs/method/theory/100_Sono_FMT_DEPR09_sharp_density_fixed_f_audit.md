@@ -19,13 +19,19 @@
 > density sup 이전 signed target과 joint-angle budget을 고정하고 recent source를 감사했다.
 > Magnitude/support-only source는 alignment witness 때문에 insufficient하다.
 
+> **2026-10-01 height-scope correction:**
+> [Theory 102](102_Sono_FMT_DEPR09_common_height_centered_replay.md)은 common-height centered
+> replay의 corrections가 \(T=f^{3/2}\)에서도 parameterized하게 작아짐을 보였다.
+> 아래 \(>10^6\), \(>4000\) 진단은 inherited \(T=f^5\)에 한정된다.
+> 다른 \(T\)까지 배제하는 해석은 사용하지 않는다.
+
 ## 1. 결론
 
 Theory 71의 averaged primitive family를 fixed endpoint에
 
 \[
  Q=f,\qquad T=f^5,\qquad
- \mathcal D=Q^2T=f^7,qquad L=\log\mathcal D
+ \mathcal D=Q^2T=f^7,\qquad L=\log\mathcal D
  \tag{100.1}
 \]
 
@@ -43,7 +49,7 @@ Near-one window \(0<1-\alpha\le\omega\le1/21\)에서 Theory 71은
 \]
 
 \[
- x=\mathcal D^{1+12\omega}L^2,qquad
+ x=\mathcal D^{1+12\omega}L^2,\qquad
  r=\max\{1-\alpha,L^{-1}\}.
  \tag{100.3}
 \]
@@ -69,7 +75,7 @@ Theory 72의 endpoint normalization에 \(U=f^{d_f}\)를 넣으면
 \[
  \boxed{
  \omega=\frac1{21},\qquad
- \kappa=22,qquad
+ \kappa=22,\qquad
  \lambda=1-\frac{22}{d_f}.}
  \tag{100.6}
 \]
@@ -181,10 +187,11 @@ Theory 71은 primitive conductors \(q_j\le Q\)를 한 번에 센다. Actual char
 \(f\)는 unique primitive conductors \(r\mid f\)에서 induce된다. \(Q=f\)로 잡으면
 actual family는 source family의 subset이다.
 
-Height \(T=f^5\)는 Theory 72의 explicit-formula choice를 보존한다. 이 choice를 최적화할
-가능성은 남지만, 식 (100.14)는 \(T\) 후단의 dimensionless costs를 모두 제거한 뒤에도
-\(\omega^{-6}\)와 current zero-free decay만으로 4000보다 크다. 단순한 height-factor
-polishing만으로 이 architecture를 small-error certificate로 만들 수 있다는 증거는 없다.
+Height \(T=f^5\)는 Theory 72의 explicit-formula choice를 보존한다.
+식 (100.14)는 이 height에서의 zero-free decay를 고정한 진단이다.
+Dimensionless costs를 제거한 것은 \(T\)를 바꾼 것이 아니므로 height 최적화까지
+배제하지 않는다. Theory 102의 \(T=f^{3/2}\)는 correction budget과 detector exponent를
+바꾸므로 새 zero-free denominator와 finite source prerequisites를 별도로 합성해야 한다.
 
 ## 4. Tightened coefficient와 counterfactual의 역할
 
@@ -206,6 +213,7 @@ modulus에서는 \(\log f/L=1/7\) 같은 더 강한 비율로 residue factor를 
 식 (100.11)--(100.14)가 거부하는 것은
 
 - Theory 61--71 detector·weighted-square·area 구조를 유지하고,
+- inherited \(T=f^5\)와 그 zero-free decay를 고정하고,
 - \(0<\omega\le1/21\), \(d_f<416\)을 쓰며,
 - zero contributions를 nonnegative density upper로 먼저 바꾸는 certificate
 

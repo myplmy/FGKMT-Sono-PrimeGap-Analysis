@@ -2790,8 +2790,8 @@ Fixed family specialization은 \(Q=f,T=f^5,\mathcal D=f^7\)이고
 \frac{21^6}{3^9}=\frac{117649}{27}>4000
 \]
 
-이다. 따라서 ordinary PAP loss removal은 불충분하고 detector power 구조 또는 pre-sup
-cancellation이 필요하다.
+이다. 이는 \(T=f^5\)를 고정한 판정이다. 다른 height까지 배제하지 않으며
+Theory 102에서 \(T=f^{3/2}\)의 correction budget을 별도로 닫았다.
 
 Python exact fixture 8건과 verification ledger validation이 PASS했다. Theory 100 뒤
 전수원장은 theory 101개, display 식 1,978개, Lean declaration 381개다. 상태는
@@ -2815,8 +2815,9 @@ C_\chi(Q')\mathfrak Z_\chi(X,U;T).
 \]
 
 Packet magnitudes나 separate \(L^2\) norms만 쓰는 premises에는 exact alignment witness가
-있다. Conditional optimistic energy 아래에도 required angle은
-\(\Gamma_f^2<\delta_{\rm bin}^2N/(\varphi(f)-N)\)이어야 한다.
+있다. Conditional optimistic energy upper를 사용하면
+\(\Gamma_f^2<\delta_{\rm bin}^2N/(\varphi(f)-N)\)는 target을 보증하는 충분조건이다.
+Actual packet energy가 작으면 이 조건은 필요조건이 아니다.
 
 Ramaré 2026 두 preprint, Motohashi, Zheng와 Szabó를 source-first로 대조했지만 current
 prescribed \(f\) joint angle을 numerical하게 주는 drop-in은 식별하지 못했다. 이는 전
@@ -2854,6 +2855,31 @@ Theory 96 뒤 전수원장은 theory 97개, display 식 1,902개, Lean declarati
 <code>SOURCE_THEOREM_UNFORMALIZED=177</code>,
 <code>NOT_YET_FORMALIZED=1139</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. calculator·actual prime 계산은 NOT READY다.
+
+## 2026-10-01 DEP-R09 common-height centered explicit-formula replay
+
+[theory 102](method/theory/102_Sono_FMT_DEPR09_common_height_centered_replay.md)과
+[review 111](review/111_20261001_DEPR09_common_height_replay_타당성검토.md)은
+두 endpoint의 explicit formula를 같은 height·zero convention에서 합성했다.
+저높이 regularizer는 상쇄하고 principal pole·zero packet은 centered projection으로
+없어진다. Possible nonprincipal real zero는 반드시 유지한다.
+
+Exact centered residue norm은 \(2N(\varphi(f)-N)\)이며 complex endpoint error의
+interval upper를 Lean으로 증명했다. \(T=f^{3/2}\)에서도 EF·prime-power correction은
+\((699716K_{\rm EF}+416)(\log f)^2e^{-(\log f)/2}\)로 parameterized하게 작아진다.
+이는 numerical \(K_{\rm EF}\) 또는 signed zero theorem을 공급한 것이 아니다.
+
+Primary source의 prime-power congruence와 nested regularizer 전사 문제를 명시했다.
+Theory 100의 floor는 \(T=f^5\)에 한정되며, 낮은 height의 density transfer를 다시
+감사해야 한다. Theory 101 angle bound는 conditional upper certificate의 충분조건이다.
+
+Python finite tests 9건, Lean direct compile, source pins와 verification validation은 PASS다.
+Inventory는 theory 103개, display 2,018식, declaration 396개다. 상태는
+<code>KERNEL_PASS=108</code>, <code>CONDITIONAL_KERNEL_PASS=134</code>,
+<code>DEFINITION_ONLY=223</code>, <code>PARTIAL_FORMALIZATION=181</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=203</code>, <code>NOT_YET_FORMALIZED=1164</code>,
+<code>PARSE_REVIEW_REQUIRED=5</code>, 금지 proof escape 0건이다.
+PAP-11·DEP-R09·fixed \(2e-17\)·\(X_{\rm cert}\)는 OPEN이고 calculator는 NOT READY다.
 
 ## 2026-09-28 DEP-R09 prescribed-modulus endpoint Linf transfer
 

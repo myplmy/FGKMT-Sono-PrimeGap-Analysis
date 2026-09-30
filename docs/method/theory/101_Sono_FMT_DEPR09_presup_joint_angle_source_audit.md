@@ -15,6 +15,11 @@
   checked source 밖의 모든 correlation theorem을 배제하거나, actual 계산, threshold
   calculator, construction redesign, PAP-11, DEP-R09, numerical \(X_{\rm cert}\)를 닫는 것.
 
+> **2026-10-01 successor:** [Theory 102](102_Sono_FMT_DEPR09_common_height_centered_replay.md)은
+> common-height regularizer와 principal channel을 exact하게 제거하고 residue-centered
+> remainder를 분리했다. 식 (101.14)는 conditional energy upper를 사용하는 **충분조건**이며,
+> 실제 target 달성의 필요조건은 아니다.
+
 ## 1. 결론
 
 Theory 95의 small-prime coefficient와 large-prime packet을
@@ -22,7 +27,7 @@ Theory 95의 small-prime coefficient와 large-prime packet을
 \[
  C_\chi(Q'):=\sum_{q\in Q'}\overline{\chi(q)},
  \qquad
- Z_\chi(X,U):=sum_{X<p\le U}(\log p)\chi(p)
+ Z_\chi(X,U):=\sum_{X<p\le U}(\log p)\chi(p)
  \tag{101.1}
 \]
 
@@ -110,7 +115,7 @@ correlation constant를 논리적으로 얻을 수 없다는 뜻이다.
 Finite character vectors에
 
 \[
- A_C:=\sum_{\chi\ne\chi_0}|C_\chi|^2,qquad
+ A_C:=\sum_{\chi\ne\chi_0}|C_\chi|^2,\qquad
  A_Z:=\sum_{\chi\ne\chi_0}|Z_\chi|^2
  \tag{101.9}
 \]
@@ -149,7 +154,8 @@ Theory 95의 exact coefficient energy는
  \tag{101.13}
 \]
 
-따라서 target \(\delta_{\rm bin}\)을 위해 필요한 angle budget은
+따라서 이 conditional upper certificate로 target \(\delta_{\rm bin}\)을 보증하는
+충분 angle budget은
 
 \[
  \boxed{
@@ -165,8 +171,9 @@ Theory 95의 exact coefficient energy는
  \tag{101.15}
 \]
 
-즉 “약간의 decorrelation”이 아니라 growing \(\varphi(f)/N\) loss를 상쇄하는 매우
-강한 joint-angle theorem이 필요하다. 실제 project budget은 이 예시가 아니며 final
+즉 이 separate-energy certificate에서는 growing \(\varphi(f)/N\) loss를 상쇄하는
+강한 joint-angle input이 필요하다. Actual \(A_Z\)가 \(U^2\)보다 훨씬 작으면 식 (101.14)는
+필요조건이 아니다. 실제 project budget은 이 예시가 아니며 final
 success allocation 전이므로 숫자 threshold로 사용하지 않는다.
 
 ## 3. Phase-blind premise가 target을 결정하지 못하는 finite witness

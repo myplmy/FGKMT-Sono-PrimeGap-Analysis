@@ -5193,6 +5193,106 @@
       "declarations": []
     },
     {
+      "formula_id": "102.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": ["dep_r09_residueMask"]
+    },
+    {
+      "formula_id": "102.2",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_residueMask_sum_zero", "dep_r09_residueMask_complex_sum_zero"]
+    },
+    {
+      "formula_id": "102.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.4",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.6",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_common_height_regularizer_cancel"]
+    },
+    {
+      "formula_id": "102.7",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_common_height_weighted_replay"]
+    },
+    {
+      "formula_id": "102.8",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_residueMask_constant_channel"]
+    },
+    {
+      "formula_id": "102.9",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.10",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.11",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_residueMask_l1"]
+    },
+    {
+      "formula_id": "102.12",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_residueMask_remainder_bound", "dep_r09_residueMask_interval_remainder_bound"]
+    },
+    {
+      "formula_id": "102.13",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.14",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.15",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.16",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.17",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_common_height_coefficients"]
+    },
+    {
+      "formula_id": "102.18",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.19",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "102.20",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_common_height_coefficients"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

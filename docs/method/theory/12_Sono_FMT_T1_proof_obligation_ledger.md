@@ -1626,8 +1626,8 @@ smallness를 인증하지 못한다. 다음 root는 sharp \(12/5\) density numer
 core를 fixed \(f\)로 옮기고 PAP 후단 비용을 제거했다.
 
 Tightened coefficient core는 \(10^6\)보다 크고 \(\omega^{-6}\)-only counterfactual도
-4000보다 크다. 따라서 다음 root는 ordinary constant polishing이 아니라 pre-sup
-cancellation 또는 detector architecture 변경이다.
+4000보다 크다. 이는 inherited \(T=f^5\)에 한정된다. Theory 102에서 다른 height의
+correction budget을 별도로 닫았으므로 lower-height density transfer도 다음 root다.
 
 66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
 않는다. Theory 100 뒤 전수원장은 theory 101개, display 식 1,978개, Lean declaration
@@ -1646,3 +1646,17 @@ zero-packet lemma다.
 66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지
 않는다. Theory 101 뒤 전수원장은 theory 102개, display 식 1,998개, Lean declaration
 385개, 금지 proof escape 0건이다.
+
+## 71. 2026-10-01 DEP-R09 common-height centered replay 후속 상태
+
+[theory 102](102_Sono_FMT_DEPR09_common_height_centered_replay.md)은 공통-height
+regularizer와 principal channel을 제거하고 sharp centered residue coefficient
+\(2N(\varphi(f)-N)\)를 고정했다.
+
+\(T=f^{3/2}\)에서 correction budget은 parameterized explicit이다.
+Numerical \(K_{\rm EF}\), weighted signed zero 또는 complete lower-height density upper는
+OPEN이다. 다음 root는 finite detector prerequisites와 actual zero-free denominator의
+재합성이다. Theory 100 floor를 다른 height에 적용하지 않는다.
+
+66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지 않는다.
+Inventory는 theory 103개, display 2,018식, declaration 396개, 금지 proof escape 0건이다.

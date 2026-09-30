@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-10-01",
+  "gate": "DEP-R09 common-height centered explicit-formula replay",
+  "predecessor": "Sono_FMT_DEPR09_presup_joint_angle_v1.json",
+  "outcome": "CENTERED_COMMON_HEIGHT_CORRECTIONS_PARAMETERIZED_WITH_LOWER_HEIGHT_ROUTE_REOPENED",
+  "source_registry": [
+    {
+      "key": "TZ_PDF",
+      "locator": "tmp/pdfs/dep_r09_20260913/Thorner_Zaman_Refinements_PNTAP.pdf",
+      "sha256": "588ec896e0820c3620175b25da58850efbefc67b71227acac1d5c3fa4f6b3b09",
+      "url": "https://arxiv.org/pdf/2108.10878v2",
+      "source_locations": "printed page 9: preceding psi display and equation (4.2)",
+      "classification": "PRIMARY_RENDERED_SOURCE_WITH_TWO_TRANSCRIPTION_WARNINGS"
+    },
+    {
+      "key": "TZ_NATIVE_TEX",
+      "locator": "tmp/pdfs/depr09_endpoint_tz_20260928/source/Thorner_Zaman_Refinements_PNTAP.tex",
+      "sha256": "23348e767689fd971c5b696d35bd05fe948ffd4b6f24d7ed093bae3ffddab6ba",
+      "url": "https://arxiv.org/src/2108.10878v2",
+      "official_archive_sha256": "bd8d3cdfe1ec1880bfed2b8275e51f8920b6e0e0d8eba609482e8b5430794610",
+      "source_locations": "lines 533--549: common-height endpoint replay before absolute values",
+      "classification": "PRIMARY_NATIVE_SOURCE_WITH_IMPLICIT_EFFECTIVE_EF_MULTIPLIER"
+    },
+    {
+      "key": "THEORY100",
+      "locator": "docs/method/theory/100_Sono_FMT_DEPR09_sharp_density_fixed_f_audit.md",
+      "sha256": "09d5da006af78ec577f812448fea8e776c1bb98af2a0a0982d34b86eb6cb35b6",
+      "source_locations": "equations (100.1)--(100.14), height-scope correction",
+      "classification": "PROJECT_T_F_FIFTH_POWER_DIAGNOSTIC_NOT_UNIVERSAL_HEIGHT_BARRIER"
+    },
+    {
+      "key": "THEORY101",
+      "locator": "docs/method/theory/101_Sono_FMT_DEPR09_presup_joint_angle_source_audit.md",
+      "sha256": "3e5dc3448edb00aa66c6f90418b3a8b00f68122504cdfed7c0072d45ca57ab4e",
+      "source_locations": "equations (101.1)--(101.6), sufficient-angle clarification",
+      "classification": "PROJECT_SIGNED_ZERO_PACKET_INTERFACE_PREDECESSOR"
+    }
+  ],
+  "canonical_conventions": {
+    "residue_space": "units modulo f",
+    "selected_set": "distinct reduced residues Qprime, N=card(Qprime)<phi(f)",
+    "psi_congruence": "p^k congruent a modulo f, not base prime p",
+    "endpoint": "closed n<=x; any half-weight adjustment stays in remainder",
+    "height": "same f and T at X and U",
+    "regularizer": "once per character and independent of endpoint",
+    "zero_packet": "all nontrivial primitive L zeros including possible distinguished real zero",
+    "imprimitive_euler_zeros": "Re(s)=0 terms remain in the explicit-formula remainder convention",
+    "principal": "entire residue-constant channel annihilated before absolute value",
+    "exceptional": "nonprincipal real-zero packet retained; B0 does not imply its absence"
+  },
+  "exact_interfaces": {
+    "mask": "H(a)=phi*indicator_Qprime(a)-N",
+    "zero_sum": "sum_a H(a)=0",
+    "mask_l1": "sum_a abs(H(a))=2*N*(phi-N)",
+    "replay": "Ccal_f=-sum_(chi!=chi0) C_chi*DeltaF_chi+R_EF-R_pp",
+    "regularizer_cancellation": "(F_U-b)-(F_X-b)=F_U-F_X",
+    "uniform_interval_remainder": "abs(sum H*(r_U-r_X))<=2*N*(phi-N)*(e_U+e_X)",
+    "prime_power_normalized": "abs(R_pp)/(N*U)<=phi/N*log(U)/sqrt(U)"
+  },
+  "parameterized_correction": {
+    "numeric_EF_multiplier": null,
+    "EF_multiplier_leaf": "OPEN",
+    "analytic_source_interface": "corrected standard psi explicit formula retained as an explicit premise",
+    "range": "U=f^d, 21<=d<416, log(f)>=1",
+    "height_exponent": "3/2",
+    "EF_normalized_bound": "699716*K_EF*log(f)^2*exp(-log(f)/2)",
+    "prime_power_normalized_bound": "416*log(f)*exp(-19*log(f)/2)",
+    "combined_coefficient": "A=699716*K_EF+416",
+    "symbolic_cutoff": "log(f)>=max(64,4*(log(A)-log(epsilon))) implies combined correction<=epsilon*N*U",
+    "actual_cutoff_evaluated": false,
+    "claim_is_numerical_X_cert_bound": false
+  },
+  "height_scope": {
+    "detector_kappa": "2*(2+s)*(1+12*omega)",
+    "kappa_s_3_over_2_at_omega_1_over_21": "11",
+    "kappa_s_5_at_omega_1_over_21": "22",
+    "theory100_diagnostic_scope": "s=5 only; other heights not excluded",
+    "lower_height_full_density_transfer_closed": false,
+    "remaining_prerequisites": [
+      "finite detector admissibility at Q=f,T=f^(3/2)",
+      "actual zero-free denominator and low-height exceptional handling",
+      "far-alpha contribution",
+      "numerical uniform corrected-endpoint K_EF",
+      "signed weighted zero packet or complete absolute-envelope transfer"
+    ]
+  },
+  "exact_finite_diagnostic": {
+    "prime_power_congruence_witness": "2^2 mod 5=4 while 2 mod 5=2",
+    "mask_zero_sum": true,
+    "mask_l1_is_exact": true,
+    "common_regularizer_cancels": true,
+    "complex_principal_channel_annihilates": true,
+    "mismatched_regularizer_rejected": true,
+    "uniform_remainder_coefficient_sharp_in_premise_class": true,
+    "truncation_coefficient": "699716",
+    "kappa_s_3_over_2": "11",
+    "kappa_s_5": "22",
+    "numeric_EF_multiplier_recovered": false,
+    "signed_zero_gate_closed": false,
+    "lower_height_density_transfer_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_or_zero_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The corrected endpoint analytic formula is fully formalized in Lean.",
+    "The source prints a numerical K_EF.",
+    "B0 eliminates every distinguished nonprincipal real zero.",
+    "The signed zero packet is small.",
+    "The T=f^5 certificate floor rules out T=f^(3/2).",
+    "The parameterized correction cutoff is a numerical X_cert bound.",
+    "The finite modulo-five fixture is actual prime or zero evidence."
+  ],
+  "next_gate": "Replay the finite density prerequisites and actual zero-free denominator at the lower common height before choosing whether a signed theorem remains necessary."
+}

@@ -449,6 +449,22 @@ Theory 101 뒤 inventory는 102개 theory 문서, 1,998식, Lean declaration 385
 <code>KERNEL_PASS=103</code>, <code>CONDITIONAL_KERNEL_PASS=133</code>,
 <code>NOT_YET_FORMALIZED=1157</code>, 금지 proof escape 0건이다.
 
+2026-10-01 common-height centered replay successor는 같은 \(f,T\)의 low-zero
+regularizer와 principal constant channel을 exact하게 제거하고, complex interval
+remainder의 sharp coefficient \(2N(\varphi(f)-N)\)를 고정했다.
+\(T=f^{3/2}\)에서 correction은
+\((699716K_{\rm EF}+416)(\log f)^2e^{-(\log f)/2}\)로 parameterized하게 작아진다.
+그러나 \(K_{\rm EF}\)와 signed zero input은 미수치다. Theory 100의
+\(>10^6\), \(>4000\) diagnostic은 \(T=f^5\)에 한정되고 다른 height를 배제하지 않는다.
+Theory 101 angle budget도 conditional energy certificate의 충분조건이지 actual target의
+필요조건이 아니다. 최신 정본은 theory 102·review 111이며 다음 gate는 낮은 height에서의
+finite density prerequisites·actual zero-free denominator 재합성이다.
+PAP-11·DEP-R09·fixed <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고
+calculator·actual 계산은 NOT READY다. Theory 102 뒤 inventory는 103개 theory 문서,
+2,018식, Lean declaration 396개다. <code>KERNEL_PASS=108</code>,
+<code>CONDITIONAL_KERNEL_PASS=134</code>, <code>NOT_YET_FORMALIZED=1164</code>,
+금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

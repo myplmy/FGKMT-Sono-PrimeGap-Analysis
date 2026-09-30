@@ -91,6 +91,7 @@
     "optimistic_prime_error_energy": "sum abs(Z_chi)^2<=U^2",
     "normalized_terminal": "abs(Ccal_f)/(N*U)<=Gamma*sqrt((phi(f)-N)/N)",
     "required_squared_angle": "Gamma^2<delta_bin^2*N/(phi(f)-N)",
+    "angle_requirement_scope": "Sufficient for the conditional separate-energy upper certificate, not necessary for the actual target when A_Z is smaller.",
     "fixture": "delta_bin=1/100,N=3,phi=30 gives Gamma^2<1/90000"
   },
   "source_screen": {
