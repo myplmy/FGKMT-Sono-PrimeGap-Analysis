@@ -100,6 +100,12 @@
     "d333_is_optimal_or_searched_threshold": false,
     "actual_native_d333_adopted": false
   },
+  "theory104_successor_scope": {
+    "original_D160_native_range": "314<d_f<323<333",
+    "baseline_d333_inapplicable": true,
+    "conditional_d333_scalar_theorem_still_valid": true,
+    "actual_parameterized_budget_locator": "Sono_FMT_DEPR09_native_primorial_baseline_v1.json"
+  },
   "actual_project_gates": {
     "fixed_modulus_D_fT_source_verified": true,
     "height_layer_cake_interface_derived": true,

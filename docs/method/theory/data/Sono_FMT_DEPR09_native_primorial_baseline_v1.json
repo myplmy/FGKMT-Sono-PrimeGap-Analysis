@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-10-01",
+  "gate": "DEP-R09 actual primorial split and original D=160 native regime",
+  "predecessor": "Sono_FMT_DEPR09_height_weighted_density_v1.json",
+  "outcome": "ACTUAL_NATIVE_314_TO_323_BASELINE_KERNEL_LT_ONE_OVER_36_TOTAL_THREE_PERCENT_PARAMETERIZED_EF",
+  "source_registry": [
+    {
+      "key": "FMT",
+      "locator": "tmp/FMT_Chains_of_large_gaps_between_primes.pdf",
+      "sha256": "396e54a9699ad80e749b1607c0b5c26982329625615d8769de1e23328f651828",
+      "url": "https://arxiv.org/abs/1511.04468",
+      "printed_locations": "pp.5--6 B0 and modulus; p.8 (4.1)--(4.4); p.9 final extension; p.13 good subset",
+      "reading_mode": "NATIVE_TEXT_AND_RENDERED_PAGES_8_9",
+      "classification": "PRIMARY_FIXED_RAW_COORDINATE_DEFINITIONS"
+    },
+    {
+      "key": "ROSSER_SCHOENFELD",
+      "locator": "tmp/pdfs/h1c1b1a1/Rosser_Schoenfeld1962_Approximate_formulas.pdf",
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
+      "url": "https://doi.org/10.1215/ijm/1255631807",
+      "printed_locations": "p.70 Theorem 4 (3.14)--(3.16); p.71 Theorem 9 (3.32)",
+      "reading_mode": "TEXT_LOCATOR_AND_RENDERED_SCAN",
+      "classification": "PRIMARY_EXPLICIT_THETA_BOUNDS_WITH_CORRECT_ENDPOINTS"
+    },
+    {
+      "key": "THEORY47",
+      "locator": "docs/method/theory/47_Sono_FMT_H1bNORM_common_weight_probability_normalization.md",
+      "sha256": "3c5566ca5e84109fbb402e7cb68afdccfcc8838a1cd014c3e11223bb6d3bbd5f",
+      "printed_locations": "raw Pprime and fixed dyadic prime-count input",
+      "classification": "PROJECT_FIXED_X_NORMALIZATION_INPUT"
+    },
+    {
+      "key": "THEORY49",
+      "locator": "docs/method/theory/49_Sono_FMT_H1bCOR1_finite_correlation_conditioning.md",
+      "sha256": "ed4c94fb6cef14bd49b2e1e0331a01060ca54870bf0b25a0a40fd2ee9169d158",
+      "printed_locations": "formulas (49.1)--(49.4), raw Pprime distinct from P(A)",
+      "classification": "PROJECT_ACTUAL_S_B0_AND_RAW_INNER_INPUT"
+    },
+    {
+      "key": "THEORY89",
+      "locator": "docs/method/theory/89_Sono_FMT_DEPR09_reweighted_local_character_transform_audit.md",
+      "sha256": "edde7e7df04372a30e3b01cfe6627af910b4658dbfb38ffad5345961e990b692",
+      "printed_locations": "formula (89.5), fixed-coordinate blind family",
+      "classification": "PROJECT_FIXED_NATIVE_MODULUS_CONTRACT"
+    },
+    {
+      "key": "THEORY103",
+      "locator": "docs/method/theory/103_Sono_FMT_DEPR09_fixed_modulus_height_weighted_density.md",
+      "sha256": "a0f4e15b91bfebdcb69a5eb0e3700f811c3def43ae4979dfb5110517195334c6",
+      "printed_locations": "formulas (103.18)--(103.23), source replay plus Theory 104 scope note",
+      "classification": "PROJECT_HEIGHT_WEIGHTED_KERNEL_AND_PARAMETERIZED_EF_INPUT"
+    }
+  ],
+  "actual_coordinate_contract": {
+    "outer": "S={prime s:(log X)^20<s<=z,s!=B0}",
+    "inner": "fixed raw Pprime={prime p:X/2<p<=X,p!=B0}",
+    "not_inner": "outcome-good subset P(A) is not the raw coordinate index set",
+    "z": "X^(log(log(log X))/(4*log(log X))), not X*log(log(log X))/(4*log(log X))",
+    "q": "P(X)/B0 with B0=1 or prime<=X",
+    "h": "Q_S*product_(p in raw Pprime)p",
+    "f": "product_(p<=X/2,p not in S,p!=B0)p",
+    "exact_partition": "q=h*f and f divides P(X/2)",
+    "exceptional_low": "B_low=B0 if B0 is in the lower prime set, otherwise 1",
+    "exact_low_identity": "f*Q_S*B_low=P(X/2)",
+    "original_outer_D": "160",
+    "outer_D_changed": false
+  },
+  "rational_terminals": {
+    "native_lower": "3992000/12703",
+    "native_upper": "106720/331",
+    "native_integer_enclosure": "314<d_f<323<333",
+    "nonvanishing_rational_budget": "19416040381297076783727004576749413117050000/706965049015104706497203195837614914543357369",
+    "nonvanishing_upper": "1/36",
+    "full_primorial_real_decay_lower": "39920/6003",
+    "support_log_cap": "128909/256000",
+    "vanishing_additive_coefficient": "54927/10",
+    "density_common_log_safe_cap": "30000"
+  },
+  "source_log_inputs": {
+    "a": "log X>=1000 (a weak consequence of the original child)",
+    "actual_child_preserved": "X>=2*exp(10^1000)",
+    "power_cutoff": "rho<=1/4 and a>=16 imply z<=X/512",
+    "q_lower": "log q>(499/500)*X from RS (3.16), log B0<=a, a^2<=X",
+    "P_upper": "log P(X)<(2001/2000)*X from RS (3.15)",
+    "f_upper": "log f<=(theta(X/2))<(12703/25000)*X",
+    "f_lower": "log f>(993/2000)*X from RS (3.14), outer product and B_low costs",
+    "density_common_log_gate": "L_star<30000<log(f), source-level component proof",
+    "theta_source_fully_lean_formalized": false
+  },
+  "parameterized_vanishing": {
+    "numeric_K_EF": null,
+    "coefficient": "B(K)=699716*K+54927/10",
+    "shape": "V_160<=B(K)*ell^2*exp(-ell/2)<=B(K)*exp(-ell/4)",
+    "symbolic_sufficient_gate": "ell>=max(30000,64,4*log(450*B(K)))",
+    "vanishing_upper": "1/450",
+    "conditional_binary_relative_upper": "3/100",
+    "actual_numeric_cutoff_evaluated": false,
+    "actual_X_f_U_generated": false
+  },
+  "actual_project_gates": {
+    "fixed_raw_prime_source_definitions_verified": true,
+    "exact_primorial_partition_proved": true,
+    "source_based_D160_native_interval_proved": true,
+    "d333_baseline_branch_excluded": true,
+    "baseline_real_exponential_kernel_lean_proved": true,
+    "polynomial_absorption_and_log_budget_lean_proved": true,
+    "three_percent_binary_budget_parameterized": true,
+    "density_common_gate_source_composition_closed": true,
+    "numeric_EF_multiplier_recovered": false,
+    "same_law_all_character_correlation_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_or_zero_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false,
+    "outer_D_changed": false
+  },
+  "source_cautions": [
+    "FMT p.9 literal final-set display omits exceptional-prime exclusion; Theorem 2 and the actual modulus P(X)/B0 fix the contract.",
+    "Theory 88's linear-looking z expression is not the source power definition; support cap was reproved from the actual power.",
+    "d_f>=333 was sufficient for an older conditional one-percent kernel, but is excluded in this original D=160 baseline.",
+    "The parameterized three-percent bound is for the native blind binary component, not full-modulus pointwise PAP or all-character same-law correlation."
+  ],
+  "not_claimed": [
+    "A numerical K_EF or numerical X_cert starting point was obtained.",
+    "The displayed budget is an observed prime-error result.",
+    "The baseline outer D was changed to fit the d333 sufficient condition.",
+    "Theta source theorems or all counting integrals are fully formalized in Lean.",
+    "Nonblind characters, DEP-R10--R12 or final-variable composition are closed.",
+    "A new academic theorem absent from all prior literature was established."
+  ],
+  "next_primary_candidate": {
+    "locator": "tmp/pdfs/depr09_ef_lw_20261001/Liu_Wang_2002_explicit_psi.pdf",
+    "sha256": "50c6b5d628a07cfb216078571a846ef658aa7db29515d21bb8dbb4f20dc5055d",
+    "url": "https://www.impan.pl/shop/publication/transaction/download/product/83843",
+    "doi": "10.4064/aa102-3-5",
+    "pages": 33,
+    "downloaded_in_this_batch": true,
+    "Theorem8_range": "N>=exp(2000),t in [0.001N,N],q<=log(N)^6,T=log(N)^15",
+    "Theorem8_multiplier_adopted": false,
+    "Theorem4_first_window_adopted": false,
+    "printed_warning": "p.278 prose says 4*91=364, while p.279 Table 5 says 182; independently audit Eq.(3.22)",
+    "proof_reference_CW2": "J.R.Chen and T.Z.Wang, On distribution of primes in an arithmetical progression, Sci.China Ser.A 33 (1990),397--408"
+  },
+  "next_gate": "Independently audit Liu--Wang Theorem 4/Eq.(3.22) for a first-window full-modulus density insertion, then audit Theorem 8 proof at the actual height/modulus range; no printed multiplier adoption before scope verification."
+}

@@ -5418,6 +5418,121 @@
       "declarations": ["dep_r09_height_weighted_final_budget"]
     },
     {
+      "formula_id": "104.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "104.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "104.3",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_native_factor_partition"]
+    },
+    {
+      "formula_id": "104.4",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_native_fixed_product_divides_lower"]
+    },
+    {
+      "formula_id": "104.5",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_native_lower_exception_identity"]
+    },
+    {
+      "formula_id": "104.6",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_native_rho_quarter"]
+    },
+    {
+      "formula_id": "104.7",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_native_power_cutoff_cap"]
+    },
+    {
+      "formula_id": "104.8",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_native_exp_dominates_square", "dep_r09_native_square_and_log_ratio"]
+    },
+    {
+      "formula_id": "104.9",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_native_q_log_lower"]
+    },
+    {
+      "formula_id": "104.10",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_native_support_log_cap", "dep_r09_native_D160_rational_terminals"]
+    },
+    {
+      "formula_id": "104.11",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_native_f_log_lower_strong"]
+    },
+    {
+      "formula_id": "104.12",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_native_D160_lower", "dep_r09_native_D160_rational_terminals"]
+    },
+    {
+      "formula_id": "104.13",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_native_D160_upper", "dep_r09_native_D160_rational_terminals"]
+    },
+    {
+      "formula_id": "104.14",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_native_density_log_floor"]
+    },
+    {
+      "formula_id": "104.15",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_native_full_primorial_real_decay", "dep_r09_native_baseline_kernel_rationals"]
+    },
+    {
+      "formula_id": "104.16",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_native_baseline_kernel_rationals"]
+    },
+    {
+      "formula_id": "104.17",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_native_baseline_kernel_rationals"]
+    },
+    {
+      "formula_id": "104.18",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_native_baseline_nonvanishing_budget"]
+    },
+    {
+      "formula_id": "104.19",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "104.20",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_native_vanishing_shape_bound"]
+    },
+    {
+      "formula_id": "104.21",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_native_polynomial_exp_absorption"]
+    },
+    {
+      "formula_id": "104.22",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_native_vanishing_shape_bound", "dep_r09_native_vanishing_log_budget"]
+    },
+    {
+      "formula_id": "104.23",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_native_baseline_final_budget"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

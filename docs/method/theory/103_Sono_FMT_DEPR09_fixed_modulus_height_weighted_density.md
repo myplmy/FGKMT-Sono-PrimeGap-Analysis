@@ -14,6 +14,12 @@
   1로 두거나, actual prime/zero 계산·threshold calculator·range search를 실행하거나,
   PAP-11·DEP-R09·\(X_{\rm cert}\)를 닫는 것.
 
+> **2026-10-01 successor:** [Theory 104](104_Sono_FMT_DEPR09_native_primorial_D160_regime.md)은
+> fixed raw-coordinate primorial split에서 original \(D=160\)의 actual
+> \(314<d_f<323<333\)을 증명했다. 본 문서의 d333 conditional theorem은 그대로 유효하지만
+> 이 baseline에는 적용되지 않는다. Actual full-primorial real gap을 보존한 별도
+> nonvanishing budget \(<1/36\), parameterized total \(3\%\) budget을 정본으로 사용한다.
+
 ## 1. Source가 이미 구분한 fixed modulus와 modulus average
 
 Jutila printed p.46은 모든 characters modulo \(q\)의 \(N(\alpha,T,q)\)와 primitive

@@ -807,3 +807,14 @@ Inventory는 theory 104개·display 2,043식·declaration 410개,
 <code>DEFINITION_ONLY=225</code>·<code>PARTIAL_FORMALIZATION=185</code>,
 <code>SOURCE_THEOREM_UNFORMALIZED=208</code>·<code>NOT_YET_FORMALIZED=1171</code>,
 <code>PARSE_REVIEW_REQUIRED=5</code>·proof escape 0이다.
+
+2026-10-01 Theory 104 batch는 full finite product partition·B0 cases, corrected
+power cutoff·source-log algebra·actual D=160 native interval을 추가했다.
+Real exponential \(<1/36\), polynomial absorption·parameterized vanishing budget도 검증했다.
+Theta source와 product-log identification은 source/conditional/partial tiers로 유지한다.
+Numerical K_EF 또는 global correlation을 local axiom으로 채우지 않았다.
+
+DEP-R09 462 tests·full lake build 8765 jobs·verification ledger는 PASS다.
+Inventory는 105 theory 문서·2066식·432 declarations,
+KERNEL 121·CONDITIONAL 141·DEFINITION 227·PARTIAL 192·SOURCE 209·NOT_YET 1171·PARSE 5,
+proof escape 0이다. Goal X_cert는 아직 OPEN이다.

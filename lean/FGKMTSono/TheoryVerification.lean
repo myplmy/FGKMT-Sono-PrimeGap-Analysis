@@ -5202,4 +5202,364 @@ theorem dep_r09_height_weighted_final_budget
     normalizedError < 1 / 50 := by
   linarith
 
+/-! ## Theory 104 — actual primorial split and original D=160 regime -/
+
+/- Theory 104, formulas 104.3--104.4: all raw inner coordinates are
+   retained, even when an outcome makes an individual coordinate empty. -/
+theorem dep_r09_native_factor_partition
+    {all lower outer : Finset ℕ} {B : ℕ}
+    (hLower : lower ⊆ all) (hOuter : outer ⊆ lower.erase B) :
+    (all.erase B).prod (fun p => p) =
+      outer.prod (fun p => p) * ((all \ lower).erase B).prod (fun p => p) *
+        (lower.erase B \ outer).prod (fun p => p) := by
+  classical
+  have hSplit : all.erase B = lower.erase B ∪ (all \ lower).erase B := by
+    ext p
+    simp only [Finset.mem_erase, Finset.mem_union, Finset.mem_sdiff]
+    constructor
+    · rintro ⟨hne, hAll⟩
+      by_cases hLow : p ∈ lower
+      · exact Or.inl ⟨hne, hLow⟩
+      · exact Or.inr ⟨hne, hAll, hLow⟩
+    · rintro (⟨hne, hLow⟩ | ⟨hne, hAll, _⟩)
+      · exact ⟨hne, hLower hLow⟩
+      · exact ⟨hne, hAll⟩
+  have hDisjoint : Disjoint (lower.erase B) ((all \ lower).erase B) := by
+    apply Finset.disjoint_left.2
+    intro p hLow hInner
+    exact (Finset.mem_sdiff.mp (Finset.mem_erase.mp hInner).2).2
+      (Finset.mem_erase.mp hLow).2
+  have hLowProduct :
+      (lower.erase B).prod (fun p => p) =
+        (lower.erase B \ outer).prod (fun p => p) * outer.prod (fun p => p) :=
+    (Finset.prod_sdiff (f := fun p : ℕ => p) hOuter).symm
+  rw [hSplit, Finset.prod_union hDisjoint, hLowProduct]
+  ring
+
+theorem dep_r09_native_fixed_product_divides_lower
+    (lower outer : Finset ℕ) (B : ℕ) :
+    (lower.erase B \ outer).prod (fun p => p) ∣ lower.prod (fun p => p) := by
+  apply Finset.prod_dvd_prod_of_subset
+  intro p hp
+  exact (Finset.mem_erase.mp (Finset.mem_sdiff.mp hp).1).2
+
+/- Theory 104, formula 104.5: one exact identity covers B0=1, lower B0,
+   inner B0, and the closed X/2 boundary, without erasing B0 twice. -/
+theorem dep_r09_native_lower_exception_identity
+    {lower outer : Finset ℕ} {B : ℕ} (hOuter : outer ⊆ lower.erase B) :
+    (lower.erase B \ outer).prod (fun p => p) * outer.prod (fun p => p) *
+      (if B ∈ lower then B else 1) = lower.prod (fun p => p) := by
+  classical
+  rw [Finset.prod_sdiff (f := fun p : ℕ => p) hOuter]
+  by_cases hB : B ∈ lower
+  · simp only [hB, ite_true]
+    exact Finset.prod_erase_mul lower (fun p : ℕ => p) hB
+  · simp [hB]
+
+/- Theory 104, formulas 104.6--104.7: the actual power cutoff is
+   exp(rho*a), not a linear definition of z. -/
+theorem dep_r09_native_power_cutoff_cap
+    {a rho : ℝ} (hA : 16 ≤ a) (hRho : rho ≤ 1 / 4) :
+    Real.exp (rho * a) ≤ Real.exp a / 512 := by
+  have hANonneg : 0 ≤ a := by linarith
+  have hFirst : Real.exp (rho * a) ≤ Real.exp (a / 4) := by
+    apply Real.exp_le_exp.mpr
+    nlinarith
+  have hExp12 : (512 : ℝ) ≤ Real.exp 12 := by
+    have h := Real.pow_div_factorial_le_exp (x := (12 : ℝ)) (by norm_num) 5
+    norm_num [Nat.factorial] at h
+    linarith
+  have hSecond : (512 : ℝ) ≤ Real.exp (3 * a / 4) :=
+    hExp12.trans (Real.exp_le_exp.mpr (by linarith))
+  have hProduct : 512 * Real.exp (a / 4) ≤ Real.exp a := by
+    calc
+      512 * Real.exp (a / 4) ≤
+          Real.exp (3 * a / 4) * Real.exp (a / 4) :=
+        mul_le_mul_of_nonneg_right hSecond (Real.exp_pos _).le
+      _ = Real.exp a := by rw [← Real.exp_add]; congr 1; ring
+  exact hFirst.trans ((le_div_iff₀ (by norm_num : (0 : ℝ) < 512)).2
+    (by simpa only [mul_comm] using hProduct))
+
+theorem dep_r09_native_rho_quarter
+    {b : ℝ} (hB : 0 < b) :
+    Real.log b / (4 * b) ≤ 1 / 4 := by
+  have hLog := Real.log_le_sub_one_of_pos hB
+  apply (div_le_iff₀ (by positivity : 0 < 4 * b)).2
+  linarith
+
+/- Theory 104, formula 104.8: a>=1000 suffices for log(B0)<=a<=X/a.
+   No actual X value is generated. -/
+theorem dep_r09_native_exp_dominates_square
+    {a : ℝ} (hA : 6 ≤ a) : a ^ 2 ≤ Real.exp a := by
+  have hNonneg : 0 ≤ a := by linarith
+  have h := Real.pow_div_factorial_le_exp (x := a) hNonneg 3
+  norm_num [Nat.factorial] at h
+  have hProduct : 6 * a ^ 2 ≤ a ^ 3 := by
+    nlinarith [mul_nonneg (sq_nonneg a) (show 0 ≤ a - 6 by linarith)]
+  linarith
+
+theorem dep_r09_native_q_log_lower
+    {X a theta logB logQ : ℝ}
+    (hX : 0 < X) (hA : 1000 ≤ a) (hSquare : a ^ 2 ≤ X)
+    (hTheta : X * (1 - 1 / a) < theta)
+    (hB : logB ≤ a) (hQ : logQ = theta - logB) :
+    (499 / 500) * X < logQ := by
+  have hAPos : 0 < a := by linarith
+  have hInverse : (1 : ℝ) / a ≤ 1 / 1000 := by
+    apply (div_le_iff₀ hAPos).2
+    linarith
+  have hAX : a ≤ X / 1000 := by
+    have hMul : 1000 * a ≤ a ^ 2 := by
+      nlinarith [mul_nonneg (show 0 ≤ a - 1000 by linarith) hAPos.le]
+    linarith
+  have hScale := mul_le_mul_of_nonneg_left hInverse hX.le
+  have hTail : (499 / 500 : ℝ) * X ≤ X * (1 - 1 / a) - a := by
+    nlinarith
+  calc
+    (499 / 500 : ℝ) * X ≤ X * (1 - 1 / a) - a := hTail
+    _ < theta - logB := by linarith
+    _ = logQ := hQ.symm
+
+/- Theory 104, formula 104.10: source theta and inner-count inputs are
+   explicit premises; the corrected power geometry closes the support cap. -/
+theorem dep_r09_native_support_log_cap
+    {X a logOuter logInner logH : ℝ}
+    (hX : 0 ≤ X) (hA : 1000 ≤ a)
+    (hOuter : logOuter ≤ (21 / 10240) * X)
+    (hInner : logInner ≤ X / 2 * (1 + 3 / a))
+    (hH : logH = logOuter + logInner) :
+    logH ≤ (128909 / 256000) * X := by
+  have hAPos : 0 < a := by linarith
+  have hFraction : (3 : ℝ) / a ≤ 3 / 1000 := by
+    apply (div_le_iff₀ hAPos).2
+    linarith
+  have hScale := mul_le_mul_of_nonneg_left hFraction (by linarith : 0 ≤ X / 2)
+  rw [hH]
+  nlinarith
+
+/- Theory 104, formulas 104.12--104.13: the original D=160 interval is
+   proved from source log bounds, not from a numerical f evaluation. -/
+theorem dep_r09_native_D160_lower
+    {X logQ logF : ℝ} (_hX : 0 < X) (hF : 0 < logF)
+    (hQ : (499 / 500) * X < logQ)
+    (hFUpper : logF ≤ (12703 / 25000) * X) :
+    (3992000 / 12703 : ℝ) < 160 * logQ / logF := by
+  apply (lt_div_iff₀ hF).2
+  have hScaled := mul_le_mul_of_nonneg_left hFUpper
+    (by norm_num : (0 : ℝ) ≤ 3992000 / 12703)
+  nlinarith
+
+theorem dep_r09_native_D160_upper
+    {X logQ logF : ℝ} (_hX : 0 < X) (hF : 0 < logF)
+    (hQ : logQ ≤ (2001 / 2000) * X)
+    (hFLower : (993 / 2000) * X < logF) :
+    160 * logQ / logF < (106720 / 331 : ℝ) := by
+  apply (div_lt_iff₀ hF).2
+  nlinarith
+
+theorem dep_r09_native_D160_rational_terminals :
+    (160 : ℝ) * (499 / 500) / (12703 / 25000) = 3992000 / 12703 ∧
+    (3992000 / 12703 : ℝ) > 314 ∧
+    (160 : ℝ) * (2001 / 2000) / (993 / 2000) = 106720 / 331 ∧
+    (106720 / 331 : ℝ) < 323 ∧
+    (106720 / 331 : ℝ) < 333 ∧
+    (1003 / 2000 : ℝ) + 21 / 10240 = 128909 / 256000 ∧
+    (128909 / 256000 : ℝ) < 51 / 100 := by
+  norm_num
+
+/- Theory 104, formula 104.11: actual half-primorial log lower bound.
+   Theta and product-log identities are source premises, not local axioms. -/
+theorem dep_r09_native_f_log_lower_strong
+    {X aHalf thetaHalf logOuter logLowB logF : ℝ}
+    (hX : 0 < X) (hHalf : 999 ≤ aHalf)
+    (hTheta : X / 2 * (1 - 1 / (2 * aHalf)) < thetaHalf)
+    (hOuter : logOuter ≤ (21 / 10240) * X)
+    (hB : logLowB ≤ X / 1000)
+    (hF : logF = thetaHalf - logOuter - logLowB) :
+    (993 / 2000) * X < logF := by
+  have hHalfPos : 0 < aHalf := by linarith
+  have hInverse : (1 : ℝ) / (2 * aHalf) ≤ 1 / 1998 := by
+    apply (div_le_iff₀ (by positivity : 0 < 2 * aHalf)).2
+    linarith
+  have hScale := mul_le_mul_of_nonneg_left hInverse
+    (by linarith : 0 ≤ X / 2)
+  rw [hF]
+  nlinarith
+
+theorem dep_r09_native_theta_log_upper
+    {X a theta : ℝ} (hX : 0 ≤ X) (hA : 1000 ≤ a)
+    (hTheta : theta < X * (1 + 1 / (2 * a))) :
+    theta < (2001 / 2000) * X := by
+  have hAPos : 0 < a := by linarith
+  have hInverse : (1 : ℝ) / (2 * a) ≤ 1 / 2000 := by
+    apply (div_le_iff₀ (by positivity : 0 < 2 * a)).2
+    linarith
+  have hScale := mul_le_mul_of_nonneg_left hInverse hX
+  nlinarith
+
+/- Theory 104, formula 104.15: full-primorial t=0 width multiplied by
+   log(U)=160*log(q), without a second lossy native-f log ratio. -/
+theorem dep_r09_native_full_primorial_real_decay
+    {X logQ logP : ℝ} (_hX : 0 < X) (hP : 0 < logP)
+    (hQ : (499 / 500) * X < logQ)
+    (hPUpper : logP ≤ (2001 / 2000) * X) :
+    (39920 / 6003 : ℝ) < 160 * logQ / (24 * logP) := by
+  apply (lt_div_iff₀ (by positivity : 0 < 24 * logP)).2
+  have hScaled := mul_le_mul_of_nonneg_left hPUpper
+    (by norm_num : (0 : ℝ) ≤ 24 * (39920 / 6003))
+  nlinarith
+
+theorem dep_r09_native_baseline_kernel_rationals :
+    (129 / 1250 : ℝ) < 1000000000 / 9645908801 ∧
+    (129 / 1250 : ℝ) * (314 - 23 / 7) > 32 ∧
+    (160 : ℝ) * (499 / 500) / (24 * (2001 / 2000)) = 39920 / 6003 ∧
+    (39920 / 6003 : ℝ) > 6 ∧
+    (63 / 2 : ℝ) * 50000000000 * (10 / 27) ^ 32 +
+        (21 / 20) * (10 / 27) ^ 6 < 1 / 36 := by
+  norm_num
+
+/- Theory 104, formula 104.18: this is the baseline numeric exponential
+   kernel, not a measured prime error or a full same-law correlation. -/
+theorem dep_r09_native_baseline_nonvanishing_budget
+    {d realDecay : ℝ} (hD : 314 ≤ d) (hDecay : 6 ≤ realDecay) :
+    (63 / 2) * dep_r09_allHeightDensityCoefficient *
+      Real.exp (-(1000000000 / 9645908801) * (d - 23 / 7)) +
+      (21 / 20) * Real.exp (-realDecay) < 1 / 36 := by
+  have hExpOne : (27 / 10 : ℝ) < Real.exp 1 := by
+    have hSeries := Real.sum_le_exp_of_nonneg (x := (1 : ℝ)) (by norm_num) 6
+    norm_num [Finset.sum_range_succ, Nat.factorial] at hSeries
+    linarith
+  have hInverse : Real.exp (-1 : ℝ) < 10 / 27 := by
+    rw [Real.exp_neg, inv_eq_one_div]
+    apply (div_lt_iff₀ (Real.exp_pos (1 : ℝ))).2
+    linarith
+  have hPowers (n : ℕ) : Real.exp (-(n : ℝ)) ≤ (10 / 27 : ℝ) ^ n := by
+    have h := pow_le_pow_left₀ (Real.exp_pos (-1 : ℝ)).le hInverse.le n
+    simpa only [← Real.exp_nat_mul, mul_neg_one] using h
+  have hGap : 0 ≤ d - (23 / 7 : ℝ) := by linarith
+  have hCm : (129 / 1250 : ℝ) ≤ 1000000000 / 9645908801 := by norm_num
+  have hExp32 : (32 : ℝ) ≤ (1000000000 / 9645908801) * (d - 23 / 7) := by
+    have hLower : (32 : ℝ) ≤ (129 / 1250) * (d - 23 / 7) := by linarith
+    exact hLower.trans (mul_le_mul_of_nonneg_right hCm hGap)
+  have hNear : Real.exp (-(1000000000 / 9645908801) * (d - 23 / 7)) ≤
+      (10 / 27 : ℝ) ^ 32 :=
+    (Real.exp_le_exp.mpr (by linarith : -(1000000000 / 9645908801) *
+      (d - 23 / 7) ≤ -(32 : ℝ))).trans (hPowers 32)
+  have hReal : Real.exp (-realDecay) ≤ (10 / 27 : ℝ) ^ 6 :=
+    (Real.exp_le_exp.mpr (by linarith : -realDecay ≤ -(6 : ℝ))).trans (hPowers 6)
+  have hCoefficient := dep_r09_all_height_density_coefficient.2.le
+  have hNearProduct :
+      (63 / 2) * dep_r09_allHeightDensityCoefficient *
+        Real.exp (-(1000000000 / 9645908801) * (d - 23 / 7)) ≤
+      (63 / 2 : ℝ) * 50000000000 * (10 / 27) ^ 32 := by
+    have h := mul_le_mul hCoefficient hNear (Real.exp_pos _).le (by norm_num)
+    have hScaled := mul_le_mul_of_nonneg_left h (by norm_num : (0 : ℝ) ≤ 63 / 2)
+    simpa only [mul_assoc] using hScaled
+  have hRealProduct : (21 / 20) * Real.exp (-realDecay) ≤
+      (21 / 20 : ℝ) * (10 / 27) ^ 6 :=
+    mul_le_mul_of_nonneg_left hReal (by norm_num)
+  exact (add_le_add hNearProduct hRealProduct).trans_lt (by norm_num)
+
+/- Theory 104, formula 104.21: elementary polynomial absorption proved
+   directly, before using it in the parameterized vanishing cutoff. -/
+theorem dep_r09_native_polynomial_exp_absorption
+    {ell : ℝ} (hEll : 64 ≤ ell) :
+    ell ^ 2 * Real.exp (-ell / 2) ≤ Real.exp (-ell / 4) := by
+  have hEllNonneg : 0 ≤ ell := by linarith
+  have hCube : (64 : ℝ) ^ 3 ≤ ell ^ 3 :=
+    pow_le_pow_left₀ (by norm_num) hEll 3
+  have hProduct := mul_le_mul_of_nonneg_left hCube (sq_nonneg ell)
+  have hExp := Real.pow_div_factorial_le_exp
+    (x := ell / 4) (by positivity : 0 ≤ ell / 4) 5
+  norm_num [Nat.factorial] at hExp
+  have hPoly : ell ^ 2 ≤ Real.exp (ell / 4) := by nlinarith
+  calc
+    ell ^ 2 * Real.exp (-ell / 2) ≤
+        Real.exp (ell / 4) * Real.exp (-ell / 2) :=
+      mul_le_mul_of_nonneg_right hPoly (Real.exp_pos _).le
+    _ = Real.exp (-ell / 4) := by rw [← Real.exp_add]; congr 1; ring
+
+/- Theory 104, formula 104.22: positive K is retained, not instantiated
+   as an unprinted numerical source constant. -/
+theorem dep_r09_native_vanishing_log_budget
+    {ell coefficient : ℝ} (hEll : 64 ≤ ell) (hC : 0 < coefficient)
+    (hLog : 4 * Real.log (450 * coefficient) ≤ ell) :
+    coefficient * ell ^ 2 * Real.exp (-ell / 2) ≤ 1 / 450 := by
+  have hExp : Real.exp (-ell / 4) ≤ (450 * coefficient)⁻¹ := by
+    calc
+      Real.exp (-ell / 4) ≤ Real.exp (-Real.log (450 * coefficient)) :=
+        Real.exp_le_exp.mpr (by linarith)
+      _ = (450 * coefficient)⁻¹ := by
+        rw [Real.exp_neg, Real.exp_log (by positivity)]
+  have hAbs := mul_le_mul_of_nonneg_left
+    (dep_r09_native_polynomial_exp_absorption hEll) hC.le
+  have hScaled := mul_le_mul_of_nonneg_left hExp hC.le
+  have hAtom : coefficient * (450 * coefficient)⁻¹ = 1 / 450 := by
+    field_simp
+  calc
+    coefficient * ell ^ 2 * Real.exp (-ell / 2) =
+        coefficient * (ell ^ 2 * Real.exp (-ell / 2)) := by ring
+    _ ≤ coefficient * Real.exp (-ell / 4) := hAbs
+    _ ≤ coefficient * (450 * coefficient)⁻¹ := hScaled
+    _ = 1 / 450 := hAtom
+
+theorem dep_r09_native_baseline_final_budget
+    {normalizedError nonvanishing vanishing : ℝ}
+    (hBound : normalizedError ≤ nonvanishing + vanishing)
+    (hNonvanishing : nonvanishing < 1 / 36)
+    (hVanishing : vanishing ≤ 1 / 450) :
+    normalizedError < 3 / 100 := by
+  linarith
+
+/- Theory 104, formula 104.14: the actual child scale already dominates
+   the conservative fixed density log cutoff; numerical EF K is separate. -/
+theorem dep_r09_native_density_log_floor
+    {a logF : ℝ} (hA : 1000 ≤ a)
+    (hF : (993 / 2000) * Real.exp a < logF) :
+    (30000 : ℝ) < logF := by
+  have hANonneg : 0 ≤ a := by linarith
+  have hCube : (1000 : ℝ) ^ 3 ≤ a ^ 3 :=
+    pow_le_pow_left₀ (by norm_num) hA 3
+  have hExp := Real.pow_div_factorial_le_exp (x := a) hANonneg 3
+  norm_num [Nat.factorial] at hExp
+  nlinarith
+
+/- Theory 104, formula 104.20: all three vanishing shapes are combined
+   at the actual native exponent, rather than evaluating a numerical f. -/
+theorem dep_r09_native_vanishing_shape_bound
+    {ell d K : ℝ} (hEll : 1 ≤ ell) (hD : 314 ≤ d) :
+    (147 / 10) * ell * Real.exp (-(d - 7 / 2) * ell) +
+        5062 * ell ^ 2 * Real.exp (-(d / 21 - 1) * ell) +
+        (699716 * K + 416) * ell ^ 2 * Real.exp (-ell / 2) ≤
+      (699716 * K + 54927 / 10) * ell ^ 2 * Real.exp (-ell / 2) := by
+  have hEllNonneg : 0 ≤ ell := by linarith
+  have hEllSquare : ell ≤ ell ^ 2 := by
+    nlinarith [mul_nonneg hEllNonneg (show 0 ≤ ell - 1 by linarith)]
+  have hNearExponent : -(d - 7 / 2) * ell ≤ -ell / 2 := by
+    have h := mul_le_mul_of_nonneg_right
+      (show (1 / 2 : ℝ) ≤ d - 7 / 2 by linarith) hEllNonneg
+    linarith
+  have hFarExponent : -(d / 21 - 1) * ell ≤ -ell / 2 := by
+    have h := mul_le_mul_of_nonneg_right
+      (show (1 / 2 : ℝ) ≤ d / 21 - 1 by linarith) hEllNonneg
+    linarith
+  have hNearExp := Real.exp_le_exp.mpr hNearExponent
+  have hFarExp := Real.exp_le_exp.mpr hFarExponent
+  have hNearBase :
+      ell * Real.exp (-(d - 7 / 2) * ell) ≤ ell ^ 2 * Real.exp (-ell / 2) :=
+    mul_le_mul hEllSquare hNearExp (Real.exp_pos _).le (sq_nonneg ell)
+  have hNear := mul_le_mul_of_nonneg_left hNearBase
+    (by norm_num : (0 : ℝ) ≤ 147 / 10)
+  have hFarBase := mul_le_mul_of_nonneg_left hFarExp (sq_nonneg ell)
+  have hFar := mul_le_mul_of_nonneg_left hFarBase (by norm_num : (0 : ℝ) ≤ 5062)
+  nlinarith
+
+theorem dep_r09_native_square_and_log_ratio
+    {a : ℝ} (hA : 6 ≤ a) :
+    a ^ 2 ≤ Real.exp a ∧ a / Real.exp a ≤ 1 / a := by
+  have hSquare := dep_r09_native_exp_dominates_square hA
+  refine ⟨hSquare, ?_⟩
+  apply (div_le_div_iff₀ (Real.exp_pos a) (by linarith : 0 < a)).2
+  nlinarith
+
 end FGKMTSono

@@ -480,6 +480,20 @@ calculator·actual 계산은 NOT READY다. Inventory는 theory 104개·2,043식�
 <code>KERNEL_PASS=114</code>·<code>CONDITIONAL_KERNEL_PASS=135</code>,
 <code>NOT_YET_FORMALIZED=1171</code>, 금지 proof escape 0건이다.
 
+2026-10-01 actual primorial D160 successor는 raw Pprime·S·B0의 정확한 product
+partition으로 \(f\mid P(X/2)\), original \(D=160\)의 \(314<d_f<323<333\)을 얻었다.
+따라서 d333 conditional branch는 현재 baseline에 적용되지 않는다.
+Actual full-primorial real gap을 보존한 nonvanishing budget은 \(1/36\) 미만이며,
+unknown numerical \(K_{\rm EF}\)를 남긴 total binary budget은 parameterized \(3\%\)다.
+Power z definition·B0의 lower/inner 위치·vanishing absorption도 재검증했다.
+최신 정본은 theory 104·review 113이다. Numerical EF·blind moment의 실제 합성·nonblind
+correlation·PAP-11·DEP-R09·X_cert는 OPEN이다. Calculator/actual 계산은 NOT READY다.
+Inventory는 theory 105개·2066식·declaration 432개,
+KERNEL_PASS 121·CONDITIONAL 141·NOT_YET 1171·proof escape 0이다.
+추가 primary Liu--Wang 2002는 취득했으나 Theorem 8의 polylog-modulus/height 범위를
+현재에 전사하지 않는다. Theorem 4 첫 zero-window와 Eq.(3.22), table/prose 차이를
+독립 감사한 뒤 full-modulus route의 가능성을 먼저 판정한다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

@@ -1673,3 +1673,12 @@ Numerical EF multiplier·vanishing cutoff·nonblind same-law correlation도 OPEN
 
 66개 root row의 상태와 PAP-11·DEP-R09·\(X_{\rm cert}\)는 변경하지 않는다.
 Inventory는 theory 104개·display 2,043식·declaration 410개·proof escape 0이다.
+
+## 73. 2026-10-01 actual primorial D160 native baseline 후속
+
+[Theory 104](104_Sono_FMT_DEPR09_native_primorial_D160_regime.md)은
+raw Pprime의 exact product에서 native \(314<d_f<323\)을 얻었다.
+Nonvanishing \(<1/36\)과 parameterized 3% binary input은 original D=160을 보존한다.
+Numerical K_EF와 actual moment/all-character transfer는 아직 OPEN이다.
+66개 root row·PAP-11·DEP-R09·X_cert 상태를 변경하지 않는다.
+Inventory는 105 theory 문서·2066식·432 declarations·proof escape 0이다.

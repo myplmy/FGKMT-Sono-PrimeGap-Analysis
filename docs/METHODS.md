@@ -2856,6 +2856,23 @@ Theory 96 뒤 전수원장은 theory 97개, display 식 1,902개, Lean declarati
 <code>NOT_YET_FORMALIZED=1139</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. calculator·actual prime 계산은 NOT READY다.
 
+## 2026-10-01 DEP-R09 actual primorial·D=160 native baseline
+
+[Theory 104](method/theory/104_Sono_FMT_DEPR09_native_primorial_D160_regime.md)과
+[review 113](review/113_20261001_DEPR09_native_D160_타당성검토.md)은 actual raw-coordinate
+partition과 RS 양측 theta를 합성해 \(314<d_f<323\)을 증명했다.
+D=160·law·fixed coefficient를 바꾸지 않았으며 d333은 baseline에 적용되지 않는다.
+
+Actual B0의 full-primorial gap에서 real-decay exponent를 직접 보존하면 nonvanishing
+kernel이 \(1/36\) 미만이다. Numerical K_EF를 보존한 symbolic log cutoff에서 total binary
+core는 3% 미만이다. Root all-character moment·PAP·X_cert 인증은 아니다.
+
+DEP-R09 tests 462건·Lean build 8765 jobs·전수 원장 PASS다. Inventory는 theory 105개·
+2066식·declaration 432개, KERNEL 121·CONDITIONAL 141·DEFINITION 227·PARTIAL 192·
+SOURCE 209·NOT_YET 1171·PARSE 5·proof escape 0이다.
+새 Liu--Wang 2002 primary PDF는 source 후보로만 보존하며 1.3804 multiplier를 채택하지 않았다.
+Theorem 4 first-window 및 Theorem 8 range/proof를 개별 감사한다.
+
 ## 2026-10-01 DEP-R09 fixed-modulus height-weighted density replay
 
 [theory 103](method/theory/103_Sono_FMT_DEPR09_fixed_modulus_height_weighted_density.md)과
