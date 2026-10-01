@@ -5293,6 +5293,131 @@
       "declarations": ["dep_r09_common_height_coefficients"]
     },
     {
+      "formula_id": "103.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": ["dep_r09_fixed_height_log_specialization"]
+    },
+    {
+      "formula_id": "103.2",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_divisor_pair_lcm_bound"]
+    },
+    {
+      "formula_id": "103.3",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.4",
+      "status": "KERNEL_PASS",
+      "declarations": ["jutila_jl6_actual_power_margin"]
+    },
+    {
+      "formula_id": "103.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.6",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_all_height_rankin_exponential"]
+    },
+    {
+      "formula_id": "103.7",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_allHeightDensityCoefficient", "dep_r09_all_height_density_coefficient"]
+    },
+    {
+      "formula_id": "103.8",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_fixed_height_detector_exponents"]
+    },
+    {
+      "formula_id": "103.10",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.11",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": ["dep_r09_tz_relative_zero_free_constant"]
+    },
+    {
+      "formula_id": "103.12",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.13",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.14",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.15",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_density_normalized_ratios", "dep_r09_density_integral_coefficient_bound"]
+    },
+    {
+      "formula_id": "103.16",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": ["dep_r09_finite_height_layer_cake"]
+    },
+    {
+      "formula_id": "103.17",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_height_cost_gap", "dep_r09_height_cost_premise_from_source_range"]
+    },
+    {
+      "formula_id": "103.18",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.19",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.20",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.21",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.22",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "103.23",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_height_weighted_fixed_regime_rational"]
+    },
+    {
+      "formula_id": "103.24",
+      "status": "KERNEL_PASS",
+      "declarations": ["dep_r09_height_weighted_nonvanishing_budget"]
+    },
+    {
+      "formula_id": "103.25",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": ["dep_r09_height_weighted_final_budget"]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

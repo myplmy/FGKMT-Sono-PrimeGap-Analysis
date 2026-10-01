@@ -2856,6 +2856,28 @@ Theory 96 뒤 전수원장은 theory 97개, display 식 1,902개, Lean declarati
 <code>NOT_YET_FORMALIZED=1139</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. calculator·actual prime 계산은 NOT READY다.
 
+## 2026-10-01 DEP-R09 fixed-modulus height-weighted density replay
+
+[theory 103](method/theory/103_Sono_FMT_DEPR09_fixed_modulus_height_weighted_density.md)과
+[review 112](review/112_20261001_DEPR09_height_weighted_density_타당성검토.md)은
+Jutila fixed-modulus all-character branch의 \(D=ft\)와 reciprocal-height kernel을 보존했다.
+Local \(t<f\)의 old Rankin \(7/4\) envelope를 3으로 바꿔 coefficient를 재합성했고,
+possible native-f real zero에는 실제 \(B_0\) width만 적용한다.
+
+Conditional \(d_f\ge333\)에서 nonvanishing budget은 \(1/100\)보다 작으며 이 displayed
+real exponential inequality도 Lean PASS다. 그러나 actual law가 333 하한을 만족하는지는
+미증명이다. Fixed raw \(P'\)와 \(P(\mathbf A)\)를 구분하고 primorial split·원래 D=160의
+native regime·fixed coefficient를 먼저 감사한다. 333을 필요조건으로 삼지 않는다.
+Numerical \(K_{\rm EF}\), common vanishing cutoff·nonblind same-law correlation도 OPEN이다.
+
+New finite tests 11건과 direct Lean compile·원장 검증은 PASS다.
+Inventory는 theory 104개·display 2,043식·declaration 410개,
+<code>KERNEL_PASS=114</code>, <code>CONDITIONAL_KERNEL_PASS=135</code>,
+<code>DEFINITION_ONLY=225</code>, <code>PARTIAL_FORMALIZATION=185</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=208</code>, <code>NOT_YET_FORMALIZED=1171</code>,
+<code>PARSE_REVIEW_REQUIRED=5</code>, proof escape 0이다.
+PAP-11·DEP-R09·\(X_{\rm cert}\)는 OPEN이며 actual/calculator는 NOT READY / NOT RUN이다.
+
 ## 2026-10-01 DEP-R09 common-height centered explicit-formula replay
 
 [theory 102](method/theory/102_Sono_FMT_DEPR09_common_height_centered_replay.md)과

@@ -1660,3 +1660,16 @@ OPEN이다. 다음 root는 finite detector prerequisites와 actual zero-free den
 
 66개 root row와 PAP-11·DEP-R09·fixed coefficient·\(X_{\rm cert}\) 상태는 변경하지 않는다.
 Inventory는 theory 103개, display 2,018식, declaration 396개, 금지 proof escape 0건이다.
+
+## 72. 2026-10-01 DEP-R09 fixed-modulus height-weighted density 후속 상태
+
+[theory 103](103_Sono_FMT_DEPR09_fixed_modulus_height_weighted_density.md)은
+fixed all-character \(D=ft\) package와 reciprocal-height kernel을 직접 합성했다.
+Conditional \(d_f\ge333\)에서는 nonvanishing budget이 \(1/100\)보다 작다.
+
+Actual \(P'\) log support mass의 uniform native exponent와 allowed outer d/fixed coefficient
+composition은 미확인이다. 이 conditional kernel을 actual root PASS로 올리지 않는다.
+Numerical EF multiplier·vanishing cutoff·nonblind same-law correlation도 OPEN이다.
+
+66개 root row의 상태와 PAP-11·DEP-R09·\(X_{\rm cert}\)는 변경하지 않는다.
+Inventory는 theory 104개·display 2,043식·declaration 410개·proof escape 0이다.

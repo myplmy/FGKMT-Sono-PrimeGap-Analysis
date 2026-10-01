@@ -790,3 +790,20 @@ Inventory는 theory 문서 103개, display 2,018식, declaration 396개다. 전�
 <code>SOURCE_THEOREM_UNFORMALIZED=203</code>,
 <code>NOT_YET_FORMALIZED=1164</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. Numerical \(X_{\rm cert}\)와 calculator는 준비되지 않았다.
+
+2026-10-01 Theory 103 batch는 fixed-modulus log scale·divisor lcm bound·all-height
+Rankin exponential·tightened factor composition과 finite layer-cake scalar identity를 추가했다.
+Normalized ratios·height cost의 full parameter bound와 fixed \(d\ge333\)의 displayed
+real exponential kernel \(<1/100\)도 커널에서 확인했다.
+
+Actual \(d_f\ge333\)은 proof premise를 적용할 project gate로 아직 OPEN이다.
+Counting-measure integrals·analytic source identification과 numerical EF multiplier를
+local axiom으로 채우지 않았다. Raw scalar kernel PASS를 actual zero/PNT PASS로 쓰지 않는다.
+
+New finite tests 11건, DEP-R09 regression 451건, direct compile,
+전체 lake build 8765 jobs와 verification validation은 PASS다.
+Inventory는 theory 104개·display 2,043식·declaration 410개,
+<code>KERNEL_PASS=114</code>·<code>CONDITIONAL_KERNEL_PASS=135</code>,
+<code>DEFINITION_ONLY=225</code>·<code>PARTIAL_FORMALIZATION=185</code>,
+<code>SOURCE_THEOREM_UNFORMALIZED=208</code>·<code>NOT_YET_FORMALIZED=1171</code>,
+<code>PARSE_REVIEW_REQUIRED=5</code>·proof escape 0이다.

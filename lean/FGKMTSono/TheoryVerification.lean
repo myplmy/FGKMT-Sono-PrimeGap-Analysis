@@ -5010,4 +5010,196 @@ theorem dep_r09_prime_power_congruence_witness :
     (2 : ℕ) ^ 2 % 5 = 4 ∧ (2 : ℕ) % 5 = 2 := by
   constructor <;> norm_num
 
+/-! ## Theory 103 — fixed-modulus height-weighted density replay -/
+
+/- Theory 103, formula 103.2: primitive conductors dividing a single
+   modulus do not need the generic Q^2 product-modulus envelope. -/
+theorem dep_r09_divisor_pair_lcm_bound
+    {r s f : ℕ} (hF : 0 < f) (hR : r ∣ f) (hS : s ∣ f) :
+    Nat.lcm r s ∣ f ∧ Nat.lcm r s ≤ f := by
+  have hDiv : Nat.lcm r s ∣ f := Nat.lcm_dvd hR hS
+  exact ⟨hDiv, Nat.le_of_dvd hF hDiv⟩
+
+/- Theory 103, formulas 103.1 and 103.9: exact logarithmic specialization,
+   with log(T) supplied; no actual large f,T is constructed. -/
+theorem dep_r09_fixed_height_log_specialization
+    {f T : ℝ} (hF : 0 < f) (hT : 0 < T)
+    (hHeight : Real.log T = (3 / 2) * Real.log f) :
+    Real.log (f * T) = (5 / 2) * Real.log f ∧
+    Real.log (f ^ 2 * T) = (7 / 2) * Real.log f := by
+  rw [Real.log_mul hF.ne' hT.ne',
+    Real.log_mul (pow_ne_zero 2 hF.ne') hT.ne', Real.log_pow, hHeight]
+  constructor <;> ring
+
+theorem dep_r09_fixed_height_detector_exponents :
+    (2 : ℝ) * (1 + 3 / 2) * (1 + 12 / 21) = 55 / 7 ∧
+    (2 : ℝ) * (1 + 0) * (1 + 12 / 21) = 22 / 7 := by
+  constructor <;> norm_num
+
+/- Theory 103, formula 103.6: full-height Rankin envelope rather than
+   the old log(q)/log(D)<=1/2 envelope. -/
+theorem dep_r09_all_height_rankin_exponential :
+    Real.exp (22 / 21 : ℝ) * (442 / 441) < 3 := by
+  have hExp := Real.exp_bound'
+    (x := (11 / 21 : ℝ)) (by norm_num) (by norm_num)
+    (n := 6) (by norm_num)
+  have hUpper : Real.exp (11 / 21 : ℝ) ≤ 17 / 10 := by
+    norm_num [Finset.sum_range_succ, Nat.factorial] at hExp
+    linarith
+  have hNonneg : 0 ≤ Real.exp (11 / 21 : ℝ) := (Real.exp_pos _).le
+  rw [show (22 / 21 : ℝ) = 11 / 21 + 11 / 21 by norm_num, Real.exp_add]
+  nlinarith [mul_nonneg (sub_nonneg.mpr hUpper)
+    (show 0 ≤ (17 / 10 : ℝ) + Real.exp (11 / 21 : ℝ) by positivity)]
+
+noncomputable def dep_r09_allHeightDensityCoefficient : ℝ :=
+  (1000000 / 999999) * (3 * (2840 / 1197)) * (8 / 5) *
+    (15665428311 / 1750000) / (4 / 147) ^ 2 / (55 / 18522)
+
+/- Theory 103, formula 103.7: rational factor composition only; the
+   source estimates supplying these factors are not asserted here. -/
+theorem dep_r09_all_height_density_coefficient :
+    dep_r09_allHeightDensityCoefficient =
+      (12 / 7) * (11503697604450072 / 425315) ∧
+    dep_r09_allHeightDensityCoefficient < 50000000000 := by
+  norm_num [dep_r09_allHeightDensityCoefficient]
+
+/- Theory 103, formula 103.16: exact finite scalar layer-cake decomposition.
+   Identifying the second sum with the cumulative-count integral is separate. -/
+theorem dep_r09_finite_height_layer_cake
+    {ι : Type*} [Fintype ι] (weights heights : ι → ℝ) (terminal : ℝ) :
+    (∑ i : ι, weights i / heights i) =
+      (∑ i : ι, weights i) / terminal +
+        ∑ i : ι, weights i * (1 / heights i - 1 / terminal) := by
+  simp_rw [div_eq_mul_inv, one_mul, mul_sub]
+  rw [Finset.sum_sub_distrib, Finset.sum_mul]
+  ring
+
+/- Theory 103, formula 103.15: the complete rational transfer coefficient
+   is at most 20 on the indicated normalized premise class. -/
+theorem dep_r09_density_integral_coefficient_bound
+    {ratio logRatio c : ℝ}
+    (hRatioNonneg : 0 ≤ ratio) (hRatio : ratio ≤ 5 / 3)
+    (_hLogNonneg : 0 ≤ logRatio) (hLog : logRatio ≤ 1 / 5)
+    (hC : c ≤ 1 / 9) :
+    2 * ratio * (5 + 2 * c + 2 * logRatio) ≤ 20 := by
+  have hBracket : 5 + 2 * c + 2 * logRatio ≤ 6 := by linarith
+  calc
+    2 * ratio * (5 + 2 * c + 2 * logRatio) ≤ 2 * ratio * 6 :=
+      mul_le_mul_of_nonneg_left hBracket (by positivity)
+    _ ≤ 20 := by linarith
+
+/- Theory 103, formula 103.17: height-decay comparison proved by field
+   algebra, without a numerical height grid or a differential approximation. -/
+theorem dep_r09_height_cost_gap
+    {ell d c w : ℝ} (hEll : 0 < ell) (hW : 0 ≤ w)
+    (hCost : c * d ≤ ell / 5) :
+    w + c * d / (1 + w / ell) - c * d ≥ (4 / 5) * w := by
+  have hSum : 0 < ell + w := add_pos_of_pos_of_nonneg hEll hW
+  have hRatio : c * d / (ell + w) ≤ 1 / 5 := by
+    apply (div_le_iff₀ hSum).2
+    linarith
+  have hIdentity :
+      w + c * d / (1 + w / ell) - c * d =
+        w * (1 - c * d / (ell + w)) := by
+    have hOne : 1 + w / ell ≠ 0 := by positivity
+    field_simp
+    ring
+  rw [hIdentity]
+  have hBracket : (4 / 5 : ℝ) ≤ 1 - c * d / (ell + w) := by linarith
+  nlinarith [mul_le_mul_of_nonneg_left hBracket hW]
+
+/- Theory 103, formula 103.23: fixed d>=333 regime exponents and one
+   exact rational budget. It is not an X_cert threshold or d search. -/
+theorem dep_r09_height_weighted_fixed_regime_rational :
+    (129 / 1250 : ℝ) < 1000000000 / 9645908801 ∧
+    (129 / 1250 : ℝ) * (333 - 23 / 7) > 34 ∧
+    (47 / 2520 : ℝ) * 333 > 6 ∧
+    (63 / 2 : ℝ) * 50000000000 * (10 / 27) ^ 34 +
+      (21 / 20) * (10 / 27) ^ 6 < 1 / 100 := by
+  norm_num
+
+/- Theory 103, formula 103.15: source-normalized ratios are uniformly
+   bounded on the whole finite d/height parameter rectangle. -/
+theorem dep_r09_density_normalized_ratios
+    {d heightRatio : ℝ} (hD : 21 ≤ d)
+    (hH : 0 ≤ heightRatio) (hHUpper : heightRatio ≤ 3 / 2) :
+    0 < d - (23 / 7) * (1 + heightRatio) ∧
+    0 ≤ d / (d - (23 / 7) * (1 + heightRatio)) ∧
+    d / (d - (23 / 7) * (1 + heightRatio)) ≤ 5 / 3 ∧
+    0 ≤ (1 + heightRatio) / (d - (23 / 7) * (1 + heightRatio)) ∧
+    (1 + heightRatio) / (d - (23 / 7) * (1 + heightRatio)) ≤ 1 / 5 := by
+  have hGap : 0 < d - (23 / 7) * (1 + heightRatio) := by linarith
+  refine ⟨hGap, div_nonneg (by linarith) hGap.le, ?_,
+    div_nonneg (by linarith) hGap.le, ?_⟩
+  · apply (div_le_iff₀ hGap).2
+    linarith
+  · apply (div_le_iff₀ hGap).2
+    linarith
+
+/- Theory 103, formula 103.17: the original finite source log cutoff
+   ell>=441 is more than enough for the height-cost comparison. -/
+theorem dep_r09_height_cost_premise_from_source_range
+    {ell c d : ℝ} (hEll : 441 ≤ ell) (hC : c ≤ 1 / 9)
+    (hDNonneg : 0 ≤ d) (hD : d ≤ 416) :
+    c * d ≤ ell / 5 := by
+  have hProduct : c * d ≤ (1 / 9 : ℝ) * 416 :=
+    mul_le_mul hC hD hDNonneg (by norm_num)
+  linarith
+
+/- Theory 103, formula 103.24: real exponential fixed-regime budget.
+   This proves the displayed numeric kernel, not an observed prime error. -/
+theorem dep_r09_height_weighted_nonvanishing_budget
+    {d : ℝ} (hD : 333 ≤ d) :
+    (63 / 2) * dep_r09_allHeightDensityCoefficient *
+        Real.exp (-(1000000000 / 9645908801) * (d - 23 / 7)) +
+      (21 / 20) * Real.exp (-(47 / 2520) * d) < 1 / 100 := by
+  have hExpOne : (27 / 10 : ℝ) < Real.exp 1 := by
+    have hSeries := Real.sum_le_exp_of_nonneg (x := (1 : ℝ)) (by norm_num) 6
+    norm_num [Finset.sum_range_succ, Nat.factorial] at hSeries
+    linarith
+  have hInverse : Real.exp (-1 : ℝ) < 10 / 27 := by
+    rw [Real.exp_neg, inv_eq_one_div]
+    apply (div_lt_iff₀ (Real.exp_pos (1 : ℝ))).2
+    linarith
+  have hPowers (n : ℕ) :
+      Real.exp (-(n : ℝ)) ≤ (10 / 27 : ℝ) ^ n := by
+    have h := pow_le_pow_left₀ (Real.exp_pos (-1 : ℝ)).le hInverse.le n
+    simpa only [← Real.exp_nat_mul, mul_neg_one] using h
+  have hGap : 0 ≤ d - (23 / 7 : ℝ) := by linarith
+  have hCm : (129 / 1250 : ℝ) ≤ 1000000000 / 9645908801 := by norm_num
+  have hExp34 : (34 : ℝ) ≤ (1000000000 / 9645908801) * (d - 23 / 7) := by
+    have hLower : (34 : ℝ) ≤ (129 / 1250) * (d - 23 / 7) := by linarith
+    exact hLower.trans (mul_le_mul_of_nonneg_right hCm hGap)
+  have hExp6 : (6 : ℝ) ≤ (47 / 2520) * d := by linarith
+  have hNear : Real.exp (-(1000000000 / 9645908801) * (d - 23 / 7)) ≤
+      (10 / 27 : ℝ) ^ 34 :=
+    (Real.exp_le_exp.mpr (by linarith : -(1000000000 / 9645908801) *
+      (d - 23 / 7) ≤ -(34 : ℝ))).trans (hPowers 34)
+  have hReal : Real.exp (-(47 / 2520) * d) ≤ (10 / 27 : ℝ) ^ 6 :=
+    (Real.exp_le_exp.mpr (by linarith : -(47 / 2520) * d ≤ -(6 : ℝ))).trans
+      (hPowers 6)
+  have hCoefficient := dep_r09_all_height_density_coefficient.2.le
+  have hNearProduct :
+      (63 / 2) * dep_r09_allHeightDensityCoefficient *
+        Real.exp (-(1000000000 / 9645908801) * (d - 23 / 7)) ≤
+      (63 / 2 : ℝ) * 50000000000 * (10 / 27) ^ 34 := by
+    have h := mul_le_mul hCoefficient hNear (Real.exp_pos _).le (by norm_num)
+    have hScaled := mul_le_mul_of_nonneg_left h (by norm_num : (0 : ℝ) ≤ 63 / 2)
+    simpa only [mul_assoc] using hScaled
+  have hRealProduct :
+      (21 / 20) * Real.exp (-(47 / 2520) * d) ≤
+        (21 / 20 : ℝ) * (10 / 27) ^ 6 :=
+    mul_le_mul_of_nonneg_left hReal (by norm_num)
+  exact (add_le_add hNearProduct hRealProduct).trans_lt (by norm_num)
+
+/- Theory 103, formula 103.25: actual analytic upper bounds must be
+   supplied explicitly before the last relative-error allocation is used. -/
+theorem dep_r09_height_weighted_final_budget
+    {normalizedError nonvanishing vanishing : ℝ}
+    (hBound : normalizedError ≤ nonvanishing + vanishing)
+    (hNonvanishing : nonvanishing < 1 / 100)
+    (hVanishing : vanishing < 1 / 100) :
+    normalizedError < 1 / 50 := by
+  linarith
+
 end FGKMTSono

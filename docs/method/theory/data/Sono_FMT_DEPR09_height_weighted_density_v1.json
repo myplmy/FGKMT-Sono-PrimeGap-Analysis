@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-10-01",
+  "gate": "DEP-R09 fixed-modulus height-weighted density replay",
+  "predecessor": "Sono_FMT_DEPR09_common_height_replay_v1.json",
+  "outcome": "CONDITIONAL_FIXED_DENSITY_AND_HEIGHT_WEIGHTED_KERNEL_FEASIBLE_NATIVE_EXPONENT_AND_EF_MULTIPLIER_OPEN",
+  "source_registry": [
+    {
+      "key": "JUTILA_1977",
+      "locator": "tmp/pdfs/dep_r09_branch_s_20260913/Jutila_1977_On_Linniks_constant.pdf",
+      "sha256": "f6e9038a7216b690763692e0a07bc8c58284c9560bf62ab987ea62a817404ad5",
+      "url": "https://doi.org/10.7146/math.scand.a-11701",
+      "printed_locations": "p.46 fixed/all-character (1.7) versus averaged (1.8); p.51 D=qT; p.53 terminal",
+      "reading_mode": "RENDERED_SCANS_NATIVE_TEXT_UNUSABLE",
+      "classification": "PRIMARY_FIXED_MODULUS_ALL_CHARACTER_SOURCE_WITH_IMPLICIT_PRINTED_MULTIPLIER"
+    },
+    {
+      "key": "MCCURLEY_1984",
+      "locator": "article/McCurley 1984.pdf",
+      "sha256": "6035c9e290ba4a8bb31ed4afef0e014f49324f33cd978b82450c1bdba204d8ac",
+      "url": "https://doi.org/10.1016/0022-314X(84)90089-1",
+      "title": "Explicit Zero-Free Regions for Dirichlet L-Functions",
+      "printed_locations": "p.8 Theorem 1: M=max(f,f*abs(gamma),10), one simple real exception",
+      "reading_mode": "TEXT_LOCATOR_AND_RENDERED_SCAN",
+      "classification": "PRIMARY_NUMERICAL_ZERO_FREE_SOURCE_WITH_ONE_REAL_ZERO_RETAINED"
+    },
+    {
+      "key": "BENNETT_2021",
+      "locator": "article/Bennett Martin OBryant Rechnitzer 2021 Counting Zeros of Dirichlet L-Functions.pdf",
+      "sha256": "bc7d063bcde319274f878acb05816c3ddeddce8820ae614485e9ff9ecd64ab43",
+      "url": "https://doi.org/10.1090/mcom/3599",
+      "printed_locations": "audit p.2 Theorem 1.1, t>=5/7, conductor>1",
+      "reading_mode": "NATIVE_TEXT_AND_RENDERED_PAGE",
+      "classification": "PRIMARY_EXPLICIT_TOTAL_ZERO_COUNT_FAR_AND_LOWER_ENDPOINT_INPUT"
+    },
+    {
+      "key": "THEORY70",
+      "locator": "docs/method/theory/70_Sono_FMT_DEPR09_Jutila_JL7_strict_terminal_absorption.md",
+      "sha256": "f72a97738711d41692311b3509984aae17d0e12c094415ee8f1edc6182527802",
+      "printed_locations": "formulas (70.1)--(70.3), (70.17)",
+      "classification": "PROJECT_FIXED_MODULUS_NEAR_ONE_PARAMETERIZED_SOURCE_REPLAY"
+    },
+    {
+      "key": "THEORY73",
+      "locator": "docs/method/theory/73_Sono_FMT_DEPR09_CJ_loss_tree_structural_audit.md",
+      "sha256": "9fce155834fdaf355bca0478ad40da1afd3ae5acef2977bc7174fe5bd234dda2",
+      "printed_locations": "source-tightened factors; half-Rankin cap replaced with all-height cap 3",
+      "classification": "PROJECT_NUMERICAL_FACTOR_COMPOSITION_PREDECESSOR"
+    },
+    {
+      "key": "THEORY102",
+      "locator": "docs/method/theory/102_Sono_FMT_DEPR09_common_height_centered_replay.md",
+      "sha256": "f9a3ecacb71de2aa16940dc1733cbef51375b7ef2a5bac677a47def11fb768ed",
+      "printed_locations": "formulas (102.7), (102.16)--(102.19)",
+      "classification": "PROJECT_CENTERED_SIGNED_INTERFACE_AND_PARAMETERIZED_EF_CORRECTION"
+    }
+  ],
+  "qualitative_primary_cross_check": {
+    "url": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/unconditional-correctness-of-recent-quantum-algorithms-for-factoring-and-computing-discrete-logarithms/3077F5BD48D1F62000B1ED800EB86308",
+    "location": "Proposition 3.10, proof cites Jutila Theorem 1 (1.7)",
+    "role": "fixed-modulus all-character range cross-check only",
+    "numerical_input": false,
+    "downloaded_in_this_batch": false
+  },
+  "source_contract": {
+    "family": "all nonprincipal characters modulo prescribed f, including imprimitive lifts",
+    "primitive_conductor_product": "r,s divide f implies lcm(r,s) divides f, not merely <=f^2",
+    "common_scale": "D_f(t)=f*t for every 1<=t<=f^(3/2)",
+    "uniform_finite_cutoff": "log(f)>=max(L0_fixed,e^8,log(36*m*Cpre_tight*Cbar/cg^2)/gamma)",
+    "theta": "1/21",
+    "m": "1000000",
+    "rankin_cap": "exp(22/21)*(442/441)<3; old 7/4 cap requires log(q)/log(D)<=1/2",
+    "real_exception": "at most one simple real beta1 separated using the actual B0 bound",
+    "standard_nonexceptional_gap": "c_M/log(f*t), c_M=1000000000/9645908801",
+    "actual_B0_gap": "c_B0/log(f), c_B0=47/2520",
+    "principal_channel": "already removed by centered projection",
+    "imprimitive_euler_zeros": "Re(s)=0 not in nontrivial near/far packet"
+  },
+  "exact_rational_terminals": {
+    "all_height_selected_coefficient": "19720624464771552/425315",
+    "all_height_coefficient_cap": "50000000000",
+    "kappa_fixed_s_3_over_2": "55/7",
+    "kappa_fixed_local_height_zero": "22/7",
+    "finite_safe_density_k": "23/7",
+    "weighted_near_upper_factor": "63/2",
+    "far_coefficient": "5062",
+    "near_lower_coefficient": "147/10",
+    "coarse_fixed_regime_budget": "3146793437965568975336986336450322162329450000/515377520732011331036461129765621272702107522001",
+    "coarse_fixed_regime_upper": "1/100",
+    "coarse_fixed_regime_d": "333"
+  },
+  "conditional_binary_bound": {
+    "range": "1<X<f, U=f^d, 21<d<416, T=f^(3/2), ell=log(f)>=source_common_cutoff",
+    "nonvanishing": "(63/2)*C_J_all*exp(-c_M*(d-23/7))+(21/20)*exp(-c_B0*d)",
+    "vanishing": "(147/10)*ell*exp(-(d-7/2)*ell)+5062*ell^2*exp(-(d/21-1)*ell)+(699716*K_EF+416)*ell^2*exp(-ell/2)",
+    "nonvanishing_lt_one_percent_if_d_ge_333": true,
+    "conditional_total_lt_one_fiftieth_if_vanishing_lt_one_percent": true,
+    "numeric_EF_multiplier": null,
+    "actual_cutoff_evaluated": false,
+    "d333_is_optimal_or_searched_threshold": false,
+    "actual_native_d333_adopted": false
+  },
+  "actual_project_gates": {
+    "fixed_modulus_D_fT_source_verified": true,
+    "height_layer_cake_interface_derived": true,
+    "all_height_selected_coefficient_explicit": true,
+    "fixed_d333_real_exponential_kernel_lean_proved": true,
+    "uniform_native_d_ge_333_proved": false,
+    "numeric_EF_multiplier_recovered": false,
+    "same_law_all_character_correlation_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_or_zero_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "remaining_leaves": [
+    "uniform lower bound from the fixed raw-prime Pprime primorial split, distinct from P(A)",
+    "allowed outer d and fixed Sono coefficient with the actual repaired error budget",
+    "numerical corrected-endpoint K_EF and common vanishing cutoff",
+    "nonblind character correlation and complete same-law moment",
+    "DEP-R10--R12 and end-to-end composition"
+  ],
+  "not_claimed": [
+    "Every actual construction outcome has d_f>=333.",
+    "The one-percent exponential kernel is the measured actual prime error.",
+    "The fixed d=333 regime is an X_cert range proof or a numerical threshold calculator.",
+    "The existing B0 removes the possible native-f real zero.",
+    "Generic averaged Q^2T can always be replaced with QT.",
+    "All source analytic theorems and counting-measure integrals are formalized in Lean.",
+    "A new theorem unknown to prior academic literature has been proved."
+  ],
+  "next_gate": "Audit the fixed raw Pprime primorial split and the native exponent at the original outer D=160; do not force d>=333 or change D merely to fit that sufficient regime."
+}

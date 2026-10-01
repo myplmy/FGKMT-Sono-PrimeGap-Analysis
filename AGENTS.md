@@ -465,6 +465,21 @@ calculator·actual 계산은 NOT READY다. Theory 102 뒤 inventory는 103개 th
 <code>CONDITIONAL_KERNEL_PASS=134</code>, <code>NOT_YET_FORMALIZED=1164</code>,
 금지 proof escape 0건이다.
 
+2026-10-01 fixed-modulus height-weighted successor는 Jutila의 fixed all-character
+\(D=ft\) branch를 복원하고 local \(t<f\)의 Rankin cap을 3으로 다시 합성했다.
+\(C_{J,\rm all}=19720624464771552/425315<5\cdot10^{10}\)이며,
+height weight와 possible native real zero를 분리하면 \(d_f\ge333\)의 conditional
+nonvanishing kernel이 \(1/100\)보다 작다. 이 real exponential budget은 Lean PASS다.
+그러나 actual law 전체의 uniform \(d_f\ge333\), allowed outer d와 fixed coefficient,
+numerical \(K_{\rm EF}\)·nonblind correlation은 OPEN이다. 333은 X_cert 값이나 검색된
+최적 threshold가 아니다. 최신 정본은 theory 103·review 112이며 다음 gate는
+fixed raw \(P'\) primorial split의 native exponent·downstream admissibility 합성이다.
+Good subset \(P(\mathbf A)\)와 혼동하지 않으며 original outer D=160을 우선 보존한다.
+PAP-11·DEP-R09·fixed <code>2e-17</code>·<code>X_cert</code>는 계속 OPEN이고
+calculator·actual 계산은 NOT READY다. Inventory는 theory 104개·2,043식·declaration 410개,
+<code>KERNEL_PASS=114</code>·<code>CONDITIONAL_KERNEL_PASS=135</code>,
+<code>NOT_YET_FORMALIZED=1171</code>, 금지 proof escape 0건이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는
