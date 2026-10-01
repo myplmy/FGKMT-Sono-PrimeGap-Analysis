@@ -2873,6 +2873,12 @@ KERNEL126·CONDITIONAL142·DEFINITION231·PARTIAL196·SOURCE210·NOT_YET1175·PA
 proof escape0이다. Actual/calculator·장시간 계산은 NOT RUN이다.
 다음 최소 작업은 actual q,T=q^(3/2),U=q^160의 uniform numerical EF·양측 good heights다.
 
+후속 [review115](review/115_20261001_DEPR09_numerical_EF_scope_원문요청.md)는
+LW proof의 CW2 Lemma1·8·9·9'와 Bordignon unrestricted EF 후보를 대조했다.
+Printed imprimitive correction·signed-height·contour/beta=1/2 의무 때문에 numerical
+remainder를 그대로 채택하지 않는다. Required CW2 primary를 직접 취득하지 못해
+사용자 PDF/합법적 URL 제공 대기에서 중단한다. Numerical EF/PAP/X_cert OPEN은 유지한다.
+
 ## 2026-10-01 DEP-R09 actual primorial·D=160 native baseline
 
 [Theory 104](method/theory/104_Sono_FMT_DEPR09_native_primorial_D160_regime.md)과

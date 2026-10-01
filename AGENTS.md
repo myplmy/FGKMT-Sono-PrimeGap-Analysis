@@ -508,6 +508,16 @@ KERNEL126·CONDITIONAL142·NOT_YET1175·proof escape0이다.
 DEP-R09472 tests·전수원장·Lean build8765 jobs PASS다.
 Calculator/actual 계산은 NOT READY / NOT RUN이다.
 
+2026-10-01 numerical EF source audit는 LW1.3804와 Bordignon Thm3.4 printed remainder를
+미채택으로 보존했다. Imprimitive(12)의 endpoint 누락·양측good heights·contour/beta=1/2
+의무를 개별 기록했다. Required CW2 Chen--Wang1990, Sci.China A33(4),397--408의
+Lemma9/9' primary 조건을 직접 얻지 못해 사용자 원문 제공 대기에서 연구를 일시 중단한다.
+정본은 theory105·review114, 최신 source audit는 review115와 EF scope audit v1이다.
+CW2 PDF 또는 합법적 download URL 제공 후 active EF 원장에서 재개한다.
+Numerical EF·PAP·X_cert는 OPEN, calculator/actual/설치/장시간/push/PR은 미실행이다.
+Latest DEP-R09477 tests·generator→validator PASS다. 새5건은 source-pin/state metadata
+guard이며 analytic EF proof가 아니다. Lean source/pins와443 declarations는 추가 변경 없다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는

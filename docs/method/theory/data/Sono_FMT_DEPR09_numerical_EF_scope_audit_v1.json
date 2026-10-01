@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-10-01",
+  "gate": "DEP-R09 actual full-modulus uniform numerical EF",
+  "predecessor": "Sono_FMT_DEPR09_LW_first_window_v1.json",
+  "outcome": "SOURCE_SCOPE_AUDITED_WAITING_PRIMARY_CW2_NO_NUMERICAL_EF_PROMOTION",
+  "source_registry": [
+    {
+      "key": "LIU_WANG_2002",
+      "locator": "tmp/pdfs/depr09_ef_lw_20261001/Liu_Wang_2002_explicit_psi.pdf",
+      "sha256": "50c6b5d628a07cfb216078571a846ef658aa7db29515d21bb8dbb4f20dc5055d",
+      "url": "https://www.impan.pl/shop/publication/transaction/download/product/83843",
+      "pages": 33,
+      "printed_locations": "pp.288-292 Theorem8 proof; p.293 CW2 reference",
+      "reading_mode": "NATIVE_TEXT_AND_RENDERED_PAGES_289_292"
+    },
+    {
+      "key": "BORDIGNON_2021",
+      "locator": "tmp/pdfs/depr09_ef_sources_20261001/Bordignon_2021_medium_PNTPAP.pdf",
+      "sha256": "4bd7adf499ba667647b612a61399f0f86c272bc684718630fcde42983c014029",
+      "url": "https://nyjm.albany.edu/j/2021/27-54v.pdf",
+      "pages": 24,
+      "printed_locations": "pp.1425-1429 Theorem3.4; p.1419 Lemma2.1; p.1437 reference6",
+      "reading_mode": "NATIVE_TEXT_AND_RENDERED_PAGES_1425_1428",
+      "downloaded_this_batch": true,
+      "identical_existing_cache": "tmp/pdfs/h1c1b1/Bordignon2021_NYJM_final.pdf"
+    }
+  ],
+  "actual_contract": {
+    "q": "mathfrakq=P(X)/B0",
+    "T": "q^(3/2)",
+    "U": "q^160",
+    "ell": "log(q)>=30000",
+    "outer_D_changed": false,
+    "actual_X_q_U_values_generated": false
+  },
+  "lw_printed_contract": {
+    "N": "integer>=exp(2000)",
+    "t": "0.001N<=t<=N",
+    "q": "q<=log(N)^6",
+    "T": "log(N)^15",
+    "printed_13804_adopted": false
+  },
+  "source_calls": [
+    {
+      "call": "LW Lemma4.1 / CW2 Lemma1",
+      "role": "half-integer truncated Perron",
+      "state": "STATEMENT_REPRINTED_SOURCE_PROOF_NOT_INDEPENDENTLY_VERIFIED"
+    },
+    {
+      "call": "CW2 Lemma8",
+      "role": "local zero-count at the contour height",
+      "state": "Bennett absolute-height count alternative available; original source not acquired"
+    },
+    {
+      "call": "CW2 Lemma9",
+      "role": "horizontal logarithmic derivative with distance from zeros",
+      "state": "PRIMARY_ASSUMPTIONS_AND_SIGNED_HEIGHT_REPLAY_REQUIRED"
+    },
+    {
+      "call": "CW2 Lemma9'",
+      "role": "left-vertical logarithmic derivative",
+      "state": "PRIMARY_ASSUMPTIONS_AND_UNIFORM_Q_REPLAY_REQUIRED"
+    }
+  ],
+  "audit_cautions": [
+    {
+      "key": "signed_heights",
+      "fact": "LW(4.3)-(4.4) and Bordignon(13)-(14) explicitly write positive height; source constant cannot certify negative height without a simultaneous absolute-ordinate selection or separate contours.",
+      "safe_route": "Bennett count N(T+1)-N(T-1) bounds both signs; selecting a common absolute-height margin is a possible repair, not yet fully formalized."
+    },
+    {
+      "key": "imprimitive_printed_step",
+      "fact": "Bordignon(12) prints log(q)/log(2), missing the necessary endpoint dependence.",
+      "witness": "q=21, primitive quadratic character mod3 with chi*(7)=1, x=7^4=2401: induced correction exactly4*log7>log21/log2.",
+      "scope": "Finite algebraic prime-power identity, not an actual prime-error experiment or a counterexample to the entire final PNT theorem.",
+      "safe_route": "Retain existing Theory90 correction omega(q)*log(U) and source-log domination; do not adopt(12)."
+    },
+    {
+      "key": "contour_left_sign",
+      "fact": "Bordignon printed p.1427 says +1/2 for the left vertices while p.1428 integrals use -1/2.",
+      "safe_route": "Read full CW2/LW contour proof; do not silently adopt an inconsistent residue identity."
+    },
+    {
+      "key": "boundary_family",
+      "fact": "Bordignon z(chi) is beta>1/2, but later discarded block is beta<1/2.",
+      "safe_route": "Retain beta=1/2 explicitly, or bound it in an added low-beta channel; strict/closed equivalence unproved."
+    },
+    {
+      "key": "parameter_order",
+      "fact": "Printed R2/R3/r1/r6 arguments have order discrepancies across definitions and calls.",
+      "safe_route": "Match the defining expression rather than labels; do not feed them to a calculator."
+    }
+  ],
+  "cw2_request": {
+    "authors": "J.R.Chen and T.Z.Wang",
+    "title": "On distribution of primes in an arithmetical progression",
+    "journal": "Science in China Series A",
+    "volume": 33,
+    "issue": 4,
+    "year": 1990,
+    "pages": "397-408",
+    "primary_pdf_acquired": false,
+    "local_locator": null,
+    "sha256": null,
+    "official_download_url_verified": false,
+    "user_suggested_path": "article/chen_wang1990.pdf",
+    "acceptable_reply": "Full PDF or a lawful accessible download URL; all pages preferable, in particular Lemma1,8,9,9'.",
+    "targeted_checks": "Exact English title; authors/year/pages; Chinese title variants; publisher-focused queries; related author institutional bibliography; official LW/Bordignon references; NYJM article page and arXiv v1.",
+    "unavailable_scope": "Not acquired in this session's targeted checks; not a claim that no public copy exists.",
+    "failed_unverified_probe": "DOI10.1360/ya1990-33-4-397 was not resolved; it is not adopted as the paper's verified DOI.",
+    "why_required": "The needed contour log-derivative hypotheses are cited rather than fully restated; the broader candidate also uses the same primary source and has unadopted printed steps."
+  },
+  "project_gates": {
+    "first_window_144_preserved": true,
+    "full_modulus_near_scalar_kernel_preserved": true,
+    "cw2_primary_acquired": false,
+    "LW_Theorem8_multiplier_13804_adopted": false,
+    "Bordignon_Theorem34_as_printed_adopted": false,
+    "all_signed_heights_analytic_formalization_closed": false,
+    "numeric_EF_multiplier_recovered": false,
+    "pointwise_full_modulus_PNT_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "threshold_calculator_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "actual_prime_or_zero_computation_run": false,
+    "package_installation_run": false,
+    "long_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "next_gate": "WAITING_USER: acquire the full primary CW2 paper, verify Lemma9/9' hypotheses first, then replay a conservative uniform numerical EF. Do not restart first-window audit, adopt source typos, or evaluate X/q/U."
+}

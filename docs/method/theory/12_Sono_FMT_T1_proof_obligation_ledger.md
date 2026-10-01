@@ -1691,3 +1691,7 @@ kernel<3/1000를 얻었다. Full PAP가 아니며 principal/far·numeric EF·end
 66개 root rows·PAP-11·DEP-R09·X_cert 상태는 OPEN으로 보존한다.
 다음1순위는 full-q numerical EF다. Polylog scope와1.3804는 current에 전사하지 않는다.
 Inventory는106 theory 문서·2085식·443 declarations·proof escape0이다.
+
+[Review115](../../review/115_20261001_DEPR09_numerical_EF_scope_원문요청.md)의
+required CW2 Lemma9/9' 원문 조건은 미취득이다. Source 요청에서 중단하며
+numerical EF·PAP-11·DEP-R09·root X_cert를 닫혔다고 승격하지 않는다.

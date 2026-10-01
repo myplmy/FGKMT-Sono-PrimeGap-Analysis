@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `e641d5f63fa7bcf0…` | 16 | 0 | 16 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `886fb9ddfaaf0bd9…` | 16 | 0 | 16 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `736b20ad941a02bc…` | 30 | 0 | 30 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `384943fb0bd114e5…` | 30 | 0 | 30 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -194,22 +194,22 @@
 
 | # | 수식 ID | Theory·원문 | line | 수식 preview | Lean 선언 | 상태 | 한계·근거 |
 |---:|---|---|---:|---|---|---|---|
-| 1 | `T00-U001` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 562–566 | <code>(Y+q^2)\sum_{n\le Y}\Lambda(n)^2 &gt; e^{-4}\frac q{\varphi(q)}Y^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 2 | `T00-U002` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 589–592 | <code>\varphi^*(r)=\prod_{p\mid r}(p-2),\qquad \sum_{r\mid q}\varphi^*(r)=\varphi(q).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 3 | `T00-U003` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 597–599 | <code>\{Y+D(q)\}S_2(Y)\ge YS_2(Y)&gt;V_{\rm gate},</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 4 | `T00-U004` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 652–656 | <code>\rho_S\le\frac{{\cal H}_{\rm FMT}(R)}{Q_{\cal S}} \le\frac1{Q_{\cal S}}\sum_{m\bmod q}&#124;R(m)&#124;^2 \le\frac{\varphi(q)N^2}{Q_{\cal S}}V(Y,q).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 5 | `T00-U005` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 660–663 | <code>{\cal H}_{\rm FMT}(R) &lt;\tau^2p_*Q_{\cal S}M_{\min}^2Y^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 6 | `T00-U006` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 685–688 | <code>\omega_*=2\kappa^{-2k}X^{-3/5},\qquad K_*=\left\lceil\frac{\{1-(1+t)\rho\}M_*}{2k}\right\rceil,</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 7 | `T00-U007` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 690–693 | <code>\Pr(S_{\rm sieve},m_\omega=r) \le\frac{\omega_*^{K_*}}{Q_{\cal S}}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 8 | `T00-U008` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 719–723 | <code>H_{\rm res} =Q_{\cal S}\prod_{p\in P'}p,\qquad \#\operatorname{supp}(m_\omega)\le H_{\rm res}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 9 | `T00-U009` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 727–729 | <code>\frac{p_*}{\alpha}\le H_{\rm res}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 10 | `T00-U010` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 733–736 | <code>\log H_{\rm res}&lt;\frac{51}{100}X &lt;\frac{49}{50}X&lt;\log\mathfrak q.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 11 | `T00-U011` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 762–765 | <code>C_{\psi\otimes\chi_{0,h}}(\omega) =\sum_{s\in T_\omega}\overline{\psi(s)}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 12 | `T00-U012` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 769–773 | <code>\sum_{\substack{\psi\bmod f\\\psi\ne\psi_0}} &#124;C_{\psi\otimes\chi_{0,h}}(\omega)&#124;^2 =M_\omega\{\varphi(f)-M_\omega\}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 13 | `T00-U013` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 797–802 | <code>Z_{\widetilde\psi}^{(\mathfrak q)}(U) =Z_\psi^{(f)}(U)-D_{\psi,h}(U), \qquad &#124;D_{\psi,h}(U)&#124;\le\omega(h)\log U.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 14 | `T00-U014` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 810–812 | <code>21\le d_f&lt;\frac{105}{47}d\le\frac{19530}{47}&lt;416.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 15 | `T00-U015` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 835–838 | <code>p_v\le(1+\alpha)\rho,\qquad &#124;p_{vw}-\rho^2&#124;\le\beta\rho^2</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 16 | `T00-U016` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 842–847 | <code>\mathbb E\left&#124;\sum_vb_vX_v\right&#124;^2 \le \rho^2\left&#124;\sum_vb_v\right&#124;^2+ \{(1+\alpha)\rho-\rho^2+\beta\rho^2(M_V-1)\} \sum_v&#124;b_v&#124;^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 1 | `T00-U001` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 563–567 | <code>(Y+q^2)\sum_{n\le Y}\Lambda(n)^2 &gt; e^{-4}\frac q{\varphi(q)}Y^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 2 | `T00-U002` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 590–593 | <code>\varphi^*(r)=\prod_{p\mid r}(p-2),\qquad \sum_{r\mid q}\varphi^*(r)=\varphi(q).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 3 | `T00-U003` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 598–600 | <code>\{Y+D(q)\}S_2(Y)\ge YS_2(Y)&gt;V_{\rm gate},</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 4 | `T00-U004` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 653–657 | <code>\rho_S\le\frac{{\cal H}_{\rm FMT}(R)}{Q_{\cal S}} \le\frac1{Q_{\cal S}}\sum_{m\bmod q}&#124;R(m)&#124;^2 \le\frac{\varphi(q)N^2}{Q_{\cal S}}V(Y,q).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 5 | `T00-U005` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 661–664 | <code>{\cal H}_{\rm FMT}(R) &lt;\tau^2p_*Q_{\cal S}M_{\min}^2Y^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 6 | `T00-U006` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 686–689 | <code>\omega_*=2\kappa^{-2k}X^{-3/5},\qquad K_*=\left\lceil\frac{\{1-(1+t)\rho\}M_*}{2k}\right\rceil,</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 7 | `T00-U007` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 691–694 | <code>\Pr(S_{\rm sieve},m_\omega=r) \le\frac{\omega_*^{K_*}}{Q_{\cal S}}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 8 | `T00-U008` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 720–724 | <code>H_{\rm res} =Q_{\cal S}\prod_{p\in P'}p,\qquad \#\operatorname{supp}(m_\omega)\le H_{\rm res}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 9 | `T00-U009` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 728–730 | <code>\frac{p_*}{\alpha}\le H_{\rm res}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 10 | `T00-U010` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 734–737 | <code>\log H_{\rm res}&lt;\frac{51}{100}X &lt;\frac{49}{50}X&lt;\log\mathfrak q.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 11 | `T00-U011` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 763–766 | <code>C_{\psi\otimes\chi_{0,h}}(\omega) =\sum_{s\in T_\omega}\overline{\psi(s)}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 12 | `T00-U012` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 770–774 | <code>\sum_{\substack{\psi\bmod f\\\psi\ne\psi_0}} &#124;C_{\psi\otimes\chi_{0,h}}(\omega)&#124;^2 =M_\omega\{\varphi(f)-M_\omega\}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 13 | `T00-U013` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 798–803 | <code>Z_{\widetilde\psi}^{(\mathfrak q)}(U) =Z_\psi^{(f)}(U)-D_{\psi,h}(U), \qquad &#124;D_{\psi,h}(U)&#124;\le\omega(h)\log U.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 14 | `T00-U014` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 811–813 | <code>21\le d_f&lt;\frac{105}{47}d\le\frac{19530}{47}&lt;416.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 15 | `T00-U015` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 836–839 | <code>p_v\le(1+\alpha)\rho,\qquad &#124;p_{vw}-\rho^2&#124;\le\beta\rho^2</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 16 | `T00-U016` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 843–848 | <code>\mathbb E\left&#124;\sum_vb_vX_v\right&#124;^2 \le \rho^2\left&#124;\sum_vb_v\right&#124;^2+ \{(1+\alpha)\rho-\rho^2+\beta\rho^2(M_V-1)\} \sum_v&#124;b_v&#124;^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
 | 17 | `T01-U001` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 11–14 | <code>\log_kx=\underbrace{\ln(\ln(\cdots\ln x))}_{k\text{회}},\qquad F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x}.</code> | `iterLog; fgkmtScale; iterLog_one; iterLog_two; iterLog_three; iterLog_four; fgkmtScale_unfold; scaleThreshold; exp_div_self_strictMonoOn; scale_domain_chain; fgkmtScale_factorization; iterLog_strictMono_up_to_four; fgkmtScale_pos; fgkmtScale_strictMonoOn` | `KERNEL_PASS` | 정의 전개·양수성·exp(exp(exp(1))) 위 strict monotonicity 커널 검증 |
 | 18 | `T01-U002` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 30–32 | <code>G_{end}(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n)</code> | `PrimeGapDatum; PrimeGapDatum.endPrime; endBoundedMaxGap; endEligible; endEligible_at_endpoint; endEligible_false_before` | `DEFINITION_ONLY` | finite record 표현 |
 | 19 | `T01-U003` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 36–38 | <code>G_{start}(x)=\max_{p_n\le x}(p_{n+1}-p_n)</code> | `startBoundedMaxGap; startEligible` | `DEFINITION_ONLY` | 보조 start-bounded 정의 |
