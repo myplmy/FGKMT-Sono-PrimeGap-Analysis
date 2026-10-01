@@ -2856,6 +2856,23 @@ Theory 96 뒤 전수원장은 theory 97개, display 식 1,902개, Lean declarati
 <code>NOT_YET_FORMALIZED=1139</code>, <code>PARSE_REVIEW_REQUIRED=5</code>이고
 금지 proof escape는 0건이다. calculator·actual prime 계산은 NOT READY다.
 
+## 2026-10-01 DEP-R09 Liu--Wang first-window·full-modulus hybrid
+
+[Theory 105](method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md)과
+[review114](review/114_20261001_DEPR09_LW_first_window_타당성검토.md)은
+local spacing·denominator·floor를 대조해 log(q*t)>=30000에서 count144를 얻었다.
+Table182/prose364·EF coefficient1.3804는 미채택이다.
+First-window와 Jutila tail은 cumulative count 적분 안에서 split했다.
+Full q·original D160·same law에서 nonprincipal near-zero kernel<3/1000다.
+Principal channel·numeric EF·full PNT/PAP·X_cert는 닫히지 않았다.
+Published2002 source 적용 진전이지 verified academic novelty 주장이 아니다.
+
+New10 tests·DEP-R09 regression472·direct Lean compile·full build8765 jobs·원장 PASS다.
+Inventory는106 theory 문서·2085식·443 declarations,
+KERNEL126·CONDITIONAL142·DEFINITION231·PARTIAL196·SOURCE210·NOT_YET1175·PARSE5,
+proof escape0이다. Actual/calculator·장시간 계산은 NOT RUN이다.
+다음 최소 작업은 actual q,T=q^(3/2),U=q^160의 uniform numerical EF·양측 good heights다.
+
 ## 2026-10-01 DEP-R09 actual primorial·D=160 native baseline
 
 [Theory 104](method/theory/104_Sono_FMT_DEPR09_native_primorial_D160_regime.md)과

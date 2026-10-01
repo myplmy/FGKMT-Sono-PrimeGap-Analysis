@@ -1,15 +1,15 @@
 {
   "schema_version": "fgkmt-lean-formula-inventory-v1",
   "scope": "Markdown display math outside fenced code blocks; inline math is contextual notation",
-  "theory_count": 105,
-  "formula_count": 2066,
-  "tagged_formula_count": 1504,
+  "theory_count": 106,
+  "formula_count": 2085,
+  "tagged_formula_count": 1523,
   "untagged_formula_count": 562,
   "theories": [
     {
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431",
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5",
       "display_formula_count": 16,
       "tagged_formula_count": 0,
       "untagged_formula_count": 16
@@ -105,7 +105,7 @@
     {
       "theory": "12",
       "source_file": "docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80",
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a",
       "display_formula_count": 30,
       "tagged_formula_count": 0,
       "untagged_formula_count": 30
@@ -845,6 +845,14 @@
       "display_formula_count": 23,
       "tagged_formula_count": 23,
       "untagged_formula_count": 0
+    },
+    {
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052",
+      "display_formula_count": 19,
+      "tagged_formula_count": 19,
+      "untagged_formula_count": 0
     }
   ],
   "formulae": [
@@ -852,161 +860,161 @@
       "formula_id": "T00-U001",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 560,
-      "end_line": 564,
+      "start_line": 562,
+      "end_line": 566,
       "tagged": false,
       "latex": "(Y+q^2)\\sum_{n\\le Y}\\Lambda(n)^2\n>\ne^{-4}\\frac q{\\varphi(q)}Y^2.",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U002",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 587,
-      "end_line": 590,
+      "start_line": 589,
+      "end_line": 592,
       "tagged": false,
       "latex": "\\varphi^*(r)=\\prod_{p\\mid r}(p-2),\\qquad\n\\sum_{r\\mid q}\\varphi^*(r)=\\varphi(q).",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U003",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 595,
-      "end_line": 597,
+      "start_line": 597,
+      "end_line": 599,
       "tagged": false,
       "latex": "\\{Y+D(q)\\}S_2(Y)\\ge YS_2(Y)>V_{\\rm gate},",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U004",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 650,
-      "end_line": 654,
+      "start_line": 652,
+      "end_line": 656,
       "tagged": false,
       "latex": "\\rho_S\\le\\frac{{\\cal H}_{\\rm FMT}(R)}{Q_{\\cal S}}\n\\le\\frac1{Q_{\\cal S}}\\sum_{m\\bmod q}|R(m)|^2\n\\le\\frac{\\varphi(q)N^2}{Q_{\\cal S}}V(Y,q).",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U005",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 658,
-      "end_line": 661,
+      "start_line": 660,
+      "end_line": 663,
       "tagged": false,
       "latex": "{\\cal H}_{\\rm FMT}(R)\n<\\tau^2p_*Q_{\\cal S}M_{\\min}^2Y^2.",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U006",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 683,
-      "end_line": 686,
+      "start_line": 685,
+      "end_line": 688,
       "tagged": false,
       "latex": "\\omega_*=2\\kappa^{-2k}X^{-3/5},\\qquad\nK_*=\\left\\lceil\\frac{\\{1-(1+t)\\rho\\}M_*}{2k}\\right\\rceil,",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U007",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 688,
-      "end_line": 691,
+      "start_line": 690,
+      "end_line": 693,
       "tagged": false,
       "latex": "\\Pr(S_{\\rm sieve},m_\\omega=r)\n\\le\\frac{\\omega_*^{K_*}}{Q_{\\cal S}}.",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U008",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 717,
-      "end_line": 721,
+      "start_line": 719,
+      "end_line": 723,
       "tagged": false,
       "latex": "H_{\\rm res}\n=Q_{\\cal S}\\prod_{p\\in P'}p,\\qquad\n\\#\\operatorname{supp}(m_\\omega)\\le H_{\\rm res}.",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U009",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 725,
-      "end_line": 727,
+      "start_line": 727,
+      "end_line": 729,
       "tagged": false,
       "latex": "\\frac{p_*}{\\alpha}\\le H_{\\rm res}",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U010",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 731,
-      "end_line": 734,
+      "start_line": 733,
+      "end_line": 736,
       "tagged": false,
       "latex": "\\log H_{\\rm res}<\\frac{51}{100}X\n<\\frac{49}{50}X<\\log\\mathfrak q.",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U011",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 760,
-      "end_line": 763,
+      "start_line": 762,
+      "end_line": 765,
       "tagged": false,
       "latex": "C_{\\psi\\otimes\\chi_{0,h}}(\\omega)\n=\\sum_{s\\in T_\\omega}\\overline{\\psi(s)}.",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U012",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 767,
-      "end_line": 771,
+      "start_line": 769,
+      "end_line": 773,
       "tagged": false,
       "latex": "\\sum_{\\substack{\\psi\\bmod f\\\\\\psi\\ne\\psi_0}}\n|C_{\\psi\\otimes\\chi_{0,h}}(\\omega)|^2\n=M_\\omega\\{\\varphi(f)-M_\\omega\\}.",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U013",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 795,
-      "end_line": 800,
+      "start_line": 797,
+      "end_line": 802,
       "tagged": false,
       "latex": "Z_{\\widetilde\\psi}^{(\\mathfrak q)}(U)\n=Z_\\psi^{(f)}(U)-D_{\\psi,h}(U),\n\\qquad\n|D_{\\psi,h}(U)|\\le\\omega(h)\\log U.",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U014",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 808,
-      "end_line": 810,
+      "start_line": 810,
+      "end_line": 812,
       "tagged": false,
       "latex": "21\\le d_f<\\frac{105}{47}d\\le\\frac{19530}{47}<416.",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U015",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 833,
-      "end_line": 836,
+      "start_line": 835,
+      "end_line": 838,
       "tagged": false,
       "latex": "p_v\\le(1+\\alpha)\\rho,\\qquad\n|p_{vw}-\\rho^2|\\le\\beta\\rho^2",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T00-U016",
       "theory": "00",
       "source_file": "docs/method/theory/00_이론_가설_방법론_색인.md",
-      "start_line": 840,
-      "end_line": 845,
+      "start_line": 842,
+      "end_line": 847,
       "tagged": false,
       "latex": "\\mathbb E\\left|\\sum_vb_vX_v\\right|^2\n\\le \\rho^2\\left|\\sum_vb_v\\right|^2+\n\\{(1+\\alpha)\\rho-\\rho^2+\\beta\\rho^2(M_V-1)\\}\n\\sum_v|b_v|^2.",
-      "source_sha256": "72bedcc8399f3ac60758a040d28f50f7a11b68eddece7aacaa9feb98cb602431"
+      "source_sha256": "e641d5f63fa7bcf014ee3152eecf116466e40519a1af4671fe3e54dfa57d92c5"
     },
     {
       "formula_id": "T01-U001",
@@ -1296,7 +1304,7 @@
       "end_line": 82,
       "tagged": false,
       "latex": "\\boxed{\nX_{\\mathrm{emp}}(10^{20})=3{,}814{,}280\\quad\\text{(finite exact)},\n\\qquad X_{\\mathrm{cert}}=\\mathrm{OPEN},\n\\qquad X_\\star=\\mathrm{OPEN}.\n}",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U002",
@@ -1306,7 +1314,7 @@
       "end_line": 96,
       "tagged": false,
       "latex": "G_1(X)\\ge 2\\times10^{-17}\n\\frac{\\log X\\,\\log_2X\\,\\log_4X}{\\log_3X}\n\\qquad (X\\ge X_{\\mathrm{cert}}).",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U003",
@@ -1316,7 +1324,7 @@
       "end_line": 161,
       "tagged": false,
       "latex": "\\widehat c=2.00386120461967036975\\ldots\\times10^{-17}",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U004",
@@ -1326,7 +1334,7 @@
       "end_line": 325,
       "tagged": false,
       "latex": "\\frac{J_r(F)}{I_r(F)}>\\frac{\\log r}{4r}\\qquad(r\\ge36, r\\in\\mathbb Z)",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U005",
@@ -1336,7 +1344,7 @@
       "end_line": 404,
       "tagged": false,
       "latex": "c_{\\gamma,j}>\\frac{1}{3(1+\\log\\Lambda_*)}",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U006",
@@ -1346,7 +1354,7 @@
       "end_line": 419,
       "tagged": false,
       "latex": "C_{8.3}(a,A_2)c_\\gamma(L+1)G_{\\max}",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U007",
@@ -1356,7 +1364,7 @@
       "end_line": 435,
       "tagged": false,
       "latex": "a=\\frac12,\\qquad A_2=8,\\qquad L=5+\\log\\Lambda_*",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U008",
@@ -1366,7 +1374,7 @@
       "end_line": 452,
       "tagged": false,
       "latex": "\\prod_i(1+\\delta_i)-1,\\qquad\n\\delta_i=\n\\frac{C_{8.3}(1/2,8)(L_i+1)\\kappa_i}{\\log R}",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U009",
@@ -1376,7 +1384,7 @@
       "end_line": 472,
       "tagged": false,
       "latex": "|Z^2-A^2|\\le2\\varepsilon AB+\\varepsilon^2B^2",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U010",
@@ -1386,7 +1394,7 @@
       "end_line": 493,
       "tagged": false,
       "latex": "C_Y=327680\\frac{14801}{69}e^{264}+10,143,697\n<3.17\\times10^{122}",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U011",
@@ -1396,7 +1404,7 @@
       "end_line": 524,
       "tagged": false,
       "latex": "I_k(F)\\ge(2k\\log k)^{-k},\\qquad\nJ_k(F)>\\frac{\\log k}{4k}(2k\\log k)^{-k}",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U012",
@@ -1406,7 +1414,7 @@
       "end_line": 623,
       "tagged": false,
       "latex": "r_T=\\left\\lfloor(\\log(x/2))^{1/5}\\right\\rfloor",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U013",
@@ -1416,7 +1424,7 @@
       "end_line": 632,
       "tagged": false,
       "latex": "\\sigma y\\le\\frac{26}{25}\\,80cx\\log_2x",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U014",
@@ -1426,7 +1434,7 @@
       "end_line": 660,
       "tagged": false,
       "latex": "x\\ge2\\exp(36^5)\n\\quad\\Longrightarrow\\quad\n\\sigma y<\\frac{1001000}{998001}\\,80cx\\log_2x\n<\\frac{26}{25}\\,80cx\\log_2x.",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U015",
@@ -1436,7 +1444,7 @@
       "end_line": 723,
       "tagged": false,
       "latex": "T=X/2,\\qquad r=\\lfloor(\\log T)^{1/5}\\rfloor\\ge10^{10}",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U016",
@@ -1446,7 +1454,7 @@
       "end_line": 1225,
       "tagged": false,
       "latex": "\\Pr(S_{\\rm sieve},m_\\omega=r)\\le Q_{\\mathcal S}^{-1}.",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U017",
@@ -1456,7 +1464,7 @@
       "end_line": 1231,
       "tagged": false,
       "latex": "\\rho_S\\le\\varphi(q)N^2V(Y,q)/Q_{\\mathcal S},",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U018",
@@ -1466,7 +1474,7 @@
       "end_line": 1239,
       "tagged": false,
       "latex": "V(Y,q)<\n\\tau^2p_*Q_{\\mathcal S}M_{\\min}^2Y^2/\n\\{\\varphi(q)N^2\\}.",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U019",
@@ -1476,7 +1484,7 @@
       "end_line": 1262,
       "tagged": false,
       "latex": "B_{\\rm LS}=(Y+q^2)\\sum_{n\\le Y}\\Lambda(n)^2",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U020",
@@ -1486,7 +1494,7 @@
       "end_line": 1268,
       "tagged": false,
       "latex": "B_{\\rm LS}>e^{-4}(q/\\varphi(q))Y^2\\ge V_{\\rm gate}",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U021",
@@ -1496,7 +1504,7 @@
       "end_line": 1288,
       "tagged": false,
       "latex": "\\sum_{r\\mid q}\\varphi^*(r)=\\varphi(q).",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U022",
@@ -1506,7 +1514,7 @@
       "end_line": 1296,
       "tagged": false,
       "latex": "Y\\sum_{n\\le Y}\\Lambda(n)^2>V_{\\rm gate}.",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U023",
@@ -1516,7 +1524,7 @@
       "end_line": 1353,
       "tagged": false,
       "latex": "{\\cal H}_{\\rm FMT}(R)\n:=\\sum_{\\boldsymbol a}\n\\max_{m\\in{\\cal M}(\\boldsymbol a)}|R(m)|^2,\n\\qquad\n\\rho_S\\le {\\cal H}_{\\rm FMT}(R)/Q_{\\cal S}.",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U024",
@@ -1526,7 +1534,7 @@
       "end_line": 1360,
       "tagged": false,
       "latex": "{\\cal H}_{\\rm FMT}(R)\n<\\tau^2p_*Q_{\\cal S}M_{\\min}^2Y^2.",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U025",
@@ -1536,7 +1544,7 @@
       "end_line": 1383,
       "tagged": false,
       "latex": "\\omega_*=2\\kappa^{-2k}X^{-3/5}",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U026",
@@ -1546,7 +1554,7 @@
       "end_line": 1391,
       "tagged": false,
       "latex": "\\Pr(S_{\\rm sieve},m_\\omega=r)\n\\le Q_{\\cal S}^{-1}\\omega_*^{K_*}.",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U027",
@@ -1556,7 +1564,7 @@
       "end_line": 1414,
       "tagged": false,
       "latex": "H_{\\rm res}=Q_{\\cal S}\\prod_{p\\in P'}p",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U028",
@@ -1566,7 +1574,7 @@
       "end_line": 1442,
       "tagged": false,
       "latex": "\\sum_{\\substack{\\psi\\bmod f\\\\\\psi\\ne\\psi_0}}\n|C_{\\psi\\otimes\\chi_{0,h}}(\\omega)|^2\n=M_\\omega\\{\\varphi(f)-M_\\omega\\}.",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U029",
@@ -1576,7 +1584,7 @@
       "end_line": 1463,
       "tagged": false,
       "latex": "Z_{\\widetilde\\psi}^{(\\mathfrak q)}\n=Z_\\psi^{(f)}-D_{\\psi,h},\n\\qquad |D_{\\psi,h}|\\le\\omega(h)\\log U",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T12-U030",
@@ -1586,7 +1594,7 @@
       "end_line": 1487,
       "tagged": false,
       "latex": "\\mathbb E\\left|\\sum_vb_vX_v\\right|^2\n\\le\\rho^2\\left|\\sum_vb_v\\right|^2+\n\\{(1+\\alpha)\\rho-\\rho^2+\\beta\\rho^2(M_V-1)\\}\n\\sum_v|b_v|^2.",
-      "source_sha256": "d0225a13025ec2248e1b4d005ca263840944a86474629075e1d071a7334f5f80"
+      "source_sha256": "736b20ad941a02bcd7a71223260022d1aacf0834b62a8d7dd1ede57d7f6d4a2a"
     },
     {
       "formula_id": "T13-U001",
@@ -21507,6 +21515,196 @@
       "tagged": true,
       "latex": "\\boxed{\n \\frac{|{\\cal C}_f|}{NU}<\\frac1{36}+\\frac1{450}\n =\\frac3{100}.}\n \\tag{104.23}",
       "source_sha256": "c7abd206ffd4b04a75a248afa66cff48ca1aceca663e09067e039efbe5d47d7e"
+    },
+    {
+      "formula_id": "105.1",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 24,
+      "end_line": 28,
+      "tagged": true,
+      "latex": "q\\le x_{\\rm src},\\qquad x_{\\rm src}\\ge1,\\qquad y\\ge0,\\qquad\n z\\ge\\max\\{x_{\\rm src}y,10^{11}\\}.\n \\tag{105.1}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.2",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 36,
+      "end_line": 40,
+      "tagged": true,
+      "latex": "N(\\alpha,q,t)=\\sum_{\\chi\\bmod q}\n \\#\\{\\rho:L(\\rho,\\chi)=0,\\ \\alpha\\le\\Re\\rho<1,\\ |\\Im\\rho|\\le t\\}.\n \\tag{105.2}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.3",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 53,
+      "end_line": 58,
+      "tagged": true,
+      "latex": "a_0=\\frac{17}{50},\\qquad\\lambda_0=\\frac9{20},\\qquad\n L=\\log z\\ge30000,\\qquad\n \\kappa=\\frac{5-\\sqrt5}{10}\n \\tag{105.3}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.4",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 63,
+      "end_line": 66,
+      "tagged": true,
+      "latex": "\\boxed{0\\le\\kappa\\le\\frac{277}{1000}.}\n \\tag{105.4}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.5",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 70,
+      "end_line": 75,
+      "tagged": true,
+      "latex": "A=\\frac{50}{17}-\\frac{8973}{10000L},\\quad\n B=\\kappa+\\frac{7647}{10000L},\\quad\n C=\\frac{100}{79}-\\kappa-\\frac{755}{10000L}.\n \\tag{105.5}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.6",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 79,
+      "end_line": 83,
+      "tagged": true,
+      "latex": "\\boxed{0\\le A\\le3,\\qquad0\\le B\\le\\frac{139}{500},\\qquad\n C\\ge\\frac{247}{250}.}\n \\tag{105.6}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.7",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 87,
+      "end_line": 94,
+      "tagged": true,
+      "latex": "\\boxed{\n C^2-AB\\ge\n \\left(\\frac{247}{250}\\right)^2-3\\frac{139}{500}\n =\\frac{2221}{15625}>\\frac18,\\qquad\n A^2-AB\\le9.}\n \\tag{105.7}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.8",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 98,
+      "end_line": 103,
+      "tagged": true,
+      "latex": "N(\\alpha,q,t)\\le2\\left\\lfloor\n \\frac{A^2-AB}{C^2-AB}\\right\\rfloor\n \\le2\\cdot72=144.\n \\tag{105.8}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.9",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 107,
+      "end_line": 112,
+      "tagged": true,
+      "latex": "\\boxed{\n N\\left(1-\\frac{9}{20\\log(qt)},q,t\\right)\\le144\n \\qquad(\\log(qt)\\ge30000,\\ t\\ge1).}\n \\tag{105.9}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.10",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 126,
+      "end_line": 133,
+      "tagged": true,
+      "latex": "\\boxed{\n \\left\\lfloor\\frac{\\text{local numerator}}{\\text{local denominator}}\\right\\rfloor<3,\n \\quad n\\le2,\\quad\n \\gamma_{j+2}-\\gamma_j>2b_{\\rm loc}/L,\\quad\n N_1=\\sum_\\chi\\left\\lceil N_\\chi/2\\right\\rceil\\ge N/2.}\n \\tag{105.10}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.11",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 150,
+      "end_line": 157,
+      "tagged": true,
+      "latex": "L(t)=\\ell+\\log t,\\quad\n \\delta_0(t)=\\frac{c_M}{L(t)},\\quad\n \\delta_s(t)=\\frac{\\lambda_0}{L(t)},\\quad\n 0<\\delta_0(t)<\\delta_s(t)<\\omega,\\quad\n c_M=\\frac{10^9}{9645908801}.\n \\tag{105.11}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.12",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 167,
+      "end_line": 174,
+      "tagged": true,
+      "latex": "\\mathcal A(t)=\n \\sum_{\\substack{\\rho\\ {\\rm nonexceptional}\\\\1-\\beta\\le\\omega\\\\|\\gamma|\\le t}}\n U^{\\beta-1}\n =e^{-u\\omega}N(\\omega,t)+\n u\\int_{\\delta_0(t)}^\\omega e^{-u\\delta}N(\\delta,t)\\,d\\delta.\n \\tag{105.12}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.13",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 179,
+      "end_line": 184,
+      "tagged": true,
+      "latex": "u\\int_{\\delta_0(t)}^{\\delta_s(t)}e^{-u\\delta}N(\\delta,t)\\,d\\delta\n \\le144\\{e^{-u\\delta_0(t)}-e^{-u\\delta_s(t)}\\}\n \\le144e^{-u\\delta_0(t)}.\n \\tag{105.13}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.14",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 188,
+      "end_line": 193,
+      "tagged": true,
+      "latex": "N(\\delta,t)\\le\n 2C_{J,\\rm all}e^{kL(t)\\delta}(5+2\\delta L(t)),\n \\qquad C_{J,\\rm all}=\\frac{19720624464771552}{425315}.\n \\tag{105.14}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.15",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 200,
+      "end_line": 206,
+      "tagged": true,
+      "latex": "\\boxed{\n 2(u/v)(5+2\\lambda_0+2L/v)\\le24,\\qquad\n \\mathcal A(t)\\le144e^{-c_M160\\ell/L(t)}\n +24C_{J,\\rm all}e^{-\\lambda_0\\{160\\ell/L(t)-k\\}}.}\n \\tag{105.15}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.16",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 215,
+      "end_line": 221,
+      "tagged": true,
+      "latex": "\\mathcal S=\n \\sum_{\\substack{\\rho\\ {\\rm nonexceptional}\\\\1-\\beta\\le\\omega\\\\|\\gamma|\\le T}}\n \\frac{U^{\\beta-1}}{\\max(1,|\\gamma|)}\n =\\frac{\\mathcal A(T)}T+\\int_1^T\\frac{\\mathcal A(t)}{t^2}\\,dt.\n \\tag{105.16}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.17",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 226,
+      "end_line": 230,
+      "tagged": true,
+      "latex": "w+c\\frac{160}{1+w/\\ell}-c160\n =w\\left(1-\\frac{160c}{\\ell+w}\\right)\\ge\\frac45w.\n \\tag{105.17}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.18",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 236,
+      "end_line": 244,
+      "tagged": true,
+      "latex": "\\boxed{\n \\mathcal S\\le216e^{-160c_M}\n +36C_{J,\\rm all}e^{-\\lambda_0(160-k)},\\qquad\n \\mathcal E_{\\rm near,np}\\le\n \\frac{1134}{5}e^{-160c_M}\n +\\frac{189}{5}C_{J,\\rm all}e^{-\\lambda_0(160-k)}.}\n \\tag{105.18}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
+    },
+    {
+      "formula_id": "105.19",
+      "theory": "105",
+      "source_file": "docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md",
+      "start_line": 254,
+      "end_line": 261,
+      "tagged": true,
+      "latex": "\\boxed{\n \\frac{1134}{5}e^{-160c_M}\n +\\frac{189}{5}C_{J,\\rm all}e^{-\\lambda_0(160-k)}\n +\\frac{21}{20}e^{-160\\log q/[24\\log P(X)]}\n <\\frac3{1000}.}\n \\tag{105.19}",
+      "source_sha256": "5988c965dbcd4369af023c33184b6f1b28fdfc1cbcf482038ad98be581673052"
     }
   ],
   "issues": [],

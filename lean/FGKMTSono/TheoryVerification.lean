@@ -5562,4 +5562,185 @@ theorem dep_r09_native_square_and_log_ratio
   apply (div_le_div_iff₀ (Real.exp_pos a) (by linarith : 0 < a)).2
   nlinarith
 
+/-! ## Theory 105 — Liu--Wang first-window source envelope -/
+
+/- Theory 105, formula 105.4: the actual irrational Stechkin coefficient
+   is enclosed by a rational interval, not rounded to a supplied decimal. -/
+theorem dep_r09_lw_kappa_rational_enclosure :
+    0 ≤ (5 - Real.sqrt 5) / 10 ∧
+      (5 - Real.sqrt 5) / 10 ≤ (277 / 1000 : ℝ) := by
+  have hNonneg := Real.sqrt_nonneg (5 : ℝ)
+  have hSquare := Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 5)
+  constructor <;> nlinarith
+
+/- Theory 105, formulas 105.5--105.6: source equation (3.22) is checked
+   on the full large-log domain, not at a finite numerical grid. -/
+theorem dep_r09_lw_source_scalar_envelopes
+    {L kappa : ℝ} (hL : 30000 ≤ L)
+    (hKappaNonneg : 0 ≤ kappa) (hKappa : kappa ≤ 277 / 1000) :
+    0 ≤ 50 / 17 - (8973 / 10000) / L ∧
+    50 / 17 - (8973 / 10000) / L ≤ 3 ∧
+    0 ≤ kappa + (7647 / 10000) / L ∧
+    kappa + (7647 / 10000) / L ≤ 139 / 500 ∧
+    247 / 250 ≤ 100 / 79 - kappa - (755 / 10000) / L := by
+  have hLPos : 0 < L := by linarith
+  have hE1Nonneg : 0 ≤ (8973 / 10000 : ℝ) / L := by positivity
+  have hE2Nonneg : 0 ≤ (7647 / 10000 : ℝ) / L := by positivity
+  have hE1 : (8973 / 10000 : ℝ) / L ≤ 1 / 1000 := by
+    apply (div_le_iff₀ hLPos).2
+    linarith
+  have hE2 : (7647 / 10000 : ℝ) / L ≤ 1 / 1000 := by
+    apply (div_le_iff₀ hLPos).2
+    linarith
+  have hE3 : (755 / 10000 : ℝ) / L ≤ 1 / 10000 := by
+    apply (div_le_iff₀ hLPos).2
+    linarith
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩ <;> linarith
+
+/- Theory 105, formula 105.7: both source denominator conditions (3.18)
+   are verified before any division or floor bound is used. -/
+theorem dep_r09_lw_denominator_envelope
+    {A B C : ℝ} (hA0 : 0 ≤ A) (hA : A ≤ 3)
+    (hB0 : 0 ≤ B) (hB : B ≤ 139 / 500) (hC : 247 / 250 ≤ C) :
+    0 ≤ C ∧ (2221 / 15625 : ℝ) ≤ C ^ 2 - A * B ∧
+      (1 / 8 : ℝ) < C ^ 2 - A * B ∧ A ^ 2 - A * B ≤ 9 := by
+  have hProduct : A * B ≤ (3 : ℝ) * (139 / 500) :=
+    mul_le_mul hA hB hB0 (by norm_num)
+  have hC0 : 0 ≤ C := by linarith
+  have hSquare : (247 / 250 : ℝ) ^ 2 ≤ C ^ 2 := by
+    nlinarith [mul_nonneg (show 0 ≤ C - 247 / 250 by linarith)
+      (show 0 ≤ C + 247 / 250 by linarith)]
+  have hASquare : A ^ 2 ≤ 9 := by
+    nlinarith [mul_nonneg (sub_nonneg.mpr hA) (show 0 ≤ 3 + A by linarith)]
+  refine ⟨hC0, ?_, ?_, ?_⟩
+  · nlinarith
+  · nlinarith
+  · nlinarith [mul_nonneg hA0 hB0]
+
+/- Theory 105, formulas 105.8--105.9: the source analytic count upper is
+   an explicit premise; the complete quotient/floor terminal is proved. -/
+theorem dep_r09_lw_floor_count_terminal
+    {numerator denominator : ℝ} {count : ℕ}
+    (hNum : numerator ≤ 9) (hDen : (1 / 8 : ℝ) < denominator)
+    (hSource : (count : ℝ) ≤
+      2 * ((Int.floor (numerator / denominator) : ℤ) : ℝ)) :
+    (count : ℝ) ≤ 144 := by
+  have hDenPos : 0 < denominator := by linarith
+  have hRatio : numerator / denominator ≤ 72 := by
+    apply (div_le_iff₀ hDenPos).2
+    linarith
+  have hFloor : ((Int.floor (numerator / denominator) : ℤ) : ℝ) ≤
+      numerator / denominator := Int.floor_le _
+  linarith
+
+theorem dep_r09_lw_source_parameters :
+    (0 : ℝ) < 17 / 50 ∧ (17 / 50 : ℝ) ≤ 2 / 5 ∧
+    (262132 / 1000000 : ℝ) ≤ 9 / 20 ∧ (9 / 20 : ℝ) ≤ 12 / 25 ∧
+    (1 : ℝ) / (17 / 50 + 9 / 20) = 100 / 79 ∧
+    (247 / 250 : ℝ) ^ 2 - 3 * (139 / 500) = 2221 / 15625 ∧
+    (1 / 8 : ℝ) < 2221 / 15625 := by
+  norm_num
+
+/- Theory 105, formula 105.15: the tail integral has lambda=9/20,
+   not the smaller McCurley gap; its scalar coefficient is rechecked. -/
+theorem dep_r09_lw_tail_integral_coefficient
+    {ratio logRatio : ℝ} (hRatio0 : 0 ≤ ratio) (hRatio : ratio ≤ 5 / 3)
+    (hLogRatio : logRatio ≤ 1 / 5) :
+    2 * ratio * (5 + 2 * (9 / 20) + 2 * logRatio) ≤ 24 := by
+  have hBracket : 5 + 2 * (9 / 20 : ℝ) + 2 * logRatio ≤ 7 := by linarith
+  have hScaled := mul_le_mul_of_nonneg_left hBracket
+    (by positivity : 0 ≤ 2 * ratio)
+  nlinarith
+
+/- Theory 105, formula 105.18: normalized height integration coefficients
+   only. Counting-measure integral/source identification is separate. -/
+theorem dep_r09_lw_height_weight_coefficients :
+    (21 / 20 : ℝ) * (3 / 2) * 144 = 1134 / 5 ∧
+    (21 / 20 : ℝ) * (3 / 2) * 24 = 189 / 5 ∧
+    (160 : ℝ) * (1000000000 / 9645908801) > 16 ∧
+    (9 / 20 : ℝ) * (160 - 23 / 7) > 70 := by
+  norm_num
+
+/- Theory 105, formula 105.10: local count<=2 makes the alternating
+   zero selection legitimate; this is a source-premise floor terminal. -/
+theorem dep_r09_lw_local_floor_count
+    {numerator denominator : ℝ} {count : ℕ}
+    (hNum : numerator < 3 / 5) (hDen : (1 / 5 : ℝ) < denominator)
+    (hSource : (count : ℝ) ≤
+      ((Int.floor (numerator / denominator) : ℤ) : ℝ)) :
+    count ≤ 2 := by
+  have hDenPos : 0 < denominator := by linarith
+  have hRatio : numerator / denominator < 3 := by
+    apply (div_lt_iff₀ hDenPos).2
+    linarith
+  have hFloor : ((Int.floor (numerator / denominator) : ℤ) : ℝ) ≤
+    numerator / denominator := Int.floor_le _
+  have hCount : (count : ℝ) < 3 := by linarith
+  have hNat : count < 3 := by exact_mod_cast hCount
+  omega
+
+theorem dep_r09_lw_local_spacing_rationals :
+    (277 / 1000 : ℝ) + 1 / (78 / 25) < 3 / 5 ∧
+    ((78 / 25 : ℝ) + 9 / 20) /
+        (((78 / 25 : ℝ) + 9 / 20) ^ 2 + (19039 / 10000) ^ 2) -
+        1 / 1000 > 1 / 5 ∧
+    (5 + (9 / 4 : ℝ)) / (10 * 30000) < 1 / 1000 := by
+  norm_num
+
+/- Theory 105, formula 105.17: exact identity and inequality across the
+   full height domain for either first-window or McCurley decay parameter. -/
+theorem dep_r09_lw_height_cost_gap
+    {ell w c : ℝ} (hEll : 30000 ≤ ell) (hW : 0 ≤ w) (hC : c ≤ 9 / 20) :
+    w + c * 160 / (1 + w / ell) - c * 160 =
+        w * (1 - 160 * c / (ell + w)) ∧
+      (4 / 5) * w ≤ w + c * 160 / (1 + w / ell) - c * 160 := by
+  have hEllPos : 0 < ell := by linarith
+  have hSum : 0 < ell + w := add_pos_of_pos_of_nonneg hEllPos hW
+  constructor
+  · have hOne : 1 + w / ell ≠ 0 := by positivity
+    field_simp
+    ring
+  · exact dep_r09_height_cost_gap hEllPos hW (by linarith)
+
+/- Theory 105, formula 105.19: real exponential hybrid kernel at the
+   full modulus, retaining a separate possible real-zero contribution. -/
+theorem dep_r09_lw_full_modulus_hybrid_budget
+    {realDecay : ℝ} (hReal : 6 ≤ realDecay) :
+    (1134 / 5) * Real.exp (-(160 : ℝ) * (1000000000 / 9645908801)) +
+      (189 / 5) * dep_r09_allHeightDensityCoefficient *
+        Real.exp (-(9 / 20 : ℝ) * (160 - 23 / 7)) +
+      (21 / 20) * Real.exp (-realDecay) < 3 / 1000 := by
+  have hExpOne : (27 / 10 : ℝ) < Real.exp 1 := by
+    have h := Real.sum_le_exp_of_nonneg (x := (1 : ℝ)) (by norm_num) 6
+    norm_num [Finset.sum_range_succ, Nat.factorial] at h
+    linarith
+  have hInverse : Real.exp (-1 : ℝ) < 10 / 27 := by
+    rw [Real.exp_neg, inv_eq_one_div]
+    apply (div_lt_iff₀ (Real.exp_pos (1 : ℝ))).2
+    linarith
+  have hPowers (n : ℕ) : Real.exp (-(n : ℝ)) ≤ (10 / 27 : ℝ) ^ n := by
+    have h := pow_le_pow_left₀ (Real.exp_pos (-1 : ℝ)).le hInverse.le n
+    simpa only [← Real.exp_nat_mul, mul_neg_one] using h
+  have hSmall : Real.exp (-(160 : ℝ) * (1000000000 / 9645908801)) ≤
+      (10 / 27 : ℝ) ^ 16 :=
+    (Real.exp_le_exp.mpr (by norm_num)).trans (hPowers 16)
+  have hTail : Real.exp (-(9 / 20 : ℝ) * (160 - 23 / 7)) ≤
+      (10 / 27 : ℝ) ^ 70 :=
+    (Real.exp_le_exp.mpr (by norm_num)).trans (hPowers 70)
+  have hBeta : Real.exp (-realDecay) ≤ (10 / 27 : ℝ) ^ 6 :=
+    (Real.exp_le_exp.mpr (by linarith : -realDecay ≤ -(6 : ℝ))).trans (hPowers 6)
+  have hSmallScaled := mul_le_mul_of_nonneg_left hSmall
+    (by norm_num : (0 : ℝ) ≤ 1134 / 5)
+  have hTailProduct := mul_le_mul dep_r09_all_height_density_coefficient.2.le hTail
+    (Real.exp_pos _).le (by norm_num : (0 : ℝ) ≤ 50000000000)
+  have hTailScaled := mul_le_mul_of_nonneg_left hTailProduct
+    (by norm_num : (0 : ℝ) ≤ 189 / 5)
+  have hBetaScaled := mul_le_mul_of_nonneg_left hBeta
+    (by norm_num : (0 : ℝ) ≤ 21 / 20)
+  have hRational :
+      (1134 / 5 : ℝ) * (10 / 27) ^ 16 +
+      (189 / 5) * 50000000000 * (10 / 27) ^ 70 +
+      (21 / 20) * (10 / 27) ^ 6 < 3 / 1000 := by norm_num
+  nlinarith
+
 end FGKMTSono

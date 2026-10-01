@@ -5533,6 +5533,125 @@
       "declarations": ["dep_r09_native_baseline_final_budget"]
     },
     {
+      "formula_id": "105.1",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "105.2",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "105.3",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "105.4",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "dep_r09_lw_kappa_rational_enclosure"
+      ]
+    },
+    {
+      "formula_id": "105.5",
+      "status": "DEFINITION_ONLY",
+      "declarations": []
+    },
+    {
+      "formula_id": "105.6",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "dep_r09_lw_source_scalar_envelopes"
+      ]
+    },
+    {
+      "formula_id": "105.7",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "dep_r09_lw_denominator_envelope",
+        "dep_r09_lw_source_parameters"
+      ]
+    },
+    {
+      "formula_id": "105.8",
+      "status": "CONDITIONAL_KERNEL_PASS",
+      "declarations": [
+        "dep_r09_lw_floor_count_terminal"
+      ]
+    },
+    {
+      "formula_id": "105.9",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "dep_r09_lw_floor_count_terminal",
+        "dep_r09_lw_source_scalar_envelopes"
+      ]
+    },
+    {
+      "formula_id": "105.10",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "dep_r09_lw_local_floor_count",
+        "dep_r09_lw_local_spacing_rationals"
+      ]
+    },
+    {
+      "formula_id": "105.11",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "105.12",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "105.13",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "105.14",
+      "status": "SOURCE_THEOREM_UNFORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "105.15",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "dep_r09_lw_tail_integral_coefficient",
+        "dep_r09_density_normalized_ratios"
+      ]
+    },
+    {
+      "formula_id": "105.16",
+      "status": "NOT_YET_FORMALIZED",
+      "declarations": []
+    },
+    {
+      "formula_id": "105.17",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "dep_r09_lw_height_cost_gap"
+      ]
+    },
+    {
+      "formula_id": "105.18",
+      "status": "PARTIAL_FORMALIZATION",
+      "declarations": [
+        "dep_r09_lw_height_weight_coefficients"
+      ]
+    },
+    {
+      "formula_id": "105.19",
+      "status": "KERNEL_PASS",
+      "declarations": [
+        "dep_r09_lw_full_modulus_hybrid_budget"
+      ]
+    },
+    {
       "formula_id": "27.9",
       "status": "PARSE_REVIEW_REQUIRED",
       "declarations": []

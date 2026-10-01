@@ -818,3 +818,15 @@ DEP-R09 462 tests·full lake build 8765 jobs·verification ledger는 PASS다.
 Inventory는 105 theory 문서·2066식·432 declarations,
 KERNEL 121·CONDITIONAL 141·DEFINITION 227·PARTIAL 192·SOURCE 209·NOT_YET 1171·PARSE 5,
 proof escape 0이다. Goal X_cert는 아직 OPEN이다.
+
+2026-10-01 Theory105 batch는 actual sqrt5 enclosure·source A/B/C whole-domain bounds,
+positive denominator·source floor premise 뒤 count144, local floor<=2, exact height-field
+identity·real-exponential hybrid<3/1000를 검증한다.
+Dirichlet source·spacing selection·counting measure integrals는 독립 Lean proof가 아니다.
+Target는 full q의 nonprincipal near zeros며 principal·numeric EF/PAP는 OPEN이다.
+Table182/prose364·Theorem8 coefficient1.3804를 채택하지 않았다.
+
+New10 tests·DEP-R09 regression472·direct compile·full build8765 jobs·원장 PASS다.
+Inventory는106 theory 문서·2085식·443 declarations,
+KERNEL126·CONDITIONAL142·DEFINITION231·PARTIAL196·SOURCE210·NOT_YET1175·PARSE5,
+proof escape0이다. X_cert/calculator·actual 계산은 미인증이다.

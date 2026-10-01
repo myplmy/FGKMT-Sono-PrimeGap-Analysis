@@ -2,9 +2,9 @@
 
 - 생성 기준: 2026-09-14 KST
 - inventory schema: `fgkmt-lean-formula-inventory-v1`
-- 원문 범위: `docs/method/theory/*.md` 105개
-- 전수 단위: Markdown fenced code 밖 display math 2,066개
-- 원래 식번호: 1,504개, 합성 ID 무번호식: 562개
+- 원문 범위: `docs/method/theory/*.md` 106개
+- 전수 단위: Markdown fenced code 밖 display math 2,085개
+- 원래 식번호: 1,523개, 합성 ID 무번호식: 562개
 - 안전 복구 표시: hash-pinned Theory 27의 누락 display 종료기호 5개
 - 기계 정본: [formula_inventory_v1.json](verification/formula_inventory_v1.json)
 - 상태 정본: [verification_status_v1.json](verification/verification_status_v1.json)
@@ -62,12 +62,12 @@
 
 | 상태 | 항목 수 |
 |---|---:|
-| `KERNEL_PASS` | 121 |
-| `CONDITIONAL_KERNEL_PASS` | 141 |
-| `DEFINITION_ONLY` | 227 |
-| `PARTIAL_FORMALIZATION` | 192 |
-| `SOURCE_THEOREM_UNFORMALIZED` | 209 |
-| `NOT_YET_FORMALIZED` | 1,171 |
+| `KERNEL_PASS` | 126 |
+| `CONDITIONAL_KERNEL_PASS` | 142 |
+| `DEFINITION_ONLY` | 231 |
+| `PARTIAL_FORMALIZATION` | 196 |
+| `SOURCE_THEOREM_UNFORMALIZED` | 210 |
+| `NOT_YET_FORMALIZED` | 1,175 |
 | `PARSE_REVIEW_REQUIRED` | 5 |
 
 집계는 display 수식 행 기준이다. 하나의 Lean theorem이 여러 display 식의 합성을 검증하거나,
@@ -77,7 +77,7 @@
 
 | Theory | 원문 | SHA-256 | display | tagged | untagged | 현재 형식화·review 행 |
 |---:|---|---|---:|---:|---:|---:|
-| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `72bedcc8399f3ac6…` | 16 | 0 | 16 | 0 |
+| 00 | [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | `e641d5f63fa7bcf0…` | 16 | 0 | 16 | 0 |
 | 01 | [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | `67225209e8ffb71d…` | 5 | 0 | 5 | 5 |
 | 02 | [02_empirical_lower_envelope_가설.md](../docs/method/theory/02_empirical_lower_envelope_가설.md) | `1ff9631449675d72…` | 0 | 0 | 0 | 0 |
 | 03 | [03_plateau_recurrence_방법론.md](../docs/method/theory/03_plateau_recurrence_방법론.md) | `a5b30ac1c2306a71…` | 0 | 0 | 0 | 0 |
@@ -89,7 +89,7 @@
 | 09 | [09_연구진행_종합평가와_향후방향.md](../docs/method/theory/09_연구진행_종합평가와_향후방향.md) | `656ecd30969df964…` | 1 | 0 | 1 | 0 |
 | 10 | [10_coverage_preserving_compression_정식화.md](../docs/method/theory/10_coverage_preserving_compression_정식화.md) | `5a73173c0f4f3c07…` | 9 | 0 | 9 | 5 |
 | 11 | [11_residue_certificate_modulus_lift.md](../docs/method/theory/11_residue_certificate_modulus_lift.md) | `54631a6eec18a4b5…` | 2 | 0 | 2 | 1 |
-| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `d0225a13025ec224…` | 30 | 0 | 30 | 0 |
+| 12 | [12_Sono_FMT_T1_proof_obligation_ledger.md](../docs/method/theory/12_Sono_FMT_T1_proof_obligation_ledger.md) | `736b20ad941a02bc…` | 30 | 0 | 30 | 0 |
 | 13 | [13_Sono_FMT_H1a_finite_r_integral_lemma.md](../docs/method/theory/13_Sono_FMT_H1a_finite_r_integral_lemma.md) | `4cd6062901f7424e…` | 22 | 3 | 19 | 0 |
 | 14 | [14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md](../docs/method/theory/14_Sono_FMT_H1b_Maynard_Proposition_6_1_constant_ledger.md) | `7ba5633bb2e8f8d6…` | 17 | 0 | 17 | 0 |
 | 15 | [15_Sono_FMT_H1b1_basic_summation_constant_audit.md](../docs/method/theory/15_Sono_FMT_H1b1_basic_summation_constant_audit.md) | `b44d42d138d2bd4b…` | 5 | 0 | 5 | 0 |
@@ -182,6 +182,7 @@
 | 102 | [102_Sono_FMT_DEPR09_common_height_centered_replay.md](../docs/method/theory/102_Sono_FMT_DEPR09_common_height_centered_replay.md) | `f9a3ecacb71de2aa…` | 20 | 20 | 0 | 13 |
 | 103 | [103_Sono_FMT_DEPR09_fixed_modulus_height_weighted_density.md](../docs/method/theory/103_Sono_FMT_DEPR09_fixed_modulus_height_weighted_density.md) | `a0f4e15b91bfebdc…` | 25 | 25 | 0 | 18 |
 | 104 | [104_Sono_FMT_DEPR09_native_primorial_D160_regime.md](../docs/method/theory/104_Sono_FMT_DEPR09_native_primorial_D160_regime.md) | `c7abd206ffd4b04a…` | 23 | 23 | 0 | 23 |
+| 105 | [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | `5988c965dbcd4369…` | 19 | 19 | 0 | 15 |
 
 ## 7. 추가 Lean 정리(문단 논증)
 
@@ -193,22 +194,22 @@
 
 | # | 수식 ID | Theory·원문 | line | 수식 preview | Lean 선언 | 상태 | 한계·근거 |
 |---:|---|---|---:|---|---|---|---|
-| 1 | `T00-U001` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 560–564 | <code>(Y+q^2)\sum_{n\le Y}\Lambda(n)^2 &gt; e^{-4}\frac q{\varphi(q)}Y^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 2 | `T00-U002` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 587–590 | <code>\varphi^*(r)=\prod_{p\mid r}(p-2),\qquad \sum_{r\mid q}\varphi^*(r)=\varphi(q).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 3 | `T00-U003` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 595–597 | <code>\{Y+D(q)\}S_2(Y)\ge YS_2(Y)&gt;V_{\rm gate},</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 4 | `T00-U004` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 650–654 | <code>\rho_S\le\frac{{\cal H}_{\rm FMT}(R)}{Q_{\cal S}} \le\frac1{Q_{\cal S}}\sum_{m\bmod q}&#124;R(m)&#124;^2 \le\frac{\varphi(q)N^2}{Q_{\cal S}}V(Y,q).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 5 | `T00-U005` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 658–661 | <code>{\cal H}_{\rm FMT}(R) &lt;\tau^2p_*Q_{\cal S}M_{\min}^2Y^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 6 | `T00-U006` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 683–686 | <code>\omega_*=2\kappa^{-2k}X^{-3/5},\qquad K_*=\left\lceil\frac{\{1-(1+t)\rho\}M_*}{2k}\right\rceil,</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 7 | `T00-U007` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 688–691 | <code>\Pr(S_{\rm sieve},m_\omega=r) \le\frac{\omega_*^{K_*}}{Q_{\cal S}}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 8 | `T00-U008` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 717–721 | <code>H_{\rm res} =Q_{\cal S}\prod_{p\in P'}p,\qquad \#\operatorname{supp}(m_\omega)\le H_{\rm res}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 9 | `T00-U009` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 725–727 | <code>\frac{p_*}{\alpha}\le H_{\rm res}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 10 | `T00-U010` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 731–734 | <code>\log H_{\rm res}&lt;\frac{51}{100}X &lt;\frac{49}{50}X&lt;\log\mathfrak q.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 11 | `T00-U011` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 760–763 | <code>C_{\psi\otimes\chi_{0,h}}(\omega) =\sum_{s\in T_\omega}\overline{\psi(s)}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 12 | `T00-U012` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 767–771 | <code>\sum_{\substack{\psi\bmod f\\\psi\ne\psi_0}} &#124;C_{\psi\otimes\chi_{0,h}}(\omega)&#124;^2 =M_\omega\{\varphi(f)-M_\omega\}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 13 | `T00-U013` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 795–800 | <code>Z_{\widetilde\psi}^{(\mathfrak q)}(U) =Z_\psi^{(f)}(U)-D_{\psi,h}(U), \qquad &#124;D_{\psi,h}(U)&#124;\le\omega(h)\log U.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 14 | `T00-U014` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 808–810 | <code>21\le d_f&lt;\frac{105}{47}d\le\frac{19530}{47}&lt;416.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 15 | `T00-U015` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 833–836 | <code>p_v\le(1+\alpha)\rho,\qquad &#124;p_{vw}-\rho^2&#124;\le\beta\rho^2</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
-| 16 | `T00-U016` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 840–845 | <code>\mathbb E\left&#124;\sum_vb_vX_v\right&#124;^2 \le \rho^2\left&#124;\sum_vb_v\right&#124;^2+ \{(1+\alpha)\rho-\rho^2+\beta\rho^2(M_V-1)\} \sum_v&#124;b_v&#124;^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 1 | `T00-U001` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 562–566 | <code>(Y+q^2)\sum_{n\le Y}\Lambda(n)^2 &gt; e^{-4}\frac q{\varphi(q)}Y^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 2 | `T00-U002` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 589–592 | <code>\varphi^*(r)=\prod_{p\mid r}(p-2),\qquad \sum_{r\mid q}\varphi^*(r)=\varphi(q).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 3 | `T00-U003` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 597–599 | <code>\{Y+D(q)\}S_2(Y)\ge YS_2(Y)&gt;V_{\rm gate},</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 4 | `T00-U004` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 652–656 | <code>\rho_S\le\frac{{\cal H}_{\rm FMT}(R)}{Q_{\cal S}} \le\frac1{Q_{\cal S}}\sum_{m\bmod q}&#124;R(m)&#124;^2 \le\frac{\varphi(q)N^2}{Q_{\cal S}}V(Y,q).</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 5 | `T00-U005` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 660–663 | <code>{\cal H}_{\rm FMT}(R) &lt;\tau^2p_*Q_{\cal S}M_{\min}^2Y^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 6 | `T00-U006` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 685–688 | <code>\omega_*=2\kappa^{-2k}X^{-3/5},\qquad K_*=\left\lceil\frac{\{1-(1+t)\rho\}M_*}{2k}\right\rceil,</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 7 | `T00-U007` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 690–693 | <code>\Pr(S_{\rm sieve},m_\omega=r) \le\frac{\omega_*^{K_*}}{Q_{\cal S}}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 8 | `T00-U008` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 719–723 | <code>H_{\rm res} =Q_{\cal S}\prod_{p\in P'}p,\qquad \#\operatorname{supp}(m_\omega)\le H_{\rm res}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 9 | `T00-U009` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 727–729 | <code>\frac{p_*}{\alpha}\le H_{\rm res}</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 10 | `T00-U010` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 733–736 | <code>\log H_{\rm res}&lt;\frac{51}{100}X &lt;\frac{49}{50}X&lt;\log\mathfrak q.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 11 | `T00-U011` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 762–765 | <code>C_{\psi\otimes\chi_{0,h}}(\omega) =\sum_{s\in T_\omega}\overline{\psi(s)}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 12 | `T00-U012` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 769–773 | <code>\sum_{\substack{\psi\bmod f\\\psi\ne\psi_0}} &#124;C_{\psi\otimes\chi_{0,h}}(\omega)&#124;^2 =M_\omega\{\varphi(f)-M_\omega\}.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 13 | `T00-U013` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 797–802 | <code>Z_{\widetilde\psi}^{(\mathfrak q)}(U) =Z_\psi^{(f)}(U)-D_{\psi,h}(U), \qquad &#124;D_{\psi,h}(U)&#124;\le\omega(h)\log U.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 14 | `T00-U014` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 810–812 | <code>21\le d_f&lt;\frac{105}{47}d\le\frac{19530}{47}&lt;416.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 15 | `T00-U015` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 835–838 | <code>p_v\le(1+\alpha)\rho,\qquad &#124;p_{vw}-\rho^2&#124;\le\beta\rho^2</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
+| 16 | `T00-U016` | T00 [00_이론_가설_방법론_색인.md](../docs/method/theory/00_이론_가설_방법론_색인.md) | 842–847 | <code>\mathbb E\left&#124;\sum_vb_vX_v\right&#124;^2 \le \rho^2\left&#124;\sum_vb_v\right&#124;^2+ \{(1+\alpha)\rho-\rho^2+\beta\rho^2(M_V-1)\} \sum_v&#124;b_v&#124;^2.</code> | — | `NOT_YET_FORMALIZED` | 순차 형식화 대기 |
 | 17 | `T01-U001` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 11–14 | <code>\log_kx=\underbrace{\ln(\ln(\cdots\ln x))}_{k\text{회}},\qquad F(x)=\frac{\log x\,\log_2x\,\log_4x}{\log_3x}.</code> | `iterLog; fgkmtScale; iterLog_one; iterLog_two; iterLog_three; iterLog_four; fgkmtScale_unfold; scaleThreshold; exp_div_self_strictMonoOn; scale_domain_chain; fgkmtScale_factorization; iterLog_strictMono_up_to_four; fgkmtScale_pos; fgkmtScale_strictMonoOn` | `KERNEL_PASS` | 정의 전개·양수성·exp(exp(exp(1))) 위 strict monotonicity 커널 검증 |
 | 18 | `T01-U002` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 30–32 | <code>G_{end}(x)=\max_{p_{n+1}\le x}(p_{n+1}-p_n)</code> | `PrimeGapDatum; PrimeGapDatum.endPrime; endBoundedMaxGap; endEligible; endEligible_at_endpoint; endEligible_false_before` | `DEFINITION_ONLY` | finite record 표현 |
 | 19 | `T01-U003` | T01 [01_FGKMT_Sono_정규화와_경계.md](../docs/method/theory/01_FGKMT_Sono_정규화와_경계.md) | 36–38 | <code>G_{start}(x)=\max_{p_n\le x}(p_{n+1}-p_n)</code> | `startBoundedMaxGap; startEligible` | `DEFINITION_ONLY` | 보조 start-bounded 정의 |
@@ -2259,6 +2260,25 @@
 | 2064 | `104.21` | T104 [104_Sono_FMT_DEPR09_native_primorial_D160_regime.md](../docs/method/theory/104_Sono_FMT_DEPR09_native_primorial_D160_regime.md) | 293–296 | <code>\boxed{\ell^2e^{-\ell/2}\le e^{-\ell/4}.} \tag{104.21}</code> | `dep_r09_native_polynomial_exp_absorption` | `KERNEL_PASS` | whole ell>=64 polynomial/exponential absorption을 커널 검증 |
 | 2065 | `104.22` | T104 [104_Sono_FMT_DEPR09_native_primorial_D160_regime.md](../docs/method/theory/104_Sono_FMT_DEPR09_native_primorial_D160_regime.md) | 301–306 | <code>\boxed{ \ell\ge\max\{30000,\ 64,\ 4\log(450 B(K_{\rm EF}))\} \quad\Longrightarrow\quad {\cal V}_{160}\le\frac1{450}.} \tag{104.22}</code> | `dep_r09_native_vanishing_shape_bound; dep_r09_native_vanishing_log_budget` | `CONDITIONAL_KERNEL_PASS` | positive unknown K coefficient와 symbolic log gate에서 vanishing allocation을 조건부 검증 |
 | 2066 | `104.23` | T104 [104_Sono_FMT_DEPR09_native_primorial_D160_regime.md](../docs/method/theory/104_Sono_FMT_DEPR09_native_primorial_D160_regime.md) | 310–315 | <code>\boxed{ \frac{&#124;{\cal C}_f&#124;}{NU}&lt;\frac1{36}+\frac1{450} =\frac3{100}.} \tag{104.23}</code> | `dep_r09_native_baseline_final_budget` | `CONDITIONAL_KERNEL_PASS` | actual analytic upper premises를 받은 total 3% allocation 대수; full same-law root 아님 |
+| 2067 | `105.1` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 24–28 | <code>q\le x_{\rm src},\qquad x_{\rm src}\ge1,\qquad y\ge0,\qquad z\ge\max\{x_{\rm src}y,10^{11}\}. \tag{105.1}</code> | — | `DEFINITION_ONLY` | LW Section3 source 계약 정의; 실제 t>=1,z=q*t만 사용 |
+| 2068 | `105.2` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 36–40 | <code>N(\alpha,q,t)=\sum_{\chi\bmod q} \#\{\rho:L(\rho,\chi)=0,\ \alpha\le\Re\rho&lt;1,\ &#124;\Im\rho&#124;\le t\}. \tag{105.2}</code> | — | `DEFINITION_ONLY` | LW fixed all-character nontrivial zero-count 정의; multiplicity 포함 |
+| 2069 | `105.3` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 53–58 | <code>a_0=\frac{17}{50},\qquad\lambda_0=\frac9{20},\qquad L=\log z\ge30000,\qquad \kappa=\frac{5-\sqrt5}{10} \tag{105.3}</code> | — | `DEFINITION_ONLY` | source free parameters와 actual large-log domain 정의 |
+| 2070 | `105.4` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 63–66 | <code>\boxed{0\le\kappa\le\frac{277}{1000}.} \tag{105.4}</code> | `dep_r09_lw_kappa_rational_enclosure` | `KERNEL_PASS` | actual sqrt5 Stechkin coefficient의 rational enclosure를 커널 검증 |
+| 2071 | `105.5` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 70–75 | <code>A=\frac{50}{17}-\frac{8973}{10000L},\quad B=\kappa+\frac{7647}{10000L},\quad C=\frac{100}{79}-\kappa-\frac{755}{10000L}. \tag{105.5}</code> | — | `DEFINITION_ONLY` | source (3.22) A,B,C 정의; printed table 숫자는 미채택 |
+| 2072 | `105.6` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 79–83 | <code>\boxed{0\le A\le3,\qquad0\le B\le\frac{139}{500},\qquad C\ge\frac{247}{250}.} \tag{105.6}</code> | `dep_r09_lw_source_scalar_envelopes` | `KERNEL_PASS` | 전체 L>=30000의 scalar envelope를 커널 검증 |
+| 2073 | `105.7` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 87–94 | <code>\boxed{ C^2-AB\ge \left(\frac{247}{250}\right)^2-3\frac{139}{500} =\frac{2221}{15625}&gt;\frac18,\qquad A^2-AB\le9.} \tag{105.7}</code> | `dep_r09_lw_denominator_envelope; dep_r09_lw_source_parameters` | `KERNEL_PASS` | source 분모 두 조건·exact lower 2221/15625·분자 9 상계를 커널 검증 |
+| 2074 | `105.8` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 98–103 | <code>N(\alpha,q,t)\le2\left\lfloor \frac{A^2-AB}{C^2-AB}\right\rfloor \le2\cdot72=144. \tag{105.8}</code> | `dep_r09_lw_floor_count_terminal` | `CONDITIONAL_KERNEL_PASS` | source analytic floor count를 명시 premise로 받는 quotient/floor terminal 조건부 검증 |
+| 2075 | `105.9` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 107–112 | <code>\boxed{ N\left(1-\frac{9}{20\log(qt)},q,t\right)\le144 \qquad(\log(qt)\ge30000,\ t\ge1).} \tag{105.9}</code> | `dep_r09_lw_floor_count_terminal; dep_r09_lw_source_scalar_envelopes` | `PARTIAL_FORMALIZATION` | safe scalar 144를 검증; Dirichlet count와 source equation identification은 부분형식화 |
+| 2076 | `105.10` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 126–133 | <code>\boxed{ \left\lfloor\frac{\text{local numerator}}{\text{local denominator}}\right\rfloor&lt;3, \quad n\le2,\quad \gamma_{j+2}-\gamma_j&gt;2b_{\rm loc}/L,\quad N_1=\sum_\chi\left\lceil N_\chi/2\right\rceil\ge N/2.} \tag{105.10}</code> | `dep_r09_lw_local_floor_count; dep_r09_lw_local_spacing_rationals` | `PARTIAL_FORMALIZATION` | local numerical floor<=2만 검증; source spacing·multiplicity·alternating sequence는 미형식화 |
+| 2077 | `105.11` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 150–157 | <code>L(t)=\ell+\log t,\quad \delta_0(t)=\frac{c_M}{L(t)},\quad \delta_s(t)=\frac{\lambda_0}{L(t)},\quad 0&lt;\delta_0(t)&lt;\delta_s(t)&lt;\omega,\quad c_M=\frac{10^9}{9645908801}. \tag{105.11}</code> | — | `NOT_YET_FORMALIZED` | McCurley/first-window split의 zero-width/height 영역; 전체 analytic mapping 미형식화 |
+| 2078 | `105.12` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 167–174 | <code>\mathcal A(t)= \sum_{\substack{\rho\ {\rm nonexceptional}\\1-\beta\le\omega\\&#124;\gamma&#124;\le t}} U^{\beta-1} =e^{-u\omega}N(\omega,t)+ u\int_{\delta_0(t)}^\omega e^{-u\delta}N(\delta,t)\,d\delta. \tag{105.12}</code> | — | `NOT_YET_FORMALIZED` | nonprincipal 누적 zero-count의 layer-cake identity; counting measure 적분 미형식화 |
+| 2079 | `105.13` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 179–184 | <code>u\int_{\delta_0(t)}^{\delta_s(t)}e^{-u\delta}N(\delta,t)\,d\delta \le144\{e^{-u\delta_0(t)}-e^{-u\delta_s(t)}\} \le144e^{-u\delta_0(t)}. \tag{105.13}</code> | — | `NOT_YET_FORMALIZED` | first-window 내부 count 적분 bound; moving zero class로 바꾸지 않음 |
+| 2080 | `105.14` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 188–193 | <code>N(\delta,t)\le 2C_{J,\rm all}e^{kL(t)\delta}(5+2\delta L(t)), \qquad C_{J,\rm all}=\frac{19720624464771552}{425315}. \tag{105.14}</code> | — | `SOURCE_THEOREM_UNFORMALIZED` | Theory103 fixed nonprincipal source density tail 재사용; principal 포함하지 않음 |
+| 2081 | `105.15` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 200–206 | <code>\boxed{ 2(u/v)(5+2\lambda_0+2L/v)\le24,\qquad \mathcal A(t)\le144e^{-c_M160\ell/L(t)} +24C_{J,\rm all}e^{-\lambda_0\{160\ell/L(t)-k\}}.} \tag{105.15}</code> | `dep_r09_lw_tail_integral_coefficient; dep_r09_density_normalized_ratios` | `PARTIAL_FORMALIZATION` | normalized ratios와 tail factor24만 검증; count 적분과 upper endpoint 합성은 부분형식화 |
+| 2082 | `105.16` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 215–221 | <code>\mathcal S= \sum_{\substack{\rho\ {\rm nonexceptional}\\1-\beta\le\omega\\&#124;\gamma&#124;\le T}} \frac{U^{\beta-1}}{\max(1,&#124;\gamma&#124;)} =\frac{\mathcal A(T)}T+\int_1^T\frac{\mathcal A(t)}{t^2}\,dt. \tag{105.16}</code> | — | `NOT_YET_FORMALIZED` | low-height packet을 보존한 height layer cake; analytic identity 미형식화 |
+| 2083 | `105.17` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 226–230 | <code>w+c\frac{160}{1+w/\ell}-c160 =w\left(1-\frac{160c}{\ell+w}\right)\ge\frac45w. \tag{105.17}</code> | `dep_r09_lw_height_cost_gap` | `KERNEL_PASS` | 전체 height domain의 exact field identity와 4/5 decay를 커널 검증 |
+| 2084 | `105.18` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 236–244 | <code>\boxed{ \mathcal S\le216e^{-160c_M} +36C_{J,\rm all}e^{-\lambda_0(160-k)},\qquad \mathcal E_{\rm near,np}\le \frac{1134}{5}e^{-160c_M} +\frac{189}{5}C_{J,\rm all}e^{-\lambda_0(160-k)}.} \tag{105.18}</code> | `dep_r09_lw_height_weight_coefficients` | `PARTIAL_FORMALIZATION` | height allocation과 inverse-rho scalar coefficients만 검증; actual zero-error identification 미형식화 |
+| 2085 | `105.19` | T105 [105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md](../docs/method/theory/105_Sono_FMT_DEPR09_LW_first_window_full_modulus.md) | 254–261 | <code>\boxed{ \frac{1134}{5}e^{-160c_M} +\frac{189}{5}C_{J,\rm all}e^{-\lambda_0(160-k)} +\frac{21}{20}e^{-160\log q/[24\log P(X)]} &lt;\frac3{1000}.} \tag{105.19}</code> | `dep_r09_lw_full_modulus_hybrid_budget` | `KERNEL_PASS` | realDecay>=6에서 displayed real exponential kernel<3/1000를 커널 검증; PNT/EF/root 인증 아님 |
 
 ## 9. 발견된 원문·작업 오류
 

@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "created_kst": "2026-10-01",
+  "gate": "DEP-R09 Liu-Wang first-window source audit and full-modulus D160 hybrid",
+  "predecessor": "Sono_FMT_DEPR09_native_primorial_baseline_v1.json",
+  "outcome": "SAFE_FIRST_WINDOW_144_AND_FULL_MODULUS_NONPRINCIPAL_NEAR_ZERO_KERNEL_LT_3_PER_THOUSAND",
+  "source_registry": [
+    {
+      "key": "LIU_WANG_2002",
+      "locator": "tmp/pdfs/depr09_ef_lw_20261001/Liu_Wang_2002_explicit_psi.pdf",
+      "sha256": "50c6b5d628a07cfb216078571a846ef658aa7db29515d21bb8dbb4f20dc5055d",
+      "url": "https://www.impan.pl/shop/publication/transaction/download/product/83843",
+      "doi": "10.4064/aa102-3-5",
+      "pages": 33,
+      "printed_locations": "pp.272-278 (3.1),(3.6),(3.18),(3.22); p.279 Table 5; pp.288-292 Theorem 8",
+      "reading_mode": "NATIVE_TEXT_AND_RENDERED_CRITICAL_PAGES",
+      "classification": "PRIMARY_ANALYTIC_FIRST_WINDOW_WITH_INDEPENDENT_LARGE_LOG_SCALAR_TERMINAL",
+      "downloaded_in_this_batch": false
+    },
+    {
+      "key": "THEORY103",
+      "locator": "docs/method/theory/103_Sono_FMT_DEPR09_fixed_modulus_height_weighted_density.md",
+      "sha256": "a0f4e15b91bfebdcb69a5eb0e3700f811c3def43ae4979dfb5110517195334c6",
+      "printed_locations": "(103.7)-(103.18), fixed nonprincipal density tail and exact height-cost",
+      "classification": "PROJECT_SOURCE_PREMISE_WITH_PARTIAL_AND_KERNEL_TIERS"
+    },
+    {
+      "key": "THEORY104",
+      "locator": "docs/method/theory/104_Sono_FMT_DEPR09_native_primorial_D160_regime.md",
+      "sha256": "c7abd206ffd4b04a75a248afa66cff48ca1aceca663e09067e039efbe5d47d7e",
+      "printed_locations": "(104.9),(104.14)-(104.15), actual full-P log gap and source cutoff",
+      "classification": "PROJECT_ACTUAL_FULL_PRIMORIAL_GAP_WITH_SOURCE_PREMISES"
+    }
+  ],
+  "source_contract": {
+    "x_src": "q",
+    "y": "t>=1",
+    "z": "q*t",
+    "minimum_log_z": "30000",
+    "a0": "17/50",
+    "lambda0": "9/20",
+    "kappa": "(5-sqrt(5))/10, enclosed by [0,277/1000]",
+    "published_count": "all characters modulo q, nontrivial zeros alpha<=beta<1, |gamma|<=t, multiplicity",
+    "target_count": "nonprincipal characters only, excluding at most one possible real exceptional zero",
+    "imprimitive": "unique inducing primitive character; Euler-factor zeros Re(s)=0 are outside the near band",
+    "local_spacing": "source (3.6), a_loc=78/25,b_loc=19039/10000, local n<=2 before alternating selection",
+    "source_denominator_conditions": "C>=0 and C^2-A*B>0",
+    "correction_search": "targeted primary-source search identified no correction; not a universal absence claim",
+    "source_y0_extension_adopted": false
+  },
+  "rational_terminals": {
+    "denominator_lower": "2221/15625",
+    "ratio_upper": "72",
+    "count_upper": "144",
+    "tail_factor_upper": "24",
+    "spacing_denominator_lower": "355363026479/1636973521000",
+    "spacing_numerator_upper": "23303/39000",
+    "local_count_upper": "2",
+    "hybrid_nonvanishing_rational_budget": "1590885350906074755178870072577380524798072624182825930396343454391080077899597207706796807150000/580897793671538120543914751292250043875533560952973762696395441323395277601147874208719336809230187",
+    "hybrid_nonvanishing_upper": "3/1000"
+  },
+  "actual_hybrid_contract": {
+    "q": "full mathfrakq=P(X)/B0",
+    "U": "q^160",
+    "T": "q^(3/2)",
+    "ell": "log(q)>=30000",
+    "omega": "1/21",
+    "k": "23/7",
+    "C_J_all": "19720624464771552/425315",
+    "c_M": "1000000000/9645908801",
+    "split": "at lambda0/log(q*t) inside the cumulative-count integral at each fixed t, not moving zero classes",
+    "height_cost": "3/2 = integral 5/4 plus terminal at most 1/4",
+    "small_coefficient": "1134/5",
+    "tail_coefficient": "189/5",
+    "possible_real_zero_coefficient": "21/20",
+    "possible_real_decay_lower": "39920/6003>6",
+    "principal_channel_closed": false,
+    "far_channel_newly_closed": false,
+    "outer_D_changed": false,
+    "actual_X_q_U_values_generated": false
+  },
+  "proof_tiers": {
+    "source_analytic_floor_count": "SOURCE_THEOREM_UNFORMALIZED",
+    "source_scalar_enclosures_and_floor_terminal": "KERNEL_AND_CONDITIONAL_KERNEL",
+    "local_spacing_sequence_identification": "PARTIAL_FORMALIZATION",
+    "cumulative_count_and_height_integrals": "NOT_YET_FORMALIZED_OR_PARTIAL",
+    "final_displayed_real_exponential_inequality": "KERNEL_PASS",
+    "actual_prime_error_or_PNT_observation": "NOT_RUN"
+  },
+  "project_gates": {
+    "source_scope_and_denominator_audited": true,
+    "safe_count_144_source_transfer": true,
+    "scalar_real_exponential_kernel_lean_proved": true,
+    "printed_table_182_adopted": false,
+    "printed_prose_364_adopted": false,
+    "LW_Theorem8_multiplier_13804_adopted": false,
+    "numeric_EF_multiplier_recovered": false,
+    "pointwise_full_modulus_PNT_closed": false,
+    "pap_11_closed": false,
+    "dep_r09_closed": false,
+    "numerical_x_cert_ready": false,
+    "bounded_x_cert_range_obtained": false,
+    "threshold_calculator_ready": false,
+    "actual_prime_or_zero_computation_run": false,
+    "source_theorem_local_axiom_used": false,
+    "proof_escape_used": false
+  },
+  "not_claimed": [
+    "The principal channel or fully numerical explicit formula is closed.",
+    "The small-window count is a sum over moving fixed zero classes.",
+    "A numerical X_cert or a bounded range for it was produced.",
+    "Source complex identities, zero selection and counting integrals are fully Lean formalized.",
+    "Actual prime/zero computations, installs, law changes, calculators or long computations were run.",
+    "A novel academic theorem absent from prior literature was discovered."
+  ],
+  "next_gate": "Audit uniform numerical EF at actual full q,T=q^(3/2),U=q^160: primitive/imprimitive, principal, closed endpoints, both signed good heights, and the CW2 dependency. Do not transfer printed 1.3804 outside Theorem 8's range."
+}

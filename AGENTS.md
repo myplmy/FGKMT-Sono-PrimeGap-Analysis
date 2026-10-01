@@ -494,6 +494,20 @@ KERNEL_PASS 121·CONDITIONAL 141·NOT_YET 1171·proof escape 0이다.
 현재에 전사하지 않는다. Theorem 4 첫 zero-window와 Eq.(3.22), table/prose 차이를
 독립 감사한 뒤 full-modulus route의 가능성을 먼저 판정한다.
 
+2026-10-01 Liu--Wang first-window successor는 source (3.6),(3.18),(3.22)의 조건을
+개별 대조하고 log(q*t)>=30000에서 conservative count144를 증명했다.
+Printed182/364는 채택하지 않았다. Count 적분 내부의 moving split과 Theory103 tail을
+합쳐 full q·original D=160의 nonprincipal near-zero kernel<3/1000를 얻었다.
+LW all-character count를 subset에 적용한 것이며 Jutila tail에 principal을 추가하지 않는다.
+Displayed real-exponential kernel은 Lean PASS지만 numerical EF·principal/far composition·
+full PNT/PAP·R10--R12·X_cert는 OPEN이다. Construction/law/D 변경은 없다.
+최신 정본은 theory105·review114다. 다음1순위는 actual q,T,U의 numerical EF audit이며
+printed1.3804는 전사하지 않는다. CW2 source가 필수면 취득 가능성부터 확인한다.
+Inventory는106 theory 문서·2085식·443 declarations,
+KERNEL126·CONDITIONAL142·NOT_YET1175·proof escape0이다.
+DEP-R09472 tests·전수원장·Lean build8765 jobs PASS다.
+Calculator/actual 계산은 NOT READY / NOT RUN이다.
+
 2026-09-11 DEP-R09 phase 1은 \(D_{\rm PAP}=160\),
 \(C_{\rm PAP}=1-e^{-2}\)의 exact 상수 대수를 Lean으로 확인했다. 그러나 이 160은
 수치 시작점이 아니며 Gallagher·Jutila·Maier 계열 multiplier와 공통 finite cutoff는
